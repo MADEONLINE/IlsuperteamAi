@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Team Invisibile — AI per Cliniche Veterinarie | Brave Vet Business</title>
+<meta name="description" content="Tre agenti AI leggono i tuoi dati Snoots via MCP e ti consegnano ogni settimana le decisioni pronte. Zero configurazione. Gratis per 3 mesi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:          #080F1A;
+  --ink-mid:      #0E1D30;
+  --ink-soft:     #162840;
+  --gold:         #C4973C;
+  --gold-bright:  #D9B050;
+  --gold-pale:    #F0DCAA;
+  --gold-glow:    rgba(196,151,60,.15);
+  --teal:         #178079;
+  --teal-bright:  #1EA898;
+  --cream:        #F5F0E8;
+  --cream-mid:    #EDE5D5;
+  --white:        #FFFFFF;
+  --muted:        rgba(255,255,255,.42);
+  --muted-dark:   rgba(8,15,26,.42);
+  --serif:        'Cormorant Garamond', Georgia, serif;
+  --sans:         'Outfit', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  background:var(--ink);
+  color:var(--white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* GRAIN */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  opacity:.45;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:1.1rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .4s,box-shadow .4s;
+}
+nav.scrolled{
+  background:rgba(8,15,26,.94);
+  backdrop-filter:blur(24px);
+  box-shadow:0 1px 0 rgba(196,151,60,.12);
+}
+.nav-brand{display:flex;align-items:center;gap:.65rem;}
+.nav-mark{
+  width:30px;height:30px;border-radius:.4rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  display:flex;align-items:center;justify-content:center;font-size:.85rem;
+}
+.nav-name{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.nav-links{display:flex;align-items:center;gap:2rem;}
+.nav-link{font-size:.85rem;font-weight:400;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.nav-link:hover{color:rgba(255,255,255,.85);}
+.nav-cta{
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  color:var(--ink);font-weight:700;font-size:.82rem;
+  padding:.52rem 1.35rem;border-radius:2rem;text-decoration:none;
+  transition:all .25s;letter-spacing:.02em;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(196,151,60,.38);}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:10rem 2.5rem 5rem;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 85% 65% at 62% 38%, rgba(196,151,60,.08) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 5% 85%,  rgba(23,128,121,.06) 0%, transparent 55%),
+    linear-gradient(168deg, #0C1E34 0%, var(--ink) 55%, #060C14 100%);
+}
+/* Decorative large rings */
+.hero-ring{
+  position:absolute;border-radius:50%;border:1px solid rgba(196,151,60,.06);
+  top:50%;right:-8%;transform:translateY(-50%);
+}
+.hero-ring-1{width:680px;height:680px;}
+.hero-ring-2{width:460px;height:460px;border-color:rgba(196,151,60,.04);}
+.hero-dots{
+  position:absolute;inset:0;
+  background-image:radial-gradient(rgba(196,151,60,.1) 1px, transparent 1px);
+  background-size:40px 40px;
+  mask-image:radial-gradient(ellipse 45% 90% at 85% 50%, black 15%, transparent 75%);
+}
+
+.hero-content{position:relative;z-index:1;max-width:800px;}
+
+/* MCP hero badge */
+.hero-mcp-pill{
+  display:inline-flex;align-items:center;gap:.65rem;
+  background:rgba(196,151,60,.1);
+  border:1px solid rgba(196,151,60,.3);
+  border-radius:2rem;padding:.42rem 1rem .42rem .7rem;
+  margin-bottom:2.2rem;
+  opacity:0;animation:fadeUp .6s ease .1s forwards;
+}
+.pulse-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold-bright);
+  box-shadow:0 0 8px var(--gold-bright);
+  animation:pulseGlow 2.5s ease infinite;
+}
+@keyframes pulseGlow{
+  0%,100%{box-shadow:0 0 5px var(--gold-bright);}
+  50%{box-shadow:0 0 14px var(--gold-bright),0 0 28px rgba(196,151,60,.4);}
+}
+.hero-mcp-pill span{
+  font-size:.72rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold-bright);
+}
+
+.hero-h1{
+  font-family:var(--serif);
+  font-size:clamp(3.2rem,6.5vw,5.8rem);
+  font-weight:600;line-height:1.04;letter-spacing:-.015em;
+  margin-bottom:1.8rem;
+  opacity:0;animation:fadeUp .7s ease .28s forwards;
+}
+.hero-h1 em{font-style:italic;color:var(--gold-bright);}
+.hero-h1 .dim{font-weight:400;color:rgba(255,255,255,.65);}
+
+.hero-sub{
+  font-size:clamp(.95rem,1.8vw,1.15rem);font-weight:300;line-height:1.8;
+  color:rgba(255,255,255,.52);max-width:500px;margin-bottom:2.8rem;
+  opacity:0;animation:fadeUp .7s ease .44s forwards;
+}
+.hero-btns{
+  display:flex;gap:.85rem;flex-wrap:wrap;margin-bottom:3rem;
+  opacity:0;animation:fadeUp .7s ease .58s forwards;
+}
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  color:var(--ink);font-family:var(--sans);font-weight:700;font-size:.98rem;
+  padding:.95rem 2.1rem;border-radius:2rem;text-decoration:none;border:none;cursor:pointer;
+  transition:all .25s;box-shadow:0 4px 18px rgba(196,151,60,.28);
+}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(196,151,60,.42);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:transparent;color:rgba(255,255,255,.7);
+  font-family:var(--sans);font-weight:500;font-size:.98rem;
+  padding:.95rem 1.9rem;border-radius:2rem;text-decoration:none;
+  border:1px solid rgba(255,255,255,.16);cursor:pointer;transition:all .25s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,.4);color:var(--white);background:rgba(255,255,255,.04);}
+
+/* MCP quick explanation box — right in hero */
+.hero-mcp-box{
+  display:flex;gap:1rem;align-items:flex-start;
+  max-width:500px;
+  padding:1.35rem 1.5rem;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:.9rem;
+  opacity:0;animation:fadeUp .7s ease .72s forwards;
+}
+.mcp-box-icon{
+  width:42px;height:42px;flex-shrink:0;border-radius:.6rem;
+  background:rgba(23,128,121,.14);border:1px solid rgba(23,128,121,.24);
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.mcp-box-text strong{
+  display:block;font-size:.88rem;font-weight:700;
+  color:var(--gold-pale);margin-bottom:.3rem;
+}
+.mcp-box-text span{
+  font-size:.78rem;font-weight:300;
+  color:rgba(255,255,255,.4);line-height:1.6;
+}
+
+/* scroll hint */
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:2.5rem;z-index:1;
+  display:flex;align-items:center;gap:.65rem;
+  opacity:0;animation:fadeIn 1s ease 1.3s forwards;
+}
+.scroll-line{
+  width:1px;height:48px;
+  background:linear-gradient(to bottom,rgba(196,151,60,.65),transparent);
+  animation:scrollPulse 2.2s ease infinite;
+}
+@keyframes scrollPulse{
+  0%{transform:scaleY(0);transform-origin:top;}
+  48%{transform:scaleY(1);transform-origin:top;}
+  50%{transform-origin:bottom;}
+  100%{transform:scaleY(0);transform-origin:bottom;}
+}
+.scroll-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.22);}
+
+/* ── SNOOTS PARTNER STRIP ── */
+#strip{
+  background:var(--cream);
+  padding:1.6rem 2.5rem;
+  border-bottom:1px solid rgba(8,15,26,.06);
+}
+.strip-inner{
+  max-width:960px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+}
+.strip-left{display:flex;align-items:center;gap:.9rem;}
+.strip-icon{
+  width:40px;height:40px;background:var(--ink);border-radius:.55rem;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
+}
+.strip-text strong{display:block;font-size:.9rem;font-weight:700;color:var(--ink);}
+.strip-text span{font-size:.76rem;color:rgba(8,15,26,.45);}
+.strip-tags{display:flex;gap:.55rem;flex-wrap:wrap;}
+.stag{
+  padding:.28rem .85rem;border-radius:2rem;font-size:.7rem;font-weight:600;
+  border:1px solid rgba(8,15,26,.12);color:rgba(8,15,26,.55);background:white;
+}
+.stag.hi{background:var(--ink);color:var(--gold-bright);border-color:var(--ink);}
+
+/* ── MCP SECTION ── */
+#mcp{
+  padding:8rem 2.5rem;
+  background:linear-gradient(180deg,var(--ink) 0%,var(--ink-mid) 100%);
+  position:relative;overflow:hidden;
+}
+.mcp-glow{
+  position:absolute;right:-80px;top:50%;transform:translateY(-50%);
+  width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(23,128,121,.07) 0%,transparent 70%);
+  pointer-events:none;
+}
+.mcp-layout{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+.stag-inline{
+  display:inline-block;font-size:.68rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal-bright);margin-bottom:1rem;
+}
+.h2{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:600;line-height:1.08;letter-spacing:-.01em;margin-bottom:1.4rem;
+}
+.lead{
+  font-size:.98rem;font-weight:300;line-height:1.85;
+  color:rgba(255,255,255,.5);margin-bottom:2rem;
+}
+.mcp-def-box{
+  padding:1.5rem;
+  background:rgba(23,128,121,.07);
+  border:1px solid rgba(23,128,121,.2);
+  border-radius:.85rem;
+}
+.mcp-def-box strong{
+  display:block;font-size:.72rem;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal-bright);margin-bottom:.55rem;
+}
+.mcp-def-box p{
+  font-size:.87rem;font-weight:300;line-height:1.75;
+  color:rgba(255,255,255,.5);
+}
+
+/* MCP flow visual */
+.mcp-flow{display:flex;flex-direction:column;gap:2px;}
+.mfc{
+  display:flex;align-items:center;gap:1rem;
+  padding:1.2rem 1.35rem;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:.85rem;
+  transition:all .3s;
+}
+.mfc:hover{border-color:rgba(196,151,60,.18);background:rgba(255,255,255,.06);}
+.mfc.highlighted{
+  background:rgba(196,151,60,.07);
+  border-color:rgba(196,151,60,.22);
+}
+.mfc-ico{
+  width:40px;height:40px;flex-shrink:0;border-radius:.55rem;
+  display:flex;align-items:center;justify-content:center;font-size:1rem;
+}
+.ico-g{background:rgba(196,151,60,.14);border:1px solid rgba(196,151,60,.22);}
+.ico-t{background:rgba(23,128,121,.14);border:1px solid rgba(23,128,121,.22);}
+.ico-b{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.18);}
+.mfc-info strong{display:block;font-size:.88rem;font-weight:600;margin-bottom:.12rem;}
+.mfc-info span{font-size:.74rem;color:rgba(255,255,255,.38);font-weight:300;}
+.mcp-arr{
+  text-align:center;padding:.22rem 0;
+  font-size:.72rem;letter-spacing:.08em;
+  color:rgba(196,151,60,.38);
+}
+.mcp-zero-cfg{
+  display:flex;justify-content:center;margin-top:1.1rem;
+}
+.zero-badge{
+  display:inline-flex;align-items:center;gap:.45rem;
+  background:rgba(23,128,121,.1);border:1px solid rgba(23,128,121,.22);
+  border-radius:2rem;padding:.38rem .95rem;
+  font-size:.72rem;font-weight:700;color:var(--teal-bright);letter-spacing:.05em;
+}
+
+/* ── PROBLEMA ── */
+#problema{
+  padding:8rem 2.5rem;
+  background:var(--cream);color:var(--ink);
+}
+.stag-dark{
+  display:inline-block;font-size:.68rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.h2-dark{
+  font-family:var(--serif);
+  font-size:clamp(2rem,4.5vw,3.2rem);
+  font-weight:600;line-height:1.08;letter-spacing:-.015em;
+  color:var(--ink);margin-bottom:1.2rem;
+}
+.lead-dark{
+  font-size:.98rem;font-weight:300;line-height:1.85;
+  color:rgba(8,15,26,.5);max-width:540px;margin-bottom:4rem;
+}
+.blocchi{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.blocco{
+  background:white;
+  border:1px solid rgba(8,15,26,.07);
+  border-radius:1.1rem;padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:all .3s;
+  box-shadow:0 2px 14px rgba(0,0,0,.04);
+}
+.blocco::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,transparent,rgba(196,151,60,.4),transparent);
+  transform:scaleX(0);transition:transform .3s;
+}
+.blocco:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(0,0,0,.09);}
+.blocco:hover::before{transform:scaleX(1);}
+.bnum{
+  font-family:var(--serif);font-size:3.5rem;font-style:italic;
+  color:rgba(196,151,60,.16);line-height:1;margin-bottom:1.1rem;
+}
+.blocco h3{font-size:.97rem;font-weight:700;color:var(--ink);margin-bottom:.65rem;line-height:1.4;}
+.blocco p{font-size:.85rem;color:rgba(8,15,26,.48);line-height:1.8;font-weight:300;}
+
+.quote-block{
+  margin-top:4rem;
+  padding:3rem 3.5rem;
+  background:var(--ink);
+  border-radius:1.1rem;
+  position:relative;overflow:hidden;
+}
+.quote-block::before{
+  content:'"';font-family:var(--serif);
+  font-size:14rem;line-height:.75;
+  color:rgba(196,151,60,.06);
+  position:absolute;top:.5rem;left:2rem;
+}
+.quote-block blockquote{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(1.15rem,2.2vw,1.6rem);line-height:1.55;
+  color:rgba(240,220,170,.85);max-width:680px;position:relative;z-index:1;
+}
+.quote-cite{
+  display:block;margin-top:1.25rem;
+  font-family:var(--sans);font-style:normal;
+  font-size:.75rem;font-weight:500;letter-spacing:.07em;
+  color:rgba(255,255,255,.27);
+}
+
+/* ── AGENTI ── */
+#agenti{padding:8rem 2.5rem;background:var(--ink);}
+.agenti-stack{display:flex;flex-direction:column;gap:3px;margin-top:4rem;}
+
+.agent-card{
+  display:grid;grid-template-columns:290px 1fr;
+  border-radius:1.1rem;overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  transition:all .35s;
+}
+.agent-card:hover{
+  border-color:rgba(255,255,255,.14);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+  transform:scale(1.003) translateY(-2px);
+}
+.ac-left{padding:2.8rem 2.2rem;display:flex;flex-direction:column;}
+.ac-right{
+  padding:2.8rem 2.5rem;
+  border-left:1px solid rgba(255,255,255,.06);
+  display:flex;flex-direction:column;
+}
+
+/* Per-agent colour themes */
+.ag-c .ac-left{background:linear-gradient(140deg,#0B2548,#13305A);}
+.ag-c .ac-right{background:rgba(255,255,255,.024);}
+.ag-c .ac-name,.ag-c .af-dot{color:#85BAE8;}
+.ag-c .ac-chip{background:rgba(133,186,232,.09);border-color:rgba(133,186,232,.22);color:#85BAE8;}
+
+.ag-a .ac-left{background:linear-gradient(140deg,#0B2A24,#0F3630);}
+.ag-a .ac-right{background:rgba(255,255,255,.024);}
+.ag-a .ac-name,.ag-a .af-dot{color:var(--teal-bright);}
+.ag-a .ac-chip{background:rgba(30,168,152,.09);border-color:rgba(30,168,152,.22);color:var(--teal-bright);}
+
+.ag-d .ac-left{background:linear-gradient(140deg,#1A0A38,#2A1060);}
+.ag-d .ac-right{background:rgba(255,255,255,.024);}
+.ag-d .ac-name,.ag-d .af-dot{color:#C5AAFF;}
+.ag-d .ac-chip{background:rgba(197,170,255,.09);border-color:rgba(197,170,255,.22);color:#C5AAFF;}
+
+.ac-emoji{font-size:2rem;margin-bottom:1.4rem;}
+.ac-name{
+  font-family:var(--serif);font-size:2rem;font-style:italic;font-weight:600;
+  margin-bottom:.3rem;
+}
+.ac-role{
+  font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);margin-bottom:auto;padding-bottom:2rem;
+}
+.ac-chip{
+  display:inline-flex;align-items:center;gap:.4rem;
+  border:1px solid;border-radius:2rem;
+  padding:.3rem .85rem;font-size:.7rem;font-weight:700;
+  width:fit-content;letter-spacing:.04em;
+}
+.chip-dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+
+.ac-q{
+  font-family:var(--serif);font-style:italic;
+  font-size:1.05rem;color:rgba(255,255,255,.35);
+  line-height:1.55;margin-bottom:1.4rem;
+  padding-bottom:1.4rem;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.ac-desc{
+  font-size:.86rem;font-weight:300;line-height:1.88;
+  color:rgba(255,255,255,.58);margin-bottom:1.8rem;flex:1;
+}
+.ac-feats{display:flex;flex-direction:column;gap:.5rem;}
+.ac-feat{display:flex;align-items:center;gap:.65rem;font-size:.8rem;color:rgba(255,255,255,.4);}
+.af-dot{width:3px;height:3px;border-radius:50%;flex-shrink:0;}
+
+/* ── SNOOTS PARTNER ── */
+#snoots-partner{
+  padding:8rem 2.5rem;
+  background:linear-gradient(180deg,var(--ink-mid) 0%,var(--ink-soft) 100%);
+  position:relative;overflow:hidden;
+}
+#snoots-partner::before{
+  content:'';position:absolute;left:-120px;top:50%;transform:translateY(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(196,151,60,.05) 0%,transparent 68%);
+  pointer-events:none;
+}
+.sp-layout{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+.sp-tag{
+  display:inline-block;font-size:.68rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold-bright);margin-bottom:1rem;
+}
+.sp-lead{
+  font-size:.95rem;font-weight:300;line-height:1.9;
+  color:rgba(255,255,255,.45);margin-bottom:2rem;
+}
+.sp-pillars{display:flex;flex-direction:column;gap:.75rem;margin-top:.5rem;}
+.sp-pillar{
+  display:flex;align-items:flex-start;gap:.9rem;
+  padding:1.1rem 1.3rem;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:.8rem;
+  transition:border-color .3s;
+}
+.sp-pillar:hover{border-color:rgba(196,151,60,.18);}
+.sp-pillar-ico{
+  width:36px;height:36px;flex-shrink:0;border-radius:.5rem;
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;
+  background:rgba(196,151,60,.1);border:1px solid rgba(196,151,60,.2);
+}
+.sp-pillar-text strong{
+  display:block;font-size:.83rem;font-weight:700;color:rgba(255,255,255,.8);margin-bottom:.22rem;
+}
+.sp-pillar-text span{
+  font-size:.76rem;font-weight:300;color:rgba(255,255,255,.35);line-height:1.65;
+}
+/* Right column — stat cards + badge */
+.sp-cards{display:flex;flex-direction:column;gap:1rem;}
+.sp-stat{
+  padding:1.6rem 1.8rem;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:1rem;
+  transition:all .3s;
+  position:relative;overflow:hidden;
+}
+.sp-stat::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(196,151,60,.35),transparent);
+  transform:scaleX(0);transition:transform .35s;
+}
+.sp-stat:hover{border-color:rgba(196,151,60,.2);transform:translateY(-3px);}
+.sp-stat:hover::after{transform:scaleX(1);}
+.sp-stat-val{
+  font-family:var(--serif);font-size:2.4rem;font-style:italic;font-weight:600;
+  color:var(--gold-bright);line-height:1;margin-bottom:.4rem;
+}
+.sp-stat-label{font-size:.77rem;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:.18rem;}
+.sp-stat-sub{font-size:.72rem;font-weight:300;color:rgba(255,255,255,.28);line-height:1.6;}
+/* Partner badge */
+.sp-badge{
+  margin-top:1.4rem;
+  padding:1.4rem 1.8rem;
+  background:rgba(196,151,60,.07);
+  border:1px solid rgba(196,151,60,.22);
+  border-radius:1rem;
+  display:flex;align-items:center;gap:1.1rem;
+}
+.sp-badge-logo{
+  width:44px;height:44px;flex-shrink:0;border-radius:.65rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+}
+.sp-badge-text strong{
+  display:block;font-size:.83rem;font-weight:700;color:var(--gold-bright);margin-bottom:.15rem;
+}
+.sp-badge-text span{
+  font-size:.72rem;font-weight:300;color:rgba(255,255,255,.35);
+}
+@media(max-width:700px){
+  .sp-layout{grid-template-columns:1fr;}
+}
+
+/* ── PRICING ── */
+#pricing{padding:8rem 2.5rem;background:var(--cream);color:var(--ink);}
+.pricing-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;max-width:960px;margin:4rem auto 0;align-items:stretch;
+}
+.pc{
+  background:white;border:1.5px solid rgba(8,15,26,.07);
+  border-radius:1.25rem;padding:2.5rem 2rem;
+  display:flex;flex-direction:column;
+  box-shadow:0 4px 20px rgba(0,0,0,.04);
+  transition:all .3s;position:relative;
+}
+.pc:hover{transform:translateY(-6px);box-shadow:0 22px 55px rgba(0,0,0,.1);}
+.pc.feat{background:var(--ink);border-color:var(--ink);color:white;}
+.pc-star{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  color:var(--ink);font-size:.62rem;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:.28rem .95rem;border-radius:2rem;white-space:nowrap;
+}
+.pc-ico{
+  width:42px;height:42px;border-radius:.65rem;
+  display:flex;align-items:center;justify-content:center;font-size:1.15rem;
+  margin-bottom:1.2rem;
+}
+.pc:not(.feat) .pc-ico{background:var(--cream-mid);}
+.pc.feat .pc-ico{background:rgba(255,255,255,.08);}
+.pc-name{font-size:.98rem;font-weight:700;margin-bottom:.35rem;}
+.pc:not(.feat) .pc-name{color:var(--ink);}
+.pc-sub{font-size:.78rem;line-height:1.55;color:rgba(8,15,26,.38);margin-bottom:1.8rem;}
+.pc.feat .pc-sub{color:rgba(255,255,255,.38);}
+.pc-price{font-family:var(--serif);font-size:3.2rem;font-weight:600;line-height:1;margin-bottom:.2rem;}
+.pc:not(.feat) .pc-price{color:var(--ink);}
+.pc.feat .pc-price{color:var(--gold-bright);}
+.pc-period{font-size:.76rem;color:rgba(8,15,26,.33);margin-bottom:2rem;}
+.pc.feat .pc-period{color:rgba(255,255,255,.33);}
+.pc-list{list-style:none;flex:1;display:flex;flex-direction:column;gap:.65rem;margin-bottom:2.2rem;}
+.pc-list li{
+  font-size:.83rem;line-height:1.55;
+  display:flex;align-items:flex-start;gap:.55rem;
+  color:rgba(8,15,26,.62);
+}
+.pc.feat .pc-list li{color:rgba(255,255,255,.62);}
+.pc-list li::before{content:'✓';font-weight:700;flex-shrink:0;}
+.pc:not(.feat) .pc-list li::before{color:var(--teal);}
+.pc.feat .pc-list li::before{color:var(--gold-bright);}
+.pc-btn{
+  display:block;text-align:center;padding:.92rem;
+  border-radius:.8rem;font-family:var(--sans);font-weight:700;font-size:.88rem;
+  text-decoration:none;border:none;cursor:pointer;transition:all .25s;
+}
+.btn-outline-dark{background:transparent;color:var(--ink);border:1.5px solid rgba(8,15,26,.18);}
+.btn-outline-dark:hover{background:var(--ink);color:white;}
+.btn-gold-fill{
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  color:var(--ink);box-shadow:0 4px 14px rgba(196,151,60,.3);
+}
+.btn-gold-fill:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(196,151,60,.42);}
+.pricing-note{
+  text-align:center;margin-top:2.5rem;
+  font-size:.77rem;color:rgba(8,15,26,.36);line-height:1.7;
+}
+
+/* ── FORM ── */
+#contatto{
+  padding:8rem 2.5rem;
+  background:var(--ink-mid);
+  position:relative;overflow:hidden;
+}
+#contatto::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 75% at 0 50%,rgba(196,151,60,.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+.contatto-grid{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:6rem;align-items:start;
+  position:relative;z-index:1;
+}
+.cl-tag{font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.9rem;}
+.cl-h2{font-family:var(--serif);font-size:clamp(2rem,4vw,2.9rem);font-weight:600;line-height:1.1;margin-bottom:1.2rem;}
+.cl-lead{font-size:.95rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,.45);margin-bottom:2.8rem;}
+.promises{display:flex;flex-direction:column;gap:1.1rem;}
+.promise{display:flex;align-items:flex-start;gap:.9rem;}
+.p-icon{
+  width:36px;height:36px;flex-shrink:0;border-radius:.5rem;
+  background:rgba(196,151,60,.08);border:1px solid rgba(196,151,60,.17);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;
+}
+.p-body strong{display:block;font-size:.87rem;font-weight:600;margin-bottom:.15rem;}
+.p-body span{font-size:.77rem;color:rgba(255,255,255,.35);line-height:1.55;}
+
+.form-box{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:1.2rem;padding:2.6rem;
+}
+.fg{margin-bottom:1.1rem;}
+.fg label{
+  display:block;font-size:.68rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.38);margin-bottom:.45rem;
+}
+.fg input,.fg select{
+  width:100%;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:.55rem;padding:.88rem 1rem;
+  font-family:var(--sans);font-size:.93rem;
+  color:white;outline:none;transition:all .2s;
+  -webkit-appearance:none;
+}
+.fg input:focus,.fg select:focus{
+  border-color:rgba(196,151,60,.48);
+  background:rgba(255,255,255,.08);
+  box-shadow:0 0 0 3px rgba(196,151,60,.07);
+}
+.fg input::placeholder{color:rgba(255,255,255,.18);}
+.fg select option{background:var(--ink);}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.form-submit{
+  width:100%;padding:1rem;margin-top:.35rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  color:var(--ink);border:none;border-radius:.75rem;
+  font-family:var(--sans);font-weight:700;font-size:.98rem;
+  cursor:pointer;transition:all .25s;
+  box-shadow:0 4px 16px rgba(196,151,60,.3);
+}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(196,151,60,.42);}
+.form-privacy{
+  text-align:center;margin-top:.9rem;
+  font-size:.7rem;color:rgba(255,255,255,.22);line-height:1.6;
+}
+.form-ok{display:none;text-align:center;padding:2rem 1rem;}
+.form-ok.show{display:block;}
+.ok-ico{font-size:2.6rem;margin-bottom:.9rem;}
+.ok-title{font-family:var(--serif);font-style:italic;font-size:1.55rem;color:var(--gold-bright);margin-bottom:.7rem;}
+.ok-body{font-size:.87rem;color:rgba(255,255,255,.4);line-height:1.7;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);
+  border-top:1px solid rgba(255,255,255,.05);
+  padding:3rem 2.5rem;
+}
+.footer-inner{
+  max-width:960px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1.5rem;
+}
+.footer-brand{display:flex;align-items:center;gap:.6rem;}
+.f-mark{
+  width:28px;height:28px;border-radius:.38rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;
+}
+.f-name{font-size:.8rem;font-weight:700;color:rgba(255,255,255,.55);}
+.footer-mid{font-size:.73rem;color:rgba(255,255,255,.22);text-align:center;line-height:1.7;}
+.footer-mid strong{color:rgba(255,255,255,.4);}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.18);text-align:right;}
+
+/* ── SHARED UTILS ── */
+.w{max-width:960px;margin:0 auto;}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(22px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}
+.d2{transition-delay:.2s;}
+.d3{transition-delay:.3s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links .nav-link{display:none;}
+  #hero{padding:8rem 1.5rem 4rem;}
+  .mcp-layout{grid-template-columns:1fr;gap:3rem;}
+  .blocchi{grid-template-columns:1fr;}
+  .agent-card{grid-template-columns:1fr;}
+  .ac-right{border-left:none;border-top:1px solid rgba(255,255,255,.06);}
+  .pricing-grid{grid-template-columns:1fr;}
+  .contatto-grid{grid-template-columns:1fr;gap:3.5rem;}
+  .footer-inner{flex-direction:column;align-items:center;text-align:center;}
+  .footer-copy{text-align:center;}
+  #mcp,#problema,#agenti,#pricing,#contatto{padding:5rem 1.5rem;}
+  .strip-inner{flex-direction:column;gap:1rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">
+    <div class="nav-mark">🐾</div>
+    <div class="nav-name">Brave Vet Business</div>
+  </div>
+  <div class="nav-links">
+    <a href="#mcp" class="nav-link">Come funziona</a>
+    <a href="#agenti" class="nav-link">Gli Agenti</a>
+    <a href="#snoots-partner" class="nav-link">Snoots</a>
+    <a href="#pricing" class="nav-link">Prezzi</a>
+    <a href="#contatto" class="nav-cta">Inizia gratis →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ring hero-ring-1"></div>
+  <div class="hero-ring hero-ring-2"></div>
+  <div class="hero-dots"></div>
+
+  <div class="hero-content">
+    <div class="hero-mcp-pill">
+      <div class="pulse-dot"></div>
+      <span>Integrato con Snoots via MCP · Partner ufficiale</span>
+    </div>
+
+    <h1 class="hero-h1">
+      La tua clinica<br>
+      ha già <em>tutti i dati.</em><br>
+      <span class="dim">Mancano le decisioni.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Tre agenti AI leggono il tuo Snoots ogni settimana e ti consegnano report pronti, analisi concrete e azioni immediate. Automaticamente.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#contatto" class="btn-gold">Inizia gratis per 3 mesi ↓</a>
+      <a href="#mcp" class="btn-ghost">Come funziona con Snoots</a>
+    </div>
+
+    <!-- MCP quick explanation — visibile subito nell'hero -->
+    <div class="hero-mcp-box">
+      <div class="mcp-box-icon">🔌</div>
+      <div class="mcp-box-text">
+        <strong>Cos'è l'MCP di Snoots?</strong>
+        <span>È il protocollo nativo con cui Snoots permette ad app certificate di leggere i tuoi dati in modo sicuro — senza export manuali. I tuoi dati restano in Snoots. Il Team Invisibile li legge, li analizza e ti manda il risultato.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scopri</span>
+  </div>
+</section>
+
+<!-- PARTNER STRIP -->
+<div id="strip">
+  <div class="strip-inner">
+    <div class="strip-left">
+      <div class="strip-icon">🐶</div>
+      <div class="strip-text">
+        <strong>Disponibile nel Marketplace Snoots</strong>
+        <span>Sviluppato da Brave Vet Business · Partner ufficiale Snoots Demas</span>
+      </div>
+    </div>
+    <div class="strip-tags">
+      <span class="stag hi">✓ Snoots Native MCP</span>
+      <span class="stag">Essential · Regular · Advanced</span>
+      <span class="stag">Solo Italia</span>
+      <span class="stag">Zero Setup</span>
+    </div>
+  </div>
+</div>
+
+<!-- MCP SECTION -->
+<section id="mcp">
+  <div class="mcp-glow"></div>
+  <div class="mcp-layout">
+
+    <div class="reveal">
+      <span class="stag-inline">Come funziona · Integrazione Snoots</span>
+      <h2 class="h2">
+        Funziona perché<br>
+        legge <em style="font-style:italic;color:var(--teal-bright)">il tuo Snoots.</em>
+      </h2>
+      <p class="lead">
+        Il Team Invisibile non è un'app separata che richiede configurazioni. È costruito sull'MCP di Snoots — lo stesso protocollo che Snoots usa per aprire i propri dati alle applicazioni partner certificate.
+      </p>
+      <div class="mcp-def-box">
+        <strong>MCP — Model Context Protocol</strong>
+        <p>È lo standard tecnico con cui Snoots consente a strumenti certificati di accedere ai dati della clinica in modo diretto e sicuro. Nessuna esportazione, nessuna sincronizzazione manuale, nessuna password da condividere. I tuoi dati restano in Snoots — il Team Invisibile li legge in tempo reale, li elabora con AI e ti consegna il risultato in email.</p>
+      </div>
+    </div>
+
+    <div class="mcp-flow reveal d2">
+      <div class="mfc highlighted">
+        <div class="mfc-ico ico-g">🐶</div>
+        <div class="mfc-info">
+          <strong>Il tuo Snoots</strong>
+          <span>Fatture, clienti, collaboratori, prestazioni</span>
+        </div>
+      </div>
+      <div class="mcp-arr">↓ &nbsp; connessione MCP certificata · dati in tempo reale &nbsp; ↓</div>
+      <div class="mfc">
+        <div class="mfc-ico ico-t">🤖</div>
+        <div class="mfc-info">
+          <strong>Il Team Invisibile</strong>
+          <span>Legge, elabora, analizza con AI</span>
+        </div>
+      </div>
+      <div class="mcp-arr">↓ &nbsp; report pronto &nbsp; ↓</div>
+      <div class="mfc">
+        <div class="mfc-ico ico-b">📧</div>
+        <div class="mfc-info">
+          <strong>La tua email</strong>
+          <span>Decisioni pronte ogni settimana, automaticamente</span>
+        </div>
+      </div>
+      <div class="mcp-zero-cfg">
+        <div class="zero-badge">✓ &nbsp; Nessuna configurazione richiesta</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema">
+  <div class="w">
+    <span class="stag-dark reveal" style="color:var(--gold)">Il Problema</span>
+    <h2 class="h2-dark reveal">Gestire bene la clinica<br>richiede dati. <em style="font-style:italic">Ogni settimana.</em></h2>
+    <p class="lead-dark reveal">I dati esistono. Sono nel tuo Snoots. Il problema è che nessuno li trasforma in decisioni per te.</p>
+
+    <div class="blocchi">
+      <div class="blocco reveal d1">
+        <div class="bnum">01</div>
+        <h3>Non c'è tempo per cercarli</h3>
+        <p>Filtrare, esportare, calcolare, confrontare. Ogni analisi richiede tempo che non hai. Così si rimanda. Sempre.</p>
+      </div>
+      <div class="blocco reveal d2">
+        <div class="bnum">02</div>
+        <h3>Il dato senza contesto è muto</h3>
+        <p>Un numero isolato non dice niente. Serve il confronto con la settimana prima, con la media, con gli altri reparti.</p>
+      </div>
+      <div class="blocco reveal d3">
+        <div class="bnum">03</div>
+        <h3>Il team si valuta a sensazione</h3>
+        <p>Chi genera davvero valore questa settimana? Lo intuisci, ma non hai i numeri precisi per agire in modo mirato.</p>
+      </div>
+    </div>
+
+    <div class="quote-block reveal">
+      <blockquote>
+        Il titolare veterinario è spesso l'unico imprenditore che gestisce visita, team e conti — e guarda i numeri solo quando arriva il commercialista.
+      </blockquote>
+      <cite>— Brave Vet Business, dopo anni di consulenza con cliniche veterinarie italiane di ogni dimensione</cite>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTI -->
+<section id="agenti">
+  <div class="w">
+    <span class="stag-inline reveal" style="color:var(--gold);display:block;margin-bottom:.9rem;">I Tre Agenti</span>
+    <h2 class="h2 reveal">Un sistema completo.<br><em style="font-style:italic;color:var(--gold-bright)">Tre professionisti digitali.</em></h2>
+    <p class="lead reveal" style="max-width:540px;margin-bottom:0;">
+      Ogni agente risponde a una domanda precisa. Insieme coprono finanze, clientela e team — consegnati automaticamente ogni settimana.
+    </p>
+
+    <div class="agenti-stack">
+
+      <div class="agent-card ag-c reveal">
+        <div class="ac-left">
+          <div>
+            <div class="ac-emoji">📊</div>
+            <div class="ac-name">Il Contabile</div>
+            <div class="ac-role">Controller finanziario digitale</div>
+          </div>
+          <div class="ac-chip"><div class="chip-dot"></div>Ogni lunedì · 7:30</div>
+        </div>
+        <div class="ac-right">
+          <div class="ac-q">"Quanto abbiamo guadagnato questa settimana — e dove?"</div>
+          <p class="ac-desc">
+            Fatturato totale con variazione vs settimana precedente. Andamento giorno per giorno. Distribuzione per centro di ricavo: Chirurgia, Diagnostica, Visite, Vaccini e altri. Ticket medio per transazione. L'AI evidenzia i 3 punti chiave della settimana e produce una nota di coaching basata sui tuoi numeri reali.
+          </p>
+          <div class="ac-feats">
+            <div class="ac-feat"><div class="af-dot"></div>Alert su variazioni significative settimana su settimana</div>
+            <div class="ac-feat"><div class="af-dot"></div>Heatmap giornaliera con best e worst day</div>
+            <div class="ac-feat"><div class="af-dot"></div>Focus della settimana — criticità e opportunità</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-card ag-a reveal d1">
+        <div class="ac-left">
+          <div>
+            <div class="ac-emoji">🔍</div>
+            <div class="ac-name">L'Analista</div>
+            <div class="ac-role">Esperto di clientela e fidelizzazione</div>
+          </div>
+          <div class="ac-chip"><div class="chip-dot"></div>Ogni venerdì · 9:00</div>
+        </div>
+        <div class="ac-right">
+          <div class="ac-q">"Chi sono i nostri clienti questa settimana — e chi stiamo perdendo?"</div>
+          <p class="ac-desc">
+            Segmentazione completa della base clienti in quattro gruppi: Nuovi Acquisiti, Fedeli Attivi, Recuperati (tornati dopo mesi), Monoprestazione (venuti una sola volta). Pattern di acquisizione e fidelizzazione che il solo fatturato non rivela.
+          </p>
+          <div class="ac-feats">
+            <div class="ac-feat"><div class="af-dot"></div>Trend settimanale per ogni segmento</div>
+            <div class="ac-feat"><div class="af-dot"></div>Segnali di rischio abbandono clientela</div>
+            <div class="ac-feat"><div class="af-dot"></div>Dove si acquisisce e dove si perde</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="agent-card ag-d reveal d2">
+        <div class="ac-left">
+          <div>
+            <div class="ac-emoji">👥</div>
+            <div class="ac-name">Il Direttore</div>
+            <div class="ac-role">HR manager e coach del team</div>
+          </div>
+          <div class="ac-chip"><div class="chip-dot"></div>Ogni venerdì · 12:00</div>
+        </div>
+        <div class="ac-right">
+          <div class="ac-q">"Chi ha contribuito davvero — e cosa faccio con ognuno adesso?"</div>
+          <p class="ac-desc">
+            Scheda individuale per ogni collaboratore attivo: fatturato, ticket individuale vs ticket medio clinica, variazione percentuale, stato IN CRESCITA / STABILE / ATTENZIONE. Per ognuno, un'azione concreta in linguaggio clinico. Venerdì alle 12 sai già cosa fare nel pomeriggio.
+          </p>
+          <div class="ac-feats">
+            <div class="ac-feat"><div class="af-dot"></div>Classificazione basata su dati, non su percezioni</div>
+            <div class="ac-feat"><div class="af-dot"></div>Azione operativa concreta per ogni collaboratore</div>
+            <div class="ac-feat"><div class="af-dot"></div>Coaching note riservata al titolare</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SNOOTS PARTNER -->
+<section id="snoots-partner">
+  <div class="sp-layout">
+
+    <!-- LEFT: Partnership focus -->
+    <div class="reveal">
+      <span class="sp-tag">Partnership Esclusiva</span>
+      <h2 class="h2">
+        Brave Vet Business<br>
+        <em style="font-style:italic;color:var(--gold-bright)">× Snoots PMS.</em>
+      </h2>
+      <p class="sp-lead">
+        Snoots PMS — gestionale per cliniche veterinarie — che molte cliniche veterinarie italiane adottano — agenda, cartelle cliniche, fatturazione, diagnostica integrata. Brave Vet Business è il suo unico partner ufficiale certificato per l'intelligenza artificiale.
+      </p>
+      <div class="sp-pillars">
+        <div class="sp-pillar">
+          <div class="sp-pillar-ico">🏆</div>
+          <div class="sp-pillar-text">
+            <strong>Unici certificati AI su Snoots PMS</strong>
+            <span>Brave Vet Business è il primo e unico partner ad aver sviluppato agenti AI nativi per Snoots. Non un'integrazione di terze parti — una partnership costruita insieme.</span>
+          </div>
+        </div>
+        <div class="sp-pillar">
+          <div class="sp-pillar-ico">🔌</div>
+          <div class="sp-pillar-text">
+            <strong>Accesso diretto via MCP — nessun export</strong>
+            <span>Il Team Invisibile legge i tuoi dati Snoots PMS in tempo reale tramite il protocollo MCP certificato. I dati restano nel tuo gestionale. Zero configurazioni.</span>
+          </div>
+        </div>
+        <div class="sp-pillar">
+          <div class="sp-pillar-ico">🛒</div>
+          <div class="sp-pillar-text">
+            <strong>Attivazione dal Marketplace Snoots</strong>
+            <span>Disponibile direttamente nel tuo gestionale. Lo trovi in Snoots → Integrazioni → Marketplace. Attivazione in 3 minuti, senza uscire da Snoots PMS.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Trust stats + partner badge -->
+    <div class="reveal d2">
+      <div class="sp-cards">
+
+        <div class="sp-stat">
+          <div class="sp-stat-val">#1</div>
+          <div class="sp-stat-label">Partner AI esclusivo certificato Snoots PMS</div>
+          <div class="sp-stat-sub">Nessun altro prodotto AI ha accesso nativo ai dati Snoots PMS. Il Team Invisibile è l'unica suite costruita su questa partnership.</div>
+        </div>
+
+        <div class="sp-stat">
+          <div class="sp-stat-val">3 min</div>
+          <div class="sp-stat-label">Tempo di attivazione dal Marketplace</div>
+          <div class="sp-stat-sub">Apri Snoots PMS, vai nel Marketplace, cerca Brave Contabile, attiva. Il primo report arriva lunedì mattina alle 7:30.</div>
+        </div>
+
+        <div class="sp-stat">
+          <div class="sp-stat-val">0</div>
+          <div class="sp-stat-label">Export, sync o configurazioni richieste</div>
+          <div class="sp-stat-sub">La connessione MCP è nativa in Snoots PMS. I tuoi dati non escono mai dal gestionale — il Team Invisibile li legge direttamente, in sicurezza.</div>
+        </div>
+
+      </div>
+
+      <div class="sp-badge">
+        <div class="sp-badge-logo">🤝</div>
+        <div class="sp-badge-text">
+          <strong>Partner Ufficiale Snoots PMS</strong>
+          <span>Certificato nel Marketplace · Integrazione MCP nativa · Solo per cliniche italiane</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="w">
+    <span class="stag-dark reveal" style="color:var(--teal)">Pricing</span>
+    <h2 class="h2-dark reveal">Semplice.<br>Senza sorprese.</h2>
+    <p class="lead-dark reveal" style="margin-bottom:0;">
+      Ogni agente ti restituisce ore di analisi che non devi più fare — consegnate automaticamente. Il prezzo è volutamente ben al di sotto del valore generato.
+    </p>
+
+    <div class="pricing-grid">
+      <div class="pc reveal d1">
+        <div class="pc-ico">🔧</div>
+        <div class="pc-name">Singolo Agente</div>
+        <div class="pc-sub">Scegli uno dei tre. Puoi aggiungere gli altri in qualsiasi momento.</div>
+        <div class="pc-price">€39</div>
+        <div class="pc-period">al mese</div>
+        <ul class="pc-list">
+          <li>1 agente a scelta</li>
+          <li>Report settimanale automatico</li>
+          <li>Connessione nativa Snoots MCP</li>
+          <li>Alert su variazioni significative</li>
+        </ul>
+        <a href="#contatto" class="pc-btn btn-outline-dark">Inizia gratis →</a>
+      </div>
+
+      <div class="pc feat reveal d2">
+        <div class="pc-star">Più scelto</div>
+        <div class="pc-ico">⚡</div>
+        <div class="pc-name">Suite Completa</div>
+        <div class="pc-sub">Tutti e tre gli agenti. Il sistema di gestione completo.</div>
+        <div class="pc-price">€89</div>
+        <div class="pc-period">al mese &nbsp;·&nbsp; oppure €890/anno (2 mesi omaggio)</div>
+        <ul class="pc-list">
+          <li>Il Contabile + L'Analista + Il Direttore</li>
+          <li>3 report automatici ogni settimana</li>
+          <li>Copertura completa: finanze, clientela, team</li>
+          <li>Alert e coaching note settimanali</li>
+          <li>Connessione nativa Snoots MCP</li>
+        </ul>
+        <a href="#contatto" class="pc-btn btn-gold-fill">Inizia gratis →</a>
+      </div>
+
+      <div class="pc reveal d3">
+        <div class="pc-ico">🎁</div>
+        <div class="pc-name">Trial Gratuito</div>
+        <div class="pc-sub">Il Contabile gratis per 3 mesi. Nessuna carta di credito.</div>
+        <div class="pc-price">€0</div>
+        <div class="pc-period">per 3 mesi · poi decidi tu</div>
+        <ul class="pc-list">
+          <li>Il Contabile attivo per 12 settimane</li>
+          <li>Report finanziario ogni lunedì 7:30</li>
+          <li>Nessun obbligo alla scadenza</li>
+          <li>Converti alla suite quando vuoi</li>
+        </ul>
+        <a href="#contatto" class="pc-btn btn-outline-dark">Attiva gratis →</a>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">
+      Tutti i piani includono la connessione nativa Snoots via MCP · Zero configurazione richiesta<br>
+      <strong>Partner ufficiale: Snoots Demas</strong> · Disponibile nel Marketplace per piani Essential, Regular e Advanced
+    </p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="contatto">
+  <div class="contatto-grid">
+    <div>
+      <span class="cl-tag reveal">Inizia adesso</span>
+      <h2 class="cl-h2 reveal">Il Contabile.<br><em style="font-style:italic;color:var(--gold-bright)">Gratis per 3 mesi.</em></h2>
+      <p class="cl-lead reveal">Lascia i tuoi dati. Ti contattiamo entro 24 ore con le istruzioni per attivare il primo agente nel tuo Snoots.</p>
+      <div class="promises reveal">
+        <div class="promise">
+          <div class="p-icon">⚡</div>
+          <div class="p-body">
+            <strong>Attivazione in 24 ore</strong>
+            <span>Ti guidiamo step by step dal marketplace Snoots</span>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="p-icon">🔒</div>
+          <div class="p-body">
+            <strong>Zero carta di credito</strong>
+            <span>Nessun addebito automatico. Decidi tu dopo i 3 mesi.</span>
+          </div>
+        </div>
+        <div class="promise">
+          <div class="p-icon">🐾</div>
+          <div class="p-body">
+            <strong>Costruito per Snoots</strong>
+            <span>Funziona nativamente con il tuo MCP — per tutte le dimensioni di clinica</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal d2">
+      <div class="form-box">
+        <form id="leadForm">
+          <div class="fg-row">
+            <div class="fg"><label>Nome</label><input type="text" placeholder="Marco" required></div>
+            <div class="fg"><label>Cognome</label><input type="text" placeholder="Rossi" required></div>
+          </div>
+          <div class="fg"><label>Email professionale</label><input type="email" placeholder="marco@clinicavet.it" required></div>
+          <div class="fg"><label>Nome della clinica</label><input type="text" placeholder="Clinica Veterinaria..." required></div>
+          <div class="fg">
+            <label>Hai già Snoots?</label>
+            <select required>
+              <option value="" disabled selected>Seleziona...</option>
+              <option>Sì, uso Snoots</option>
+              <option>No, ma lo sto valutando</option>
+              <option>No, uso un altro gestionale</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Ti interessa di più</label>
+            <select>
+              <option>La suite completa — tutti e tre gli agenti</option>
+              <option>Solo Il Contabile — finanze settimanali</option>
+              <option>Solo L'Analista — analisi clientela</option>
+              <option>Solo Il Direttore — performance team</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Richiedi l'accesso gratuito →</button>
+          <p class="form-privacy">Nessuno spam · Dati non ceduti a terzi · Risposta entro 24h lavorative</p>
+        </form>
+        <div class="form-ok" id="formOk">
+          <div class="ok-ico">✅</div>
+          <div class="ok-title">Richiesta inviata.</div>
+          <p class="ok-body">Ti contattiamo entro 24 ore con le istruzioni per attivare Il Contabile nel tuo Snoots.<br><br>Controlla la tua email.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="f-mark">🐾</div>
+      <div class="f-name">Brave Vet Business</div>
+    </div>
+    <div class="footer-mid">
+      Partner ufficiale: <strong>Snoots Demas</strong><br>
+      Disponibile nel Marketplace Snoots
+    </div>
+    <div class="footer-copy">© 2025 Brave Vet Business<br>Tutti i diritti riservati</div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); ro.unobserve(e.target); } });
+}, {threshold:.1, rootMargin:'0px 0px -35px 0px'});
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// Form
+// ── WEBHOOK URL — aggiorna con il tuo URL n8n reale ──
+const WEBHOOK_URL = 'https://bravevetbusiness.app.n8n.cloud/webhook/team-invisibile-lead';
+
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.form-submit');
+  btn.textContent = 'Invio in corso...';
+  btn.disabled = true;
+
+  const fields = this.querySelectorAll('input, select');
+  const data = {};
+  const labels = this.querySelectorAll('label');
+  fields.forEach((f, i) => {
+    const label = labels[i] ? labels[i].textContent.trim() : f.type;
+    data[label] = f.value;
+    // Also add shorthand keys
+    if(f.type === 'email') data['email'] = f.value;
+    if(label.toLowerCase().includes('nome') && !label.toLowerCase().includes('clinica') && !data['nome']) data['nome'] = f.value;
+    if(label.toLowerCase().includes('cognome')) data['cognome'] = f.value;
+    if(label.toLowerCase().includes('clinica')) data['clinica'] = f.value;
+    if(label.toLowerCase().includes('snoots')) data['snoots'] = f.value;
+    if(label.toLowerCase().includes('interessa')) data['interesse'] = f.value;
+  });
+
+  try {
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      mode: 'no-cors'
+    });
+  } catch(err) {
+    console.warn('Webhook non raggiungibile:', err);
+  }
+
+  // Mostra sempre il successo (no-cors non restituisce response)
+  this.style.display = 'none';
+  document.getElementById('formOk').classList.add('show');
+});
+</script>
+</body>
+</html>
