@@ -115,11 +115,16 @@
             text-align: center; padding: 8rem 2rem 4rem; position: relative;
         }
 
+        #hero-particles {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+        }
         .hero::before {
-            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 100%; height: 80%;
-            background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
-            pointer-events: none;
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px; height: 500px;
+            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.12) 0%, rgba(124, 58, 237, 0.06) 40%, transparent 70%);
+            pointer-events: none; z-index: 0;
         }
 
         .hero-badge {
@@ -129,6 +134,7 @@
             padding: 0.5rem 1.2rem; border-radius: var(--radius-pill);
             margin-bottom: 2rem;
             opacity: 0; animation: fadeUp 0.8s ease 0.1s forwards;
+            position: relative; z-index: 1;
         }
 
         .hero-badge .dot {
@@ -138,10 +144,11 @@
 
         .hero h1 {
             font-family: var(--font-sans);
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-size: clamp(3rem, 7vw, 5rem);
             font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;
             max-width: 800px; margin-bottom: 1.5rem;
             opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+            position: relative; z-index: 1;
         }
 
         .hero h1 .accent {
@@ -155,11 +162,13 @@
             color: var(--gray-400); max-width: 620px; line-height: 1.7;
             margin-bottom: 2.5rem;
             opacity: 0; animation: fadeUp 0.8s ease 0.35s forwards;
+            position: relative; z-index: 1;
         }
 
         .hero-actions {
             display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; justify-content: center;
             opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+            position: relative; z-index: 1;
         }
 
         /* ── CTA Dot (OceanX-style) ── */
@@ -471,6 +480,7 @@
 <main id="main">
 
 <section class="hero" aria-labelledby="hero-heading">
+    <canvas id="hero-particles" aria-hidden="true"></canvas>
     <div class="hero-badge"><span class="dot" aria-hidden="true"></span> Intelligenza artificiale per cliniche veterinarie</div>
     <h1 id="hero-heading">Il tuo team manageriale<br><span class="accent">invisibile e instancabile</span></h1>
     <p class="hero-sub">Gestisci, monitora e fai crescere la tua clinica veterinaria con tre Agenti AI dedicati. Che tu stia analizzando i ricavi, valutando il team o segmentando i clienti, abbiamo la soluzione.</p>
@@ -730,6 +740,101 @@
             }, 3000);
         }, 800);
     }
+
+    // ── Particle Sphere ──
+    (function() {
+        var canvas = document.getElementById('hero-particles');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
+        var particles = [];
+        var PARTICLE_COUNT = 80;
+        var rotationY = 0;
+        var ROTATION_SPEED = 0.002;
+        var colors = ['#3b82f6', '#60a5fa', '#7c3aed', '#22d3ee'];
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function resize() {
+            canvas.width = canvas.offsetWidth * (window.devicePixelRatio || 1);
+            canvas.height = canvas.offsetHeight * (window.devicePixelRatio || 1);
+            ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+        }
+
+        function createParticles() {
+            particles = [];
+            for (var i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push({
+                    theta: Math.random() * Math.PI * 2,
+                    phi: Math.acos((Math.random() * 2) - 1),
+                    size: 2 + Math.random() * 3,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speed: 0.3 + Math.random() * 0.7
+                });
+            }
+        }
+
+        function getSphereRadius() {
+            var w = canvas.offsetWidth;
+            var h = canvas.offsetHeight;
+            return Math.min(w, h) * 0.25;
+        }
+
+        function draw() {
+            var w = canvas.offsetWidth;
+            var h = canvas.offsetHeight;
+            ctx.clearRect(0, 0, w, h);
+
+            var cx = w / 2;
+            var cy = h / 2;
+            var radius = getSphereRadius();
+            var fov = 600;
+
+            var sorted = particles.slice().sort(function(a, b) {
+                var az = Math.cos(a.phi) * Math.cos(a.theta + rotationY);
+                var bz = Math.cos(b.phi) * Math.cos(b.theta + rotationY);
+                return az - bz;
+            });
+
+            for (var i = 0; i < sorted.length; i++) {
+                var p = sorted[i];
+                var x3d = radius * Math.sin(p.phi) * Math.cos(p.theta + rotationY);
+                var y3d = radius * Math.cos(p.phi);
+                var z3d = radius * Math.sin(p.phi) * Math.sin(p.theta + rotationY);
+
+                var scale = fov / (fov + z3d);
+                var x2d = cx + x3d * scale;
+                var y2d = cy + y3d * scale;
+
+                var depthAlpha = 0.2 + 0.8 * ((z3d + radius) / (2 * radius));
+                var drawSize = p.size * scale;
+
+                ctx.beginPath();
+                ctx.arc(x2d, y2d, drawSize, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.globalAlpha = depthAlpha;
+                ctx.shadowColor = p.color;
+                ctx.shadowBlur = drawSize * 3;
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+            ctx.globalAlpha = 1;
+        }
+
+        function animate() {
+            if (!reducedMotion) {
+                rotationY += ROTATION_SPEED;
+            }
+            draw();
+            requestAnimationFrame(animate);
+        }
+
+        resize();
+        createParticles();
+        animate();
+
+        window.addEventListener('resize', function() {
+            resize();
+        });
+    })();
 </script>
 
 </body>
