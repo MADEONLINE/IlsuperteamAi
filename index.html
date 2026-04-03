@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Invisible Team — AI per Cliniche Veterinarie</title>
+    <meta name="description" content="Tre Agenti AI che gestiscono finanza, persone e marketing della tua clinica veterinaria. Invisibili, instancabili, sempre operativi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0b0e17;
+            --bg-card: #111827;
+            --bg-card-alt: #151d2e;
+            --bg-elevated: #1a2235;
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --blue-dark: #2563eb;
+            --cyan: #22d3ee;
+            --gradient-blue: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --gradient-card: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(124, 58, 237, 0.05) 100%);
+            --gradient-glow: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            --white: #ffffff;
+            --gray-100: #f3f4f6;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-blue: rgba(59, 130, 246, 0.2);
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --font-display: 'Playfair Display', serif;
+            --radius: 16px;
+            --radius-sm: 10px;
+            --radius-pill: 100px;
+        }
+
+        html { scroll-behavior: smooth; background: var(--bg); }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .skip-link {
+            position: absolute; top: -100%; left: 1rem; z-index: 200;
+            padding: 0.8rem 1.5rem; background: var(--blue); color: var(--white);
+            font-size: 0.85rem; font-weight: 500; border-radius: var(--radius-sm);
+        }
+        .skip-link:focus { top: 1rem; }
+        :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal { opacity: 1 !important; transform: none !important; }
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.2rem 0;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            background: rgba(11, 14, 23, 0.7);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        nav.scrolled { background: rgba(11, 14, 23, 0.95); }
+
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.2rem; font-weight: 600; letter-spacing: -0.02em;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+
+        .nav-logo svg { width: 32px; height: 32px; }
+
+        .nav-links {
+            display: flex; align-items: center; gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem; font-weight: 400; color: var(--gray-400);
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--white); }
+
+        .nav-cta {
+            font-size: 0.85rem; font-weight: 500;
+            background: var(--white); color: var(--bg);
+            padding: 0.6rem 1.5rem; border-radius: var(--radius-pill);
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            min-height: 44px; transition: all 0.2s;
+        }
+        .nav-cta:hover { background: var(--gray-100); transform: translateY(-1px); }
+        .nav-cta svg { width: 16px; height: 16px; }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh; min-height: 100dvh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 8rem 2rem 4rem; position: relative;
+        }
+
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 100%; height: 80%;
+            background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.8rem; font-weight: 500; color: var(--blue-light);
+            background: rgba(59, 130, 246, 0.1); border: 1px solid var(--border-blue);
+            padding: 0.5rem 1.2rem; border-radius: var(--radius-pill);
+            margin-bottom: 2rem;
+            opacity: 0; animation: fadeUp 0.8s ease 0.1s forwards;
+        }
+
+        .hero-badge .dot {
+            width: 6px; height: 6px; border-radius: 50%; background: var(--blue-light);
+            animation: pulse 2s ease infinite;
+        }
+
+        .hero h1 {
+            font-family: var(--font-sans);
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 700; line-height: 1.1; letter-spacing: -0.03em;
+            max-width: 800px; margin-bottom: 1.5rem;
+            opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--blue-light) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.8vw, 1.2rem); font-weight: 400;
+            color: var(--gray-400); max-width: 620px; line-height: 1.7;
+            margin-bottom: 2.5rem;
+            opacity: 0; animation: fadeUp 0.8s ease 0.35s forwards;
+        }
+
+        .hero-actions {
+            display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; justify-content: center;
+            opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+
+        .btn-hero {
+            font-family: var(--font-sans); font-size: 0.95rem; font-weight: 500;
+            color: var(--white); background: var(--blue); border: none;
+            padding: 0.9rem 2rem; border-radius: var(--radius-pill);
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            min-height: 48px; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-hero:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3); }
+        .btn-hero:active { transform: scale(0.97); }
+        .btn-hero svg { width: 18px; height: 18px; }
+
+        .social-proof { display: flex; align-items: center; gap: 0.8rem; }
+
+        .avatar-stack { display: flex; }
+        .avatar-stack span {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 2px solid var(--bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; font-weight: 600; margin-left: -8px;
+        }
+        .avatar-stack span:first-child { margin-left: 0; }
+        .avatar-stack .a1 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .avatar-stack .a2 { background: linear-gradient(135deg, #10b981, #3b82f6); }
+        .avatar-stack .a3 { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+
+        .social-proof-text { font-size: 0.85rem; color: var(--gray-400); }
+        .social-proof-text strong { color: var(--white); font-weight: 600; }
+
+        /* ── Logo strip ── */
+        .logo-strip { padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .logo-strip-inner { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; opacity: 0.4; }
+        .logo-strip-inner span { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gray-400); }
+
+        /* ── Value + Agent cards ── */
+        .value-section { padding: 6rem 0; }
+        .value-header { margin-bottom: 3rem; }
+        .value-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .value-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; line-height: 1.7; }
+
+        .agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+        .agent-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 2.5rem 2rem;
+            position: relative; overflow: hidden; transition: all 0.3s ease;
+        }
+        .agent-card:hover { border-color: var(--border-blue); transform: translateY(-4px); }
+        .agent-card::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--gradient-card); pointer-events: none;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .agent-card:hover::after { opacity: 1; }
+
+        .agent-card-icon {
+            width: 52px; height: 52px; border-radius: 14px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem; position: relative; z-index: 1;
+        }
+        .agent-card-icon svg {
+            width: 24px; height: 24px; stroke: var(--blue-light);
+            stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round;
+        }
+
+        .agent-card-badge {
+            display: inline-flex; font-size: 0.65rem; font-weight: 600;
+            color: var(--blue-light); background: rgba(59, 130, 246, 0.1);
+            padding: 0.25rem 0.7rem; border-radius: var(--radius-pill);
+            letter-spacing: 0.05em; text-transform: uppercase;
+            margin-bottom: 1rem; position: relative; z-index: 1;
+        }
+
+        .agent-card h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; letter-spacing: -0.01em; position: relative; z-index: 1; }
+        .agent-card-subtitle { font-size: 0.75rem; font-weight: 500; color: var(--blue-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; position: relative; z-index: 1; }
+        .agent-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.7; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+
+        .agent-card ul { list-style: none; position: relative; z-index: 1; }
+        .agent-card ul li { font-size: 0.85rem; color: var(--gray-300); padding: 0.45rem 0; display: flex; align-items: center; gap: 0.6rem; }
+        .agent-card ul li svg { width: 16px; height: 16px; stroke: var(--blue); stroke-width: 2; fill: none; flex-shrink: 0; }
+
+        /* ── How it works ── */
+        .how-section { padding: 6rem 0; }
+        .how-header { text-align: center; margin-bottom: 4rem; }
+        .how-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .how-header p { font-size: 1rem; color: var(--gray-400); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+        .step-card {
+            background: linear-gradient(135deg, #111d35 0%, #0f1728 100%);
+            border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 2rem 1.5rem; position: relative; overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .step-card:hover { border-color: var(--border-blue); }
+
+        .step-card .big-num {
+            position: absolute; top: -10px; right: -5px;
+            font-size: 8rem; font-weight: 800; line-height: 1;
+            color: rgba(59, 130, 246, 0.06); pointer-events: none;
+        }
+
+        .step-card-icon { width: 40px; height: 40px; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+        .step-card-icon svg { width: 40px; height: 40px; stroke: var(--gray-400); stroke-width: 1; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .step-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; position: relative; z-index: 1; }
+        .step-card p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.6; position: relative; z-index: 1; }
+
+        /* ── Features grid ── */
+        .features-section { padding: 6rem 0; border-top: 1px solid var(--border); }
+        .features-header { margin-bottom: 4rem; }
+        .features-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .features-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; line-height: 1.7; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 2.5rem; }
+
+        .feature-item .feature-icon {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(124, 58, 237, 0.08) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.12);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+        .feature-icon svg { width: 24px; height: 24px; stroke: var(--blue-light); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .feature-item h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .feature-item p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.6; }
+
+        /* ── Dashboard mockup ── */
+        .dashboard-section { padding: 6rem 0; text-align: center; }
+        .dashboard-section h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; font-style: italic; line-height: 1.3; max-width: 800px; margin: 0 auto 1rem; }
+        .dashboard-section > p { font-size: 1rem; color: var(--gray-400); max-width: 650px; margin: 0 auto 3rem; line-height: 1.7; }
+
+        .dashboard-mockup {
+            max-width: 1000px; margin: 0 auto;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 2rem; position: relative;
+        }
+
+        .mock-topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
+        .mock-topbar-left { display: flex; align-items: center; gap: 1.5rem; }
+        .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .mock-tabs { display: flex; gap: 0.3rem; }
+        .mock-tab { font-size: 0.75rem; padding: 0.4rem 0.8rem; border-radius: var(--radius-pill); color: var(--gray-500); cursor: default; }
+        .mock-tab.active { background: rgba(59, 130, 246, 0.15); color: var(--blue-light); }
+
+        .mock-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1.5rem; }
+        .mock-stat-card { background: var(--bg-elevated); border-radius: var(--radius-sm); padding: 1.2rem; text-align: left; }
+        .mock-stat-label { font-size: 0.7rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+        .mock-stat-value { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .mock-stat-change { font-size: 0.75rem; font-weight: 500; }
+        .mock-stat-change.up { color: #10b981; }
+        .mock-left-stats { display: flex; flex-direction: column; gap: 1rem; }
+
+        .mock-chart { background: var(--bg-elevated); border-radius: var(--radius-sm); padding: 1.2rem; min-height: 200px; display: flex; flex-direction: column; }
+        .mock-chart-title { font-size: 0.75rem; color: var(--gray-500); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; text-align: left; }
+        .mock-chart-bars { flex: 1; display: flex; align-items: flex-end; gap: 6px; padding-top: 1rem; }
+        .mock-bar { flex: 1; border-radius: 4px 4px 0 0; min-height: 20px; }
+
+        /* ── Stats ── */
+        .stats-section { padding: 5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+        .stat-value {
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
+            background: linear-gradient(135deg, var(--blue-light), var(--cyan));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; line-height: 1; margin-bottom: 0.5rem;
+        }
+        .stat-label { font-size: 0.82rem; color: var(--gray-400); line-height: 1.5; }
+
+        /* ── Testimonial ── */
+        .testimonial-section { padding: 6rem 0; text-align: center; }
+        .testimonial-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; margin-bottom: 3rem; color: var(--gray-300); }
+        .testimonial-quote { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 400; font-style: italic; line-height: 1.6; max-width: 800px; margin: 0 auto 2rem; color: var(--gray-100); }
+        .testimonial-author { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+        .testimonial-role { font-size: 0.82rem; color: var(--gray-500); margin-top: 0.2rem; }
+
+        /* ── FAQ ── */
+        .faq-section { padding: 6rem 0; }
+        .faq-layout {
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem;
+            background: linear-gradient(135deg, #0f1a33 0%, #111827 50%, #150f28 100%);
+            border: 1px solid var(--border); border-radius: var(--radius); padding: 4rem;
+        }
+        .faq-left h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
+        .faq-left p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.7; }
+        .faq-list { display: flex; flex-direction: column; }
+        .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+        .faq-question {
+            width: 100%; display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 0; font-size: 1rem; font-weight: 500;
+            color: var(--white); background: none; border: none; cursor: pointer;
+            text-align: left; font-family: var(--font-sans); transition: color 0.2s; min-height: 48px;
+        }
+        .faq-question:hover { color: var(--blue-light); }
+        .faq-question svg { width: 20px; height: 20px; stroke: var(--gray-500); stroke-width: 2; fill: none; transition: transform 0.3s; flex-shrink: 0; }
+        .faq-item.open .faq-question svg { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 1.2rem; }
+        .faq-answer p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.7; }
+
+        /* ── CTA ── */
+        .cta-section { padding: 6rem 0; text-align: center; position: relative; }
+        .cta-section::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(59, 130, 246, 0.1) 0%, transparent 70%); pointer-events: none; }
+        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .cta-section > p { font-size: 1rem; color: var(--gray-400); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.6; }
+
+        .cta-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
+        .cta-form .form-field { flex: 1; position: relative; }
+        .cta-form label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        .cta-form input { width: 100%; padding: 0.9rem 1.2rem; font-family: var(--font-sans); font-size: 0.9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-pill) 0 0 var(--radius-pill); color: var(--white); outline: none; min-height: 48px; transition: border-color 0.2s; }
+        .cta-form input::placeholder { color: var(--gray-500); }
+        .cta-form input:focus { border-color: var(--blue); }
+        .cta-form button { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500; color: var(--white); background: var(--blue); border: 1px solid var(--blue); border-radius: 0 var(--radius-pill) var(--radius-pill) 0; padding: 0.9rem 1.8rem; cursor: pointer; white-space: nowrap; min-height: 48px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
+        .cta-form button:hover { background: var(--blue-dark); }
+        .cta-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .cta-form button svg { width: 16px; height: 16px; }
+        .cta-note { font-size: 0.78rem; color: var(--gray-500); margin-top: 1rem; }
+
+        /* ── Footer ── */
+        footer { padding: 4rem 0 3rem; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .footer-brand p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; max-width: 300px; }
+        .footer-col h4 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-400); margin-bottom: 1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.6rem; }
+        .footer-col ul li a { font-size: 0.88rem; color: var(--gray-500); transition: color 0.2s; min-height: 44px; display: inline-flex; align-items: center; }
+        .footer-col ul li a:hover { color: var(--white); }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid var(--border); }
+        .footer-bottom p { font-size: 0.75rem; color: var(--gray-500); }
+        .footer-socials { display: flex; gap: 1rem; }
+        .footer-socials a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: border-color 0.2s; }
+        .footer-socials a:hover { border-color: var(--blue); }
+        .footer-socials a svg { width: 16px; height: 16px; fill: var(--gray-400); }
+
+        /* ── Animations ── */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; } .reveal-d3 { transition-delay: 0.3s; } .reveal-d4 { transition-delay: 0.4s; }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .agents-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .faq-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .mock-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .hero-actions { flex-direction: column; }
+            .cta-form { flex-direction: column; }
+            .cta-form input { border-radius: var(--radius-pill); margin-bottom: 0.5rem; }
+            .cta-form button { border-radius: var(--radius-pill); justify-content: center; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .faq-layout { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Vai al contenuto principale</a>
+
+<nav id="nav" role="navigation" aria-label="Navigazione principale">
+    <div class="nav-inner">
+        <div class="nav-logo">
+            <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#lg)" stroke-width="1.5"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="url(#lg)" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2" fill="#60a5fa"/><defs><linearGradient id="lg" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs></svg>
+            The Invisible Team
+        </div>
+        <ul class="nav-links">
+            <li><a href="#agents">Agenti</a></li>
+            <li><a href="#how">Come funziona</a></li>
+            <li><a href="#features">Funzionalita</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a href="#cta" class="nav-cta">Richiedi accesso <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+</nav>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-badge"><span class="dot" aria-hidden="true"></span> Intelligenza artificiale per cliniche veterinarie</div>
+    <h1 id="hero-heading">Il tuo team manageriale<br><span class="accent">invisibile e instancabile</span></h1>
+    <p class="hero-sub">Gestisci, monitora e fai crescere la tua clinica veterinaria con tre Agenti AI dedicati. Che tu stia analizzando i ricavi, valutando il team o segmentando i clienti, abbiamo la soluzione.</p>
+    <div class="hero-actions">
+        <a href="#cta" class="btn-hero">Inizia ora <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9h10M10 5l4 4-4 4"/></svg></a>
+        <div class="social-proof">
+            <div class="avatar-stack"><span class="a1" aria-hidden="true">EM</span><span class="a2" aria-hidden="true">LR</span><span class="a3" aria-hidden="true">GP</span></div>
+            <div class="social-proof-text"><strong>+50</strong> cliniche<br>gia operative</div>
+        </div>
+    </div>
+</section>
+
+<section class="logo-strip" aria-label="Integrazioni compatibili">
+    <div class="container"><div class="logo-strip-inner"><span>Snoots PMS</span><span>Keystone</span><span>Fenice</span><span>Winvet</span><span>Veterinario Pro</span><span>EasyVet</span></div></div>
+</section>
+
+<section class="value-section" id="agents">
+    <div class="container">
+        <div class="value-header reveal">
+            <h2>Tre Agenti AI. Zero assunzioni.<br>Risultati dalla prima settimana.</h2>
+            <p>La tua clinica veterinaria ha bisogno di un team manageriale, ma non ha il budget per tre figure senior. Noi ti offriamo tre Agenti AI che lavorano 24/7 e costano meno di un singolo stipendio.</p>
+        </div>
+        <div class="agents-grid">
+            <article class="agent-card reveal reveal-d1">
+                <div class="agent-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 21H4.6c-.6 0-.9 0-1.1-.1a1 1 0 0 1-.4-.4C3 20.3 3 20 3 19.4V3"/><path d="m7 14 4-4 4 4 6-6"/></svg></div>
+                <div class="agent-card-badge">Agente AI 01</div>
+                <h3>Il Controller</h3>
+                <div class="agent-card-subtitle">Controller Finanziario</div>
+                <p>Ogni settimana analizza i principali centri di ricavo della tua clinica e ti consegna un report strutturato, chiaro e azionabile.</p>
+                <ul>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi settimanale dei centri di ricavo</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Report strutturato con trend e variazioni</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione servizi piu e meno redditizi</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Confronto performance settimana su settimana</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segnalazione anomalie e opportunita di margine</li>
+                </ul>
+            </article>
+            <article class="agent-card reveal reveal-d2">
+                <div class="agent-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="agent-card-badge">Agente AI 02</div>
+                <h3>Il Direttore</h3>
+                <div class="agent-card-subtitle">Risorse Umane</div>
+                <p>Analizza le performance di vendita dei servizi di ogni singolo veterinario, trasformando i dati di attivita in insight concreti sul team.</p>
+                <ul>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Performance di vendita servizi per veterinario</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Ranking settimanale delle attivita svolte</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi produttivita individuale e di team</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Trend di performance nel tempo</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Suggerimenti per bilanciare i carichi di lavoro</li>
+                </ul>
+            </article>
+            <article class="agent-card reveal reveal-d3">
+                <div class="agent-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+                <div class="agent-card-badge">Agente AI 03</div>
+                <h3>L'Analista</h3>
+                <div class="agent-card-subtitle">Marketing & Segmentazione</div>
+                <p>Ogni settimana analizza le tipologie di clienti serviti, li segmenta in categorie e ti mostra come evolve la composizione della tua clientela.</p>
+                <ul>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Mappatura settimanale delle tipologie di clienti</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segmentazione automatica in cluster comportamentali</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi evoluzione dei segmenti nel tempo</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione segmenti ad alto valore</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Insight per campagne mirate per segmento</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="how-section" id="how">
+    <div class="container">
+        <div class="how-header reveal">
+            <h2>Il tuo percorso, semplificato in 4 passaggi</h2>
+            <p>Sfrutta la potenza dell'intelligenza artificiale per analizzare la tua clinica. Semplifichiamo i dati complessi per consentirti di prendere decisioni chiare e consapevoli.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card reveal reveal-d1"><div class="big-num" aria-hidden="true">1</div><div class="step-card-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="6"/><path d="M10 34c0-5.5 4.5-10 10-10s10 4.5 10 10"/><path d="M28 12l4 4-4 4"/></svg></div><h3>Connetti i dati</h3><p>Colleghi il gestionale della clinica e i tuoi strumenti. Noi facciamo il resto.</p></div>
+            <div class="step-card reveal reveal-d2"><div class="big-num" aria-hidden="true">2</div><div class="step-card-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M8 20c0-6.6 5.4-12 12-12s12 5.4 12 12"/><circle cx="20" cy="20" r="4"/><path d="M20 28v4M12 20H8"/></svg></div><h3>Calibrazione</h3><p>I tre Agenti AI studiano la tua clinica: numeri, team, mercato. Apprendono il contesto.</p></div>
+            <div class="step-card reveal reveal-d3"><div class="big-num" aria-hidden="true">3</div><div class="step-card-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="8" y="6" width="24" height="28" rx="3"/><path d="M14 14h12M14 20h8M14 26h10"/></svg></div><h3>Primi insight</h3><p>Entro 48 ore ricevi il primo report con analisi e raccomandazioni concrete.</p></div>
+            <div class="step-card reveal reveal-d4"><div class="big-num" aria-hidden="true">4</div><div class="step-card-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M8 28l8-8 6 6 10-10"/><circle cx="32" cy="16" r="2"/><path d="M8 34h24"/></svg></div><h3>Operativita continua</h3><p>Da quel momento, il team lavora per te. Report settimanali e alert in tempo reale.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="features-section" id="features">
+    <div class="container">
+        <div class="features-header reveal">
+            <h2>Dare impulso al futuro della tua clinica</h2>
+            <p>Scopri le funzionalita chiave progettate per semplificare, monitorare e ottimizzare la gestione veterinaria.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item reveal reveal-d1"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Centri di ricavo</h3><p>Analisi automatica dei flussi economici divisi per servizio, reparto e periodo.</p></div>
+            <div class="feature-item reveal reveal-d2"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 8-4 4 4 4"/></svg></div><h3>Performance individuali</h3><p>Monitora la produttivita e le vendite di ogni veterinario con ranking settimanali.</p></div>
+            <div class="feature-item reveal reveal-d3"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Report automatici</h3><p>Report settimanali generati automaticamente con insight e raccomandazioni operative.</p></div>
+            <div class="feature-item reveal reveal-d1"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h3>Segmentazione clienti</h3><p>Identifica e classifica automaticamente le tipologie di clienti della tua clinica.</p></div>
+            <div class="feature-item reveal reveal-d2"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Trend in tempo reale</h3><p>Confronta i dati settimana su settimana per individuare trend e anomalie.</p></div>
+            <div class="feature-item reveal reveal-d3"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><h3>Monitoraggio 24/7</h3><p>I tre Agenti AI non dormono mai. Ricevi alert immediati su anomalie critiche.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-section">
+    <div class="container">
+        <h2 class="reveal">Tutto cio di cui hai bisogno, in un'unica dashboard</h2>
+        <p class="reveal reveal-d1">Tieni traccia dei ricavi, delle performance del team e della segmentazione clienti da un'unica schermata.</p>
+        <div class="dashboard-mockup reveal reveal-d2">
+            <div class="mock-topbar"><div class="mock-topbar-left"><div style="display:flex;gap:6px;"><div class="mock-dot" style="background:#ef4444"></div><div class="mock-dot" style="background:#f59e0b"></div><div class="mock-dot" style="background:#22c55e"></div></div><div class="mock-tabs"><div class="mock-tab active">Dashboard</div><div class="mock-tab">Ricavi</div><div class="mock-tab">Team</div><div class="mock-tab">Clienti</div></div></div></div>
+            <div class="mock-grid">
+                <div class="mock-left-stats">
+                    <div class="mock-stat-card"><div class="mock-stat-label">Ricavi settimanali</div><div class="mock-stat-value" style="color:var(--white)">&#8364; 24.580</div><div class="mock-stat-change up">&#8593; 12.4% vs settimana precedente</div></div>
+                    <div class="mock-stat-card"><div class="mock-stat-label">Clienti nuovi</div><div class="mock-stat-value" style="color:var(--white)">47</div><div class="mock-stat-change up">&#8593; 8 rispetto alla scorsa settimana</div></div>
+                    <div class="mock-stat-card"><div class="mock-stat-label">Servizio top</div><div class="mock-stat-value" style="color:var(--blue-light);font-size:1.2rem;">Chirurgia ortopedica</div><div class="mock-stat-change up">&#8364; 8.200 — margine 62%</div></div>
+                </div>
+                <div class="mock-chart"><div class="mock-chart-title">Ricavi per centro — ultimi 7 giorni</div><div class="mock-chart-bars" id="mockBars"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats-section" aria-label="Risultati in numeri">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="reveal reveal-d1"><div class="stat-value">&#8722;23%</div><div class="stat-label">Riduzione costi<br>operativi medi</div></div>
+            <div class="reveal reveal-d2"><div class="stat-value">4.2h</div><div class="stat-label">Risparmiate a settimana<br>in gestione admin</div></div>
+            <div class="reveal reveal-d3"><div class="stat-value">+31%</div><div class="stat-label">Aumento clienti<br>nei primi 6 mesi</div></div>
+            <div class="reveal reveal-d4"><div class="stat-value">24/7</div><div class="stat-label">Monitoraggio<br>sempre attivo</div></div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial-section" aria-label="Testimonianza">
+    <div class="container">
+        <h2 class="reveal">Cosa dicono i nostri clienti</h2>
+        <figure class="reveal reveal-d1">
+            <blockquote class="testimonial-quote">Da quando abbiamo attivato The Invisible Team, ho smesso di passare le domeniche sui fogli Excel. I numeri li conosce gia l'Agente Controller, i turni li gestisce l'Agente HR, e il marketing finalmente ha una strategia grazie all'Agente Analista.</blockquote>
+            <figcaption><p class="testimonial-author">Dott.ssa Elena Marchetti</p><p class="testimonial-role">Direttrice — Clinica Veterinaria San Marco, Milano</p></figcaption>
+        </figure>
+    </div>
+</section>
+
+<section class="faq-section" id="faq">
+    <div class="container">
+        <div class="faq-layout reveal">
+            <div class="faq-left"><h2>Hai domande? Scopri le risposte ai tuoi dubbi piu frequenti.</h2><p>Trova risposte rapide alle domande piu frequenti su come funzionano i nostri tre Agenti AI per cliniche veterinarie.</p></div>
+            <div class="faq-list">
+                <div class="faq-item"><button class="faq-question" aria-expanded="false">Come si collegano gli Agenti AI al mio gestionale?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Supportiamo i principali gestionali veterinari. Basta fornirci le credenziali di accesso in sola lettura e i nostri agenti iniziano ad analizzare i dati automaticamente.</p></div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false">I miei dati sono al sicuro?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Assolutamente. I dati sono crittografati end-to-end, accessibili in sola lettura e non vengono mai condivisi con terze parti. Rispettiamo il GDPR.</p></div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false">Quanto costa il servizio?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Molto meno di un singolo stipendio manageriale. I piani partono da un costo mensile fisso, trasparente e senza vincoli di durata.</p></div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false">Quanto tempo serve per vedere i primi risultati?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Entro 48 ore dalla connessione ricevi il primo report. Dopo 2-3 settimane gli agenti hanno calibrato completamente il contesto della tua clinica.</p></div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false">Posso usare solo uno dei tre Agenti?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Il team e progettato per lavorare in sinergia, ma puoi attivare anche un singolo agente. I risultati migliori si ottengono con tutti e tre operativi.</p></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="cta" aria-labelledby="cta-heading">
+    <div class="container">
+        <h2 class="reveal" id="cta-heading">Pronto ad assumere il tuo<br>team invisibile?</h2>
+        <p class="reveal reveal-d1">Accesso anticipato per cliniche veterinarie selezionate. Posti limitati per garantire un onboarding dedicato.</p>
+        <form class="cta-form reveal reveal-d2" onsubmit="handleSubmit(event)" novalidate>
+            <div class="form-field"><label for="cta-email">Email professionale</label><input type="email" id="cta-email" placeholder="La tua email professionale" required autocomplete="email"></div>
+            <button type="submit">Richiedi <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </form>
+        <p class="cta-note reveal reveal-d3">Nessun impegno. Ti contatteremo entro 24 ore.</p>
+    </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand"><h3><svg width="20" height="20" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#3b82f6" stroke-width="1.5"/><circle cx="16" cy="16" r="2" fill="#60a5fa"/></svg> The Invisible Team</h3><p>Gestisci, monitora e fai crescere la tua clinica veterinaria con tre Agenti AI dedicati. Progettato per veterinari, dai singoli studi alle cliniche strutturate.</p></div>
+            <div class="footer-col"><h4>Prodotto</h4><ul><li><a href="#agents">Agenti AI</a></li><li><a href="#how">Come funziona</a></li><li><a href="#features">Funzionalita</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+            <div class="footer-col"><h4>Azienda</h4><ul><li><a href="#">Chi siamo</a></li><li><a href="#">Contatti</a></li><li><a href="#">Privacy</a></li><li><a href="#">Termini</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 The Invisible Team. Tutti i diritti riservati.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    var navEl = document.getElementById('nav');
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                navEl.classList.toggle('scrolled', window.scrollY > 50);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = btn.parentElement;
+            var isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(function(i) {
+                i.classList.remove('open');
+                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    var barHeights = [55, 80, 45, 90, 65, 75, 50, 85, 40, 70, 60, 95, 50];
+    var barColors = ['#3b82f6', '#60a5fa', '#2563eb', '#7c3aed', '#3b82f6', '#60a5fa', '#2563eb', '#3b82f6', '#7c3aed', '#60a5fa', '#3b82f6', '#2563eb', '#60a5fa'];
+    var barsContainer = document.getElementById('mockBars');
+    if (barsContainer) {
+        barHeights.forEach(function(h, i) {
+            var bar = document.createElement('div');
+            bar.className = 'mock-bar';
+            bar.style.height = h + '%';
+            bar.style.background = 'linear-gradient(to top, ' + barColors[i] + ', ' + barColors[i] + '88)';
+            barsContainer.appendChild(bar);
+        });
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        var input = e.target.querySelector('input');
+        var btn = e.target.querySelector('button');
+        if (!input.value || !input.validity.valid) { input.focus(); return; }
+        btn.disabled = true;
+        btn.textContent = 'Invio...';
+        setTimeout(function() {
+            btn.textContent = 'Inviato';
+            btn.style.background = '#10b981';
+            btn.style.borderColor = '#10b981';
+            input.disabled = true;
+            setTimeout(function() {
+                btn.textContent = 'Richiedi';
+                btn.style.background = '';
+                btn.style.borderColor = '';
+                btn.disabled = false;
+                input.disabled = false;
+                input.value = '';
+            }, 3000);
+        }, 800);
+    }
+</script>
+
+</body>
+</html>
