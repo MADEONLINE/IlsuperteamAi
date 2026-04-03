@@ -227,48 +227,57 @@
         .value-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .value-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; line-height: 1.7; }
 
-        .agents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        /* ── Agent splits ── */
+        .agent-splits { display: flex; flex-direction: column; }
+        .agent-split {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+            align-items: center; padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .agent-split:last-child { border-bottom: none; }
+        .agent-split:nth-child(even) .agent-visual { order: 2; }
+        .agent-split:nth-child(even) .agent-content { order: 1; }
 
-        .agent-card {
+        .agent-visual {
+            border-radius: var(--radius); overflow: hidden;
             background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius); padding: 2.5rem 2rem;
-            position: relative; overflow: hidden; transition: all 0.3s ease;
+            min-height: 300px; display: flex; align-items: center; justify-content: center;
         }
-        .agent-card:hover { border-color: var(--border-blue); transform: translateY(-4px); }
-        .agent-card::after {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: var(--gradient-card); pointer-events: none;
-            opacity: 0; transition: opacity 0.3s;
+        .agent-visual img { width: 100%; height: auto; display: block; }
+        .agent-visual-placeholder {
+            text-align: center; padding: 2rem; color: var(--gray-500);
         }
-        .agent-card:hover::after { opacity: 1; }
-
-        .agent-card-icon {
-            width: 52px; height: 52px; border-radius: 14px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.15);
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.5rem; position: relative; z-index: 1;
+        .agent-visual-placeholder svg {
+            width: 64px; height: 64px; stroke: var(--blue-light); stroke-width: 1;
+            fill: none; stroke-linecap: round; stroke-linejoin: round;
+            margin-bottom: 1rem; opacity: 0.4;
         }
-        .agent-card-icon svg {
-            width: 24px; height: 24px; stroke: var(--blue-light);
-            stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round;
+        .agent-visual-placeholder span {
+            display: block; font-size: 0.7rem; letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        .agent-card-badge {
-            display: inline-flex; font-size: 0.65rem; font-weight: 600;
-            color: var(--blue-light); background: rgba(59, 130, 246, 0.1);
-            padding: 0.25rem 0.7rem; border-radius: var(--radius-pill);
-            letter-spacing: 0.05em; text-transform: uppercase;
-            margin-bottom: 1rem; position: relative; z-index: 1;
+        .agent-label {
+            font-family: 'SF Mono', 'Courier New', monospace;
+            font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--blue-light); display: block; margin-bottom: 0.8rem;
         }
-
-        .agent-card h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.3rem; letter-spacing: -0.01em; position: relative; z-index: 1; }
-        .agent-card-subtitle { font-size: 0.75rem; font-weight: 500; color: var(--blue-light); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; position: relative; z-index: 1; }
-        .agent-card p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.7; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-
-        .agent-card ul { list-style: none; position: relative; z-index: 1; }
-        .agent-card ul li { font-size: 0.85rem; color: var(--gray-300); padding: 0.45rem 0; display: flex; align-items: center; gap: 0.6rem; }
-        .agent-card ul li svg { width: 16px; height: 16px; stroke: var(--blue); stroke-width: 2; fill: none; flex-shrink: 0; }
+        .agent-content h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+        .agent-content .agent-subtitle {
+            font-size: 0.7rem; font-weight: 500; color: var(--blue-light);
+            text-transform: uppercase; letter-spacing: 0.1em;
+            display: block; margin-bottom: 1.2rem;
+        }
+        .agent-content p { font-size: 0.9rem; color: var(--gray-400); line-height: 1.7; margin-bottom: 1.5rem; }
+        .agent-content ul { list-style: none; margin-bottom: 1.5rem; }
+        .agent-content ul li {
+            font-size: 0.85rem; color: var(--gray-300); padding: 0.45rem 0;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .agent-content ul li svg {
+            width: 16px; height: 16px; stroke: var(--blue); stroke-width: 2;
+            fill: none; flex-shrink: 0;
+        }
 
         /* ── How it works ── */
         .how-section { padding: 6rem 0; }
@@ -434,7 +443,9 @@
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
-            .agents-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .agent-split { grid-template-columns: 1fr; gap: 2rem; }
+            .agent-split:nth-child(even) .agent-visual { order: 0; }
+            .agent-split:nth-child(even) .agent-content { order: 0; }
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: 1fr 1fr; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -503,48 +514,74 @@
             <h2>Tre Agenti AI. Zero assunzioni.<br>Risultati dalla prima settimana.</h2>
             <p>La tua clinica veterinaria ha bisogno di un team manageriale, ma non ha il budget per tre figure senior. Noi ti offriamo tre Agenti AI che lavorano 24/7 e costano meno di un singolo stipendio.</p>
         </div>
-        <div class="agents-grid">
-            <article class="agent-card reveal reveal-d1">
-                <div class="agent-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 21H4.6c-.6 0-.9 0-1.1-.1a1 1 0 0 1-.4-.4C3 20.3 3 20 3 19.4V3"/><path d="m7 14 4-4 4 4 6-6"/></svg></div>
-                <div class="agent-card-badge">Agente AI 01</div>
-                <h3>Il Controller</h3>
-                <div class="agent-card-subtitle">Controller Finanziario</div>
-                <p>Ogni settimana analizza i principali centri di ricavo della tua clinica e ti consegna un report strutturato, chiaro e azionabile.</p>
-                <ul>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi settimanale dei centri di ricavo</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Report strutturato con trend e variazioni</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione servizi piu e meno redditizi</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Confronto performance settimana su settimana</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segnalazione anomalie e opportunita di margine</li>
-                </ul>
+        <div class="agent-splits">
+            <article class="agent-split reveal">
+                <div class="agent-visual">
+                    <div class="agent-visual-placeholder">
+                        <svg viewBox="0 0 24 24"><path d="M21 21H4.6c-.6 0-.9 0-1.1-.1a1 1 0 0 1-.4-.4C3 20.3 3 20 3 19.4V3"/><path d="m7 14 4-4 4 4 6-6"/></svg>
+                        <span>Dashboard Controller</span>
+                    </div>
+                </div>
+                <div class="agent-content">
+                    <span class="agent-label">Agente 01</span>
+                    <h3>Il Controller</h3>
+                    <span class="agent-subtitle">Controller Finanziario</span>
+                    <p>Ogni settimana analizza i principali centri di ricavo della tua clinica e ti consegna un report strutturato, chiaro e azionabile.</p>
+                    <ul>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi settimanale dei centri di ricavo</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Report strutturato con trend e variazioni</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione servizi piu e meno redditizi</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Confronto performance settimana su settimana</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segnalazione anomalie e opportunita di margine</li>
+                    </ul>
+                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
+                </div>
             </article>
-            <article class="agent-card reveal reveal-d2">
-                <div class="agent-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div class="agent-card-badge">Agente AI 02</div>
-                <h3>Il Direttore</h3>
-                <div class="agent-card-subtitle">Risorse Umane</div>
-                <p>Analizza le performance di vendita dei servizi di ogni singolo veterinario, trasformando i dati di attivita in insight concreti sul team.</p>
-                <ul>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Performance di vendita servizi per veterinario</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Ranking settimanale delle attivita svolte</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi produttivita individuale e di team</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Trend di performance nel tempo</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Suggerimenti per bilanciare i carichi di lavoro</li>
-                </ul>
+
+            <article class="agent-split reveal">
+                <div class="agent-visual">
+                    <div class="agent-visual-placeholder">
+                        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span>Dashboard Direttore</span>
+                    </div>
+                </div>
+                <div class="agent-content">
+                    <span class="agent-label">Agente 02</span>
+                    <h3>Il Direttore</h3>
+                    <span class="agent-subtitle">Risorse Umane</span>
+                    <p>Analizza le performance di vendita dei servizi di ogni singolo veterinario, trasformando i dati di attivita in insight concreti sul team.</p>
+                    <ul>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Performance di vendita servizi per veterinario</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Ranking settimanale delle attivita svolte</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi produttivita individuale e di team</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Trend di performance nel tempo</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Suggerimenti per bilanciare i carichi di lavoro</li>
+                    </ul>
+                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
+                </div>
             </article>
-            <article class="agent-card reveal reveal-d3">
-                <div class="agent-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
-                <div class="agent-card-badge">Agente AI 03</div>
-                <h3>L'Analista</h3>
-                <div class="agent-card-subtitle">Marketing & Segmentazione</div>
-                <p>Ogni settimana analizza le tipologie di clienti serviti, li segmenta in categorie e ti mostra come evolve la composizione della tua clientela.</p>
-                <ul>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Mappatura settimanale delle tipologie di clienti</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segmentazione automatica in cluster comportamentali</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi evoluzione dei segmenti nel tempo</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione segmenti ad alto valore</li>
-                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Insight per campagne mirate per segmento</li>
-                </ul>
+
+            <article class="agent-split reveal">
+                <div class="agent-visual">
+                    <div class="agent-visual-placeholder">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                        <span>Dashboard Analista</span>
+                    </div>
+                </div>
+                <div class="agent-content">
+                    <span class="agent-label">Agente 03</span>
+                    <h3>L'Analista</h3>
+                    <span class="agent-subtitle">Marketing & Segmentazione</span>
+                    <p>Ogni settimana analizza le tipologie di clienti serviti, li segmenta in categorie e ti mostra come evolve la composizione della tua clientela.</p>
+                    <ul>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Mappatura settimanale delle tipologie di clienti</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segmentazione automatica in cluster comportamentali</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi evoluzione dei segmenti nel tempo</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione segmenti ad alto valore</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Insight per campagne mirate per segmento</li>
+                    </ul>
+                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
+                </div>
             </article>
         </div>
     </div>
