@@ -240,8 +240,8 @@
 
         .agent-visual {
             border-radius: var(--radius); overflow: hidden;
-            background: var(--bg-card); border: 1px solid var(--border);
             min-height: 300px; display: flex; align-items: center; justify-content: center;
+            background: var(--bg);
         }
         .agent-visual img { width: 100%; height: auto; display: block; }
         .agent-visual-placeholder {
@@ -262,6 +262,11 @@
             font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
             color: var(--blue-light); display: block; margin-bottom: 0.8rem;
         }
+        .agent-freq {
+            font-family: 'SF Mono', 'Courier New', monospace;
+            font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--gray-500); display: block; margin-bottom: 0.5rem;
+        }
         .agent-content h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
         .agent-content .agent-subtitle {
             font-size: 0.7rem; font-weight: 500; color: var(--blue-light);
@@ -278,6 +283,24 @@
             width: 16px; height: 16px; stroke: var(--blue); stroke-width: 2;
             fill: none; flex-shrink: 0;
         }
+
+        /* ── Pain points ── */
+        .pain-section { padding: 6rem 0; border-top: 1px solid var(--border); }
+        .pain-header { text-align: center; margin-bottom: 3rem; }
+        .pain-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .pain-header em { font-style: italic; color: var(--blue-light); }
+        .pain-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+        .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .pain-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 2rem;
+            transition: border-color 0.3s;
+        }
+        .pain-card:hover { border-color: var(--border-blue); }
+        .pain-icon { width: 48px; height: 48px; margin-bottom: 1.2rem; }
+        .pain-icon svg { width: 48px; height: 48px; stroke: var(--blue-light); opacity: 0.7; }
+        .pain-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
+        .pain-card p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.6; }
 
         /* ── How it works ── */
         .how-section { padding: 6rem 0; }
@@ -398,22 +421,55 @@
         .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 1.2rem; }
         .faq-answer p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.7; }
 
+        /* ── Pricing ── */
+        .pricing-section { padding: 6rem 0; border-top: 1px solid var(--border); }
+        .pricing-header { text-align: center; margin-bottom: 3rem; }
+        .pricing-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .pricing-header p { font-size: 1rem; color: var(--gray-400); max-width: 650px; margin: 0 auto; line-height: 1.7; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .pricing-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 2.5rem 2rem;
+            display: flex; flex-direction: column; position: relative;
+        }
+        .pricing-card--featured { border-color: var(--border-blue); background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(124, 58, 237, 0.05) 100%); }
+        .pricing-badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            font-family: 'SF Mono', 'Courier New', monospace;
+            font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+            background: var(--blue); color: var(--white);
+            padding: 0.3rem 1rem; border-radius: var(--radius-pill);
+        }
+        .pricing-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .pricing-desc { font-size: 0.85rem; color: var(--gray-400); line-height: 1.5; margin-bottom: 1.5rem; }
+        .pricing-price { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .pricing-price span { font-size: 0.9rem; font-weight: 400; color: var(--gray-400); }
+        .pricing-annual { font-size: 0.78rem; color: var(--gray-500); margin-bottom: 1.5rem; }
+        .pricing-card ul { list-style: none; margin-bottom: 2rem; flex: 1; }
+        .pricing-card ul li {
+            font-size: 0.85rem; color: var(--gray-300); padding: 0.4rem 0;
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .pricing-card ul li svg { width: 16px; height: 16px; stroke: var(--blue); stroke-width: 2; fill: none; flex-shrink: 0; }
+
         /* ── CTA ── */
         .cta-section { padding: 6rem 0; text-align: center; position: relative; }
         .cta-section::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(59, 130, 246, 0.1) 0%, transparent 70%); pointer-events: none; }
         .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .cta-section > p { font-size: 1rem; color: var(--gray-400); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.6; }
 
-        .cta-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
-        .cta-form .form-field { flex: 1; position: relative; }
-        .cta-form label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-        .cta-form input { width: 100%; padding: 0.9rem 1.2rem; font-family: var(--font-sans); font-size: 0.9rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-pill) 0 0 var(--radius-pill); color: var(--white); outline: none; min-height: 48px; transition: border-color 0.2s; }
-        .cta-form input::placeholder { color: var(--gray-500); }
-        .cta-form input:focus { border-color: var(--blue); }
-        .cta-form button { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500; color: var(--white); background: var(--blue); border: 1px solid var(--blue); border-radius: 0 var(--radius-pill) var(--radius-pill) 0; padding: 0.9rem 1.8rem; cursor: pointer; white-space: nowrap; min-height: 48px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 0.4rem; }
-        .cta-form button:hover { background: var(--blue-dark); }
-        .cta-form button:disabled { opacity: 0.5; cursor: not-allowed; }
-        .cta-form button svg { width: 16px; height: 16px; }
+        /* ── CTA Form detailed ── */
+        .cta-form-detailed { max-width: 540px; margin: 0 auto; }
+        .cta-form-detailed .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 0.8rem; }
+        .cta-form-detailed .form-field { position: relative; }
+        .cta-form-detailed label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        .cta-form-detailed input {
+            width: 100%; padding: 0.85rem 1.2rem; font-family: var(--font-sans); font-size: 0.9rem;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm);
+            color: var(--white); outline: none; min-height: 48px; transition: border-color 0.2s;
+        }
+        .cta-form-detailed input::placeholder { color: var(--gray-500); }
+        .cta-form-detailed input:focus { border-color: var(--blue); }
         .cta-note { font-size: 0.78rem; color: var(--gray-500); margin-top: 1rem; }
 
         /* ── Footer ── */
@@ -449,6 +505,8 @@
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
             .features-grid { grid-template-columns: 1fr 1fr; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .pain-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
             .faq-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem; }
             .footer-grid { grid-template-columns: 1fr; }
             .mock-grid { grid-template-columns: 1fr; }
@@ -460,9 +518,7 @@
             .features-grid { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr; }
             .hero-actions { flex-direction: column; }
-            .cta-form { flex-direction: column; }
-            .cta-form input { border-radius: var(--radius-pill); margin-bottom: 0.5rem; }
-            .cta-form button { border-radius: var(--radius-pill); justify-content: center; }
+            .cta-form-detailed .form-row { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
             .faq-layout { padding: 1.5rem; }
         }
@@ -481,7 +537,7 @@
         <ul class="nav-links">
             <li><a href="#agents">Agenti</a></li>
             <li><a href="#how">Come funziona</a></li>
-            <li><a href="#features">Funzionalita</a></li>
+            <li><a href="#pricing">Prezzi</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
         <a href="#cta" class="btn-dot btn-dot--nav">Richiedi accesso <span class="dot-accent" aria-hidden="true"></span></a>
@@ -493,8 +549,8 @@
 <section class="hero" aria-labelledby="hero-heading">
     <canvas id="hero-particles" aria-hidden="true"></canvas>
     <div class="hero-badge"><span class="dot" aria-hidden="true"></span> Intelligenza artificiale per cliniche veterinarie</div>
-    <h1 id="hero-heading">Il tuo team manageriale<br><span class="accent">invisibile e instancabile</span></h1>
-    <p class="hero-sub">Gestisci, monitora e fai crescere la tua clinica veterinaria con tre Agenti AI dedicati. Che tu stia analizzando i ricavi, valutando il team o segmentando i clienti, abbiamo la soluzione.</p>
+    <h1 id="hero-heading">La tua clinica ha già tutti i dati.<br><span class="accent">Mancano le decisioni.</span></h1>
+    <p class="hero-sub">Tre agenti AI leggono il tuo gestionale ogni settimana e ti consegnano report pronti, analisi concrete e azioni immediate. Automaticamente.</p>
     <div class="hero-actions">
         <a href="#cta" class="btn-dot">Inizia ora <span class="dot-accent" aria-hidden="true"></span></a>
         <div class="social-proof">
@@ -505,34 +561,32 @@
 </section>
 
 <section class="logo-strip" aria-label="Integrazioni compatibili">
-    <div class="container"><div class="logo-strip-inner"><span>Snoots PMS</span><span>Keystone</span><span>Fenice</span><span>Winvet</span><span>Veterinario Pro</span><span>EasyVet</span></div></div>
+    <div class="container"><div class="logo-strip-inner"><span>Integrato con Snoots via MCP</span><span>·</span><span>Partner ufficiale</span></div></div>
 </section>
 
 <section class="value-section" id="agents">
     <div class="container">
         <div class="value-header reveal">
-            <h2>Tre Agenti AI. Zero assunzioni.<br>Risultati dalla prima settimana.</h2>
-            <p>La tua clinica veterinaria ha bisogno di un team manageriale, ma non ha il budget per tre figure senior. Noi ti offriamo tre Agenti AI che lavorano 24/7 e costano meno di un singolo stipendio.</p>
+            <h2>Un sistema completo.<br>Tre professionisti digitali.</h2>
+            <p>Sono le tre figure professionali che ogni clinica dovrebbe avere — e che nessuna sotto i 2 milioni di fatturato può permettersi. Arrivano via email, lavorano sui tuoi dati reali, ogni settimana.</p>
         </div>
         <div class="agent-splits">
             <article class="agent-split reveal">
                 <div class="agent-visual">
-                    <div class="agent-visual-placeholder">
-                        <svg viewBox="0 0 24 24"><path d="M21 21H4.6c-.6 0-.9 0-1.1-.1a1 1 0 0 1-.4-.4C3 20.3 3 20 3 19.4V3"/><path d="m7 14 4-4 4 4 6-6"/></svg>
-                        <span>Dashboard Controller</span>
-                    </div>
+                    <img src="images/1.png" alt="Il Controller Finanziario — Agente AI per analisi finanziaria settimanale" loading="lazy">
                 </div>
                 <div class="agent-content">
                     <span class="agent-label">Agente 01</span>
-                    <h3>Il Controller</h3>
-                    <span class="agent-subtitle">Controller Finanziario</span>
-                    <p>Ogni settimana analizza i principali centri di ricavo della tua clinica e ti consegna un report strutturato, chiaro e azionabile.</p>
+                    <span class="agent-freq">Ogni lunedì · 7:30</span>
+                    <h3>Il Controller Finanziario</h3>
+                    <span class="agent-subtitle">Il CFO che non hai mai potuto assumere</span>
+                    <p>Le cliniche sotto i 2 milioni non hanno un controller finanziario. Il Controller legge il tuo gestionale ogni lunedì mattina e ti consegna: fatturato, centri di ricavo, ticket medio, andamento giornaliero, variazioni rispetto alla settimana prima. Con una nota di coaching basata sui tuoi numeri reali.</p>
                     <ul>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi settimanale dei centri di ricavo</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Report strutturato con trend e variazioni</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione servizi piu e meno redditizi</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Fotografia finanziaria completa — prima che inizi la settimana</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Alert automatici su variazioni significative</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Coaching note settimanale — criticità e opportunità</li>
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Confronto performance settimana su settimana</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segnalazione anomalie e opportunita di margine</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segnalazione anomalie e opportunità di margine</li>
                     </ul>
                     <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
                 </div>
@@ -540,49 +594,71 @@
 
             <article class="agent-split reveal">
                 <div class="agent-visual">
-                    <div class="agent-visual-placeholder">
-                        <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        <span>Dashboard Direttore</span>
-                    </div>
+                    <img src="images/3.png" alt="Il Marketing Analyst — Agente AI per analisi clientela settimanale" loading="lazy">
                 </div>
                 <div class="agent-content">
                     <span class="agent-label">Agente 02</span>
-                    <h3>Il Direttore</h3>
-                    <span class="agent-subtitle">Risorse Umane</span>
-                    <p>Analizza le performance di vendita dei servizi di ogni singolo veterinario, trasformando i dati di attivita in insight concreti sul team.</p>
+                    <span class="agent-freq">Ogni venerdì · 9:00</span>
+                    <h3>Il Marketing Analyst</h3>
+                    <span class="agent-subtitle">Il CRM manager che solo le grandi catene hanno</span>
+                    <p>Tu conosci i tuoi clienti per nome — ma non conosci i pattern. Quanti nuovi sono arrivati questa settimana? Quanti sono tornati dopo mesi? Quanti sono venuti una volta e non si sono più fatti vivi? Il Marketing Analyst analizza la clientela ogni settimana — e nella tua clinica non è mai esistito. Fino ad ora.</p>
                     <ul>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Performance di vendita servizi per veterinario</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Ranking settimanale delle attivita svolte</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi produttivita individuale e di team</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Trend di performance nel tempo</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Suggerimenti per bilanciare i carichi di lavoro</li>
-                    </ul>
-                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
-                </div>
-            </article>
-
-            <article class="agent-split reveal">
-                <div class="agent-visual">
-                    <div class="agent-visual-placeholder">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                        <span>Dashboard Analista</span>
-                    </div>
-                </div>
-                <div class="agent-content">
-                    <span class="agent-label">Agente 03</span>
-                    <h3>L'Analista</h3>
-                    <span class="agent-subtitle">Marketing & Segmentazione</span>
-                    <p>Ogni settimana analizza le tipologie di clienti serviti, li segmenta in categorie e ti mostra come evolve la composizione della tua clientela.</p>
-                    <ul>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Mappatura settimanale delle tipologie di clienti</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segmentazione automatica in cluster comportamentali</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi evoluzione dei segmenti nel tempo</li>
-                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Identificazione segmenti ad alto valore</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segmentazione clienti: nuovi, fedeli, recuperati, a rischio</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Pattern di acquisizione e abbandono invisibili al fatturato</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>La mappa della tua clientela — aggiornata ogni venerdì</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Trend di composizione della clientela nel tempo</li>
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Insight per campagne mirate per segmento</li>
                     </ul>
                     <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
                 </div>
             </article>
+
+            <article class="agent-split reveal">
+                <div class="agent-visual">
+                    <img src="images/2.png" alt="Il Performance Coach — Agente AI per gestione performance team" loading="lazy">
+                </div>
+                <div class="agent-content">
+                    <span class="agent-label">Agente 03</span>
+                    <span class="agent-freq">Ogni venerdì · 12:00</span>
+                    <h3>Il Performance Coach</h3>
+                    <span class="agent-subtitle">L'HR manager che non hai mai potuto assumere</span>
+                    <p>Tu percepisci chi lavora bene e chi no — ma ti basi su impressioni, non su dati. Il Performance Coach ogni venerdì ti dà la scheda di ogni persona con numeri reali, stato oggettivo e un'azione concreta. Sai esattamente con chi parlare e cosa dire — basandoti su fatti, non su sensazioni.</p>
+                    <ul>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Scheda individuale: fatturato, trend, stato IN CRESCITA / STABILE / ATTENZIONE</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Un'azione operativa concreta per ogni collaboratore</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Il coraggio di avere conversazioni difficili — con i numeri dalla tua parte</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Ranking settimanale delle attività svolte</li>
+                        <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi produttività individuale e di team</li>
+                    </ul>
+                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="pain-section">
+    <div class="container">
+        <div class="pain-header reveal">
+            <h2>Gestire bene la clinica richiede dati. <em>Ogni settimana.</em></h2>
+            <p>I dati esistono. Sono nel tuo gestionale. Il problema è che nessuno li trasforma in decisioni per te.</p>
+        </div>
+        <div class="pain-grid">
+            <div class="pain-card reveal reveal-d1">
+                <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                <h3>Non c'è tempo per cercarli</h3>
+                <p>Filtrare, esportare, calcolare, confrontare. Ogni analisi richiede tempo che non hai. Così si rimanda. Sempre.</p>
+            </div>
+            <div class="pain-card reveal reveal-d2">
+                <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+                <h3>Il dato senza contesto è muto</h3>
+                <p>Un numero isolato non dice niente. Serve il confronto con la settimana prima, con la media, con gli altri reparti.</p>
+            </div>
+            <div class="pain-card reveal reveal-d3">
+                <div class="pain-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11v-1a4 4 0 0 0-4-4"/></svg></div>
+                <h3>Il team si valuta a sensazione</h3>
+                <p>Chi genera davvero valore questa settimana? Lo intuisci, ma non hai i numeri precisi per agire in modo mirato.</p>
+            </div>
         </div>
     </div>
 </section>
@@ -652,9 +728,58 @@
     <div class="container">
         <h2 class="reveal">Cosa dicono i nostri clienti</h2>
         <figure class="reveal reveal-d1">
-            <blockquote class="testimonial-quote">Da quando abbiamo attivato The Invisible Team, ho smesso di passare le domeniche sui fogli Excel. I numeri li conosce gia l'Agente Controller, i turni li gestisce l'Agente HR, e il marketing finalmente ha una strategia grazie all'Agente Analista.</blockquote>
+            <blockquote class="testimonial-quote">Da quando abbiamo attivato The Invisible Team, ho smesso di passare le domeniche sui fogli Excel. I numeri li conosce già il Controller Finanziario, la clientela la mappa il Marketing Analyst, e il team lo gestisce il Performance Coach.</blockquote>
             <figcaption><p class="testimonial-author">Dott.ssa Elena Marchetti</p><p class="testimonial-role">Direttrice — Clinica Veterinaria San Marco, Milano</p></figcaption>
         </figure>
+    </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+    <div class="container">
+        <div class="pricing-header reveal">
+            <h2>Semplice. Senza sorprese.</h2>
+            <p>Ogni agente ti restituisce ore di analisi che non devi più fare — consegnate automaticamente. Il prezzo è volutamente ben al di sotto del valore generato.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card reveal reveal-d1">
+                <h3>Singolo Agente</h3>
+                <p class="pricing-desc">Scegli uno dei tre. Puoi aggiungere gli altri in qualsiasi momento.</p>
+                <div class="pricing-price">&euro;39 <span>/ mese</span></div>
+                <ul>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>1 agente a scelta</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Report settimanale automatico</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Connessione nativa Snoots MCP</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Alert su variazioni significative</li>
+                </ul>
+                <a href="#cta" class="btn-dot btn-dot--sm">Inizia gratis <span class="dot-accent" aria-hidden="true"></span></a>
+            </div>
+            <div class="pricing-card pricing-card--featured reveal reveal-d2">
+                <div class="pricing-badge">Più scelto</div>
+                <h3>Suite Completa</h3>
+                <p class="pricing-desc">Tutti e tre gli agenti. Il sistema di gestione completo.</p>
+                <div class="pricing-price">&euro;89 <span>/ mese</span></div>
+                <p class="pricing-annual">oppure &euro;890/anno (2 mesi omaggio)</p>
+                <ul>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Controller + Marketing Analyst + Performance Coach</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>3 report automatici ogni settimana</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Alert e coaching note settimanali</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Connessione nativa Snoots MCP</li>
+                </ul>
+                <a href="#cta" class="btn-dot btn-dot--sm">Inizia gratis <span class="dot-accent" aria-hidden="true"></span></a>
+            </div>
+            <div class="pricing-card reveal reveal-d3">
+                <h3>Trial Gratuito</h3>
+                <p class="pricing-desc">Il Controller Finanziario gratis per 3 mesi. Nessuna carta di credito.</p>
+                <div class="pricing-price">&euro;0 <span>per 3 mesi</span></div>
+                <ul>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Il Controller Finanziario attivo per 12 settimane</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Report finanziario ogni lunedì 7:30</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Nessun obbligo alla scadenza</li>
+                    <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Converti alla suite quando vuoi</li>
+                </ul>
+                <a href="#cta" class="btn-dot btn-dot--sm">Attiva gratis <span class="dot-accent" aria-hidden="true"></span></a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -675,13 +800,20 @@
 
 <section class="cta-section" id="cta" aria-labelledby="cta-heading">
     <div class="container">
-        <h2 class="reveal" id="cta-heading">Pronto ad assumere il tuo<br>team invisibile?</h2>
-        <p class="reveal reveal-d1">Accesso anticipato per cliniche veterinarie selezionate. Posti limitati per garantire un onboarding dedicato.</p>
-        <form class="cta-form reveal reveal-d2" onsubmit="handleSubmit(event)" novalidate>
-            <div class="form-field"><label for="cta-email">Email professionale</label><input type="email" id="cta-email" placeholder="La tua email professionale" required autocomplete="email"></div>
-            <button type="submit">Richiedi <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        <h2 class="reveal" id="cta-heading">Il Controller Finanziario.<br><em style="color:var(--blue-light)">Gratis per 3 mesi.</em></h2>
+        <p class="reveal reveal-d1">Lascia i tuoi dati. Ti contattiamo entro 24 ore con le istruzioni per attivare il primo agente nel tuo gestionale.</p>
+        <form class="cta-form-detailed reveal reveal-d2" onsubmit="handleSubmit(event)" novalidate>
+            <div class="form-row">
+                <div class="form-field"><label for="cta-name">Nome</label><input type="text" id="cta-name" placeholder="Nome" required></div>
+                <div class="form-field"><label for="cta-surname">Cognome</label><input type="text" id="cta-surname" placeholder="Cognome" required></div>
+            </div>
+            <div class="form-row">
+                <div class="form-field"><label for="cta-email">Email professionale</label><input type="email" id="cta-email" placeholder="Email professionale" required autocomplete="email"></div>
+                <div class="form-field"><label for="cta-clinic">Nome della clinica</label><input type="text" id="cta-clinic" placeholder="Nome della clinica"></div>
+            </div>
+            <button type="submit" class="btn-dot" style="width:100%;justify-content:center;margin-top:0.5rem;">Richiedi l'accesso gratuito <span class="dot-accent" aria-hidden="true"></span></button>
         </form>
-        <p class="cta-note reveal reveal-d3">Nessun impegno. Ti contatteremo entro 24 ore.</p>
+        <p class="cta-note reveal reveal-d3">Nessuno spam · Dati non ceduti a terzi · Risposta entro 24h lavorative</p>
     </div>
 </section>
 
