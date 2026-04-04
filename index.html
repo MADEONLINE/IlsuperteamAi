@@ -236,6 +236,37 @@
         .btn-rainbow--nav { padding: 0.5rem 1.4rem; font-size: 0.78rem; min-height: 44px; border-radius: 10px; }
         .btn-rainbow--nav::before, .btn-rainbow--nav::after { border-radius: 12px; }
 
+        /* ── Shiny Button (cards/pricing) ── */
+        .btn-shiny {
+            display: inline-flex; align-items: center; justify-content: center;
+            position: relative; padding: 0.7rem 1.6rem; border-radius: 10px;
+            border: none; cursor: pointer; overflow: hidden;
+            font-family: var(--font-sans); font-size: 0.82rem; font-weight: 400;
+            letter-spacing: 0.01em; text-decoration: none; min-height: 42px;
+            background: linear-gradient(135deg, #170928, #1d0d33);
+            color: transparent; transition: transform 0.2s ease;
+        }
+        .btn-shiny::before {
+            content: ''; position: absolute; inset: 0; border-radius: 10px; padding: 1.5px;
+            background: linear-gradient(to bottom, #654358, #17092A, #2F0D64);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor; mask-composite: exclude;
+        }
+        .btn-shiny::after {
+            content: ''; position: absolute; inset: 1.5px; border-radius: 9px;
+            background: linear-gradient(135deg, rgba(199,135,246,0.08), transparent, rgba(42,23,54,0.3));
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .btn-shiny:hover::after { opacity: 1; }
+        .btn-shiny:hover { transform: translateY(-1px); }
+        .btn-shiny:active { transform: scale(0.97); }
+        .btn-shiny-text {
+            position: relative; z-index: 1;
+            background: linear-gradient(to bottom, #D69DDE, #B873F8);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; filter: drop-shadow(0 0 12px rgba(199,135,246,0.4));
+        }
+
         .social-proof { display: flex; align-items: center; gap: 0.8rem; }
 
         .avatar-stack { display: flex; }
@@ -254,15 +285,20 @@
         .social-proof-text strong { color: var(--white); font-weight: 600; }
 
         /* ── Logo strip ── */
-        .logo-strip { padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .logo-strip-inner { display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; opacity: 0.4; }
-        .logo-strip-inner span { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gray-400); }
+        .logo-strip { padding: 2.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: linear-gradient(90deg, rgba(34,197,94,0.03) 0%, rgba(59,130,246,0.03) 100%); }
+        .logo-strip-inner { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+        .logo-strip-inner .snoots-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #22c55e, #3b82f6); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .logo-strip-inner .snoots-logo-icon svg { width: 18px; height: 18px; stroke: white; stroke-width: 2; fill: none; }
+        .logo-strip-inner span { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); }
+        .logo-strip-inner .snoots-name { font-size: 1rem; font-weight: 700; color: #22c55e; letter-spacing: 0.02em; text-transform: none; }
+        .logo-strip-inner .snoots-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; border-radius: 100px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); font-size: 0.7rem; color: #22c55e; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+        .logo-strip-inner .snoots-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse-dot 2s infinite; }
 
         /* ── Value + Agent cards ── */
         .value-section { padding: 8rem 0; }
-        .value-header { margin-bottom: 3rem; }
+        .value-header { margin-bottom: 3rem; text-align: center; }
         .value-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .value-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; line-height: 1.7; }
+        .value-header p { font-size: 1rem; color: var(--gray-400); max-width: 700px; line-height: 1.7; margin: 0 auto; }
 
         /* ── Agent splits ── */
         .agent-splits { display: flex; flex-direction: column; }
@@ -455,6 +491,16 @@
         .feature-icon svg { width: 24px; height: 24px; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
         .feature-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
         .feature-item p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.6; }
+
+        /* Explore hint on feature cards */
+        .feature-explore {
+            display: flex; align-items: center; gap: 0.4rem;
+            margin-top: 1rem; font-size: 0.7rem; font-weight: 600; color: var(--gray-500);
+            transition: color 0.3s ease, gap 0.3s ease;
+        }
+        .feature-explore svg { width: 14px; height: 14px; stroke: currentColor; stroke-width: 2; fill: none; transition: transform 0.3s ease; }
+        .feature-item:hover .feature-explore { color: var(--blue-light); gap: 0.6rem; }
+        .feature-item:hover .feature-explore svg { transform: translateX(3px); }
 
         /* ── Snoots Integration ── */
         .snoots-section { padding: 8rem 0; border-top: 1px solid var(--border); position: relative; }
@@ -1122,7 +1168,7 @@
 </section>
 
 <section class="logo-strip" aria-label="Integrazioni compatibili">
-    <div class="container"><div class="logo-strip-inner"><span>Integrato con Snoots via MCP</span><span>·</span><span>Partner ufficiale</span></div></div>
+    <div class="container"><div class="logo-strip-inner"><div class="snoots-logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><span>Integrato con</span><span class="snoots-name">Snoots</span><span>via MCP</span><span class="snoots-badge"><span class="snoots-badge-dot" aria-hidden="true"></span>Partner ufficiale</span></div></div>
 </section>
 
 <section class="value-section" id="agents">
@@ -1149,7 +1195,7 @@
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Confronto performance settimana su settimana</li>
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Segnalazione anomalie e opportunità di margine</li>
                     </ul>
-                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
+                    <a href="#cta" class="btn-shiny"><span class="btn-shiny-text">Scopri di piu</span></a>
                 </div>
             </article>
 
@@ -1170,7 +1216,7 @@
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Trend di composizione della clientela nel tempo</li>
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Insight per campagne mirate per segmento</li>
                     </ul>
-                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
+                    <a href="#cta" class="btn-shiny"><span class="btn-shiny-text">Scopri di piu</span></a>
                 </div>
             </article>
 
@@ -1191,7 +1237,7 @@
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Ranking settimanale delle attività svolte</li>
                         <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Analisi produttività individuale e di team</li>
                     </ul>
-                    <a href="#cta" class="btn-dot btn-dot--sm">Scopri di piu <span class="dot-accent" aria-hidden="true"></span></a>
+                    <a href="#cta" class="btn-shiny"><span class="btn-shiny-text">Scopri di piu</span></a>
                 </div>
             </article>
         </div>
@@ -1246,12 +1292,12 @@
             <p>Scopri le funzionalita chiave progettate per semplificare, monitorare e ottimizzare la gestione veterinaria.</p>
         </div>
         <div class="features-grid">
-            <div class="feature-item reveal reveal-d1" data-feature="centri-ricavo"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Centri di ricavo</h3><p>Analisi automatica dei flussi economici divisi per servizio, reparto e periodo.</p></div>
-            <div class="feature-item reveal reveal-d2" data-feature="performance"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 8-4 4 4 4"/></svg></div><h3>Performance individuali</h3><p>Monitora la produttivita e le vendite di ogni veterinario con ranking settimanali.</p></div>
-            <div class="feature-item reveal reveal-d3" data-feature="report"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Report automatici</h3><p>Report settimanali generati automaticamente con insight e raccomandazioni operative.</p></div>
-            <div class="feature-item reveal reveal-d1" data-feature="segmentazione"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h3>Segmentazione clienti</h3><p>Identifica e classifica automaticamente le tipologie di clienti della tua clinica.</p></div>
-            <div class="feature-item reveal reveal-d2" data-feature="trend"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Trend in tempo reale</h3><p>Confronta i dati settimana su settimana per individuare trend e anomalie.</p></div>
-            <div class="feature-item reveal reveal-d3" data-feature="monitoraggio"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><h3>Monitoraggio 24/7</h3><p>I tre Agenti AI non dormono mai. Ricevi alert immediati su anomalie critiche.</p></div>
+            <div class="feature-item reveal reveal-d1" data-feature="centri-ricavo"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Centri di ricavo</h3><p>Analisi automatica dei flussi economici divisi per servizio, reparto e periodo.</p><div class="feature-explore">Esplora la dashboard <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+            <div class="feature-item reveal reveal-d2" data-feature="performance"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 8-4 4 4 4"/></svg></div><h3>Performance individuali</h3><p>Monitora la produttivita e le vendite di ogni veterinario con ranking settimanali.</p><div class="feature-explore">Esplora la dashboard <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+            <div class="feature-item reveal reveal-d3" data-feature="report"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Report automatici</h3><p>Report settimanali generati automaticamente con insight e raccomandazioni operative.</p><div class="feature-explore">Esplora la dashboard <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+            <div class="feature-item reveal reveal-d1" data-feature="segmentazione"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h3>Segmentazione clienti</h3><p>Identifica e classifica automaticamente le tipologie di clienti della tua clinica.</p><div class="feature-explore">Esplora la dashboard <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+            <div class="feature-item reveal reveal-d2" data-feature="trend"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Trend in tempo reale</h3><p>Confronta i dati settimana su settimana per individuare trend e anomalie.</p><div class="feature-explore">Esplora la dashboard <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
+            <div class="feature-item reveal reveal-d3" data-feature="monitoraggio"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><h3>Monitoraggio 24/7</h3><p>I tre Agenti AI non dormono mai. Ricevi alert immediati su anomalie critiche.</p><div class="feature-explore">Esplora la dashboard <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div></div>
         </div>
     </div>
 </section>
@@ -1502,7 +1548,7 @@
                     <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Connessione nativa Snoots MCP</li>
                     <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Alert su variazioni significative</li>
                 </ul>
-                <a href="#cta" class="btn-dot btn-dot--sm">Inizia gratis <span class="dot-accent" aria-hidden="true"></span></a>
+                <a href="#cta" class="btn-shiny"><span class="btn-shiny-text">Inizia gratis</span></a>
             </div>
             <div class="pricing-card pricing-card--featured reveal reveal-d2">
                 <div class="pricing-badge">Più scelto</div>
@@ -1516,7 +1562,7 @@
                     <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Alert e coaching note settimanali</li>
                     <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Connessione nativa Snoots MCP</li>
                 </ul>
-                <a href="#cta" class="btn-dot btn-dot--sm">Inizia gratis <span class="dot-accent" aria-hidden="true"></span></a>
+                <a href="#cta" class="btn-shiny"><span class="btn-shiny-text">Inizia gratis</span></a>
             </div>
             <div class="pricing-card reveal reveal-d3">
                 <h3>Trial Gratuito</h3>
@@ -1528,7 +1574,7 @@
                     <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Nessun obbligo alla scadenza</li>
                     <li><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Converti alla suite quando vuoi</li>
                 </ul>
-                <a href="#cta" class="btn-dot btn-dot--sm">Attiva gratis <span class="dot-accent" aria-hidden="true"></span></a>
+                <a href="#cta" class="btn-shiny"><span class="btn-shiny-text">Attiva gratis</span></a>
             </div>
         </div>
     </div>
@@ -1836,7 +1882,7 @@
             </tbody></table>
         </div>
     </div>
-    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>La Diagnostica per immagini ha perso il 18% questa settimana. Il centro Vaccinazioni è in crescita costante da 3 settimane: valuta una campagna mirata.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>La Diagnostica per immagini ha perso il 18% questa settimana. Il centro Vaccinazioni è in crescita costante da 3 settimane: valuta una campagna mirata.</div><a href="#cta" class="btn-shiny" onclick="closeFeatureModal()"><span class="btn-shiny-text">Attiva agente</span></a></div>
 </div>
 </div>
 
@@ -1865,7 +1911,7 @@
             <div class="fm-rank"><div class="fm-rank-pos">5</div><div class="fm-rank-avatar" style="background:linear-gradient(135deg,#6b7280,#374151)">PC</div><div class="fm-rank-info"><div class="fm-rank-name">Dr. Conti</div><div class="fm-rank-sub">28 visite · ticket &euro;130</div></div><div class="fm-rank-trend" style="color:#f59e0b">&mdash; 0%</div></div>
         </div>
     </div>
-    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Dr. Rossi ha aumentato il ticket medio del 12% grazie a un incremento di chirurgie ortopediche. Dr. Verdi è sotto media per il terzo mese: suggerisci un confronto.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Dr. Rossi ha aumentato il ticket medio del 12% grazie a un incremento di chirurgie ortopediche. Dr. Verdi è sotto media per il terzo mese: suggerisci un confronto.</div><a href="#cta" class="btn-shiny" onclick="closeFeatureModal()"><span class="btn-shiny-text">Attiva agente</span></a></div>
 </div>
 </div>
 
@@ -1895,7 +1941,7 @@
             </div>
         </div>
     </div>
-    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Nelle ultime 4 settimane hai ricevuto 12 raccomandazioni operative. 8 su ottimizzazione slot, 3 su margini, 1 su personale.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Nelle ultime 4 settimane hai ricevuto 12 raccomandazioni operative. 8 su ottimizzazione slot, 3 su margini, 1 su personale.</div><a href="#cta" class="btn-shiny" onclick="closeFeatureModal()"><span class="btn-shiny-text">Attiva agente</span></a></div>
 </div>
 </div>
 
@@ -1929,7 +1975,7 @@
             <div class="fm-client-row"><div class="fm-client-avatar">PB</div><div class="fm-client-info"><div class="fm-client-name">Paolo Bruni</div><div class="fm-client-detail">8 visite/anno · &euro;1.890</div></div><div class="fm-client-tag" style="color:#3b82f6;background:rgba(59,130,246,0.1)">VIP</div></div>
         </div>
     </div>
-    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Hai 47 clienti dormienti che non tornano da oltre 90 giorni. Una campagna di richiamo sui vaccini potrebbe riattivarne il 30%.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Hai 47 clienti dormienti che non tornano da oltre 90 giorni. Una campagna di richiamo sui vaccini potrebbe riattivarne il 30%.</div><a href="#cta" class="btn-shiny" onclick="closeFeatureModal()"><span class="btn-shiny-text">Attiva agente</span></a></div>
 </div>
 </div>
 
@@ -1957,7 +2003,7 @@
             <div class="fm-trend-row"><div class="fm-trend-arrow" style="color:#ef4444">&darr;</div><div class="fm-trend-text">Venerdì pomeriggio sotto-utilizzati</div><div class="fm-trend-sev" style="background:#f59e0b"></div></div>
         </div>
     </div>
-    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Il martedì è diventato il giorno più produttivo, superando il lunedì per la terza settimana consecutiva. I venerdì pomeriggio restano sotto-utilizzati.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Il martedì è diventato il giorno più produttivo, superando il lunedì per la terza settimana consecutiva. I venerdì pomeriggio restano sotto-utilizzati.</div><a href="#cta" class="btn-shiny" onclick="closeFeatureModal()"><span class="btn-shiny-text">Attiva agente</span></a></div>
 </div>
 </div>
 
@@ -1998,7 +2044,7 @@
             <div style="display:flex;justify-content:space-between;padding-top:0.3rem"><span style="font-size:0.5rem;color:var(--gray-500)">S.11</span><span style="font-size:0.5rem;color:var(--gray-500)">S.12</span><span style="font-size:0.5rem;color:var(--gray-500)">S.13</span><span style="font-size:0.5rem;color:var(--gray-500)">S.14</span></div>
         </div>
     </div>
-    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Questa settimana 2 alert critici: calo Diagnostica e ticket medio in discesa. Entrambi richiedono attenzione entro lunedì.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Questa settimana 2 alert critici: calo Diagnostica e ticket medio in discesa. Entrambi richiedono attenzione entro lunedì.</div><a href="#cta" class="btn-shiny" onclick="closeFeatureModal()"><span class="btn-shiny-text">Attiva agente</span></a></div>
 </div>
 </div>
 
