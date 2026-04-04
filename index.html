@@ -1733,25 +1733,52 @@
 
     function handleSubmit(e) {
         e.preventDefault();
-        var input = e.target.querySelector('input');
-        var btn = e.target.querySelector('button');
-        if (!input.value || !input.validity.valid) { input.focus(); return; }
+        var form = e.target;
+        var btn = form.querySelector('button');
+        var name = document.getElementById('cta-name');
+        var surname = document.getElementById('cta-surname');
+        var email = document.getElementById('cta-email');
+        var clinic = document.getElementById('cta-clinic');
+
+        if (!name.value.trim()) { name.focus(); return; }
+        if (!surname.value.trim()) { surname.focus(); return; }
+        if (!email.value.trim() || !email.validity.valid) { email.focus(); return; }
+
         btn.disabled = true;
-        btn.textContent = 'Invio...';
-        setTimeout(function() {
-            btn.textContent = 'Inviato';
-            btn.style.background = '#10b981';
-            btn.style.borderColor = '#10b981';
-            input.disabled = true;
+        btn.textContent = 'Invio in corso...';
+
+        fetch('https://bravevetbusiness.app.n8n.cloud/webhook/super-team-signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                nome: name.value.trim(),
+                cognome: surname.value.trim(),
+                email: email.value.trim(),
+                clinica: clinic.value.trim(),
+                timestamp: new Date().toISOString(),
+                source: 'super-team-landing'
+            })
+        }).then(function(res) {
+            if (res.ok) {
+                btn.textContent = 'Richiesta inviata!';
+                btn.style.background = '#10b981';
+                form.querySelectorAll('input').forEach(function(i) { i.disabled = true; });
+                setTimeout(function() {
+                    btn.textContent = 'Richiedi una prova';
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    form.querySelectorAll('input').forEach(function(i) { i.disabled = false; i.value = ''; });
+                }, 4000);
+            } else { throw new Error('Errore'); }
+        }).catch(function() {
+            btn.textContent = 'Errore. Riprova.';
+            btn.style.background = '#ef4444';
             setTimeout(function() {
-                btn.textContent = 'Richiedi';
+                btn.textContent = 'Richiedi una prova';
                 btn.style.background = '';
-                btn.style.borderColor = '';
                 btn.disabled = false;
-                input.disabled = false;
-                input.value = '';
             }, 3000);
-        }, 800);
+        });
     }
 
     // ── Particle Sphere ──
