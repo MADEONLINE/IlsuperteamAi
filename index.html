@@ -285,14 +285,12 @@
         .social-proof-text strong { color: var(--white); font-weight: 600; }
 
         /* ── Logo strip ── */
-        .logo-strip { padding: 2.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: linear-gradient(90deg, rgba(34,197,94,0.03) 0%, rgba(59,130,246,0.03) 100%); }
-        .logo-strip-inner { display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-        .logo-strip-inner .snoots-logo-icon { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, #22c55e, #3b82f6); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .logo-strip-inner .snoots-logo-icon svg { width: 18px; height: 18px; stroke: white; stroke-width: 2; fill: none; }
-        .logo-strip-inner span { font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); }
-        .logo-strip-inner .snoots-name { font-size: 1rem; font-weight: 700; color: #22c55e; letter-spacing: 0.02em; text-transform: none; }
-        .logo-strip-inner .snoots-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.8rem; border-radius: 100px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); font-size: 0.7rem; color: #22c55e; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
-        .logo-strip-inner .snoots-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: pulse-dot 2s infinite; }
+        .logo-strip { padding: 1.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: linear-gradient(90deg, rgba(34,197,94,0.02) 0%, rgba(59,130,246,0.02) 100%); }
+        .logo-strip-inner { display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+        .logo-strip-inner span { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; color: var(--gray-500); }
+        .logo-strip-inner .snoots-name { font-weight: 700; color: #22c55e; }
+        .logo-strip-inner .snoots-sep { color: var(--gray-700); }
+        .logo-strip-inner .snoots-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse-dot 2s infinite; }
 
         /* ── Value + Agent cards ── */
         .value-section { padding: 8rem 0; }
@@ -1168,7 +1166,7 @@
 </section>
 
 <section class="logo-strip" aria-label="Integrazioni compatibili">
-    <div class="container"><div class="logo-strip-inner"><div class="snoots-logo-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><span>Integrato con</span><span class="snoots-name">Snoots</span><span>via MCP</span><span class="snoots-badge"><span class="snoots-badge-dot" aria-hidden="true"></span>Partner ufficiale</span></div></div>
+    <div class="container"><div class="logo-strip-inner"><span class="snoots-dot" aria-hidden="true"></span><span>Integrato con</span><span class="snoots-name">Snoots</span><span>via MCP</span><span class="snoots-sep">·</span><span>Partner ufficiale</span></div></div>
 </section>
 
 <section class="value-section" id="agents">
