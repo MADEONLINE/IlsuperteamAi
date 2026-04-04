@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Invisible Team — AI per Cliniche Veterinarie</title>
+    <title>Super Team — AI per Cliniche Veterinarie</title>
     <meta name="description" content="Tre Agenti AI che gestiscono finanza, persone e marketing della tua clinica veterinaria. Invisibili, instancabili, sempre operativi.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +38,7 @@
             --radius-pill: 100px;
         }
 
-        html { scroll-behavior: smooth; background: var(--bg); }
+        html { scroll-behavior: smooth; background: var(--bg); scroll-padding-top: 80px; }
 
         body {
             font-family: var(--font-sans);
@@ -104,9 +104,16 @@
 
         .nav-links a {
             font-size: 0.9rem; font-weight: 400; color: var(--gray-400);
-            transition: color 0.2s;
+            transition: color 0.3s ease;
+            position: relative;
         }
         .nav-links a:hover { color: var(--white); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+            background: linear-gradient(90deg, var(--blue-light), rgba(124, 58, 237, 0.6));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
 
         /* ── Hero ── */
         .hero {
@@ -152,10 +159,13 @@
         }
 
         .hero h1 .accent {
-            background: linear-gradient(135deg, var(--blue-light) 0%, var(--cyan) 100%);
+            background: linear-gradient(90deg, var(--blue-light) 0%, var(--cyan) 40%, #a78bfa 70%, var(--blue-light) 100%);
+            background-size: 200% 100%;
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: shimmer 6s ease-in-out infinite;
         }
+        @keyframes shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
         .hero-sub {
             font-size: clamp(1rem, 1.8vw, 1.2rem); font-weight: 400;
@@ -182,7 +192,7 @@
             cursor: pointer; transition: all 0.3s ease;
             text-decoration: none; min-height: 48px;
         }
-        .btn-dot:hover { border-color: rgba(255, 255, 255, 0.4); }
+        .btn-dot:hover { border-color: rgba(255, 255, 255, 0.4); box-shadow: 0 0 30px rgba(249, 115, 22, 0.08), 0 0 60px rgba(59, 130, 246, 0.05); }
         .btn-dot:active { transform: scale(0.97); }
         .btn-dot .dot-accent {
             width: 12px; height: 12px; border-radius: 50%;
@@ -198,6 +208,33 @@
         .btn-dot--sm .dot-accent { width: 10px; height: 10px; }
         .btn-dot--nav { padding: 0.5rem 1.2rem; font-size: 0.7rem; min-height: 44px; }
         .btn-dot--nav .dot-accent { width: 8px; height: 8px; }
+
+        /* ── Rainbow CTA Button ── */
+        .btn-rainbow {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+            position: relative; padding: 0.85rem 2rem; border-radius: 12px; border: none;
+            background: #0b0e17; color: var(--white); cursor: pointer;
+            font-family: var(--font-sans); font-size: 0.9rem; font-weight: 700;
+            letter-spacing: 0.02em; text-decoration: none; min-height: 48px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            z-index: 1;
+        }
+        .btn-rainbow:hover { transform: translateY(-1px); }
+        .btn-rainbow:active { transform: scale(0.97); }
+        .btn-rainbow::before,
+        .btn-rainbow::after {
+            content: ''; position: absolute;
+            left: -2px; top: -2px; border-radius: 14px;
+            background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000, #fb0094, #0000ff, #00ff00, #ffff00, #ff0000);
+            background-size: 400%;
+            width: calc(100% + 4px); height: calc(100% + 4px);
+            z-index: -1; animation: rainbowBorder 12s linear infinite;
+        }
+        .btn-rainbow::after { filter: blur(20px); opacity: 0.4; }
+        .btn-rainbow:hover::after { opacity: 0.7; filter: blur(25px); }
+        @keyframes rainbowBorder { 0% { background-position: 0 0; } 50% { background-position: 400% 0; } 100% { background-position: 0 0; } }
+        .btn-rainbow--nav { padding: 0.5rem 1.4rem; font-size: 0.78rem; min-height: 44px; border-radius: 10px; }
+        .btn-rainbow--nav::before, .btn-rainbow--nav::after { border-radius: 12px; }
 
         .social-proof { display: flex; align-items: center; gap: 0.8rem; }
 
@@ -222,7 +259,7 @@
         .logo-strip-inner span { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gray-400); }
 
         /* ── Value + Agent cards ── */
-        .value-section { padding: 6rem 0; }
+        .value-section { padding: 8rem 0; }
         .value-header { margin-bottom: 3rem; }
         .value-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .value-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; line-height: 1.7; }
@@ -285,8 +322,9 @@
         }
 
         /* ── Pain points ── */
-        .pain-section { padding: 6rem 0; border-top: 1px solid var(--border); }
-        .pain-header { text-align: center; margin-bottom: 3rem; }
+        .pain-section { padding: 8rem 0; border-top: 1px solid var(--border); position: relative; }
+        .pain-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(124, 58, 237, 0.06) 0%, transparent 70%); pointer-events: none; }
+        .pain-header { text-align: center; margin-bottom: 4rem; }
         .pain-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .pain-header em { font-style: italic; color: var(--blue-light); }
         .pain-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; margin: 0 auto; line-height: 1.7; }
@@ -294,93 +332,440 @@
         .pain-card {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: var(--radius); padding: 2rem;
-            transition: border-color 0.3s;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
         }
-        .pain-card:hover { border-color: var(--border-blue); }
+        .pain-card:hover { border-color: rgba(124, 58, 237, 0.3); box-shadow: 0 0 30px rgba(124, 58, 237, 0.08), 0 8px 32px rgba(0,0,0,0.2); transform: translateY(-3px); }
         .pain-icon { width: 48px; height: 48px; margin-bottom: 1.2rem; }
         .pain-icon svg { width: 48px; height: 48px; stroke: var(--blue-light); opacity: 0.7; }
         .pain-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.6rem; }
         .pain-card p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.6; }
 
         /* ── How it works ── */
-        .how-section { padding: 6rem 0; }
-        .how-header { text-align: center; margin-bottom: 4rem; }
+        .how-section { padding: 8rem 0; position: relative; }
+        .how-section::before { content: ''; position: absolute; top: 40%; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(59,130,246,0.05) 0%, transparent 70%); pointer-events: none; }
+        .how-header { text-align: center; margin-bottom: 5rem; }
         .how-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .how-header p { font-size: 1rem; color: var(--gray-400); max-width: 700px; margin: 0 auto; line-height: 1.7; }
 
-        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+        /* Connector line */
+        .steps-grid::before { content: ''; position: absolute; top: 44px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(90deg, rgba(59,130,246,0.15), rgba(124,58,237,0.25), rgba(34,197,94,0.2), rgba(59,130,246,0.15)); z-index: 0; }
 
         .step-card {
-            background: linear-gradient(135deg, #111d35 0%, #0f1728 100%);
-            border: 1px solid var(--border); border-radius: var(--radius);
-            padding: 2rem 1.5rem; position: relative; overflow: hidden;
-            transition: border-color 0.3s;
+            background: transparent; border: none; border-radius: 0;
+            padding: 0 1.5rem; position: relative; overflow: visible;
+            text-align: center; display: flex; flex-direction: column; align-items: center;
         }
-        .step-card:hover { border-color: var(--border-blue); }
 
         .step-card .big-num {
-            position: absolute; top: -10px; right: -5px;
-            font-size: 8rem; font-weight: 800; line-height: 1;
-            color: rgba(59, 130, 246, 0.06); pointer-events: none;
+            width: 56px; height: 56px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; font-weight: 800; line-height: 1;
+            color: var(--white); position: relative; z-index: 2;
+            margin-bottom: 1.5rem;
+            background: var(--bg);
+            border: 2px solid rgba(59,130,246,0.3);
+            box-shadow: 0 0 20px rgba(59,130,246,0.1), 0 0 40px rgba(59,130,246,0.05);
+            transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+        }
+        .step-card:hover .big-num { border-color: rgba(59,130,246,0.6); box-shadow: 0 0 30px rgba(59,130,246,0.2), 0 0 60px rgba(124,58,237,0.1); transform: scale(1.1); }
+        .step-card:nth-child(1) .big-num { border-color: rgba(59,130,246,0.4); }
+        .step-card:nth-child(2) .big-num { border-color: rgba(124,58,237,0.4); }
+        .step-card:nth-child(3) .big-num { border-color: rgba(34,197,94,0.4); }
+        .step-card:nth-child(4) .big-num { border-color: rgba(59,130,246,0.4); }
+
+        .step-card-icon { width: 40px; height: 40px; margin-bottom: 1rem; position: relative; z-index: 1; }
+        .step-card-icon svg { width: 40px; height: 40px; stroke: var(--blue-light); stroke-width: 1; fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; transition: opacity 0.3s; }
+        .step-card:hover .step-card-icon svg { opacity: 1; }
+        .step-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; position: relative; z-index: 1; }
+        .step-card p { font-size: 0.82rem; color: var(--gray-400); line-height: 1.6; position: relative; z-index: 1; max-width: 220px; }
+
+        /* ── Features bento grid ── */
+        .features-section { padding: 8rem 0; border-top: 1px solid var(--border); position: relative; }
+        .features-section::before { content: ''; position: absolute; top: 30%; left: 0; width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(59, 130, 246, 0.05) 0%, transparent 70%); pointer-events: none; }
+        .features-section::after { content: ''; position: absolute; bottom: 20%; right: 0; width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(124, 58, 237, 0.04) 0%, transparent 70%); pointer-events: none; }
+        .features-header { margin-bottom: 4rem; text-align: center; }
+        .features-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .features-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; line-height: 1.7; margin: 0 auto; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
         }
 
-        .step-card-icon { width: 40px; height: 40px; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-        .step-card-icon svg { width: 40px; height: 40px; stroke: var(--gray-400); stroke-width: 1; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-        .step-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; position: relative; z-index: 1; }
-        .step-card p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.6; position: relative; z-index: 1; }
-
-        /* ── Features grid ── */
-        .features-section { padding: 6rem 0; border-top: 1px solid var(--border); }
-        .features-header { margin-bottom: 4rem; }
-        .features-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .features-header p { font-size: 1rem; color: var(--gray-400); max-width: 600px; line-height: 1.7; }
-
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem 2.5rem; }
+        .feature-item {
+            background: linear-gradient(160deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative; overflow: hidden;
+            transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .feature-item::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+        }
+        .feature-item::after {
+            content: ''; position: absolute; top: -50%; right: -30%; width: 200px; height: 200px;
+            border-radius: 50%; pointer-events: none; opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .feature-item:hover::after { opacity: 1; }
+        .feature-item:hover {
+            border-color: rgba(59, 130, 246, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.06), 0 12px 40px rgba(0,0,0,0.2);
+        }
+        /* Per-card glow color */
+        .feature-item:nth-child(1)::after { background: radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%); }
+        .feature-item:nth-child(2)::after { background: radial-gradient(circle, rgba(124,58,237,0.08), transparent 70%); }
+        .feature-item:nth-child(3)::after { background: radial-gradient(circle, rgba(34,197,94,0.08), transparent 70%); }
+        .feature-item:nth-child(4)::after { background: radial-gradient(circle, rgba(249,115,22,0.08), transparent 70%); }
+        .feature-item:nth-child(5)::after { background: radial-gradient(circle, rgba(236,72,153,0.08), transparent 70%); }
+        .feature-item:nth-child(6)::after { background: radial-gradient(circle, rgba(59,130,246,0.08), transparent 70%); }
 
         .feature-item .feature-icon {
-            width: 56px; height: 56px; border-radius: 50%;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(124, 58, 237, 0.08) 100%);
-            border: 1px solid rgba(59, 130, 246, 0.12);
+            width: 52px; height: 52px; border-radius: 14px;
             display: flex; align-items: center; justify-content: center;
             margin-bottom: 1.2rem;
+            transition: box-shadow 0.4s ease, transform 0.3s ease;
         }
-        .feature-icon svg { width: 24px; height: 24px; stroke: var(--blue-light); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-        .feature-item h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .feature-item p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.6; }
+        .feature-item:hover .feature-icon { transform: scale(1.08); }
+        /* Colored icons per card */
+        .feature-item:nth-child(1) .feature-icon { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.15); }
+        .feature-item:nth-child(1):hover .feature-icon { box-shadow: 0 0 20px rgba(59,130,246,0.2); }
+        .feature-item:nth-child(1) .feature-icon svg { stroke: #60a5fa; }
+        .feature-item:nth-child(2) .feature-icon { background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.15); }
+        .feature-item:nth-child(2):hover .feature-icon { box-shadow: 0 0 20px rgba(124,58,237,0.2); }
+        .feature-item:nth-child(2) .feature-icon svg { stroke: #a78bfa; }
+        .feature-item:nth-child(3) .feature-icon { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.15); }
+        .feature-item:nth-child(3):hover .feature-icon { box-shadow: 0 0 20px rgba(34,197,94,0.2); }
+        .feature-item:nth-child(3) .feature-icon svg { stroke: #4ade80; }
+        .feature-item:nth-child(4) .feature-icon { background: rgba(249,115,22,0.12); border: 1px solid rgba(249,115,22,0.15); }
+        .feature-item:nth-child(4):hover .feature-icon { box-shadow: 0 0 20px rgba(249,115,22,0.2); }
+        .feature-item:nth-child(4) .feature-icon svg { stroke: #fb923c; }
+        .feature-item:nth-child(5) .feature-icon { background: rgba(236,72,153,0.12); border: 1px solid rgba(236,72,153,0.15); }
+        .feature-item:nth-child(5):hover .feature-icon { box-shadow: 0 0 20px rgba(236,72,153,0.2); }
+        .feature-item:nth-child(5) .feature-icon svg { stroke: #f472b6; }
+        .feature-item:nth-child(6) .feature-icon { background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.15); }
+        .feature-item:nth-child(6):hover .feature-icon { box-shadow: 0 0 20px rgba(34,211,238,0.2); }
+        .feature-item:nth-child(6) .feature-icon svg { stroke: #22d3ee; }
+
+        .feature-icon svg { width: 24px; height: 24px; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .feature-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .feature-item p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.6; }
+
+        /* ── Snoots Integration ── */
+        .snoots-section { padding: 8rem 0; border-top: 1px solid var(--border); position: relative; }
+        .snoots-section::before { content: ''; position: absolute; top: 40%; right: 0; width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(34, 197, 94, 0.04) 0%, transparent 70%); pointer-events: none; }
+        .snoots-inner {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+        }
+        .snoots-content h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .snoots-content h2 span { color: var(--blue-light); }
+        .snoots-content .snoots-lead { font-size: 1.05rem; color: var(--gray-400); line-height: 1.7; margin-bottom: 2rem; }
+        .snoots-features { display: flex; flex-direction: column; gap: 1.25rem; }
+        .snoots-feat {
+            display: flex; align-items: flex-start; gap: 1rem;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            border-radius: 12px; padding: 1.25rem 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+        .snoots-feat:hover { border-color: rgba(59,130,246,0.3); }
+        .snoots-feat-icon {
+            flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(124,58,237,0.08));
+            border: 1px solid rgba(59,130,246,0.12);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .snoots-feat-icon svg { width: 20px; height: 20px; stroke: var(--blue-light); stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .snoots-feat h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .snoots-feat p { font-size: 0.85rem; color: var(--gray-400); line-height: 1.5; }
+
+        .snoots-visual {
+            position: relative; display: flex; align-items: center; justify-content: center;
+        }
+        .snoots-diagram {
+            width: 100%; max-width: 420px; margin: 0 auto;
+            display: flex; flex-direction: column; align-items: center; gap: 0;
+        }
+        .snoots-node {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 1.5rem 2rem; text-align: center;
+            width: 100%; position: relative;
+            transition: box-shadow 0.4s ease, transform 0.4s ease;
+        }
+        .snoots-node:hover { transform: translateY(-2px); }
+        .snoots-node--snoots:hover { box-shadow: 0 0 30px rgba(34, 197, 94, 0.1); }
+        .snoots-node--mcp:hover { box-shadow: 0 0 30px rgba(59, 130, 246, 0.1); }
+        .snoots-node--agents:hover { box-shadow: 0 0 30px rgba(124, 58, 237, 0.1); }
+        .snoots-node--snoots { border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.04); }
+        .snoots-node--mcp { border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.06); }
+        .snoots-node--agents { border-color: rgba(124,58,237,0.3); background: rgba(124,58,237,0.04); }
+        .snoots-node-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gray-500); margin-bottom: 0.4rem; }
+        .snoots-node-title { font-size: 1.1rem; font-weight: 700; }
+        .snoots-node--snoots .snoots-node-title { color: #22c55e; }
+        .snoots-node--mcp .snoots-node-title { color: var(--blue-light); }
+        .snoots-node--agents .snoots-node-title { color: #a78bfa; }
+        .snoots-node-desc { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.3rem; }
+        .snoots-connector {
+            width: 2px; height: 32px;
+            background: linear-gradient(to bottom, rgba(59,130,246,0.3), rgba(124,58,237,0.3));
+            position: relative;
+        }
+        .snoots-connector::after {
+            content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+            border-left: 5px solid transparent; border-right: 5px solid transparent;
+            border-top: 6px solid rgba(59,130,246,0.4);
+        }
+        .snoots-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            margin-top: 2rem; padding: 0.6rem 1.2rem;
+            background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2);
+            border-radius: var(--radius-pill); font-size: 0.8rem; color: #22c55e; font-weight: 600;
+        }
+        .snoots-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        @media (max-width: 768px) {
+            .snoots-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .snoots-visual { order: -1; }
+        }
 
         /* ── Dashboard mockup ── */
-        .dashboard-section { padding: 6rem 0; text-align: center; }
+        .dashboard-section { padding: 8rem 0; text-align: center; position: relative; }
+        .dashboard-section::before { content: ''; position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 900px; height: 600px; background: radial-gradient(ellipse, rgba(59, 130, 246, 0.06) 0%, rgba(124,58,237,0.03) 40%, transparent 70%); pointer-events: none; }
         .dashboard-section h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 500; font-style: italic; line-height: 1.3; max-width: 800px; margin: 0 auto 1rem; }
-        .dashboard-section > p { font-size: 1rem; color: var(--gray-400); max-width: 650px; margin: 0 auto 3rem; line-height: 1.7; }
+        .dashboard-section > .container > p { font-size: 1rem; color: var(--gray-400); max-width: 650px; margin: 0 auto 3rem; line-height: 1.7; }
 
+        .dashboard-wrapper { max-width: 1100px; margin: 0 auto; position: relative; perspective: 1200px; }
         .dashboard-mockup {
-            max-width: 1000px; margin: 0 auto;
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius); padding: 2rem; position: relative;
+            width: 100%;
+            background: #080c14;
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 20px; position: relative; overflow: hidden;
+            box-shadow: 0 0 80px rgba(59,130,246,0.06), 0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+            transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            display: grid; grid-template-columns: 200px 1fr; grid-template-rows: auto 1fr;
+        }
+        .dashboard-mockup:hover { box-shadow: 0 0 120px rgba(59,130,246,0.1), 0 30px 100px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06); }
+        .dashboard-mockup::before {
+            content: ''; position: absolute; top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: 21px; z-index: -1;
+            background: conic-gradient(from var(--dash-angle, 0deg), transparent 0%, #3b82f6 10%, transparent 20%, #7c3aed 30%, transparent 40%, #22c55e 50%, transparent 60%, #3b82f6 70%, transparent 80%, #a78bfa 90%, transparent 100%);
+            opacity: 0; transition: opacity 0.6s ease; animation: rotateBorder 8s linear infinite;
+        }
+        .dashboard-mockup:hover::before { opacity: 0.35; }
+        @keyframes rotateBorder { to { --dash-angle: 360deg; } }
+        @property --dash-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+        .dashboard-reflection {
+            max-width: 1100px; margin: 0 auto; height: 100px;
+            background: linear-gradient(to bottom, rgba(8,12,20,0.5), transparent);
+            border-radius: 0 0 20px 20px; transform: scaleY(-1) translateY(1px);
+            opacity: 0.12; filter: blur(4px); pointer-events: none;
         }
 
-        .mock-topbar { display: flex; align-items: center; justify-content: space-between; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
-        .mock-topbar-left { display: flex; align-items: center; gap: 1.5rem; }
-        .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
-        .mock-tabs { display: flex; gap: 0.3rem; }
-        .mock-tab { font-size: 0.75rem; padding: 0.4rem 0.8rem; border-radius: var(--radius-pill); color: var(--gray-500); cursor: default; }
-        .mock-tab.active { background: rgba(59, 130, 246, 0.15); color: var(--blue-light); }
+        /* Sidebar */
+        .mock-sidebar-nav {
+            grid-row: 1 / -1; background: rgba(255,255,255,0.02);
+            border-right: 1px solid rgba(255,255,255,0.06);
+            padding: 1.2rem 0; display: flex; flex-direction: column;
+        }
+        .mock-sidebar-logo {
+            padding: 0 1.2rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+        }
+        .mock-sidebar-logo-icon { width: 24px; height: 24px; border-radius: 6px; background: var(--gradient-blue); display: flex; align-items: center; justify-content: center; }
+        .mock-sidebar-logo-icon svg { width: 14px; height: 14px; stroke: white; stroke-width: 2; fill: none; }
+        .mock-sidebar-logo span { font-size: 0.8rem; font-weight: 700; color: var(--white); }
+        .mock-sidebar-label { font-size: 0.55rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.12em; padding: 0.6rem 1.2rem 0.4rem; font-weight: 600; }
+        .mock-sidebar-item {
+            display: flex; align-items: center; gap: 0.6rem;
+            padding: 0.55rem 1.2rem; font-size: 0.72rem; color: var(--gray-500);
+            cursor: default; transition: all 0.2s; border-left: 2px solid transparent;
+        }
+        .mock-sidebar-item.active { color: var(--white); background: rgba(59,130,246,0.08); border-left-color: var(--blue); }
+        .mock-sidebar-item svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .mock-sidebar-spacer { flex: 1; }
+        .mock-sidebar-user {
+            padding: 1rem 1.2rem 0; border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex; align-items: center; gap: 0.5rem; margin-top: auto;
+        }
+        .mock-sidebar-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg,#3b82f6,#7c3aed); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 700; color: white; flex-shrink: 0; }
+        .mock-sidebar-uname { font-size: 0.68rem; color: var(--gray-300); font-weight: 500; }
+        .mock-sidebar-urole { font-size: 0.55rem; color: var(--gray-500); }
 
-        .mock-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1.5rem; }
-        .mock-stat-card { background: var(--bg-elevated); border-radius: var(--radius-sm); padding: 1.2rem; text-align: left; }
-        .mock-stat-label { font-size: 0.7rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
-        .mock-stat-value { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .mock-stat-change { font-size: 0.75rem; font-weight: 500; }
-        .mock-stat-change.up { color: #10b981; }
-        .mock-left-stats { display: flex; flex-direction: column; gap: 1rem; }
+        /* Topbar */
+        .mock-topbar {
+            grid-column: 2; display: flex; align-items: center; justify-content: space-between;
+            padding: 0.8rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);
+            background: rgba(0,0,0,0.1);
+        }
+        .mock-topbar-left { display: flex; align-items: center; gap: 1rem; }
+        .mock-topbar-greeting { font-size: 0.85rem; font-weight: 600; color: var(--white); }
+        .mock-topbar-greeting span { color: var(--blue-light); }
+        .mock-topbar-right { display: flex; align-items: center; gap: 0.8rem; }
+        .mock-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; animation: pulse-dot 2s infinite; }
+        .mock-live-label { font-size: 0.6rem; color: #22c55e; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+        .mock-date { font-size: 0.65rem; color: var(--gray-500); }
+        .mock-topbar-icons { display: flex; gap: 0.4rem; }
+        .mock-topbar-icon {
+            width: 28px; height: 28px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center; cursor: default;
+        }
+        .mock-topbar-icon svg { width: 14px; height: 14px; stroke: var(--gray-500); stroke-width: 1.5; fill: none; }
 
-        .mock-chart { background: var(--bg-elevated); border-radius: var(--radius-sm); padding: 1.2rem; min-height: 200px; display: flex; flex-direction: column; }
-        .mock-chart-title { font-size: 0.75rem; color: var(--gray-500); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; text-align: left; }
-        .mock-chart-bars { flex: 1; display: flex; align-items: flex-end; gap: 6px; padding-top: 1rem; }
-        .mock-bar { flex: 1; border-radius: 4px 4px 0 0; min-height: 20px; }
+        /* Main content */
+        .mock-body { grid-column: 2; padding: 1.2rem 1.5rem 1.5rem; }
+
+        /* Stats row */
+        .mock-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-bottom: 1rem; }
+        .mock-stat-card {
+            background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px; padding: 1rem; text-align: left;
+            transition: border-color 0.3s, box-shadow 0.3s; position: relative; overflow: hidden;
+        }
+        .mock-stat-card:hover { border-color: rgba(59,130,246,0.2); box-shadow: 0 0 20px rgba(59,130,246,0.05); }
+        .mock-stat-label { font-size: 0.6rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+        .mock-stat-row { display: flex; align-items: flex-end; justify-content: space-between; }
+        .mock-stat-value { font-size: 1.35rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+        .mock-stat-change { font-size: 0.6rem; font-weight: 600; display: inline-flex; align-items: center; gap: 2px; padding: 0.15rem 0.4rem; border-radius: 4px; }
+        .mock-stat-change.up { color: #22c55e; background: rgba(34,197,94,0.1); }
+        .mock-stat-change.down { color: #ef4444; background: rgba(239,68,68,0.1); }
+        .mock-sparkline { margin-top: 0.6rem; height: 28px; }
+        .mock-sparkline svg { width: 100%; height: 100%; }
+
+        /* Middle row: area chart + donut + ranking */
+        .mock-mid-row { display: grid; grid-template-columns: 1.6fr 1fr; gap: 0.8rem; margin-bottom: 0.8rem; }
+
+        /* Area chart */
+        .mock-area-panel {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px; padding: 1.2rem; display: flex; flex-direction: column;
+        }
+        .mock-chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+        .mock-chart-title { font-size: 0.75rem; color: var(--gray-300); font-weight: 600; text-align: left; }
+        .mock-chart-tabs { display: flex; gap: 0.15rem; }
+        .mock-chart-tab { font-size: 0.55rem; padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--gray-500); cursor: default; text-transform: uppercase; letter-spacing: 0.06em; }
+        .mock-chart-tab.active { background: rgba(59,130,246,0.15); color: var(--blue-light); }
+        .mock-area-svg { flex: 1; min-height: 160px; position: relative; }
+        .mock-area-svg svg { width: 100%; height: 100%; }
+        .mock-chart-yaxis { position: absolute; left: 0; top: 0; bottom: 0; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
+        .mock-chart-ylabel { font-size: 0.5rem; color: var(--gray-500); }
+        .mock-chart-xaxis { display: flex; justify-content: space-between; padding-top: 0.4rem; }
+        .mock-chart-xlabel { font-size: 0.5rem; color: var(--gray-500); }
+        /* Tooltip on chart */
+        .mock-chart-tooltip {
+            position: absolute; top: 20%; left: 58%;
+            background: rgba(17,24,39,0.95); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; padding: 0.5rem 0.7rem; pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .mock-chart-tooltip-date { font-size: 0.5rem; color: var(--gray-500); margin-bottom: 0.2rem; }
+        .mock-chart-tooltip-val { font-size: 0.85rem; font-weight: 700; color: var(--white); }
+        .mock-chart-tooltip-line { position: absolute; top: 100%; left: 50%; width: 1px; height: 60px; border-left: 1px dashed rgba(59,130,246,0.4); }
+        .mock-chart-tooltip-dot {
+            position: absolute; top: calc(100% + 58px); left: 50%; transform: translate(-50%, -50%);
+            width: 10px; height: 10px; border-radius: 50%; background: var(--blue);
+            box-shadow: 0 0 12px rgba(59,130,246,0.5);
+        }
+
+        /* Right sidebar: donut + ranking */
+        .mock-right-col { display: flex; flex-direction: column; gap: 0.8rem; }
+        .mock-panel {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px; padding: 1rem; text-align: left; flex: 1;
+        }
+        .mock-panel-title { font-size: 0.6rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.8rem; font-weight: 600; }
+        .mock-donut-wrap { display: flex; align-items: center; gap: 0.8rem; }
+        .mock-donut { width: 90px; height: 90px; flex-shrink: 0; position: relative; }
+        .mock-donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .mock-donut circle { fill: none; stroke-width: 5; stroke-linecap: round; }
+        .mock-donut-center {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+            text-align: center; pointer-events: none;
+        }
+        .mock-donut-center-val { font-size: 0.9rem; font-weight: 700; color: var(--white); line-height: 1; }
+        .mock-donut-center-label { font-size: 0.45rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; }
+        .mock-donut-legend { display: flex; flex-direction: column; gap: 0.35rem; }
+        .mock-legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.62rem; color: var(--gray-400); }
+        .mock-legend-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+        .mock-legend-val { margin-left: auto; font-weight: 600; color: var(--gray-300); font-variant-numeric: tabular-nums; }
+        /* Team ranking */
+        .mock-rank-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .mock-rank-item { display: flex; align-items: center; gap: 0.5rem; }
+        .mock-rank-pos { font-size: 0.6rem; font-weight: 700; color: var(--gray-500); width: 14px; text-align: center; }
+        .mock-rank-avatar {
+            width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 0.5rem; font-weight: 700; color: var(--white); flex-shrink: 0;
+        }
+        .mock-rank-info { flex: 1; min-width: 0; }
+        .mock-rank-name { font-size: 0.65rem; font-weight: 600; color: var(--gray-300); }
+        .mock-rank-val { font-size: 0.55rem; color: var(--gray-500); }
+        .mock-rank-bar-bg { width: 45px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+        .mock-rank-bar-fill { height: 100%; border-radius: 2px; }
+
+        /* Bottom row: table + alert + activity */
+        .mock-bottom-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 0.8rem; }
+        .mock-table-panel {
+            background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px; padding: 1rem; text-align: left;
+        }
+        .mock-table { width: 100%; border-collapse: collapse; }
+        .mock-table th { font-size: 0.55rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; text-align: left; padding: 0 0 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .mock-table td { font-size: 0.65rem; color: var(--gray-400); padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); vertical-align: middle; }
+        .mock-table td:first-child { color: var(--gray-300); font-weight: 500; }
+        .mock-table-sparkline { width: 50px; height: 16px; display: inline-block; vertical-align: middle; }
+        .mock-table-sparkline svg { width: 100%; height: 100%; }
+        .mock-table-badge { font-size: 0.5rem; padding: 0.1rem 0.35rem; border-radius: 3px; font-weight: 600; }
+        .mock-table-badge.up { color: #22c55e; background: rgba(34,197,94,0.1); }
+        .mock-table-badge.down { color: #ef4444; background: rgba(239,68,68,0.1); }
+
+        /* Activity feed */
+        .mock-activity { display: flex; flex-direction: column; gap: 0; }
+        .mock-activity-item {
+            display: flex; gap: 0.6rem; padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .mock-activity-item:last-child { border-bottom: none; }
+        .mock-activity-dot-col { display: flex; flex-direction: column; align-items: center; width: 12px; flex-shrink: 0; padding-top: 4px; }
+        .mock-activity-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+        .mock-activity-line { width: 1px; flex: 1; background: rgba(255,255,255,0.06); margin-top: 3px; }
+        .mock-activity-text { font-size: 0.62rem; color: var(--gray-400); line-height: 1.4; }
+        .mock-activity-text strong { color: var(--gray-300); font-weight: 600; }
+        .mock-activity-time { font-size: 0.5rem; color: var(--gray-500); margin-top: 0.15rem; }
+
+        /* Alert */
+        .mock-alert {
+            display: flex; align-items: flex-start; gap: 0.6rem;
+            background: rgba(249,115,22,0.05); border: 1px solid rgba(249,115,22,0.12);
+            border-radius: 10px; padding: 0.7rem 1rem; margin-bottom: 0.8rem;
+            animation: alertSlideIn 0.6s ease 1.5s both;
+        }
+        @keyframes alertSlideIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .mock-alert-icon { font-size: 0.85rem; flex-shrink: 0; line-height: 1.3; }
+        .mock-alert-text { font-size: 0.65rem; color: #fb923c; line-height: 1.4; }
+        .mock-alert-text strong { color: #f97316; }
+
+        @media (max-width: 900px) {
+            .dashboard-mockup { grid-template-columns: 1fr; }
+            .mock-sidebar-nav { display: none; }
+            .mock-topbar, .mock-body { grid-column: 1; }
+            .mock-stats-row { grid-template-columns: repeat(2, 1fr); }
+            .mock-mid-row { grid-template-columns: 1fr; }
+            .mock-bottom-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .mock-stats-row { grid-template-columns: 1fr; }
+            .mock-body { padding: 0.8rem; }
+            .mock-topbar-right { display: none; }
+        }
 
         /* ── Stats ── */
-        .stats-section { padding: 5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .stats-section { padding: 6rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); position: relative; }
+        .stats-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.04) 0%, transparent 60%); pointer-events: none; }
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
         .stat-value {
             font-size: clamp(2rem, 4vw, 3rem); font-weight: 700;
@@ -391,18 +776,19 @@
         .stat-label { font-size: 0.82rem; color: var(--gray-400); line-height: 1.5; }
 
         /* ── Testimonial ── */
-        .testimonial-section { padding: 6rem 0; text-align: center; }
+        .testimonial-section { padding: 8rem 0; text-align: center; }
         .testimonial-section h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; margin-bottom: 3rem; color: var(--gray-300); }
         .testimonial-quote { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 400; font-style: italic; line-height: 1.6; max-width: 800px; margin: 0 auto 2rem; color: var(--gray-100); }
         .testimonial-author { font-size: 0.9rem; font-weight: 600; color: var(--white); }
         .testimonial-role { font-size: 0.82rem; color: var(--gray-500); margin-top: 0.2rem; }
 
         /* ── FAQ ── */
-        .faq-section { padding: 6rem 0; }
+        .faq-section { padding: 8rem 0; }
         .faq-layout {
             display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem;
             background: linear-gradient(135deg, #0f1a33 0%, #111827 50%, #150f28 100%);
             border: 1px solid var(--border); border-radius: var(--radius); padding: 4rem;
+            box-shadow: 0 0 80px rgba(59, 130, 246, 0.03), 0 0 120px rgba(124, 58, 237, 0.02);
         }
         .faq-left h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
         .faq-left p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.7; }
@@ -422,16 +808,18 @@
         .faq-answer p { font-size: 0.88rem; color: var(--gray-400); line-height: 1.7; }
 
         /* ── Pricing ── */
-        .pricing-section { padding: 6rem 0; border-top: 1px solid var(--border); }
-        .pricing-header { text-align: center; margin-bottom: 3rem; }
-        .pricing-header h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .pricing-section { padding: 8rem 0; border-top: 1px solid var(--border); }
+        .pricing-header { text-align: center; margin-bottom: 4rem; }
+        .pricing-header h2 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.2rem; }
         .pricing-header p { font-size: 1rem; color: var(--gray-400); max-width: 650px; margin: 0 auto; line-height: 1.7; }
         .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .pricing-card {
             background: var(--bg-card); border: 1px solid var(--border);
             border-radius: var(--radius); padding: 2.5rem 2rem;
             display: flex; flex-direction: column; position: relative;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
         }
+        .pricing-card:hover { border-color: rgba(59, 130, 246, 0.2); box-shadow: 0 0 40px rgba(59, 130, 246, 0.06), 0 12px 40px rgba(0,0,0,0.2); transform: translateY(-4px); }
         .pricing-card--featured { border-color: var(--border-blue); background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(124, 58, 237, 0.05) 100%); }
         .pricing-badge {
             position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
@@ -452,14 +840,16 @@
         }
         .pricing-card ul li svg { width: 16px; height: 16px; stroke: var(--blue); stroke-width: 2; fill: none; flex-shrink: 0; }
 
-        /* ── CTA ── */
-        .cta-section { padding: 6rem 0; text-align: center; position: relative; }
-        .cta-section::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(59, 130, 246, 0.1) 0%, transparent 70%); pointer-events: none; }
-        .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
-        .cta-section > p { font-size: 1rem; color: var(--gray-400); max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.6; }
+        /* ── CTA + FAQ Split ── */
+        .cta-section { padding: 8rem 0; position: relative; border-top: 1px solid var(--border); }
+        .cta-section::before { content: ''; position: absolute; top: 30%; left: 0; width: 600px; height: 500px; background: radial-gradient(ellipse, rgba(59, 130, 246, 0.06) 0%, transparent 70%); pointer-events: none; }
+        .cta-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .cta-left h2 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .cta-left > p { font-size: 1rem; color: var(--gray-400); max-width: 480px; line-height: 1.6; margin-bottom: 2rem; }
+        .cta-right h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 0.5rem; }
+        .cta-right > p { font-size: 0.95rem; color: var(--gray-400); line-height: 1.7; margin-bottom: 1.5rem; }
 
-        /* ── CTA Form detailed ── */
-        .cta-form-detailed { max-width: 540px; margin: 0 auto; }
+        .cta-form-detailed { max-width: 100%; }
         .cta-form-detailed .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 0.8rem; }
         .cta-form-detailed .form-field { position: relative; }
         .cta-form-detailed label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
@@ -473,7 +863,25 @@
         .cta-note { font-size: 0.78rem; color: var(--gray-500); margin-top: 1rem; }
 
         /* ── Footer ── */
-        footer { padding: 4rem 0 3rem; border-top: 1px solid var(--border); }
+        footer { padding: 5rem 0 3rem; border-top: 1px solid var(--border); }
+        .footer-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+        .footer-hero-left h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 0.8rem; }
+        .footer-hero-left p { font-size: 1rem; color: var(--gray-400); line-height: 1.7; margin-bottom: 1.5rem; max-width: 420px; }
+        .footer-testimonial {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(59,130,246,0.15);
+            border-radius: 16px; padding: 2rem;
+            box-shadow: 0 0 60px rgba(59,130,246,0.04), inset 0 1px 0 rgba(255,255,255,0.04);
+            position: relative;
+        }
+        .footer-testimonial::before { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; bottom: -1px; border-radius: 17px; background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(34,211,238,0.1), rgba(59,130,246,0.05)); z-index: -1; }
+        .footer-testimonial blockquote { font-family: var(--font-display); font-size: clamp(1rem, 2vw, 1.3rem); font-style: italic; line-height: 1.6; color: var(--gray-100); margin-bottom: 1.5rem; }
+        .footer-testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+        .footer-testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg,#3b82f6,#7c3aed); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: white; flex-shrink: 0; overflow: hidden; }
+        .footer-testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .footer-testimonial-name { font-size: 0.85rem; font-weight: 600; color: var(--white); }
+        .footer-testimonial-role { font-size: 0.75rem; color: var(--gray-500); }
+
         .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
         .footer-brand h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .footer-brand p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.7; max-width: 300px; }
@@ -486,41 +894,194 @@
         .footer-bottom p { font-size: 0.75rem; color: var(--gray-500); }
         .footer-socials { display: flex; gap: 1rem; }
         .footer-socials a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: border-color 0.2s; }
-        .footer-socials a:hover { border-color: var(--blue); }
+        .footer-socials a:hover { border-color: var(--blue); box-shadow: 0 0 12px rgba(59, 130, 246, 0.15); }
         .footer-socials a svg { width: 16px; height: 16px; fill: var(--gray-400); }
 
         /* ── Animations ── */
         @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        @keyframes drawLine { to { stroke-dashoffset: 0; } }
+        @keyframes fadeIn { to { opacity: 1; } }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1), transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-d1 { transition-delay: 0.1s; } .reveal-d2 { transition-delay: 0.2s; } .reveal-d3 { transition-delay: 0.3s; } .reveal-d4 { transition-delay: 0.4s; }
+        .reveal-d1 { transition-delay: 0.12s; } .reveal-d2 { transition-delay: 0.24s; } .reveal-d3 { transition-delay: 0.36s; } .reveal-d4 { transition-delay: 0.48s; }
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
             .agent-split { grid-template-columns: 1fr; gap: 2rem; }
             .agent-split:nth-child(even) .agent-visual { order: 0; }
             .agent-split:nth-child(even) .agent-content { order: 0; }
-            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 0; }
+            .steps-grid::before { display: none; }
             .features-grid { grid-template-columns: 1fr 1fr; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
             .pain-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
             .pricing-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
             .faq-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem; }
+            .cta-split { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-hero { grid-template-columns: 1fr; gap: 2rem; }
             .footer-grid { grid-template-columns: 1fr; }
-            .mock-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
 
         @media (max-width: 600px) {
-            .steps-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
             .features-grid { grid-template-columns: 1fr; }
             .stats-grid { grid-template-columns: 1fr; }
             .hero-actions { flex-direction: column; }
             .cta-form-detailed .form-row { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
             .faq-layout { padding: 1.5rem; }
+        }
+        /* ── Feature Modal Overlays ── */
+        .feature-item[data-feature] { cursor: pointer; }
+        .feature-item[data-feature]:active { transform: scale(0.97); }
+
+        .feature-modal-backdrop {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            z-index: 900; opacity: 0; pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .feature-modal-backdrop.visible { opacity: 1; pointer-events: auto; }
+
+        .feature-modal {
+            position: fixed; z-index: 910;
+            background: #080c14; border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px; overflow: hidden; overflow-y: auto;
+            opacity: 0; pointer-events: none;
+            transition: top 0.5s cubic-bezier(0.16,1,0.3,1), left 0.5s cubic-bezier(0.16,1,0.3,1),
+                        width 0.5s cubic-bezier(0.16,1,0.3,1), height 0.5s cubic-bezier(0.16,1,0.3,1),
+                        border-radius 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease;
+            box-shadow: 0 0 100px rgba(59,130,246,0.08), 0 30px 80px rgba(0,0,0,0.6);
+        }
+        .feature-modal.morph-start { opacity: 1; pointer-events: none; }
+        .feature-modal.open { opacity: 1; pointer-events: auto; border-radius: 16px; }
+
+        .fm-inner { opacity: 0; transition: opacity 0.25s ease 0.35s; padding: 2rem; }
+        .feature-modal.open .fm-inner { opacity: 1; }
+
+        .fm-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+        .fm-header-left { display: flex; align-items: center; gap: 1rem; }
+        .fm-header-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .fm-header-icon svg { width: 24px; height: 24px; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+        .fm-header-title { font-size: 1.3rem; font-weight: 700; }
+        .fm-header-sub { font-size: 0.8rem; color: var(--gray-400); margin-top: 0.15rem; }
+        .fm-close {
+            width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04); display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: background 0.2s, border-color 0.2s; color: var(--gray-400); font-size: 1.1rem; line-height: 1;
+        }
+        .fm-close:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); color: var(--white); }
+
+        .fm-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-bottom: 1.2rem; }
+        .fm-stat { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 0.8rem 1rem; text-align: left; }
+        .fm-stat-label { font-size: 0.6rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+        .fm-stat-val { font-size: 1.2rem; font-weight: 700; }
+        .fm-stat-change { font-size: 0.6rem; font-weight: 600; margin-top: 0.2rem; }
+        .fm-stat-change.up { color: #22c55e; } .fm-stat-change.down { color: #ef4444; }
+
+        .fm-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+        .fm-panel { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 1.2rem; }
+        .fm-panel-title { font-size: 0.65rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; }
+
+        .fm-footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.06); }
+        .fm-insight { display: flex; align-items: flex-start; gap: 0.6rem; flex: 1; font-size: 0.75rem; color: var(--gray-400); line-height: 1.5; font-style: italic; }
+        .fm-insight-icon { font-size: 1rem; flex-shrink: 0; }
+
+        .fm-hbar-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+        .fm-hbar-label { font-size: 0.65rem; color: var(--gray-400); width: 100px; text-align: right; flex-shrink: 0; }
+        .fm-hbar-track { flex: 1; height: 20px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; }
+        .fm-hbar-fill { height: 100%; border-radius: 4px; }
+        .fm-hbar-val { font-size: 0.6rem; color: var(--gray-500); width: 55px; flex-shrink: 0; }
+
+        .fm-table { width: 100%; border-collapse: collapse; }
+        .fm-table th { font-size: 0.55rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; text-align: left; padding: 0 0 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .fm-table td { font-size: 0.65rem; color: var(--gray-400); padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .fm-table td:first-child { color: var(--gray-300); font-weight: 500; }
+        .fm-badge { font-size: 0.5rem; padding: 0.1rem 0.35rem; border-radius: 3px; font-weight: 600; }
+        .fm-badge.up { color: #22c55e; background: rgba(34,197,94,0.1); }
+        .fm-badge.down { color: #ef4444; background: rgba(239,68,68,0.1); }
+
+        .fm-rank { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .fm-rank:last-child { border-bottom: none; }
+        .fm-rank-pos { font-size: 0.6rem; font-weight: 700; color: var(--gray-500); width: 16px; text-align: center; }
+        .fm-rank-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.55rem; font-weight: 700; color: white; flex-shrink: 0; }
+        .fm-rank-info { flex: 1; }
+        .fm-rank-name { font-size: 0.7rem; font-weight: 600; color: var(--gray-300); }
+        .fm-rank-sub { font-size: 0.55rem; color: var(--gray-500); }
+        .fm-rank-trend { font-size: 0.6rem; font-weight: 600; }
+
+        .fm-timeline { display: flex; flex-direction: column; }
+        .fm-tl-item { display: flex; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .fm-tl-item:last-child { border-bottom: none; }
+        .fm-tl-dot-col { display: flex; flex-direction: column; align-items: center; width: 12px; padding-top: 3px; }
+        .fm-tl-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .fm-tl-line { width: 1px; flex: 1; background: rgba(255,255,255,0.06); margin-top: 4px; }
+        .fm-tl-content { flex: 1; }
+        .fm-tl-date { font-size: 0.55rem; color: var(--gray-500); margin-bottom: 0.2rem; }
+        .fm-tl-title { font-size: 0.72rem; font-weight: 600; color: var(--gray-300); margin-bottom: 0.2rem; }
+        .fm-tl-desc { font-size: 0.6rem; color: var(--gray-500); line-height: 1.4; }
+
+        .fm-report { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 1rem; }
+        .fm-report-section { margin-bottom: 0.8rem; }
+        .fm-report-section:last-child { margin-bottom: 0; }
+        .fm-report-section-title { font-size: 0.55rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 0.3rem; padding-bottom: 0.2rem; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .fm-report-line { font-size: 0.6rem; color: var(--gray-400); padding: 0.15rem 0; display: flex; align-items: center; gap: 0.4rem; }
+        .fm-report-line svg { width: 10px; height: 10px; stroke: var(--blue-light); stroke-width: 2; fill: none; flex-shrink: 0; }
+
+        .fm-donut-large { display: flex; align-items: center; justify-content: center; gap: 2rem; }
+        .fm-donut-lg { width: 160px; height: 160px; position: relative; flex-shrink: 0; }
+        .fm-donut-lg svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+        .fm-donut-lg circle { fill: none; stroke-width: 10; stroke-linecap: round; }
+        .fm-donut-lg-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+        .fm-donut-lg-val { font-size: 1.5rem; font-weight: 700; }
+        .fm-donut-lg-label { font-size: 0.55rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; }
+        .fm-donut-legend { display: flex; flex-direction: column; gap: 0.5rem; }
+        .fm-donut-legend-item { display: flex; align-items: center; gap: 0.5rem; }
+        .fm-donut-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .fm-donut-legend-text { font-size: 0.72rem; color: var(--gray-400); }
+        .fm-donut-legend-val { font-size: 0.72rem; font-weight: 600; color: var(--gray-300); margin-left: auto; }
+
+        .fm-alert-feed { display: flex; flex-direction: column; }
+        .fm-alert-row { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0.6rem; border-bottom: 1px solid rgba(255,255,255,0.04); border-radius: 6px; }
+        .fm-alert-sev { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .fm-alert-sev.critical { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.4); }
+        .fm-alert-sev.warning { background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.3); }
+        .fm-alert-sev.info { background: #3b82f6; }
+        .fm-alert-time { font-size: 0.55rem; color: var(--gray-500); width: 55px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+        .fm-alert-msg { font-size: 0.65rem; color: var(--gray-400); flex: 1; }
+        .fm-alert-status { font-size: 0.5rem; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600; flex-shrink: 0; }
+        .fm-alert-status.new { color: #ef4444; background: rgba(239,68,68,0.1); }
+        .fm-alert-status.seen { color: #f59e0b; background: rgba(245,158,11,0.1); }
+        .fm-alert-status.resolved { color: #22c55e; background: rgba(34,197,94,0.1); }
+
+        .fm-client-row { display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .fm-client-row:last-child { border-bottom: none; }
+        .fm-client-avatar { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-size: 0.5rem; color: var(--gray-400); flex-shrink: 0; }
+        .fm-client-info { flex: 1; }
+        .fm-client-name { font-size: 0.65rem; font-weight: 500; color: var(--gray-300); }
+        .fm-client-detail { font-size: 0.5rem; color: var(--gray-500); }
+        .fm-client-tag { font-size: 0.5rem; padding: 0.1rem 0.35rem; border-radius: 3px; font-weight: 600; flex-shrink: 0; }
+
+        .fm-trend-row { display: flex; align-items: center; gap: 0.6rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+        .fm-trend-row:last-child { border-bottom: none; }
+        .fm-trend-arrow { font-size: 0.8rem; width: 20px; text-align: center; flex-shrink: 0; }
+        .fm-trend-text { font-size: 0.65rem; color: var(--gray-400); flex: 1; line-height: 1.3; }
+        .fm-trend-sev { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+        .fm-sev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: 1rem; }
+        .fm-sev-card { text-align: center; padding: 0.6rem; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); }
+        .fm-sev-count { font-size: 1.2rem; font-weight: 700; }
+        .fm-sev-label { font-size: 0.5rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.06em; }
+
+        @media (max-width: 768px) {
+            .fm-stats { grid-template-columns: repeat(2, 1fr); }
+            .fm-grid { grid-template-columns: 1fr; }
+            .fm-donut-large { flex-direction: column; }
+            .fm-inner { padding: 1.2rem; }
+            .fm-hbar-label { width: 70px; font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -532,7 +1093,7 @@
     <div class="nav-inner">
         <div class="nav-logo">
             <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="url(#lg)" stroke-width="1.5"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="url(#lg)" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2" fill="#60a5fa"/><defs><linearGradient id="lg" x1="4" y1="4" x2="28" y2="28"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs></svg>
-            The Invisible Team
+            Super Team
         </div>
         <ul class="nav-links">
             <li><a href="#agents">Agenti</a></li>
@@ -540,7 +1101,7 @@
             <li><a href="#pricing">Prezzi</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="#cta" class="btn-dot btn-dot--nav">Richiedi accesso <span class="dot-accent" aria-hidden="true"></span></a>
+        <a href="#cta" class="btn-rainbow btn-rainbow--nav">Richiedi una prova</a>
     </div>
 </nav>
 
@@ -573,7 +1134,7 @@
         <div class="agent-splits">
             <article class="agent-split reveal">
                 <div class="agent-visual">
-                    <img src="images/1.png" alt="Il Controller Finanziario — Agente AI per analisi finanziaria settimanale" loading="lazy">
+                    <img src="images/Financial controller.png" alt="Il Controller Finanziario — Agente AI per analisi finanziaria settimanale" loading="lazy">
                 </div>
                 <div class="agent-content">
                     <span class="agent-label">Agente 01</span>
@@ -594,7 +1155,7 @@
 
             <article class="agent-split reveal">
                 <div class="agent-visual">
-                    <img src="images/3.png" alt="Il Marketing Analyst — Agente AI per analisi clientela settimanale" loading="lazy">
+                    <img src="images/Marketing Analist.png" alt="Il Marketing Analyst — Agente AI per analisi clientela settimanale" loading="lazy">
                 </div>
                 <div class="agent-content">
                     <span class="agent-label">Agente 02</span>
@@ -615,7 +1176,7 @@
 
             <article class="agent-split reveal">
                 <div class="agent-visual">
-                    <img src="images/2.png" alt="Il Performance Coach — Agente AI per gestione performance team" loading="lazy">
+                    <img src="images/Performance coach.png" alt="Il Performance Coach — Agente AI per gestione performance team" loading="lazy">
                 </div>
                 <div class="agent-content">
                     <span class="agent-label">Agente 03</span>
@@ -685,12 +1246,59 @@
             <p>Scopri le funzionalita chiave progettate per semplificare, monitorare e ottimizzare la gestione veterinaria.</p>
         </div>
         <div class="features-grid">
-            <div class="feature-item reveal reveal-d1"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Centri di ricavo</h3><p>Analisi automatica dei flussi economici divisi per servizio, reparto e periodo.</p></div>
-            <div class="feature-item reveal reveal-d2"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 8-4 4 4 4"/></svg></div><h3>Performance individuali</h3><p>Monitora la produttivita e le vendite di ogni veterinario con ranking settimanali.</p></div>
-            <div class="feature-item reveal reveal-d3"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Report automatici</h3><p>Report settimanali generati automaticamente con insight e raccomandazioni operative.</p></div>
-            <div class="feature-item reveal reveal-d1"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h3>Segmentazione clienti</h3><p>Identifica e classifica automaticamente le tipologie di clienti della tua clinica.</p></div>
-            <div class="feature-item reveal reveal-d2"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Trend in tempo reale</h3><p>Confronta i dati settimana su settimana per individuare trend e anomalie.</p></div>
-            <div class="feature-item reveal reveal-d3"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><h3>Monitoraggio 24/7</h3><p>I tre Agenti AI non dormono mai. Ricevi alert immediati su anomalie critiche.</p></div>
+            <div class="feature-item reveal reveal-d1" data-feature="centri-ricavo"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Centri di ricavo</h3><p>Analisi automatica dei flussi economici divisi per servizio, reparto e periodo.</p></div>
+            <div class="feature-item reveal reveal-d2" data-feature="performance"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 8-4 4 4 4"/></svg></div><h3>Performance individuali</h3><p>Monitora la produttivita e le vendite di ogni veterinario con ranking settimanali.</p></div>
+            <div class="feature-item reveal reveal-d3" data-feature="report"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Report automatici</h3><p>Report settimanali generati automaticamente con insight e raccomandazioni operative.</p></div>
+            <div class="feature-item reveal reveal-d1" data-feature="segmentazione"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><h3>Segmentazione clienti</h3><p>Identifica e classifica automaticamente le tipologie di clienti della tua clinica.</p></div>
+            <div class="feature-item reveal reveal-d2" data-feature="trend"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><h3>Trend in tempo reale</h3><p>Confronta i dati settimana su settimana per individuare trend e anomalie.</p></div>
+            <div class="feature-item reveal reveal-d3" data-feature="monitoraggio"><div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><h3>Monitoraggio 24/7</h3><p>I tre Agenti AI non dormono mai. Ricevi alert immediati su anomalie critiche.</p></div>
+        </div>
+    </div>
+</section>
+
+<section class="snoots-section" id="snoots">
+    <div class="container">
+        <div class="snoots-inner">
+            <div class="snoots-content reveal">
+                <h2>Integrato nativamente con <span>Snoots</span></h2>
+                <p class="snoots-lead">Super Team si connette direttamente al tuo gestionale Snoots tramite il protocollo MCP (Model Context Protocol). Nessuna esportazione manuale, nessun CSV, nessun copia-incolla. I tuoi dati restano dove sono — noi li leggiamo in tempo reale.</p>
+                <div class="snoots-features">
+                    <div class="snoots-feat">
+                        <div class="snoots-feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div>
+                        <div><h4>Accesso in sola lettura</h4><p>Gli agenti leggono i dati ma non modificano nulla nel tuo gestionale. Sicuro per definizione.</p></div>
+                    </div>
+                    <div class="snoots-feat">
+                        <div class="snoots-feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                        <div><h4>Connessione diretta via MCP</h4><p>Il Model Context Protocol permette agli agenti AI di interrogare Snoots in modo strutturato e affidabile, senza API fragili.</p></div>
+                    </div>
+                    <div class="snoots-feat">
+                        <div class="snoots-feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                        <div><h4>Dati sempre aggiornati</h4><p>Ogni report settimanale viene generato sui dati reali della tua clinica, aggiornati al momento dell'analisi.</p></div>
+                    </div>
+                </div>
+                <div class="snoots-badge reveal reveal-d1"><span class="snoots-badge-dot" aria-hidden="true"></span> Partner ufficiale Snoots</div>
+            </div>
+            <div class="snoots-visual reveal reveal-d2">
+                <div class="snoots-diagram">
+                    <div class="snoots-node snoots-node--snoots">
+                        <div class="snoots-node-label">Il tuo gestionale</div>
+                        <div class="snoots-node-title">Snoots</div>
+                        <div class="snoots-node-desc">Pazienti · Clienti · Fatture · Visite</div>
+                    </div>
+                    <div class="snoots-connector" aria-hidden="true"></div>
+                    <div class="snoots-node snoots-node--mcp">
+                        <div class="snoots-node-label">Protocollo</div>
+                        <div class="snoots-node-title">MCP</div>
+                        <div class="snoots-node-desc">Model Context Protocol — lettura sicura e strutturata</div>
+                    </div>
+                    <div class="snoots-connector" aria-hidden="true"></div>
+                    <div class="snoots-node snoots-node--agents">
+                        <div class="snoots-node-label">Intelligenza</div>
+                        <div class="snoots-node-title">3 Agenti AI</div>
+                        <div class="snoots-node-desc">Controller · Coach · Analyst</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -699,16 +1307,168 @@
     <div class="container">
         <h2 class="reveal">Tutto cio di cui hai bisogno, in un'unica dashboard</h2>
         <p class="reveal reveal-d1">Tieni traccia dei ricavi, delle performance del team e della segmentazione clienti da un'unica schermata.</p>
-        <div class="dashboard-mockup reveal reveal-d2">
-            <div class="mock-topbar"><div class="mock-topbar-left"><div style="display:flex;gap:6px;"><div class="mock-dot" style="background:#ef4444"></div><div class="mock-dot" style="background:#f59e0b"></div><div class="mock-dot" style="background:#22c55e"></div></div><div class="mock-tabs"><div class="mock-tab active">Dashboard</div><div class="mock-tab">Ricavi</div><div class="mock-tab">Team</div><div class="mock-tab">Clienti</div></div></div></div>
-            <div class="mock-grid">
-                <div class="mock-left-stats">
-                    <div class="mock-stat-card"><div class="mock-stat-label">Ricavi settimanali</div><div class="mock-stat-value" style="color:var(--white)">&#8364; 24.580</div><div class="mock-stat-change up">&#8593; 12.4% vs settimana precedente</div></div>
-                    <div class="mock-stat-card"><div class="mock-stat-label">Clienti nuovi</div><div class="mock-stat-value" style="color:var(--white)">47</div><div class="mock-stat-change up">&#8593; 8 rispetto alla scorsa settimana</div></div>
-                    <div class="mock-stat-card"><div class="mock-stat-label">Servizio top</div><div class="mock-stat-value" style="color:var(--blue-light);font-size:1.2rem;">Chirurgia ortopedica</div><div class="mock-stat-change up">&#8364; 8.200 — margine 62%</div></div>
-                </div>
-                <div class="mock-chart"><div class="mock-chart-title">Ricavi per centro — ultimi 7 giorni</div><div class="mock-chart-bars" id="mockBars"></div></div>
+        <div class="dashboard-wrapper">
+        <div class="dashboard-mockup reveal reveal-d2" id="dashMockup">
+            <!-- Sidebar -->
+            <div class="mock-sidebar-nav">
+                <div class="mock-sidebar-logo"><div class="mock-sidebar-logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><span>Super Team</span></div>
+                <div class="mock-sidebar-label">Analisi</div>
+                <div class="mock-sidebar-item active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Dashboard</div>
+                <div class="mock-sidebar-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Ricavi</div>
+                <div class="mock-sidebar-item"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Team</div>
+                <div class="mock-sidebar-item"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Trend</div>
+                <div class="mock-sidebar-label">Gestione</div>
+                <div class="mock-sidebar-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Clienti</div>
+                <div class="mock-sidebar-item"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>Report</div>
+                <div class="mock-sidebar-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>Alert</div>
+                <div class="mock-sidebar-spacer"></div>
+                <div class="mock-sidebar-user"><div class="mock-sidebar-avatar">EM</div><div><div class="mock-sidebar-uname">Dr.ssa Marchetti</div><div class="mock-sidebar-urole">Clinica San Marco</div></div></div>
             </div>
+
+            <!-- Topbar -->
+            <div class="mock-topbar">
+                <div class="mock-topbar-left">
+                    <div class="mock-topbar-greeting">Buongiorno, <span>Elena</span></div>
+                </div>
+                <div class="mock-topbar-right">
+                    <div class="mock-live-dot" aria-hidden="true"></div><span class="mock-live-label">Live</span>
+                    <span class="mock-date">Sett. 31 Mar — 4 Apr 2026</span>
+                    <div class="mock-topbar-icons">
+                        <div class="mock-topbar-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                        <div class="mock-topbar-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body -->
+            <div class="mock-body">
+                <div class="mock-stats-row">
+                    <div class="mock-stat-card">
+                        <div class="mock-stat-label">Ricavi settimanali</div>
+                        <div class="mock-stat-row"><div class="mock-stat-value" style="color:var(--white)" data-count="24580" data-prefix="&#8364; " data-separator=".">&#8364; 0</div><div class="mock-stat-change up">&#8593; 12.4%</div></div>
+                        <div class="mock-sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none"><polyline points="0,25 10,22 20,18 30,20 40,15 50,17 60,10 70,12 80,8 90,14 100,6 110,9 120,5" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:200;stroke-dashoffset:200;animation:drawLine 1.5s ease forwards 0.3s"/><polyline points="0,25 10,22 20,18 30,20 40,15 50,17 60,10 70,12 80,8 90,14 100,6 110,9 120,5" fill="url(#sparkGrad1)" stroke="none" style="opacity:0;animation:fadeIn 0.5s ease forwards 1.5s"/><defs><linearGradient id="sparkGrad1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/></linearGradient></defs></svg></div>
+                    </div>
+                    <div class="mock-stat-card">
+                        <div class="mock-stat-label">Clienti nuovi</div>
+                        <div class="mock-stat-row"><div class="mock-stat-value" style="color:var(--white)" data-count="47">0</div><div class="mock-stat-change up">&#8593; 20.5%</div></div>
+                        <div class="mock-sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none"><polyline points="0,20 15,22 30,18 45,20 60,12 75,18 90,8 105,12 120,5" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:200;stroke-dashoffset:200;animation:drawLine 1.5s ease forwards 0.5s"/><polyline points="0,20 15,22 30,18 45,20 60,12 75,18 90,8 105,12 120,5" fill="url(#sparkGrad2)" stroke="none" style="opacity:0;animation:fadeIn 0.5s ease forwards 1.7s"/><defs><linearGradient id="sparkGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22c55e" stop-opacity="0.3"/><stop offset="100%" stop-color="#22c55e" stop-opacity="0"/></linearGradient></defs></svg></div>
+                    </div>
+                    <div class="mock-stat-card">
+                        <div class="mock-stat-label">Ticket medio</div>
+                        <div class="mock-stat-row"><div class="mock-stat-value" style="color:var(--white)" data-count="87" data-prefix="&#8364; ">&#8364; 0</div><div class="mock-stat-change down">&#8595; 3.1%</div></div>
+                        <div class="mock-sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none"><polyline points="0,10 15,12 30,9 45,14 60,16 75,13 90,18 105,20 120,22" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:200;stroke-dashoffset:200;animation:drawLine 1.5s ease forwards 0.7s"/><polyline points="0,10 15,12 30,9 45,14 60,16 75,13 90,18 105,20 120,22" fill="url(#sparkGrad3)" stroke="none" style="opacity:0;animation:fadeIn 0.5s ease forwards 1.9s"/><defs><linearGradient id="sparkGrad3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"/><stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/></linearGradient></defs></svg></div>
+                    </div>
+                    <div class="mock-stat-card">
+                        <div class="mock-stat-label">Visite totali</div>
+                        <div class="mock-stat-row"><div class="mock-stat-value" style="color:var(--white)" data-count="283">0</div><div class="mock-stat-change up">&#8593; 8.7%</div></div>
+                        <div class="mock-sparkline"><svg viewBox="0 0 120 30" preserveAspectRatio="none"><polyline points="0,22 15,20 30,16 45,18 60,12 75,10 90,8 105,7 120,5" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="stroke-dasharray:200;stroke-dashoffset:200;animation:drawLine 1.5s ease forwards 0.9s"/><polyline points="0,22 15,20 30,16 45,18 60,12 75,10 90,8 105,7 120,5" fill="url(#sparkGrad4)" stroke="none" style="opacity:0;animation:fadeIn 0.5s ease forwards 2.1s"/><defs><linearGradient id="sparkGrad4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a78bfa" stop-opacity="0.3"/><stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/></linearGradient></defs></svg></div>
+                    </div>
+                </div>
+
+                <!-- Area chart + sidebar -->
+                <div class="mock-mid-row">
+                    <div class="mock-area-panel">
+                        <div class="mock-chart-header">
+                            <div class="mock-chart-title">Andamento ricavi</div>
+                            <div class="mock-chart-tabs"><div class="mock-chart-tab">1S</div><div class="mock-chart-tab">1M</div><div class="mock-chart-tab active">6M</div><div class="mock-chart-tab">1A</div></div>
+                        </div>
+                        <div class="mock-area-svg">
+                            <svg viewBox="0 0 500 160" preserveAspectRatio="none">
+                                <defs>
+                                    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/></linearGradient>
+                                    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+                                    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                                </defs>
+                                <!-- Grid lines -->
+                                <line x1="0" y1="32" x2="500" y2="32" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                                <line x1="0" y1="64" x2="500" y2="64" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                                <line x1="0" y1="96" x2="500" y2="96" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                                <line x1="0" y1="128" x2="500" y2="128" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                                <!-- Area fill -->
+                                <path d="M0,130 C30,125 50,120 80,105 C110,90 130,95 160,80 C190,65 210,70 240,55 C270,40 290,50 320,35 C350,20 370,30 400,25 C430,20 460,28 500,15 L500,160 L0,160Z" fill="url(#areaGrad)" style="opacity:0;animation:fadeIn 0.8s ease forwards 0.5s"/>
+                                <!-- Line -->
+                                <path d="M0,130 C30,125 50,120 80,105 C110,90 130,95 160,80 C190,65 210,70 240,55 C270,40 290,50 320,35 C350,20 370,30 400,25 C430,20 460,28 500,15" fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-linecap="round" filter="url(#glow)" style="stroke-dasharray:600;stroke-dashoffset:600;animation:drawLine 2s ease forwards 0.3s"/>
+                            </svg>
+                            <!-- Tooltip -->
+                            <div class="mock-chart-tooltip">
+                                <div class="mock-chart-tooltip-date">1 Mar 2026</div>
+                                <div class="mock-chart-tooltip-val">&#8364; 16.800</div>
+                                <div class="mock-chart-tooltip-line"></div>
+                                <div class="mock-chart-tooltip-dot"></div>
+                            </div>
+                            <div class="mock-chart-yaxis" style="padding:0 0 0 4px">
+                                <span class="mock-chart-ylabel">&#8364;25k</span><span class="mock-chart-ylabel">&#8364;20k</span><span class="mock-chart-ylabel">&#8364;15k</span><span class="mock-chart-ylabel">&#8364;10k</span><span class="mock-chart-ylabel">&#8364;5k</span>
+                            </div>
+                        </div>
+                        <div class="mock-chart-xaxis"><span class="mock-chart-xlabel">Gen</span><span class="mock-chart-xlabel">Feb</span><span class="mock-chart-xlabel">Mar</span><span class="mock-chart-xlabel">Apr</span><span class="mock-chart-xlabel">Mag</span><span class="mock-chart-xlabel">Giu</span></div>
+                    </div>
+                    <div class="mock-right-col">
+                        <div class="mock-panel">
+                            <div class="mock-panel-title">Segmentazione clienti</div>
+                            <div class="mock-donut-wrap">
+                                <div class="mock-donut">
+                                    <svg viewBox="0 0 36 36">
+                                        <circle cx="18" cy="18" r="14" stroke="rgba(255,255,255,0.04)"/>
+                                        <circle cx="18" cy="18" r="14" stroke="#3b82f6" stroke-dasharray="38 62" stroke-dashoffset="0"/>
+                                        <circle cx="18" cy="18" r="14" stroke="#22c55e" stroke-dasharray="25 75" stroke-dashoffset="-38"/>
+                                        <circle cx="18" cy="18" r="14" stroke="#f59e0b" stroke-dasharray="20 80" stroke-dashoffset="-63"/>
+                                        <circle cx="18" cy="18" r="14" stroke="#a78bfa" stroke-dasharray="17 83" stroke-dashoffset="-83"/>
+                                    </svg>
+                                    <div class="mock-donut-center"><div class="mock-donut-center-val">1.247</div><div class="mock-donut-center-label">Clienti</div></div>
+                                </div>
+                                <div class="mock-donut-legend">
+                                    <div class="mock-legend-item"><div class="mock-legend-dot" style="background:#3b82f6"></div>Abituali<span class="mock-legend-val">38%</span></div>
+                                    <div class="mock-legend-item"><div class="mock-legend-dot" style="background:#22c55e"></div>Nuovi<span class="mock-legend-val">25%</span></div>
+                                    <div class="mock-legend-item"><div class="mock-legend-dot" style="background:#f59e0b"></div>Occasionali<span class="mock-legend-val">20%</span></div>
+                                    <div class="mock-legend-item"><div class="mock-legend-dot" style="background:#a78bfa"></div>Dormienti<span class="mock-legend-val">17%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mock-panel">
+                            <div class="mock-panel-title">Top performer</div>
+                            <div class="mock-rank-list">
+                                <div class="mock-rank-item"><div class="mock-rank-pos">1</div><div class="mock-rank-avatar" style="background:linear-gradient(135deg,#3b82f6,#7c3aed)">MR</div><div class="mock-rank-info"><div class="mock-rank-name">Dr. Rossi</div><div class="mock-rank-val">&#8364; 6.240</div></div><div class="mock-rank-bar-bg"><div class="mock-rank-bar-fill" style="width:100%;background:linear-gradient(90deg,#3b82f6,#7c3aed)"></div></div></div>
+                                <div class="mock-rank-item"><div class="mock-rank-pos">2</div><div class="mock-rank-avatar" style="background:linear-gradient(135deg,#22c55e,#3b82f6)">LB</div><div class="mock-rank-info"><div class="mock-rank-name">Dr.ssa Bianchi</div><div class="mock-rank-val">&#8364; 5.890</div></div><div class="mock-rank-bar-bg"><div class="mock-rank-bar-fill" style="width:88%;background:linear-gradient(90deg,#22c55e,#3b82f6)"></div></div></div>
+                                <div class="mock-rank-item"><div class="mock-rank-pos">3</div><div class="mock-rank-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">GV</div><div class="mock-rank-info"><div class="mock-rank-name">Dr. Verdi</div><div class="mock-rank-val">&#8364; 4.320</div></div><div class="mock-rank-bar-bg"><div class="mock-rank-bar-fill" style="width:69%;background:linear-gradient(90deg,#f59e0b,#ef4444)"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alert -->
+                <div class="mock-alert">
+                    <span class="mock-alert-icon" aria-hidden="true">&#9888;&#65039;</span>
+                    <div class="mock-alert-text"><strong>Alert Controller:</strong> Il centro "Diagnostica per immagini" mostra un calo del 18% vs media 4 settimane. Verifica disponibilita slot.</div>
+                </div>
+
+                <!-- Bottom: table + activity -->
+                <div class="mock-bottom-grid">
+                    <div class="mock-table-panel">
+                        <div class="mock-panel-title">Centri di ricavo — questa settimana</div>
+                        <table class="mock-table">
+                            <thead><tr><th>Centro</th><th>Ricavo</th><th>Var.</th><th>Trend</th></tr></thead>
+                            <tbody>
+                                <tr><td>Chirurgia</td><td>&#8364; 8.200</td><td><span class="mock-table-badge up">+14%</span></td><td><div class="mock-table-sparkline"><svg viewBox="0 0 50 16" preserveAspectRatio="none"><polyline points="0,12 8,10 16,8 24,9 32,5 40,6 50,3" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg></div></td></tr>
+                                <tr><td>Medicina interna</td><td>&#8364; 5.640</td><td><span class="mock-table-badge up">+6%</span></td><td><div class="mock-table-sparkline"><svg viewBox="0 0 50 16" preserveAspectRatio="none"><polyline points="0,10 8,9 16,11 24,7 32,8 40,5 50,4" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg></div></td></tr>
+                                <tr><td>Diagnostica</td><td>&#8364; 4.120</td><td><span class="mock-table-badge down">-18%</span></td><td><div class="mock-table-sparkline"><svg viewBox="0 0 50 16" preserveAspectRatio="none"><polyline points="0,4 8,5 16,6 24,8 32,9 40,12 50,14" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"/></svg></div></td></tr>
+                                <tr><td>Vaccinazioni</td><td>&#8364; 3.890</td><td><span class="mock-table-badge up">+22%</span></td><td><div class="mock-table-sparkline"><svg viewBox="0 0 50 16" preserveAspectRatio="none"><polyline points="0,14 8,11 16,10 24,7 32,5 40,4 50,2" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg></div></td></tr>
+                                <tr><td>Dermatologia</td><td>&#8364; 2.730</td><td><span class="mock-table-badge up">+3%</span></td><td><div class="mock-table-sparkline"><svg viewBox="0 0 50 16" preserveAspectRatio="none"><polyline points="0,9 8,8 16,10 24,7 32,8 40,7 50,6" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round"/></svg></div></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mock-panel">
+                        <div class="mock-panel-title">Attivita recenti</div>
+                        <div class="mock-activity">
+                            <div class="mock-activity-item"><div class="mock-activity-dot-col"><div class="mock-activity-dot" style="background:#3b82f6"></div><div class="mock-activity-line"></div></div><div><div class="mock-activity-text"><strong>Controller</strong> ha generato il report settimanale ricavi</div><div class="mock-activity-time">Oggi, 07:30</div></div></div>
+                            <div class="mock-activity-item"><div class="mock-activity-dot-col"><div class="mock-activity-dot" style="background:#f59e0b"></div><div class="mock-activity-line"></div></div><div><div class="mock-activity-text"><strong>Alert:</strong> Diagnostica per immagini -18% vs media</div><div class="mock-activity-time">Oggi, 07:31</div></div></div>
+                            <div class="mock-activity-item"><div class="mock-activity-dot-col"><div class="mock-activity-dot" style="background:#22c55e"></div><div class="mock-activity-line"></div></div><div><div class="mock-activity-text"><strong>Coach</strong> ha inviato feedback a Dr. Verdi</div><div class="mock-activity-time">Ieri, 09:15</div></div></div>
+                            <div class="mock-activity-item"><div class="mock-activity-dot-col"><div class="mock-activity-dot" style="background:#a78bfa"></div></div><div><div class="mock-activity-text"><strong>Analyst</strong> ha identificato 12 nuovi clienti dormienti</div><div class="mock-activity-time">Ieri, 08:00</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-reflection" aria-hidden="true"></div>
         </div>
     </div>
 </section>
@@ -724,21 +1484,12 @@
     </div>
 </section>
 
-<section class="testimonial-section" aria-label="Testimonianza">
-    <div class="container">
-        <h2 class="reveal">Cosa dicono i nostri clienti</h2>
-        <figure class="reveal reveal-d1">
-            <blockquote class="testimonial-quote">Da quando abbiamo attivato The Invisible Team, ho smesso di passare le domeniche sui fogli Excel. I numeri li conosce già il Controller Finanziario, la clientela la mappa il Marketing Analyst, e il team lo gestisce il Performance Coach.</blockquote>
-            <figcaption><p class="testimonial-author">Dott.ssa Elena Marchetti</p><p class="testimonial-role">Direttrice — Clinica Veterinaria San Marco, Milano</p></figcaption>
-        </figure>
-    </div>
-</section>
 
 <section class="pricing-section" id="pricing">
     <div class="container">
         <div class="pricing-header reveal">
-            <h2>Semplice. Senza sorprese.</h2>
-            <p>Ogni agente ti restituisce ore di analisi che non devi più fare — consegnate automaticamente. Il prezzo è volutamente ben al di sotto del valore generato.</p>
+            <h2>Piani e Prezzi</h2>
+            <p>Semplice. Senza sorprese. Ogni agente ti restituisce ore di analisi che non devi più fare.</p>
         </div>
         <div class="pricing-grid">
             <div class="pricing-card reveal reveal-d1">
@@ -783,37 +1534,37 @@
     </div>
 </section>
 
-<section class="faq-section" id="faq">
-    <div class="container">
-        <div class="faq-layout reveal">
-            <div class="faq-left"><h2>Hai domande? Scopri le risposte ai tuoi dubbi piu frequenti.</h2><p>Trova risposte rapide alle domande piu frequenti su come funzionano i nostri tre Agenti AI per cliniche veterinarie.</p></div>
-            <div class="faq-list">
-                <div class="faq-item"><button class="faq-question" aria-expanded="false">Come si collegano gli Agenti AI al mio gestionale?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Supportiamo i principali gestionali veterinari. Basta fornirci le credenziali di accesso in sola lettura e i nostri agenti iniziano ad analizzare i dati automaticamente.</p></div></div>
-                <div class="faq-item"><button class="faq-question" aria-expanded="false">I miei dati sono al sicuro?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Assolutamente. I dati sono crittografati end-to-end, accessibili in sola lettura e non vengono mai condivisi con terze parti. Rispettiamo il GDPR.</p></div></div>
-                <div class="faq-item"><button class="faq-question" aria-expanded="false">Quanto costa il servizio?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Molto meno di un singolo stipendio manageriale. I piani partono da un costo mensile fisso, trasparente e senza vincoli di durata.</p></div></div>
-                <div class="faq-item"><button class="faq-question" aria-expanded="false">Quanto tempo serve per vedere i primi risultati?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Entro 48 ore dalla connessione ricevi il primo report. Dopo 2-3 settimane gli agenti hanno calibrato completamente il contesto della tua clinica.</p></div></div>
-                <div class="faq-item"><button class="faq-question" aria-expanded="false">Posso usare solo uno dei tre Agenti?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Il team e progettato per lavorare in sinergia, ma puoi attivare anche un singolo agente. I risultati migliori si ottengono con tutti e tre operativi.</p></div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="cta-section" id="cta" aria-labelledby="cta-heading">
     <div class="container">
-        <h2 class="reveal" id="cta-heading">Il Controller Finanziario.<br><em style="color:var(--blue-light)">Gratis per 3 mesi.</em></h2>
-        <p class="reveal reveal-d1">Lascia i tuoi dati. Ti contattiamo entro 24 ore con le istruzioni per attivare il primo agente nel tuo gestionale.</p>
-        <form class="cta-form-detailed reveal reveal-d2" onsubmit="handleSubmit(event)" novalidate>
-            <div class="form-row">
-                <div class="form-field"><label for="cta-name">Nome</label><input type="text" id="cta-name" placeholder="Nome" required></div>
-                <div class="form-field"><label for="cta-surname">Cognome</label><input type="text" id="cta-surname" placeholder="Cognome" required></div>
+        <div class="cta-split">
+            <div class="cta-left reveal">
+                <h2 id="cta-heading">Il Controller Finanziario.<br><em style="color:var(--blue-light)">Gratis per 3 mesi.</em></h2>
+                <p>Lascia i tuoi dati. Ti contattiamo entro 24 ore con le istruzioni per attivare il primo agente nel tuo gestionale.</p>
+                <form class="cta-form-detailed" onsubmit="handleSubmit(event)" novalidate>
+                    <div class="form-row">
+                        <div class="form-field"><label for="cta-name">Nome</label><input type="text" id="cta-name" placeholder="Nome" required></div>
+                        <div class="form-field"><label for="cta-surname">Cognome</label><input type="text" id="cta-surname" placeholder="Cognome" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field"><label for="cta-email">Email professionale</label><input type="email" id="cta-email" placeholder="Email professionale" required autocomplete="email"></div>
+                        <div class="form-field"><label for="cta-clinic">Nome della clinica</label><input type="text" id="cta-clinic" placeholder="Nome della clinica"></div>
+                    </div>
+                    <button type="submit" class="btn-rainbow" style="width:100%;margin-top:0.5rem;">Richiedi una prova</button>
+                </form>
+                <p class="cta-note">Nessuno spam · Dati non ceduti a terzi · Risposta entro 24h lavorative</p>
             </div>
-            <div class="form-row">
-                <div class="form-field"><label for="cta-email">Email professionale</label><input type="email" id="cta-email" placeholder="Email professionale" required autocomplete="email"></div>
-                <div class="form-field"><label for="cta-clinic">Nome della clinica</label><input type="text" id="cta-clinic" placeholder="Nome della clinica"></div>
+            <div class="cta-right reveal reveal-d2" id="faq">
+                <h2>Hai domande? Scopri le risposte ai tuoi dubbi piu frequenti.</h2>
+                <p>Trova risposte rapide alle domande piu frequenti su come funzionano i nostri tre Agenti AI per cliniche veterinarie.</p>
+                <div class="faq-list">
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false">Come si collegano gli Agenti AI al mio gestionale?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Si collegano direttamente tramite API native. Il processo è sicuro e non richiede competenze tecniche.</p></div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false">I miei dati sono al sicuro?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Assolutamente. Dati crittografati end-to-end, accesso in sola lettura, mai condivisi con terze parti. GDPR compliant.</p></div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false">Quanto costa il servizio?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>I piani partono da &euro;39/mese per un singolo agente. Il trial è gratuito per 3 mesi, senza carta di credito.</p></div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false">Quanto tempo serve per vedere i primi risultati?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Entro 48 ore ricevi il primo report. Dopo 2-3 settimane gli agenti hanno calibrato il contesto della tua clinica.</p></div></div>
+                    <div class="faq-item"><button class="faq-question" aria-expanded="false">Posso usare solo uno dei tre Agenti?<svg viewBox="0 0 20 20" stroke-linecap="round"><path d="M5 8l5 5 5-5"/></svg></button><div class="faq-answer"><p>Sì, puoi attivare anche un singolo agente. I risultati migliori si ottengono con tutti e tre operativi.</p></div></div>
+                </div>
             </div>
-            <button type="submit" class="btn-dot" style="width:100%;justify-content:center;margin-top:0.5rem;">Richiedi l'accesso gratuito <span class="dot-accent" aria-hidden="true"></span></button>
-        </form>
-        <p class="cta-note reveal reveal-d3">Nessuno spam · Dati non ceduti a terzi · Risposta entro 24h lavorative</p>
+        </div>
     </div>
 </section>
 
@@ -821,13 +1572,27 @@
 
 <footer role="contentinfo">
     <div class="container">
+        <div class="footer-hero reveal">
+            <div class="footer-hero-left">
+                <h3>Super Team — AI per Cliniche Veterinarie</h3>
+                <p>Agenti Intelligenti al tuo servizio.</p>
+                <a href="#cta" class="btn-rainbow">Richiedi una prova</a>
+            </div>
+            <div class="footer-testimonial">
+                <blockquote>&ldquo;Da quando abbiamo attivato Super Team, ho smesso di passare le domeniche sui fogli Excel. I numeri li conosce già il Controller Finanziario, la clientela la mappa il Marketing Analyst, e il team lo gestisce il Performance Coach.&rdquo;</blockquote>
+                <div class="footer-testimonial-author">
+                    <div class="footer-testimonial-avatar">EM</div>
+                    <div><div class="footer-testimonial-name">Dott.ssa Elena Marchetti,</div><div class="footer-testimonial-role">Direttrice — Clinica Veterinaria San Marco, Milano</div></div>
+                </div>
+            </div>
+        </div>
         <div class="footer-grid">
-            <div class="footer-brand"><h3><svg width="20" height="20" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#3b82f6" stroke-width="1.5"/><circle cx="16" cy="16" r="2" fill="#60a5fa"/></svg> The Invisible Team</h3><p>Gestisci, monitora e fai crescere la tua clinica veterinaria con tre Agenti AI dedicati. Progettato per veterinari, dai singoli studi alle cliniche strutturate.</p></div>
+            <div class="footer-brand"><h3><svg width="20" height="20" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="#3b82f6" stroke-width="1.5"/><circle cx="16" cy="16" r="2" fill="#60a5fa"/></svg> Super Team</h3><p>Gestisci, monitora e fai crescere la tua clinica veterinaria con tre Agenti AI dedicati. Progettato per veterinari, dai singoli studi alle cliniche strutturate.</p></div>
             <div class="footer-col"><h4>Prodotto</h4><ul><li><a href="#agents">Agenti AI</a></li><li><a href="#how">Come funziona</a></li><li><a href="#features">Funzionalita</a></li><li><a href="#faq">FAQ</a></li></ul></div>
             <div class="footer-col"><h4>Azienda</h4><ul><li><a href="#">Chi siamo</a></li><li><a href="#">Contatti</a></li><li><a href="#">Privacy</a></li><li><a href="#">Termini</a></li></ul></div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 The Invisible Team. Tutti i diritti riservati.</p>
+            <p>&copy; 2026 Super Team. Tutti i diritti riservati.</p>
             <div class="footer-socials">
                 <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></a>
                 <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
@@ -874,17 +1639,51 @@
         });
     });
 
-    var barHeights = [55, 80, 45, 90, 65, 75, 50, 85, 40, 70, 60, 95, 50];
-    var barColors = ['#3b82f6', '#60a5fa', '#2563eb', '#7c3aed', '#3b82f6', '#60a5fa', '#2563eb', '#3b82f6', '#7c3aed', '#60a5fa', '#3b82f6', '#2563eb', '#60a5fa'];
-    var barsContainer = document.getElementById('mockBars');
-    if (barsContainer) {
-        barHeights.forEach(function(h, i) {
-            var bar = document.createElement('div');
-            bar.className = 'mock-bar';
-            bar.style.height = h + '%';
-            bar.style.background = 'linear-gradient(to top, ' + barColors[i] + ', ' + barColors[i] + '88)';
-            barsContainer.appendChild(bar);
+    /* Bar chart removed — replaced by area chart SVG */
+
+    /* Animated counters */
+    var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            var els = entry.target.querySelectorAll('[data-count]');
+            els.forEach(function(el) {
+                if (el.dataset.counted) return;
+                el.dataset.counted = '1';
+                var target = parseInt(el.dataset.count);
+                var prefix = el.dataset.prefix || '';
+                var sep = el.dataset.separator || '';
+                var duration = 1200;
+                var start = performance.now();
+                function update(now) {
+                    var elapsed = now - start;
+                    var progress = Math.min(elapsed / duration, 1);
+                    var eased = 1 - Math.pow(1 - progress, 3);
+                    var current = Math.round(eased * target);
+                    var formatted = sep ? current.toString().replace(/\B(?=(\d{3})+(?!\d))/g, sep) : current.toString();
+                    el.textContent = prefix + formatted;
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
         });
+    }, { threshold: 0.3 });
+    var dashEl = document.getElementById('dashMockup');
+    if (dashEl) counterObserver.observe(dashEl);
+
+    /* 3D tilt on dashboard */
+    if (dashEl && window.innerWidth > 900) {
+        var wrapper = dashEl.closest('.dashboard-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('mousemove', function(e) {
+                var rect = wrapper.getBoundingClientRect();
+                var x = (e.clientX - rect.left) / rect.width - 0.5;
+                var y = (e.clientY - rect.top) / rect.height - 0.5;
+                dashEl.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 3) + 'deg)';
+            });
+            wrapper.addEventListener('mouseleave', function() {
+                dashEl.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        }
     }
 
     function handleSubmit(e) {
@@ -1004,6 +1803,274 @@
             resize();
         });
     })();
+</script>
+
+<!-- ── Feature Modal Overlays ── -->
+
+<div class="feature-modal" id="modal-centri-ricavo">
+<div class="fm-inner">
+    <div class="fm-header"><div class="fm-header-left"><div class="fm-header-icon" style="background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.15)"><svg viewBox="0 0 24 24" style="stroke:#60a5fa"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><div class="fm-header-title">Centri di Ricavo</div><div class="fm-header-sub">Il Controller analizza ogni settimana i flussi economici per centro</div></div></div><button class="fm-close" onclick="closeFeatureModal()" aria-label="Chiudi">&times;</button></div>
+    <div class="fm-stats">
+        <div class="fm-stat"><div class="fm-stat-label">Ricavo totale</div><div class="fm-stat-val" style="color:var(--white)">&euro; 24.580</div><div class="fm-stat-change up">&uarr; 12.4% vs sett. prec.</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Centri attivi</div><div class="fm-stat-val" style="color:var(--white)">6</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Centro top</div><div class="fm-stat-val" style="color:#60a5fa">Chirurgia</div><div class="fm-stat-change up">&euro; 8.200</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Margine medio</div><div class="fm-stat-val" style="color:var(--white)">34%</div><div class="fm-stat-change up">&uarr; 2.1pp</div></div>
+    </div>
+    <div class="fm-grid">
+        <div class="fm-panel"><div class="fm-panel-title">Ricavi per centro di ricavo</div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Chirurgia</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:85%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div><div class="fm-hbar-val">&euro; 8.200</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Medicina int.</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:58%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div><div class="fm-hbar-val">&euro; 5.640</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Diagnostica</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:43%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div><div class="fm-hbar-val">&euro; 4.120</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Vaccinazioni</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:40%;background:linear-gradient(90deg,#22c55e,#4ade80)"></div></div><div class="fm-hbar-val">&euro; 3.890</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Dermatologia</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:28%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div><div class="fm-hbar-val">&euro; 2.730</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Odontoiatria</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:10%;background:linear-gradient(90deg,#3b82f6,#60a5fa)"></div></div><div class="fm-hbar-val">&euro; 980</div></div>
+        </div>
+        <div class="fm-panel"><div class="fm-panel-title">Variazione vs settimana precedente</div>
+            <table class="fm-table"><thead><tr><th>Centro</th><th>Var.</th></tr></thead><tbody>
+                <tr><td>Chirurgia</td><td><span class="fm-badge up">+14%</span></td></tr>
+                <tr><td>Medicina int.</td><td><span class="fm-badge up">+6%</span></td></tr>
+                <tr><td>Diagnostica</td><td><span class="fm-badge down">-18%</span></td></tr>
+                <tr><td>Vaccinazioni</td><td><span class="fm-badge up">+22%</span></td></tr>
+                <tr><td>Dermatologia</td><td><span class="fm-badge up">+3%</span></td></tr>
+                <tr><td>Odontoiatria</td><td><span class="fm-badge down">-5%</span></td></tr>
+            </tbody></table>
+        </div>
+    </div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>La Diagnostica per immagini ha perso il 18% questa settimana. Il centro Vaccinazioni è in crescita costante da 3 settimane: valuta una campagna mirata.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+</div>
+</div>
+
+<div class="feature-modal" id="modal-performance">
+<div class="fm-inner">
+    <div class="fm-header"><div class="fm-header-left"><div class="fm-header-icon" style="background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.15)"><svg viewBox="0 0 24 24" style="stroke:#a78bfa"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m22 8-4 4 4 4"/></svg></div><div><div class="fm-header-title">Performance Individuali</div><div class="fm-header-sub">Il Coach monitora produttivita e vendite di ogni veterinario</div></div></div><button class="fm-close" onclick="closeFeatureModal()" aria-label="Chiudi">&times;</button></div>
+    <div class="fm-stats">
+        <div class="fm-stat"><div class="fm-stat-label">Veterinari attivi</div><div class="fm-stat-val" style="color:var(--white)">5</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Fatturato medio</div><div class="fm-stat-val" style="color:var(--white)">&euro; 4.916</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Top performer</div><div class="fm-stat-val" style="color:#a78bfa">Dr. Rossi</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Visite medie/giorno</div><div class="fm-stat-val" style="color:var(--white)">12</div></div>
+    </div>
+    <div class="fm-grid">
+        <div class="fm-panel"><div class="fm-panel-title">Fatturato per veterinario</div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Dr. Rossi</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:100%;background:linear-gradient(90deg,#7c3aed,#a78bfa)"></div></div><div class="fm-hbar-val">&euro; 6.240</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Dr.ssa Bianchi</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:88%;background:linear-gradient(90deg,#7c3aed,#a78bfa)"></div></div><div class="fm-hbar-val">&euro; 5.890</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Dr. Verdi</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:69%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div><div class="fm-hbar-val">&euro; 4.320</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Dr.ssa Neri</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:62%;background:linear-gradient(90deg,#7c3aed,#a78bfa)"></div></div><div class="fm-hbar-val">&euro; 3.880</div></div>
+            <div class="fm-hbar-row"><div class="fm-hbar-label">Dr. Conti</div><div class="fm-hbar-track"><div class="fm-hbar-fill" style="width:58%;background:linear-gradient(90deg,#7c3aed,#a78bfa)"></div></div><div class="fm-hbar-val">&euro; 3.650</div></div>
+        </div>
+        <div class="fm-panel"><div class="fm-panel-title">Classifica settimanale</div>
+            <div class="fm-rank"><div class="fm-rank-pos">1</div><div class="fm-rank-avatar" style="background:linear-gradient(135deg,#3b82f6,#7c3aed)">MR</div><div class="fm-rank-info"><div class="fm-rank-name">Dr. Rossi</div><div class="fm-rank-sub">42 visite · ticket &euro;149</div></div><div class="fm-rank-trend" style="color:#22c55e">&uarr; 12%</div></div>
+            <div class="fm-rank"><div class="fm-rank-pos">2</div><div class="fm-rank-avatar" style="background:linear-gradient(135deg,#22c55e,#3b82f6)">LB</div><div class="fm-rank-info"><div class="fm-rank-name">Dr.ssa Bianchi</div><div class="fm-rank-sub">38 visite · ticket &euro;155</div></div><div class="fm-rank-trend" style="color:#22c55e">&uarr; 8%</div></div>
+            <div class="fm-rank"><div class="fm-rank-pos">3</div><div class="fm-rank-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">GV</div><div class="fm-rank-info"><div class="fm-rank-name">Dr. Verdi</div><div class="fm-rank-sub">35 visite · ticket &euro;123</div></div><div class="fm-rank-trend" style="color:#ef4444">&darr; 6%</div></div>
+            <div class="fm-rank"><div class="fm-rank-pos">4</div><div class="fm-rank-avatar" style="background:linear-gradient(135deg,#ec4899,#a78bfa)">AN</div><div class="fm-rank-info"><div class="fm-rank-name">Dr.ssa Neri</div><div class="fm-rank-sub">30 visite · ticket &euro;129</div></div><div class="fm-rank-trend" style="color:#22c55e">&uarr; 3%</div></div>
+            <div class="fm-rank"><div class="fm-rank-pos">5</div><div class="fm-rank-avatar" style="background:linear-gradient(135deg,#6b7280,#374151)">PC</div><div class="fm-rank-info"><div class="fm-rank-name">Dr. Conti</div><div class="fm-rank-sub">28 visite · ticket &euro;130</div></div><div class="fm-rank-trend" style="color:#f59e0b">&mdash; 0%</div></div>
+        </div>
+    </div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Dr. Rossi ha aumentato il ticket medio del 12% grazie a un incremento di chirurgie ortopediche. Dr. Verdi è sotto media per il terzo mese: suggerisci un confronto.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+</div>
+</div>
+
+<div class="feature-modal" id="modal-report">
+<div class="fm-inner">
+    <div class="fm-header"><div class="fm-header-left"><div class="fm-header-icon" style="background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.15)"><svg viewBox="0 0 24 24" style="stroke:#4ade80"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><div class="fm-header-title">Report Automatici</div><div class="fm-header-sub">Ogni lunedì ricevi un report completo generato dall'AI</div></div></div><button class="fm-close" onclick="closeFeatureModal()" aria-label="Chiudi">&times;</button></div>
+    <div class="fm-stats">
+        <div class="fm-stat"><div class="fm-stat-label">Report generati</div><div class="fm-stat-val" style="color:var(--white)">16</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Anomalie rilevate</div><div class="fm-stat-val" style="color:#f59e0b">7</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Raccomandazioni</div><div class="fm-stat-val" style="color:var(--white)">12</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Tempo risparmiato</div><div class="fm-stat-val" style="color:#4ade80">4.2h</div></div>
+    </div>
+    <div class="fm-grid">
+        <div class="fm-panel"><div class="fm-panel-title">Ultimi report settimanali</div>
+            <div class="fm-timeline">
+                <div class="fm-tl-item"><div class="fm-tl-dot-col"><div class="fm-tl-dot" style="background:#4ade80"></div><div class="fm-tl-line"></div></div><div class="fm-tl-content"><div class="fm-tl-date">31 Mar 2026 · 07:30</div><div class="fm-tl-title">Report Settimana 14</div><div class="fm-tl-desc">Ricavi +12.4% · Chirurgia centro top · 2 alert critici</div></div></div>
+                <div class="fm-tl-item"><div class="fm-tl-dot-col"><div class="fm-tl-dot" style="background:#3b82f6"></div><div class="fm-tl-line"></div></div><div class="fm-tl-content"><div class="fm-tl-date">24 Mar 2026 · 07:30</div><div class="fm-tl-title">Report Settimana 13</div><div class="fm-tl-desc">Ricavi +3.1% · 47 nuovi clienti · Ticket medio stabile</div></div></div>
+                <div class="fm-tl-item"><div class="fm-tl-dot-col"><div class="fm-tl-dot" style="background:#3b82f6"></div><div class="fm-tl-line"></div></div><div class="fm-tl-content"><div class="fm-tl-date">17 Mar 2026 · 07:30</div><div class="fm-tl-title">Report Settimana 12</div><div class="fm-tl-desc">Ricavi +8.7% · Settimana record · Margine in crescita</div></div></div>
+                <div class="fm-tl-item"><div class="fm-tl-dot-col"><div class="fm-tl-dot" style="background:#f59e0b"></div></div><div class="fm-tl-content"><div class="fm-tl-date">10 Mar 2026 · 07:30</div><div class="fm-tl-title">Report Settimana 11</div><div class="fm-tl-desc">Ricavi -2.3% · Alert su Diagnostica · 3 raccomandazioni</div></div></div>
+            </div>
+        </div>
+        <div class="fm-panel"><div class="fm-panel-title">Anteprima report</div>
+            <div class="fm-report">
+                <div class="fm-report-section"><div class="fm-report-section-title">Ricavi</div><div class="fm-report-line"><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Fatturato: &euro;24.580 (+12.4%)</div><div class="fm-report-line"><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Centro top: Chirurgia (&euro;8.200)</div><div class="fm-report-line"><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Margine operativo: 34.2%</div></div>
+                <div class="fm-report-section"><div class="fm-report-section-title">Team</div><div class="fm-report-line"><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Top: Dr. Rossi (&euro;6.240)</div><div class="fm-report-line"><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Attenzione: Dr. Verdi sotto media</div></div>
+                <div class="fm-report-section"><div class="fm-report-section-title">Alert</div><div class="fm-report-line"><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Diagnostica -18% vs media</div><div class="fm-report-line"><svg viewBox="0 0 16 16"><path d="M3.3 8.7 6 11.3l6.7-6.6"/></svg>Ticket medio -3.1%</div></div>
+            </div>
+        </div>
+    </div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Nelle ultime 4 settimane hai ricevuto 12 raccomandazioni operative. 8 su ottimizzazione slot, 3 su margini, 1 su personale.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+</div>
+</div>
+
+<div class="feature-modal" id="modal-segmentazione">
+<div class="fm-inner">
+    <div class="fm-header"><div class="fm-header-left"><div class="fm-header-icon" style="background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.15)"><svg viewBox="0 0 24 24" style="stroke:#fb923c"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div><div><div class="fm-header-title">Segmentazione Clienti</div><div class="fm-header-sub">L'Analyst classifica automaticamente le tipologie di clienti</div></div></div><button class="fm-close" onclick="closeFeatureModal()" aria-label="Chiudi">&times;</button></div>
+    <div class="fm-stats">
+        <div class="fm-stat"><div class="fm-stat-label">Clienti totali</div><div class="fm-stat-val" style="color:var(--white)">1.247</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Abituali</div><div class="fm-stat-val" style="color:#3b82f6">38%</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Nuovi del mese</div><div class="fm-stat-val" style="color:#22c55e">47</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">A rischio</div><div class="fm-stat-val" style="color:#ef4444">23</div></div>
+    </div>
+    <div class="fm-grid">
+        <div class="fm-panel"><div class="fm-panel-title">Distribuzione clienti</div>
+            <div class="fm-donut-large">
+                <div class="fm-donut-lg"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="14" stroke="rgba(255,255,255,0.04)"/><circle cx="18" cy="18" r="14" stroke="#3b82f6" stroke-dasharray="33.4 54.6" stroke-dashoffset="0"/><circle cx="18" cy="18" r="14" stroke="#22c55e" stroke-dasharray="22 66" stroke-dashoffset="-33.4"/><circle cx="18" cy="18" r="14" stroke="#f59e0b" stroke-dasharray="17.6 70.4" stroke-dashoffset="-55.4"/><circle cx="18" cy="18" r="14" stroke="#ef4444" stroke-dasharray="14.96 73.04" stroke-dashoffset="-73"/></svg><div class="fm-donut-lg-center"><div class="fm-donut-lg-val">1.247</div><div class="fm-donut-lg-label">Clienti</div></div></div>
+                <div class="fm-donut-legend">
+                    <div class="fm-donut-legend-item"><div class="fm-donut-legend-dot" style="background:#3b82f6"></div><div class="fm-donut-legend-text">Abituali</div><div class="fm-donut-legend-val">474</div></div>
+                    <div class="fm-donut-legend-item"><div class="fm-donut-legend-dot" style="background:#22c55e"></div><div class="fm-donut-legend-text">Nuovi</div><div class="fm-donut-legend-val">312</div></div>
+                    <div class="fm-donut-legend-item"><div class="fm-donut-legend-dot" style="background:#f59e0b"></div><div class="fm-donut-legend-text">Occasionali</div><div class="fm-donut-legend-val">249</div></div>
+                    <div class="fm-donut-legend-item"><div class="fm-donut-legend-dot" style="background:#ef4444"></div><div class="fm-donut-legend-text">Dormienti</div><div class="fm-donut-legend-val">212</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="fm-panel"><div class="fm-panel-title">Clienti a rischio abbandono</div>
+            <div class="fm-client-row"><div class="fm-client-avatar">MF</div><div class="fm-client-info"><div class="fm-client-name">Marco Ferri</div><div class="fm-client-detail">Ultima visita: 94 giorni fa</div></div><div class="fm-client-tag" style="color:#ef4444;background:rgba(239,68,68,0.1)">Dormiente</div></div>
+            <div class="fm-client-row"><div class="fm-client-avatar">AG</div><div class="fm-client-info"><div class="fm-client-name">Anna Galli</div><div class="fm-client-detail">Ultima visita: 112 giorni fa</div></div><div class="fm-client-tag" style="color:#ef4444;background:rgba(239,68,68,0.1)">Dormiente</div></div>
+            <div class="fm-client-row"><div class="fm-client-avatar">LM</div><div class="fm-client-info"><div class="fm-client-name">Luca Moretti</div><div class="fm-client-detail">Ultima visita: 87 giorni fa</div></div><div class="fm-client-tag" style="color:#f59e0b;background:rgba(245,158,11,0.1)">A rischio</div></div>
+            <div style="margin-top:1rem"><div class="fm-panel-title">Clienti alto valore</div></div>
+            <div class="fm-client-row"><div class="fm-client-avatar">SR</div><div class="fm-client-info"><div class="fm-client-name">Sara Ricci</div><div class="fm-client-detail">12 visite/anno · &euro;2.340</div></div><div class="fm-client-tag" style="color:#3b82f6;background:rgba(59,130,246,0.1)">VIP</div></div>
+            <div class="fm-client-row"><div class="fm-client-avatar">PB</div><div class="fm-client-info"><div class="fm-client-name">Paolo Bruni</div><div class="fm-client-detail">8 visite/anno · &euro;1.890</div></div><div class="fm-client-tag" style="color:#3b82f6;background:rgba(59,130,246,0.1)">VIP</div></div>
+        </div>
+    </div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Hai 47 clienti dormienti che non tornano da oltre 90 giorni. Una campagna di richiamo sui vaccini potrebbe riattivarne il 30%.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+</div>
+</div>
+
+<div class="feature-modal" id="modal-trend">
+<div class="fm-inner">
+    <div class="fm-header"><div class="fm-header-left"><div class="fm-header-icon" style="background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.15)"><svg viewBox="0 0 24 24" style="stroke:#f472b6"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div><div><div class="fm-header-title">Trend in Tempo Reale</div><div class="fm-header-sub">Confronto settimana su settimana per individuare pattern</div></div></div><button class="fm-close" onclick="closeFeatureModal()" aria-label="Chiudi">&times;</button></div>
+    <div class="fm-stats">
+        <div class="fm-stat"><div class="fm-stat-label">Trend positivi</div><div class="fm-stat-val" style="color:#22c55e">4</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Trend negativi</div><div class="fm-stat-val" style="color:#ef4444">2</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Settimana migliore</div><div class="fm-stat-val" style="color:var(--white)">Sett. 12</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Variazione media</div><div class="fm-stat-val" style="color:#22c55e">+6.3%</div></div>
+    </div>
+    <div class="fm-grid">
+        <div class="fm-panel"><div class="fm-panel-title">Ricavi: questa settimana vs precedente</div>
+            <svg viewBox="0 0 500 180" preserveAspectRatio="none" style="width:100%;height:180px"><defs><linearGradient id="fmTrendFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f472b6" stop-opacity="0.15"/><stop offset="100%" stop-color="#f472b6" stop-opacity="0"/></linearGradient></defs><line x1="0" y1="36" x2="500" y2="36" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="0" y1="72" x2="500" y2="72" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="0" y1="108" x2="500" y2="108" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><line x1="0" y1="144" x2="500" y2="144" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/><path d="M0,120 C70,110 140,100 210,95 C280,90 350,105 420,115 C460,120 500,118 500,118" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-dasharray="6 4"/><path d="M0,130 C70,100 140,80 210,60 C280,45 350,55 420,40 C460,35 500,30 500,30 L500,180 L0,180Z" fill="url(#fmTrendFill)"/><path d="M0,130 C70,100 140,80 210,60 C280,45 350,55 420,40 C460,35 500,30 500,30" fill="none" stroke="#f472b6" stroke-width="2" stroke-linecap="round"/></svg>
+            <div style="display:flex;justify-content:space-between;padding-top:0.3rem"><span style="font-size:0.5rem;color:var(--gray-500)">Lun</span><span style="font-size:0.5rem;color:var(--gray-500)">Mar</span><span style="font-size:0.5rem;color:var(--gray-500)">Mer</span><span style="font-size:0.5rem;color:var(--gray-500)">Gio</span><span style="font-size:0.5rem;color:var(--gray-500)">Ven</span><span style="font-size:0.5rem;color:var(--gray-500)">Sab</span></div>
+            <div style="display:flex;gap:1.5rem;margin-top:0.6rem"><span style="font-size:0.6rem;color:#f472b6;display:flex;align-items:center;gap:0.3rem"><span style="width:16px;height:2px;background:#f472b6;display:inline-block"></span>Questa sett.</span><span style="font-size:0.6rem;color:var(--gray-500);display:flex;align-items:center;gap:0.3rem"><span style="width:16px;height:2px;border-top:1px dashed rgba(255,255,255,0.3);display:inline-block"></span>Sett. prec.</span></div>
+        </div>
+        <div class="fm-panel"><div class="fm-panel-title">Trend rilevati</div>
+            <div class="fm-trend-row"><div class="fm-trend-arrow" style="color:#22c55e">&uarr;</div><div class="fm-trend-text">Chirurgia: +14% per la terza settimana</div><div class="fm-trend-sev" style="background:#22c55e"></div></div>
+            <div class="fm-trend-row"><div class="fm-trend-arrow" style="color:#22c55e">&uarr;</div><div class="fm-trend-text">Vaccinazioni in crescita costante (+22%)</div><div class="fm-trend-sev" style="background:#22c55e"></div></div>
+            <div class="fm-trend-row"><div class="fm-trend-arrow" style="color:#22c55e">&uarr;</div><div class="fm-trend-text">Martedì supera Lunedì come giorno top</div><div class="fm-trend-sev" style="background:#3b82f6"></div></div>
+            <div class="fm-trend-row"><div class="fm-trend-arrow" style="color:#22c55e">&uarr;</div><div class="fm-trend-text">Nuovi clienti +20.5% vs media</div><div class="fm-trend-sev" style="background:#22c55e"></div></div>
+            <div class="fm-trend-row"><div class="fm-trend-arrow" style="color:#ef4444">&darr;</div><div class="fm-trend-text">Diagnostica in calo da 2 settimane</div><div class="fm-trend-sev" style="background:#ef4444"></div></div>
+            <div class="fm-trend-row"><div class="fm-trend-arrow" style="color:#ef4444">&darr;</div><div class="fm-trend-text">Venerdì pomeriggio sotto-utilizzati</div><div class="fm-trend-sev" style="background:#f59e0b"></div></div>
+        </div>
+    </div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Il martedì è diventato il giorno più produttivo, superando il lunedì per la terza settimana consecutiva. I venerdì pomeriggio restano sotto-utilizzati.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+</div>
+</div>
+
+<div class="feature-modal" id="modal-monitoraggio">
+<div class="fm-inner">
+    <div class="fm-header"><div class="fm-header-left"><div class="fm-header-icon" style="background:rgba(34,211,238,0.12);border:1px solid rgba(34,211,238,0.15)"><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg></div><div><div class="fm-header-title">Monitoraggio 24/7</div><div class="fm-header-sub">I tre agenti monitorano continuamente e inviano alert</div></div></div><button class="fm-close" onclick="closeFeatureModal()" aria-label="Chiudi">&times;</button></div>
+    <div class="fm-stats">
+        <div class="fm-stat"><div class="fm-stat-label">Alert attivi</div><div class="fm-stat-val" style="color:#ef4444">2</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Risolti questa sett.</div><div class="fm-stat-val" style="color:#22c55e">5</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Tempo medio risposta</div><div class="fm-stat-val" style="color:var(--white)">14min</div></div>
+        <div class="fm-stat"><div class="fm-stat-label">Uptime</div><div class="fm-stat-val" style="color:#22d3ee">99.8%</div></div>
+    </div>
+    <div class="fm-grid">
+        <div class="fm-panel"><div class="fm-panel-title">Feed alert — ultimi 7 giorni</div>
+            <div class="fm-alert-feed">
+                <div class="fm-alert-row"><div class="fm-alert-sev critical"></div><div class="fm-alert-time">Oggi 07:31</div><div class="fm-alert-msg">Diagnostica per immagini -18% vs media 4 settimane</div><div class="fm-alert-status new">Nuovo</div></div>
+                <div class="fm-alert-row"><div class="fm-alert-sev warning"></div><div class="fm-alert-time">Oggi 07:31</div><div class="fm-alert-msg">Ticket medio in calo: &euro;87 (-3.1%)</div><div class="fm-alert-status new">Nuovo</div></div>
+                <div class="fm-alert-row"><div class="fm-alert-sev warning"></div><div class="fm-alert-time">Ieri 09:15</div><div class="fm-alert-msg">Dr. Verdi sotto media fatturato 3&deg; mese</div><div class="fm-alert-status seen">Visto</div></div>
+                <div class="fm-alert-row"><div class="fm-alert-sev info"></div><div class="fm-alert-time">Ieri 08:00</div><div class="fm-alert-msg">12 clienti dormienti identificati (>90gg)</div><div class="fm-alert-status seen">Visto</div></div>
+                <div class="fm-alert-row"><div class="fm-alert-sev warning"></div><div class="fm-alert-time">Mar 07:30</div><div class="fm-alert-msg">Venerdì pomeriggio: 40% slot vuoti</div><div class="fm-alert-status resolved">Risolto</div></div>
+                <div class="fm-alert-row"><div class="fm-alert-sev critical"></div><div class="fm-alert-time">Lun 07:30</div><div class="fm-alert-msg">Margine Odontoiatria sotto soglia (12%)</div><div class="fm-alert-status resolved">Risolto</div></div>
+                <div class="fm-alert-row"><div class="fm-alert-sev info"></div><div class="fm-alert-time">Lun 07:30</div><div class="fm-alert-msg">Report settimanale #14 generato</div><div class="fm-alert-status resolved">Risolto</div></div>
+            </div>
+        </div>
+        <div class="fm-panel"><div class="fm-panel-title">Severità alert</div>
+            <div class="fm-sev-grid">
+                <div class="fm-sev-card"><div class="fm-sev-count" style="color:#ef4444">2</div><div class="fm-sev-label">Critici</div></div>
+                <div class="fm-sev-card"><div class="fm-sev-count" style="color:#f59e0b">3</div><div class="fm-sev-label">Warning</div></div>
+                <div class="fm-sev-card"><div class="fm-sev-count" style="color:#3b82f6">2</div><div class="fm-sev-label">Info</div></div>
+            </div>
+            <div class="fm-panel-title">Alert per settimana</div>
+            <div style="display:flex;align-items:flex-end;gap:4px;height:60px;padding-top:0.5rem">
+                <div style="flex:1;background:rgba(34,211,238,0.2);border-radius:3px 3px 0 0;height:40%"></div>
+                <div style="flex:1;background:rgba(34,211,238,0.3);border-radius:3px 3px 0 0;height:60%"></div>
+                <div style="flex:1;background:rgba(34,211,238,0.25);border-radius:3px 3px 0 0;height:45%"></div>
+                <div style="flex:1;background:rgba(34,211,238,0.5);border-radius:3px 3px 0 0;height:100%"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-top:0.3rem"><span style="font-size:0.5rem;color:var(--gray-500)">S.11</span><span style="font-size:0.5rem;color:var(--gray-500)">S.12</span><span style="font-size:0.5rem;color:var(--gray-500)">S.13</span><span style="font-size:0.5rem;color:var(--gray-500)">S.14</span></div>
+        </div>
+    </div>
+    <div class="fm-footer"><div class="fm-insight"><span class="fm-insight-icon">&#128161;</span>Questa settimana 2 alert critici: calo Diagnostica e ticket medio in discesa. Entrambi richiedono attenzione entro lunedì.</div><a href="#cta" class="btn-dot btn-dot--sm" onclick="closeFeatureModal()">Attiva agente <span class="dot-accent" aria-hidden="true"></span></a></div>
+</div>
+</div>
+
+<div class="feature-modal-backdrop" id="fmBackdrop"></div>
+
+<script>
+(function() {
+    var backdrop = document.getElementById('fmBackdrop');
+    var activeModal = null;
+    var sourceRect = null;
+
+    function openModal(featureId, cardEl) {
+        var modal = document.getElementById('modal-' + featureId);
+        if (!modal) return;
+        activeModal = modal;
+        sourceRect = cardEl.getBoundingClientRect();
+
+        modal.style.top = sourceRect.top + 'px';
+        modal.style.left = sourceRect.left + 'px';
+        modal.style.width = sourceRect.width + 'px';
+        modal.style.height = sourceRect.height + 'px';
+        modal.style.borderRadius = '20px';
+        modal.classList.add('morph-start');
+        backdrop.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                var vw = window.innerWidth;
+                var vh = window.innerHeight;
+                var mw = Math.min(vw * 0.9, 1100);
+                var mh = vh * 0.85;
+                modal.style.top = ((vh - mh) / 2) + 'px';
+                modal.style.left = ((vw - mw) / 2) + 'px';
+                modal.style.width = mw + 'px';
+                modal.style.height = mh + 'px';
+                modal.style.borderRadius = '16px';
+                modal.classList.add('open');
+            });
+        });
+    }
+
+    function closeModal() {
+        if (!activeModal || !sourceRect) return;
+        var modal = activeModal;
+        modal.classList.remove('open');
+        modal.style.top = sourceRect.top + 'px';
+        modal.style.left = sourceRect.left + 'px';
+        modal.style.width = sourceRect.width + 'px';
+        modal.style.height = sourceRect.height + 'px';
+        modal.style.borderRadius = '20px';
+        backdrop.classList.remove('visible');
+        setTimeout(function() {
+            modal.classList.remove('morph-start');
+            document.body.style.overflow = '';
+            activeModal = null;
+            sourceRect = null;
+        }, 500);
+    }
+
+    document.querySelectorAll('.feature-item[data-feature]').forEach(function(card) {
+        card.addEventListener('click', function() {
+            openModal(card.getAttribute('data-feature'), card);
+        });
+    });
+
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && activeModal) closeModal();
+    });
+    window.closeFeatureModal = closeModal;
+})();
 </script>
 
 </body>
