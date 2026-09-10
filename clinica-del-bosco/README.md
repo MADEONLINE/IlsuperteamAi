@@ -23,7 +23,10 @@ statico, pronto per Netlify o Vercel.
 
 **Prima del go-live** vanno raccolti i dati elencati in [`TODO-DATI.md`](./TODO-DATI.md): alcuni
 sono obblighi di legge (direttore sanitario, autorizzazione sanitaria) e **bloccano il deploy di
-produzione** finché mancano.
+produzione** finché mancano. I contenuti clinici sono completi ma vanno riletti dai medici che li
+firmano (vedi `TODO-DATI.md`, sezione "Contenuti da validare").
+
+Anteprima pubblica del sito in costruzione: <https://anteprima-clinica-del-bosco.netlify.app>
 
 ---
 
@@ -49,18 +52,46 @@ pagine, dati strutturati per Google e sitemap si aggiornano da soli.
 Dopo ogni modifica: salva, poi pubblica (vedi sotto). Se hai scritto qualcosa in un formato
 sbagliato (es. una P. IVA con 10 cifre), il build si ferma con un messaggio che indica il campo.
 
-### Aggiungere un articolo al magazine (da Fase 5)
+### Aggiungere un articolo al magazine
 
-1. Crea un file in `src/content/articoli/` chiamato come vuoi che sia l'indirizzo, ad esempio
-   `colpo-di-calore-nel-cane.md` → `/magazine/colpo-di-calore-nel-cane`.
-2. In cima al file compila i campi (titolo, descrizione, autore, data, servizio collegato).
-3. Scrivi il testo sotto, in Markdown. Chiudi con la frase informativa obbligatoria.
-4. Pubblica.
+1. Copia un articolo esistente da `src/content/articoli/` (per esempio
+   `colpo-di-calore-nel-cane-e-nel-gatto.md`) e rinominalo come vuoi che sia l'indirizzo:
+   `nome-articolo.md` diventa `/magazine/nome-articolo`. Solo minuscole e trattini, niente date.
+2. In cima al file compila i campi tra le righe `---`: titolo, `descrizioneMeta` (max 160
+   caratteri), `riassunto` (40–60 parole che rispondono da sole alla domanda), `autore` e
+   `revisore` (nome file di un medico in `src/content/equipe/`), date, `servizioCorrelato`,
+   almeno 3 domande/risposte in `faq`, almeno 2 `fonti` con link.
+3. Scrivi il testo sotto, in Markdown, con titoli `##` in forma di domanda. La frase "Questa
+   pagina ha finalità informative…" la aggiunge il sito da solo.
+4. Pubblica. Se manca un campo obbligatorio il build si ferma indicando il file e il campo.
 
-### Cambiare i prezzi dei Piani Salute (da Fase 4)
+Le regole di scrittura (cosa si può dire, cosa è vietato dalla deontologia) sono in
+`docs/LINEE-GUIDA-CONTENUTI.md`.
 
-Apri `src/data/piani-salute.json` e cambia i numeri. Tabella, calcolatore e dati strutturati si
-aggiornano da soli.
+### Aggiungere un medico all'équipe
+
+Crea `src/content/equipe/nome-cognome.md` copiando una scheda esistente: nome, titolo, ruolo,
+numero di iscrizione all'Ordine e provincia, specializzazioni, aree (nomi file dei servizi
+seguiti), biografia sotto. Imposta `daValidare: false` quando il medico ha approvato la scheda.
+
+### Cambiare i prezzi dei Piani Salute e le tariffe
+
+Apri `src/data/piani-salute.json` e cambia i numeri (`prezzoAnnuo`, `valoreIndicativo` delle
+prestazioni). Tabella, calcolatore, home e dati strutturati si aggiornano da soli. Quando i
+prezzi sono definitivi imposta `prezziConfermati: true`. Stesso principio per
+`src/data/tariffe.json` (`confermato: true` rende la pagina indicizzabile).
+
+### Aggiungere una campagna stagionale o una recensione
+
+- Campagne: `src/content/campagne/`, un file per campagna con periodo (`meseInizio`,
+  `meseFine`): la home mostra da sola quella in corso.
+- Recensioni Google reali: `src/data/recensioni.json` (autore, testo, stelle, data). Mai
+  testimonianze inventate.
+
+### Cambiare gli orari
+
+Vedi sopra, sezione "orari dell'ambulatorio" in `src/data/clinica.json`. Il pronto soccorso è
+sempre indicato h24: non c'è nulla da cambiare per le urgenze.
 
 ### Pubblicare
 
@@ -91,9 +122,36 @@ npm run lint           # ESLint (regole Astro + a11y)
 npm run format         # Prettier
 npm run check:data     # elenca i segnaposto {{DA_CONFERMARE}}; blocca in produzione
 npm run check:contrasti# verifica i rapporti di contrasto dei token (light e dark)
-node scripts/check-budget.mjs   # budget JS per pagina (dopo il build)
+npm run check:budget   # budget JS per pagina (dopo il build)
+npm run test:e2e       # Playwright: percorsi critici + axe (mobile e desktop, dopo il build)
+npm run lighthouse     # Lighthouse CI mobile con budget fallimentare (dopo il build)
+npm run indexnow       # notifica IndexNow delle URL della sitemap (serve la chiave)
+npm run pdf:convenzione# rigenera il PDF del modulo convenzione dai dati della clinica
 node scripts/genera-icone.mjs   # rigenera favicon e immagine OG da public/favicon.svg
+node scripts/anteprima-artifact.mjs dist/index.html out.html  # pagina autonoma per anteprime
 ```
+
+### Form: cosa collegare
+
+I form (`prenotazione` e `caso-collega`) usano **Netlify Forms**: il markup ha `data-netlify`,
+honeypot e, per i colleghi, upload multipart (max 8 MB per file). Al primo deploy su Netlify:
+
+1. Netlify → Site → **Forms**: verificare che i due form siano rilevati.
+2. Forms → **Notifications** → aggiungere l'email della reception (e una seconda per i casi
+   dei colleghi). Da quel momento ogni invio arriva per email e resta nel pannello.
+3. Il filtro spam Akismet è attivo di default; l'honeypot è già nel markup.
+
+Su Vercel (alternativa): i form vanno collegati a una funzione (`/api/prenotazione`) che inoltra
+via email, oppure a un servizio esterno; il markup non cambia (`action` e `method` restano).
+
+### Deploy
+
+- **Netlify** (consigliato): collegare il repository, Base directory `clinica-del-bosco`, build
+  `npm run build`, publish `dist`. `netlify.toml` porta header, cache e redirect 301. In
+  produzione `CHECK_DATA_STRICT=1` blocca il deploy finché restano segnaposto.
+- **Vercel**: Root directory `clinica-del-bosco`; `vercel.json` porta header e redirect.
+- Anteprima manuale senza collegamento git: dalla cartella del progetto,
+  `npx netlify-cli deploy --dir=dist --prod --site=<id>` dopo `npm run build`.
 
 ### Decisioni tecniche
 
@@ -131,6 +189,18 @@ node scripts/genera-icone.mjs   # rigenera favicon e immagine OG da public/favic
     solo se configurato. Se GA4 non è configurato il cookie banner non esiste.
 12. **Layout della cartella**: il progetto sta in `clinica-del-bosco/` per non interferire con la
     landing già pubblicata dalla radice del repository.
+13. **Contenuti come dati** (content collections con schema Zod): una sola `ServizioLayout`
+    per 19 servizi, FAQ e tabelle nel frontmatter così da generare insieme HTML visibile e
+    JSON-LD (`FAQPage`, `MedicalWebPage`, `Article`, `Physician`, `Service`+`Offer`), sempre
+    dagli stessi dati: mai disallineati.
+14. **Niente accordion chiusi**: le FAQ sono `<details open>`; il testo è nell'HTML per Google e
+    per i sistemi AI. `llms.txt` e `llms-full.txt` sono endpoint generati dal contenuto reale.
+15. **Immagini Open Graph generate al build** (`/og/<pagina>.png`, sharp + SVG): nessun servizio
+    esterno, titolo reale della pagina.
+16. **Form senza JavaScript**: un unico `<form>` HTML che Netlify Forms riceve comunque; JS aggiunge
+    passi, validazione, bozza in `sessionStorage`, deviazione urgenza e WhatsApp precompilato.
+17. **PDF della convenzione** generato da HTML con Chromium (`scripts/genera-pdf-convenzione.mjs`)
+    dai dati di `clinica.json`: nessun dato duplicato a mano.
 
 ### Dipendenze e motivazione
 
@@ -155,15 +225,21 @@ clinica-del-bosco/
                  sezioni/ (Header, Footer, BarraSticky, CookieBanner, BadgeApertoOra)
                  form/ (Fase 2)   seo/ (Seo, JsonLd)
     layouts/     BaseLayout (head, header, footer, sticky, JSON-LD) · PaginaLayout
-    pages/       index · 404 (le altre nelle fasi successive)
-    content/     servizi/ equipe/ articoli/ campagne/ faq/ zone/ casi/ (Fase 3+)
-    data/        clinica.json (+ piani-salute.json, tariffe.json in Fase 4)
+    pages/       index · pronto-soccorso · prenota(+grazie) · piani-salute · per-i-colleghi(+grazie)
+                 servizi/ · equipe/ · magazine/ · campagne/ · veterinario-a/ · domande-frequenti
+                 contatti · la-struttura · tariffe · privacy-policy · cookie-policy · note-legali
+                 accessibilita · llms.txt · llms-full.txt · og/[...].png · 404
+    content/     servizi/ (19) · equipe/ (4) · articoli/ (6) · campagne/ (4) · faq/ (24) · zone/ (8) · casi/ (3)
+    content.config.ts  schemi Zod delle collection
+    data/        clinica.json · piani-salute.json · tariffe.json · recensioni.json
     lib/         clinica.ts · orari.ts · schema.ts · seo.ts · analytics.ts
-    styles/      global.css (token, base, componenti)
-  public/        fonts/ · og/ · favicon · robots.txt · site.webmanifest (llms.txt in Fase 6)
-  scripts/       check-data · check-contrasti · check-budget · genera-icone
+    styles/      global.css (token, base, componenti, prosa)
+  public/        fonts/ · og/ · documenti/ (PDF convenzione) · favicon · robots.txt · site.webmanifest
+  scripts/       check-data · check-contrasti · check-budget · genera-icone · genera-pdf-convenzione · indexnow · anteprima-artifact
+  tests/         percorsi-critici.spec.ts (Playwright + axe) · playwright.config.ts · lighthouserc.cjs
+  docs/          LINEE-GUIDA-CONTENUTI.md
   netlify.toml · vercel.json · redirects.map
-  README.md · TODO-DATI.md · NOTE-COMPLIANCE.md (NOTE-GEO, BRIEF-FOTO, MISURAZIONE in Fase 7)
+  README.md · TODO-DATI.md · NOTE-COMPLIANCE.md · NOTE-GEO.md · BRIEF-FOTO.md · MISURAZIONE.md
 ```
 
 ### Convenzioni

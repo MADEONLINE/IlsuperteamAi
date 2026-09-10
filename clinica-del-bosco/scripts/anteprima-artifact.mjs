@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const [src, out] = process.argv.slice(2);
+const [src, out, titoloForzato] = process.argv.slice(2);
 const dist = new URL('../dist/', import.meta.url).pathname;
 let html = readFileSync(src, 'utf8');
 
@@ -25,9 +25,9 @@ const inlineHead = html.match(/<script>([\s\S]*?)<\/script>/)?.[1] ?? '';
 const body = html.match(/<body[^>]*>([\s\S]*?)<\/body>/)?.[1] ?? '';
 const bodyClass = html.match(/<body class="([^"]*)"/)?.[1] ?? '';
 
-const avviso = `<div style="background:#fff4d6;color:#8a5a00;font:600 13px/1.4 system-ui;padding:8px 16px;text-align:center">Anteprima statica della home (Fase 1). I link alle altre pagine non sono ancora attivi. Foto: segnaposto.</div>`;
+const avviso = `<div style="background:#fff4d6;color:#8a5a00;font:600 13px/1.4 system-ui;padding:8px 16px;text-align:center">Anteprima statica della home. Il sito completo (60 pagine) è su anteprima-clinica-del-bosco.netlify.app. Foto: segnaposto.</div>`;
 
-const output = `<title>${titolo.replace(/ \| .*$/, '')}</title>
+const output = `<title>${titoloForzato ?? titolo.replace(/ \| .*$/, '')}</title>
 <style>${stili}</style>
 <script>${inlineHead}document.body&&document.body.classList.add(${JSON.stringify(bodyClass)});</script>
 ${avviso}

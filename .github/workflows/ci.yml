@@ -1,0 +1,64 @@
+name: CI — Clinica del Bosco
+
+on:
+  push:
+    paths: ['clinica-del-bosco/**', '.github/workflows/ci.yml']
+  pull_request:
+    paths: ['clinica-del-bosco/**']
+
+defaults:
+  run:
+    working-directory: clinica-del-bosco
+
+jobs:
+  qualita:
+    name: Check, lint, build, budget, test, Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: clinica-del-bosco/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run check
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run check:contrasti
+      - run: npm run build
+      - name: Dati mancanti (avviso, non bloccante in CI; bloccante nel deploy di produzione)
+        run: npm run check:data
+      - name: Budget JavaScript per pagina
+        run: npm run check:budget
+      - name: Browser per i test
+        run: npx playwright install --with-deps chromium
+      - name: Smoke test percorsi critici (mobile + desktop, axe)
+        run: npm run test:e2e
+        env:
+          CI: 'true'
+      - name: Lighthouse CI (mobile, budget fallimentare)
+        run: npm run lighthouse
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: report
+          path: |
+            clinica-del-bosco/playwright-report
+            clinica-del-bosco/.lighthouseci
+          retention-days: 7
+
+  indexnow:
+    name: IndexNow dopo il deploy di produzione
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: qualita
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - name: Notifica le URL della sitemap (no-op finché manca la chiave)
+        run: npm run indexnow
