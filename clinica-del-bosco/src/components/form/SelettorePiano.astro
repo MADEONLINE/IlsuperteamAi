@@ -1,0 +1,123 @@
+---
+/** "Quale piano per la sua età?" — piccolo selettore senza framework: età → piano consigliato. Senza JS mostra i tre intervalli. */
+import piani from '@dati/piani-salute.json';
+const euro = (n: number) =>
+  n.toLocaleString('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+const fasce = piani.selettoreEta.map((f) => ({
+  ...f,
+  nome: piani.piani.find((p) => p.id === f.piano)?.nome ?? f.piano,
+  rata: euro((piani.piani.find((p) => p.id === f.piano)?.prezzoAnnuo ?? 0) / piani.rateMensili),
+}));
+---
+
+<section
+  class="selettore-piano rounded-card border border-bordo bg-sfondo-rialzato p-6 md:p-8"
+  aria-labelledby="sel-titolo"
+  data-fasce={JSON.stringify(fasce)}
+>
+  <h2 id="sel-titolo" class="text-2xl md:text-3xl">
+    Quale piano per la sua età?
+  </h2>
+  <form class="mt-5 flex flex-wrap items-end gap-3" onsubmit="return false">
+    <div>
+      <label for="sel-specie" class="block text-sm font-semibold">
+        Animale
+      </label>
+      <select
+        id="sel-specie"
+        class="mt-1 block min-h-11 rounded-xl border-2 border-bordo-forte bg-sfondo-rialzato px-3"
+      >
+        <option value="cane">Cane</option>
+        <option value="gatto">Gatto</option>
+        <option value="coniglio">Coniglio o esotico</option>
+      </select>
+    </div>
+    <div>
+      <label for="sel-eta" class="block text-sm font-semibold">
+        Età (anni)
+      </label>
+      <input
+        id="sel-eta"
+        type="number"
+        min="0"
+        max="30"
+        step="0.5"
+        value="3"
+        inputmode="decimal"
+        class="mt-1 block min-h-11 w-28 rounded-xl border-2 border-bordo-forte bg-sfondo-rialzato px-3"
+      />
+    </div>
+    <p class="sel-esito basis-full text-lg" aria-live="polite"></p>
+  </form>
+  <ul class="sel-fasce mt-4 grid gap-3 sm:grid-cols-3">
+    {fasce.map((f) => (
+      <li
+        class="sel-fascia rounded-card border-2 border-bordo p-4"
+        data-piano={f.piano}
+        data-da={f.da}
+        data-a={f.a}
+      >
+        <p class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+          {f.da === 0
+            ? 'Meno di 1 anno'
+            : f.a >= 30
+              ? `Dagli ${f.da} anni`
+              : `Da ${f.da} a ${f.a} anni`}
+        </p>
+        <p class="mt-1 font-sans text-lg font-bold">
+          Piano {f.nome} <span class="font-normal text-testo-secondario">· da {f.rata}/mese</span>
+        </p>
+        <p class="mt-1 text-sm text-testo-secondario">{f.testo}</p>
+        <a href={`#${f.piano}`} class="mt-2 inline-block text-sm font-semibold text-primario-link">
+          Vedi cosa include →
+        </a>
+      </li>
+    ))}
+  </ul>
+  <p class="mt-3 text-xs text-testo-secondario">
+    Per conigli e animali esotici proponiamo un calendario personalizzato alla prima visita.
+  </p>
+</section>
+
+<script>
+  import { traccia } from '@lib/analytics';
+  function inizializza() {
+    const radice = document.querySelector<HTMLElement>('.selettore-piano');
+    if (!radice || radice.dataset['pronto']) return;
+    radice.dataset['pronto'] = '1';
+    const eta = radice.querySelector<HTMLInputElement>('#sel-eta')!;
+    const specie = radice.querySelector<HTMLSelectElement>('#sel-specie')!;
+    const esito = radice.querySelector<HTMLElement>('.sel-esito')!;
+    const fasce = [...radice.querySelectorAll<HTMLElement>('.sel-fascia')];
+    const aggiorna = () => {
+      const anni = Number(eta.value);
+      if (specie.value === 'coniglio') {
+        fasce.forEach((f) => f.classList.remove('border-primario', 'bg-primario-tenue'));
+        esito.innerHTML =
+          'Per conigli ed esotici prepariamo un calendario su misura: <a href="/prenota?motivo=esotici" class="font-semibold text-primario-link">prenota la prima visita</a>.';
+        return;
+      }
+      let scelta: HTMLElement | undefined;
+      fasce.forEach((f) => {
+        const ok = anni >= Number(f.dataset['da']) && anni <= Number(f.dataset['a']);
+        f.classList.toggle('border-primario', ok);
+        f.classList.toggle('bg-primario-tenue', ok);
+        if (ok) scelta = f;
+      });
+      if (scelta) {
+        const nome =
+          scelta.querySelector('p:nth-child(2)')?.textContent?.split('·')[0]?.trim() ?? '';
+        esito.innerHTML = `Consigliato: <strong>${nome}</strong>. <a href="#${scelta.dataset['piano']}" class="font-semibold text-primario-link">Vedi cosa include</a>`;
+        traccia('piano_salute_scelto', {
+          piano: scelta.dataset['piano'] ?? '',
+          contesto: 'selettore-eta',
+        });
+      }
+    };
+    eta.addEventListener('input', aggiorna);
+    specie.addEventListener('change', aggiorna);
+    aggiorna();
+  }
+  inizializza();
+  document.addEventListener('astro:page-load', inizializza);
+</script>

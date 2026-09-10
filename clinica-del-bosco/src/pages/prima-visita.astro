@@ -1,0 +1,206 @@
+---
+/** "La prima visita": cosa portare, quanto dura, come funziona, costi, parcheggio. Riduce l'attrito del primo contatto. */
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Dato from '@ui/Dato.astro';
+import Faq from '@ui/Faq.astro';
+import Icona from '@ui/Icona.astro';
+import Sezione from '@ui/Sezione.astro';
+import TabellaDati from '@ui/TabellaDati.astro';
+import { clinica, daConfermare, indicazioniHref, indirizzoRiga, telHref } from '@lib/clinica';
+import { faqPage, medicalWebPage } from '@lib/schema';
+
+const descrizione =
+  'Come funziona la prima visita alla Clinica Veterinaria del Bosco di Portici: cosa portare, quanto dura, cosa succede, costi e pagamento, come arrivare. Per cani, gatti, conigli ed esotici.';
+const passi = [
+  [
+    'Prenoti',
+    'Online in un minuto o al telefono. Ti richiamiamo entro 24 ore per confermare giorno e ora e ti diciamo se serve il digiuno.',
+  ],
+  [
+    'Arrivi',
+    "Presentati in reception 5 minuti prima. Il gatto nel trasportino coperto, il cane al guinzaglio corto, il coniglio nel trasportino con un po' di fieno.",
+  ],
+  [
+    'La visita',
+    "Il medico ascolta la storia, visita l'animale da capo a coda, spiega cosa ha trovato e propone il piano. Nessun esame parte senza il tuo consenso e un preventivo scritto.",
+  ],
+  [
+    'Esci con un piano',
+    'Referto scritto, terapie, prossimo controllo e i recapiti per i dubbi. Se serve, il calendario di prevenzione dei Piani Salute.',
+  ],
+];
+const faq = [
+  {
+    domanda: 'Quanto dura la prima visita?',
+    risposta:
+      "Di solito 30–40 minuti: più di un controllo di routine, perché raccogliamo la storia completa dell'animale e delle sue abitudini. Se sono previsti esami del sangue o radiografie, il tempo può allungarsi e te lo diciamo prima.",
+  },
+  {
+    domanda: 'Devo portare il libretto e i referti precedenti?',
+    risposta:
+      'Sì, se li hai: libretto sanitario, vaccinazioni, esami e referti di altre strutture, elenco dei farmaci e degli antiparassitari in uso, e il tipo di alimento. Se non li trovi, vieni comunque: ricostruiamo insieme.',
+  },
+  {
+    domanda: 'Il mio animale deve essere a digiuno?',
+    risposta:
+      "Per una visita semplice no. Se sono previsti esami del sangue, ecografia addominale o sedazione, sì: te lo comunichiamo al momento della conferma, con le ore esatte. L'acqua resta sempre disponibile.",
+  },
+  {
+    domanda: 'Quanto costa e come si paga?',
+    risposta:
+      'La visita ha un onorario indicativo che ti comunichiamo al telefono. Ogni esame o intervento aggiuntivo viene preventivato per iscritto prima di procedere. Si paga al termine, con carta o contanti; nessun anticipo.',
+  },
+  {
+    domanda: 'Posso venire senza appuntamento?',
+    risposta:
+      "Per le urgenze sì, sempre, 24 ore su 24. Per le visite programmate preferiamo l'appuntamento, così non aspetti e il medico ha il tempo giusto per te.",
+  },
+  {
+    domanda: 'Visitate anche conigli, rettili e uccelli?',
+    risposta:
+      'Sì: gli animali esotici hanno un percorso dedicato con medici che si occupano specificamente di conigli, piccoli mammiferi, rettili e uccelli. Segnalalo al momento della prenotazione così scegliamo la fascia giusta.',
+  },
+];
+---
+
+<PaginaLayout
+  titolo="La prima visita: cosa aspettarsi"
+  descrizione={descrizione}
+  percorso="/prima-visita"
+  h1="La prima visita"
+  sottotitolo="Cosa portare, quanto dura, cosa succede e quanto costa. Così arrivi tranquillo."
+  etichetta="Nuovi pazienti"
+  briciole={[{ nome: 'La prima visita', href: '/prima-visita' }]}
+  jsonLd={[
+    medicalWebPage({
+      url: '/prima-visita',
+      titolo: 'La prima visita',
+      descrizione,
+      briciole: [{ nome: 'La prima visita', href: '/prima-visita' }],
+    }),
+    faqPage(faq),
+  ]}
+>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <ol class="grid gap-4 sm:grid-cols-2">
+          {passi.map(([t, d], i) => (
+            <li class="flex gap-4 rounded-card border border-bordo bg-sfondo-rialzato p-5">
+              <span
+                class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primario-tenue font-display text-lg font-bold text-primario-link"
+                aria-hidden="true"
+              >
+                {i + 1}
+              </span>
+              <div>
+                <h2 class="font-sans text-lg font-bold">{t}</h2>
+                <p class="mt-1 text-testo-secondario">{d}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <TabellaDati
+          class="mt-10"
+          tabella={{
+            titolo: 'Cosa portare alla prima visita',
+            intestazioni: ['Cosa', 'Perché', "Se non ce l'hai"],
+            righe: [
+              [
+                'Libretto sanitario o vaccinazioni',
+                'Sapere cosa è già stato fatto ed evitare doppioni',
+                'Ricostruiamo la storia insieme',
+              ],
+              [
+                'Referti ed esami precedenti',
+                'Confrontare i valori nel tempo',
+                'Possiamo richiederli alla struttura precedente',
+              ],
+              [
+                'Farmaci e antiparassitari in uso',
+                'Evitare interazioni e capire la protezione attuale',
+                'Una foto delle confezioni basta',
+              ],
+              [
+                "Nome e dose dell'alimento",
+                'Valutare peso e nutrizione',
+                'Descrivi cosa mangia e quanto',
+              ],
+              [
+                'Campione di feci fresche (cuccioli)',
+                'Esame parassitologico',
+                'Lo raccogli alla visita successiva',
+              ],
+              [
+                'Trasportino coperto (gatto, coniglio)',
+                'Meno stress in attesa e in sala',
+                'Ne abbiamo alcuni a disposizione: chiedi in reception',
+              ],
+            ],
+            nota: 'Se hai dubbi su cosa portare, chiama: la reception ti guida.',
+          }}
+        />
+        <Faq voci={faq} titolo="Domande frequenti sulla prima visita" class="mt-12" />
+        <p class="mt-8 text-sm text-testo-secondario">
+          Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
+        </p>
+      </div>
+      <aside class="space-y-5 lg:col-span-4">
+        <div class="rounded-card bg-sfondo-inverso p-5 text-testo-inverso">
+          <p class="font-sans text-lg font-bold">Prenota la prima visita</p>
+          <p class="mt-1 text-sm text-testo-inverso/80">
+            Quattro domande, un minuto. Ti richiamiamo entro {clinica.impegni.richiamoEntroOre} ore.
+          </p>
+          <Bottone href="/prenota" variante="inverso" pieno class="mt-4" icona="calendario">
+            Prenota online
+          </Bottone>
+          <p class="mt-3 text-sm text-testo-inverso/80">
+            Oppure chiama il{' '}
+            <a href={telHref} class="font-semibold text-testo-inverso">
+              {clinica.contatti.telefono.visualizzato}
+            </a>
+            .
+          </p>
+        </div>
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5 text-sm">
+          <h2 class="flex items-center gap-2 font-sans text-base font-bold">
+            <Icona nome="mappa" class="size-5 text-primario-link" /> Dove siamo
+          </h2>
+          <p class="mt-2">{indirizzoRiga}</p>
+          {!daConfermare(clinica.indirizzo.riferimenti) && (
+            <p class="text-testo-secondario">{clinica.indirizzo.riferimenti}</p>
+          )}
+          <p class="mt-2">
+            <strong>Parcheggio:</strong> <Dato valore={clinica.indirizzo.parcheggio} />
+          </p>
+          <a
+            href={indicazioniHref}
+            target="_blank"
+            rel="noopener"
+            class="mt-3 inline-flex items-center gap-1 font-semibold text-primario-link"
+            data-evento="click_indicazioni"
+            data-evento-posizione="prima-visita"
+          >
+            Indicazioni stradali <Icona nome="esterno" class="size-4" />
+          </a>
+        </div>
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5 text-sm">
+          <h2 class="flex items-center gap-2 font-sans text-base font-bold">
+            <Icona nome="gatto" class="size-5 text-primario-link" /> Gatti: percorso a basso stress
+          </h2>
+          <p class="mt-2 text-testo-secondario">
+            Trasportino coperto, attese brevi, manipolazione gentile.{' '}
+            <a href="/servizi/gatto-cat-friendly" class="font-semibold text-primario-link">
+              Come funziona →
+            </a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </Sezione>
+  <Sezione compatta>
+    <CtaDoppia posizione="prima-visita" />
+  </Sezione>
+</PaginaLayout>

@@ -12,6 +12,7 @@ import Etichetta from '@ui/Etichetta.astro';
 import Sezione from '@ui/Sezione.astro';
 import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
+import TriageRapido from '@sezioni/TriageRapido.astro';
 import { getCollection, getEntry } from 'astro:content';
 import {
   clinica,
@@ -192,6 +193,53 @@ const faqJson = servizio.data.faq;
               Indicazioni stradali
             </Bottone>
           </div>
+
+          <ul
+            class="mt-5 grid gap-2 text-sm text-testo-inverso/90 sm:grid-cols-2"
+            aria-label="Come funziona l'accesso"
+          >
+            {clinica.orari.prontoSoccorso.accessoDiretto && (
+              <li class="flex items-start gap-2">
+                <Icona nome="check" class="mt-0.5 size-4 shrink-0 text-accento-inverso" />
+                <span>
+                  <strong>Non serve appuntamento.</strong> Vieni direttamente, a qualsiasi ora.
+                </span>
+              </li>
+            )}
+            {clinica.orari.prontoSoccorso.rispondeUnMedico && (
+              <li class="flex items-start gap-2">
+                <Icona nome="check" class="mt-0.5 size-4 shrink-0 text-accento-inverso" />
+                <span>
+                  <strong>Al telefono risponde un medico</strong>, non una segreteria.
+                </span>
+              </li>
+            )}
+            <li class="flex items-start gap-2">
+              <Icona nome="check" class="mt-0.5 size-4 shrink-0 text-accento-inverso" />
+              <span>
+                <strong>Triage all'arrivo:</strong> i casi critici passano avanti, prima della
+                registrazione.
+              </span>
+            </li>
+            {clinica.orari.prontoSoccorso.aiutoAllArrivo && (
+              <li class="flex items-start gap-2">
+                <Icona nome="check" class="mt-0.5 size-4 shrink-0 text-accento-inverso" />
+                <span>
+                  <strong>Ti veniamo incontro in auto</strong> se ci avvisi che non riesci a
+                  portarlo dentro.
+                </span>
+              </li>
+            )}
+            {clinica.orari.prontoSoccorso.proprietarioAccanto && (
+              <li class="flex items-start gap-2">
+                <Icona nome="check" class="mt-0.5 size-4 shrink-0 text-accento-inverso" />
+                <span>
+                  <strong>Puoi restare accanto a lui</strong> durante la visita, salvo manovre di
+                  rianimazione.
+                </span>
+              </li>
+            )}
+          </ul>
 
           <address class="mt-5 not-italic">
             <p class="flex items-start gap-2 text-testo-inverso">
@@ -429,8 +477,69 @@ const faqJson = servizio.data.faq;
         </dl>
       </aside>
     </div>
+    <div class="mt-12 grid gap-4 md:grid-cols-2">
+      <section
+        class="rounded-card border border-bordo bg-sfondo-rialzato p-6"
+        aria-labelledby="ps-costi"
+      >
+        <h2 id="ps-costi" class="flex items-center gap-2 font-sans text-xl font-bold">
+          <Icona nome="euro" class="size-5 text-primario-link" /> Costi e pagamento in urgenza
+        </h2>
+        <ul class="mt-3 space-y-2 text-testo-secondario">
+          <li>
+            La visita di pronto soccorso ha un onorario indicativo che ti comunichiamo al telefono o
+            all'accoglienza; di notte e nei festivi può prevedere una maggiorazione.
+          </li>
+          <li>
+            Per esami, ricovero e interventi ricevi un{' '}
+            <strong class="text-testo">preventivo scritto</strong> prima di procedere. Quando ogni
+            minuto conta, ti chiediamo l'autorizzazione a stabilizzare subito e il preventivo arriva
+            appena possibile.
+          </li>
+          <li>
+            Si paga al termine, con carta o contanti.{' '}
+            <strong class="text-testo">Nessun anticipo</strong> per la visita; per i ricoveri lunghi
+            concordiamo acconti trasparenti.
+          </li>
+        </ul>
+        <a
+          href="/tariffe"
+          class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primario-link"
+        >
+          Onorari indicativi <Icona nome="freccia-destra" class="size-4" />
+        </a>
+      </section>
+      <section
+        class="rounded-card border border-bordo bg-sfondo-rialzato p-6"
+        aria-labelledby="ps-dopo"
+      >
+        <h2 id="ps-dopo" class="flex items-center gap-2 font-sans text-xl font-bold">
+          <Icona nome="stetoscopio" class="size-5 text-primario-link" /> Dopo l'urgenza torni dal
+          tuo veterinario
+        </h2>
+        <p class="mt-3 text-testo-secondario">
+          Se il tuo animale è seguito da un altro veterinario, alla dimissione inviamo al collega
+          referto, esami e terapie: la continuità delle cure è parte del servizio. Se non hai un
+          veterinario di fiducia, ti proponiamo il controllo con noi e, se vuoi, un{' '}
+          <a href="/piani-salute" class="font-semibold text-primario-link">
+            Piano Salute
+          </a>{' '}
+          per non arrivare più in urgenza per problemi evitabili.
+        </p>
+        <a
+          href="/per-i-colleghi"
+          class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primario-link"
+        >
+          Sei un collega? Area referral <Icona nome="freccia-destra" class="size-4" />
+        </a>
+      </section>
+    </div>
     <p class="mt-10 text-sm text-testo-secondario">
       Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
     </p>
+  </Sezione>
+
+  <Sezione tono="tinta" compatta>
+    <TriageRapido compatto />
   </Sezione>
 </BaseLayout>

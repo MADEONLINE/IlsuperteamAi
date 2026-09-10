@@ -170,6 +170,10 @@
       "risposta": "È un programma di prevenzione programmata: un calendario di visite, vaccinazioni, antiparassitari ed esami distribuito su 12 mesi, pagato in un'unica soluzione o in rate mensili. Il vantaggio principale non è economico ma clinico: nulla viene dimenticato e i problemi si intercettano prima."
     },
     {
+      "domanda": "Piano Salute o assicurazione: qual è la differenza?",
+      "risposta": "Sono complementari. Il Piano Salute copre la prevenzione programmata, cioè ciò che sai già che servirà: visite di controllo, vaccini, antiparassitari, screening. L'assicurazione copre l'imprevisto, cioè malattie e incidenti. Molte polizze chiedono proprio che la prevenzione sia in regola: il piano ti aiuta anche in questo."
+    },
+    {
       "domanda": "Cosa succede se il mio animale si ammala durante l'anno?",
       "risposta": "Il piano copre la prevenzione programmata; visite per malattia, esami aggiuntivi, chirurgia e ricoveri restano prestazioni a parte, con le riduzioni previste dal piano. Per ogni prestazione non inclusa ricevi sempre un preventivo scritto prima di procedere."
     },
@@ -196,6 +200,26 @@
     {
       "domanda": "Il piano include le urgenze notturne?",
       "risposta": "No: il pronto soccorso è un servizio a sé, aperto a tutti 24 ore su 24. Chi ha un Piano Salute attivo ha però la cartella clinica sempre aggiornata in struttura, e questo rende più rapida ogni valutazione in urgenza."
+    }
+  ],
+  "selettoreEta": [
+    {
+      "da": 0,
+      "a": 0.99,
+      "piano": "cucciolo",
+      "testo": "Nel primo anno il calendario è fitto: vaccini, sverminazioni, crescita, sterilizzazione al momento giusto."
+    },
+    {
+      "da": 1,
+      "a": 7,
+      "piano": "adulto",
+      "testo": "Anni di pieno benessere: due controlli l'anno, vaccini, antiparassitari continui e uno screening del sangue per intercettare in anticipo."
+    },
+    {
+      "da": 8,
+      "a": 30,
+      "piano": "senior",
+      "testo": "Dopo i 7 anni reni, cuore, tiroide e articolazioni vanno controllati più spesso: pannello semestrale e pressione a ogni visita."
     }
   ]
 }

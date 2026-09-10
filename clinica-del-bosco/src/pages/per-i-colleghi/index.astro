@@ -130,11 +130,24 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
       </div>
       <div class="lg:col-span-5">
         <div class="rounded-card border border-bordo bg-sfondo-rialzato p-6">
-          <h2 class="font-sans text-xl font-bold">Invia un caso in 2 passaggi</h2>
+          <h2 class="font-sans text-xl font-bold">Invia un caso: tre modi</h2>
           <ol class="mt-3 list-decimal space-y-2 pl-5">
-            <li>Compila il modulo in fondo alla pagina (quesito + allegati).</li>
-            <li>Ricevi la presa in carico con data proposta e nome del referente.</li>
+            <li>
+              <strong>Online</strong>: modulo in fondo alla pagina, con allegati (PDF, immagini, ZIP
+              DICOM).
+            </li>
+            <li>
+              <strong>Email</strong>: scheda invio caso in PDF compilata, con referti in allegato o
+              link al tuo PACS.
+            </li>
+            <li>
+              <strong>Telefono</strong>, per le urgenze: chiedi del medico di turno.
+            </li>
           </ol>
+          <p class="mt-2 text-sm text-testo-secondario">
+            In ogni caso ricevi la presa in carico con data proposta e nome del referente entro il
+            giorno lavorativo successivo.
+          </p>
           <div class="mt-5 flex flex-col gap-3">
             <Bottone href="#invia-caso" variante="primario" dimensione="lg" icona="freccia-destra">
               Vai al modulo

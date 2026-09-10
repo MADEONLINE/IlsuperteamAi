@@ -97,5 +97,41 @@ await pagina.pdf({
   format: 'A4',
   printBackground: true,
 });
+// Scheda invio caso (per email): stessa impaginazione, campi clinici
+const scheda = html
+  .replace(
+    /<strong>Richiesta di convenzione<\/strong><br><small>[\s\S]*?<\/small>/,
+    `<strong>Scheda invio caso</strong><br><small>Da inviare a ${email}<br>con referti allegati o link al PACS</small>`,
+  )
+  .replace(
+    /<h2>1\. Struttura richiedente<\/h2>[\s\S]*?<h2>5\. Note<\/h2>/,
+    `
+<h2>1. Medico inviante</h2>
+<div class="campi">${campo('Medico veterinario', '48%')}${campo('Struttura', '48%')}${campo('Telefono diretto', '30%')}${campo('Email per il referto', '34%')}${campo('Data invio', '32%')}</div>
+<h2>2. Paziente</h2>
+<div class="campi">${campo('Nome', '30%')}${campo('Specie e razza', '34%')}${campo('Età · sesso · peso', '32%')}${campo('Proprietario (nome e telefono)', '62%')}${campo('Microchip', '34%')}</div>
+<h2>3. Prestazione richiesta</h2>
+<div><span class="check"></span>TAC &nbsp; <span class="check"></span>Endoscopia &nbsp; <span class="check"></span>Chirurgia &nbsp; <span class="check"></span>Degenza / terapia intensiva &nbsp; <span class="check"></span>Ecocardiografia &nbsp; <span class="check"></span>Consulenza</div>
+<div class="campi" style="margin-top:3mm">${campo('Urgenza: programmabile (7 gg) · prioritaria (48 h) · urgente (oggi: chiamare)', '100%')}</div>
+<h2>4. Quesito clinico e anamnesi essenziale</h2>
+<div class="box" style="height:40mm"></div>
+<h2>5. Terapie in corso, esami già eseguiti, allergie</h2>
+<div class="box" style="height:24mm"></div>
+<h2>6. Note</h2>`,
+  )
+  .replace(
+    /<div class="firma">[\s\S]*?<\/div>\s*<p class="nota">[\s\S]*?<\/p>/,
+    `<div class="firma"><div>Firma del medico inviante</div><div>Per ${clinica.nome}: presa in carico (data, referente)</div></div>
+<p class="nota">Il proprietario è stato informato della trasmissione dei dati per l'erogazione della prestazione. Il paziente torna al medico inviante con referto scritto entro 24–48 ore lavorative. Urgenze: ${clinica.contatti.telefono.visualizzato} (chiedere del medico di turno).</p>`,
+  );
+const tmp2 = new URL('../.astro/scheda-invio-caso.html', import.meta.url);
+writeFileSync(tmp2, scheda);
+const pagina2 = await browser.newPage();
+await pagina2.goto(`file://${tmp2.pathname}`);
+await pagina2.pdf({
+  path: new URL('scheda-invio-caso-clinica-del-bosco.pdf', out).pathname,
+  format: 'A4',
+  printBackground: true,
+});
 await browser.close();
-console.log('PDF generato in public/documenti/richiesta-convenzione-clinica-del-bosco.pdf');
+console.log('PDF generati in public/documenti/: richiesta-convenzione e scheda-invio-caso');

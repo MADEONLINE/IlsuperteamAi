@@ -241,7 +241,7 @@ clinica-del-bosco/
   public/        fonts/ · og/ · documenti/ (PDF convenzione) · favicon · robots.txt · site.webmanifest
   scripts/       check-data · check-contrasti · check-budget · genera-icone · genera-pdf-convenzione · indexnow · anteprima-artifact
   tests/         percorsi-critici.spec.ts (Playwright + axe) · playwright.config.ts · lighthouserc.cjs
-  docs/          LINEE-GUIDA-CONTENUTI.md
+  docs/          LINEE-GUIDA-CONTENUTI.md · BENCHMARK-SITI.md (benchmark dei migliori siti del settore)
   netlify.toml · vercel.json · redirects.map
   README.md · TODO-DATI.md · NOTE-COMPLIANCE.md · NOTE-GEO.md · BRIEF-FOTO.md · MISURAZIONE.md
 ```

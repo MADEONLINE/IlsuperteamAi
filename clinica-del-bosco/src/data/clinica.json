@@ -1,6 +1,5 @@
 {
   "_nota": "UNICA fonte dei dati anagrafici della clinica. Usata da header, footer, schema.org, sitemap e pagine locali. I valori {{DA_CONFERMARE}} sono elencati in TODO-DATI.md e bloccano il deploy di produzione (npm run check:data).",
-
   "nome": "Clinica Veterinaria del Bosco",
   "nomeBreve": "Del Bosco",
   "ragioneSociale": "PAN S.r.l.",
@@ -9,7 +8,6 @@
   "annoFondazione": "{{DA_CONFERMARE}}",
   "slogan": "Pronto soccorso veterinario 24 ore su 24 a Portici",
   "descrizioneBreve": "Clinica veterinaria a Portici (Napoli) con pronto soccorso attivo 24 ore su 24, 7 giorni su 7, terapia intensiva, due sale chirurgiche, TAC in sede, endoscopia e laboratorio analisi interno. Cani, gatti, conigli e animali esotici.",
-
   "dominio": {
     "canonico": "https://clinicaveterinariadelbosco.it",
     "alternativi": [
@@ -20,7 +18,6 @@
       "https://www.clinicadelbosco.com"
     ]
   },
-
   "indirizzo": {
     "via": "Corso Umberto I",
     "civico": "10",
@@ -34,13 +31,11 @@
     "riferimenti": "{{DA_CONFERMARE}}",
     "parcheggio": "{{DA_CONFERMARE}}"
   },
-
   "geo": {
     "lat": "{{DA_CONFERMARE}}",
     "lng": "{{DA_CONFERMARE}}",
     "_nota": "Coordinate dell'INGRESSO della clinica, non del centroide della via. Formato numerico con punto decimale (es. 40.8151)."
   },
-
   "contatti": {
     "telefono": {
       "visualizzato": "081 7763859",
@@ -63,21 +58,24 @@
     },
     "pec": "{{DA_CONFERMARE}}"
   },
-
   "social": {
     "facebook": "https://www.facebook.com/clinicadelbosco/",
     "instagram": "https://www.instagram.com/clinicaveterinariadelbosco/",
     "instagramHandle": "@clinicaveterinariadelbosco",
     "googleBusiness": "{{DA_CONFERMARE}}"
   },
-
   "orari": {
     "fusoOrario": "Europe/Rome",
     "prontoSoccorso": {
       "h24": true,
       "personaleInStruttura": true,
       "festiviInclusi": true,
-      "etichetta": "Pronto soccorso attivo 24 ore su 24, 7 giorni su 7, festivi inclusi"
+      "etichetta": "Pronto soccorso attivo 24 ore su 24, 7 giorni su 7, festivi inclusi",
+      "accessoDiretto": true,
+      "rispondeUnMedico": true,
+      "aiutoAllArrivo": null,
+      "proprietarioAccanto": null,
+      "_notaPromesse": "aiutoAllArrivo: true se, chiamando prima, il personale può venire incontro in auto. proprietarioAccanto: true se il proprietario può restare accanto all'animale durante il triage. null = non confermato: la promessa non viene mostrata."
     },
     "ambulatorio": {
       "confermato": false,
@@ -93,7 +91,6 @@
       }
     }
   },
-
   "direttoreSanitario": {
     "nome": "{{DA_CONFERMARE}}",
     "titolo": "Dott.",
@@ -101,20 +98,33 @@
     "provinciaOrdine": "{{DA_CONFERMARE}}",
     "_nota": "OBBLIGO DI LEGGE: nome, cognome e numero di iscrizione all'Ordine dei Medici Veterinari, con provincia. Bloccante per il go-live."
   },
-
   "autorizzazioneSanitaria": {
     "numero": "{{DA_CONFERMARE}}",
     "ente": "{{DA_CONFERMARE}}",
     "_nota": "Estremi dell'autorizzazione sanitaria regionale della struttura (numero, ente e data)."
   },
-
   "soci": [
-    { "nome": "Dario Ferrari", "titolo": "Dott.", "slug": "dario-ferrari" },
-    { "nome": "Isabella Rosapane", "titolo": "Dott.ssa", "slug": "isabella-rosapane" },
-    { "nome": "Antonella Sergio", "titolo": "Dott.ssa", "slug": "antonella-sergio" },
-    { "nome": "Alessandro Sica", "titolo": "Dott.", "slug": "alessandro-sica" }
+    {
+      "nome": "Dario Ferrari",
+      "titolo": "Dott.",
+      "slug": "dario-ferrari"
+    },
+    {
+      "nome": "Isabella Rosapane",
+      "titolo": "Dott.ssa",
+      "slug": "isabella-rosapane"
+    },
+    {
+      "nome": "Antonella Sergio",
+      "titolo": "Dott.ssa",
+      "slug": "antonella-sergio"
+    },
+    {
+      "nome": "Alessandro Sica",
+      "titolo": "Dott.",
+      "slug": "alessandro-sica"
+    }
   ],
-
   "numeri": {
     "_nota": "Prova sociale. Da usare SOLO se confermati dalla clinica (confermato=true). Nessun dato economico deve mai comparire qui.",
     "confermato": false,
@@ -123,26 +133,54 @@
     "accessiProntoSoccorsoUltimoAnno": 1015,
     "residentiBacino": 450000
   },
-
   "areaServita": [
-    { "nome": "Portici", "slug": "portici", "tipo": "comune" },
-    { "nome": "Ercolano", "slug": "ercolano", "tipo": "comune" },
-    { "nome": "San Giorgio a Cremano", "slug": "san-giorgio-a-cremano", "tipo": "comune" },
-    { "nome": "Torre del Greco", "slug": "torre-del-greco", "tipo": "comune" },
-    { "nome": "Napoli (zona sud-est)", "slug": "napoli-sud", "tipo": "area" },
-    { "nome": "Cercola", "slug": "cercola", "tipo": "comune" },
-    { "nome": "Volla", "slug": "volla", "tipo": "comune" },
-    { "nome": "Pollena Trocchia", "slug": "pollena-trocchia", "tipo": "comune" }
+    {
+      "nome": "Portici",
+      "slug": "portici",
+      "tipo": "comune"
+    },
+    {
+      "nome": "Ercolano",
+      "slug": "ercolano",
+      "tipo": "comune"
+    },
+    {
+      "nome": "San Giorgio a Cremano",
+      "slug": "san-giorgio-a-cremano",
+      "tipo": "comune"
+    },
+    {
+      "nome": "Torre del Greco",
+      "slug": "torre-del-greco",
+      "tipo": "comune"
+    },
+    {
+      "nome": "Napoli (zona sud-est)",
+      "slug": "napoli-sud",
+      "tipo": "area"
+    },
+    {
+      "nome": "Cercola",
+      "slug": "cercola",
+      "tipo": "comune"
+    },
+    {
+      "nome": "Volla",
+      "slug": "volla",
+      "tipo": "comune"
+    },
+    {
+      "nome": "Pollena Trocchia",
+      "slug": "pollena-trocchia",
+      "tipo": "comune"
+    }
   ],
-
   "priceRange": "€€",
-
   "impegni": {
     "richiamoEntroOre": 24,
     "preventivoScritto": true,
     "nessunPagamentoAnticipato": true
   },
-
   "misurazione": {
     "plausibleDomain": "clinicaveterinariadelbosco.it",
     "plausibleScript": "https://plausible.io/js/script.outbound-links.js",

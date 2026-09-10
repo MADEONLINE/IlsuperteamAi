@@ -3,6 +3,7 @@
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Bottone from '@ui/Bottone.astro';
 import CalcolatorePiani from '@/components/form/CalcolatorePiani.astro';
+import SelettorePiano from '@/components/form/SelettorePiano.astro';
 import Faq from '@ui/Faq.astro';
 import Icona from '@ui/Icona.astro';
 import Etichetta from '@ui/Etichetta.astro';
@@ -55,6 +56,8 @@ const tutteLeVoci = [...new Set(piani.piani.flatMap((p) => p.include.map((v) => 
         senza interessi.
       </p>
     </div>
+
+    <SelettorePiano />
 
     <!-- TABELLA COMPARATIVA -->
     <div

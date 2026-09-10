@@ -1,0 +1,27 @@
+---
+/** Barra di fiducia sotto l'hero: quattro fatti verificabili, nessun superlativo. */
+import Icona, { type NomeIcona } from '@ui/Icona.astro';
+import { clinica, daConfermare } from '@lib/clinica';
+const voci: Array<{ icona: NomeIcona; testo: string }> = [
+  { icona: 'ambulanza', testo: 'Pronto soccorso 24/7, medici in struttura' },
+  { icona: 'scansione', testo: 'TAC ed endoscopia in sede' },
+  { icona: 'bisturi', testo: 'Due sale chirurgiche e terapia intensiva' },
+  { icona: 'provetta', testo: 'Laboratorio interno, esiti in giornata' },
+];
+if (!daConfermare(clinica.annoFondazione))
+  voci.push({ icona: 'foglia', testo: `A Portici dal ${clinica.annoFondazione}` });
+---
+
+<div class="border-b border-bordo bg-sfondo-rialzato">
+  <ul
+    class="contenitore flex flex-wrap gap-x-6 gap-y-2 py-3 text-sm font-semibold md:justify-between"
+    aria-label="In sintesi"
+  >
+    {voci.map((v) => (
+      <li class="flex items-center gap-2">
+        <Icona nome={v.icona} class="size-5 text-primario-link" />
+        <span>{v.testo}</span>
+      </li>
+    ))}
+  </ul>
+</div>

@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 /**
- * Genera un file HTML autonomo (font e script incorporati) di una pagina compilata,
- * per condividerla come anteprima senza hosting. Uso:
- *   node scripts/anteprima-artifact.mjs dist/index.html out.html
- * Esclude ClientRouter/prefetch (inutili in una pagina singola) e la CSP.
+ * Genera un file HTML autonomo (font e script incorporati) di una pagina compilata, per
+ * condividerla come anteprima senza hosting. Uso:
+ *   node scripts/anteprima-artifact.mjs dist/index.html out.html "Titolo" [mappa-link.json]
+ * mappa-link.json: { "/pronto-soccorso": "https://…", "/prenota": "https://…" } — i link interni
+ * alle pagine presenti nella mappa vengono riscritti verso le rispettive anteprime; gli altri
+ * restano relativi (non attivi). Esclude ClientRouter e la CSP.
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const [src, out, titoloForzato] = process.argv.slice(2);
+const [src, out, titoloForzato, mappaFile] = process.argv.slice(2);
 const dist = new URL('../dist/', import.meta.url).pathname;
 let html = readFileSync(src, 'utf8');
+const mappa = mappaFile && existsSync(mappaFile) ? JSON.parse(readFileSync(mappaFile, 'utf8')) : {};
 
 const titolo = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? 'Anteprima';
 let stili = [...html.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('\n');
@@ -18,14 +21,22 @@ stili = stili.replace(/url\('?(\/fonts\/[^')]+)'?\)/g, (_, p) => {
   const b64 = readFileSync(join(dist, p)).toString('base64');
   return `url(data:font/woff2;base64,${b64})`;
 });
-// Il reset dell'host non è in un @layer: ribadiamo lo stile del body fuori dai layer.
 stili += `\nbody{background:var(--sfondo);color:var(--testo);font-family:var(--font-sans);font-size:var(--text-base);line-height:var(--text-base--line-height);margin:0}`;
 
 const inlineHead = html.match(/<script>([\s\S]*?)<\/script>/)?.[1] ?? '';
-const body = html.match(/<body[^>]*>([\s\S]*?)<\/body>/)?.[1] ?? '';
+let body = html.match(/<body[^>]*>([\s\S]*?)<\/body>/)?.[1] ?? '';
 const bodyClass = html.match(/<body class="([^"]*)"/)?.[1] ?? '';
 
-const avviso = `<div style="background:#fff4d6;color:#8a5a00;font:600 13px/1.4 system-ui;padding:8px 16px;text-align:center">Anteprima statica della home (il sito completo ha 60 pagine). Foto: segnaposto in attesa del servizio fotografico.</div>`;
+// Riscrive i link interni verso le anteprime disponibili (conserva ancore e query)
+body = body.replace(/href="(\/[^"#?]*)([#?][^"]*)?"/g, (m, path, resto = '') => {
+  const chiave = path.replace(/\/$/, '') || '/';
+  if (mappa[chiave]) return `href="${mappa[chiave]}${resto.startsWith('#') ? resto : ''}"`;
+  return m;
+});
+// Immagini/PDF locali → non disponibili nell'anteprima: lasciati com'è (segnaposto)
+
+const pagine = Object.keys(mappa).length;
+const avviso = `<div style="background:#fff4d6;color:#8a5a00;font:600 13px/1.4 system-ui;padding:8px 16px;text-align:center">Anteprima statica (${pagine ? `${pagine} pagine collegate tra loro` : 'pagina singola'}; il sito completo ha 61 pagine). Foto: segnaposto in attesa del servizio fotografico. I form non inviano.</div>`;
 
 const output = `<title>${titoloForzato ?? titolo.replace(/ \| .*$/, '')}</title>
 <style>${stili}</style>

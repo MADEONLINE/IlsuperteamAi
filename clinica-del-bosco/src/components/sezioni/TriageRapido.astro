@@ -1,0 +1,172 @@
+---
+/**
+ * "È un'urgenza o può aspettare?" — triage informativo a tre codici colore, in linguaggio
+ * da proprietario. Statico, senza JavaScript, con link alle risposte dettagliate.
+ * Pattern osservato nei migliori siti d'urgenza (VEG, BluePearl) e nei symptom checker;
+ * qui in versione onesta: mai "tutto ok", in caso di dubbio si chiama.
+ */
+import Bottone from '@ui/Bottone.astro';
+import Icona from '@ui/Icona.astro';
+import { clinica, telHref } from '@lib/clinica';
+
+interface Props {
+  compatto?: boolean;
+  class?: string;
+}
+const { compatto = false, class: classe = '' } = Astro.props;
+
+const livelli = [
+  {
+    codice: 'rosso',
+    titolo: 'Vieni subito',
+    testo: 'Chiama mentre parti: prepariamo ossigeno, sala e chirurgo.',
+    classe: 'border-urgenza bg-urgenza-tenue text-urgenza-testo-su-chiaro',
+    voci: [
+      { t: 'Respira male, bocca aperta, gengive blu', href: '/pronto-soccorso#dispnea' },
+      { t: 'Gatto maschio che non riesce a urinare', href: '/pronto-soccorso#blocco-urinario' },
+      {
+        t: 'Addome gonfio, conati a vuoto (cane grande)',
+        href: '/pronto-soccorso#torsione-gastrica',
+      },
+      { t: 'Convulsioni, non si riprende', href: '/pronto-soccorso#convulsioni' },
+      { t: 'Investito, caduto, ferita che sanguina', href: '/pronto-soccorso#trauma' },
+      { t: 'Ha mangiato veleno, farmaci, cioccolato, uva', href: '/pronto-soccorso#avvelenamento' },
+      { t: 'Collasso, gengive bianche, colpo di calore', href: '/pronto-soccorso#collasso' },
+      { t: 'Coniglio che non mangia da più di 8 ore', href: '/servizi/animali-esotici-e-conigli' },
+    ],
+  },
+  {
+    codice: 'ambra',
+    titolo: 'Chiama: decidiamo insieme',
+    testo: `Un medico risponde al ${clinica.contatti.telefono.visualizzato} e ti dice se venire ora o domani.`,
+    classe: 'border-avviso bg-avviso-tenue text-avviso',
+    voci: [
+      {
+        t: 'Vomito o diarrea ripetuti da oggi',
+        href: '/magazine/quando-e-davvero-un-urgenza-10-segni',
+      },
+      {
+        t: 'Non mangia da 24 ore, abbattuto',
+        href: '/magazine/quando-e-davvero-un-urgenza-10-segni',
+      },
+      { t: 'Zoppia improvvisa, non appoggia la zampa', href: '/servizi/ortopedia' },
+      { t: 'Occhio chiuso, arrossato o gonfio', href: '/pronto-soccorso#occhio' },
+      {
+        t: 'Parto: spinge da oltre 30 minuti senza nascita',
+        href: '/pronto-soccorso#parto-distocico',
+      },
+      { t: 'Beve e urina molto più del solito', href: '/magazine/il-gatto-anziano-e-i-reni' },
+    ],
+  },
+  {
+    codice: 'verde',
+    titolo: 'Prenota una visita',
+    testo: 'Può aspettare qualche giorno: ti richiamiamo entro 24 ore.',
+    classe: 'border-successo bg-successo-tenue text-successo',
+    voci: [
+      {
+        t: 'Vaccini, antiparassitari, microchip',
+        href: '/servizi/medicina-preventiva-vaccinazioni',
+      },
+      { t: 'Prurito, orecchie sporche, pelo opaco', href: '/servizi/dermatologia' },
+      { t: 'Alito cattivo, tartaro', href: '/servizi/odontostomatologia' },
+      { t: 'Controllo senior dai 7 anni', href: '/campagne/senior-controllo-dai-7-anni' },
+      { t: 'Sterilizzazione, chirurgia programmata', href: '/servizi/chirurgia' },
+      { t: 'Prima visita di un cucciolo o gattino', href: '/prima-visita' },
+    ],
+  },
+] as const;
+---
+
+<section class:list={['triage-rapido', classe]} aria-labelledby="triage-titolo">
+  <div class:list={['flex flex-wrap items-end justify-between gap-4', compatto ? 'mb-5' : 'mb-8']}>
+    <div>
+      <p class="eyebrow mb-2">Non sai se venire?</p>
+      <h2
+        id="triage-titolo"
+        class:list={compatto ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'}
+      >
+        È un'urgenza o può aspettare?
+      </h2>
+      <p class="mt-2 max-w-prose text-testo-secondario">
+        Tre risposte semplici. Se hai un dubbio, chiama: al telefono risponde un medico, 24 ore su
+        24, e nessuna domanda è sbagliata.
+      </p>
+    </div>
+    <Bottone
+      href={telHref}
+      variante="urgenza"
+      icona="telefono"
+      evento="click_chiama"
+      eventoPosizione="triage-rapido"
+    >
+      Chiama · {clinica.contatti.telefono.visualizzato}
+    </Bottone>
+  </div>
+  <div class="grid gap-4 md:grid-cols-3">
+    {livelli.map((l) => (
+      <article
+        class:list={['rounded-card border-t-4 bg-sfondo-rialzato p-5', l.classe.split(' ')[0]]}
+      >
+        <h3
+          class:list={[
+            'flex items-center gap-2 font-sans text-lg font-bold',
+            l.classe.split(' ').slice(2).join(' '),
+          ]}
+        >
+          <span
+            class:list={[
+              'size-3 rounded-full',
+              l.codice === 'rosso'
+                ? 'bg-urgenza'
+                : l.codice === 'ambra'
+                  ? 'bg-avviso'
+                  : 'bg-successo',
+            ]}
+            aria-hidden="true"
+          ></span>
+          {l.titolo}
+        </h3>
+        <p class="mt-1 text-sm text-testo-secondario">{l.testo}</p>
+        <ul class="mt-4 space-y-1.5">
+          {l.voci.map((v) => (
+            <li>
+              <a
+                href={v.href}
+                class="group flex items-start gap-2 text-testo no-underline hover:text-primario-link"
+              >
+                <Icona
+                  nome="freccia-destra"
+                  class="mt-1.5 size-3.5 shrink-0 text-testo-secondario transition group-hover:translate-x-0.5"
+                />
+                <span class="underline decoration-bordo-forte underline-offset-4 group-hover:decoration-current">
+                  {v.t}
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        {l.codice === 'verde' && (
+          <a
+            href="/prenota"
+            class="mt-4 inline-flex items-center gap-1 font-semibold text-primario-link"
+          >
+            Prenota online <Icona nome="freccia-destra" class="size-4" />
+          </a>
+        )}
+        {l.codice === 'rosso' && (
+          <a
+            href="/pronto-soccorso#mentre-arrivi"
+            class="mt-4 inline-flex items-center gap-1 font-semibold text-urgenza-testo-su-chiaro"
+          >
+            Cosa fare mentre arrivi <Icona nome="freccia-destra" class="size-4" />
+          </a>
+        )}
+      </article>
+    ))}
+  </div>
+  <p class="mt-4 text-xs text-testo-secondario">
+    Elenco orientativo, non esaustivo: non sostituisce la valutazione del medico. In caso di dubbio
+    chiama.
+  </p>
+</section>

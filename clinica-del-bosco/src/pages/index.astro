@@ -15,6 +15,8 @@ import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import Sezione from '@ui/Sezione.astro';
 import Dato from '@ui/Dato.astro';
 import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
+import BarraFiducia from '@sezioni/BarraFiducia.astro';
+import TriageRapido from '@sezioni/TriageRapido.astro';
 import {
   clinica,
   daConfermare,
@@ -146,7 +148,10 @@ const euro = (n: number) =>
               Prenoto una visita
             </Bottone>
             <p class="px-3 py-2 text-center text-sm text-testo-inverso/80">
-              Visite, vaccini, controlli e chirurgia programmata
+              Visite, vaccini, controlli e chirurgia programmata ·{' '}
+              <a href="/prima-visita" class="text-testo-inverso">
+                prima volta da noi?
+              </a>
             </p>
           </div>
         </div>
@@ -163,6 +168,8 @@ const euro = (n: number) =>
       </div>
     </div>
   </section>
+
+  <BarraFiducia />
 
   <!-- PILASTRI -->
   <Sezione tono="base" etichettaAria="Ciò che rende la clinica un punto di riferimento">
@@ -210,6 +217,11 @@ const euro = (n: number) =>
         ))}
       </ul>
     </div>
+  </Sezione>
+
+  <!-- TRIAGE RAPIDO -->
+  <Sezione tono="tinta" etichettaAria="È un'urgenza o può aspettare?">
+    <TriageRapido />
   </Sezione>
 
   <!-- SERVIZI -->
