@@ -17,10 +17,14 @@ const radice = new URL('..', import.meta.url).pathname;
 const dist = join(radice, 'dist');
 const dati = join(radice, 'src', 'data');
 
+// ANTEPRIMA=1 (variabile impostata sul progetto Netlify di anteprima) disattiva il blocco:
+// l'anteprima si pubblica anche con i segnaposto, il sito definitivo no.
+const anteprima = process.env.ANTEPRIMA === '1';
 const strict =
-  process.env.CHECK_DATA_STRICT === '1' ||
-  process.env.CONTEXT === 'production' ||
-  process.env.VERCEL_ENV === 'production';
+  !anteprima &&
+  (process.env.CHECK_DATA_STRICT === '1' ||
+    process.env.CONTEXT === 'production' ||
+    process.env.VERCEL_ENV === 'production');
 
 function* file(dir, estensioni) {
   if (!existsSync(dir)) return;

@@ -5,6 +5,12 @@ on:
     paths: ['clinica-del-bosco/**', '.github/workflows/ci.yml']
   pull_request:
     paths: ['clinica-del-bosco/**']
+  workflow_dispatch:
+    inputs:
+      anteprima:
+        description: 'Pubblica il build sul progetto Netlify di anteprima'
+        type: boolean
+        default: true
 
 defaults:
   run:
@@ -47,6 +53,39 @@ jobs:
             clinica-del-bosco/playwright-report
             clinica-del-bosco/.lighthouseci
           retention-days: 7
+
+  # Deploy di anteprima su Netlify (progetto "anteprima-clinica-del-bosco").
+  # Richiede due secret del repository: NETLIFY_AUTH_TOKEN (Netlify → User settings →
+  # Personal access tokens) e NETLIFY_SITE_ID (id del progetto). Senza secret il job viene saltato.
+  anteprima-netlify:
+    name: Deploy anteprima su Netlify
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref != 'refs/heads/main')
+    runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    steps:
+      - name: Verifica secret
+        id: secret
+        run: |
+          if [ -n "$NETLIFY_AUTH_TOKEN" ] && [ -n "$NETLIFY_SITE_ID" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; echo "::warning::Secret NETLIFY_AUTH_TOKEN / NETLIFY_SITE_ID assenti: deploy saltato"; fi
+      - uses: actions/checkout@v4
+        if: steps.secret.outputs.ok == 'true'
+      - uses: actions/setup-node@v4
+        if: steps.secret.outputs.ok == 'true'
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: clinica-del-bosco/package-lock.json
+      - run: npm ci --no-audit --no-fund
+        if: steps.secret.outputs.ok == 'true'
+      - run: npm run build
+        if: steps.secret.outputs.ok == 'true'
+        env:
+          ANTEPRIMA: '1'
+      - name: Deploy su Netlify (anteprima)
+        if: steps.secret.outputs.ok == 'true'
+        run: npx --yes netlify-cli@latest deploy --dir=dist --prod --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN" --message="Anteprima ${{ github.sha }}"
 
   indexnow:
     name: IndexNow dopo il deploy di produzione

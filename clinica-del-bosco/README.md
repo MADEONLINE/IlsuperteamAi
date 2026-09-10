@@ -26,7 +26,15 @@ sono obblighi di legge (direttore sanitario, autorizzazione sanitaria) e **blocc
 produzione** finché mancano. I contenuti clinici sono completi ma vanno riletti dai medici che li
 firmano (vedi `TODO-DATI.md`, sezione "Contenuti da validare").
 
-Anteprima: sull'account Netlify della clinica/agenzia esiste già il progetto
+Anteprima automatica: il workflow `.github/workflows/ci.yml` (job `anteprima-netlify`)
+pubblica il build sul progetto Netlify di anteprima a ogni push su un ramo diverso da `main`,
+oppure a mano da GitHub → Actions → "Run workflow". Serve una sola configurazione: nel
+repository GitHub → Settings → Secrets and variables → Actions aggiungere
+`NETLIFY_AUTH_TOKEN` (Netlify → User settings → Personal access tokens) e `NETLIFY_SITE_ID`
+(`9ae7a681-eba1-4a56-9276-005aaae19e76` per "anteprima-clinica-del-bosco"). Sul progetto di
+anteprima è già impostata la variabile `ANTEPRIMA=1`, che disattiva il blocco sui dati mancanti.
+
+In alternativa: sull'account Netlify della clinica/agenzia esiste già il progetto
 `anteprima-clinica-del-bosco` (vuoto): per pubblicarlo basta collegarlo a questo repository dal
 pannello Netlify (Import from Git → ramo `claude/quirky-heisenberg-vvr43p` o `main`, Base
 directory `clinica-del-bosco`). Da quel momento ogni push aggiorna
