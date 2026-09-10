@@ -1,0 +1,201 @@
+{
+  "_nota": "Piani Salute in abbonamento. UNICO punto in cui vivono prezzi e contenuti: tabella, calcolatore e JSON-LD si aggiornano da qui. prezziConfermati=false mostra la dicitura 'importi in fase di conferma' e va in TODO-DATI.",
+  "prezziConfermati": false,
+  "valuta": "EUR",
+  "rateMensili": 12,
+  "notaRata": "Addebito mensile senza interessi, disdetta al termine dei 12 mesi. Nessun costo di attivazione.",
+  "piani": [
+    {
+      "id": "cucciolo",
+      "nome": "Cucciolo & Gattino",
+      "sottotitolo": "Dai 2 ai 12 mesi",
+      "specie": ["cane", "gatto"],
+      "prezzoAnnuo": 390,
+      "evidenziato": false,
+      "descrizione": "Il primo anno decide molto della salute futura: vaccinazioni complete, sverminazioni, controllo della crescita e sterilizzazione al momento giusto, con la squadra che lo seguirà per tutta la vita.",
+      "include": [
+        {
+          "voce": "Visite programmate",
+          "dettaglio": "4 visite di controllo della crescita (2, 3, 6 e 12 mesi)",
+          "valoreIndicativo": 180
+        },
+        {
+          "voce": "Ciclo vaccinale completo",
+          "dettaglio": "Vaccini core secondo il protocollo WSAVA, richiamo a 12 mesi incluso",
+          "valoreIndicativo": 150
+        },
+        {
+          "voce": "Sverminazioni",
+          "dettaglio": "Trattamenti antielmintici programmati fino a 6 mesi, poi trimestrali",
+          "valoreIndicativo": 60
+        },
+        {
+          "voce": "Antiparassitari",
+          "dettaglio": "Protezione contro pulci, zecche e flebotomi per 12 mesi (prodotto in base al peso)",
+          "valoreIndicativo": 140
+        },
+        {
+          "voce": "Test parassitologico feci",
+          "dettaglio": "2 esami nel primo anno",
+          "valoreIndicativo": 50
+        },
+        {
+          "voce": "Microchip e iscrizione anagrafe",
+          "dettaglio": "Se non già eseguito",
+          "valoreIndicativo": 35
+        },
+        {
+          "voce": "Consulenza nutrizionale e comportamentale",
+          "dettaglio": "Piano alimentare per la crescita, primi consigli di educazione",
+          "valoreIndicativo": 60
+        },
+        {
+          "voce": "Riduzione sulla sterilizzazione",
+          "dettaglio": "10% sull'onorario dell'intervento e sugli esami pre-anestesia",
+          "valoreIndicativo": 0
+        }
+      ],
+      "sconti": [
+        "10% sulla sterilizzazione",
+        "10% su esami di laboratorio aggiuntivi",
+        "10% sui prodotti antiparassitari extra"
+      ]
+    },
+    {
+      "id": "adulto",
+      "nome": "Adulto",
+      "sottotitolo": "Da 1 a 7 anni",
+      "specie": ["cane", "gatto"],
+      "prezzoAnnuo": 340,
+      "evidenziato": true,
+      "descrizione": "Prevenzione programmata per gli anni di pieno benessere: controlli semestrali, vaccini, antiparassitari tutto l'anno e uno screening del sangue annuale per intercettare in anticipo ciò che ancora non si vede.",
+      "include": [
+        {
+          "voce": "Visite programmate",
+          "dettaglio": "2 visite cliniche complete l'anno (primavera e autunno)",
+          "valoreIndicativo": 90
+        },
+        {
+          "voce": "Vaccinazioni",
+          "dettaglio": "Richiami annuali e triennali secondo il protocollo WSAVA",
+          "valoreIndicativo": 70
+        },
+        {
+          "voce": "Antiparassitari 12 mesi",
+          "dettaglio": "Pulci, zecche, flebotomi e profilassi della filariosi (prodotto in base al peso)",
+          "valoreIndicativo": 180
+        },
+        {
+          "voce": "Screening ematologico annuale",
+          "dettaglio": "Emocromo e profilo biochimico di base con esame delle urine",
+          "valoreIndicativo": 85
+        },
+        {
+          "voce": "Test leishmaniosi e filariosi",
+          "dettaglio": "Test rapido annuale (cane)",
+          "valoreIndicativo": 45
+        },
+        {
+          "voce": "Controllo del cavo orale",
+          "dettaglio": "Valutazione annuale di denti e gengive",
+          "valoreIndicativo": 30
+        },
+        {
+          "voce": "Taglio unghie e controllo peso",
+          "dettaglio": "A ogni visita programmata",
+          "valoreIndicativo": 20
+        }
+      ],
+      "sconti": [
+        "10% su detartrasi e igiene dentale",
+        "10% su esami di laboratorio aggiuntivi",
+        "10% su diagnostica per immagini"
+      ]
+    },
+    {
+      "id": "senior",
+      "nome": "Senior",
+      "sottotitolo": "Dagli 8 anni in su",
+      "specie": ["cane", "gatto"],
+      "prezzoAnnuo": 490,
+      "evidenziato": false,
+      "descrizione": "Dopo i 7 anni molte malattie iniziano in silenzio: reni, cuore, tiroide, articolazioni. Il piano Senior le cerca prima che diano segni, con controlli più ravvicinati e un pannello di esami dedicato.",
+      "include": [
+        {
+          "voce": "Visite programmate",
+          "dettaglio": "3 visite cliniche complete l'anno con valutazione del dolore e della mobilità",
+          "valoreIndicativo": 135
+        },
+        {
+          "voce": "Vaccinazioni",
+          "dettaglio": "Richiami secondo il protocollo WSAVA, valutati caso per caso",
+          "valoreIndicativo": 70
+        },
+        {
+          "voce": "Antiparassitari 12 mesi",
+          "dettaglio": "Pulci, zecche, flebotomi e profilassi della filariosi",
+          "valoreIndicativo": 180
+        },
+        {
+          "voce": "Pannello senior semestrale",
+          "dettaglio": "Emocromo, biochimico completo, elettroliti, esame urine con rapporto proteine/creatinina",
+          "valoreIndicativo": 220
+        },
+        {
+          "voce": "Misurazione della pressione",
+          "dettaglio": "A ogni visita programmata (fondamentale nel gatto anziano)",
+          "valoreIndicativo": 45
+        },
+        {
+          "voce": "Screening tiroideo",
+          "dettaglio": "T4 annuale (gatto) o su indicazione (cane)",
+          "valoreIndicativo": 40
+        },
+        {
+          "voce": "Ecografia addominale di screening",
+          "dettaglio": "1 esame l'anno",
+          "valoreIndicativo": 90
+        }
+      ],
+      "sconti": [
+        "15% su diagnostica per immagini aggiuntiva",
+        "10% su esami di laboratorio aggiuntivi",
+        "10% su terapia del dolore e fisioterapia"
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "domanda": "Il Piano Salute è uno sconto o un abbonamento?",
+      "risposta": "È un programma di prevenzione programmata: un calendario di visite, vaccinazioni, antiparassitari ed esami distribuito su 12 mesi, pagato in un'unica soluzione o in rate mensili. Il vantaggio principale non è economico ma clinico: nulla viene dimenticato e i problemi si intercettano prima."
+    },
+    {
+      "domanda": "Cosa succede se il mio animale si ammala durante l'anno?",
+      "risposta": "Il piano copre la prevenzione programmata; visite per malattia, esami aggiuntivi, chirurgia e ricoveri restano prestazioni a parte, con le riduzioni previste dal piano. Per ogni prestazione non inclusa ricevi sempre un preventivo scritto prima di procedere."
+    },
+    {
+      "domanda": "Posso pagare a rate?",
+      "risposta": "Sì. L'importo annuo può essere suddiviso in 12 rate mensili senza interessi con addebito automatico. Il piano dura 12 mesi dalla data di attivazione e non si rinnova senza il tuo consenso."
+    },
+    {
+      "domanda": "Posso disdire il piano prima della scadenza?",
+      "risposta": "Il piano è annuale perché il calendario di prevenzione ha senso sull'arco dei 12 mesi. In caso di decesso dell'animale o trasferimento, la quota delle prestazioni non ancora erogate viene ricalcolata: te lo spieghiamo per iscritto al momento dell'attivazione."
+    },
+    {
+      "domanda": "Il piano vale anche per conigli e animali esotici?",
+      "risposta": "Al momento i tre piani sono pensati per cani e gatti. Per conigli e animali esotici proponiamo un calendario di prevenzione personalizzato durante la prima visita: chiedilo in reception o al momento della prenotazione."
+    },
+    {
+      "domanda": "Come si attiva?",
+      "risposta": "Compila la richiesta dal pulsante del piano che hai scelto, oppure chiedilo in reception a una qualsiasi visita. Ti richiamiamo per confermare i dati dell'animale e fissare la prima visita del calendario. Il piano parte dal giorno della prima prestazione."
+    },
+    {
+      "domanda": "I prodotti antiparassitari sono inclusi o vanno acquistati a parte?",
+      "risposta": "Sono inclusi per 12 mesi e dosati in base al peso del tuo animale, secondo le raccomandazioni ESCCAP per la nostra area, dove flebotomi e zanzare sono attivi per gran parte dell'anno. Se il peso cambia molto, il prodotto viene adeguato senza costi aggiuntivi."
+    },
+    {
+      "domanda": "Il piano include le urgenze notturne?",
+      "risposta": "No: il pronto soccorso è un servizio a sé, aperto a tutti 24 ore su 24. Chi ha un Piano Salute attivo ha però la cartella clinica sempre aggiornata in struttura, e questo rende più rapida ogni valutazione in urgenza."
+    }
+  ]
+}

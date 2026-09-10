@@ -1,0 +1,201 @@
+---
+/** /piani-salute — pagina di vendita: tabella comparativa, calcolatore, FAQ, JSON-LD Service+Offer+FAQPage. */
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import CalcolatorePiani from '@/components/form/CalcolatorePiani.astro';
+import Faq from '@ui/Faq.astro';
+import Icona from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import Sezione from '@ui/Sezione.astro';
+import piani from '@dati/piani-salute.json';
+import { faqPage, pianoSaluteOffer, webPage } from '@lib/schema';
+
+const euro = (n: number) =>
+  n.toLocaleString('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+const descrizione =
+  'Piani Salute della Clinica Veterinaria del Bosco (Portici): prevenzione programmata per cuccioli, adulti e senior con visite, vaccini, antiparassitari e screening in una rata mensile fissa.';
+const tutteLeVoci = [...new Set(piani.piani.flatMap((p) => p.include.map((v) => v.voce)))];
+---
+
+<PaginaLayout
+  titolo="Piani Salute: prevenzione programmata per cani e gatti"
+  descrizione={descrizione}
+  percorso="/piani-salute"
+  h1="Piani Salute"
+  sottotitolo="Un calendario annuale di visite, vaccini, antiparassitari ed esami, con una rata mensile fissa. Perché la prevenzione funziona solo se nessuna scadenza viene dimenticata."
+  etichetta="Prevenzione programmata"
+  briciole={[{ nome: 'Piani Salute', href: '/piani-salute' }]}
+  jsonLd={[
+    webPage({ url: '/piani-salute', titolo: 'Piani Salute', descrizione }),
+    ...piani.piani.map((p) =>
+      pianoSaluteOffer({
+        id: p.id,
+        nome: p.nome,
+        descrizione: p.descrizione,
+        prezzoAnnuo: p.prezzoAnnuo,
+        valuta: piani.valuta,
+        include: p.include.map((v) => v.voce),
+      }),
+    ),
+    faqPage(piani.faq),
+  ]}
+>
+  <Sezione>
+    <div class="prosa">
+      <h2 class="text-3xl">Prima il valore clinico, poi quello economico</h2>
+      <p class="mt-4 text-lg">
+        La maggior parte delle malattie che vediamo in urgenza si poteva intercettare prima: un rene
+        che inizia a cedere, un cuore che si affatica, un parassita preso a giugno. I Piani Salute
+        distribuiscono su dodici mesi le prestazioni che ogni animale dovrebbe ricevere comunque, e
+        la reception ti ricorda ogni appuntamento.
+      </p>
+      <p class="mt-3 text-testo-secondario">
+        Non è uno sconto: è un programma di prevenzione, pagato una volta l'anno o a rate mensili
+        senza interessi.
+      </p>
+    </div>
+
+    <!-- TABELLA COMPARATIVA -->
+    <div
+      class="mt-10 overflow-x-auto"
+      tabindex="0"
+      role="region"
+      aria-label="Tabella comparativa dei piani (scorrevole)"
+    >
+      <table class="w-full min-w-[48rem] border-separate border-spacing-0 text-sm">
+        <caption class="sr-only">Confronto dei tre Piani Salute</caption>
+        <thead>
+          <tr class="align-bottom">
+            <th scope="col" class="w-[28%] pb-4 text-left">
+              <span class="sr-only">Prestazione</span>
+            </th>
+            {piani.piani.map((p) => (
+              <th
+                scope="col"
+                id={p.id}
+                class:list={[
+                  'scroll-mt-24 rounded-t-card p-5 text-left align-top',
+                  p.evidenziato ? 'bg-primario text-primario-testo' : 'bg-sfondo-tinta',
+                ]}
+              >
+                {p.evidenziato && (
+                  <span class="mb-2 inline-block rounded-pill bg-sfondo/20 px-2 py-0.5 text-xs font-bold uppercase tracking-wider">
+                    Il più scelto
+                  </span>
+                )}
+                <span class="block font-display text-2xl font-bold">{p.nome}</span>
+                <span
+                  class:list={[
+                    'block text-sm',
+                    p.evidenziato ? 'text-primario-testo/80' : 'text-testo-secondario',
+                  ]}
+                >
+                  {p.sottotitolo}
+                </span>
+                <span class="mt-3 block font-display text-3xl font-bold tabular-nums">
+                  {euro(p.prezzoAnnuo / piani.rateMensili)}
+                  <span class="text-base font-normal">/mese</span>
+                </span>
+                <span
+                  class:list={[
+                    'block text-sm',
+                    p.evidenziato ? 'text-primario-testo/80' : 'text-testo-secondario',
+                  ]}
+                >
+                  {euro(p.prezzoAnnuo)} l'anno
+                </span>
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {tutteLeVoci.map((voce) => (
+            <tr class="align-top">
+              <th scope="row" class="border-b border-bordo py-3 pr-4 text-left font-semibold">
+                {voce}
+              </th>
+              {piani.piani.map((p) => {
+                const v = p.include.find((x) => x.voce === voce);
+                return (
+                  <td
+                    class:list={[
+                      'border-b border-bordo px-5 py-3',
+                      p.evidenziato && 'bg-primario-tenue/40',
+                    ]}
+                  >
+                    {v ? (
+                      <span class="flex items-start gap-2">
+                        <Icona nome="check" class="mt-0.5 size-4 shrink-0 text-successo" />
+                        <span>{v.dettaglio}</span>
+                      </span>
+                    ) : (
+                      <span class="text-testo-secondario">—</span>
+                    )}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+          <tr class="align-top">
+            <th scope="row" class="py-3 pr-4 text-left font-semibold">
+              Riduzioni sulle prestazioni extra
+            </th>
+            {piani.piani.map((p) => (
+              <td class:list={['px-5 py-3', p.evidenziato && 'bg-primario-tenue/40']}>
+                <ul class="list-disc pl-4">
+                  {p.sconti.map((s) => (
+                    <li>{s}</li>
+                  ))}
+                </ul>
+              </td>
+            ))}
+          </tr>
+          <tr>
+            <td></td>
+            {piani.piani.map((p) => (
+              <td class:list={['p-5', p.evidenziato && 'rounded-b-card bg-primario-tenue/40']}>
+                <Bottone
+                  href={`/prenota?motivo=piano-salute&piano=${p.id}`}
+                  variante={p.evidenziato ? 'primario' : 'secondario'}
+                  pieno
+                  evento="piano_salute_scelto"
+                  eventoPosizione={p.id}
+                >
+                  Attiva il piano {p.nome}
+                </Bottone>
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-4 text-sm text-testo-secondario">
+      {piani.notaRata} {!piani.prezziConfermati && 'Importi indicativi in fase di conferma.'}
+    </p>
+    <Rassicurazioni class="mt-3" voci={['richiamo', 'pagamento', 'preventivo']} />
+  </Sezione>
+
+  <Sezione tono="tinta" compatta>
+    <div class="grid gap-8 lg:grid-cols-3">
+      {piani.piani.map((p) => (
+        <article class="rounded-card border border-bordo bg-sfondo-rialzato p-6">
+          <Etichetta class="mb-2">{p.sottotitolo}</Etichetta>
+          <h2 class="text-2xl">Piano {p.nome}</h2>
+          <p class="mt-3 text-testo-secondario">{p.descrizione}</p>
+        </article>
+      ))}
+    </div>
+  </Sezione>
+
+  <Sezione>
+    <CalcolatorePiani />
+  </Sezione>
+
+  <Sezione tono="tinta" compatta>
+    <Faq voci={piani.faq} titolo="Domande frequenti sui Piani Salute" />
+    <p class="mt-6 text-sm text-testo-secondario">
+      Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
+    </p>
+  </Sezione>
+</PaginaLayout>

@@ -1,0 +1,265 @@
+---
+/** /per-i-colleghi — area referral B2B. Registro tecnico. Indicizzabile per "TAC veterinaria Napoli", "service diagnostico veterinario Campania". */
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Faq from '@ui/Faq.astro';
+import Icona, { type NomeIcona } from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Sezione from '@ui/Sezione.astro';
+import TabellaDati from '@ui/TabellaDati.astro';
+import FormColleghi from '@/components/form/FormColleghi.astro';
+import { clinica, emailPrincipale, telHref } from '@lib/clinica';
+import { faqPage, medicalWebPage } from '@lib/schema';
+
+const descrizione =
+  'Service diagnostico e chirurgico per veterinari in Campania: TAC, endoscopia, chirurgia e degenza h24 a Portici. Referto rapido, contatto diretto col referente, il paziente torna sempre al collega inviante.';
+const protocolli = [
+  {
+    titolo: 'TAC',
+    prep: 'Digiuno 8–12 ore (acqua libera fino a 2 ore prima). Esami pre-anestesia recenti (emocromo, biochimico, ECG nei soggetti a rischio) o eseguibili in sede. Terapie in corso e allergie note.',
+    tempi:
+      'Esame in giornata su prenotazione; referto scritto entro 24–48 ore lavorative, immagini DICOM condivise.',
+    icona: 'scansione',
+  },
+  {
+    titolo: 'Endoscopia',
+    prep: 'Digiuno 12–24 ore per gastroscopia; preparazione intestinale concordata per colonscopia. Sospensione di antiacidi 48 ore prima quando possibile.',
+    tempi:
+      'Referto endoscopico e istologico (se biopsie) con tempi comunicati alla presa in carico.',
+    icona: 'occhio',
+  },
+  {
+    titolo: 'Chirurgia in service',
+    prep: 'Invio della cartella, esami e imaging. Visita pre-operatoria in sede con preventivo scritto al proprietario. Consenso informato condiviso con il collega.',
+    tempi:
+      'Lettera di dimissione al collega il giorno stesso; controllo post-operatorio concordato (in sede o dal collega).',
+    icona: 'bisturi',
+  },
+  {
+    titolo: 'Degenza e terapia intensiva',
+    prep: 'Trasferimento concordato telefonicamente con il medico di turno; scheda terapie in corso. Accettazione h24.',
+    tempi:
+      'Aggiornamento clinico giornaliero al collega; rientro al collega alla dimissione con relazione.',
+    icona: 'letto',
+  },
+];
+const faq = [
+  {
+    domanda: 'Il paziente torna al medico inviante?',
+    risposta:
+      'Sì, sempre. Il rapporto con il proprietario resta del collega: noi eroghiamo la prestazione richiesta, inviamo referto e immagini e indirizziamo il proprietario a proseguire le cure con il suo veterinario. Non proponiamo prestazioni non richieste senza prima concordarle con chi invia.',
+  },
+  {
+    domanda: 'Come ricevo referto e immagini?',
+    risposta:
+      "Referto in PDF via email all'indirizzo indicato nel modulo; immagini DICOM tramite link di condivisione. Per i casi urgenti il referente ti chiama al telefono diretto prima ancora del referto scritto.",
+  },
+  {
+    domanda: "Posso parlare direttamente con il medico che esegue l'esame?",
+    risposta:
+      'Sì. Ogni caso inviato ha un medico referente che puoi contattare al numero della clinica chiedendo del referente del caso, oppure rispondendo alla mail di presa in carico. Il confronto pre e post esame è parte del servizio.',
+  },
+  {
+    domanda: 'Quali sono i tempi per una TAC?',
+    risposta:
+      "Nella maggior parte dei casi l'esame si esegue entro pochi giorni dalla richiesta, in giornata per le urgenze concordate. Il referto scritto arriva entro 24–48 ore lavorative; un'anticipazione verbale è disponibile al termine dell'esame.",
+  },
+  {
+    domanda: 'Chi fa il preventivo al proprietario?',
+    risposta:
+      'Noi, per iscritto, prima della prestazione, sulla base del quesito che ci invii. Se preferisci comunicarlo tu, ti mandiamo la stima in anticipo. Il pagamento della prestazione in service avviene alla clinica al termine.',
+  },
+  {
+    domanda: 'Esiste una convenzione formale?',
+    risposta:
+      'Sì: un accordo scritto che definisce modalità di invio, tempi, refertazione e rientro del paziente. Il modulo di richiesta è scaricabile in questa pagina; ti ricontattiamo per completarlo.',
+  },
+];
+const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
+---
+
+<PaginaLayout
+  titolo="Per i colleghi veterinari: TAC, endoscopia, chirurgia e degenza in service a Portici (Napoli)"
+  descrizione={descrizione}
+  percorso="/per-i-colleghi"
+  h1="Diagnostica avanzata e chirurgia in service per i colleghi del territorio"
+  sottotitolo="TAC, endoscopia, chirurgia e degenza h24 a Portici. Referto rapido, contatto diretto con il medico referente."
+  etichetta="Area colleghi veterinari"
+  tonoIntestazione="inverso"
+  briciole={briciole}
+  jsonLd={[
+    medicalWebPage({
+      url: '/per-i-colleghi',
+      titolo: 'Service diagnostico e chirurgico per veterinari',
+      descrizione,
+      briciole,
+      specialita: 'Radiography',
+    }),
+    faqPage(faq),
+  ]}
+>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-7">
+        <p class="font-display text-3xl font-semibold leading-tight md:text-5xl">
+          Il paziente torna <em class="not-italic text-primario-link">sempre</em> al collega
+          inviante.
+        </p>
+        <p class="mt-6 text-lg text-testo-secondario">
+          La Clinica Veterinaria del Bosco mette a disposizione degli ambulatori dell'area vesuviana
+          e napoletana ciò che raramente è sostenibile in una struttura diurna: TAC in sede,
+          endoscopia, due sale chirurgiche, degenza con terapia intensiva e personale presente 24
+          ore su 24. Eroghiamo la prestazione richiesta, refertiamo e restituiamo il caso. Il
+          rapporto con il proprietario resta tuo.
+        </p>
+        <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+          {[
+            'Referto scritto entro 24–48 ore lavorative',
+            "Anticipazione verbale al termine dell'esame",
+            'Immagini DICOM condivise',
+            'Medico referente raggiungibile direttamente',
+            'Accettazione in degenza h24',
+            'Preventivo scritto al proprietario prima della prestazione',
+          ].map((t) => (
+            <li class="flex items-start gap-2">
+              <Icona nome="check" class="mt-1 size-5 shrink-0 text-successo" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-6">
+          <h2 class="font-sans text-xl font-bold">Invia un caso in 2 passaggi</h2>
+          <ol class="mt-3 list-decimal space-y-2 pl-5">
+            <li>Compila il modulo in fondo alla pagina (quesito + allegati).</li>
+            <li>Ricevi la presa in carico con data proposta e nome del referente.</li>
+          </ol>
+          <div class="mt-5 flex flex-col gap-3">
+            <Bottone href="#invia-caso" variante="primario" dimensione="lg" icona="freccia-destra">
+              Vai al modulo
+            </Bottone>
+            <Bottone
+              href="/documenti/richiesta-convenzione-clinica-del-bosco.pdf"
+              variante="secondario"
+              icona="download"
+              download
+            >
+              Modulo richiesta convenzione (PDF)
+            </Bottone>
+          </div>
+          <p class="mt-4 text-sm text-testo-secondario">
+            Urgenze: chiama il{' '}
+            <a href={telHref} class="font-semibold">
+              {clinica.contatti.telefono.visualizzato}
+            </a>{' '}
+            e chiedi del medico di turno.
+          </p>
+        </div>
+      </div>
+    </div>
+  </Sezione>
+
+  <Sezione tono="tinta" id="protocolli">
+    <Etichetta class="mb-3">Protocolli di invio</Etichetta>
+    <h2 class="text-3xl md:text-4xl">Preparazione del paziente e tempi di refertazione</h2>
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      {protocolli.map((p) => (
+        <article class="rounded-card border border-bordo bg-sfondo-rialzato p-6">
+          <h3 class="flex items-center gap-2 font-sans text-xl font-bold">
+            <Icona nome={p.icona as NomeIcona} class="size-6 text-primario-link" />
+            {p.titolo}
+          </h3>
+          <dl class="mt-3 space-y-2 text-sm">
+            <div>
+              <dt class="font-bold uppercase tracking-wider text-testo-secondario">Preparazione</dt>
+              <dd>{p.prep}</dd>
+            </div>
+            <div>
+              <dt class="font-bold uppercase tracking-wider text-testo-secondario">Tempi</dt>
+              <dd>{p.tempi}</dd>
+            </div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </Sezione>
+
+  <Sezione id="scheda-tecnica">
+    <Etichetta class="mb-3">Scheda tecnica</Etichetta>
+    <h2 class="text-3xl md:text-4xl">Attrezzature e capacità della struttura</h2>
+    <TabellaDati
+      class="mt-8"
+      tabella={{
+        titolo: 'Dotazione diagnostica e chirurgica disponibile in service',
+        intestazioni: ['Area', 'Dotazione', 'Indicazioni principali', 'Disponibilità'],
+        righe: [
+          [
+            'TAC',
+            'Tomografia computerizzata multistrato con ricostruzioni 3D, studio con e senza mezzo di contrasto',
+            'Oncologia (lesioni anche millimetriche), neurologia, ortopedia, pianificazione chirurgica, total body, torace, cavità nasali e orecchio',
+            'Su prenotazione, urgenze concordate in giornata',
+          ],
+          [
+            'Endoscopia',
+            'Endoscopia flessibile e rigida',
+            'Gastro/colonscopia con biopsie, rinoscopia, corpi estranei, vie aeree',
+            'Su prenotazione',
+          ],
+          [
+            'Radiologia ed ecografia',
+            'Radiologia digitale diretta, ecografia addominale e cardiologica',
+            'Screening, stadiazione, guida per campionamenti',
+            'Su prenotazione e in urgenza h24',
+          ],
+          [
+            'Laboratorio',
+            'Ematologia, biochimica, coagulazione, elettroliti, emogasanalisi, test infettivi rapidi, citologia',
+            'Pre-anestesia, monitoraggio ricoveri, urgenze',
+            'H24',
+          ],
+          [
+            'Chirurgia',
+            'Due sale chirurgiche, laser, laparoscopia, monitoraggio anestesiologico multiparametrico',
+            "Chirurgia oncologica, ricostruttiva, ortopedica, tessuti molli, d'urgenza",
+            "Programmata e d'urgenza h24",
+          ],
+          [
+            'Degenza',
+            'Terapia intensiva con ossigenoterapia e monitoraggio continuo, degenza separata cani/gatti, area esotici',
+            'Post-operatorio, pazienti critici, trasferimenti',
+            'H24 con personale in struttura',
+          ],
+        ],
+        nota: 'Marche e modelli delle apparecchiature disponibili su richiesta. Dotazione soggetta ad aggiornamento.',
+      }}
+    />
+  </Sezione>
+
+  <Sezione tono="tinta" id="invia-caso">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <Etichetta class="mb-3">Invio caso</Etichetta>
+        <h2 class="text-3xl">Invia un caso</h2>
+        <p class="mt-3 text-testo-secondario">
+          Quesito clinico, anamnesi essenziale e allegati. Ti rispondiamo con la presa in carico
+          entro il giorno lavorativo successivo; per le urgenze, dopo l'invio chiama la clinica.
+        </p>
+        <p class="mt-4 text-sm text-testo-secondario">
+          Contatto diretto:{' '}
+          <a href={telHref} class="font-semibold">
+            {clinica.contatti.telefono.visualizzato}
+          </a>{' '}
+          · <a href={`mailto:${emailPrincipale}`}>{emailPrincipale}</a>
+        </p>
+      </div>
+      <div class="lg:col-span-8">
+        <FormColleghi />
+      </div>
+    </div>
+  </Sezione>
+
+  <Sezione compatta>
+    <Faq voci={faq} titolo="Domande frequenti dei colleghi" />
+  </Sezione>
+</PaginaLayout>

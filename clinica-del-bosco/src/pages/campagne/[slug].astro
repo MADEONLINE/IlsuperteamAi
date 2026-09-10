@@ -1,0 +1,152 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Briciole from '@ui/Briciole.astro';
+import CardServizio from '@ui/CardServizio.astro';
+import Faq from '@ui/Faq.astro';
+import Fonti from '@ui/Fonti.astro';
+import Foto from '@ui/Foto.astro';
+import Icona from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import SchedaAutore from '@ui/SchedaAutore.astro';
+import Sezione from '@ui/Sezione.astro';
+import { faqPage, medicalWebPage } from '@lib/schema';
+
+export async function getStaticPaths() {
+  const campagne = await getCollection('campagne');
+  return campagne.map((c) => ({ params: { slug: c.id }, props: { campagna: c } }));
+}
+const { campagna } = Astro.props;
+const { Content } = await render(campagna);
+const autore = await getEntry(campagna.data.autore);
+const servizio = await getEntry(campagna.data.servizioCorrelato);
+const articolo = campagna.data.articoloCorrelato
+  ? await getEntry(campagna.data.articoloCorrelato)
+  : undefined;
+if (!autore || !servizio) throw new Error(`Riferimenti mancanti per ${campagna.id}`);
+const url = `/campagne/${campagna.id}`;
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+const briciole = [
+  { nome: 'Magazine', href: '/magazine' },
+  { nome: campagna.data.titolo, href: url },
+];
+const hrefPrenota = `/prenota?motivo=${encodeURIComponent(campagna.data.motivoVisita)}`;
+---
+
+<BaseLayout
+  titolo={campagna.data.titolo}
+  descrizione={campagna.data.descrizioneMeta}
+  percorso={url}
+  jsonLd={[
+    medicalWebPage({
+      url,
+      titolo: campagna.data.titolo,
+      descrizione: campagna.data.descrizioneMeta,
+      briciole,
+      dataPubblicazione: iso(campagna.data.dataPubblicazione),
+      dataModifica: iso(campagna.data.dataRevisione),
+    }),
+    faqPage(campagna.data.faq),
+  ]}
+>
+  <header class="bg-primario-tenue">
+    <div class="contenitore grid gap-8 py-10 md:py-14 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-7">
+        <Briciole briciole={briciole} class="mb-5" />
+        <Etichetta class="mb-2">Campagna di prevenzione · {campagna.data.periodo}</Etichetta>
+        <h1 class="text-4xl md:text-5xl">{campagna.data.titolo}</h1>
+        <p class="prosa mt-4 text-lg text-testo-secondario md:text-xl">
+          {campagna.data.sottotitolo}
+        </p>
+        <div class="mt-6">
+          <Bottone href={hrefPrenota} variante="primario" dimensione="lg" icona="calendario">
+            {campagna.data.ctaTesto}
+          </Bottone>
+        </div>
+        <Rassicurazioni class="mt-4" />
+      </div>
+      <div class="lg:col-span-5">
+        <Foto
+          ratio="4/3"
+          scattoBrief={campagna.data.scattoBrief}
+          descrizioneSegnaposto={campagna.data.titolo}
+        />
+      </div>
+    </div>
+  </header>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <article class="lg:col-span-8">
+        <div class="rounded-card border-l-4 border-primario bg-sfondo-rialzato p-5 md:p-6">
+          <p class="text-lg leading-relaxed">{campagna.data.risposta}</p>
+        </div>
+        <div class="prosa-md mt-8">
+          <Content />
+        </div>
+        <section
+          class="mt-10 rounded-card border border-bordo bg-sfondo-rialzato p-6"
+          aria-labelledby="checklist"
+        >
+          <h2 id="checklist" class="font-sans text-xl font-bold">
+            Cosa portare e cosa osservare
+          </h2>
+          <ul class="mt-3 space-y-2">
+            {campagna.data.checklist.map((v) => (
+              <li class="flex items-start gap-2">
+                <Icona nome="check" class="mt-1 size-5 shrink-0 text-successo" />
+                <span>{v}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <Faq voci={campagna.data.faq} class="mt-12" />
+        <SchedaAutore
+          autore={autore}
+          dataPubblicazione={campagna.data.dataPubblicazione}
+          dataRevisione={campagna.data.dataRevisione}
+          class="mt-10"
+        />
+        <Fonti fonti={campagna.data.fonti} class="mt-6" />
+        <p class="mt-8 text-sm text-testo-secondario">
+          Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
+        </p>
+      </article>
+      <aside class="space-y-4 lg:col-span-4">
+        <div class="rounded-card bg-sfondo-inverso p-5 text-testo-inverso">
+          <p class="font-sans text-lg font-bold">Prenota in un minuto</p>
+          <p class="mt-1 text-sm text-testo-inverso/80">
+            Ti richiamiamo per confermare giorno e ora.
+          </p>
+          <Bottone href={hrefPrenota} variante="inverso" pieno class="mt-4" icona="calendario">
+            {campagna.data.ctaTesto}
+          </Bottone>
+        </div>
+        <CardServizio servizio={servizio} compatta />
+        {articolo && (
+          <a
+            href={`/magazine/${articolo.id}`}
+            class="block rounded-card border border-bordo bg-sfondo-rialzato p-4 no-underline hover:border-primario"
+          >
+            <p class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+              Approfondimento
+            </p>
+            <p class="mt-1 font-semibold text-testo">{articolo.data.titolo}</p>
+          </a>
+        )}
+        <a
+          href="/piani-salute"
+          class="block rounded-card border border-bordo bg-sfondo-rialzato p-4 no-underline hover:border-primario"
+        >
+          <p class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+            Prevenzione programmata
+          </p>
+          <p class="mt-1 font-semibold text-testo">
+            Con un Piano Salute questo controllo è già nel calendario →
+          </p>
+        </a>
+      </aside>
+    </div>
+  </Sezione>
+</BaseLayout>

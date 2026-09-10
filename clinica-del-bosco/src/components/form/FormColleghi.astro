@@ -1,0 +1,294 @@
+---
+/**
+ * Form "invia un caso" per i colleghi veterinari: upload esami/immagini (Netlify Forms,
+ * multipart, max 8 MB per file), informativa privacy dedicata (dati del proprietario del paziente).
+ * Funziona senza JS; con JS: validazione inline, controllo dimensione file, eventi.
+ */
+import Bottone from '@ui/Bottone.astro';
+import { clinica } from '@lib/clinica';
+const prestazioni = [
+  'TAC',
+  'Endoscopia',
+  'Chirurgia',
+  'Degenza / terapia intensiva',
+  'Ecocardiografia',
+  'Consulenza specialistica',
+  'Altro',
+];
+---
+
+<form
+  name="caso-collega"
+  method="POST"
+  action="/per-i-colleghi/grazie"
+  enctype="multipart/form-data"
+  data-netlify="true"
+  netlify-honeypot="sito-web"
+  class="form-colleghi space-y-6"
+  novalidate
+>
+  <input type="hidden" name="form-name" value="caso-collega" />
+  <p class="hidden" aria-hidden="true">
+    <label>
+      Non compilare: <input name="sito-web" tabindex="-1" autocomplete="off" />
+    </label>
+  </p>
+
+  <fieldset class="grid gap-4 sm:grid-cols-2">
+    <legend class="mb-2 font-sans text-lg font-bold">Struttura inviante</legend>
+    <div>
+      <label for="c-medico" class="block font-semibold">
+        Medico referente
+      </label>
+      <input
+        id="c-medico"
+        name="medico"
+        type="text"
+        required
+        maxlength="80"
+        class="campo mt-1"
+        autocomplete="name"
+      />
+    </div>
+    <div>
+      <label for="c-struttura" class="block font-semibold">
+        Ambulatorio / clinica
+      </label>
+      <input
+        id="c-struttura"
+        name="struttura"
+        type="text"
+        required
+        maxlength="120"
+        class="campo mt-1"
+        autocomplete="organization"
+      />
+    </div>
+    <div>
+      <label for="c-telefono" class="block font-semibold">
+        Telefono diretto
+      </label>
+      <input
+        id="c-telefono"
+        name="telefono"
+        type="tel"
+        required
+        pattern="^[+0-9 ().-]{6,20}$"
+        class="campo mt-1"
+        autocomplete="tel"
+      />
+    </div>
+    <div>
+      <label for="c-email" class="block font-semibold">
+        Email per il referto
+      </label>
+      <input
+        id="c-email"
+        name="email"
+        type="email"
+        required
+        maxlength="120"
+        class="campo mt-1"
+        autocomplete="email"
+      />
+    </div>
+  </fieldset>
+
+  <fieldset class="grid gap-4 sm:grid-cols-2">
+    <legend class="mb-2 font-sans text-lg font-bold">Paziente</legend>
+    <div>
+      <label for="c-specie" class="block font-semibold">
+        Specie e razza
+      </label>
+      <input
+        id="c-specie"
+        name="specie"
+        type="text"
+        required
+        maxlength="80"
+        class="campo mt-1"
+        placeholder="Es. cane, Labrador"
+      />
+    </div>
+    <div>
+      <label for="c-segnalamento" class="block font-semibold">
+        Età, sesso, peso
+      </label>
+      <input
+        id="c-segnalamento"
+        name="segnalamento"
+        type="text"
+        required
+        maxlength="80"
+        class="campo mt-1"
+        placeholder="Es. 8 anni, FS, 28 kg"
+      />
+    </div>
+    <div class="sm:col-span-2">
+      <label for="c-prestazione" class="block font-semibold">
+        Prestazione richiesta
+      </label>
+      <select id="c-prestazione" name="prestazione" required class="campo mt-1">
+        <option value="">Scegli…</option>
+        {prestazioni.map((p) => (
+          <option>{p}</option>
+        ))}
+      </select>
+    </div>
+    <div class="sm:col-span-2">
+      <label for="c-quesito" class="block font-semibold">
+        Quesito clinico e anamnesi essenziale
+      </label>
+      <textarea
+        id="c-quesito"
+        name="quesito"
+        rows="5"
+        required
+        maxlength="2000"
+        class="campo mt-1"
+        placeholder="Sospetto diagnostico, terapie in corso, esami già eseguiti, urgenza"
+      ></textarea>
+    </div>
+    <div class="sm:col-span-2">
+      <label for="c-urgenza" class="block font-semibold">
+        Urgenza
+      </label>
+      <select id="c-urgenza" name="urgenza" class="campo mt-1">
+        <option value="programmabile">Programmabile (entro 7 giorni)</option>
+        <option value="prioritaria">Prioritaria (entro 48 ore)</option>
+        <option value="urgente">
+          Urgente (oggi): dopo l'invio chiama il {clinica.contatti.telefono.visualizzato}
+        </option>
+      </select>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="mb-2 font-sans text-lg font-bold">Allegati</legend>
+    <label for="c-allegati" class="block font-semibold">
+      Esami, referti, immagini{' '}
+      <span class="font-normal text-testo-secondario">
+        (PDF, JPG, PNG, DICOM zippato · max 8 MB per file, fino a 3 file)
+      </span>
+    </label>
+    <input
+      id="c-allegati"
+      name="allegati"
+      type="file"
+      multiple
+      accept=".pdf,.jpg,.jpeg,.png,.zip,application/pdf,image/jpeg,image/png,application/zip"
+      class="campo mt-1 py-2"
+    />
+    <p class="errore mt-1 hidden text-sm text-errore" data-per="allegati" role="alert">
+      Ogni file deve pesare meno di 8 MB. Per studi DICOM completi usa il link di condivisione del
+      tuo PACS nel campo quesito.
+    </p>
+  </fieldset>
+
+  <div class="space-y-3 rounded-card border border-bordo bg-sfondo-rialzato p-4 text-sm">
+    <p>
+      <strong>Informativa privacy (dati di terzi).</strong> I dati del paziente e del proprietario
+      che ci trasmetti sono trattati da {clinica.ragioneSociale} esclusivamente per erogare la
+      prestazione richiesta e refertarla al medico inviante (art. 6.1.b e 9.2.h GDPR per i dati
+      sanitari, ove applicabili). Confermi di avere informato il proprietario della trasmissione.
+      Dettagli nella <a href="/privacy-policy">privacy policy</a>.
+    </p>
+    <label class="flex items-start gap-3">
+      <input
+        type="checkbox"
+        name="consenso-trattamento"
+        value="si"
+        required
+        class="mt-1 size-5 shrink-0 accent-[var(--primario)]"
+      />
+      <span>
+        Confermo di aver letto l'informativa e di aver informato il proprietario.{' '}
+        <span class="text-testo-secondario">(necessario)</span>
+      </span>
+    </label>
+    <p class="errore hidden text-sm text-errore" data-per="consenso-trattamento" role="alert">
+      Questa conferma è necessaria per procedere.
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+    <Bottone
+      type="submit"
+      variante="primario"
+      dimensione="lg"
+      icona="check"
+      evento="caso_collega_inviato"
+      eventoPosizione="colleghi"
+    >
+      Invia il caso
+    </Bottone>
+    <p class="stato text-sm text-testo-secondario" aria-live="polite">
+      Risposta con presa in carico entro il giorno lavorativo successivo.
+    </p>
+  </div>
+</form>
+
+<style>
+  .campo {
+    display: block;
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.6rem 0.9rem;
+    border: 2px solid var(--bordo-forte);
+    border-radius: 0.75rem;
+    background: var(--sfondo-rialzato);
+    color: var(--testo);
+    font: inherit;
+  }
+  .campo:focus {
+    border-color: var(--primario);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--primario-tenue);
+  }
+  .campo[aria-invalid='true'] {
+    border-color: var(--errore);
+  }
+</style>
+
+<script>
+  function inizializza() {
+    const form = document.querySelector<HTMLFormElement>('.form-colleghi');
+    if (!form || form.dataset['pronto']) return;
+    form.dataset['pronto'] = '1';
+    const MAX = 8 * 1024 * 1024;
+    const file = form.querySelector<HTMLInputElement>('#c-allegati')!;
+    const erroreFile = form.querySelector<HTMLElement>('.errore[data-per="allegati"]')!;
+    const stato = form.querySelector<HTMLElement>('.stato')!;
+    const controllaFile = () => {
+      const troppi = (file.files?.length ?? 0) > 3;
+      const grande = [...(file.files ?? [])].some((f) => f.size > MAX);
+      const ko = troppi || grande;
+      erroreFile.classList.toggle('hidden', !ko);
+      file.setAttribute('aria-invalid', String(ko));
+      return !ko;
+    };
+    file.addEventListener('change', controllaFile);
+    form.addEventListener('submit', (e) => {
+      let ok = controllaFile();
+      form
+        .querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]')
+        .forEach((c) => {
+          const valido = c.checkValidity();
+          c.setAttribute('aria-invalid', String(!valido));
+          form.querySelector(`.errore[data-per="${c.name}"]`)?.classList.toggle('hidden', valido);
+          if (!valido && ok) {
+            ok = false;
+            c.focus();
+          }
+        });
+      if (!ok) {
+        e.preventDefault();
+        stato.textContent = 'Controlla i campi evidenziati.';
+        return;
+      }
+      stato.textContent = 'Invio in corso… gli allegati possono richiedere qualche secondo.';
+    });
+  }
+  inizializza();
+  document.addEventListener('astro:page-load', inizializza);
+</script>

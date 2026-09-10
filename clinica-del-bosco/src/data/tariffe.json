@@ -1,0 +1,62 @@
+{
+  "_nota": "Onorari indicativi (mai 'offerte'). confermato=false mostra l'avviso 'in fase di aggiornamento' e la pagina /tariffe resta noindex finché la clinica non conferma i valori. Importi in euro, IVA inclusa.",
+  "confermato": false,
+  "dataAggiornamento": "2026-09-10",
+  "premessa": "Gli importi sono indicativi e possono variare in base a taglia, età, condizioni cliniche e complessità del caso. Per ogni prestazione non urgente ricevi un preventivo scritto prima di procedere. Il pagamento avviene al termine della prestazione; non è richiesto alcun anticipo.",
+  "sezioni": [
+    {
+      "titolo": "Visite",
+      "voci": [
+        { "prestazione": "Visita clinica generale", "da": 45, "a": 60 },
+        {
+          "prestazione": "Visita specialistica (ortopedia, dermatologia, oncologia, neurologia, oftalmologia)",
+          "da": 70,
+          "a": 110
+        },
+        { "prestazione": "Visita di pronto soccorso (diurna)", "da": 60, "a": 80 },
+        { "prestazione": "Visita di pronto soccorso (notturna e festiva)", "da": 90, "a": 130 },
+        { "prestazione": "Visita animali esotici e conigli", "da": 55, "a": 80 }
+      ]
+    },
+    {
+      "titolo": "Prevenzione",
+      "voci": [
+        { "prestazione": "Vaccinazione (visita inclusa)", "da": 35, "a": 60 },
+        { "prestazione": "Microchip e iscrizione all'anagrafe", "da": 30, "a": 40 },
+        { "prestazione": "Test rapido leishmaniosi / filariosi", "da": 35, "a": 50 }
+      ]
+    },
+    {
+      "titolo": "Diagnostica",
+      "voci": [
+        { "prestazione": "Emocromo e profilo biochimico di base", "da": 60, "a": 110 },
+        { "prestazione": "Radiografia digitale (per proiezione)", "da": 40, "a": 70 },
+        { "prestazione": "Ecografia addominale completa", "da": 80, "a": 140 },
+        { "prestazione": "Ecocardiografia", "da": 120, "a": 180 },
+        { "prestazione": "TAC (anestesia e referto inclusi, per distretto)", "da": 450, "a": 900 },
+        { "prestazione": "Endoscopia", "da": 350, "a": 700 }
+      ]
+    },
+    {
+      "titolo": "Chirurgia (anestesia e monitoraggio inclusi)",
+      "voci": [
+        { "prestazione": "Sterilizzazione gatta", "da": 180, "a": 280 },
+        { "prestazione": "Castrazione gatto", "da": 110, "a": 170 },
+        { "prestazione": "Sterilizzazione cagna (in base al peso)", "da": 300, "a": 600 },
+        { "prestazione": "Castrazione cane (in base al peso)", "da": 220, "a": 420 },
+        { "prestazione": "Detartrasi e igiene dentale", "da": 150, "a": 300 }
+      ]
+    },
+    {
+      "titolo": "Degenza",
+      "voci": [
+        { "prestazione": "Degenza ordinaria (al giorno, terapie escluse)", "da": 45, "a": 80 },
+        {
+          "prestazione": "Terapia intensiva con ossigeno e monitoraggio (al giorno)",
+          "da": 120,
+          "a": 220
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+---
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Sezione from '@ui/Sezione.astro';
+import { clinica, telHref } from '@lib/clinica';
+---
+
+<PaginaLayout
+  titolo="Caso ricevuto"
+  descrizione="Abbiamo ricevuto il caso: il medico referente ti contatta con la presa in carico."
+  percorso="/per-i-colleghi/grazie"
+  noindex
+  h1="Caso ricevuto, grazie."
+  sottotitolo="Il medico referente valuta il quesito e ti risponde con data proposta e modalità entro il giorno lavorativo successivo."
+  etichetta="Area colleghi"
+  tonoIntestazione="inverso"
+  briciole={[
+    { nome: 'Per i colleghi', href: '/per-i-colleghi' },
+    { nome: 'Caso ricevuto', href: '/per-i-colleghi/grazie' },
+  ]}
+>
+  <Sezione>
+    <div class="prosa">
+      <p>
+        Se il caso è urgente, non attendere la mail: chiama il{' '}
+        <a href={telHref} class="font-semibold">
+          {clinica.contatti.telefono.visualizzato}
+        </a>{' '}
+        e chiedi del medico di turno citando il nome del paziente.
+      </p>
+      <div class="mt-6">
+        <Bottone href="/per-i-colleghi" variante="secondario">
+          Torna all'area colleghi
+        </Bottone>
+      </div>
+    </div>
+  </Sezione>
+</PaginaLayout>
