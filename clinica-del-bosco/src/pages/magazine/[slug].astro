@@ -1,0 +1,121 @@
+---
+import { getCollection, getEntry, getEntries, render } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Briciole from '@ui/Briciole.astro';
+import CardServizio from '@ui/CardServizio.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Faq from '@ui/Faq.astro';
+import Fonti from '@ui/Fonti.astro';
+import Foto from '@ui/Foto.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import SchedaAutore from '@ui/SchedaAutore.astro';
+import Sezione from '@ui/Sezione.astro';
+import TabellaDati from '@ui/TabellaDati.astro';
+import { article, faqPage, webPage } from '@lib/schema';
+
+export async function getStaticPaths() {
+  const articoli = await getCollection('articoli');
+  return articoli.map((a) => ({ params: { slug: a.id }, props: { articolo: a } }));
+}
+const { articolo } = Astro.props;
+const { Content } = await render(articolo);
+const autore = await getEntry(articolo.data.autore);
+const revisore = articolo.data.revisore ? await getEntry(articolo.data.revisore) : undefined;
+if (!autore) throw new Error(`Autore mancante per ${articolo.id}`);
+const servizio = await getEntry(articolo.data.servizioCorrelato);
+const altri = (await getEntries(articolo.data.serviziCorrelati)).filter(Boolean);
+const correlati = [servizio, ...altri].filter((s): s is NonNullable<typeof s> => Boolean(s));
+const url = `/magazine/${articolo.id}`;
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+const briciole = [
+  { nome: 'Magazine', href: '/magazine' },
+  { nome: articolo.data.titolo, href: url },
+];
+const parole = articolo.body?.split(/\s+/).length ?? 0;
+---
+
+<BaseLayout
+  titolo={articolo.data.titolo}
+  descrizione={articolo.data.descrizioneMeta}
+  percorso={url}
+  tipo="article"
+  dataPubblicazione={iso(articolo.data.dataPubblicazione)}
+  dataModifica={iso(articolo.data.dataRevisione)}
+  jsonLd={[
+    webPage({
+      url,
+      titolo: articolo.data.titolo,
+      descrizione: articolo.data.descrizioneMeta,
+      tipo: 'MedicalWebPage',
+      dataPubblicazione: iso(articolo.data.dataPubblicazione),
+      dataModifica: iso(articolo.data.dataRevisione),
+    }),
+    article({
+      url,
+      titolo: articolo.data.titolo,
+      descrizione: articolo.data.descrizioneMeta,
+      dataPubblicazione: iso(articolo.data.dataPubblicazione),
+      dataModifica: iso(articolo.data.dataRevisione),
+      autore: { nome: `${autore.data.titolo} ${autore.data.nome}`, url: `/equipe/${autore.id}` },
+      ...(revisore
+        ? {
+            revisore: {
+              nome: `${revisore.data.titolo} ${revisore.data.nome}`,
+              url: `/equipe/${revisore.id}`,
+            },
+          }
+        : {}),
+      tag: articolo.data.tag,
+      parole,
+    }),
+    faqPage(articolo.data.faq),
+  ]}
+>
+  <header class="border-b border-bordo bg-sfondo-tinta">
+    <div class="contenitore py-10 md:py-14">
+      <Briciole briciole={briciole} class="mb-5" />
+      <Etichetta class="mb-2">
+        {articolo.data.tag.join(' · ')} · {articolo.data.tempoLettura} min di lettura
+      </Etichetta>
+      <h1 class="prosa text-4xl md:text-5xl">{articolo.data.titolo}</h1>
+      <p class="prosa mt-4 text-lg text-testo-secondario md:text-xl">{articolo.data.riassunto}</p>
+    </div>
+  </header>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <article class="lg:col-span-8">
+        <Foto
+          ratio="16/9"
+          scattoBrief={articolo.data.scattoBrief}
+          descrizioneSegnaposto={articolo.data.titolo}
+          class="mb-8"
+        />
+        <SchedaAutore
+          autore={autore}
+          revisore={revisore}
+          dataPubblicazione={articolo.data.dataPubblicazione}
+          dataRevisione={articolo.data.dataRevisione}
+          class="mb-8"
+        />
+        <div class="prosa-md">
+          <Content />
+        </div>
+        {articolo.data.tabella && <TabellaDati tabella={articolo.data.tabella} class="mt-10" />}
+        <Faq voci={articolo.data.faq} titolo="Domande frequenti" class="mt-12" />
+        <Fonti fonti={articolo.data.fonti} class="mt-8" />
+        <p class="mt-8 text-sm text-testo-secondario">
+          Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
+        </p>
+      </article>
+      <aside class="space-y-4 lg:col-span-4">
+        <h2 class="font-sans text-lg font-bold">Servizi collegati</h2>
+        {correlati.map((s) => (
+          <CardServizio servizio={s} compatta />
+        ))}
+      </aside>
+    </div>
+  </Sezione>
+  <Sezione compatta>
+    <CtaDoppia motivo={servizio?.id} posizione="articolo" />
+  </Sezione>
+</BaseLayout>

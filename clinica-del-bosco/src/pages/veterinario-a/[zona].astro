@@ -1,0 +1,179 @@
+---
+/** Pagine locali con contenuto territoriale reale (come arrivare, tempi, quartieri, riferimenti). */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Briciole from '@ui/Briciole.astro';
+import CardServizio from '@ui/CardServizio.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Dato from '@ui/Dato.astro';
+import Faq from '@ui/Faq.astro';
+import Icona from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Sezione from '@ui/Sezione.astro';
+import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
+import { clinica, daConfermare, indicazioniHref, indirizzoRiga, telHref } from '@lib/clinica';
+import { faqPage, medicalWebPage } from '@lib/schema';
+
+export async function getStaticPaths() {
+  const zone = await getCollection('zone');
+  return zone.map((z) => ({ params: { zona: z.id }, props: { zona: z } }));
+}
+const { zona } = Astro.props;
+const { Content } = await render(zona);
+const servizi = (await getCollection('servizi')).filter((s) => s.data.inEvidenza).slice(0, 3);
+const altreZone = (await getCollection('zone'))
+  .filter((z) => z.id !== zona.id)
+  .sort((a, b) => a.data.ordine - b.data.ordine);
+const url = `/veterinario-a/${zona.id}`;
+const titolo = `Veterinario a ${zona.data.nome} aperto 24 ore: pronto soccorso, TAC e chirurgia a pochi minuti`;
+const briciole = [
+  { nome: 'Zone servite', href: '/contatti#zone' },
+  { nome: zona.data.nome, href: url },
+];
+const [minMin, maxMin] = zona.data.tempoAutoMinuti;
+---
+
+<BaseLayout
+  titolo={titolo}
+  descrizione={zona.data.descrizioneMeta}
+  percorso={url}
+  dataModifica={zona.data.dataRevisione.toISOString().slice(0, 10)}
+  jsonLd={[
+    medicalWebPage({ url, titolo, descrizione: zona.data.descrizioneMeta, briciole }),
+    faqPage(zona.data.faq),
+  ]}
+>
+  <header class="bg-sfondo-inverso text-testo-inverso">
+    <div class="contenitore py-10 md:py-14">
+      <Briciole briciole={briciole} inverso class="mb-5" />
+      <BadgeApertoOra inverso class="mb-4" />
+      <Etichetta tono="inverso" class="mb-2">
+        Veterinario per {zona.data.nomeCompleto}
+      </Etichetta>
+      <h1 class="prosa text-4xl text-testo-inverso md:text-5xl">
+        Veterinario a {zona.data.nome}, aperto{' '}
+        <em class="not-italic text-accento-inverso">adesso</em>
+      </h1>
+      <p class="prosa mt-4 text-lg text-testo-inverso/85">{zona.data.risposta}</p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:max-w-2xl">
+        <Bottone
+          href={telHref}
+          variante="urgenza"
+          dimensione="lg"
+          icona="telefono"
+          pieno
+          evento="click_chiama"
+          eventoPosizione={`zona-${zona.id}`}
+        >
+          Chiama ora · {clinica.contatti.telefono.visualizzato}
+        </Bottone>
+        <Bottone
+          href={indicazioniHref}
+          variante="inverso"
+          dimensione="lg"
+          icona="mappa"
+          pieno
+          target="_blank"
+          rel="noopener"
+          evento="click_indicazioni"
+          eventoPosizione={`zona-${zona.id}`}
+        >
+          Indicazioni da {zona.data.nome}
+        </Bottone>
+      </div>
+    </div>
+  </header>
+
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-8">
+        <dl class="grid gap-4 sm:grid-cols-3">
+          <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
+            <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+              In auto, indicativo
+            </dt>
+            <dd class="mt-1 font-display text-2xl font-bold">
+              {minMin}–{maxMin} min
+            </dd>
+          </div>
+          <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
+            <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+              Distanza
+            </dt>
+            <dd class="mt-1 font-display text-2xl font-bold">≈ {zona.data.distanzaKm} km</dd>
+          </div>
+          <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
+            <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">Dove</dt>
+            <dd class="mt-1 font-semibold">{indirizzoRiga}</dd>
+          </div>
+        </dl>
+        <h2 class="mt-10 text-2xl md:text-3xl">Come arrivare da {zona.data.nome}</h2>
+        <ul class="mt-4 space-y-2">
+          {zona.data.comeArrivare.map((r) => (
+            <li class="flex items-start gap-2">
+              <Icona nome="auto" class="mt-1 size-5 shrink-0 text-primario-link" />
+              <span>{r}</span>
+            </li>
+          ))}
+        </ul>
+        {zona.data.mezziPubblici.length > 0 && (
+          <ul class="mt-3 space-y-2">
+            {zona.data.mezziPubblici.map((r) => (
+              <li class="flex items-start gap-2">
+                <Icona nome="mappa" class="mt-1 size-5 shrink-0 text-primario-link" />
+                <span>{r}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+        <p class="mt-4 text-sm text-testo-secondario">
+          <strong>Parcheggio:</strong>{' '}
+          {daConfermare(clinica.indirizzo.parcheggio) ? (
+            <Dato valore={clinica.indirizzo.parcheggio} />
+          ) : (
+            clinica.indirizzo.parcheggio
+          )}
+        </p>
+        <div class="prosa-md mt-10">
+          <Content />
+        </div>
+        <Faq voci={zona.data.faq} titolo={`Domande frequenti da ${zona.data.nome}`} class="mt-12" />
+        <p class="mt-8 text-sm text-testo-secondario">
+          Tempi di percorrenza indicativi, variabili con il traffico. Questa pagina ha finalità
+          informative e non sostituisce la visita veterinaria.
+        </p>
+      </div>
+      <aside class="space-y-4 lg:col-span-4">
+        <h2 class="font-sans text-lg font-bold">I servizi più richiesti</h2>
+        {servizi.map((s) => (
+          <CardServizio servizio={s} compatta />
+        ))}
+        {zona.data.quartieri.length > 0 && (
+          <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4 text-sm">
+            <p class="font-bold">Serviamo tutto il territorio di {zona.data.nome}</p>
+            <p class="mt-1 text-testo-secondario">{zona.data.quartieri.join(' · ')}</p>
+          </div>
+        )}
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4 text-sm">
+          <p class="font-bold">Altre zone</p>
+          <ul class="mt-2 flex flex-wrap gap-2">
+            {altreZone.map((z) => (
+              <li>
+                <a
+                  href={`/veterinario-a/${z.id}`}
+                  class="rounded-pill bg-sfondo-tinta px-3 py-1 no-underline hover:text-primario-link"
+                >
+                  {z.data.nome}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </Sezione>
+  <Sezione compatta>
+    <CtaDoppia posizione={`zona-${zona.id}`} />
+  </Sezione>
+</BaseLayout>

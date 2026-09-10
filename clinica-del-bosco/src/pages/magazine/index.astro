@@ -1,0 +1,90 @@
+---
+/** Hub magazine: articoli firmati dai medici + campagne stagionali. */
+import { getCollection } from 'astro:content';
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Foto from '@ui/Foto.astro';
+import Icona from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Sezione from '@ui/Sezione.astro';
+import { webPage } from '@lib/schema';
+
+const articoli = (await getCollection('articoli')).sort(
+  (a, b) => b.data.dataPubblicazione.getTime() - a.data.dataPubblicazione.getTime(),
+);
+const campagne = (await getCollection('campagne')).sort(
+  (a, b) => a.data.meseInizio - b.data.meseInizio,
+);
+const descrizione =
+  'Guide pratiche scritte dai medici della Clinica Veterinaria del Bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania. Con fonti e data di revisione.';
+const data = (d: Date) =>
+  d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<PaginaLayout
+  titolo="Magazine: guide veterinarie scritte dai nostri medici"
+  descrizione={descrizione}
+  percorso="/magazine"
+  h1="Magazine"
+  sottotitolo="Guide pratiche per chi vive con un animale, scritte e revisionate dai medici della clinica. Ogni articolo cita le fonti e la data dell'ultima revisione."
+  etichetta="Informazione clinica"
+  briciole={[{ nome: 'Magazine', href: '/magazine' }]}
+  jsonLd={[webPage({ url: '/magazine', titolo: 'Magazine', descrizione, tipo: 'CollectionPage' })]}
+>
+  <Sezione>
+    <ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {articoli.map((a) => (
+        <li>
+          <a
+            href={`/magazine/${a.id}`}
+            class="group flex h-full flex-col rounded-card border border-bordo bg-sfondo-rialzato no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario"
+          >
+            <Foto
+              ratio="16/9"
+              scattoBrief={a.data.scattoBrief}
+              descrizioneSegnaposto={a.data.titolo}
+              class="rounded-b-none"
+            />
+            <div class="flex flex-1 flex-col p-5">
+              <p class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                {a.data.tag.slice(0, 2).join(' · ')} · {a.data.tempoLettura} min di lettura
+              </p>
+              <h2 class="mt-2 font-sans text-xl font-bold text-testo group-hover:text-primario-link">
+                {a.data.titolo}
+              </h2>
+              <p class="mt-2 text-sm text-testo-secondario">{a.data.descrizioneMeta}</p>
+              <p class="mt-auto pt-4 text-xs text-testo-secondario">
+                Revisione: {data(a.data.dataRevisione)}
+              </p>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Sezione>
+  <Sezione tono="tinta" compatta>
+    <Etichetta class="mb-3">Campagne stagionali</Etichetta>
+    <h2 class="text-3xl">Prevenzione al momento giusto</h2>
+    <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {campagne.map((c) => (
+        <li>
+          <a
+            href={`/campagne/${c.id}`}
+            class="group flex h-full flex-col rounded-card border border-bordo bg-sfondo-rialzato p-5 no-underline hover:border-primario"
+          >
+            <p class="text-xs font-bold uppercase tracking-wider text-primario-link">
+              {c.data.periodo}
+            </p>
+            <h3 class="mt-2 font-sans text-lg font-bold text-testo">{c.data.titolo}</h3>
+            <span class="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-primario-link">
+              {c.data.ctaTesto} <Icona nome="freccia-destra" class="size-4" />
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Sezione>
+  <Sezione compatta>
+    <CtaDoppia posizione="magazine" />
+  </Sezione>
+</PaginaLayout>

@@ -1,0 +1,77 @@
+---
+/** Onorari indicativi (mai offerte). Finché non confermati: avviso e noindex. */
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import Sezione from '@ui/Sezione.astro';
+import tariffe from '@dati/tariffe.json';
+import { webPage } from '@lib/schema';
+const euro = (n: number) =>
+  n.toLocaleString('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+const descrizione =
+  "Onorari indicativi della Clinica Veterinaria del Bosco di Portici per visite, vaccinazioni, esami, chirurgia e degenza. Preventivo scritto sempre prima dell'intervento, nessun anticipo.";
+---
+
+<PaginaLayout
+  titolo="Tariffe indicative"
+  descrizione={descrizione}
+  percorso="/tariffe"
+  noindex={!tariffe.confermato}
+  h1="Onorari indicativi"
+  sottotitolo="Trasparenza prima di tutto: gli importi qui riportati sono indicativi e vengono sempre confermati per iscritto prima della prestazione."
+  etichetta="Tariffe"
+  briciole={[{ nome: 'Tariffe', href: '/tariffe' }]}
+  jsonLd={[webPage({ url: '/tariffe', titolo: 'Onorari indicativi', descrizione })]}
+>
+  <Sezione>
+    {!tariffe.confermato && (
+      <p class="mb-6 rounded-card bg-avviso-tenue p-4 text-sm text-avviso">
+        Tabella in fase di aggiornamento: gli importi verranno confermati dalla clinica prima della
+        pubblicazione definitiva.
+      </p>
+    )}
+    <p class="prosa text-lg">{tariffe.premessa}</p>
+    <Rassicurazioni class="mt-4" voci={['preventivo', 'pagamento']} />
+    <div class="mt-10 grid gap-8 lg:grid-cols-2">
+      {tariffe.sezioni.map((s) => (
+        <div
+          class="tabella-dati"
+          tabindex="0"
+          role="region"
+          aria-label={`${s.titolo} (tabella scorrevole)`}
+        >
+          <table>
+            <caption>{s.titolo}</caption>
+            <thead>
+              <tr>
+                <th scope="col">Prestazione</th>
+                <th scope="col" class="text-right">
+                  Onorario indicativo
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {s.voci.map((v) => (
+                <tr>
+                  <th scope="row">{v.prestazione}</th>
+                  <td class="text-right tabular-nums">
+                    {euro(v.da)} – {euro(v.a)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </div>
+    <p class="mt-6 text-sm text-testo-secondario">
+      Importi IVA inclusa, aggiornati al{' '}
+      {new Date(tariffe.dataAggiornamento).toLocaleDateString('it-IT')}. Le prestazioni in urgenza
+      notturna e festiva possono prevedere una maggiorazione comunicata al telefono. Per i Piani
+      Salute vedi la <a href="/piani-salute">pagina dedicata</a>.
+    </p>
+  </Sezione>
+  <Sezione compatta>
+    <CtaDoppia posizione="tariffe" />
+  </Sezione>
+</PaginaLayout>

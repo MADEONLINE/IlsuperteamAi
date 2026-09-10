@@ -1,0 +1,183 @@
+---
+/** "Scheda anagrafica" leggibile da macchina: chi siamo, dove, cosa facciamo, da quando, con quali attrezzature, chi è il direttore sanitario. */
+import { getCollection } from 'astro:content';
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Dato from '@ui/Dato.astro';
+import Foto from '@ui/Foto.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Sezione from '@ui/Sezione.astro';
+import TabellaDati from '@ui/TabellaDati.astro';
+import {
+  clinica,
+  daConfermare,
+  direttoreSanitarioRiga,
+  emailPrincipale,
+  indirizzoRiga,
+} from '@lib/clinica';
+import { webPage } from '@lib/schema';
+
+const medici = (await getCollection('equipe')).sort((a, b) => a.data.ordine - b.data.ordine);
+const descrizione =
+  'La Clinica Veterinaria del Bosco di Portici: pronto soccorso h24, terapia intensiva, due sale chirurgiche, TAC, endoscopia, laboratorio interno. Sede, attrezzature, direttore sanitario, équipe.';
+const aree = [
+  {
+    titolo: 'Pronto soccorso e accettazione h24',
+    testo:
+      "Accesso diretto 24 ore su 24 con medico e assistente in struttura. Triage all'arrivo, area di stabilizzazione con ossigeno.",
+    scatto: '34',
+  },
+  {
+    titolo: 'Degenza e terapia intensiva',
+    testo:
+      'Gabbie a ossigeno, monitoraggio multiparametrico continuo, degenze separate per cani e gatti, area silenziosa per conigli ed esotici.',
+    scatto: '35',
+  },
+  {
+    titolo: 'Due sale chirurgiche',
+    testo:
+      'Sala per chirurgia dei tessuti molli e sala ortopedica, con monitoraggio anestesiologico, laser e strumentario laparoscopico.',
+    scatto: '36',
+  },
+  {
+    titolo: 'Diagnostica per immagini e TAC',
+    testo:
+      'TAC multistrato con ricostruzioni 3D, radiologia digitale diretta, ecografia addominale e cardiologica, endoscopia.',
+    scatto: '37',
+  },
+  {
+    titolo: 'Laboratorio analisi',
+    testo:
+      'Ematologia, biochimica, coagulazione, elettroliti, emogasanalisi, test rapidi per malattie infettive, citologia. Risposta in giornata, anche di notte.',
+    scatto: '38',
+  },
+  {
+    titolo: "Ambulatori e sala d'attesa",
+    testo:
+      'Ambulatori per le visite specialistiche e accorgimenti a basso stress per i gatti (trasportini coperti, tempi di attesa ridotti).',
+    scatto: '39',
+  },
+];
+---
+
+<PaginaLayout
+  titolo="La struttura: ospedale veterinario h24 a Portici"
+  descrizione={descrizione}
+  percorso="/la-struttura"
+  h1="La struttura"
+  sottotitolo="Un ospedale veterinario completo nel cuore di Portici: urgenza, diagnostica avanzata, chirurgia e degenza nello stesso edificio, con personale presente giorno e notte."
+  etichetta="Chi siamo"
+  briciole={[{ nome: 'La struttura', href: '/la-struttura' }]}
+  jsonLd={[
+    webPage({ url: '/la-struttura', titolo: 'La struttura', descrizione, tipo: 'AboutPage' }),
+  ]}
+>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="prosa lg:col-span-7">
+        <h2 class="text-3xl">Chi siamo</h2>
+        <p class="mt-4 text-lg">
+          La {clinica.nome} è una struttura veterinaria di {clinica.indirizzo.comune}, nell'area
+          metropolitana di Napoli, gestita da {clinica.ragioneSociale} e fondata dai medici
+          veterinari {medici.map((m) => `${m.data.titolo} ${m.data.nome}`).join(', ')}. Cura cani,
+          gatti, conigli e animali esotici, con un pronto soccorso attivo 24 ore su 24 e 7 giorni su
+          7 con personale in struttura.
+        </p>
+        <p class="mt-3">
+          È una delle poche strutture del bacino vesuviano a riunire nella stessa sede terapia
+          intensiva, due sale chirurgiche, TAC, endoscopia e laboratorio analisi: per questo riceve
+          anche i pazienti inviati dai colleghi veterinari del territorio per esami e interventi in
+          service.
+        </p>
+      </div>
+      <div class="lg:col-span-5">
+        <dl class="divide-y divide-bordo rounded-card border border-bordo bg-sfondo-rialzato text-sm">
+          {(
+            [
+              ['Denominazione', clinica.nome],
+              ['Ragione sociale', `${clinica.ragioneSociale} · P. IVA ${clinica.partitaIva}`],
+              ['Sede', indirizzoRiga],
+              ['Telefono h24', clinica.contatti.telefono.visualizzato],
+              ['Email', emailPrincipale],
+              ['Attiva dal', clinica.annoFondazione],
+              ['Direttore sanitario', direttoreSanitarioRiga],
+              [
+                'Autorizzazione sanitaria',
+                `${clinica.autorizzazioneSanitaria.numero} — ${clinica.autorizzazioneSanitaria.ente}`,
+              ],
+              ['Specie trattate', 'Cani, gatti, conigli, piccoli mammiferi, rettili, uccelli'],
+              ['Area servita', clinica.areaServita.map((z) => z.nome).join(', ')],
+            ] as Array<[string, string]>
+          ).map(([k, v]) => (
+            <div class="grid grid-cols-[9rem_1fr] gap-3 px-4 py-3">
+              <dt class="font-bold text-testo-secondario">{k}</dt>
+              <dd>{daConfermare(v) ? <Dato valore={v} /> : v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </Sezione>
+  <Sezione tono="tinta">
+    <Etichetta class="mb-3">Tour della struttura</Etichetta>
+    <h2 class="text-3xl md:text-4xl">Le aree</h2>
+    <ul class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {aree.map((a) => (
+        <li class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
+          <Foto ratio="4/3" scattoBrief={a.scatto} descrizioneSegnaposto={a.titolo} />
+          <h3 class="mt-4 font-sans text-lg font-bold">{a.titolo}</h3>
+          <p class="mt-1 text-sm text-testo-secondario">{a.testo}</p>
+        </li>
+      ))}
+    </ul>
+  </Sezione>
+  <Sezione>
+    <TabellaDati
+      tabella={{
+        titolo: 'Dotazione della struttura',
+        intestazioni: ['Area', 'Dotazione', 'Disponibilità'],
+        righe: [
+          [
+            'Pronto soccorso',
+            'Medico e assistente in struttura, area di stabilizzazione con ossigeno',
+            '24 ore su 24, festivi inclusi',
+          ],
+          [
+            'Terapia intensiva',
+            'Gabbie a ossigeno, monitoraggio continuo, infusione controllata',
+            '24 ore su 24',
+          ],
+          [
+            'Chirurgia',
+            'Due sale operatorie, laser, laparoscopia, monitoraggio anestesiologico',
+            'Programmata e in urgenza',
+          ],
+          [
+            'TAC',
+            'Tomografia computerizzata con ricostruzioni 3D e mezzo di contrasto',
+            'Su prenotazione, urgenze concordate',
+          ],
+          [
+            'Imaging',
+            'Radiologia digitale, ecografia addominale e cardiologica, endoscopia',
+            'Programmata e in urgenza',
+          ],
+          [
+            'Laboratorio',
+            'Ematologia, biochimica, coagulazione, elettroliti, emogas, test infettivi, citologia',
+            '24 ore su 24',
+          ],
+          [
+            'Esotici',
+            'Area degenza dedicata, strumentario per piccoli mammiferi, rettili e uccelli',
+            'Programmata e in urgenza',
+          ],
+        ],
+        nota: 'Marche e modelli disponibili su richiesta per i colleghi veterinari.',
+      }}
+    />
+  </Sezione>
+  <Sezione compatta>
+    <CtaDoppia posizione="struttura" />
+  </Sezione>
+</PaginaLayout>

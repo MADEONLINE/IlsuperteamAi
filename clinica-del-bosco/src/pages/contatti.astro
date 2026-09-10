@@ -1,0 +1,214 @@
+---
+import { getCollection } from 'astro:content';
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Dato from '@ui/Dato.astro';
+import Foto from '@ui/Foto.astro';
+import Icona from '@ui/Icona.astro';
+import Sezione from '@ui/Sezione.astro';
+import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
+import {
+  clinica,
+  daConfermare,
+  emailPrincipale,
+  indicazioniAppleHref,
+  indicazioniHref,
+  indirizzoRiga,
+  telHref,
+  whatsappDisponibile,
+  whatsappHref,
+} from '@lib/clinica';
+import { orariLeggibili } from '@lib/orari';
+import { webPage } from '@lib/schema';
+
+const zone = (await getCollection('zone')).sort((a, b) => a.data.ordine - b.data.ordine);
+const orari = clinica.orari.ambulatorio.confermato
+  ? orariLeggibili(clinica.orari.ambulatorio.settimana)
+  : null;
+const wa = whatsappHref();
+const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco: ${indirizzoRiga}. Telefono ${clinica.contatti.telefono.visualizzato} attivo 24 ore su 24. Indicazioni da Portici, Ercolano, San Giorgio, Torre del Greco, Napoli.`;
+---
+
+<PaginaLayout
+  titolo="Contatti e come arrivare"
+  descrizione={descrizione}
+  percorso="/contatti"
+  h1="Contatti e come arrivare"
+  sottotitolo="Un solo numero, attivo 24 ore su 24, per urgenze e prenotazioni."
+  etichetta="Contatti"
+  briciole={[{ nome: 'Contatti', href: '/contatti' }]}
+  jsonLd={[
+    webPage({
+      url: '/contatti',
+      titolo: 'Contatti e come arrivare',
+      descrizione,
+      tipo: 'ContactPage',
+    }),
+  ]}
+>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <BadgeApertoOra variante="estesa" class="mb-6" />
+        <address class="not-italic">
+          <dl class="space-y-5">
+            <div>
+              <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                Telefono (urgenze e prenotazioni)
+              </dt>
+              <dd class="mt-1">
+                <a
+                  href={telHref}
+                  class="font-display text-3xl font-bold no-underline hover:underline"
+                  data-evento="click_chiama"
+                  data-evento-posizione="contatti"
+                >
+                  {clinica.contatti.telefono.visualizzato}
+                </a>
+              </dd>
+            </div>
+            {whatsappDisponibile && wa && (
+              <div>
+                <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                  WhatsApp (prenotazioni)
+                </dt>
+                <dd class="mt-1">
+                  <a
+                    href={wa}
+                    target="_blank"
+                    rel="noopener"
+                    class="text-lg font-semibold"
+                    data-evento="click_whatsapp"
+                    data-evento-posizione="contatti"
+                  >
+                    {clinica.contatti.whatsapp.visualizzato}
+                  </a>
+                </dd>
+              </div>
+            )}
+            <div>
+              <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                Email
+              </dt>
+              <dd class="mt-1">
+                <a href={`mailto:${emailPrincipale}`} class="text-lg">
+                  {emailPrincipale}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                Indirizzo
+              </dt>
+              <dd class="mt-1 text-lg">{indirizzoRiga}</dd>
+              {!daConfermare(clinica.indirizzo.riferimenti) && (
+                <dd class="text-testo-secondario">{clinica.indirizzo.riferimenti}</dd>
+              )}
+            </div>
+            <div>
+              <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                Parcheggio
+              </dt>
+              <dd class="mt-1">
+                <Dato valore={clinica.indirizzo.parcheggio} />
+              </dd>
+            </div>
+          </dl>
+        </address>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Bottone
+            href={indicazioniHref}
+            variante="primario"
+            icona="mappa"
+            target="_blank"
+            rel="noopener"
+            evento="click_indicazioni"
+            eventoPosizione="contatti"
+          >
+            Google Maps
+          </Bottone>
+          <Bottone
+            href={indicazioniAppleHref}
+            variante="secondario"
+            icona="mappa"
+            target="_blank"
+            rel="noopener"
+            evento="click_indicazioni"
+            eventoPosizione="contatti-apple"
+          >
+            Apple Maps
+          </Bottone>
+          <Bottone href="/prenota" variante="fantasma" icona="calendario">
+            Prenota online
+          </Bottone>
+        </div>
+        <h2 class="mt-10 text-2xl">Orari</h2>
+        <p class="mt-2 flex items-center gap-2 font-semibold">
+          <Icona nome="ambulanza" class="size-5 text-successo" />
+          {clinica.orari.prontoSoccorso.etichetta}
+        </p>
+        {orari ? (
+          <table class="mt-3 text-sm">
+            <caption class="sr-only">Orari dell'ambulatorio</caption>
+            <tbody>
+              {orari.map((r) => (
+                <tr>
+                  <th scope="row" class="pr-6 font-medium capitalize">
+                    {r.giorno}
+                  </th>
+                  <td>{r.fasce}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p class="mt-2 text-testo-secondario">
+            Visite programmate su appuntamento: chiama o prenota online, ti proponiamo la prima
+            disponibilità nella fascia che preferisci.
+          </p>
+        )}
+      </div>
+      <div class="lg:col-span-6">
+        <a
+          href={indicazioniHref}
+          target="_blank"
+          rel="noopener"
+          aria-label="Apri le indicazioni stradali in una nuova scheda"
+        >
+          <Foto
+            ratio="4/3"
+            scattoBrief="32"
+            descrizioneSegnaposto="Mappa statica con la posizione della clinica"
+          />
+        </a>
+        <Foto
+          ratio="16/9"
+          scattoBrief="33"
+          descrizioneSegnaposto="Facciata e ingresso della clinica di giorno, con riferimenti visivi per riconoscerla"
+          class="mt-4"
+        />
+      </div>
+    </div>
+  </Sezione>
+  <Sezione tono="tinta" id="zone" compatta>
+    <h2 class="text-2xl md:text-3xl">Da dove arrivano i nostri pazienti</h2>
+    <p class="mt-2 max-w-prose text-testo-secondario">
+      Indicazioni specifiche, tempi indicativi e mezzi pubblici per ogni comune del bacino.
+    </p>
+    <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {zone.map((z) => (
+        <li>
+          <a
+            href={`/veterinario-a/${z.id}`}
+            class="flex min-h-14 items-center justify-between rounded-card border border-bordo bg-sfondo-rialzato px-4 font-semibold no-underline hover:border-primario hover:text-primario-link"
+          >
+            {z.data.nome}
+            <span class="text-sm font-normal text-testo-secondario">
+              {z.data.tempoAutoMinuti[0]}–{z.data.tempoAutoMinuti[1]} min
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </Sezione>
+</PaginaLayout>

@@ -1,0 +1,93 @@
+---
+import LegaleLayout from '@layouts/LegaleLayout.astro';
+import { clinica } from '@lib/clinica';
+---
+
+<LegaleLayout
+  titolo="Cookie policy"
+  descrizione="Quali cookie e strumenti di misurazione usa il sito della Clinica Veterinaria del Bosco e come gestire il consenso."
+  percorso="/cookie-policy"
+  aggiornamento="10 settembre 2026"
+>
+  <h2>In breve</h2>
+  <p>
+    Questo sito non usa cookie di profilazione. Le statistiche di utilizzo sono raccolte con
+    Plausible Analytics, che non usa cookie né identificativi persistenti e non richiede consenso.
+    Google Analytics, se attivato, viene caricato solo dopo il tuo consenso esplicito.
+  </p>
+  <h2>Cookie e tecnologie utilizzate</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Finalità</th>
+        <th>Durata</th>
+        <th>Consenso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <code>tema</code> (localStorage)
+        </td>
+        <td>Tecnico</td>
+        <td>Ricorda la preferenza tema chiaro/scuro</td>
+        <td>Fino a cancellazione</td>
+        <td>Non richiesto</td>
+      </tr>
+      <tr>
+        <td>
+          <code>prenotazione-bozza-v1</code> (sessionStorage)
+        </td>
+        <td>Tecnico</td>
+        <td>Conserva la bozza del form di prenotazione durante la sessione</td>
+        <td>Chiusura della scheda</td>
+        <td>Non richiesto</td>
+      </tr>
+      <tr>
+        <td>
+          <code>consenso-cookie-v1</code> (localStorage)
+        </td>
+        <td>Tecnico</td>
+        <td>Memorizza la tua scelta sui cookie</td>
+        <td>Fino a cancellazione</td>
+        <td>Non richiesto</td>
+      </tr>
+      <tr>
+        <td>Plausible Analytics</td>
+        <td>Statistico senza cookie</td>
+        <td>Conteggio aggregato delle visite (nessun dato personale, IP non conservato)</td>
+        <td>—</td>
+        <td>Non richiesto</td>
+      </tr>
+      <tr>
+        <td>
+          <code>_ga</code>, <code>_ga_*</code> (Google Analytics 4)
+        </td>
+        <td>Statistico di terze parti</td>
+        <td>Statistiche avanzate di navigazione</td>
+        <td>Fino a 2 anni</td>
+        <td>
+          <strong>Richiesto</strong> (
+          {clinica.misurazione.ga4MeasurementId
+            ? 'attivo previo consenso'
+            : 'attualmente non attivo'}
+          )
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Come gestire il consenso</h2>
+  <p>
+    Se il banner è presente, puoi accettare, rifiutare o scegliere per categoria: le due scelte
+    hanno la stessa evidenza e nessuna casella è preselezionata. Puoi cambiare idea in ogni momento
+    dalla voce "Preferenze cookie" nel piè di pagina. Puoi inoltre cancellare i cookie dalle
+    impostazioni del browser.
+  </p>
+  <h2>Titolare</h2>
+  <p>
+    {clinica.ragioneSociale} ({clinica.nome}). Per i dettagli sul trattamento consulta la{' '}
+    <a href="/privacy-policy">privacy policy</a>.
+  </p>
+</LegaleLayout>

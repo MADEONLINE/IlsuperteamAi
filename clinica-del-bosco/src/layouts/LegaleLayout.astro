@@ -1,0 +1,29 @@
+---
+/** Layout per pagine legali/testuali: intestazione compatta + prosa. */
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Sezione from '@ui/Sezione.astro';
+import { webPage } from '@lib/schema';
+interface Props {
+  titolo: string;
+  descrizione: string;
+  percorso: string;
+  aggiornamento: string;
+}
+const { titolo, descrizione, percorso, aggiornamento } = Astro.props;
+---
+
+<PaginaLayout
+  titolo={titolo}
+  descrizione={descrizione}
+  percorso={percorso}
+  h1={titolo}
+  sottotitolo={`Ultimo aggiornamento: ${aggiornamento}`}
+  briciole={[{ nome: titolo, href: percorso }]}
+  jsonLd={[webPage({ url: percorso, titolo, descrizione })]}
+>
+  <Sezione>
+    <div class="prosa-md">
+      <slot />
+    </div>
+  </Sezione>
+</PaginaLayout>

@@ -1,0 +1,65 @@
+---
+import LegaleLayout from '@layouts/LegaleLayout.astro';
+import { clinica, emailPrincipale } from '@lib/clinica';
+---
+
+<LegaleLayout
+  titolo="Dichiarazione di accessibilità"
+  descrizione="Stato di conformità del sito della Clinica Veterinaria del Bosco alle WCAG 2.1 livello AA, metodo di verifica e contatti per segnalazioni."
+  percorso="/accessibilita"
+  aggiornamento="10 settembre 2026"
+>
+  <h2>Impegno</h2>
+  <p>
+    {clinica.ragioneSociale} vuole che il sito della {clinica.nome} sia utilizzabile da tutti, in
+    particolare da chi lo consulta in una situazione di urgenza, di notte, da smartphone. Il sito è
+    progettato per rispettare le <strong>WCAG 2.1 livello AA</strong>.
+  </p>
+  <h2>Stato di conformità</h2>
+  <p>
+    Il sito è <strong>conforme</strong> alle WCAG 2.1 AA sulla base delle verifiche interne
+    descritte sotto. Eventuali contenuti non conformi vengono elencati in questa pagina e corretti.
+  </p>
+  <h2>Cosa abbiamo fatto</h2>
+  <ul>
+    <li>
+      Navigazione completa da tastiera, con focus sempre visibile (doppio anello, funziona su fondi
+      chiari e scuri) e link "Vai al contenuto".
+    </li>
+    <li>
+      Contrasto del testo di corpo pari o superiore a 7:1 e dei componenti a 4,5:1, verificato
+      automaticamente in tema chiaro e scuro a ogni modifica dei colori.
+    </li>
+    <li>
+      Tutte le informazioni e i contatti sono disponibili anche senza JavaScript; il badge "aperto
+      ora" ha sempre un testo statico veritiero.
+    </li>
+    <li>
+      Landmark ARIA, un solo titolo di primo livello per pagina, gerarchia dei titoli coerente,
+      tabelle con intestazioni.
+    </li>
+    <li>
+      Form con etichette reali, errori descritti in testo e annunciati agli screen reader, nessuna
+      informazione trasmessa dal solo colore.
+    </li>
+    <li>Target touch di almeno 44×44 pixel; pulsanti di emergenza da 56 pixel.</li>
+    <li>
+      Animazioni disattivate per chi imposta "riduci movimento"; nessun contenuto lampeggiante.
+    </li>
+    <li>
+      Testo ridimensionabile fino al 200% senza perdita di contenuto; layout fluido da 320 pixel.
+    </li>
+  </ul>
+  <h2>Metodo di verifica</h2>
+  <p>
+    Verifica automatica (axe-core tramite Playwright su home, pronto soccorso, prenotazione e una
+    pagina servizio), verifica manuale con sola tastiera, controllo con lettore di schermo su iOS
+    (VoiceOver) e Android (TalkBack), verifica dei contrasti con script dedicato.
+  </p>
+  <h2>Segnalazioni</h2>
+  <p>
+    Se incontri una barriera, scrivi a <a href={`mailto:${emailPrincipale}`}>{emailPrincipale}</a>{' '}
+    indicando la pagina e il problema: rispondiamo entro 10 giorni lavorativi. Per un'urgenza
+    veterinaria usa sempre il telefono: {clinica.contatti.telefono.visualizzato}.
+  </p>
+</LegaleLayout>

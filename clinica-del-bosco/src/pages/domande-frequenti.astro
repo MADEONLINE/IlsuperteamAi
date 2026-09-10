@@ -1,0 +1,107 @@
+---
+/** FAQ hub: tutte le domande dalla collection `faq`, raggruppate per categoria, testo sempre nell'HTML. */
+import { getCollection, render } from 'astro:content';
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Sezione from '@ui/Sezione.astro';
+import { faqPage, webPage } from '@lib/schema';
+
+const faq = (await getCollection('faq')).sort((a, b) => a.data.ordine - b.data.ordine);
+const categorie: Array<{ chiave: string; titolo: string }> = [
+  { chiave: 'urgenze', titolo: 'Urgenze e pronto soccorso' },
+  { chiave: 'visite', titolo: 'Visite e appuntamenti' },
+  { chiave: 'costi', titolo: 'Costi e pagamenti' },
+  { chiave: 'chirurgia', titolo: 'Chirurgia e ricovero' },
+  { chiave: 'diagnostica', titolo: 'Esami e diagnostica' },
+  { chiave: 'piani-salute', titolo: 'Piani Salute' },
+  { chiave: 'struttura', titolo: 'La struttura' },
+  { chiave: 'esotici', titolo: 'Conigli e animali esotici' },
+];
+const voci = await Promise.all(
+  faq.map(async (f) => ({
+    ...f,
+    testo: (f.body ?? '').replace(/\s+/g, ' ').trim(),
+    Content: (await render(f)).Content,
+  })),
+);
+const descrizione =
+  'Risposte alle domande più frequenti sulla Clinica Veterinaria del Bosco di Portici: urgenze, visite, costi, chirurgia, esami, Piani Salute, animali esotici.';
+---
+
+<PaginaLayout
+  titolo="Domande frequenti"
+  descrizione={descrizione}
+  percorso="/domande-frequenti"
+  h1="Domande frequenti"
+  sottotitolo="Le risposte che diamo più spesso al telefono e in reception. Se non trovi la tua, chiamaci: risponde sempre una persona."
+  etichetta="FAQ"
+  briciole={[{ nome: 'Domande frequenti', href: '/domande-frequenti' }]}
+  jsonLd={[
+    webPage({
+      url: '/domande-frequenti',
+      titolo: 'Domande frequenti',
+      descrizione,
+      tipo: 'FAQPage',
+    }),
+    faqPage(voci.map((v) => ({ domanda: v.data.domanda, risposta: v.testo }))),
+  ]}
+>
+  <Sezione>
+    <nav aria-label="Categorie" class="mb-10 flex flex-wrap gap-2">
+      {categorie.map((c) => (
+        <a
+          href={`#${c.chiave}`}
+          class="rounded-pill border border-bordo bg-sfondo-rialzato px-4 py-2 text-sm font-semibold no-underline hover:border-primario hover:text-primario-link"
+        >
+          {c.titolo}
+        </a>
+      ))}
+    </nav>
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="space-y-12 lg:col-span-8">
+        {categorie.map((c) => {
+          const lista = voci.filter((v) => v.data.categoria === c.chiave);
+          if (!lista.length) return null;
+          return (
+            <section id={c.chiave} class="scroll-mt-24" aria-labelledby={`faq-${c.chiave}`}>
+              <h2 id={`faq-${c.chiave}`} class="text-2xl md:text-3xl">
+                {c.titolo}
+              </h2>
+              <div class="mt-4 divide-y divide-bordo border-y border-bordo">
+                {lista.map((v) => (
+                  <article class="py-5" id={v.id}>
+                    <h3 class="font-sans text-lg font-bold">{v.data.domanda}</h3>
+                    <div class="prosa-md mt-2 text-testo-secondario">
+                      <v.Content />
+                    </div>
+                    {(v.data.servizioCorrelato || v.data.paginaCorrelata) && (
+                      <p class="mt-2 text-sm">
+                        <a
+                          href={
+                            v.data.paginaCorrelata ?? `/servizi/${v.data.servizioCorrelato?.id}`
+                          }
+                          class="font-semibold text-primario-link"
+                        >
+                          Approfondisci →
+                        </a>
+                      </p>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+      <aside class="lg:col-span-4">
+        <div class="sticky top-28">
+          <CtaDoppia
+            posizione="faq"
+            titolo="Non hai trovato la risposta?"
+            testo="Chiama: un medico risponde 24 ore su 24. Oppure prenota una visita e ne parliamo di persona."
+          />
+        </div>
+      </aside>
+    </div>
+  </Sezione>
+</PaginaLayout>

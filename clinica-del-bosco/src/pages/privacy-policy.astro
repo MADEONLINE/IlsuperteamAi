@@ -1,0 +1,91 @@
+---
+import LegaleLayout from '@layouts/LegaleLayout.astro';
+import Dato from '@ui/Dato.astro';
+import { clinica, emailPrincipale, indirizzoRiga } from '@lib/clinica';
+---
+
+<LegaleLayout
+  titolo="Privacy policy"
+  descrizione="Informativa sul trattamento dei dati personali degli utenti del sito e dei clienti della Clinica Veterinaria del Bosco, ai sensi del Regolamento (UE) 2016/679."
+  percorso="/privacy-policy"
+  aggiornamento="10 settembre 2026"
+>
+  <h2>Titolare del trattamento</h2>
+  <p>
+    {clinica.ragioneSociale} ({clinica.nome}), {indirizzoRiga}, P. IVA {clinica.partitaIva}. Email:{' '}
+    <a href={`mailto:${emailPrincipale}`}>{emailPrincipale}</a>. PEC:{' '}
+    <Dato valore={clinica.contatti.pec} />.
+  </p>
+  <h2>Quali dati trattiamo e perché</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Dati</th>
+        <th>Finalità</th>
+        <th>Base giuridica</th>
+        <th>Conservazione</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Dati inseriti nel form di prenotazione (nome, telefono, email, dati dell'animale, note)
+        </td>
+        <td>Gestire la richiesta di appuntamento e ricontattarti</td>
+        <td>Misure precontrattuali su richiesta dell'interessato (art. 6.1.b)</td>
+        <td>Fino alla gestione della richiesta, poi nella cartella clinica se diventi cliente</td>
+      </tr>
+      <tr>
+        <td>Consenso ai promemoria di prevenzione</td>
+        <td>Inviarti promemoria su vaccini, antiparassitari e campagne stagionali</td>
+        <td>Consenso (art. 6.1.a), revocabile in ogni momento</td>
+        <td>Fino alla revoca</td>
+      </tr>
+      <tr>
+        <td>Dati trasmessi dai colleghi veterinari (paziente, proprietario, allegati clinici)</td>
+        <td>Erogare la prestazione in service e refertarla</td>
+        <td>
+          Contratto (art. 6.1.b); per eventuali dati del proprietario, legittimo interesse alla
+          continuità delle cure (art. 6.1.f)
+        </td>
+        <td>Secondo gli obblighi di conservazione della documentazione clinica</td>
+      </tr>
+      <tr>
+        <td>
+          Dati di navigazione aggregati (Plausible Analytics, senza cookie e senza identificativi
+          persistenti)
+        </td>
+        <td>Statistiche d'uso del sito</td>
+        <td>Legittimo interesse (art. 6.1.f)</td>
+        <td>In forma aggregata e anonima</td>
+      </tr>
+      <tr>
+        <td>Cookie di Google Analytics (solo se attivato e solo previo consenso)</td>
+        <td>Statistiche avanzate</td>
+        <td>Consenso (art. 6.1.a)</td>
+        <td>Vedi cookie policy</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Destinatari</h2>
+  <p>
+    I dati dei form sono ricevuti tramite il servizio Netlify Forms (Netlify Inc.), che agisce come
+    responsabile del trattamento, e conservati nel pannello riservato della clinica. Non cediamo
+    dati a terzi per finalità di marketing. I dati clinici possono essere condivisi con il
+    veterinario curante o inviante per la continuità delle cure.
+  </p>
+  <h2>I tuoi diritti</h2>
+  <p>
+    Puoi chiedere accesso, rettifica, cancellazione, limitazione, portabilità e opporti al
+    trattamento scrivendo ai recapiti del titolare. Puoi revocare il consenso ai promemoria in
+    qualsiasi momento. Hai diritto di proporre reclamo al Garante per la protezione dei dati
+    personali.
+  </p>
+  <h2>Trasferimenti extra UE</h2>
+  <p>
+    I fornitori tecnici (hosting e gestione form) possono trattare dati in Paesi extra UE sulla base
+    delle clausole contrattuali standard approvate dalla Commissione europea.
+  </p>
+  <h2>Minori</h2>
+  <p>Il sito non è destinato a minori di 14 anni e non raccoglie consapevolmente loro dati.</p>
+</LegaleLayout>

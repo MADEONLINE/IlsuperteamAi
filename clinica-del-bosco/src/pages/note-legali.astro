@@ -1,0 +1,76 @@
+---
+import LegaleLayout from '@layouts/LegaleLayout.astro';
+import Dato from '@ui/Dato.astro';
+import { clinica, direttoreSanitarioRiga, emailPrincipale, indirizzoRiga } from '@lib/clinica';
+---
+
+<LegaleLayout
+  titolo="Note legali"
+  descrizione="Dati societari, direttore sanitario, autorizzazione sanitaria e condizioni d'uso del sito della Clinica Veterinaria del Bosco."
+  percorso="/note-legali"
+  aggiornamento="10 settembre 2026"
+>
+  <h2>Dati della struttura</h2>
+  <table>
+    <tbody>
+      <tr>
+        <th>Denominazione</th>
+        <td>{clinica.nome}</td>
+      </tr>
+      <tr>
+        <th>Ragione sociale</th>
+        <td>{clinica.ragioneSociale}</td>
+      </tr>
+      <tr>
+        <th>Partita IVA</th>
+        <td>{clinica.partitaIva}</td>
+      </tr>
+      <tr>
+        <th>Sede</th>
+        <td>{indirizzoRiga}</td>
+      </tr>
+      <tr>
+        <th>PEC</th>
+        <td>
+          <Dato valore={clinica.contatti.pec} />
+        </td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{emailPrincipale}</td>
+      </tr>
+      <tr>
+        <th>Direttore sanitario</th>
+        <td>
+          <Dato valore={direttoreSanitarioRiga} />
+        </td>
+      </tr>
+      <tr>
+        <th>Autorizzazione sanitaria</th>
+        <td>
+          <Dato valore={clinica.autorizzazioneSanitaria.numero} /> —{' '}
+          <Dato valore={clinica.autorizzazioneSanitaria.ente} />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Comunicazione sanitaria</h2>
+  <p>
+    I contenuti del sito sono redatti nel rispetto del Codice deontologico dei medici veterinari
+    (FNOVI) e della normativa sulla pubblicità sanitaria: hanno carattere informativo, non
+    promettono risultati e non hanno finalità comparative. Gli onorari eventualmente pubblicati sono
+    indicativi. Nessun contenuto sostituisce la visita veterinaria.
+  </p>
+  <h2>Proprietà intellettuale</h2>
+  <p>
+    Testi, fotografie e grafica sono di proprietà di {clinica.ragioneSociale} o utilizzati su
+    licenza. I font Fraunces e Inter sono distribuiti con licenza SIL Open Font License; le icone
+    derivano dal set Lucide (licenza ISC).
+  </p>
+  <h2>Responsabilità</h2>
+  <p>
+    Le informazioni sono aggiornate con cura ma possono contenere imprecisioni; per qualsiasi
+    decisione sulla salute del tuo animale rivolgiti a un medico veterinario. In caso di urgenza
+    chiama il {clinica.contatti.telefono.visualizzato}.
+  </p>
+</LegaleLayout>
