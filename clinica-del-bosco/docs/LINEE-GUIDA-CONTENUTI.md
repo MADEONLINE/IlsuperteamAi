@@ -35,6 +35,12 @@ Valgono per chiunque scriva testi per il sito (redazione, medici, agenzia, agent
 - Empatia asciutta: rassicurare e indirizzare, mai commuovere.
 - Italiano corretto, niente anglicismi inutili, niente emoji, niente punti esclamativi.
 
+## 3b. Pronto soccorso h24: dove si comunica e dove no (decisione della direzione, settembre 2026)
+
+- **Sul sito resta in primo piano**: home, barra fissa, pagina `/pronto-soccorso`, riquadro "È un'urgenza?" e sezione "Quando venire subito" di ogni servizio. Non ridimensionare.
+- **Non è il tema delle campagne né dei contenuti social in questa fase**: le campagne stagionali (`src/content/campagne/`) hanno come `servizioCorrelato` un servizio di prevenzione o specialistico, mai `pronto-soccorso-h24`, e la CTA porta a una visita programmata. I post social promuovono prevenzione, specialisti con giornate fisse, Piani Salute e articoli del magazine.
+- Nei testi il pronto soccorso compare come **istruzione di sicurezza** ("se succede X, chiama subito 081 7763859"), non come argomento promozionale ("aperti sempre, vieni quando vuoi"). Mai promettere lo stesso medico ogni notte o l'assenza di attese.
+
 ## 4. Struttura "answer-first" (per Google e per i sistemi AI)
 
 - Il campo `risposta` del frontmatter è una risposta autoconclusiva di **40–60 parole** che cita il nome della clinica, la città (Portici) e il servizio.

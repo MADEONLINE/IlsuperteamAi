@@ -6,7 +6,7 @@ risposta: 'Il check-up estivo della Clinica Veterinaria del Bosco di Portici è 
 periodo: 'Giugno – Settembre'
 meseInizio: 6
 meseFine: 9
-servizioCorrelato: 'pronto-soccorso-h24'
+servizioCorrelato: 'medicina-preventiva-vaccinazioni'
 articoloCorrelato: 'colpo-di-calore-nel-cane-e-nel-gatto'
 motivoVisita: 'check-up-estivo'
 ctaTesto: 'Prenota il check-up prima delle vacanze'
@@ -46,7 +46,7 @@ dataRevisione: 2026-09-10
 
 ## Perché un controllo prima dell'estate?
 
-Perché l'estate concentra in pochi mesi i rischi più frequenti che vediamo in pronto soccorso: colpo di calore, disidratazione, parassiti, forasacchi, punture, traumi da viaggio e problemi legati a documenti non in regola alla partenza. Il check-up estivo è una visita programmata, da giugno a settembre, pensata per verificare che il tuo cane, gatto o coniglio sia in condizione di affrontare il caldo e il viaggio, e per lasciarti indicazioni scritte su come prevenire i problemi più comuni.
+Perché l'estate concentra in pochi mesi i rischi più frequenti per gli animali: colpo di calore, disidratazione, parassiti, forasacchi, punture, traumi da viaggio e problemi legati a documenti non in regola alla partenza. Il check-up estivo è una visita programmata, da giugno a settembre, pensata per verificare che il tuo cane, gatto o coniglio sia in condizione di affrontare il caldo e il viaggio, e per lasciarti indicazioni scritte su come prevenire i problemi più comuni.
 
 Nel bacino vesuviano le temperature superano spesso i 30 gradi da giugno a settembre, con umidità elevata lungo la costa: la combinazione peggiore per un animale che disperde calore ansimando. I cani brachicefali, obesi, anziani o con problemi cardiaci sono i più esposti, e spesso il proprietario non sa che il suo cane rientra in una categoria a rischio.
 
@@ -59,7 +59,7 @@ Nel bacino vesuviano le temperature superano spesso i 30 gradi da giugno a sette
 5. **Esami del sangue** su indicazione, nei cani anziani o con malattie note, per verificare reni e cuore prima di un periodo di stress.
 6. **Per il coniglio**: controllo dei denti, del peso e dell'intestino, con consigli per il trasporto e la gestione del caldo.
 
-Il check-up è organizzato in collaborazione con il [pronto soccorso](/servizi/pronto-soccorso-h24), che in estate gestisce il maggior numero di accessi per colpo di calore, e rientra nella prevenzione programmata dei [Piani Salute](/piani-salute).
+Il check-up rientra nella prevenzione programmata dei [Piani Salute](/piani-salute) e si affianca alla [medicina preventiva](/servizi/medicina-preventiva-vaccinazioni): l'obiettivo è arrivare all'estate con vaccini, antiparassitari e controlli già fatti.
 
 ## Per chi è indicato?
 

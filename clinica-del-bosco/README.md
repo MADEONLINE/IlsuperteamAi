@@ -88,7 +88,10 @@ prezzi sono definitivi imposta `prezziConfermati: true`. Stesso principio per
 ### Aggiungere una campagna stagionale o una recensione
 
 - Campagne: `src/content/campagne/`, un file per campagna con periodo (`meseInizio`,
-  `meseFine`): la home mostra da sola quella in corso.
+  `meseFine`): la home mostra da sola quella in corso. Per scelta della direzione le campagne
+  e i contenuti social non promuovono il pronto soccorso h24 (vedi
+  `docs/LINEE-GUIDA-CONTENUTI.md`, §3b): `servizioCorrelato` va sempre su un servizio di
+  prevenzione o specialistico.
 - Recensioni Google reali: `src/data/recensioni.json` (autore, testo, stelle, data). Mai
   testimonianze inventate.
 
@@ -233,7 +236,7 @@ clinica-del-bosco/
                  servizi/ · equipe/ · magazine/ · campagne/ · veterinario-a/ · domande-frequenti
                  contatti · la-struttura · tariffe · privacy-policy · cookie-policy · note-legali
                  accessibilita · llms.txt · llms-full.txt · og/[...].png · 404
-    content/     servizi/ (19) · equipe/ (4) · articoli/ (6) · campagne/ (4) · faq/ (24) · zone/ (8) · casi/ (3)
+    content/     servizi/ (22) · equipe/ (21) · articoli/ (6) · campagne/ (4) · faq/ (24) · zone/ (8) · casi/ (3)
     content.config.ts  schemi Zod delle collection
     data/        clinica.json · piani-salute.json · tariffe.json · recensioni.json
     lib/         clinica.ts · orari.ts · schema.ts · seo.ts · analytics.ts
