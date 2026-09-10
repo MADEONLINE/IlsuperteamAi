@@ -65,12 +65,11 @@ jobs:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     steps:
+      - uses: actions/checkout@v4
       - name: Verifica secret
         id: secret
         run: |
           if [ -n "$NETLIFY_AUTH_TOKEN" ] && [ -n "$NETLIFY_SITE_ID" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; echo "::warning::Secret NETLIFY_AUTH_TOKEN / NETLIFY_SITE_ID assenti: deploy saltato"; fi
-      - uses: actions/checkout@v4
-        if: steps.secret.outputs.ok == 'true'
       - uses: actions/setup-node@v4
         if: steps.secret.outputs.ok == 'true'
         with:
