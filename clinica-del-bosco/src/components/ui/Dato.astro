@@ -1,0 +1,20 @@
+---
+/**
+ * Mostra un dato della clinica. Se il valore è ancora {{DA_CONFERMARE}}, lo evidenzia:
+ * visibile in sviluppo, bloccante in produzione tramite `npm run check:data`.
+ */
+import { daConfermare } from '@lib/clinica';
+interface Props {
+  valore: string;
+  class?: string;
+}
+const { valore, class: classe = '' } = Astro.props;
+---
+
+{daConfermare(valore) ? (
+  <span class:list={['dato-mancante', classe]} title="Dato da confermare con la clinica">
+    {valore}
+  </span>
+) : (
+  <span class={classe}>{valore}</span>
+)}

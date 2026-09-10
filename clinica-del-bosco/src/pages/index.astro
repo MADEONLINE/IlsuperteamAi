@@ -1,0 +1,158 @@
+---
+/**
+ * Home — Fase 1: hero con doppio percorso e i quattro pilastri.
+ * La sequenza completa (servizi, struttura, Piani Salute, équipe, recensioni, magazine, mappa)
+ * viene completata nella Fase 2.
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Icona from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Foto from '@ui/Foto.astro';
+import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import Sezione from '@ui/Sezione.astro';
+import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
+import { clinica, indirizzoBreve, telHref } from '@lib/clinica';
+import { webPage } from '@lib/schema';
+
+const pilastri = [
+  {
+    icona: 'ambulanza',
+    titolo: 'Pronto soccorso 24/7',
+    testo: 'Personale in struttura anche di notte e nei festivi, non solo reperibilità telefonica.',
+    href: '/pronto-soccorso',
+  },
+  {
+    icona: 'scansione',
+    titolo: 'TAC in sede',
+    testo: 'Diagnostica avanzata senza trasferimenti: immagini tridimensionali e referto rapido.',
+    href: '/servizi/tac-diagnostica-avanzata',
+  },
+  {
+    icona: 'bisturi',
+    titolo: 'Due sale chirurgiche',
+    testo: 'Chirurgia di base e specialistica, con terapia intensiva e degenza monitorata.',
+    href: '/servizi/chirurgia',
+  },
+  {
+    icona: 'provetta',
+    titolo: 'Laboratorio interno',
+    testo: 'Esami del sangue con risposta in giornata, anche di notte per le urgenze.',
+    href: '/servizi/laboratorio-analisi',
+  },
+] as const;
+---
+
+<BaseLayout
+  titolo="Clinica Veterinaria del Bosco · Pronto soccorso veterinario 24h a Portici (Napoli)"
+  descrizione="Clinica veterinaria a Portici con pronto soccorso attivo 24 ore su 24, terapia intensiva, TAC in sede, due sale chirurgiche e laboratorio interno. Cani, gatti, conigli ed esotici. Chiama il 081 7763859."
+  percorso="/"
+  senzaBrand
+  jsonLd={[
+    webPage({
+      url: '/',
+      titolo: clinica.nome,
+      descrizione: clinica.descrizioneBreve,
+    }),
+  ]}
+>
+  <!-- HERO -->
+  <section
+    class="relative overflow-hidden bg-sfondo-inverso text-testo-inverso"
+    aria-labelledby="hero-titolo"
+  >
+    <div class="contenitore grid items-center gap-10 py-8 md:py-20 lg:grid-cols-12 lg:py-24">
+      <div class="lg:col-span-7">
+        <BadgeApertoOra inverso class="mb-5" />
+        <Etichetta tono="inverso" class="mb-3">
+          Portici · Napoli sud · Vesuviano
+        </Etichetta>
+        <h1 id="hero-titolo" class="text-4xl text-testo-inverso sm:text-5xl md:text-6xl">
+          Il tuo veterinario,{' '}
+          <em class="not-italic text-accento-inverso">anche alle 3 di notte.</em>
+        </h1>
+        <p class="prosa mt-5 text-lg text-testo-inverso/85 md:text-xl">
+          Pronto soccorso attivo 24 ore su 24 con personale in struttura, terapia intensiva, TAC e
+          chirurgia nella stessa sede. A {indirizzoBreve}.
+        </p>
+
+        <div class="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-4">
+          <div class="rounded-card bg-urgenza-tenue/10 p-1 ring-1 ring-sfondo/15">
+            <Bottone
+              href={telHref}
+              variante="urgenza"
+              dimensione="lg"
+              icona="telefono"
+              pieno
+              evento="click_chiama"
+              eventoPosizione="hero"
+              aria-label={`È un'urgenza: chiama ora il ${clinica.contatti.telefono.visualizzato}`}
+            >
+              È un'urgenza · chiama ora
+            </Bottone>
+            <p class="px-3 py-2 text-center text-sm text-testo-inverso/80">
+              {clinica.contatti.telefono.visualizzato} · risponde un medico, sempre
+            </p>
+          </div>
+          <div class="p-1">
+            <Bottone href="/prenota" variante="inverso" dimensione="lg" icona="calendario" pieno>
+              Prenoto una visita
+            </Bottone>
+            <p class="px-3 py-2 text-center text-sm text-testo-inverso/80">
+              Visite, vaccini, controlli e chirurgia programmata
+            </p>
+          </div>
+        </div>
+
+        <Rassicurazioni inverso voci={['richiamo', 'preventivo', 'pagamento']} class="mt-6" />
+      </div>
+      <div class="lg:col-span-5">
+        <Foto
+          ratio="4/5"
+          scattoBrief="01"
+          descrizioneSegnaposto="Ingresso della clinica illuminato di notte, insegna visibile"
+          priorita
+          class="ring-1 ring-sfondo/15"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- PILASTRI -->
+  <Sezione tono="base" etichettaAria="Ciò che rende la clinica un punto di riferimento">
+    <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-4">
+        <Etichetta class="mb-3">Perché Del Bosco</Etichetta>
+        <h2 class="text-3xl md:text-4xl">Un ospedale veterinario completo, in un'unica sede.</h2>
+        <p class="mt-4 text-testo-secondario">
+          Nel bacino vesuviano quasi tutte le strutture sono ambulatori diurni. Qui il tuo animale
+          trova urgenza, diagnostica pesante, chirurgia e degenza nello stesso posto, senza
+          trasferimenti.
+        </p>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-8">
+        {pilastri.map((p) => (
+          <li class="rivela">
+            <a
+              href={p.href}
+              class="group flex h-full flex-col gap-3 rounded-card border border-bordo bg-sfondo-rialzato p-6 no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario"
+            >
+              <span class="inline-flex size-12 items-center justify-center rounded-2xl bg-primario-tenue text-primario-link">
+                <Icona nome={p.icona} class="size-6" />
+              </span>
+              <h3 class="font-sans text-xl font-bold">{p.titolo}</h3>
+              <p class="text-testo-secondario">{p.testo}</p>
+              <span class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primario-link">
+                Scopri di più
+                <Icona
+                  nome="freccia-destra"
+                  class="size-4 transition group-hover:translate-x-0.5"
+                />
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Sezione>
+</BaseLayout>

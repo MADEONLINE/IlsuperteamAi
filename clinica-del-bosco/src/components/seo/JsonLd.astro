@@ -1,0 +1,14 @@
+---
+/**
+ * Inserisce un blocco JSON-LD. Il carattere "<" viene neutralizzato per evitare
+ * la chiusura anticipata del tag script (sicurezza).
+ */
+import type { JsonLd as TipoJsonLd } from '@lib/schema';
+export interface Props {
+  dati: TipoJsonLd | TipoJsonLd[];
+}
+const { dati } = Astro.props;
+const json = JSON.stringify(dati).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" is:inline set:html={json}></script>

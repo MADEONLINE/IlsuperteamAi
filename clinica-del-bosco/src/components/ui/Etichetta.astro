@@ -1,0 +1,18 @@
+---
+/** Eyebrow: piccola etichetta maiuscola sopra un titolo. */
+interface Props {
+  class?: string;
+  tono?: 'primario' | 'urgenza' | 'neutro' | 'inverso';
+}
+const { class: classe = '', tono = 'primario' } = Astro.props;
+const toni = {
+  primario: 'text-primario-link',
+  urgenza: 'text-urgenza-testo-su-chiaro',
+  neutro: 'text-testo-secondario',
+  inverso: 'text-accento-inverso',
+};
+---
+
+<p class:list={['eyebrow', toni[tono], classe]}>
+  <slot />
+</p>

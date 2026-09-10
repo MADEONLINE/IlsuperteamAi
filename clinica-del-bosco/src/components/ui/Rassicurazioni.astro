@@ -1,0 +1,50 @@
+---
+/**
+ * Micro-rassicurazioni da affiancare alle CTA (riduzione dell'ansia).
+ * I valori vengono da clinica.json → impegni.
+ */
+import Icona from '@ui/Icona.astro';
+import { clinica, daConfermare } from '@lib/clinica';
+
+interface Props {
+  voci?: Array<'richiamo' | 'pagamento' | 'preventivo' | 'parcheggio' | 'h24'>;
+  inverso?: boolean;
+  class?: string;
+}
+const {
+  voci = ['richiamo', 'preventivo', 'pagamento'],
+  inverso = false,
+  class: classe = '',
+} = Astro.props;
+
+const testi: Record<NonNullable<Props['voci']>[number], string | null> = {
+  richiamo: `Ti richiamiamo entro ${clinica.impegni.richiamoEntroOre} ore`,
+  pagamento: clinica.impegni.nessunPagamentoAnticipato ? 'Nessun pagamento anticipato' : null,
+  preventivo: clinica.impegni.preventivoScritto
+    ? 'Preventivo scritto prima di ogni intervento'
+    : null,
+  parcheggio: daConfermare(clinica.indirizzo.parcheggio) ? null : clinica.indirizzo.parcheggio,
+  h24: 'Personale in struttura 24 ore su 24',
+};
+const attive = voci.map((v) => testi[v]).filter((t): t is string => Boolean(t));
+---
+
+{attive.length > 0 && (
+  <ul
+    class:list={[
+      'flex flex-wrap gap-x-5 gap-y-2 text-sm',
+      inverso ? 'text-testo-inverso/85' : 'text-testo-secondario',
+      classe,
+    ]}
+  >
+    {attive.map((t) => (
+      <li class="flex items-center gap-1.5">
+        <Icona
+          nome="check"
+          class:list={['size-4 shrink-0', inverso ? 'text-accento-inverso' : 'text-successo']}
+        />
+        <span>{t}</span>
+      </li>
+    ))}
+  </ul>
+)}

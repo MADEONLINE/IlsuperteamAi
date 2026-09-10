@@ -1,0 +1,49 @@
+---
+/**
+ * Breadcrumb visibile + JSON-LD BreadcrumbList generato dalla stessa lista (mai disallineati).
+ */
+import Icona from '@ui/Icona.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import { breadcrumbList } from '@lib/schema';
+import type { Briciola } from '@lib/seo';
+
+interface Props {
+  briciole: Briciola[];
+  class?: string;
+  inverso?: boolean;
+}
+const { briciole, class: classe = '', inverso = false } = Astro.props;
+const tutte: Briciola[] = [{ nome: 'Home', href: '/' }, ...briciole];
+---
+
+<nav aria-label="Percorso di navigazione" class:list={['text-sm', classe]}>
+  <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
+    {tutte.map((b, i) => {
+      const ultima = i === tutte.length - 1;
+      return (
+        <li class="flex items-center gap-2">
+          {i > 0 && <Icona nome="chevron-giu" class:list={['size-3.5 -rotate-90 opacity-60']} />}
+          {ultima ? (
+            <span
+              aria-current="page"
+              class:list={[inverso ? 'text-testo-inverso/80' : 'text-testo-secondario']}
+            >
+              {b.nome}
+            </span>
+          ) : (
+            <a
+              href={b.href}
+              class:list={[
+                'underline decoration-transparent underline-offset-4 transition hover:decoration-current',
+                inverso ? 'text-testo-inverso' : 'text-primario-link',
+              ]}
+            >
+              {b.nome}
+            </a>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+<JsonLd dati={breadcrumbList(tutte)} />

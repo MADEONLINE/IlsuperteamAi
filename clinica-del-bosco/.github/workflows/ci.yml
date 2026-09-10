@@ -1,0 +1,38 @@
+name: CI — Clinica del Bosco
+
+on:
+  push:
+    paths: ['clinica-del-bosco/**', '.github/workflows/ci.yml']
+  pull_request:
+    paths: ['clinica-del-bosco/**']
+
+defaults:
+  run:
+    working-directory: clinica-del-bosco
+
+jobs:
+  build:
+    name: Build, astro check, lint, dati
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: clinica-del-bosco/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run check
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run check:contrasti
+      - run: npm run build
+      - name: Dati mancanti (avviso, non bloccante in CI)
+        run: npm run check:data
+      - name: Budget JavaScript
+        run: node scripts/check-budget.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: clinica-del-bosco/dist
+          retention-days: 7

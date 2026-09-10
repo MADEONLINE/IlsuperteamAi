@@ -1,0 +1,15 @@
+{
+  "name": "Clinica Veterinaria del Bosco",
+  "short_name": "Del Bosco",
+  "description": "Pronto soccorso veterinario 24 ore su 24 a Portici (Napoli).",
+  "lang": "it",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#faf7f1",
+  "theme_color": "#1e5f41",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

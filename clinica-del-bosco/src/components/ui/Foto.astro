@@ -1,0 +1,89 @@
+---
+/**
+ * Slot fotografico con art direction: ratio fisso, object-fit, didascalia opzionale.
+ * Finché non arrivano le foto reali (vedi BRIEF-FOTO.md) mostra un segnaposto
+ * chiaramente identificato dal numero di scatto del brief.
+ *
+ * Quando la foto è disponibile, passare `src` (ImageMetadata da src/assets/img) e `alt`.
+ */
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Icona from '@ui/Icona.astro';
+
+interface Props {
+  src?: ImageMetadata;
+  alt?: string;
+  ratio?: '1/1' | '4/3' | '3/2' | '16/9' | '21/9' | '3/4' | '4/5';
+  scattoBrief?: string;
+  descrizioneSegnaposto?: string;
+  didascalia?: string;
+  priorita?: boolean;
+  larghezze?: number[];
+  sizes?: string;
+  class?: string;
+  posizione?: string;
+}
+const {
+  src,
+  alt = '',
+  ratio = '3/2',
+  scattoBrief,
+  descrizioneSegnaposto = 'Fotografia della clinica',
+  didascalia,
+  priorita = false,
+  larghezze = [480, 768, 1024, 1440],
+  sizes = '(min-width: 1280px) 60vw, 100vw',
+  class: classe = '',
+  posizione = 'center',
+} = Astro.props;
+const ratioClasse: Record<NonNullable<Props['ratio']>, string> = {
+  '1/1': 'aspect-square',
+  '4/3': 'aspect-[4/3]',
+  '3/2': 'aspect-[3/2]',
+  '16/9': 'aspect-video',
+  '21/9': 'aspect-[21/9]',
+  '3/4': 'aspect-[3/4]',
+  '4/5': 'aspect-[4/5]',
+};
+const posizioni: Record<string, string> = {
+  center: 'object-center',
+  top: 'object-top',
+  bottom: 'object-bottom',
+};
+---
+
+<figure class:list={['relative m-0 overflow-hidden rounded-card bg-sfondo-tinta', classe]}>
+  <div class:list={[ratioClasse[ratio], 'relative w-full']}>
+    {src ? (
+      <Picture
+        src={src}
+        alt={alt}
+        widths={larghezze}
+        sizes={sizes}
+        formats={['avif']}
+        fallbackFormat="webp"
+        priority={priorita}
+        pictureAttributes={{ class: 'absolute inset-0 block size-full' }}
+        class:list={['size-full object-cover', posizioni[posizione]]}
+      />
+    ) : (
+      <div
+        class="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-bordo-forte p-4 text-center text-testo-secondario"
+        role="img"
+        aria-label={`Segnaposto: ${descrizioneSegnaposto}`}
+      >
+        <Icona nome="foglia" class="size-8 opacity-50" />
+        <span class="text-sm font-semibold">Foto in arrivo</span>
+        <span class="text-xs">{descrizioneSegnaposto}</span>
+        {scattoBrief && (
+          <span class="rounded-pill bg-sfondo-rialzato px-2 py-0.5 text-xs">
+            BRIEF-FOTO scatto {scattoBrief}
+          </span>
+        )}
+      </div>
+    )}
+  </div>
+  {didascalia && (
+    <figcaption class="px-4 py-2 text-sm text-testo-secondario">{didascalia}</figcaption>
+  )}
+</figure>

@@ -1,0 +1,65 @@
+---
+/**
+ * Barra sticky mobile su tutto il sito: Chiama · WhatsApp (o Prenota) · Indicazioni.
+ * Sempre sopra il cookie banner; nascosta da lg in su (le CTA sono nell'header).
+ */
+import Icona from '@ui/Icona.astro';
+import { clinica, indicazioniHref, telHref, whatsappHref } from '@lib/clinica';
+
+const wa = whatsappHref(`Buongiorno, vorrei prenotare una visita alla ${clinica.nome}.`);
+---
+
+<nav
+  aria-label="Contatti rapidi"
+  class="barra-sticky fixed inset-x-0 bottom-0 z-40 border-t border-bordo bg-sfondo-rialzato/95 pb-[env(safe-area-inset-bottom)] backdrop-blur supports-[backdrop-filter]:bg-sfondo-rialzato/85 lg:hidden print:hidden"
+>
+  <ul class="grid grid-cols-3 gap-1 p-1.5">
+    <li>
+      <a
+        href={telHref}
+        data-evento="click_chiama"
+        data-evento-posizione="barra-sticky"
+        class="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-xl bg-urgenza text-urgenza-testo no-underline"
+      >
+        <Icona nome="telefono" class="size-5" />
+        <span class="text-xs font-bold uppercase tracking-wide">Chiama</span>
+      </a>
+    </li>
+    <li>
+      {wa ? (
+        <a
+          href={wa}
+          target="_blank"
+          rel="noopener"
+          data-evento="click_whatsapp"
+          data-evento-posizione="barra-sticky"
+          class="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-xl bg-primario-tenue text-primario-link no-underline"
+        >
+          <Icona nome="whatsapp" class="size-5" />
+          <span class="text-xs font-bold uppercase tracking-wide">WhatsApp</span>
+        </a>
+      ) : (
+        <a
+          href="/prenota"
+          class="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-xl bg-primario-tenue text-primario-link no-underline"
+        >
+          <Icona nome="calendario" class="size-5" />
+          <span class="text-xs font-bold uppercase tracking-wide">Prenota</span>
+        </a>
+      )}
+    </li>
+    <li>
+      <a
+        href={indicazioniHref}
+        target="_blank"
+        rel="noopener"
+        data-evento="click_indicazioni"
+        data-evento-posizione="barra-sticky"
+        class="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-xl bg-sfondo-tinta text-testo no-underline"
+      >
+        <Icona nome="mappa" class="size-5" />
+        <span class="text-xs font-bold uppercase tracking-wide">Indicazioni</span>
+      </a>
+    </li>
+  </ul>
+</nav>

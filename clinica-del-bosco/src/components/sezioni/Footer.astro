@@ -1,0 +1,298 @@
+---
+/**
+ * Footer: NAP completo, orari, navigazione completa (usata anche come fallback no-JS del menu),
+ * dati legali obbligatori (ragione sociale, P.IVA, direttore sanitario, autorizzazione sanitaria, PEC).
+ */
+import Icona from '@ui/Icona.astro';
+import Logo from '@ui/Logo.astro';
+import Dato from '@ui/Dato.astro';
+import {
+  clinica,
+  direttoreSanitarioRiga,
+  emailPrincipale,
+  indicazioniHref,
+  indirizzoRiga,
+  telHref,
+  whatsappDisponibile,
+  whatsappHref,
+} from '@lib/clinica';
+import { orariLeggibili } from '@lib/orari';
+
+const anno = new Date().getFullYear();
+const colonne = [
+  {
+    titolo: 'Per i proprietari',
+    voci: [
+      { nome: 'Pronto soccorso 24/7', href: '/pronto-soccorso' },
+      { nome: 'Prenota una visita', href: '/prenota' },
+      { nome: 'Tutti i servizi', href: '/servizi' },
+      { nome: 'Piani Salute', href: '/piani-salute' },
+      { nome: 'Domande frequenti', href: '/domande-frequenti' },
+      { nome: 'Magazine', href: '/magazine' },
+    ],
+  },
+  {
+    titolo: 'La clinica',
+    voci: [
+      { nome: 'La struttura', href: '/la-struttura' },
+      { nome: 'Équipe medica', href: '/equipe' },
+      { nome: 'Per i colleghi veterinari', href: '/per-i-colleghi' },
+      { nome: 'Tariffe indicative', href: '/tariffe' },
+      { nome: 'Contatti e come arrivare', href: '/contatti' },
+    ],
+  },
+  {
+    titolo: 'Zone servite',
+    voci: clinica.areaServita.map((z) => ({
+      nome: `Veterinario a ${z.nome}`,
+      href: `/veterinario-a/${z.slug}`,
+    })),
+  },
+];
+const wa = whatsappHref();
+const orari = clinica.orari.ambulatorio.confermato
+  ? orariLeggibili(clinica.orari.ambulatorio.settimana)
+  : null;
+---
+
+<footer class="mt-auto border-t border-bordo bg-sfondo-tinta pb-[calc(var(--spacing-sticky)+1rem)] text-testo lg:pb-0 print:hidden">
+  <div class="contenitore grid gap-10 py-14 md:grid-cols-2 xl:grid-cols-[1.4fr_1fr_1fr_1fr]">
+    <div class="space-y-5">
+      <a href="/" class="inline-block no-underline" aria-label={`${clinica.nome} — home`}>
+        <Logo />
+      </a>
+      <p class="max-w-prose text-testo-secondario">{clinica.descrizioneBreve}</p>
+      <address class="not-italic">
+        <ul class="space-y-2.5">
+          <li class="flex items-start gap-2.5">
+            <Icona nome="mappa" class="mt-1 size-4 shrink-0 text-primario-link" />
+            <span>
+              {indirizzoRiga}
+              <a
+                href={indicazioniHref}
+                target="_blank"
+                rel="noopener"
+                class="ml-1 text-primario-link"
+                data-evento="click_indicazioni"
+                data-evento-posizione="footer"
+              >
+                Indicazioni
+              </a>
+            </span>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <Icona nome="telefono" class="size-4 shrink-0 text-primario-link" />
+            <a
+              href={telHref}
+              class="font-semibold"
+              data-evento="click_chiama"
+              data-evento-posizione="footer"
+            >
+              {clinica.contatti.telefono.visualizzato}
+            </a>
+            <span class="text-sm text-testo-secondario">(anche per urgenze, 24/7)</span>
+          </li>
+          {whatsappDisponibile && wa && (
+            <li class="flex items-center gap-2.5">
+              <Icona nome="whatsapp" class="size-4 shrink-0 text-primario-link" />
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener"
+                data-evento="click_whatsapp"
+                data-evento-posizione="footer"
+              >
+                WhatsApp {clinica.contatti.whatsapp.visualizzato}
+              </a>
+            </li>
+          )}
+          <li class="flex items-center gap-2.5">
+            <Icona nome="mail" class="size-4 shrink-0 text-primario-link" />
+            <a href={`mailto:${emailPrincipale}`}>{emailPrincipale}</a>
+          </li>
+        </ul>
+      </address>
+      <div>
+        <h2 class="mb-2 font-sans text-sm font-bold uppercase tracking-wider text-testo-secondario">
+          Orari
+        </h2>
+        <p class="flex items-start gap-2 font-semibold">
+          <Icona nome="ambulanza" class="mt-1.5 size-4 shrink-0 text-successo" />
+          {clinica.orari.prontoSoccorso.etichetta}
+        </p>
+        {orari ? (
+          <table class="mt-2 text-sm">
+            <caption class="sr-only">Orari dell'ambulatorio per le visite programmate</caption>
+            <tbody>
+              {orari.map((r) => (
+                <tr>
+                  <th scope="row" class="pr-4 font-medium capitalize">
+                    {r.giorno}
+                  </th>
+                  <td>{r.fasce}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p class="mt-1 text-sm text-testo-secondario">
+            Visite programmate su appuntamento: chiama o <a href="/prenota">prenota online</a>.
+          </p>
+        )}
+      </div>
+      <ul class="flex gap-3" aria-label="Profili social">
+        <li>
+          <a
+            href={clinica.social.facebook}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex size-11 items-center justify-center rounded-pill bg-sfondo-rialzato text-testo hover:text-primario-link"
+            aria-label="Facebook della clinica (si apre in una nuova scheda)"
+          >
+            <Icona nome="facebook" class="size-5" />
+          </a>
+        </li>
+        <li>
+          <a
+            href={clinica.social.instagram}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex size-11 items-center justify-center rounded-pill bg-sfondo-rialzato text-testo hover:text-primario-link"
+            aria-label="Instagram della clinica (si apre in una nuova scheda)"
+          >
+            <Icona nome="instagram" class="size-5" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <nav id="navigazione-footer" aria-label="Navigazione completa" class="contents">
+      {colonne.map((c) => (
+        <div>
+          <h2 class="mb-3 font-sans text-sm font-bold uppercase tracking-wider text-testo-secondario">
+            {c.titolo}
+          </h2>
+          <ul class="space-y-2">
+            {c.voci.map((v) => (
+              <li>
+                <a
+                  href={v.href}
+                  class="inline-block min-h-8 text-testo no-underline hover:text-primario-link hover:underline"
+                >
+                  {v.nome}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </nav>
+  </div>
+
+  <div class="border-t border-bordo">
+    <div class="contenitore space-y-3 py-6 text-sm text-testo-secondario">
+      <p>
+        <strong class="text-testo">{clinica.nome}</strong> — {clinica.ragioneSociale} · P. IVA{' '}
+        {clinica.partitaIva} · {indirizzoRiga}
+      </p>
+      <p>
+        <strong class="text-testo">Direttore sanitario:</strong>{' '}
+        <Dato valore={direttoreSanitarioRiga} />
+      </p>
+      <p>
+        <strong class="text-testo">Autorizzazione sanitaria:</strong>{' '}
+        <Dato valore={clinica.autorizzazioneSanitaria.numero} /> —{' '}
+        <Dato valore={clinica.autorizzazioneSanitaria.ente} />·{' '}
+        <strong class="text-testo">PEC:</strong> <Dato valore={clinica.contatti.pec} />
+      </p>
+      <p>
+        Le informazioni presenti sul sito hanno finalità informative e non sostituiscono la visita
+        veterinaria. In caso di urgenza chiama subito il{' '}
+        <a href={telHref} class="font-semibold text-testo">
+          {clinica.contatti.telefono.visualizzato}
+        </a>
+        .
+      </p>
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+        <ul class="flex flex-wrap gap-x-4 gap-y-1">
+          <li>
+            <a href="/privacy-policy" class="no-underline hover:underline">
+              Privacy policy
+            </a>
+          </li>
+          <li>
+            <a href="/cookie-policy" class="no-underline hover:underline">
+              Cookie policy
+            </a>
+          </li>
+          <li>
+            <a href="/accessibilita" class="no-underline hover:underline">
+              Accessibilità
+            </a>
+          </li>
+          <li>
+            <a href="/note-legali" class="no-underline hover:underline">
+              Note legali
+            </a>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="cookie-preferenze underline-offset-4 hover:underline"
+              hidden
+            >
+              Preferenze cookie
+            </button>
+          </li>
+        </ul>
+        <div class="flex items-center gap-3">
+          <button
+            type="button"
+            class="tema-toggle inline-flex min-h-9 items-center gap-2 rounded-pill border border-bordo px-3 text-sm hover:bg-sfondo-rialzato"
+            aria-pressed="false"
+            hidden
+          >
+            <Icona nome="luna" class="size-4 tema-icona-luna" />
+            <Icona nome="sole" class="size-4 tema-icona-sole hidden" />
+            <span class="tema-etichetta">Tema scuro</span>
+          </button>
+          <span>
+            © {anno} {clinica.ragioneSociale}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function inizializzaTema() {
+    const bottone = document.querySelector<HTMLButtonElement>('.tema-toggle');
+    if (!bottone) return;
+    bottone.hidden = false;
+    const radice = document.documentElement;
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const attuale = () => radice.dataset['theme'] ?? (media.matches ? 'dark' : 'light');
+    const aggiorna = () => {
+      const scuro = attuale() === 'dark';
+      bottone.setAttribute('aria-pressed', String(scuro));
+      bottone.querySelector('.tema-icona-luna')?.classList.toggle('hidden', scuro);
+      bottone.querySelector('.tema-icona-sole')?.classList.toggle('hidden', !scuro);
+      const etichetta = bottone.querySelector('.tema-etichetta');
+      if (etichetta) etichetta.textContent = scuro ? 'Tema chiaro' : 'Tema scuro';
+    };
+    bottone.addEventListener('click', () => {
+      const nuovo = attuale() === 'dark' ? 'light' : 'dark';
+      radice.dataset['theme'] = nuovo;
+      try {
+        localStorage.setItem('tema', nuovo);
+      } catch {
+        /* storage non disponibile */
+      }
+      aggiorna();
+    });
+    aggiorna();
+  }
+  inizializzaTema();
+  document.addEventListener('astro:after-swap', inizializzaTema);
+</script>

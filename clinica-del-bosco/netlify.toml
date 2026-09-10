@@ -1,0 +1,175 @@
+# Netlify — Clinica Veterinaria del Bosco
+# Base directory da impostare nel pannello Netlify: clinica-del-bosco
+# (il repository ospita anche la landing page "Super Team" nella radice).
+
+[build]
+  base = "clinica-del-bosco"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# In produzione il controllo dati blocca il deploy se restano segnaposto {{DA_CONFERMARE}}.
+[context.production.environment]
+  CHECK_DATA_STRICT = "1"
+
+# ---------- Redirect 301: domini alternativi → canonico (vedi redirects.map) ----------
+[[redirects]]
+  from = "https://www.clinicaveterinariadelbosco.it/*"
+  to = "https://clinicaveterinariadelbosco.it/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://migliorveterinarionapoli.it/*"
+  to = "https://clinicaveterinariadelbosco.it/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.migliorveterinarionapoli.it/*"
+  to = "https://clinicaveterinariadelbosco.it/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://clinicadelbosco.com/*"
+  to = "https://clinicaveterinariadelbosco.it/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.clinicadelbosco.com/*"
+  to = "https://clinicaveterinariadelbosco.it/:splat"
+  status = 301
+  force = true
+
+# ---------- URL storiche indicizzate ----------
+[[redirects]]
+  from = "/chi-siamo"
+  to = "/la-struttura"
+  status = 301
+[[redirects]]
+  from = "/centro-tac-e-animali-esotici"
+  to = "/servizi/tac-diagnostica-avanzata"
+  status = 301
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/index.php"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/pronto-soccorso-veterinario"
+  to = "/pronto-soccorso"
+  status = 301
+[[redirects]]
+  from = "/urgenze"
+  to = "/pronto-soccorso"
+  status = 301
+[[redirects]]
+  from = "/emergenze"
+  to = "/pronto-soccorso"
+  status = 301
+[[redirects]]
+  from = "/prenotazione"
+  to = "/prenota"
+  status = 301
+[[redirects]]
+  from = "/prenotazioni"
+  to = "/prenota"
+  status = 301
+[[redirects]]
+  from = "/piani"
+  to = "/piani-salute"
+  status = 301
+[[redirects]]
+  from = "/abbonamenti"
+  to = "/piani-salute"
+  status = 301
+[[redirects]]
+  from = "/tac"
+  to = "/servizi/tac-diagnostica-avanzata"
+  status = 301
+[[redirects]]
+  from = "/esotici"
+  to = "/servizi/animali-esotici-e-conigli"
+  status = 301
+[[redirects]]
+  from = "/colleghi"
+  to = "/per-i-colleghi"
+  status = 301
+[[redirects]]
+  from = "/referral"
+  to = "/per-i-colleghi"
+  status = 301
+[[redirects]]
+  from = "/blog"
+  to = "/magazine"
+  status = 301
+[[redirects]]
+  from = "/blog/*"
+  to = "/magazine/:splat"
+  status = 301
+[[redirects]]
+  from = "/faq"
+  to = "/domande-frequenti"
+  status = 301
+[[redirects]]
+  from = "/team"
+  to = "/equipe"
+  status = 301
+[[redirects]]
+  from = "/staff"
+  to = "/equipe"
+  status = 301
+
+# ---------- Header di sicurezza e cache ----------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    Cross-Origin-Opener-Policy = "same-origin"
+    # La CSP completa (script-src/style-src con hash) è nel <meta> generato da Astro.
+    # Qui solo le direttive che il meta non può esprimere.
+    Content-Security-Policy = "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+[[headers]]
+  for = "/og/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+[[headers]]
+  for = "/sitemap-index.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "text/markdown; charset=utf-8"
+[[headers]]
+  for = "/llms-full.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "text/markdown; charset=utf-8"

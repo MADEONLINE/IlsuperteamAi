@@ -1,0 +1,154 @@
+{
+  "_nota": "UNICA fonte dei dati anagrafici della clinica. Usata da header, footer, schema.org, sitemap e pagine locali. I valori {{DA_CONFERMARE}} sono elencati in TODO-DATI.md e bloccano il deploy di produzione (npm run check:data).",
+
+  "nome": "Clinica Veterinaria del Bosco",
+  "nomeBreve": "Del Bosco",
+  "ragioneSociale": "PAN S.r.l.",
+  "partitaIva": "04669140651",
+  "partitaIvaDaVerificare": true,
+  "annoFondazione": "{{DA_CONFERMARE}}",
+  "slogan": "Pronto soccorso veterinario 24 ore su 24 a Portici",
+  "descrizioneBreve": "Clinica veterinaria a Portici (Napoli) con pronto soccorso attivo 24 ore su 24, 7 giorni su 7, terapia intensiva, due sale chirurgiche, TAC in sede, endoscopia e laboratorio analisi interno. Cani, gatti, conigli e animali esotici.",
+
+  "dominio": {
+    "canonico": "https://clinicaveterinariadelbosco.it",
+    "alternativi": [
+      "https://www.clinicaveterinariadelbosco.it",
+      "https://migliorveterinarionapoli.it",
+      "https://www.migliorveterinarionapoli.it",
+      "https://clinicadelbosco.com",
+      "https://www.clinicadelbosco.com"
+    ]
+  },
+
+  "indirizzo": {
+    "via": "Corso Umberto I",
+    "civico": "10",
+    "civicoDaConfermare": true,
+    "cap": "80055",
+    "comune": "Portici",
+    "provincia": "NA",
+    "provinciaEstesa": "Napoli",
+    "regione": "Campania",
+    "paese": "IT",
+    "riferimenti": "{{DA_CONFERMARE}}",
+    "parcheggio": "{{DA_CONFERMARE}}"
+  },
+
+  "geo": {
+    "lat": "{{DA_CONFERMARE}}",
+    "lng": "{{DA_CONFERMARE}}",
+    "_nota": "Coordinate dell'INGRESSO della clinica, non del centroide della via. Formato numerico con punto decimale (es. 40.8151)."
+  },
+
+  "contatti": {
+    "telefono": {
+      "visualizzato": "081 7763859",
+      "e164": "+390817763859",
+      "nota": "Numero unico, attivo 24 ore su 24 anche per il pronto soccorso."
+    },
+    "whatsapp": {
+      "e164": "{{DA_CONFERMARE}}",
+      "visualizzato": "{{DA_CONFERMARE}}",
+      "_nota": "Numero WhatsApp Business dedicato alle prenotazioni. Formato E.164 senza spazi, es. +393401234567."
+    },
+    "email": {
+      "principale": "clinicadelbosco@alice.it",
+      "proposta": {
+        "info": "info@clinicaveterinariadelbosco.it",
+        "urgenze": "urgenze@clinicaveterinariadelbosco.it",
+        "attiva": false,
+        "_nota": "Quando le caselle sul dominio saranno attive, impostare attiva=true: il sito passerà automaticamente ai nuovi indirizzi."
+      }
+    },
+    "pec": "{{DA_CONFERMARE}}"
+  },
+
+  "social": {
+    "facebook": "https://www.facebook.com/clinicadelbosco/",
+    "instagram": "https://www.instagram.com/clinicaveterinariadelbosco/",
+    "instagramHandle": "@clinicaveterinariadelbosco",
+    "googleBusiness": "{{DA_CONFERMARE}}"
+  },
+
+  "orari": {
+    "fusoOrario": "Europe/Rome",
+    "prontoSoccorso": {
+      "h24": true,
+      "personaleInStruttura": true,
+      "festiviInclusi": true,
+      "etichetta": "Pronto soccorso attivo 24 ore su 24, 7 giorni su 7, festivi inclusi"
+    },
+    "ambulatorio": {
+      "confermato": false,
+      "_nota": "Orari delle visite programmate, giorno per giorno. Formato: [\"09:00\",\"13:00\"] per ogni fascia. Lasciare [] per il giorno di chiusura. Impostare confermato=true dopo la verifica con la reception.",
+      "settimana": {
+        "lunedi": [],
+        "martedi": [],
+        "mercoledi": [],
+        "giovedi": [],
+        "venerdi": [],
+        "sabato": [],
+        "domenica": []
+      }
+    }
+  },
+
+  "direttoreSanitario": {
+    "nome": "{{DA_CONFERMARE}}",
+    "titolo": "Dott.",
+    "numeroOrdine": "{{DA_CONFERMARE}}",
+    "provinciaOrdine": "{{DA_CONFERMARE}}",
+    "_nota": "OBBLIGO DI LEGGE: nome, cognome e numero di iscrizione all'Ordine dei Medici Veterinari, con provincia. Bloccante per il go-live."
+  },
+
+  "autorizzazioneSanitaria": {
+    "numero": "{{DA_CONFERMARE}}",
+    "ente": "{{DA_CONFERMARE}}",
+    "_nota": "Estremi dell'autorizzazione sanitaria regionale della struttura (numero, ente e data)."
+  },
+
+  "soci": [
+    { "nome": "Dario Ferrari", "titolo": "Dott.", "slug": "dario-ferrari" },
+    { "nome": "Isabella Rosapane", "titolo": "Dott.ssa", "slug": "isabella-rosapane" },
+    { "nome": "Antonella Sergio", "titolo": "Dott.ssa", "slug": "antonella-sergio" },
+    { "nome": "Alessandro Sica", "titolo": "Dott.", "slug": "alessandro-sica" }
+  ],
+
+  "numeri": {
+    "_nota": "Prova sociale. Da usare SOLO se confermati dalla clinica (confermato=true). Nessun dato economico deve mai comparire qui.",
+    "confermato": false,
+    "clientiAttivi": 4500,
+    "animaliSeguiti": 20000,
+    "accessiProntoSoccorsoUltimoAnno": 1015,
+    "residentiBacino": 450000
+  },
+
+  "areaServita": [
+    { "nome": "Portici", "slug": "portici", "tipo": "comune" },
+    { "nome": "Ercolano", "slug": "ercolano", "tipo": "comune" },
+    { "nome": "San Giorgio a Cremano", "slug": "san-giorgio-a-cremano", "tipo": "comune" },
+    { "nome": "Torre del Greco", "slug": "torre-del-greco", "tipo": "comune" },
+    { "nome": "Napoli (zona sud-est)", "slug": "napoli-sud", "tipo": "area" },
+    { "nome": "Cercola", "slug": "cercola", "tipo": "comune" },
+    { "nome": "Volla", "slug": "volla", "tipo": "comune" },
+    { "nome": "Pollena Trocchia", "slug": "pollena-trocchia", "tipo": "comune" }
+  ],
+
+  "priceRange": "€€",
+
+  "impegni": {
+    "richiamoEntroOre": 24,
+    "preventivoScritto": true,
+    "nessunPagamentoAnticipato": true
+  },
+
+  "misurazione": {
+    "plausibleDomain": "clinicaveterinariadelbosco.it",
+    "plausibleScript": "https://plausible.io/js/script.outbound-links.js",
+    "ga4MeasurementId": "",
+    "googleSiteVerification": "",
+    "bingSiteVerification": "",
+    "indexNowKey": ""
+  }
+}

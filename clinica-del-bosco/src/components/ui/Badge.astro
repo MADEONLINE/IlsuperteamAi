@@ -1,0 +1,27 @@
+---
+/** Badge/pillola informativa (stato, categoria). Non usare il tono urgenza per decorazione. */
+interface Props {
+  tono?: 'neutro' | 'primario' | 'successo' | 'urgenza' | 'avviso';
+  class?: string;
+  puntino?: boolean;
+}
+const { tono = 'neutro', class: classe = '', puntino = false } = Astro.props;
+const toni = {
+  neutro: 'bg-sfondo-tinta text-testo border-bordo',
+  primario: 'bg-primario-tenue text-primario-link border-transparent',
+  successo: 'bg-successo-tenue text-successo border-transparent',
+  urgenza: 'bg-urgenza-tenue text-urgenza-testo-su-chiaro border-transparent',
+  avviso: 'bg-avviso-tenue text-avviso border-transparent',
+};
+---
+
+<span
+  class:list={[
+    'inline-flex items-center gap-1.5 rounded-pill border px-3 py-1 text-sm font-semibold leading-tight',
+    toni[tono],
+    classe,
+  ]}
+>
+  {puntino && <span class="size-2 rounded-full bg-current" aria-hidden="true"></span>}
+  <slot />
+</span>

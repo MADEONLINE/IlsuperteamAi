@@ -1,0 +1,62 @@
+---
+/**
+ * Layout per pagine interne standard: intestazione con briciole, etichetta, H1 e sottotitolo.
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Briciole from '@ui/Briciole.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import type { Props as PropsSeo } from '@/components/seo/Seo.astro';
+import type { Briciola } from '@lib/seo';
+import type { JsonLd } from '@lib/schema';
+
+interface Props extends PropsSeo {
+  h1: string;
+  sottotitolo?: string;
+  etichetta?: string;
+  briciole: Briciola[];
+  jsonLd?: JsonLd[];
+  tonoIntestazione?: 'base' | 'tinta' | 'inverso';
+}
+const {
+  h1,
+  sottotitolo,
+  etichetta,
+  briciole,
+  jsonLd = [],
+  tonoIntestazione = 'tinta',
+  ...seo
+} = Astro.props;
+const inverso = tonoIntestazione === 'inverso';
+---
+
+<BaseLayout {...seo} jsonLd={jsonLd}>
+  <header
+    class:list={[
+      'border-b border-bordo py-10 md:py-14',
+      tonoIntestazione === 'tinta' && 'bg-sfondo-tinta',
+      inverso && 'bg-sfondo-inverso text-testo-inverso',
+    ]}
+  >
+    <div class="contenitore">
+      <Briciole briciole={briciole} inverso={inverso} class="mb-5" />
+      {etichetta && (
+        <Etichetta tono={inverso ? 'inverso' : 'primario'} class="mb-2">
+          {etichetta}
+        </Etichetta>
+      )}
+      <h1 class:list={['text-4xl md:text-5xl', inverso && 'text-testo-inverso']}>{h1}</h1>
+      {sottotitolo && (
+        <p
+          class:list={[
+            'prosa mt-4 text-lg md:text-xl',
+            inverso ? 'text-testo-inverso/85' : 'text-testo-secondario',
+          ]}
+        >
+          {sottotitolo}
+        </p>
+      )}
+      <slot name="intestazione" />
+    </div>
+  </header>
+  <slot />
+</BaseLayout>

@@ -1,0 +1,40 @@
+# Mappa dei redirect 301 verso il dominio canonico https://clinicaveterinariadelbosco.it
+# Formato: <origine>  <destinazione>  <stato>
+# Sorgente unica: da qui vengono derivate le regole in netlify.toml e vercel.json.
+# Verificare prima del lancio con: curl -I <origine> (atteso: 301 + Location corretta)
+
+# --- Domini alternativi → canonico (pagina per pagina, splat conservato) ---
+https://www.clinicaveterinariadelbosco.it/*    https://clinicaveterinariadelbosco.it/:splat   301
+https://migliorveterinarionapoli.it/*          https://clinicaveterinariadelbosco.it/:splat   301
+https://www.migliorveterinarionapoli.it/*      https://clinicaveterinariadelbosco.it/:splat   301
+https://clinicadelbosco.com/*                  https://clinicaveterinariadelbosco.it/:splat   301
+https://www.clinicadelbosco.com/*              https://clinicaveterinariadelbosco.it/:splat   301
+http://clinicaveterinariadelbosco.it/*         https://clinicaveterinariadelbosco.it/:splat   301
+
+# --- URL storiche indicizzate (sito su migliorveterinarionapoli.it) → nuove pagine ---
+/chi-siamo                        /la-struttura                              301
+/chi-siamo/                       /la-struttura                              301
+/servizi/                         /servizi                                   301
+/centro-tac-e-animali-esotici     /servizi/tac-diagnostica-avanzata          301
+/centro-tac-e-animali-esotici/    /servizi/tac-diagnostica-avanzata          301
+/contatti/                        /contatti                                  301
+/index.html                       /                                          301
+/index.php                        /                                          301
+
+# --- Alias comodi / errori frequenti ---
+/pronto-soccorso-veterinario      /pronto-soccorso                           301
+/urgenze                          /pronto-soccorso                           301
+/emergenze                        /pronto-soccorso                           301
+/prenotazione                     /prenota                                   301
+/prenotazioni                     /prenota                                   301
+/piani                            /piani-salute                              301
+/abbonamenti                      /piani-salute                              301
+/tac                              /servizi/tac-diagnostica-avanzata          301
+/esotici                          /servizi/animali-esotici-e-conigli         301
+/colleghi                         /per-i-colleghi                            301
+/referral                         /per-i-colleghi                            301
+/blog                             /magazine                                  301
+/blog/*                           /magazine/:splat                           301
+/faq                              /domande-frequenti                         301
+/team                             /equipe                                    301
+/staff                            /equipe                                    301

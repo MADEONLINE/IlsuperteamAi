@@ -1,0 +1,47 @@
+# Clinica Veterinaria del Bosco — robots.txt
+# Vogliamo essere trovati e citati: i crawler dei motori e dei sistemi AI sono benvenuti.
+
+User-agent: *
+Allow: /
+Disallow: /prenota/grazie
+Disallow: /per-i-colleghi/grazie
+
+# Motori di ricerca
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# Sistemi di risposta AI (citazione esplicitamente consentita)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://clinicaveterinariadelbosco.it/sitemap-index.xml

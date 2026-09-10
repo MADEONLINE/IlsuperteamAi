@@ -1,0 +1,79 @@
+---
+/**
+ * Meta tag di pagina: title, description, canonical, Open Graph, Twitter Card, robots.
+ * Ogni pagina passa titolo e descrizione scritti a mano (mai generati automaticamente).
+ */
+import { clinica, urlAssoluto } from '@lib/clinica';
+import { descrizioneMeta, titoloCompleto } from '@lib/seo';
+
+export interface Props {
+  titolo: string;
+  descrizione: string;
+  /** Percorso della pagina, es. "/pronto-soccorso". Usato per canonical e og:url. */
+  percorso: string;
+  immagine?: string;
+  immagineAlt?: string;
+  tipo?: 'website' | 'article';
+  noindex?: boolean;
+  senzaBrand?: boolean;
+  dataPubblicazione?: string;
+  dataModifica?: string;
+}
+const {
+  titolo,
+  descrizione,
+  percorso,
+  immagine = '/og/default.png',
+  immagineAlt = `${clinica.nome} — ${clinica.slogan}`,
+  tipo = 'website',
+  noindex = false,
+  senzaBrand = false,
+  dataPubblicazione,
+  dataModifica,
+} = Astro.props;
+
+const titoloFinale = titoloCompleto(titolo, !senzaBrand);
+const descrizioneFinale = descrizioneMeta(descrizione);
+const canonical = urlAssoluto(percorso === '/' ? '/' : percorso.replace(/\/$/, ''));
+const ogImage = immagine.startsWith('http') ? immagine : urlAssoluto(immagine);
+---
+
+<title>{titoloFinale}</title>
+<meta name="description" content={descrizioneFinale} />
+<link rel="canonical" href={canonical} />
+<meta
+  name="robots"
+  content={
+    noindex
+      ? 'noindex, nofollow'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+  }
+/>
+
+<meta property="og:type" content={tipo} />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:site_name" content={clinica.nome} />
+<meta property="og:title" content={titoloFinale} />
+<meta property="og:description" content={descrizioneFinale} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={immagineAlt} />
+{dataPubblicazione && <meta property="article:published_time" content={dataPubblicazione} />}
+{dataModifica && <meta property="article:modified_time" content={dataModifica} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={titoloFinale} />
+<meta name="twitter:description" content={descrizioneFinale} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={immagineAlt} />
+
+<meta name="geo.region" content="IT-NA" />
+<meta name="geo.placename" content={clinica.indirizzo.comune} />
+{clinica.misurazione.googleSiteVerification && (
+  <meta name="google-site-verification" content={clinica.misurazione.googleSiteVerification} />
+)}
+{clinica.misurazione.bingSiteVerification && (
+  <meta name="msvalidate.01" content={clinica.misurazione.bingSiteVerification} />
+)}

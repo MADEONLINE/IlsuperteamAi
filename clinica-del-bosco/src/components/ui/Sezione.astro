@@ -1,0 +1,46 @@
+---
+/**
+ * Sezione di pagina con ritmo verticale coerente e contenitore opzionale.
+ * Props: tono (sfondo), pieno (full-bleed senza contenitore), id, etichettaAria, class.
+ */
+interface Props {
+  id?: string;
+  tono?: 'base' | 'tinta' | 'rialzato' | 'inverso' | 'primario-tenue';
+  pieno?: boolean;
+  compatta?: boolean;
+  class?: string;
+  etichettaAria?: string;
+  tag?: 'section' | 'div' | 'aside';
+}
+const {
+  id,
+  tono = 'base',
+  pieno = false,
+  compatta = false,
+  class: classe = '',
+  etichettaAria,
+  tag = 'section',
+} = Astro.props;
+const toni: Record<NonNullable<Props['tono']>, string> = {
+  base: 'bg-sfondo text-testo',
+  tinta: 'bg-sfondo-tinta text-testo',
+  rialzato: 'bg-sfondo-rialzato text-testo',
+  inverso: 'bg-sfondo-inverso text-testo-inverso',
+  'primario-tenue': 'bg-primario-tenue text-testo',
+};
+const Tag = tag;
+---
+
+<Tag
+  id={id}
+  aria-label={etichettaAria}
+  class:list={[toni[tono], compatta ? 'py-10 md:py-14' : 'py-sezione', classe]}
+>
+  {pieno ? (
+    <slot />
+  ) : (
+    <div class="contenitore">
+      <slot />
+    </div>
+  )}
+</Tag>

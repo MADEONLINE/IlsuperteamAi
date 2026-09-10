@@ -1,0 +1,197 @@
+---
+/**
+ * Header globale: logo, navigazione principale, doppio percorso permanente
+ * ("È un'urgenza" in corallo · "Prenota una visita" in verde), menu mobile accessibile.
+ * Senza JS: il pulsante menu diventa un link alla navigazione completa nel footer.
+ */
+import Bottone from '@ui/Bottone.astro';
+import Icona from '@ui/Icona.astro';
+import Logo from '@ui/Logo.astro';
+import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
+import { clinica, telHref } from '@lib/clinica';
+
+const voci = [
+  { nome: 'Pronto soccorso', href: '/pronto-soccorso', urgenza: true },
+  { nome: 'Servizi', href: '/servizi' },
+  { nome: 'Piani Salute', href: '/piani-salute' },
+  { nome: 'La struttura', href: '/la-struttura' },
+  { nome: 'Équipe', href: '/equipe' },
+  { nome: 'Magazine', href: '/magazine' },
+  { nome: 'Per i colleghi', href: '/per-i-colleghi' },
+  { nome: 'Contatti', href: '/contatti' },
+];
+const percorsoAttuale = Astro.url.pathname.replace(/\/$/, '') || '/';
+const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.startsWith(`${href}/`);
+---
+
+<header class="sticky top-0 z-50 border-b border-bordo bg-sfondo/92 backdrop-blur supports-[backdrop-filter]:bg-sfondo/85 print:static">
+  <!-- Striscia urgenza (solo desktop: su mobile c'è la barra sticky) -->
+  <div class="hidden bg-sfondo-inverso text-testo-inverso md:block">
+    <div class="contenitore flex min-h-9 items-center justify-between gap-4 text-sm">
+      <p class="flex items-center gap-2">
+        <span class="relative flex size-2" aria-hidden="true">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-accento-inverso opacity-70 motion-reduce:hidden"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-accento-inverso"></span>
+        </span>
+        <span>{clinica.orari.prontoSoccorso.etichetta}</span>
+      </p>
+      <a
+        href={telHref}
+        data-evento="click_chiama"
+        data-evento-posizione="striscia-header"
+        class="flex items-center gap-1.5 font-semibold text-testo-inverso no-underline hover:underline"
+      >
+        <Icona nome="telefono" class="size-4" />
+        <span>Urgenze: {clinica.contatti.telefono.visualizzato}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="contenitore flex min-h-[4.25rem] items-center justify-between gap-4">
+    <a href="/" class="shrink-0 rounded-md no-underline" aria-label={`${clinica.nome} — home`}>
+      <Logo />
+    </a>
+
+    <nav aria-label="Navigazione principale" class="hidden xl:block">
+      <ul class="flex items-center gap-1">
+        {voci
+          .filter((v) => !v.urgenza)
+          .map((v) => (
+            <li>
+              <a
+                href={v.href}
+                aria-current={attiva(v.href) ? 'page' : undefined}
+                class:list={[
+                  'inline-flex min-h-10 items-center whitespace-nowrap rounded-pill px-2.5 text-[0.95rem] font-medium no-underline transition hover:bg-primario-tenue hover:text-primario-link',
+                  attiva(v.href) ? 'bg-primario-tenue text-primario-link' : 'text-testo',
+                ]}
+              >
+                {v.nome}
+              </a>
+            </li>
+          ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <div class="hidden md:block">
+        <Bottone
+          href={telHref}
+          variante="urgenza"
+          dimensione="sm"
+          icona="telefono"
+          evento="click_chiama"
+          eventoPosizione="header"
+          aria-label={`È un'urgenza: chiama ${clinica.contatti.telefono.visualizzato}`}
+        >
+          È un'urgenza
+        </Bottone>
+      </div>
+      <div class="hidden sm:block">
+        <Bottone href="/prenota" variante="primario" dimensione="sm">
+          Prenota una visita
+        </Bottone>
+      </div>
+
+      <!-- Menu mobile -->
+      <button
+        type="button"
+        class="menu-toggle inline-flex size-11 items-center justify-center rounded-pill text-testo hover:bg-primario-tenue xl:hidden"
+        aria-expanded="false"
+        aria-controls="menu-mobile"
+        aria-label="Apri il menu"
+        hidden
+      >
+        <Icona nome="menu" class="size-6 icona-apri" />
+        <Icona nome="chiudi" class="size-6 icona-chiudi hidden" />
+      </button>
+      <noscript>
+        <a
+          href="#navigazione-footer"
+          class="inline-flex size-11 items-center justify-center rounded-pill text-testo xl:hidden"
+          aria-label="Vai al menu completo"
+        >
+          <Icona nome="menu" class="size-6" />
+        </a>
+      </noscript>
+    </div>
+  </div>
+
+  <div id="menu-mobile" class="menu-mobile hidden border-t border-bordo bg-sfondo xl:hidden" hidden>
+    <nav aria-label="Navigazione principale (mobile)" class="contenitore py-4">
+      <ul class="flex flex-col divide-y divide-bordo">
+        {voci.map((v) => (
+          <li>
+            <a
+              href={v.href}
+              aria-current={attiva(v.href) ? 'page' : undefined}
+              class:list={[
+                'flex min-h-12 items-center justify-between gap-3 py-2 text-lg font-medium no-underline',
+                v.urgenza ? 'text-urgenza-testo-su-chiaro' : 'text-testo',
+              ]}
+            >
+              <span class="flex items-center gap-2">
+                {v.urgenza && <Icona nome="ambulanza" class="size-5" />}
+                {v.nome}
+              </span>
+              <Icona nome="freccia-destra" class="size-4 opacity-50" />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="mt-4 flex flex-col gap-3">
+        <BadgeApertoOra class="self-start" />
+        <Bottone
+          href={telHref}
+          variante="urgenza"
+          dimensione="lg"
+          icona="telefono"
+          pieno
+          evento="click_chiama"
+          eventoPosizione="menu-mobile"
+        >
+          Chiama ora · {clinica.contatti.telefono.visualizzato}
+        </Bottone>
+        <Bottone href="/prenota" variante="primario" dimensione="lg" icona="calendario" pieno>
+          Prenota una visita
+        </Bottone>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  function inizializzaMenu() {
+    const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+    const menu = document.querySelector<HTMLElement>('#menu-mobile');
+    if (!toggle || !menu) return;
+    toggle.hidden = false;
+    const apri = toggle.querySelector<SVGElement>('.icona-apri');
+    const chiudi = toggle.querySelector<SVGElement>('.icona-chiudi');
+
+    const imposta = (aperto: boolean) => {
+      toggle.setAttribute('aria-expanded', String(aperto));
+      toggle.setAttribute('aria-label', aperto ? 'Chiudi il menu' : 'Apri il menu');
+      menu.hidden = !aperto;
+      menu.classList.toggle('hidden', !aperto);
+      apri?.classList.toggle('hidden', aperto);
+      chiudi?.classList.toggle('hidden', !aperto);
+      document.documentElement.classList.toggle('overflow-hidden', aperto);
+    };
+    toggle.addEventListener('click', () =>
+      imposta(toggle.getAttribute('aria-expanded') !== 'true'),
+    );
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        imposta(false);
+        toggle.focus();
+      }
+    });
+    // Chiude il menu passando a desktop
+    window.matchMedia('(min-width: 80rem)').addEventListener('change', (e) => {
+      if (e.matches) imposta(false);
+    });
+  }
+  inizializzaMenu();
+  document.addEventListener('astro:after-swap', inizializzaMenu);
+</script>

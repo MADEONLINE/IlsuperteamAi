@@ -1,0 +1,39 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Sezione from '@ui/Sezione.astro';
+import { clinica, telHref } from '@lib/clinica';
+---
+
+<BaseLayout
+  titolo="Pagina non trovata"
+  descrizione="La pagina che cercavi non esiste o è stata spostata. Torna alla home o chiama la clinica."
+  percorso="/404"
+  noindex
+>
+  <Sezione>
+    <div class="prosa mx-auto text-center">
+      <p class="eyebrow mb-3">Errore 404</p>
+      <h1 class="text-4xl md:text-5xl">Questa pagina non esiste.</h1>
+      <p class="mt-4 text-lg text-testo-secondario">
+        Forse il link era vecchio. Se hai bisogno di noi adesso, il pronto soccorso risponde 24 ore
+        su 24.
+      </p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <Bottone
+          href={telHref}
+          variante="urgenza"
+          dimensione="lg"
+          icona="telefono"
+          evento="click_chiama"
+          eventoPosizione="404"
+        >
+          Chiama {clinica.contatti.telefono.visualizzato}
+        </Bottone>
+        <Bottone href="/" variante="secondario" dimensione="lg">
+          Torna alla home
+        </Bottone>
+      </div>
+    </div>
+  </Sezione>
+</BaseLayout>

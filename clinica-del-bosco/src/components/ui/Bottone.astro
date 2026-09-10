@@ -1,0 +1,74 @@
+---
+/**
+ * Pulsante / link-pulsante. Varianti:
+ *  - primario: azione principale (verde)
+ *  - urgenza: SOLO per chiamate di emergenza (corallo). Vedi § design.
+ *  - secondario: bordo, per azioni di supporto
+ *  - fantasma: testo, per azioni terziarie
+ * Dimensioni: md (44px) · lg (56px, per CTA di emergenza mobile) · sm (40px, solo desktop in header)
+ */
+import Icona, { type NomeIcona } from '@ui/Icona.astro';
+
+interface Props {
+  href?: string;
+  variante?: 'primario' | 'urgenza' | 'secondario' | 'fantasma' | 'inverso';
+  dimensione?: 'sm' | 'md' | 'lg';
+  icona?: NomeIcona;
+  iconaDopo?: NomeIcona;
+  pieno?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  evento?: string;
+  eventoPosizione?: string;
+  [chiave: string]: unknown;
+}
+
+const {
+  href,
+  variante = 'primario',
+  dimensione = 'md',
+  icona,
+  iconaDopo,
+  pieno = false,
+  type = 'button',
+  class: classe = '',
+  evento,
+  eventoPosizione,
+  ...resto
+} = Astro.props;
+
+const base =
+  'btn inline-flex items-center justify-center gap-2 rounded-pill font-semibold leading-none no-underline transition-[background-color,color,box-shadow,transform] duration-200 ease-morbido select-none whitespace-nowrap active:translate-y-px focus-visible:outline-offset-3';
+const varianti: Record<NonNullable<Props['variante']>, string> = {
+  primario:
+    'bg-primario text-primario-testo hover:bg-primario-forte shadow-[0_1px_0_rgb(0_0_0/0.08)]',
+  urgenza: 'bg-urgenza text-urgenza-testo hover:bg-urgenza-forte shadow-[0_2px_0_rgb(0_0_0/0.12)]',
+  secondario:
+    'bg-transparent text-testo border-2 border-bordo-forte hover:border-primario hover:text-primario-link',
+  fantasma: 'bg-transparent text-primario-link hover:bg-primario-tenue',
+  inverso: 'bg-sfondo text-testo hover:bg-sfondo-tinta',
+};
+const dimensioni: Record<NonNullable<Props['dimensione']>, string> = {
+  sm: 'min-h-10 px-4 text-sm',
+  md: 'min-h-11 px-5 text-base',
+  lg: 'min-h-14 px-6 text-lg',
+};
+const classi = [base, varianti[variante], dimensioni[dimensione], pieno ? 'w-full' : '', classe]
+  .filter(Boolean)
+  .join(' ');
+const dimensioneIcona = dimensione === 'lg' ? 'size-6' : 'size-5';
+const Tag = href ? 'a' : 'button';
+const attributi = href ? { href } : { type };
+---
+
+<Tag
+  class={classi}
+  data-evento={evento}
+  data-evento-posizione={eventoPosizione}
+  {...attributi}
+  {...resto}
+>
+  {icona && <Icona nome={icona} class={`${dimensioneIcona} shrink-0`} />}
+  <slot />
+  {iconaDopo && <Icona nome={iconaDopo} class={`${dimensioneIcona} shrink-0`} />}
+</Tag>

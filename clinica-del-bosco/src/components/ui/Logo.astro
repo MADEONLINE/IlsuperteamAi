@@ -1,0 +1,62 @@
+---
+/**
+ * Marchio: simbolo (albero stilizzato con croce sanitaria) + wordmark in Fraunces.
+ * SVG inline: nessuna richiesta aggiuntiva, colori ereditati dai token.
+ */
+import { clinica } from '@lib/clinica';
+interface Props {
+  class?: string;
+  inverso?: boolean;
+  soloSimbolo?: boolean;
+}
+const { class: classe = '', inverso = false, soloSimbolo = false } = Astro.props;
+---
+
+<span class:list={['inline-flex items-center gap-2.5', classe]}>
+  <svg viewBox="0 0 40 40" class="size-9 shrink-0" aria-hidden="true" focusable="false">
+    <circle
+      cx="20"
+      cy="20"
+      r="20"
+      class:list={[inverso ? 'fill-sfondo' : 'fill-primario']}
+    ></circle>
+    <path
+      d="M20 7c-4.5 4.2-9 8.4-9 14a9 9 0 0 0 18 0c0-5.6-4.5-9.8-9-14Z"
+      class:list={[inverso ? 'fill-primario' : 'fill-sfondo']}
+      opacity="0.95"
+    ></path>
+    <path
+      d="M20 14v14M13 21h14"
+      class:list={[inverso ? 'stroke-sfondo' : 'stroke-primario']}
+      stroke-width="3"
+      stroke-linecap="round"
+    ></path>
+    <path
+      d="M20 28v6"
+      class:list={[inverso ? 'stroke-primario' : 'stroke-sfondo']}
+      stroke-width="3"
+      stroke-linecap="round"
+    ></path>
+  </svg>
+  {!soloSimbolo && (
+    <span class="flex flex-col leading-none">
+      <span
+        class:list={[
+          'font-display text-[1.05rem] font-semibold tracking-tight',
+          inverso ? 'text-testo-inverso' : 'text-testo',
+        ]}
+      >
+        Clinica Veterinaria
+      </span>
+      <span
+        class:list={[
+          'font-display text-[1.35rem] font-bold italic tracking-tight',
+          inverso ? 'text-accento-inverso' : 'text-primario-link',
+        ]}
+      >
+        del Bosco
+      </span>
+      <span class="sr-only">{clinica.indirizzo.comune}</span>
+    </span>
+  )}
+</span>

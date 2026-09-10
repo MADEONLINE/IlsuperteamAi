@@ -1,0 +1,127 @@
+---
+/**
+ * Layout radice: <head> completo, skip link, header, barra sticky, footer, cookie banner,
+ * JSON-LD dell'organizzazione, analytics privacy-first, view transitions native.
+ *
+ * Props: quelle di <Seo /> + `jsonLd` (blocchi aggiuntivi di pagina) + `senzaBarraSticky`.
+ */
+import { ClientRouter } from 'astro:transitions';
+import Seo, { type Props as PropsSeo } from '@/components/seo/Seo.astro';
+import JsonLd from '@/components/seo/JsonLd.astro';
+import Header from '@sezioni/Header.astro';
+import Footer from '@sezioni/Footer.astro';
+import BarraSticky from '@sezioni/BarraSticky.astro';
+import CookieBanner from '@sezioni/CookieBanner.astro';
+import { clinica } from '@lib/clinica';
+import { veterinaryCare, webSite, type JsonLd as TipoJsonLd } from '@lib/schema';
+import '@/styles/global.css';
+
+interface Props extends PropsSeo {
+  jsonLd?: TipoJsonLd[];
+  senzaBarraSticky?: boolean;
+  classeBody?: string;
+}
+const { jsonLd = [], senzaBarraSticky = false, classeBody = '', ...seo } = Astro.props;
+const plausibleAttivo = Boolean(clinica.misurazione.plausibleDomain) && import.meta.env.PROD;
+---
+
+<!doctype html>
+<html lang="it" class="js-pending">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <Seo {...seo} />
+    <meta name="theme-color" content="#1e5f41" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e1512" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="preload"
+      href="/fonts/fraunces-latin-wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/inter-latin-wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <!-- Tema: evita il flash applicando subito la preferenza salvata (hash incluso nella CSP da Astro) -->
+    <script is:inline>
+      (function () {
+        const r = document.documentElement;
+        r.classList.replace('js-pending', 'js');
+        try {
+          const t = localStorage.getItem('tema');
+          if (t === 'dark' || t === 'light') r.dataset.theme = t;
+        } catch {
+          /* storage non disponibile */
+        }
+      })();
+    </script>
+    <ClientRouter />
+    <JsonLd dati={[veterinaryCare(), webSite(), ...jsonLd]} />
+    {plausibleAttivo && (
+      <script
+        is:inline
+        defer
+        data-domain={clinica.misurazione.plausibleDomain}
+        src={clinica.misurazione.plausibleScript}
+      ></script>
+    )}
+  </head>
+  <body class:list={['antialiased', senzaBarraSticky ? '' : 'pb-sticky lg:pb-0', classeBody]}>
+    <a href="#contenuto" class="skip-link">
+      Vai al contenuto
+    </a>
+    <Header />
+    <main id="contenuto" tabindex="-1" class="flex-1 outline-none">
+      <slot />
+    </main>
+    <Footer />
+    {!senzaBarraSticky && <BarraSticky />}
+    <CookieBanner />
+    <script>
+      import { collegaEventiClick, osservaScroll75 } from '@lib/analytics';
+
+      function avvia() {
+        collegaEventiClick();
+        osservaScroll75();
+        // Rivelazioni allo scroll (solo se il movimento è consentito)
+        if (
+          !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+          'IntersectionObserver' in window
+        ) {
+          const oss = new IntersectionObserver(
+            (voci) => {
+              voci.forEach((v) => {
+                if (v.isIntersecting) {
+                  v.target.classList.add('visibile');
+                  oss.unobserve(v.target);
+                }
+              });
+            },
+            { rootMargin: '0px 0px -8% 0px', threshold: 0.1 },
+          );
+          document.querySelectorAll<HTMLElement>('.rivela:not(.visibile)').forEach((el) => {
+            // Solo ciò che è sotto la piega viene nascosto e poi rivelato
+            if (el.getBoundingClientRect().top > window.innerHeight) {
+              el.classList.add('rivela--attesa');
+              oss.observe(el);
+            } else {
+              el.classList.add('visibile');
+            }
+          });
+        }
+      }
+      avvia();
+      document.addEventListener('astro:page-load', avvia);
+    </script>
+  </body>
+</html>

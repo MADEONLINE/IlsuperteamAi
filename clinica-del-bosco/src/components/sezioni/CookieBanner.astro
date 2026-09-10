@@ -1,0 +1,124 @@
+---
+/**
+ * Cookie banner GDPR: consenso preventivo e granulare, "Rifiuta" grande quanto "Accetta",
+ * nessun cookie non tecnico prima del consenso. Compare SOLO se è configurato almeno uno
+ * strumento che richiede consenso (GA4). Plausible è senza cookie e non richiede consenso.
+ * Posizionato SOPRA la barra sticky: non copre mai la CTA di emergenza.
+ */
+import Bottone from '@ui/Bottone.astro';
+import { clinica } from '@lib/clinica';
+
+const richiedeConsenso = Boolean(clinica.misurazione.ga4MeasurementId);
+---
+
+{richiedeConsenso && (
+  <div
+    id="cookie-banner"
+    class="fixed inset-x-3 bottom-[calc(var(--spacing-sticky)+0.75rem)] z-30 mx-auto max-w-xl rounded-card border border-bordo bg-sfondo-rialzato p-5 shadow-rialzo lg:inset-x-auto lg:bottom-6 lg:right-6"
+    role="dialog"
+    aria-labelledby="cookie-titolo"
+    aria-describedby="cookie-testo"
+    data-ga4={clinica.misurazione.ga4MeasurementId}
+    hidden
+  >
+    <h2 id="cookie-titolo" class="font-sans text-base font-bold">
+      Cookie e misurazione
+    </h2>
+    <p id="cookie-testo" class="mt-1 text-sm text-testo-secondario">
+      Usiamo statistiche anonime senza cookie per capire come viene usato il sito. Con il tuo
+      consenso attiviamo anche Google Analytics, che usa cookie. Puoi cambiare idea in qualsiasi
+      momento dalla voce "Preferenze cookie" nel footer.{' '}
+      <a href="/cookie-policy">Leggi la cookie policy</a>.
+    </p>
+    <form class="mt-4 space-y-3">
+      <fieldset class="space-y-2">
+        <legend class="sr-only">Categorie di cookie</legend>
+        <label class="flex items-center gap-2 text-sm">
+          <input type="checkbox" checked disabled class="size-4" /> Necessari (sempre attivi)
+        </label>
+        <label class="flex items-center gap-2 text-sm">
+          <input type="checkbox" name="statistiche" class="size-4" /> Statistiche (Google Analytics)
+        </label>
+      </fieldset>
+      <div class="grid grid-cols-2 gap-2">
+        <Bottone type="button" variante="secondario" class="cookie-rifiuta" pieno>
+          Rifiuta
+        </Bottone>
+        <Bottone type="button" variante="primario" class="cookie-accetta" pieno>
+          Accetta
+        </Bottone>
+      </div>
+      <button type="submit" class="cookie-salva w-full text-sm text-primario-link underline">
+        Salva le preferenze selezionate
+      </button>
+    </form>
+  </div>
+)}
+
+<script>
+  const CHIAVE = 'consenso-cookie-v1';
+  type Consenso = { statistiche: boolean; data: string };
+
+  function leggi(): Consenso | null {
+    try {
+      const v = localStorage.getItem(CHIAVE);
+      return v ? (JSON.parse(v) as Consenso) : null;
+    } catch {
+      return null;
+    }
+  }
+  function salva(c: Consenso) {
+    try {
+      localStorage.setItem(CHIAVE, JSON.stringify(c));
+    } catch {
+      /* ignora */
+    }
+  }
+  function caricaGa4(id: string) {
+    if (!id || window.gtag) return;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag(...args: unknown[]) {
+      window.dataLayer!.push(args);
+    };
+    window.gtag('js', new Date());
+    window.gtag('config', id, { anonymize_ip: true });
+  }
+
+  function inizializza() {
+    const banner = document.querySelector<HTMLElement>('#cookie-banner');
+    const preferenze = document.querySelector<HTMLButtonElement>('.cookie-preferenze');
+    if (!banner) return;
+    if (preferenze) preferenze.hidden = false;
+    const ga4 = banner.dataset['ga4'] ?? '';
+    const consenso = leggi();
+    if (consenso) {
+      if (consenso.statistiche) caricaGa4(ga4);
+    } else {
+      banner.hidden = false;
+    }
+    const applica = (statistiche: boolean) => {
+      salva({ statistiche, data: new Date().toISOString() });
+      if (statistiche) caricaGa4(ga4);
+      banner.hidden = true;
+    };
+    banner.querySelector('.cookie-accetta')?.addEventListener('click', () => applica(true));
+    banner.querySelector('.cookie-rifiuta')?.addEventListener('click', () => applica(false));
+    banner.querySelector('form')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const check = banner.querySelector<HTMLInputElement>('input[name="statistiche"]');
+      applica(Boolean(check?.checked));
+    });
+    preferenze?.addEventListener('click', () => {
+      const check = banner.querySelector<HTMLInputElement>('input[name="statistiche"]');
+      if (check) check.checked = Boolean(leggi()?.statistiche);
+      banner.hidden = false;
+      banner.querySelector<HTMLElement>('input, button')?.focus();
+    });
+  }
+  inizializza();
+  document.addEventListener('astro:after-swap', inizializza);
+</script>

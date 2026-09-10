@@ -1,0 +1,70 @@
+---
+/**
+ * Badge "Aperto ora". Il contenuto statico dice sempre che il pronto soccorso è attivo h24
+ * (fallback senza JS). Con JS viene arricchito con l'ora locale di Portici e, se gli orari
+ * ambulatoriali sono confermati, con lo stato dell'ambulatorio. Non mostra MAI "chiuso" per il PS.
+ */
+import Icona from '@ui/Icona.astro';
+import { clinica } from '@lib/clinica';
+
+interface Props {
+  variante?: 'pillola' | 'estesa';
+  inverso?: boolean;
+  class?: string;
+}
+const { variante = 'pillola', inverso = false, class: classe = '' } = Astro.props;
+const orari = JSON.stringify({
+  ambulatorioConfermato: clinica.orari.ambulatorio.confermato,
+  settimana: clinica.orari.ambulatorio.settimana,
+});
+---
+
+<div
+  class:list={[
+    'badge-aperto inline-flex items-center gap-2 rounded-pill font-semibold',
+    variante === 'estesa' ? 'px-4 py-2 text-base' : 'px-3 py-1.5 text-sm',
+    inverso
+      ? 'bg-sfondo/10 text-testo-inverso ring-1 ring-sfondo/25'
+      : 'bg-successo-tenue text-successo',
+    classe,
+  ]}
+  data-orari={orari}
+  role="status"
+  aria-live="polite"
+>
+  <span class="relative flex size-2.5" aria-hidden="true">
+    <span class="absolute inline-flex size-full animate-ping rounded-full bg-current opacity-60 motion-reduce:hidden"></span>
+    <span class="relative inline-flex size-2.5 rounded-full bg-current"></span>
+  </span>
+  <Icona nome="orologio" class="size-4 shrink-0" />
+  <span class="badge-aperto__testo">Aperto ora · pronto soccorso 24/7</span>
+</div>
+
+<script>
+  import { statoOrari, type OrariInput } from '@lib/orari';
+
+  function aggiorna() {
+    document.querySelectorAll<HTMLElement>('.badge-aperto').forEach((el) => {
+      const testo = el.querySelector<HTMLElement>('.badge-aperto__testo');
+      if (!testo) return;
+      try {
+        const input = JSON.parse(el.dataset['orari'] ?? '{}') as OrariInput;
+        const stato = statoOrari(input);
+        let frase = `Aperto ora · sono le ${stato.oraLocale}`;
+        if (stato.ambulatorio === 'aperto') {
+          frase += ` · ambulatorio ${stato.dettaglioAmbulatorio ?? 'aperto'}`;
+        } else if (stato.ambulatorio === 'chiuso') {
+          frase += ` · solo pronto soccorso${stato.dettaglioAmbulatorio ? `, ambulatorio ${stato.dettaglioAmbulatorio}` : ''}`;
+        } else {
+          frase += ' · pronto soccorso 24/7';
+        }
+        testo.textContent = frase;
+      } catch {
+        /* lascia il testo statico */
+      }
+    });
+  }
+  aggiorna();
+  window.setInterval(aggiorna, 60_000);
+  document.addEventListener('astro:after-swap', aggiorna);
+</script>
