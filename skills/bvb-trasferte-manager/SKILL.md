@@ -23,7 +23,8 @@ Destinatari: **Marta** e **Massimo**. Tono: operativo, tabellare, decisioni pron
 | Aule prenotate, moduli, eventi live | Google Calendar **BRAVE MEDIA** | `info@bravemedia.biz` |
 | Calendario e-learning live (secondario) | Google Calendar | `ummb20ker2m7dhoobslol49apg@group.calendar.google.com` |
 | Impegni personali che vincolano le date | Calendari di chi viaggia | `madeonline.biz@gmail.com`, `massimoserreri@gmail.com` |
-| Alloggi e voli | WebSearch + siti ufficiali struttura/compagnia | — |
+| **Prezzi e disponibilità di hotel e voli** | **Verificatore n8n** (webhook → SerpApi) | `references/verificatore-n8n.md` |
+| Contesto: sedi, fiere, tariffe amministrate | WebSearch | — |
 | Fatture ricevute | Gmail (`mcp__Gmail__search_threads`) | account collegato |
 
 Regole di lettura del calendario, pattern degli eventi e trabocchetti (soprattutto la **data di fine esclusiva** degli eventi all-day): `references/calendari-e-parsing.md`. Leggerlo prima di interpretare qualunque data.
@@ -49,7 +50,8 @@ Uso `scripts/finestra-trasferta.mjs` (vedi §4) o applico a mano queste regole:
    - **A — Hotel della sede/evento** (la struttura che ospita l'aula, o quella convenzionata): zero trasferimento, priorità assoluta se disponibile ed entro budget.
    - **B — Hotel più vicino** entro **1,2 km a piedi** o **10 minuti** dalla sede.
    - **C — Appartamento** (Airbnb/Booking apartments) entro **2 km**, sensato dalle **2 notti in su** o quando viaggiano in due (cucina, spazio, costo/notte migliore).
-3. Per ciascuna opzione raccolgo: nome, indirizzo, distanza a piedi dalla sede, prezzo totale per le notti, colazione inclusa sì/no, cancellazione gratuita entro quando, **fattura intestabile all'azienda sì/no**, link.
+3. Interrogo il **verificatore n8n** (`references/verificatore-n8n.md`) passando le coordinate della sede: restituisce le strutture **ordinate per distanza reale a piedi**, con prezzo, valutazione e link. Se non risponde, scendo di gradino nella scala di ripiego e lo scrivo nel dossier.
+4. Per ciascuna opzione raccolgo: nome, indirizzo, distanza a piedi dalla sede, prezzo totale per le notti, colazione inclusa sì/no, cancellazione gratuita entro quando, **fattura intestabile all'azienda sì/no**, link.
 
 Criteri di scelta, soglie di budget e regole di esclusione: `references/policy-trasferte.md`.
 
@@ -58,7 +60,8 @@ Criteri di scelta, soglie di budget e regole di esclusione: `references/policy-t
 - **Andata**: il giorno del check-in, arrivo **entro le 21:00**, preferibilmente pomeriggio.
 - **Ritorno**: l'ultimo giorno, partenza **non prima di fine sessione + 2h30** (tempo di trasferimento e imbarco). Se non esiste un volo compatibile, scatta la "notte extra" della Fase 2.
 - Confronto **volo vs treno** quando la tratta è ferroviaria competitiva (indicativamente sotto le 4h porta a porta): se il treno vince su tempo/costo lo dico esplicitamente.
-- Per ogni opzione: compagnia, orari, durata, scali, bagaglio incluso, prezzo, link. **Mai acquistare.**
+- Orari e disponibilità dal **verificatore n8n** (endpoint voli). Per ogni opzione: compagnia, orari, durata, scali, bagaglio incluso, prezzo, link. **Mai acquistare.**
+- **Tratte sarde**: il verificatore restituisce la tariffa pubblica, non quella residenti. Il prezzo da mettere a dossier è quello della continuità territoriale (`references/policy-trasferte.md` §1); il verificatore serve per sapere **a che ora si vola e se c'è posto**.
 
 ### Fase 5 — Consegnare il dossier
 Formato obbligatorio in `references/template-output.md`: intestazione con assunzioni, tabella comparativa alloggi, tabella voli, totale a persona, e **una raccomandazione secca** ("Io prenderei B + volo delle 18:40, motivo: ..."). Niente elenchi di opzioni senza consiglio.
@@ -103,3 +106,4 @@ Restituisce, per ogni trasferta: giorni d'aula, check-in, check-out, numero nott
 - ❌ Proporre un volo di rientro che parte prima della fine dell'aula.
 - ❌ Chiudere una trasferta senza aver messo il promemoria fattura.
 - ❌ Prezzi "indicativi" a memoria: o li verifico ora con la fonte, o li marco `⚠️ non verificato`.
+- ❌ Dire "non riesco a verificare" e fermarsi: esiste il verificatore n8n, e se è giù esiste la scala di ripiego. Quello che non esiste è il numero inventato.
