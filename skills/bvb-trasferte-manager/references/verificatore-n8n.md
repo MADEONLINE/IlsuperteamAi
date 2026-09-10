@@ -69,7 +69,22 @@ Catena: Schedule → Google Calendar (BRAVE MEDIA, `fields=*`) → selezione eve
 
 I nodi SerpApi sono impostati su `continueRegularOutput`: se la fonte prezzi cade, l'email parte comunque. L'unico blocco che ferma l'avviso è la lettura del calendario.
 
-## 6. Scala di ripiego
+## 6. Richiesta della sede mancante
+
+**Workflow `BVB · Richiesta Sede`** — id `AYfD7zjVa7PzLYem` — lunedì 07:05, invia a `info@bravemedia.biz`.
+
+Seleziona gli eventi fra **21 e 45 giorni** per cui non esiste un indirizzo utilizzabile e ne chiede uno. Regola di validità: il campo `Luogo` conta come sede solo se contiene un indirizzo vero — almeno 8 caratteri e una parola fra via/viale/piazza/corso/largo/strada/hotel/centro/palazzo, oppure un numero. Il solo nome della città viene rifiutato.
+
+Precedenza applicata anche dal workflow dei consigli: **`Luogo` dell'evento → mappa delle sedi note → "da confermare"**. Quando la sede arriva dal campo `Luogo` non abbiamo le sue coordinate, quindi gli hotel vengono cercati per indirizzo e la colonna della distanza riporta `da verificare` invece di un numero inventato.
+
+Per aggiungere una sede ricorrente alla mappa (con coordinate, e quindi con l'ordinamento per distanza attivo) si modifica l'oggetto `SEDI` nei nodi `Seleziona trasferte a 3 settimane` e `Eventi senza sede`.
+
+| Componente | Stato |
+|---|---|
+| Selezione eventi senza sede, testo della richiesta | ✅ verificato: su dati realistici seleziona Padova e Bologna (città nota, indirizzo assente) e il Super Master (città non deducibile), scarta Milano (sede nota) e Roma (indirizzo completo) |
+| Invio email | condivide credenziale e limiti con l'alert T-21 |
+
+## 7. Scala di ripiego
 
 Quando il verificatore non risponde o la chiave è scaduta, **si dichiara e si scende di un gradino**, senza mai inventare numeri:
 
