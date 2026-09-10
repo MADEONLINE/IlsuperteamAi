@@ -50,7 +50,26 @@ Risposta: `opzioni[]` con `prezzo_pubblico`, `durata_totale_min`, `scali`, `trat
 
 Il piano free SerpApi copre 100 ricerche/mese; una trasferta ne consuma 2-3.
 
-## 5. Scala di ripiego
+## 5. Automazione dell'avviso a 3 settimane
+
+**Workflow `BVB · Alert Trasferte T-21`** — id `c0k5ToWoKtR7kCzr` — schedulato ogni lunedì 07:00, invia a `info@bravemedia.biz`.
+
+Catena: Schedule → Google Calendar (BRAVE MEDIA, `fields=*`) → selezione eventi a 21-28 giorni → SerpApi hotel + voli → composizione HTML → Gmail.
+
+| Componente | Stato |
+|---|---|
+| Selezione eventi, finestra, deduplica banner+sessioni, esclusione del rumore | ✅ verificato con dati reali di ottobre |
+| Composizione e invio email | ✅ verificato (email generata correttamente in test) |
+| Lettura calendario | ❌ la credenziale `Google Calendar MADEONLINE` ha **solo accesso libero/occupato**: Google restituisce gli eventi senza titolo né luogo e il filtro scarta tutto |
+| Prezzi hotel e voli | ❌ chiave SerpApi non valida (vedi §4) |
+
+**Come si ripara la lettura del calendario** — una delle due:
+1. In Google Calendar → calendario **BRAVE MEDIA** → Impostazioni → Condividi con persone → `madeonline.biz@gmail.com` → permesso **"Vedi tutti i dettagli dell'evento"** (oggi è su libero/occupato).
+2. Oppure creare in n8n, nel progetto personale, una credenziale Google Calendar autenticata come `info@bravemedia.biz` e assegnarla al nodo `Leggi aule BRAVE MEDIA`.
+
+I nodi SerpApi sono impostati su `continueRegularOutput`: se la fonte prezzi cade, l'email parte comunque. L'unico blocco che ferma l'avviso è la lettura del calendario.
+
+## 6. Scala di ripiego
 
 Quando il verificatore non risponde o la chiave è scaduta, **si dichiara e si scende di un gradino**, senza mai inventare numeri:
 

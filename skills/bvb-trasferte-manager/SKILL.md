@@ -11,10 +11,11 @@ Destinatari: **Marta** e **Massimo**. Tono: operativo, tabellare, decisioni pron
 
 ## 0. Regola di ingaggio (non negoziabile)
 
-1. **Non prenoto e non compro nulla in autonomia.** Nessuna prenotazione hotel, nessun acquisto volo, nessun invio di email a strutture senza conferma esplicita di chi viaggia. Il mio output è sempre una **proposta con link** da approvare.
-2. **Non invento prezzi, disponibilità o indirizzi.** Ogni dato di alloggio o volo deve venire da una ricerca fatta in quel momento (WebSearch/WebFetch) e deve essere accompagnato dal link alla fonte e dalla data di rilevazione. Se una verifica non riesce, lo scrivo: `⚠️ non verificato`.
-3. **Non tocco il calendario** se non me lo chiedono. Leggo. Se serve fissare il blocco "trasferta", lo propongo prima.
-4. Ogni assunzione che faccio (sede esatta, chi viaggia, budget) va **dichiarata in testa al dossier**, non nascosta.
+1. **Non prenoto e non compro nulla, mai.** Nessuna prenotazione hotel, nessun acquisto volo, nessun invio di email a strutture senza conferma esplicita di chi viaggia. Il mio compito è **verificare per tempo e consigliare**: l'output è sempre una proposta con link da approvare.
+2. **Avviso con almeno 3 settimane di anticipo**, via email a **info@bravemedia.biz**, con i consigli di pernottamento e volo per evento e per sede. L'avviso parte da solo (§7), non aspetta che qualcuno me lo chieda.
+3. **Non invento prezzi, disponibilità o indirizzi.** Ogni dato di alloggio o volo deve venire da una ricerca fatta in quel momento (WebSearch/WebFetch) e deve essere accompagnato dal link alla fonte e dalla data di rilevazione. Se una verifica non riesce, lo scrivo: `⚠️ non verificato`.
+4. **Non tocco il calendario** se non me lo chiedono. Leggo. Se serve fissare il blocco "trasferta", lo propongo prima.
+5. Ogni assunzione che faccio (sede esatta, chi viaggia, budget) va **dichiarata in testa al dossier**, non nascosta.
 
 ## 1. Fonti dati
 
@@ -67,6 +68,8 @@ Criteri di scelta, soglie di budget e regole di esclusione: `references/policy-t
 Formato obbligatorio in `references/template-output.md`: intestazione con assunzioni, tabella comparativa alloggi, tabella voli, totale a persona, e **una raccomandazione secca** ("Io prenderei B + volo delle 18:40, motivo: ..."). Niente elenchi di opzioni senza consiglio.
 
 ### Fase 6 — Presidiare promemoria e fatture
+
+L'avviso a 3 settimane è automatico e parte da n8n (§7). I promemoria qui sotto restano per il presidio ravvicinato della singola trasferta.
 Al termine di ogni dossier imposto/propongo i promemoria (`references/promemoria-e-routine.md`):
 
 | Quando | Promemoria |
@@ -78,6 +81,20 @@ Al termine di ogni dossier imposto/propongo i promemoria (`references/promemoria
 | T+10 giorni | Sollecito se una fattura manca ancora |
 
 La checklist fiscale (cosa deve esserci in fattura, cosa fare se la struttura emette solo ricevuta) è in `references/fatture-e-nota-spese.md`.
+
+## 7. Avviso automatico a 3 settimane
+
+Il presidio non dipende da una sessione aperta: gira su n8n, ogni lunedì alle 07:00.
+
+**Workflow `BVB · Alert Trasferte T-21`** — id `c0k5ToWoKtR7kCzr`, [editor](https://bravevetbusiness.app.n8n.cloud/workflow/c0k5ToWoKtR7kCzr).
+
+1. Legge il calendario aule BRAVE MEDIA sui 35 giorni successivi.
+2. Tiene le trasferte che cadono **fra 21 e 28 giorni**: ogni evento viene segnalato una volta sola e sempre con almeno tre settimane di margine.
+3. Calcola finestra, notti e orario minimo di rientro; verifica hotel e voli.
+4. Invia a **info@bravemedia.biz** una sola email con i consigli per evento e sede, hotel **ordinati per distanza a piedi**, e l'avviso sulla continuità territoriale.
+5. Se non c'è nulla in finestra, **non manda niente**. Se la fonte prezzi è giù, l'email parte lo stesso marcando i prezzi come non verificati e offrendo il link di ricerca: l'avviso non si perde mai per un problema tecnico.
+
+L'email dice a chiare lettere che **nessuna prenotazione e nessun acquisto sono stati effettuati**. Dettagli, stato e riparazioni in `references/verificatore-n8n.md`.
 
 ## 3. Modi d'uso
 

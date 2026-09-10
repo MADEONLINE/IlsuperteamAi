@@ -2,6 +2,12 @@
 
 L'agente non "si ricorda" da solo: i promemoria vanno **materializzati** come Routine/scheduled task, altrimenti non esistono.
 
+## 0. L'avviso che conta: T-21 via email
+
+Il presidio principale **non è un promemoria a Claude**, è l'email automatica a `info@bravemedia.biz` inviata dal workflow n8n `BVB · Alert Trasferte T-21` ogni lunedì, per le trasferte a 21-28 giorni. Gira senza sessioni aperte e senza che nessuno se ne ricordi.
+
+Le cadenze qui sotto sono il presidio ravvicinato, utile una volta che la trasferta è entrata in lavorazione.
+
 ## 1. Cadenza standard per trasferta
 
 | Sigla | Quando | Contenuto del promemoria |
