@@ -6,10 +6,19 @@
 
 | Persona | Base di partenza | Preferenze note |
 |---|---|---|
-| Marta | ⟨da confermare⟩ | ⟨da confermare⟩ |
-| Massimo | ⟨da confermare⟩ | ⟨da confermare⟩ |
+| Marta | **Olbia (OLB)** — residente in Sardegna | tariffa residenti in continuità territoriale |
+| Massimo | **Olbia (OLB)** — residente in Sardegna | tariffa residenti in continuità territoriale |
 
 Se viaggiano insieme: **due camere singole** salvo indicazione diversa; per appartamenti, due camere da letto separate. Non si dà mai per scontata la camera condivisa.
+
+### Continuità territoriale — vale su ogni trasferta
+
+Entrambi sono **residenti in Sardegna**: su Olbia–Milano Linate e Olbia–Roma Fiumicino si applica la **tariffa agevolata residenti** del regime di continuità territoriale, in vigore dal 29 marzo 2026 con **Aeroitalia**.
+
+- Olbia ⇄ Linate, tariffa residenti: **66,57 € andata + 75,85 € ritorno ≈ 142 € A/R** (rilevazione settembre 2026 — [Regione Sardegna](https://www.regione.sardegna.it/argomenti/argomenti-speciali/continuita-territoriale-2026/domande-e-risposte-continuita-territoriale)).
+- Include **bagaglio a mano 10 kg + stiva 23 kg**: nessun supplemento bagaglio da conteggiare.
+- La tariffa residenti si ottiene **solo dichiarando la residenza in fase di acquisto**: sui comparatori (Skyscanner, Omio, Kayak) compare la tariffa piena. Prenotare sul sito Aeroitalia o al numero dedicato.
+- **Regola operativa**: prima di proporre qualunque volo da/per la Sardegna, verificare la rotta in continuità territoriale. Un volo non agevolato si propone solo se quello agevolato non esiste o è pieno, e va detto esplicitamente.
 
 ## 2. Soglie di budget ⟨da confermare⟩
 
@@ -36,13 +45,25 @@ Esclusioni automatiche: strutture con valutazione < 8.0 su portali con almeno 20
 
 ## 4. Tratte e scali per città ricorrenti
 
+**Partenza sempre da Olbia (OLB)** salvo indicazione diversa.
+
 | Città evento | Scalo aereo | Stazione | Nota |
 |---|---|---|---|
-| Milano | MXP / LIN / BGY | Milano Centrale, Rogoredo | LIN è il più vicino al centro; da Roma il treno di norma batte l'aereo |
+| Milano | **LIN** (continuità territoriale da OLB) / MXP / BGY | Milano Centrale, Rogoredo | Da Olbia si vola **Linate**: rotta agevolata, ~1h10, e Linate è a ~25 min dal centro |
 | Padova | VCE (Venezia) o BLQ + treno | Padova | Nessun aeroporto proprio: VCE + ~1h di transfer |
 | Bologna | BLQ | Bologna Centrale | Aeroporto a 15 min dal centro (Marconi Express); nodo ferroviario forte |
 | Roma | FCO / CIA | Roma Termini, Tiburtina | |
 | Palermo | PMO | Palermo Centrale | Aeroporto a ~35 min dal centro; **tratta da fare in aereo** |
+
+Da Olbia il treno non è mai un'alternativa: il confronto volo/treno vale solo per gli spostamenti sul continente.
+
+## 6. Limiti di verifica dei prezzi
+
+Alcune sessioni hanno il proxy di rete che **blocca Booking, Aeroitalia e i comparatori di volo**. In quel caso:
+
+1. Non si inventano prezzi: si dichiara `⚠️ prezzo da verificare` e si consegna comunque nome struttura, indirizzo, distanza reale dalla sede e link su cui controllare.
+2. Restano verificabili: tariffe di continuità territoriale (fonti istituzionali), distanze, sedi, fiere in città.
+3. Il dossier resta valido come **shortlist da confermare**, non come preventivo chiuso.
 
 Regola pratica: sotto le **4 ore porta a porta** il treno vince quasi sempre — va comunque mostrato il confronto, non deciso a priori.
 

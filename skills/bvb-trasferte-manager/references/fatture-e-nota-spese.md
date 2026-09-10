@@ -7,12 +7,16 @@ Obiettivo: nessuna trasferta si chiude senza documento fiscale valido, intestato
 Da richiedere una volta sola a Marta/Massimo e poi tenere qui, così l'agente può compilare i moduli delle strutture senza chiedere ogni volta:
 
 ```
-Ragione sociale : ⟨da confermare⟩
+Ragione sociale : BRAVE MEDIA SRLS
 Sede legale     : ⟨da confermare⟩
 P. IVA          : ⟨da confermare⟩
 Codice SDI / PEC: ⟨da confermare⟩
-Email fatture   : ⟨da confermare⟩
+Email fatture   : info@bravemedia.biz
 ```
+
+**Nota sulla doppia intestazione.** Su alcuni eventi la fatturazione viene **divisa fra Brave Media SRLS e Vet Bros Company SRL** (è già successo con NH Firenze del 30/10 e con Starhotels Terminus Napoli del 20/11: quote d'aula e coffee break separati). Per le trasferte personali di Marta e Massimo l'intestazione è **Brave Media SRLS**; se una struttura ospita anche l'aula, chiarire subito quali voci vanno su quale società, prima della firma del contratto.
+
+**Convenzioni già attive** da sfruttare: BVB lavora abitualmente con **Starhotels**, **NH / Minor Hotels** e **Copernico (IWG/Spaces)**. Prima di prenotare a tariffa pubblica, chiedere la **tariffa corporate** citando gli eventi già contrattualizzati.
 
 L'agente **non deduce e non ricostruisce** questi dati da fatture o email trovate in giro: o sono confermati qui, o li chiede.
 
