@@ -1,0 +1,89 @@
+---
+/** Hub servizi: tutti i servizi raggruppati per area, con i quattro pilastri in evidenza. */
+import { getCollection } from 'astro:content';
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import CardServizio from '@ui/CardServizio.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Sezione from '@ui/Sezione.astro';
+import { webPage } from '@lib/schema';
+
+const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
+const gruppi: Array<{ chiave: string; titolo: string; testo: string }> = [
+  {
+    chiave: 'urgenza',
+    titolo: 'Urgenza e degenza',
+    testo: 'Pronto soccorso 24 ore su 24 e terapia intensiva con personale in struttura.',
+  },
+  {
+    chiave: 'diagnostica',
+    titolo: 'Diagnostica',
+    testo: 'TAC, radiologia, ecografia, endoscopia, laboratorio e citologia nella stessa sede.',
+  },
+  {
+    chiave: 'chirurgia',
+    titolo: 'Chirurgia',
+    testo: "Due sale operatorie per chirurgia di base, specialistica e d'urgenza.",
+  },
+  {
+    chiave: 'specialistica',
+    titolo: 'Medicina specialistica',
+    testo:
+      'Ortopedia, oncologia, dermatologia, oftalmologia, neurologia, nutrizione, odontostomatologia, terapia del dolore.',
+  },
+  {
+    chiave: 'prevenzione',
+    titolo: 'Prevenzione',
+    testo: 'Vaccinazioni, antiparassitari, controlli programmati e percorso cat friendly.',
+  },
+  {
+    chiave: 'esotici',
+    titolo: 'Animali esotici e conigli',
+    testo: 'Competenza dedicata a conigli, piccoli mammiferi, rettili e uccelli.',
+  },
+];
+const descrizione =
+  'Tutti i servizi della Clinica Veterinaria del Bosco a Portici: pronto soccorso 24h, TAC, chirurgia, laboratorio, terapia intensiva, specialistiche, animali esotici. Un ospedale veterinario completo.';
+---
+
+<PaginaLayout
+  titolo="Servizi veterinari a Portici: urgenza, diagnostica, chirurgia, specialistiche"
+  descrizione={descrizione}
+  percorso="/servizi"
+  h1="Tutti i servizi, in un'unica sede"
+  sottotitolo="Dalla visita di routine alla TAC, dalla chirurgia alla terapia intensiva: il tuo animale non deve cambiare struttura per essere curato."
+  etichetta="Servizi"
+  briciole={[{ nome: 'Servizi', href: '/servizi' }]}
+  jsonLd={[
+    webPage({
+      url: '/servizi',
+      titolo: 'Servizi veterinari a Portici',
+      descrizione,
+      tipo: 'CollectionPage',
+    }),
+  ]}
+>
+  {gruppi.map((g) => {
+    const lista = servizi.filter((s) => s.data.categoria === g.chiave);
+    if (!lista.length) return null;
+    return (
+      <Sezione compatta id={g.chiave}>
+        <div class="grid gap-6 lg:grid-cols-12">
+          <div class="lg:col-span-3">
+            <h2 class="text-2xl md:text-3xl">{g.titolo}</h2>
+            <p class="mt-2 text-testo-secondario">{g.testo}</p>
+          </div>
+          <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
+            {lista.map((s) => (
+              <li>
+                <CardServizio servizio={s} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Sezione>
+    );
+  })}
+  <Sezione compatta>
+    <CtaDoppia posizione="servizi-hub" />
+  </Sezione>
+</PaginaLayout>

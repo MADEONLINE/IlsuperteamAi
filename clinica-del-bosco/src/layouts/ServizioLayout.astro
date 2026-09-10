@@ -1,0 +1,239 @@
+---
+/**
+ * Layout unico per tutte le pagine servizio, guidato dai dati della collection `servizi`.
+ * Nessuna duplicazione di markup: la pagina [slug].astro passa solo l'entry.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { getEntries, getEntry, render } from 'astro:content';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Briciole from '@ui/Briciole.astro';
+import Bottone from '@ui/Bottone.astro';
+import CardServizio from '@ui/CardServizio.astro';
+import CtaDoppia from '@ui/CtaDoppia.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Faq from '@ui/Faq.astro';
+import Fonti from '@ui/Fonti.astro';
+import Foto from '@ui/Foto.astro';
+import Icona from '@ui/Icona.astro';
+import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import SchedaAutore from '@ui/SchedaAutore.astro';
+import Sezione from '@ui/Sezione.astro';
+import TabellaDati from '@ui/TabellaDati.astro';
+import { clinica, telHref } from '@lib/clinica';
+import { faqPage, medicalWebPage, servizioMedico } from '@lib/schema';
+
+interface Props {
+  servizio: CollectionEntry<'servizi'>;
+}
+const { servizio } = Astro.props;
+const { Content } = await render(servizio);
+const autore = await getEntry(servizio.data.autore);
+if (!autore) throw new Error(`Autore ${servizio.data.autore.id} non trovato per ${servizio.id}`);
+
+const correlati = (
+  await getEntries(servizio.data.correlati.map((id) => ({ collection: 'servizi' as const, id })))
+).filter(Boolean);
+
+const url = `/servizi/${servizio.id}`;
+const briciole = [
+  { nome: 'Servizi', href: '/servizi' },
+  { nome: servizio.data.titoloBreve, href: url },
+];
+const categorie: Record<string, string> = {
+  urgenza: 'Urgenza e degenza',
+  diagnostica: 'Diagnostica',
+  chirurgia: 'Chirurgia',
+  specialistica: 'Medicina specialistica',
+  prevenzione: 'Prevenzione',
+  esotici: 'Animali esotici',
+};
+const specieEtichetta: Record<string, string> = {
+  cane: 'Cani',
+  gatto: 'Gatti',
+  coniglio: 'Conigli',
+  esotici: 'Esotici',
+};
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+const tipoSchema =
+  servizio.data.categoria === 'diagnostica'
+    ? servizio.id.includes('tac') || servizio.id.includes('immagini')
+      ? 'ImagingTest'
+      : 'MedicalTest'
+    : 'MedicalProcedure';
+---
+
+<BaseLayout
+  titolo={servizio.data.titolo}
+  descrizione={servizio.data.descrizioneMeta}
+  percorso={url}
+  dataPubblicazione={iso(servizio.data.dataPubblicazione)}
+  dataModifica={iso(servizio.data.dataRevisione)}
+  jsonLd={[
+    medicalWebPage({
+      url,
+      titolo: servizio.data.titolo,
+      descrizione: servizio.data.descrizioneMeta,
+      briciole,
+      specialita: servizio.data.medicalSpecialty,
+      dataPubblicazione: iso(servizio.data.dataPubblicazione),
+      dataModifica: iso(servizio.data.dataRevisione),
+      autore: { nome: `${autore.data.titolo} ${autore.data.nome}`, url: `/equipe/${autore.id}` },
+    }),
+    servizioMedico({
+      url,
+      nome: servizio.data.titoloBreve,
+      descrizione: servizio.data.risposta,
+      tipo: tipoSchema,
+      specialita: servizio.data.medicalSpecialty,
+    }),
+    faqPage(servizio.data.faq),
+  ]}
+>
+  <header class="border-b border-bordo bg-sfondo-tinta">
+    <div class="contenitore grid gap-8 py-10 md:py-14 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-7">
+        <Briciole briciole={briciole} class="mb-5" />
+        <Etichetta class="mb-2">{categorie[servizio.data.categoria]}</Etichetta>
+        <h1 class="text-4xl md:text-5xl">{servizio.data.titolo}</h1>
+        <p class="prosa mt-4 text-lg text-testo-secondario md:text-xl">
+          {servizio.data.sottotitolo}
+        </p>
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Specie trattate">
+          {servizio.data.specie.map((s) => (
+            <li class="rounded-pill bg-sfondo-rialzato px-3 py-1 text-sm font-semibold">
+              {specieEtichetta[s]}
+            </li>
+          ))}
+        </ul>
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+          <Bottone
+            href={`/prenota?motivo=${servizio.id}`}
+            variante="primario"
+            dimensione="lg"
+            icona="calendario"
+          >
+            Prenota una visita
+          </Bottone>
+          <Bottone
+            href={telHref}
+            variante="urgenza"
+            dimensione="lg"
+            icona="telefono"
+            evento="click_chiama"
+            eventoPosizione="servizio-header"
+          >
+            È un'urgenza · {clinica.contatti.telefono.visualizzato}
+          </Bottone>
+        </div>
+        <Rassicurazioni class="mt-4" />
+      </div>
+      <div class="lg:col-span-5">
+        <Foto
+          ratio="4/3"
+          scattoBrief={servizio.data.scattoBrief}
+          descrizioneSegnaposto={`${servizio.data.titoloBreve}: fotografia del servizio`}
+        />
+      </div>
+    </div>
+  </header>
+
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <article class="lg:col-span-8">
+        <div class="rounded-card border-l-4 border-primario bg-sfondo-rialzato p-5 md:p-6">
+          <p class="text-lg leading-relaxed">{servizio.data.risposta}</p>
+        </div>
+        <div class="prosa-md mt-8">
+          <Content />
+        </div>
+        {servizio.data.tabella && <TabellaDati tabella={servizio.data.tabella} class="mt-10" />}
+        <Faq
+          voci={servizio.data.faq}
+          titolo={`Domande frequenti su ${servizio.data.titoloBreve.toLowerCase()}`}
+          class="mt-12"
+        />
+        <SchedaAutore
+          autore={autore}
+          dataPubblicazione={servizio.data.dataPubblicazione}
+          dataRevisione={servizio.data.dataRevisione}
+          class="mt-10"
+        />
+        <Fonti fonti={servizio.data.fonti} class="mt-6" />
+        <p class="mt-8 text-sm text-testo-secondario">
+          Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
+        </p>
+      </article>
+
+      <aside class="space-y-6 lg:col-span-4">
+        <div class="rounded-card border border-urgenza/40 bg-urgenza-tenue p-5">
+          <h2 class="flex items-center gap-2 font-sans text-lg font-bold text-urgenza-testo-su-chiaro">
+            <Icona nome="ambulanza" class="size-5" /> È un'urgenza?
+          </h2>
+          <p class="mt-2 text-sm">
+            Il pronto soccorso è attivo 24 ore su 24 con medici in struttura. Chiama mentre arrivi.
+          </p>
+          <Bottone
+            href={telHref}
+            variante="urgenza"
+            dimensione="md"
+            icona="telefono"
+            pieno
+            class="mt-3"
+            evento="click_chiama"
+            eventoPosizione="servizio-aside"
+          >
+            {clinica.contatti.telefono.visualizzato}
+          </Bottone>
+          <a
+            href="/pronto-soccorso"
+            class="mt-2 block text-sm font-semibold text-urgenza-testo-su-chiaro"
+          >
+            Cosa fare mentre arrivi →
+          </a>
+        </div>
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
+          <h2 class="font-sans text-lg font-bold">Prevenzione programmata</h2>
+          <p class="mt-2 text-sm text-testo-secondario">
+            Visite, vaccini, antiparassitari e screening in un unico calendario annuale: i Piani
+            Salute Cucciolo, Adulto e Senior.
+          </p>
+          <a
+            href="/piani-salute"
+            class="mt-3 inline-flex items-center gap-1 font-semibold text-primario-link"
+          >
+            Scopri i Piani Salute <Icona nome="freccia-destra" class="size-4" />
+          </a>
+        </div>
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
+          <h2 class="font-sans text-lg font-bold">Sei un collega veterinario?</h2>
+          <p class="mt-2 text-sm text-testo-secondario">
+            TAC, endoscopia, chirurgia e degenza in service. Il paziente torna sempre a te.
+          </p>
+          <a
+            href="/per-i-colleghi"
+            class="mt-3 inline-flex items-center gap-1 font-semibold text-primario-link"
+          >
+            Area colleghi <Icona nome="freccia-destra" class="size-4" />
+          </a>
+        </div>
+      </aside>
+    </div>
+  </Sezione>
+
+  {correlati.length > 0 && (
+    <Sezione tono="tinta" compatta>
+      <h2 class="text-2xl md:text-3xl">Servizi collegati</h2>
+      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {correlati.map((c) => (
+          <li>
+            <CardServizio servizio={c} />
+          </li>
+        ))}
+      </ul>
+    </Sezione>
+  )}
+
+  <Sezione compatta>
+    <CtaDoppia motivo={servizio.id} posizione="servizio-fondo" />
+  </Sezione>
+</BaseLayout>
