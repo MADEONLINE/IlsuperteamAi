@@ -6,7 +6,7 @@ sottotitolo: 'Alito cattivo, gengive rosse, difficoltà a masticare: la malattia
 risposta: 'Il servizio di odontostomatologia della Clinica Veterinaria del Bosco a Portici cura denti e bocca di cane, gatto e coniglio: malattia parodontale, gengivite e stomatite, fratture dentali, riassorbimenti del gatto, malocclusioni del coniglio e masse orali. La visita è completata da radiografie dentali e pulizia in anestesia generale monitorata, con estrazioni e chirurgia orale quando necessarie.'
 icona: 'dente'
 categoria: 'specialistica'
-ordine: 13
+ordine: 16
 specie: ['cane', 'gatto', 'coniglio']
 correlati: ['chirurgia', 'animali-esotici-e-conigli', 'medicina-preventiva-vaccinazioni']
 medicalSpecialty: 'Dentistry'

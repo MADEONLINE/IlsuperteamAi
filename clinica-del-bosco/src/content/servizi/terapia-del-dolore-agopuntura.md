@@ -6,7 +6,7 @@ sottotitolo: 'Il dolore cronico spesso non si vede: si nasconde in un cane che n
 risposta: "Il servizio di terapia del dolore della Clinica Veterinaria del Bosco a Portici tratta il dolore di cane, gatto e coniglio integrando i farmaci con agopuntura, elettroagopuntura, laser terapia e impianti d'oro. È rivolto ad animali con artrosi, dolore alla colonna, esiti chirurgici, tumori e anziani che tollerano male i farmaci. Il piano è personalizzato e rivalutato nel tempo."
 icona: 'ago'
 categoria: 'specialistica'
-ordine: 16
+ordine: 19
 specie: ['cane', 'gatto', 'coniglio']
 correlati: ['ortopedia', 'neurologia', 'oncologia']
 medicalSpecialty: 'Anesthesia'
@@ -75,6 +75,7 @@ fonti:
     url: 'https://icatcare.org/'
     ente: 'ISFM / International Cat Care'
 autore: 'isabella-rosapane'
+referenti: ['dario-ferrari']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

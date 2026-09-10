@@ -116,6 +116,16 @@ const schemaClinica = z.object({
     z.object({ nome: z.string(), slug: z.string(), tipo: z.enum(['comune', 'area']) }),
   ),
   priceRange: z.string(),
+  struttura: z.object({
+    metriQuadri: z.number().int(),
+    saleVisita: z.number().int(),
+    saleChirurgiche: z.number().int(),
+    postiDegenza: z.number().int(),
+    veterinari: z.number().int(),
+    tecnici: z.number().int(),
+    reception: z.number().int(),
+    confermato: z.boolean(),
+  }),
   impegni: z.object({
     richiamoEntroOre: z.number().int().positive(),
     preventivoScritto: z.boolean(),

@@ -6,7 +6,7 @@ sottotitolo: 'Crisi convulsive, zampe posteriori che cedono, testa inclinata: la
 risposta: 'Il servizio di neurologia della Clinica Veterinaria del Bosco a Portici cura le malattie di cervello, midollo spinale e nervi di cane e gatto: epilessia, ernia del disco, sindrome vestibolare, paralisi e tremori. La visita neurologica localizza la lesione ed è completata in sede con TAC, liquido cerebrospinale e laboratorio. Pronto soccorso 24 ore su 24 per le crisi.'
 icona: 'cervello'
 categoria: 'specialistica'
-ordine: 12
+ordine: 15
 specie: ['cane', 'gatto']
 correlati: ['tac-diagnostica-avanzata', 'pronto-soccorso-h24', 'ortopedia']
 medicalSpecialty: 'Neurologic'
@@ -76,6 +76,7 @@ fonti:
     url: 'https://www.ecvn.org/'
     ente: 'ECVN'
 autore: 'isabella-rosapane'
+referenti: ['donatella-de-simone', 'alessandro-testa']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

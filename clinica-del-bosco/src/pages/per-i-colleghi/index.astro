@@ -1,5 +1,6 @@
 ---
 /** /per-i-colleghi — area referral B2B. Registro tecnico. Indicizzabile per "TAC veterinaria Napoli", "service diagnostico veterinario Campania". */
+import { getCollection } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Bottone from '@ui/Bottone.astro';
 import Faq from '@ui/Faq.astro';
@@ -10,6 +11,19 @@ import TabellaDati from '@ui/TabellaDati.astro';
 import FormColleghi from '@/components/form/FormColleghi.astro';
 import { clinica, emailPrincipale, telHref } from '@lib/clinica';
 import { faqPage, medicalWebPage } from '@lib/schema';
+
+const servizi = await getCollection('servizi');
+const equipe = await getCollection('equipe');
+/** Specialistiche con referente nominato: per il collega inviante conta sapere chi legge il caso e quando è in struttura. */
+const specialistiche = servizi
+  .filter((s) => s.data.referenti.length > 0 && s.id !== 'pronto-soccorso-h24')
+  .sort((a, b) => a.data.ordine - b.data.ordine)
+  .map((s) => ({
+    servizio: s,
+    medici: s.data.referenti
+      .map((r) => equipe.find((m) => m.id === r.id))
+      .filter((m): m is NonNullable<typeof m> => Boolean(m)),
+  }));
 
 const descrizione =
   'Service diagnostico e chirurgico per veterinari in Campania: TAC, endoscopia, chirurgia e degenza h24 a Portici. Referto rapido, contatto diretto col referente, il paziente torna sempre al collega inviante.';
@@ -247,6 +261,43 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
         nota: 'Marche e modelli delle apparecchiature disponibili su richiesta. Dotazione soggetta ad aggiornamento.',
       }}
     />
+  </Sezione>
+
+  <Sezione tono="tinta" id="specialisti">
+    <Etichetta class="mb-3">Referenti</Etichetta>
+    <h2 class="text-3xl md:text-4xl">Chi riceve il caso, disciplina per disciplina</h2>
+    <p class="mt-3 max-w-prose text-testo-secondario">
+      Per ogni specialistica il medico che segue il caso e, per gli specialisti in collaborazione,
+      la cadenza di presenza in struttura: utile per concordare tempi realistici con il
+      proprietario.
+    </p>
+    <ul class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {specialistiche.map(({ servizio, medici }) => (
+        <li class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
+          <h3 class="font-sans text-lg font-bold">
+            <a
+              href={`/servizi/${servizio.id}`}
+              class="text-testo no-underline hover:text-primario-link"
+            >
+              {servizio.data.titoloBreve}
+            </a>
+          </h3>
+          <ul class="mt-3 space-y-2 text-sm">
+            {medici.map((m) => (
+              <li>
+                <a href={`/equipe/${m.id}`} class="font-semibold">
+                  {m.data.titolo} {m.data.nome}
+                </a>
+                <span class="block text-testo-secondario">
+                  {m.data.tipo === 'freelance' ? 'In collaborazione' : 'Équipe interna'}
+                  {m.data.presenza ? ` · ${m.data.presenza}` : ''}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
+    </ul>
   </Sezione>
 
   <Sezione tono="tinta" id="invia-caso">

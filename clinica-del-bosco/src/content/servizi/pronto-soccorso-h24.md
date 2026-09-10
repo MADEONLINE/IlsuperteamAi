@@ -82,6 +82,7 @@ fonti:
     url: 'https://recoverinitiative.org/'
     ente: 'RECOVER'
 autore: 'dario-ferrari'
+referenti: ['anastasia-mamonova', 'brigida-varone', 'alessandro-nisi']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

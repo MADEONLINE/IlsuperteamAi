@@ -1,0 +1,70 @@
+---
+/**
+ * "Chi se ne occupa": i medici che seguono un servizio, con ruolo e giorni di presenza.
+ * Dati dalla collection `equipe` (campo `referenti` del servizio). Nessun superlativo: solo nome, ruolo, presenza.
+ */
+import type { CollectionEntry } from 'astro:content';
+import Icona from '@ui/Icona.astro';
+
+interface Props {
+  medici: CollectionEntry<'equipe'>[];
+  titolo?: string;
+  class?: string;
+}
+const { medici, titolo = 'Chi se ne occupa', class: classe = '' } = Astro.props;
+const iniziali = (nome: string) =>
+  nome
+    .split(' ')
+    .filter(Boolean)
+    .map((p) => p[0])
+    .join('')
+    .slice(0, 3)
+    .toUpperCase();
+const tipoEtichetta: Record<string, string> = {
+  socio: 'Socio fondatore',
+  interno: 'Équipe della clinica',
+  freelance: 'Specialista in collaborazione',
+};
+---
+
+{medici.length > 0 && (
+  <section class:list={['rounded-card border border-bordo bg-sfondo-rialzato p-5 md:p-6', classe]}>
+    <h2 class="font-sans text-xl font-bold">{titolo}</h2>
+    <p class="mt-1 text-sm text-testo-secondario">
+      Medici che seguono questo servizio. Per gli specialisti in collaborazione la reception fissa
+      l'appuntamento nelle giornate di presenza.
+    </p>
+    <ul class="mt-4 grid gap-3 sm:grid-cols-2">
+      {medici.map((m) => (
+        <li>
+          <a
+            href={`/equipe/${m.id}`}
+            class="group flex h-full items-start gap-3 rounded-card border border-bordo bg-sfondo p-3 no-underline transition hover:border-primario"
+          >
+            <span
+              class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primario-tenue font-sans text-sm font-bold text-primario-link"
+              aria-hidden="true"
+            >
+              {iniziali(m.data.nome)}
+            </span>
+            <span class="min-w-0">
+              <span class="block font-sans font-bold text-testo group-hover:text-primario-link">
+                {m.data.titolo} {m.data.nome}
+              </span>
+              <span class="block text-sm text-testo-secondario">{m.data.ruolo}</span>
+              <span class="mt-1 block text-xs font-semibold uppercase tracking-wider text-testo-secondario">
+                {tipoEtichetta[m.data.tipo]}
+              </span>
+              {m.data.presenza && (
+                <span class="mt-1 flex items-center gap-1 text-sm">
+                  <Icona nome="calendario" class="size-4 shrink-0" />
+                  {m.data.presenza}
+                </span>
+              )}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

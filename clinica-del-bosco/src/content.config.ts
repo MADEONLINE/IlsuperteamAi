@@ -53,6 +53,8 @@ const servizi = defineCollection({
     tabella: tabella.optional(),
     fonti: z.array(fonte).min(1),
     autore: reference('equipe'),
+    /** Medici che seguono il servizio (slug della collection equipe), in ordine di visualizzazione. */
+    referenti: z.array(reference('equipe')).default([]),
     dataPubblicazione: z.coerce.date(),
     dataRevisione: z.coerce.date(),
   }),
@@ -65,6 +67,10 @@ const equipe = defineCollection({
     titolo: z.enum(['Dott.', 'Dott.ssa']),
     ruolo: z.string(),
     socio: z.boolean().default(false),
+    /** socio = titolare; interno = medico della clinica; freelance = specialista in collaborazione con turni programmati. */
+    tipo: z.enum(['socio', 'interno', 'freelance']).default('interno'),
+    /** Quando è presente in struttura (solo per gli specialisti in collaborazione), es. "Ogni lunedì". */
+    presenza: z.string().optional(),
     direttoreSanitario: z.boolean().default(false),
     numeroOrdine: z.string(),
     provinciaOrdine: z.string(),

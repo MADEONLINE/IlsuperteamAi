@@ -80,6 +80,22 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
               </dd>
             </div>
           )}
+          {medico.data.tipo === 'freelance' && (
+            <div>
+              <dt class="sr-only">Rapporto con la clinica</dt>
+              <dd>
+                <Badge tono="neutro">Specialista in collaborazione</Badge>
+              </dd>
+            </div>
+          )}
+          {medico.data.presenza && (
+            <div>
+              <dt class="font-bold uppercase tracking-wider text-testo-secondario">
+                Presenza in clinica
+              </dt>
+              <dd>{medico.data.presenza}</dd>
+            </div>
+          )}
           <div>
             <dt class="font-bold uppercase tracking-wider text-testo-secondario">Lingue</dt>
             <dd>{medico.data.lingue.join(', ')}</dd>

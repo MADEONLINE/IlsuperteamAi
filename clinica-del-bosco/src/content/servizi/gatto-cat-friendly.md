@@ -6,7 +6,7 @@ sottotitolo: 'Il gatto non è un piccolo cane: si stressa in modo diverso, nasco
 risposta: 'La Clinica Veterinaria del Bosco a Portici segue il gatto con un percorso cat friendly: accorgimenti per ridurre lo stress in attesa e in visita, manipolazione delicata e attenzione ai segni che il gatto nasconde. Comprende prevenzione, controlli per il gatto anziano, malattie croniche e pronto soccorso 24 ore su 24 per le urgenze feline, come il blocco urinario.'
 icona: 'gatto'
 categoria: 'prevenzione'
-ordine: 19
+ordine: 22
 specie: ['gatto']
 correlati: ['medicina-preventiva-vaccinazioni', 'pronto-soccorso-h24', 'nutrizione-clinica']
 medicalSpecialty: 'PrimaryCare'

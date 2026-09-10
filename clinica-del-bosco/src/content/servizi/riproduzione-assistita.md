@@ -6,7 +6,7 @@ sottotitolo: "Dal momento giusto per l'accoppiamento al parto: un percorso segui
 risposta: "Il servizio di riproduzione assistita della Clinica Veterinaria del Bosco a Portici segue la cagna e la gatta dal calore al parto: monitoraggio dell'ovulazione con progesterone, inseminazione artificiale canina, diagnosi ecografica di gravidanza, assistenza al parto e taglio cesareo. Si occupa anche di infertilità, malattie dell'utero come la piometra e patologie della prostata. Urgenze ostetriche 24 ore su 24."
 icona: 'cuore'
 categoria: 'specialistica'
-ordine: 17
+ordine: 20
 specie: ['cane', 'gatto']
 correlati: ['diagnostica-per-immagini', 'chirurgia', 'pronto-soccorso-h24']
 medicalSpecialty: 'Obstetric'

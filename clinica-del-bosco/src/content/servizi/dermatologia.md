@@ -6,7 +6,7 @@ sottotitolo: "Il prurito che non passa, l'otite che torna ogni estate, le chiazz
 risposta: "Il servizio di dermatologia della Clinica Veterinaria del Bosco a Portici diagnostica e cura le malattie della pelle e dell'orecchio di cani, gatti, conigli e animali esotici: prurito, allergie alimentari e ambientali, dermatite da pulci, otiti ricorrenti, infezioni batteriche e da lieviti, micosi e acari. Citologie, raschiati e colture sono eseguiti in sede, con un percorso spiegato passo per passo."
 icona: 'zampa'
 categoria: 'specialistica'
-ordine: 10
+ordine: 13
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
 correlati: ['laboratorio-analisi', 'nutrizione-clinica', 'pronto-soccorso-h24']
 medicalSpecialty: 'Dermatology'
@@ -83,6 +83,7 @@ fonti:
     url: 'https://www.msdvetmanual.com/'
     ente: 'MSD Veterinary Manual'
 autore: 'dario-ferrari'
+referenti: ['francesco-albanese']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

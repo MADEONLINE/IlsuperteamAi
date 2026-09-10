@@ -6,7 +6,7 @@ sottotitolo: 'Un ago sottile, poche cellule e un microscopio: spesso bastano per
 risposta: 'Il servizio di citologia della Clinica Veterinaria del Bosco a Portici esamina al microscopio le cellule prelevate con un ago sottile da noduli, linfonodi, organi interni, versamenti, orecchie e lesioni della pelle di cane, gatto, coniglio ed esotici. Il prelievo è rapido, di solito senza sedazione, e la lettura nel laboratorio interno consente una risposta in giornata.'
 icona: 'microscopio'
 categoria: 'diagnostica'
-ordine: 18
+ordine: 21
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
 correlati: ['laboratorio-analisi', 'oncologia', 'dermatologia']
 medicalSpecialty: 'Pathology'

@@ -6,7 +6,7 @@ sottotitolo: "Un nodulo, una massa, un linfonodo ingrossato: il percorso oncolog
 risposta: 'Il servizio di oncologia della Clinica Veterinaria del Bosco a Portici segue cani, gatti e conigli con tumori: dalla prima citologia alla stadiazione con esami del sangue, ecografia e TAC in sede, fino a chirurgia oncologica, chemioterapia e cure di supporto. Ogni passaggio è discusso con il proprietario, con un piano scritto e obiettivi realistici sulla qualità di vita.'
 icona: 'cellula'
 categoria: 'specialistica'
-ordine: 9
+ordine: 12
 specie: ['cane', 'gatto', 'coniglio']
 correlati: ['chirurgia', 'tac-diagnostica-avanzata', 'pronto-soccorso-h24']
 medicalSpecialty: 'Oncologic'

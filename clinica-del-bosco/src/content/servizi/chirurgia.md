@@ -73,6 +73,15 @@ fonti:
     url: 'https://www.msdvetmanual.com/'
     ente: 'MSD Veterinary Manual'
 autore: 'dario-ferrari'
+referenti:
+  [
+    'alessandro-sica',
+    'francesca-conte',
+    'giovanni-carpentieri',
+    'stefano-nicoli',
+    'flavia-cardaropoli',
+    'francesca-cavazzino',
+  ]
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

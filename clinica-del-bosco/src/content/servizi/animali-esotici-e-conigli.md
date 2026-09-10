@@ -6,7 +6,7 @@ sottotitolo: 'Conigli, cavie, cincillà, furetti, tartarughe, pappagalli: specie
 risposta: 'La Clinica Veterinaria del Bosco a Portici ha un servizio dedicato agli animali esotici e ai conigli: conigli, cavie, cincillà, criceti, furetti, rettili, uccelli e pesci. Offre medicina interna, chirurgia, laser terapia, diagnostica per immagini e laboratorio in sede, con pronto soccorso 24 ore su 24 per le urgenze tipiche di queste specie, come la stasi gastrointestinale del coniglio.'
 icona: 'coniglio'
 categoria: 'esotici'
-ordine: 15
+ordine: 18
 specie: ['coniglio', 'esotici']
 correlati: ['pronto-soccorso-h24', 'odontostomatologia', 'chirurgia']
 medicalSpecialty: 'PrimaryCare'
@@ -76,6 +76,7 @@ fonti:
     url: 'https://www.aav.org/'
     ente: 'AAV'
 autore: 'dario-ferrari'
+referenti: ['isabella-rosapane']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

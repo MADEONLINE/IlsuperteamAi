@@ -33,7 +33,12 @@ import recensioni from '@dati/recensioni.json';
 const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
 const inEvidenza = servizi.filter((s) => s.data.inEvidenza);
 const altri = servizi.filter((s) => !s.data.inEvidenza);
-const medici = (await getCollection('equipe')).sort((a, b) => a.data.ordine - b.data.ordine);
+const tuttiIMedici = await getCollection('equipe');
+const medici = tuttiIMedici
+  .filter((m) => m.data.socio)
+  .sort((a, b) => a.data.ordine - b.data.ordine);
+const nSpecialisti = tuttiIMedici.filter((m) => m.data.tipo === 'freelance').length;
+const nInterni = tuttiIMedici.filter((m) => m.data.tipo !== 'freelance').length;
 const articoli = (await getCollection('articoli'))
   .sort((a, b) => b.data.dataPubblicazione.getTime() - a.data.dataPubblicazione.getTime())
   .slice(0, 3);
@@ -376,6 +381,11 @@ const euro = (n: number) =>
       <div>
         <Etichetta class="mb-3">Équipe</Etichetta>
         <h2 class="text-3xl md:text-4xl">Medici presenti, non reperibili.</h2>
+        <p class="mt-3 max-w-prose text-testo-secondario">
+          {nInterni} medici veterinari della clinica, quattro dei quali soci fondatori, e{' '}
+          {nSpecialisti} specialisti in collaborazione con giornate di presenza programmate:
+          dermatologia, oculistica, neurologia, ortopedia, endoscopia, ecografia e chirurgia.
+        </p>
       </div>
       <a href="/equipe" class="inline-flex items-center gap-1 font-semibold text-primario-link">
         Tutta l'équipe <Icona nome="freccia-destra" class="size-4" />

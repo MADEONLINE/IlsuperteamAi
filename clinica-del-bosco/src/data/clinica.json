@@ -5,7 +5,7 @@
   "ragioneSociale": "PAN S.r.l.",
   "partitaIva": "04669140651",
   "partitaIvaDaVerificare": true,
-  "annoFondazione": "{{DA_CONFERMARE}}",
+  "annoFondazione": "2010",
   "slogan": "Pronto soccorso veterinario 24 ore su 24 a Portici",
   "descrizioneBreve": "Clinica veterinaria a Portici (Napoli) con pronto soccorso attivo 24 ore su 24, 7 giorni su 7, terapia intensiva, due sale chirurgiche, TAC in sede, endoscopia e laboratorio analisi interno. Cani, gatti, conigli e animali esotici.",
   "dominio": {
@@ -92,7 +92,7 @@
     }
   },
   "direttoreSanitario": {
-    "nome": "{{DA_CONFERMARE}}",
+    "nome": "Alessandro Sica",
     "titolo": "Dott.",
     "numeroOrdine": "{{DA_CONFERMARE}}",
     "provinciaOrdine": "{{DA_CONFERMARE}}",
@@ -188,5 +188,16 @@
     "googleSiteVerification": "",
     "bingSiteVerification": "",
     "indexNowKey": ""
+  },
+  "struttura": {
+    "_nota": "Dati dal questionario 'Raccolta dati' compilato dalla clinica (gennaio 2026). Da confermare prima del go-live.",
+    "metriQuadri": 500,
+    "saleVisita": 3,
+    "saleChirurgiche": 2,
+    "postiDegenza": 20,
+    "veterinari": 18,
+    "tecnici": 5,
+    "reception": 2,
+    "confermato": false
   }
 }

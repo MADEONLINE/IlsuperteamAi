@@ -16,6 +16,7 @@ import Fonti from '@ui/Fonti.astro';
 import Foto from '@ui/Foto.astro';
 import Icona from '@ui/Icona.astro';
 import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import Referenti from '@ui/Referenti.astro';
 import SchedaAutore from '@ui/SchedaAutore.astro';
 import Sezione from '@ui/Sezione.astro';
 import TabellaDati from '@ui/TabellaDati.astro';
@@ -29,6 +30,8 @@ const { servizio } = Astro.props;
 const { Content } = await render(servizio);
 const autore = await getEntry(servizio.data.autore);
 if (!autore) throw new Error(`Autore ${servizio.data.autore.id} non trovato per ${servizio.id}`);
+
+const referenti = (await getEntries(servizio.data.referenti)).filter(Boolean);
 
 const correlati = (
   await getEntries(servizio.data.correlati.map((id) => ({ collection: 'servizi' as const, id })))
@@ -143,6 +146,7 @@ const tipoSchema =
         <div class="rounded-card border-l-4 border-primario bg-sfondo-rialzato p-5 md:p-6">
           <p class="text-lg leading-relaxed">{servizio.data.risposta}</p>
         </div>
+        <Referenti medici={referenti} class="mt-8" />
         <div class="prosa-md mt-8">
           <Content />
         </div>

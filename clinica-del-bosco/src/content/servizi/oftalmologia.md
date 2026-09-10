@@ -6,7 +6,7 @@ sottotitolo: "Un occhio rosso, chiuso o velato può peggiorare in poche ore: la 
 risposta: "Il servizio di oftalmologia della Clinica Veterinaria del Bosco a Portici cura le malattie dell'occhio di cane, gatto e coniglio: ulcere corneali, congiuntiviti, glaucoma, cataratta, uveite, occhio secco e palpebre. La visita comprende test lacrimale, fluoresceina, pressione oculare ed esame del fondo. Chirurgia oculare e pronto soccorso 24 ore su 24 sono nella stessa sede."
 icona: 'occhio'
 categoria: 'specialistica'
-ordine: 11
+ordine: 14
 specie: ['cane', 'gatto', 'coniglio']
 correlati: ['pronto-soccorso-h24', 'chirurgia', 'neurologia']
 medicalSpecialty: 'Optometric'
@@ -68,6 +68,7 @@ fonti:
     url: 'https://www.ecvo.org/'
     ente: 'ECVO'
 autore: 'dario-ferrari'
+referenti: ['stefania-trio']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

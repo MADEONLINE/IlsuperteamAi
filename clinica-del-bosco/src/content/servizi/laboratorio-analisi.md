@@ -6,7 +6,7 @@ sottotitolo: 'Un laboratorio dentro la clinica significa esami preoperatori, con
 risposta: "Il laboratorio analisi interno della Clinica Veterinaria del Bosco a Portici esegue emocromo, profilo biochimico, coagulazione, elettroliti, emogasanalisi, esame delle urine e test rapidi per malattie infettive e metaboliche, con risposta in giornata e in tempo reale per le urgenze. Serve per la prevenzione, la preparazione all'anestesia, il monitoraggio delle malattie croniche e la diagnosi nei pazienti ricoverati."
 icona: 'provetta'
 categoria: 'diagnostica'
-ordine: 5
+ordine: 6
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
 correlati: ['pronto-soccorso-h24', 'medicina-preventiva-vaccinazioni', 'citologia']
 medicalSpecialty: 'LaboratoryScience'

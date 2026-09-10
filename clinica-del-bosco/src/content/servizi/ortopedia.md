@@ -6,7 +6,7 @@ sottotitolo: 'Dalla zoppia che dura da due giorni alla frattura dopo un incident
 risposta: "Il servizio di ortopedia della Clinica Veterinaria del Bosco a Portici si occupa di zoppie, fratture, legamento crociato, lussazione della rotula, displasia dell'anca e del gomito e artrosi in cani, gatti e conigli. La diagnosi si avvale di radiologia digitale e TAC in sede; la chirurgia viene eseguita nelle due sale operatorie della clinica, con piano di recupero scritto."
 icona: 'osso'
 categoria: 'specialistica'
-ordine: 8
+ordine: 11
 specie: ['cane', 'gatto', 'coniglio']
 correlati: ['pronto-soccorso-h24', 'tac-diagnostica-avanzata', 'terapia-del-dolore-agopuntura']
 medicalSpecialty: 'Musculoskeletal'
@@ -88,6 +88,7 @@ fonti:
     url: 'https://www.msdvetmanual.com/'
     ente: 'MSD Veterinary Manual'
 autore: 'antonella-sergio'
+referenti: ['alessandro-testa', 'alessandro-sica']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

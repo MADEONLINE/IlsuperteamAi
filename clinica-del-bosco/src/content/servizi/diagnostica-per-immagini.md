@@ -87,6 +87,7 @@ fonti:
     url: 'https://www.msdvetmanual.com/'
     ente: 'MSD Veterinary Manual'
 autore: 'antonella-sergio'
+referenti: ['antonella-sergio', 'marianna-lanni']
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

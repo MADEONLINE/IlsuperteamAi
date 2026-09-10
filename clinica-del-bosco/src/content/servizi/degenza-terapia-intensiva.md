@@ -6,7 +6,7 @@ sottotitolo: "Quando il tuo animale ha bisogno di restare in clinica, sai chi c'
 risposta: 'La degenza della Clinica Veterinaria del Bosco a Portici accoglie cani, gatti, conigli e animali esotici che hanno bisogno di ricovero: terapia intensiva con ossigenoterapia, fluidoterapia, monitoraggio continuo dei parametri vitali e personale presente in struttura 24 ore su 24. Il ricovero avviene nella stessa sede di pronto soccorso, laboratorio, diagnostica e chirurgia, senza trasferimenti, con aggiornamenti concordati con te.'
 icona: 'letto'
 categoria: 'urgenza'
-ordine: 6
+ordine: 7
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
 correlati: ['pronto-soccorso-h24', 'chirurgia', 'laboratorio-analisi']
 medicalSpecialty: 'Emergency'

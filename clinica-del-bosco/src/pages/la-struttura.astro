@@ -105,6 +105,14 @@ const aree = [
                 'Autorizzazione sanitaria',
                 `${clinica.autorizzazioneSanitaria.numero} — ${clinica.autorizzazioneSanitaria.ente}`,
               ],
+              [
+                'Struttura',
+                `${clinica.struttura.metriQuadri} m², ${clinica.struttura.saleVisita} sale visita, ${clinica.struttura.saleChirurgiche} sale chirurgiche, ${clinica.struttura.postiDegenza} posti di degenza`,
+              ],
+              [
+                'Équipe',
+                `${clinica.struttura.veterinari} medici veterinari tra soci, collaboratori e specialisti, ${clinica.struttura.tecnici} tecnici, ${clinica.struttura.reception} persone in reception`,
+              ],
               ['Specie trattate', 'Cani, gatti, conigli, piccoli mammiferi, rettili, uccelli'],
               ['Area servita', clinica.areaServita.map((z) => z.nome).join(', ')],
             ] as Array<[string, string]>

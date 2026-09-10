@@ -6,7 +6,7 @@ sottotitolo: 'Vaccini, antiparassitari, esami di controllo e visita annuale: la 
 risposta: 'La Clinica Veterinaria del Bosco a Portici offre un servizio di medicina preventiva per cani, gatti e conigli: visita annuale, vaccinazioni secondo le linee guida WSAVA, protocolli antiparassitari secondo ESCCAP con attenzione alla leishmaniosi, sverminazioni, esami del sangue di controllo e consulenza su alimentazione e sterilizzazione. Tutto può essere organizzato in un Piano Salute con scadenze programmate.'
 icona: 'scudo'
 categoria: 'prevenzione'
-ordine: 7
+ordine: 10
 specie: ['cane', 'gatto', 'coniglio']
 correlati: ['laboratorio-analisi', 'gatto-cat-friendly', 'pronto-soccorso-h24']
 medicalSpecialty: 'PrimaryCare'

@@ -6,7 +6,7 @@ sottotitolo: "Un piano alimentare costruito sull'animale, non sull'etichetta: pe
 risposta: "Il servizio di nutrizione clinica della Clinica Veterinaria del Bosco a Portici costruisce piani alimentari personalizzati per cane e gatto: gestione del sovrappeso, diete per malattie renali, epatiche, intestinali e urinarie, allergie alimentari, alimentazione del cucciolo, dell'anziano e dell'animale in convalescenza. La visita parte dalla valutazione corporea e dagli esami del laboratorio interno e prevede controlli programmati del peso."
 icona: 'ciotola'
 categoria: 'specialistica'
-ordine: 14
+ordine: 17
 specie: ['cane', 'gatto', 'coniglio']
 correlati: ['laboratorio-analisi', 'dermatologia', 'medicina-preventiva-vaccinazioni']
 medicalSpecialty: 'DietNutrition'

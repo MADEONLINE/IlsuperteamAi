@@ -1,21 +1,19 @@
 ---
 nome: 'Antonella Sergio'
 titolo: 'Dott.ssa'
-ruolo: 'Medico veterinario, socio fondatore'
+ruolo: 'Medico veterinario, socia fondatrice · cardiologia ed ecografia'
+tipo: 'socio'
 socio: true
 direttoreSanitario: false
 numeroOrdine: '{{DA_CONFERMARE}}'
 provinciaOrdine: '{{DA_CONFERMARE}}'
-specializzazioni:
-  - '{{DA_CONFERMARE}}'
-aree: []
-formazione: []
+specializzazioni: ['Cardiologia', 'Ecocardiografia', 'Ecografia addominale']
+aree: ['cardiologia', 'diagnostica-per-immagini']
+formazione: ['Master in cardiologia veterinaria']
 lingue: ['italiano']
 scattoBrief: '13'
-ordine: 3
+ordine: 4
 daValidare: true
 ---
 
-Dott.ssa Antonella Sergio è tra i soci fondatori della Clinica Veterinaria del Bosco di Portici. La biografia
-professionale, le aree di attività e il numero di iscrizione all'Ordine dei Medici Veterinari
-verranno pubblicati dopo la conferma da parte della clinica (vedi TODO-DATI.md).
+Dott.ssa Antonella Sergio è socia fondatrice della Clinica Veterinaria del Bosco e segue il servizio di cardiologia e l’ecografia specialistica: ecocardiografia con Doppler, elettrocardiogramma, misurazione della pressione, ecografia addominale. Coordina anche gli screening cardiologici pre-anestesia e i controlli programmati dei pazienti cardiopatici.
