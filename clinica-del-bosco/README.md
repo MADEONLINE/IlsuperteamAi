@@ -26,7 +26,11 @@ sono obblighi di legge (direttore sanitario, autorizzazione sanitaria) e **blocc
 produzione** finché mancano. I contenuti clinici sono completi ma vanno riletti dai medici che li
 firmano (vedi `TODO-DATI.md`, sezione "Contenuti da validare").
 
-Anteprima pubblica del sito in costruzione: <https://anteprima-clinica-del-bosco.netlify.app>
+Anteprima: sull'account Netlify della clinica/agenzia esiste già il progetto
+`anteprima-clinica-del-bosco` (vuoto): per pubblicarlo basta collegarlo a questo repository dal
+pannello Netlify (Import from Git → ramo `claude/quirky-heisenberg-vvr43p` o `main`, Base
+directory `clinica-del-bosco`). Da quel momento ogni push aggiorna
+<https://anteprima-clinica-del-bosco.netlify.app>.
 
 ---
 

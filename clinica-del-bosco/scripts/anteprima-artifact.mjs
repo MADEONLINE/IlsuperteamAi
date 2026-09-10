@@ -25,7 +25,7 @@ const inlineHead = html.match(/<script>([\s\S]*?)<\/script>/)?.[1] ?? '';
 const body = html.match(/<body[^>]*>([\s\S]*?)<\/body>/)?.[1] ?? '';
 const bodyClass = html.match(/<body class="([^"]*)"/)?.[1] ?? '';
 
-const avviso = `<div style="background:#fff4d6;color:#8a5a00;font:600 13px/1.4 system-ui;padding:8px 16px;text-align:center">Anteprima statica della home. Il sito completo (60 pagine) è su anteprima-clinica-del-bosco.netlify.app. Foto: segnaposto.</div>`;
+const avviso = `<div style="background:#fff4d6;color:#8a5a00;font:600 13px/1.4 system-ui;padding:8px 16px;text-align:center">Anteprima statica della home (il sito completo ha 60 pagine). Foto: segnaposto in attesa del servizio fotografico.</div>`;
 
 const output = `<title>${titoloForzato ?? titolo.replace(/ \| .*$/, '')}</title>
 <style>${stili}</style>
