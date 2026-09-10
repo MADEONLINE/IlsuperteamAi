@@ -1,0 +1,44 @@
+---
+/**
+ * Blocco domande/risposte SEMPRE visibile nell'HTML (niente accordion chiusi: i sistemi AI
+ * e Google leggono il testo così com'è). Con JS, su mobile, le risposte diventano espandibili
+ * ma restano nel DOM. Il JSON-LD FAQPage viene emesso dalla pagina con le stesse coppie.
+ */
+interface Props {
+  voci: Array<{ domanda: string; risposta: string }>;
+  titolo?: string;
+  livello?: 'h2' | 'h3';
+  class?: string;
+}
+const { voci, titolo = 'Domande frequenti', livello = 'h2', class: classe = '' } = Astro.props;
+const Titolo = livello;
+---
+
+<section
+  class:list={['faq', classe]}
+  aria-labelledby={`faq-${titolo.replace(/\W+/g, '-').toLowerCase()}`}
+>
+  <Titolo id={`faq-${titolo.replace(/\W+/g, '-').toLowerCase()}`} class="text-2xl md:text-3xl">
+    {titolo}
+  </Titolo>
+  <div class="mt-6 divide-y divide-bordo border-y border-bordo">
+    {voci.map((v) => (
+      <details class="faq-voce group py-1" open>
+        <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-3 font-semibold marker:content-none [&::-webkit-details-marker]:hidden">
+          <span class="text-lg">{v.domanda}</span>
+          <svg
+            class="size-5 shrink-0 transition group-open:rotate-180"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </summary>
+        <p class="pb-4 text-testo-secondario">{v.risposta}</p>
+      </details>
+    ))}
+  </div>
+</section>

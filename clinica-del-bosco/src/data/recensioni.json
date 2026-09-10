@@ -1,0 +1,11 @@
+{
+  "_nota": "Recensioni Google REALI importate a mano (copia testuale, nome come appare su Google, data, stelle, URL del profilo Google Business). Nessuna testimonianza inventata: se l'elenco è vuoto la sezione non compare e non viene generato AggregateRating.",
+  "fonteUrl": "{{DA_CONFERMARE}}",
+  "aggregato": {
+    "valutazione": null,
+    "numeroRecensioni": null,
+    "_nota": "Copiare i valori mostrati da Google Business Profile alla data di importazione. Se null, nessun AggregateRating viene emesso."
+  },
+  "dataImportazione": null,
+  "recensioni": []
+}

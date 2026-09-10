@@ -18,10 +18,13 @@ export default defineConfig({
     inlineStylesheets: 'always', // CSS critico inline: una richiesta in meno sul percorso LCP
   },
   compressHTML: true,
-  prefetch: {
-    prefetchAll: false,
-    defaultStrategy: 'hover',
+  markdown: {
+    // Nessun blocco di codice nei contenuti: disattivato per evitare stili inline incompatibili con la CSP.
+    syntaxHighlight: false,
   },
+  // Prefetch disattivato: la catena page.js → prefetch.js aggiungeva un round trip nel grafo LCP
+  // simulato da Lighthouse; il ClientRouter mantiene comunque le transizioni di vista.
+  prefetch: false,
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' },
     responsiveStyles: true,

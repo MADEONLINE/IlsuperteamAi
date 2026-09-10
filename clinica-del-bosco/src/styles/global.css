@@ -309,7 +309,9 @@
     text-wrap: pretty;
   }
   a {
+    text-decoration-line: underline;
     text-underline-offset: 0.18em;
+    text-decoration-thickness: from-font;
   }
   ::selection {
     background: var(--primario-tenue);
@@ -441,4 +443,131 @@
 }
 @utility bilanciato {
   text-wrap: balance;
+}
+
+/* ---------- Contenuto Markdown (articoli, servizi, pagine legali) ---------- */
+@layer components {
+  .prosa-md {
+    max-width: var(--container-prosa);
+    font-size: var(--text-base);
+    line-height: 1.7;
+  }
+  .prosa-md > * + * {
+    margin-top: 1.1em;
+  }
+  .prosa-md h2 {
+    font-size: var(--text-2xl);
+    line-height: var(--text-2xl--line-height);
+    margin-top: 2.2em;
+    scroll-margin-top: 6rem;
+  }
+  .prosa-md h3 {
+    font-size: var(--text-xl);
+    line-height: var(--text-xl--line-height);
+    margin-top: 1.8em;
+    scroll-margin-top: 6rem;
+  }
+  .prosa-md h4 {
+    font-size: var(--text-lg);
+    margin-top: 1.5em;
+  }
+  .prosa-md p,
+  .prosa-md li {
+    color: var(--testo);
+  }
+  .prosa-md a {
+    color: var(--primario-link);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    font-weight: 500;
+  }
+  .prosa-md a:hover {
+    color: var(--primario-forte);
+  }
+  .prosa-md strong {
+    font-weight: 650;
+  }
+  .prosa-md ul,
+  .prosa-md ol {
+    padding-left: 1.4em;
+  }
+  .prosa-md ul {
+    list-style: disc;
+  }
+  .prosa-md ol {
+    list-style: decimal;
+  }
+  .prosa-md li + li {
+    margin-top: 0.4em;
+  }
+  .prosa-md li::marker {
+    color: var(--primario-link);
+    font-weight: 600;
+  }
+  .prosa-md blockquote {
+    border-left: 4px solid var(--primario);
+    padding-left: 1rem;
+    color: var(--testo-secondario);
+  }
+  .prosa-md table {
+    font-size: var(--text-sm);
+  }
+  .prosa-md {
+    overflow-x: auto;
+  }
+  .prosa-md th,
+  .prosa-md td {
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--bordo);
+    text-align: left;
+    vertical-align: top;
+  }
+  .prosa-md th {
+    background: var(--sfondo-tinta);
+  }
+  .prosa-md hr {
+    border: 0;
+    border-top: 1px solid var(--bordo);
+    margin-block: 2.5em;
+  }
+  .prosa-md code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.9em;
+    background: var(--sfondo-tinta);
+    padding: 0.1em 0.35em;
+    border-radius: 0.3em;
+  }
+  /* Tabella dati (frontmatter) */
+  .tabella-dati {
+    overflow-x: auto;
+    border: 1px solid var(--bordo);
+    border-radius: var(--radius-card);
+    background: var(--sfondo-rialzato);
+  }
+  .tabella-dati table {
+    min-width: 36rem;
+    font-size: var(--text-sm);
+  }
+  .tabella-dati caption {
+    caption-side: top;
+    text-align: left;
+    padding: 1rem;
+    font-weight: 700;
+    font-size: var(--text-base);
+  }
+  .tabella-dati th,
+  .tabella-dati td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .tabella-dati thead th {
+    background: var(--sfondo-tinta);
+  }
+  .tabella-dati tbody tr {
+    border-top: 1px solid var(--bordo);
+  }
+  .tabella-dati tbody th {
+    font-weight: 600;
+  }
 }

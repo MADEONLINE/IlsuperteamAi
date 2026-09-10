@@ -1,0 +1,56 @@
+---
+/**
+ * Doppio percorso permanente: "È un'urgenza" (chiamata) + "Prenota una visita" (percorso calmo),
+ * con micro-rassicurazioni. Usato in fondo alle pagine servizio, articoli, zone.
+ */
+import Bottone from '@ui/Bottone.astro';
+import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import { clinica, telHref } from '@lib/clinica';
+
+interface Props {
+  motivo?: string;
+  titolo?: string;
+  testo?: string;
+  posizione?: string;
+  class?: string;
+}
+const {
+  motivo,
+  titolo = 'Hai bisogno di noi?',
+  testo = "Per un'urgenza chiama subito: risponde un medico, 24 ore su 24. Per tutto il resto, prenota una visita e ti richiamiamo per confermare.",
+  posizione = 'cta-doppia',
+  class: classe = '',
+} = Astro.props;
+const hrefPrenota = motivo ? `/prenota?motivo=${encodeURIComponent(motivo)}` : '/prenota';
+---
+
+<section
+  class:list={['rounded-card bg-sfondo-inverso p-6 text-testo-inverso md:p-10', classe]}
+  aria-labelledby="cta-doppia-titolo"
+>
+  <div class="grid gap-6 md:grid-cols-12 md:items-center">
+    <div class="md:col-span-6">
+      <h2 id="cta-doppia-titolo" class="text-3xl text-testo-inverso">
+        {titolo}
+      </h2>
+      <p class="mt-3 text-testo-inverso/85">{testo}</p>
+      <Rassicurazioni inverso voci={['richiamo', 'preventivo', 'pagamento']} class="mt-4" />
+    </div>
+    <div class="flex flex-col gap-3 md:col-span-6">
+      <Bottone
+        href={telHref}
+        variante="urgenza"
+        dimensione="lg"
+        icona="telefono"
+        pieno
+        evento="click_chiama"
+        eventoPosizione={posizione}
+      >
+        È un'urgenza · {clinica.contatti.telefono.visualizzato}
+      </Bottone>
+      <Bottone href={hrefPrenota} variante="inverso" dimensione="lg" icona="calendario" pieno>
+        Prenota una visita
+      </Bottone>
+    </div>
+  </div>
+</section>

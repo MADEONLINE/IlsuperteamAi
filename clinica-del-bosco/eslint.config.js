@@ -19,6 +19,8 @@ export default [
     rules: {
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       '@typescript-eslint/consistent-type-imports': 'error',
+      // Le regioni scorrevoli (tabelle larghe) devono essere raggiungibili da tastiera (axe: scrollable-region-focusable)
+      'astro/jsx-a11y/no-noninteractive-tabindex': ['error', { roles: ['tabpanel', 'region'] }],
     },
   },
   {

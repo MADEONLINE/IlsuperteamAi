@@ -1,0 +1,436 @@
+---
+/**
+ * /pronto-soccorso — la pagina a più alto valore del sito.
+ * Above the fold su iPhone SE: stato "aperto adesso", CHIAMA ORA a piena larghezza (56 px),
+ * INDICAZIONI, indirizzo, tempo di percorrenza. Nessun elemento di distrazione.
+ * Contenuto clinico interamente nell'HTML statico (citabile dai sistemi AI).
+ */
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Icona from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Sezione from '@ui/Sezione.astro';
+import Rassicurazioni from '@ui/Rassicurazioni.astro';
+import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
+import { getCollection, getEntry } from 'astro:content';
+import {
+  clinica,
+  daConfermare,
+  indicazioniAppleHref,
+  indicazioniHref,
+  indirizzoRiga,
+  telHref,
+} from '@lib/clinica';
+import { emergencyService, faqPage, medicalWebPage } from '@lib/schema';
+
+const servizio = await getEntry('servizi', 'pronto-soccorso-h24');
+if (!servizio) throw new Error('Contenuto servizi/pronto-soccorso-h24 mancante');
+
+const titolo = 'Pronto soccorso veterinario 24h a Portici (Napoli) · aperto ora';
+const descrizione =
+  'Pronto soccorso veterinario aperto adesso, 24 ore su 24, 7 giorni su 7 a Portici. Medici in struttura, terapia intensiva, TAC. Chiama il 081 7763859 mentre arrivi.';
+
+const zone = (await getCollection('zone'))
+  .sort((a, b) => a.data.ordine - b.data.ordine)
+  .slice(0, 6);
+
+const istruzioni = [
+  {
+    titolo: 'Chiama mentre parti',
+    testo: `Al ${clinica.contatti.telefono.visualizzato} risponde un medico. Dicci cosa vedi: prepariamo ossigeno, sala e chirurgo prima che tu arrivi.`,
+    icona: 'telefono',
+  },
+  {
+    titolo: 'Trasporta in sicurezza',
+    testo:
+      'Gatto e coniglio nel trasportino. Cane traumatizzato su una superficie rigida o una coperta tesa in due. Non tenerlo in braccio se puoi evitarlo.',
+    icona: 'auto',
+  },
+  {
+    titolo: 'Non dare nulla per bocca',
+    testo:
+      'Niente cibo, acqua o farmaci umani: paracetamolo e ibuprofene sono tossici per cani e gatti. Non indurre il vomito con rimedi casalinghi.',
+    icona: 'allerta',
+  },
+  {
+    titolo: 'Porta ciò che serve',
+    testo:
+      'Libretto o referti recenti, farmaci in uso, confezione o foto della sostanza in caso di avvelenamento. Se non li trovi subito, parti comunque.',
+    icona: 'calendario',
+  },
+  {
+    titolo: 'Tienilo calmo e al fresco',
+    testo:
+      'Aria condizionata in auto, luci basse, voce tranquilla. Se respira male, lascialo nella posizione che sceglie lui: non forzarlo a sdraiarsi.',
+    icona: 'cuore-pulsante',
+  },
+] as const;
+
+const triage = [
+  {
+    id: 'dispnea',
+    titolo: 'Difficoltà a respirare',
+    testo:
+      "Respiro affannoso a riposo, gatto che respira a bocca aperta, gengive bluastre o grigie, collo esteso. È sempre un'urgenza.",
+  },
+  {
+    id: 'convulsioni',
+    titolo: 'Convulsioni',
+    testo:
+      "Crisi che dura più di 3 minuti, crisi ripetute o un animale che non si riprende tra una crisi e l'altra. Cronometra e allontana gli oggetti.",
+  },
+  {
+    id: 'torsione-gastrica',
+    titolo: 'Torsione gastrica',
+    testo:
+      'Cane di taglia grande con addome gonfio e teso, tentativi di vomito a vuoto, irrequietezza. Ogni minuto conta: parti subito.',
+  },
+  {
+    id: 'avvelenamento',
+    titolo: 'Avvelenamento',
+    testo:
+      'Ingestione di veleno per topi o lumache, cioccolato, uva, xilitolo, farmaci umani, piante tossiche, antigelo. Porta la confezione.',
+  },
+  {
+    id: 'trauma',
+    titolo: 'Trauma',
+    testo:
+      "Investimento, caduta dall'alto, morso profondo, ferita che sanguina senza fermarsi. Le lesioni interne possono non essere visibili.",
+  },
+  {
+    id: 'parto-distocico',
+    titolo: 'Parto che non procede',
+    testo:
+      "Spinte forti da oltre 30 minuti senza nascita, più di 2 ore tra un cucciolo e l'altro, perdite verdastre senza nascita, madre spossata.",
+  },
+  {
+    id: 'blocco-urinario',
+    titolo: 'Gatto maschio che non urina',
+    testo:
+      'Va e viene dalla lettiera senza produrre urina, si lamenta, si lecca il basso ventre, vomita. Il blocco urinario è mortale in 24–48 ore.',
+  },
+  {
+    id: 'colpo-di-calore',
+    titolo: 'Colpo di calore',
+    testo:
+      'Dopo esercizio o auto al sole: ansimo intenso, gengive rosso scuro, barcollamento, collasso. Bagna con acqua fresca, non gelata, e parti.',
+  },
+  {
+    id: 'collasso',
+    titolo: 'Collasso o non riesce ad alzarsi',
+    testo:
+      "Debolezza improvvisa, gengive pallide, addome gonfio: può indicare un'emorragia interna o un problema cardiaco.",
+  },
+  {
+    id: 'occhio',
+    titolo: 'Occhio chiuso, gonfio o sporgente',
+    testo:
+      "Dolore oculare acuto, pupilla diversa dall'altra, bulbo fuoriuscito: la vista si può perdere in poche ore.",
+  },
+];
+
+const briciole = [{ nome: 'Pronto soccorso', href: '/pronto-soccorso' }];
+const faqJson = servizio.data.faq;
+---
+
+<BaseLayout
+  titolo={titolo}
+  descrizione={descrizione}
+  percorso="/pronto-soccorso"
+  senzaBrand
+  jsonLd={[
+    medicalWebPage({
+      url: '/pronto-soccorso',
+      titolo,
+      descrizione,
+      briciole,
+      specialita: 'Emergency',
+    }),
+    emergencyService(),
+    faqPage(faqJson),
+  ]}
+>
+  <!-- ABOVE THE FOLD -->
+  <section class="bg-sfondo-inverso text-testo-inverso" aria-labelledby="ps-titolo">
+    <div class="contenitore py-6 md:py-14">
+      <div class="grid gap-8 lg:grid-cols-12 lg:items-center">
+        <div class="lg:col-span-7">
+          <BadgeApertoOra inverso class="mb-4" />
+          <h1 id="ps-titolo" class="text-4xl text-testo-inverso sm:text-5xl md:text-6xl">
+            Siamo aperti <em class="not-italic text-accento-inverso">adesso.</em>
+          </h1>
+          <p class="mt-3 text-lg text-testo-inverso/85 md:text-xl">
+            Pronto soccorso veterinario con medici in struttura 24 ore su 24, tutti i giorni. Chiama
+            mentre arrivi.
+          </p>
+
+          <div class="mt-6 space-y-3">
+            <Bottone
+              href={telHref}
+              variante="urgenza"
+              dimensione="lg"
+              icona="telefono"
+              pieno
+              evento="click_chiama"
+              eventoPosizione="ps-hero"
+              class="text-xl"
+              aria-label={`Chiama ora il pronto soccorso: ${clinica.contatti.telefono.visualizzato}`}
+            >
+              Chiama ora · {clinica.contatti.telefono.visualizzato}
+            </Bottone>
+            <Bottone
+              href={indicazioniHref}
+              variante="inverso"
+              dimensione="lg"
+              icona="mappa"
+              pieno
+              target="_blank"
+              rel="noopener"
+              evento="click_indicazioni"
+              eventoPosizione="ps-hero"
+            >
+              Indicazioni stradali
+            </Bottone>
+          </div>
+
+          <address class="mt-5 not-italic">
+            <p class="flex items-start gap-2 text-testo-inverso">
+              <Icona nome="mappa" class="mt-1 size-4 shrink-0 text-accento-inverso" />
+              <span>
+                <strong>{indirizzoRiga}</strong>
+                {!daConfermare(clinica.indirizzo.riferimenti) && (
+                  <span class="block text-sm text-testo-inverso/80">
+                    {clinica.indirizzo.riferimenti}
+                  </span>
+                )}
+                <a
+                  href={indicazioniAppleHref}
+                  class="block text-sm text-testo-inverso/80 underline"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Apri in Apple Maps
+                </a>
+              </span>
+            </p>
+          </address>
+
+          <p class="mt-5 text-xs font-bold uppercase tracking-wider text-accento-inverso">
+            Tempo di percorrenza indicativo in auto
+          </p>
+          <ul class="mt-2 flex flex-wrap gap-2 text-sm">
+            {zone.map((z) => (
+              <li>
+                <a
+                  href={`/veterinario-a/${z.id}`}
+                  class="inline-flex min-h-9 items-center gap-1.5 rounded-pill bg-sfondo/10 px-3 text-testo-inverso no-underline ring-1 ring-sfondo/20 hover:bg-sfondo/20"
+                >
+                  <span>{z.data.nome}</span>
+                  <span class="font-semibold tabular-nums">
+                    {z.data.tempoAutoMinuti[0]}–{z.data.tempoAutoMinuti[1]} min
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="hidden lg:col-span-5 lg:block">
+          <div class="rounded-card bg-sfondo/8 p-6 ring-1 ring-sfondo/15">
+            <h2 class="font-sans text-base font-bold uppercase tracking-wider text-accento-inverso">
+              Cosa trovi quando arrivi
+            </h2>
+            <ul class="mt-4 space-y-3 text-testo-inverso/90">
+              <li class="flex gap-3">
+                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Medico
+                veterinario e assistente presenti in struttura, non reperibilità
+              </li>
+              <li class="flex gap-3">
+                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Terapia
+                intensiva con ossigeno e monitoraggio continuo
+              </li>
+              <li class="flex gap-3">
+                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" />{' '}
+                Laboratorio, radiologia, ecografia e TAC nella stessa sede
+              </li>
+              <li class="flex gap-3">
+                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Due sale
+                chirurgiche pronte per l'urgenza
+              </li>
+              <li class="flex gap-3">
+                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Cani,
+                gatti, conigli e animali esotici
+              </li>
+            </ul>
+            <Rassicurazioni inverso voci={['preventivo', 'h24']} class="mt-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COSA FARE MENTRE ARRIVI -->
+  <Sezione id="mentre-arrivi" tono="base" etichettaAria="Cosa fare mentre arrivi in clinica">
+    <div class="grid gap-8 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <Etichetta class="mb-3">Primo intervento</Etichetta>
+        <h2 class="text-3xl md:text-4xl">Cosa fare mentre arrivi</h2>
+        <p class="mt-4 text-testo-secondario">
+          Cinque cose che aiutano davvero il tuo animale nei minuti del tragitto. Nessuna
+          sostituisce la visita: servono ad arrivare nelle condizioni migliori.
+        </p>
+      </div>
+      <ol class="grid gap-4 sm:grid-cols-2 lg:col-span-8">
+        {istruzioni.map((i, n) => (
+          <li class="flex gap-4 rounded-card border border-bordo bg-sfondo-rialzato p-5">
+            <span
+              class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primario-tenue font-display text-lg font-bold text-primario-link"
+              aria-hidden="true"
+            >
+              {n + 1}
+            </span>
+            <div>
+              <h3 class="font-sans text-lg font-bold">{i.titolo}</h3>
+              <p class="mt-1 text-testo-secondario">{i.testo}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </Sezione>
+
+  <!-- TRIAGE -->
+  <Sezione
+    id="quando-venire-subito"
+    tono="tinta"
+    etichettaAria="Segni che richiedono di venire subito"
+  >
+    <div class="prosa">
+      <Etichetta class="mb-3">Triage informativo</Etichetta>
+      <h2 class="text-3xl md:text-4xl">Quando venire subito, senza aspettare il mattino</h2>
+      <p class="mt-4 text-lg text-testo-secondario">
+        Questi segni richiedono una valutazione immediata. Se ne riconosci uno, chiama e parti:
+        descrivere al telefono quello che vedi ci aiuta a prepararci. Se non sei sicuro, chiama
+        comunque.
+      </p>
+    </div>
+    <ul class="mt-8 grid gap-3 md:grid-cols-2">
+      {triage.map((t) => (
+        <li
+          id={t.id}
+          class="scroll-mt-24 rounded-card border-l-4 border-urgenza bg-sfondo-rialzato p-5"
+        >
+          <h3 class="font-sans text-lg font-bold">
+            <a href={`#${t.id}`} class="text-testo no-underline hover:underline">
+              {t.titolo}
+            </a>
+          </h3>
+          <p class="mt-1 text-testo-secondario">{t.testo}</p>
+        </li>
+      ))}
+    </ul>
+    <div
+      class="mt-8 overflow-x-auto rounded-card border border-bordo bg-sfondo-rialzato"
+      tabindex="0"
+      role="region"
+      aria-label="Tabella dei segni di urgenza (scorrevole)"
+    >
+      <table class="min-w-[40rem] text-sm">
+        <caption class="p-4 text-left font-sans text-base font-bold">
+          {servizio.data.tabella?.titolo}
+        </caption>
+        <thead class="bg-sfondo-tinta">
+          <tr>
+            {servizio.data.tabella?.intestazioni.map((h) => (
+              <th scope="col" class="px-4 py-3">
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {servizio.data.tabella?.righe.map((r) => (
+            <tr class="border-t border-bordo align-top">
+              {r.map((c, i) =>
+                i === 0 ? (
+                  <th scope="row" class="px-4 py-3 font-semibold">
+                    {c}
+                  </th>
+                ) : (
+                  <td class="px-4 py-3">{c}</td>
+                ),
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {servizio.data.tabella?.nota && (
+        <p class="px-4 pb-4 text-sm text-testo-secondario">{servizio.data.tabella.nota}</p>
+      )}
+    </div>
+    <div class="mt-8">
+      <Bottone
+        href={telHref}
+        variante="urgenza"
+        dimensione="lg"
+        icona="telefono"
+        evento="click_chiama"
+        eventoPosizione="ps-triage"
+      >
+        Chiama ora · {clinica.contatti.telefono.visualizzato}
+      </Bottone>
+    </div>
+  </Sezione>
+
+  <!-- COME FUNZIONA + FAQ -->
+  <Sezione tono="base">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="prosa lg:col-span-7">
+        <Etichetta class="mb-3">Come funziona</Etichetta>
+        <h2 class="text-3xl md:text-4xl">Cosa succede quando arrivi</h2>
+        <p class="mt-4 text-lg">{servizio.data.risposta}</p>
+        <ol class="mt-6 space-y-4">
+          <li>
+            <strong>Accoglienza e triage.</strong> Un membro dell'équipe valuta la gravità entro
+            pochi minuti. I casi critici passano avanti, indipendentemente dall'ordine di arrivo.
+          </li>
+          <li>
+            <strong>Stabilizzazione.</strong> Ossigeno, accesso venoso, controllo del dolore e
+            dell'emorragia vengono prima di qualsiasi esame.
+          </li>
+          <li>
+            <strong>Diagnosi.</strong> Esami del sangue in tempo reale, radiografie, ecografia e, se
+            serve, TAC senza spostare l'animale.
+          </li>
+          <li>
+            <strong>Decisione condivisa.</strong> Ti spieghiamo cosa abbiamo trovato, le opzioni e i
+            costi indicativi. Nessun intervento non urgente parte senza il tuo consenso scritto.
+          </li>
+          <li>
+            <strong>Trattamento o ricovero.</strong> Chirurgia d'urgenza, terapia intensiva o
+            dimissione con istruzioni chiare e un controllo programmato.
+          </li>
+        </ol>
+        <p class="mt-6">
+          <a href="/servizi/pronto-soccorso-h24" class="font-semibold text-primario-link">
+            Tutti i dettagli sul servizio di pronto soccorso →
+          </a>
+        </p>
+      </div>
+      <aside class="lg:col-span-5">
+        <h2 class="font-sans text-xl font-bold">Domande frequenti sulle urgenze</h2>
+        <dl class="mt-4 divide-y divide-bordo">
+          {faqJson.map((f) => (
+            <div class="py-4">
+              <dt class="font-semibold">{f.domanda}</dt>
+              <dd class="mt-1 text-testo-secondario">{f.risposta}</dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
+    </div>
+    <p class="mt-10 text-sm text-testo-secondario">
+      Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
+    </p>
+  </Sezione>
+</BaseLayout>

@@ -1,9 +1,9 @@
 # Netlify — Clinica Veterinaria del Bosco
-# Base directory da impostare nel pannello Netlify: clinica-del-bosco
-# (il repository ospita anche la landing page "Super Team" nella radice).
+# Il progetto vive nella cartella clinica-del-bosco/ del repository: nel pannello Netlify
+# (Site configuration → Build & deploy) impostare "Base directory" = clinica-del-bosco.
+# Questo file viene letto dalla base directory, quindi non ripete l'impostazione.
 
 [build]
-  base = "clinica-del-bosco"
   command = "npm run build"
   publish = "dist"
 

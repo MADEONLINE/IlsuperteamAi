@@ -1,0 +1,62 @@
+---
+/**
+ * Firma editoriale dei contenuti clinici: autore (con n. Ordine), revisore, date di
+ * pubblicazione e ultima revisione. Segnale E-E-A-T per Google e per i sistemi AI.
+ */
+import type { CollectionEntry } from 'astro:content';
+import Dato from '@ui/Dato.astro';
+import Icona from '@ui/Icona.astro';
+
+interface Props {
+  autore: CollectionEntry<'equipe'>;
+  revisore?: CollectionEntry<'equipe'> | undefined;
+  dataPubblicazione: Date;
+  dataRevisione: Date;
+  class?: string;
+}
+const { autore, revisore, dataPubblicazione, dataRevisione, class: classe = '' } = Astro.props;
+const data = (d: Date) =>
+  d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<aside
+  class:list={['rounded-card border border-bordo bg-sfondo-rialzato p-5 text-sm', classe]}
+  aria-label="Autore e revisione del contenuto"
+>
+  <div class="flex flex-wrap items-start gap-4">
+    <span
+      class="inline-flex size-12 shrink-0 items-center justify-center rounded-full bg-primario-tenue text-primario-link"
+      aria-hidden="true"
+    >
+      <Icona nome="stetoscopio" class="size-6" />
+    </span>
+    <div class="min-w-0 flex-1 space-y-1">
+      <p>
+        <span class="text-testo-secondario">Scritto da</span>
+        <a href={`/equipe/${autore.id}`} class="font-semibold text-testo">
+          {autore.data.titolo} {autore.data.nome}
+        </a>
+        ,<span>{autore.data.ruolo}</span>
+        <span class="text-testo-secondario">
+          {' '}
+          · Ordine dei Medici Veterinari di <Dato valore={autore.data.provinciaOrdine} /> n.{' '}
+          <Dato valore={autore.data.numeroOrdine} />
+        </span>
+      </p>
+      {revisore && (
+        <p>
+          <span class="text-testo-secondario">Revisione clinica di</span>
+          <a href={`/equipe/${revisore.id}`} class="font-semibold text-testo">
+            {revisore.data.titolo} {revisore.data.nome}
+          </a>
+        </p>
+      )}
+      <p class="text-testo-secondario">
+        Pubblicato il <time datetime={iso(dataPubblicazione)}>{data(dataPubblicazione)}</time> ·
+        Ultima revisione
+        <time datetime={iso(dataRevisione)}>{data(dataRevisione)}</time>
+      </p>
+    </div>
+  </div>
+</aside>

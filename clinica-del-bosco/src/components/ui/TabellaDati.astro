@@ -1,0 +1,32 @@
+---
+/** Tabella HTML vera (th/caption) da un oggetto `tabella` del frontmatter: i modelli AI la estraggono bene. */
+interface Props {
+  tabella: { titolo: string; intestazioni: string[]; righe: string[][]; nota?: string | undefined };
+  class?: string;
+}
+const { tabella, class: classe = '' } = Astro.props;
+---
+
+<div
+  class:list={['tabella-dati', classe]}
+  tabindex="0"
+  role="region"
+  aria-label={`${tabella.titolo} (tabella scorrevole)`}
+>
+  <table>
+    <caption>{tabella.titolo}</caption>
+    <thead>
+      <tr>
+        {tabella.intestazioni.map((h) => (
+          <th scope="col">{h}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {tabella.righe.map((r) => (
+        <tr>{r.map((c, i) => (i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>))}</tr>
+      ))}
+    </tbody>
+  </table>
+  {tabella.nota && <p class="px-4 pb-4 text-sm text-testo-secondario">{tabella.nota}</p>}
+</div>

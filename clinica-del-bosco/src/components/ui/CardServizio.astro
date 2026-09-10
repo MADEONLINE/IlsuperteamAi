@@ -1,0 +1,31 @@
+---
+/** Card di un servizio (griglia servizi in home e hub). */
+import type { CollectionEntry } from 'astro:content';
+import Icona, { type NomeIcona } from '@ui/Icona.astro';
+interface Props {
+  servizio: CollectionEntry<'servizi'>;
+  compatta?: boolean;
+}
+const { servizio, compatta = false } = Astro.props;
+const icona = servizio.data.icona as NomeIcona;
+---
+
+<a
+  href={`/servizi/${servizio.id}`}
+  class:list={[
+    'group flex h-full flex-col gap-3 rounded-card border border-bordo bg-sfondo-rialzato no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario',
+    compatta ? 'p-4' : 'p-6',
+  ]}
+>
+  <span class="inline-flex size-11 items-center justify-center rounded-2xl bg-primario-tenue text-primario-link">
+    <Icona nome={icona} class="size-6" />
+  </span>
+  <span class:list={['font-sans font-bold text-testo', compatta ? 'text-base' : 'text-lg']}>
+    {servizio.data.titoloBreve}
+  </span>
+  {!compatta && <span class="text-sm text-testo-secondario">{servizio.data.sottotitolo}</span>}
+  <span class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primario-link">
+    Scopri di più{' '}
+    <Icona nome="freccia-destra" class="size-4 transition group-hover:translate-x-0.5" />
+  </span>
+</a>

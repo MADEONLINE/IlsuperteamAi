@@ -1,0 +1,87 @@
+---
+/** /prenota — form multi-step. Percorso "calmo": chi ha un'urgenza viene dirottato alla chiamata. */
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import FormPrenotazione from '@/components/form/FormPrenotazione.astro';
+import Bottone from '@ui/Bottone.astro';
+import Icona from '@ui/Icona.astro';
+import Sezione from '@ui/Sezione.astro';
+import { clinica, telHref } from '@lib/clinica';
+import { webPage } from '@lib/schema';
+
+const descrizione =
+  'Prenota una visita, un vaccino, un controllo o un intervento alla Clinica Veterinaria del Bosco di Portici. Quattro domande, ti richiamiamo entro 24 ore. Per le urgenze chiama subito il 081 7763859.';
+---
+
+<PaginaLayout
+  titolo="Prenota una visita veterinaria a Portici"
+  descrizione={descrizione}
+  percorso="/prenota"
+  h1="Prenota una visita"
+  sottotitolo={`Quattro domande, un minuto. Ti richiamiamo entro ${clinica.impegni.richiamoEntroOre} ore per confermare giorno e ora.`}
+  etichetta="Prenotazione"
+  briciole={[{ nome: 'Prenota', href: '/prenota' }]}
+  jsonLd={[
+    webPage({ url: '/prenota', titolo: 'Prenota una visita', descrizione, tipo: 'ContactPage' }),
+  ]}
+>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <FormPrenotazione />
+      </div>
+      <aside class="space-y-5 lg:col-span-5">
+        <div class="rounded-card border border-urgenza/40 bg-urgenza-tenue p-5">
+          <h2 class="flex items-center gap-2 font-sans text-lg font-bold text-urgenza-testo-su-chiaro">
+            <Icona nome="ambulanza" class="size-5" /> È un'urgenza?
+          </h2>
+          <p class="mt-2 text-sm">
+            Non compilare il form. Chiama: risponde un medico, 24 ore su 24, e ti diciamo subito
+            cosa fare mentre arrivi.
+          </p>
+          <Bottone
+            href={telHref}
+            variante="urgenza"
+            dimensione="lg"
+            icona="telefono"
+            pieno
+            class="mt-3"
+            evento="click_chiama"
+            eventoPosizione="prenota-aside"
+          >
+            {clinica.contatti.telefono.visualizzato}
+          </Bottone>
+        </div>
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5 text-sm">
+          <h2 class="font-sans text-lg font-bold">Cosa succede dopo l'invio</h2>
+          <ol class="mt-3 list-decimal space-y-2 pl-5">
+            <li>
+              La reception legge la richiesta e verifica le disponibilità nella fascia che hai
+              scelto.
+            </li>
+            <li>
+              Ti richiamiamo entro {clinica.impegni.richiamoEntroOre} ore (nei giorni feriali di
+              solito in giornata) per confermare giorno e ora.
+            </li>
+            <li>
+              Ricevi le istruzioni per la visita: digiuno se servono esami, cosa portare, dove
+              parcheggiare.
+            </li>
+          </ol>
+          <p class="mt-3 text-testo-secondario">
+            Nessun pagamento anticipato. Preventivo scritto prima di ogni intervento.
+          </p>
+        </div>
+        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5 text-sm">
+          <h2 class="font-sans text-lg font-bold">Preferisci telefonare?</h2>
+          <p class="mt-2">
+            Lo stesso numero serve per prenotazioni e urgenze:{' '}
+            <a href={telHref} class="font-semibold">
+              {clinica.contatti.telefono.visualizzato}
+            </a>
+            .
+          </p>
+        </div>
+      </aside>
+    </div>
+  </Sezione>
+</PaginaLayout>

@@ -1,0 +1,28 @@
+---
+/** Elenco fonti autorevoli con link esterni (E-E-A-T). */
+import Icona from '@ui/Icona.astro';
+interface Props {
+  fonti: Array<{ titolo: string; url: string; ente?: string | undefined }>;
+  class?: string;
+}
+const { fonti, class: classe = '' } = Astro.props;
+---
+
+<section class:list={['text-sm', classe]} aria-labelledby="fonti-titolo">
+  <h2 id="fonti-titolo" class="font-sans text-base font-bold">
+    Fonti e linee guida di riferimento
+  </h2>
+  <ul class="mt-2 space-y-1.5">
+    {fonti.map((f) => (
+      <li class="flex items-start gap-2">
+        <Icona nome="esterno" class="mt-1 size-3.5 shrink-0 text-testo-secondario" />
+        <span>
+          <a href={f.url} target="_blank" rel="noopener noreferrer" class="text-primario-link">
+            {f.titolo}
+          </a>
+          {f.ente && <span class="text-testo-secondario"> — {f.ente}</span>}
+        </span>
+      </li>
+    ))}
+  </ul>
+</section>
