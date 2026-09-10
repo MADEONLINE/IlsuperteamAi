@@ -1,0 +1,60 @@
+1
+00:00:02,000 --> 00:00:04,900
+La prima cosa che faccio la mattina
+
+2
+00:00:04,900 --> 00:00:07,000
+è aprire il gestionale
+
+3
+00:00:07,000 --> 00:00:08,800
+e capire qual è la giornata:
+
+4
+00:00:08,800 --> 00:00:10,820
+agende, ricoveri, e cosa devo fare.
+
+5
+00:00:10,820 --> 00:00:13,910
+Ci sono due schermate dedicate:
+
+6
+00:00:13,910 --> 00:00:16,280
+l'agenda e la flowboard.
+
+7
+00:00:16,280 --> 00:00:19,360
+Due utilizzi diversi, ma sempre collegati.
+
+8
+00:00:19,360 --> 00:00:21,200
+Mi trovo sull'agenda,
+
+9
+00:00:21,200 --> 00:00:24,630
+la prima schermata su cui mi ritrovo ogni volta.
+
+10
+00:00:25,300 --> 00:00:28,560
+Qui gli appuntamenti previsti per la giornata.
+
+11
+00:00:28,560 --> 00:00:31,300
+Mi sposto sulla flowboard,
+
+12
+00:00:31,300 --> 00:00:33,600
+la funzionalità di Snoots
+
+13
+00:00:33,600 --> 00:00:37,570
+che gestisce il flusso di lavoro in clinica.
+
+14
+00:00:37,570 --> 00:00:41,200
+Quindi mi basta aprire due schermate
+
+15
+00:00:41,200 --> 00:00:43,920
+e avere subito tutto sotto controllo.
+
