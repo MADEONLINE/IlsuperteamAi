@@ -11,7 +11,7 @@ specializzazioni: ['Cardiologia', 'Ecocardiografia', 'Ecografia addominale']
 aree: ['cardiologia', 'diagnostica-per-immagini']
 formazione: ['Master in cardiologia veterinaria']
 lingue: ['italiano']
-scattoBrief: '13'
+scattoBrief: '53'
 ordine: 4
 daValidare: true
 ---

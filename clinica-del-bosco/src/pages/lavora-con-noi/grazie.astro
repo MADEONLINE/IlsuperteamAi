@@ -1,0 +1,47 @@
+---
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Sezione from '@ui/Sezione.astro';
+import { clinica, emailPrincipale } from '@lib/clinica';
+---
+
+<PaginaLayout
+  titolo="Candidatura ricevuta"
+  descrizione="Abbiamo ricevuto la candidatura: manca solo il curriculum via email."
+  percorso="/lavora-con-noi/grazie"
+  noindex
+  h1="Candidatura ricevuta."
+  sottotitolo="Manca un passaggio: mandaci il curriculum via email, così la direzione sanitaria può leggerlo insieme al modulo."
+  etichetta="Candidature"
+  briciole={[
+    { nome: 'Lavora con noi', href: '/lavora-con-noi' },
+    { nome: 'Candidatura ricevuta', href: '/lavora-con-noi/grazie' },
+  ]}
+>
+  <Sezione>
+    <div class="prosa">
+      <p>
+        Scrivi a <a href={`mailto:${emailPrincipale}?subject=Candidatura`}>{emailPrincipale}</a> con
+        oggetto “Candidatura”, allegando il curriculum in PDF. Se hai già inviato il curriculum, non
+        serve altro.
+      </p>
+      <p>
+        Leggiamo tutte le candidature. Rispondiamo entro due settimane quando c'è un percorso
+        possibile; altrimenti la candidatura resta agli atti della {clinica.nome} e la riprendiamo
+        alla prima occasione utile.
+      </p>
+    </div>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+      <Bottone
+        href={`mailto:${emailPrincipale}?subject=Candidatura`}
+        variante="primario"
+        icona="mail"
+      >
+        Invia il curriculum
+      </Bottone>
+      <Bottone href="/lavora-con-noi" variante="secondario">
+        Torna alla pagina
+      </Bottone>
+    </div>
+  </Sezione>
+</PaginaLayout>

@@ -9,6 +9,7 @@
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Icona from '@ui/Icona.astro';
+import { altScatto, scatto } from '@lib/scatti';
 
 interface Props {
   src?: ImageMetadata;
@@ -36,6 +37,12 @@ const {
   class: classe = '',
   posizione = 'center',
 } = Astro.props;
+/**
+ * Quando la pagina indica solo il numero di scatto, l'immagine e il suo testo alternativo
+ * vengono risolti dal registro in @lib/scatti: appena il file esiste il segnaposto sparisce.
+ */
+const immagine = src ?? scatto(scattoBrief);
+const testoAlternativo = alt || altScatto(scattoBrief) || descrizioneSegnaposto;
 const ratioClasse: Record<NonNullable<Props['ratio']>, string> = {
   '1/1': 'aspect-square',
   '4/3': 'aspect-[4/3]',
@@ -54,10 +61,10 @@ const posizioni: Record<string, string> = {
 
 <figure class:list={['relative m-0 overflow-hidden rounded-card bg-sfondo-tinta', classe]}>
   <div class:list={[ratioClasse[ratio], 'relative w-full']}>
-    {src ? (
+    {immagine ? (
       <Picture
-        src={src}
-        alt={alt}
+        src={immagine}
+        alt={testoAlternativo}
         widths={larghezze}
         sizes={sizes}
         formats={['avif']}

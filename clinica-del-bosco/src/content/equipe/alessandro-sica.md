@@ -11,7 +11,7 @@ specializzazioni: ['Chirurgia dei tessuti molli', 'Chirurgia ortopedica']
 aree: ['chirurgia']
 formazione: ['Dottorato di ricerca (PhD)', 'Percorso GPCert in chirurgia (in completamento)']
 lingue: ['italiano']
-scattoBrief: '14'
+scattoBrief: '54'
 ordine: 2
 daValidare: true
 ---

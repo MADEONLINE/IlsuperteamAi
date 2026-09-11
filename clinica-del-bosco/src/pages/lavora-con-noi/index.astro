@@ -1,0 +1,387 @@
+---
+/**
+ * /lavora-con-noi — candidature spontanee di medici, tecnici e personale di reception.
+ * Pagina dichiarativa: descrive come si lavora davvero in clinica (turni, affiancamento,
+ * casistica) senza promettere posizioni aperte, che non sono note.
+ */
+import { getCollection } from 'astro:content';
+import PaginaLayout from '@layouts/PaginaLayout.astro';
+import Bottone from '@ui/Bottone.astro';
+import Faq from '@ui/Faq.astro';
+import Foto from '@ui/Foto.astro';
+import Icona from '@ui/Icona.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import Sezione from '@ui/Sezione.astro';
+import TabellaDati from '@ui/TabellaDati.astro';
+import { clinica, emailPrincipale, telHref } from '@lib/clinica';
+import { faqPage, webPage } from '@lib/schema';
+
+const equipe = await getCollection('equipe');
+const interni = equipe.filter((m) => m.data.tipo !== 'freelance').length;
+const specialisti = equipe.filter((m) => m.data.tipo === 'freelance').length;
+
+const descrizione =
+  'Lavorare alla Clinica Veterinaria del Bosco di Portici: come sono organizzati i turni, cosa si impara, chi cerchiamo. Candidature spontanee di medici veterinari, tecnici e personale di reception.';
+
+const perche = [
+  {
+    icona: 'scansione' as const,
+    titolo: 'Casistica che non si trova ovunque',
+    testo:
+      "Pronto soccorso h24, terapia intensiva, due sale chirurgiche, TAC ed endoscopia nella stessa sede. In un turno passa la medicina d'urgenza, la chirurgia programmata e la diagnostica avanzata.",
+  },
+  {
+    icona: 'stetoscopio' as const,
+    titolo: 'Specialisti con cui confrontarsi',
+    testo: `${specialisti} specialisti in collaborazione hanno giornate fisse in struttura: dermatologia, oculistica, neurologia, ortopedia, endoscopia, ecografia, chirurgia. Chi lavora qui li affianca, non li guarda passare.`,
+  },
+  {
+    icona: 'utente' as const,
+    titolo: 'Nessuno è solo in reperibilità',
+    testo:
+      'Di giorno ci sono sempre almeno due medici in struttura. Di notte il turno è coperto da un medico e un tecnico, o da due medici. La reperibilità chirurgica e anestesiologica è organizzata, non improvvisata.',
+  },
+  {
+    icona: 'foglia' as const,
+    titolo: 'Formazione riconosciuta',
+    testo:
+      "Nell'équipe ci sono dottorati, master e percorsi GPCert in corso. La clinica lavora perché chi si forma possa applicare quello che studia sui casi reali della struttura.",
+  },
+];
+
+const profili = [
+  {
+    titolo: 'Medico veterinario, turni diurni',
+    testo:
+      'Medicina interna e ambulatoriale, con accesso alla diagnostica interna e alla degenza. Turni da mezza giornata o interi, feriali e weekend.',
+  },
+  {
+    titolo: 'Medico veterinario, pronto soccorso notturno',
+    testo:
+      "Turno dalle 20 alle 9, con tecnico o secondo medico in struttura. È il ruolo con la curva di apprendimento più rapida sull'urgenza.",
+  },
+  {
+    titolo: 'Anestesista',
+    testo:
+      "Supporto all'attività chirurgica programmata e d'urgenza, su pazienti anche anziani o con patologie concomitanti.",
+  },
+  {
+    titolo: 'Tecnico veterinario (ASV)',
+    testo:
+      'Assistenza in sala, gestione della degenza, laboratorio, accoglienza del paziente. Anche percorsi di tirocinio.',
+  },
+  {
+    titolo: 'Front office',
+    testo:
+      "Accoglienza, telefono, prenotazioni, gestione dell'attesa. È il primo contatto del proprietario con la clinica e conta quanto una visita.",
+  },
+  {
+    titolo: 'Specialista in collaborazione',
+    testo:
+      'Discipline con calendario programmato. Se la tua specializzazione non è ancora coperta in struttura, scrivici comunque.',
+  },
+];
+
+const faq = [
+  {
+    domanda: 'Ci sono posizioni aperte in questo momento?',
+    risposta:
+      "Le posizioni aperte cambiano nel corso dell'anno e non sono pubblicate su questa pagina. Le candidature spontanee vengono lette e conservate: quando si libera un turno o serve una nuova figura partiamo da lì. Scrivere quando non c'è un annuncio è spesso il modo migliore per farsi trovare.",
+  },
+  {
+    domanda: 'Accettate neolaureati?',
+    risposta:
+      "Sì, con affiancamento. Un neolaureato non viene messo da solo su un turno di pronto soccorso: si comincia in diurno accanto a un collega più esperto e si passa alle notti quando è pronto, non quando serve. Indica nella candidatura l'anno di laurea e cosa hai già visto.",
+  },
+  {
+    domanda: 'Come sono organizzati i turni?',
+    risposta:
+      'I turni diurni sono da mezza giornata, 9-14.30 e 14.30-20, oppure interi 9-20, con almeno due medici presenti. Sabato e domenica si lavora con turno intero e due medici. Il pronto soccorso notturno va dalle 20 alle 9 con un medico e un tecnico, o due medici.',
+  },
+  {
+    domanda: 'Ospitate tirocini?',
+    risposta:
+      'Sì, sia curriculari sia extracurriculari, per medici veterinari e per tecnici. Il tirocinio è affiancato e prevede la rotazione tra ambulatorio, sala operatoria, degenza e laboratorio. Indica nella candidatura il periodo e le settimane richieste dal tuo corso.',
+  },
+  {
+    domanda: 'Che dati devo mandare?',
+    risposta:
+      "Il curriculum, il ruolo che ti interessa e due righe su cosa cerchi. Se sei medico veterinario indica anche l'Ordine di iscrizione. Non servono lettere di presentazione lunghe: interessano la casistica che hai visto e la disponibilità di turno.",
+  },
+  {
+    domanda: 'Quanto tempo serve per una risposta?',
+    risposta:
+      "Leggiamo tutte le candidature. Rispondiamo entro due settimane quando c'è un percorso possibile; se in quel momento non c'è, la candidatura resta agli atti e la riprendiamo alla prima occasione utile.",
+  },
+];
+
+const ruoli = [
+  'Medico veterinario, turni diurni',
+  'Medico veterinario, pronto soccorso notturno',
+  'Anestesista',
+  'Chirurgo',
+  'Specialista in collaborazione',
+  'Tecnico veterinario (ASV)',
+  'Tirocinio curriculare o extracurriculare',
+  'Front office',
+  'Altro',
+];
+
+const briciole = [{ nome: 'Lavora con noi', href: '/lavora-con-noi' }];
+---
+
+<PaginaLayout
+  titolo="Lavora con noi: medici veterinari, tecnici e reception a Portici"
+  descrizione={descrizione}
+  percorso="/lavora-con-noi"
+  h1="Lavorare alla Clinica del Bosco"
+  sottotitolo={`${interni} medici della clinica, ${specialisti} specialisti in collaborazione, un pronto soccorso aperto tutte le notti. Ecco come si lavora qui, prima di dirci chi sei.`}
+  etichetta="Candidature"
+  briciole={briciole}
+  jsonLd={[
+    webPage({
+      url: '/lavora-con-noi',
+      titolo: 'Lavora con noi',
+      descrizione,
+      tipo: 'WebPage',
+    }),
+    faqPage(faq),
+  ]}
+>
+  <Sezione>
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-7">
+        <Etichetta class="mb-3">Perché qui</Etichetta>
+        <h2 class="text-3xl md:text-4xl">Quattro cose che cambiano una giornata di lavoro</h2>
+        <ul class="mt-8 grid gap-5 sm:grid-cols-2">
+          {perche.map((p) => (
+            <li class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
+              <span class="inline-flex size-10 items-center justify-center rounded-2xl bg-primario-tenue text-primario-link">
+                <Icona nome={p.icona} class="size-5" />
+              </span>
+              <h3 class="mt-3 font-sans text-lg font-bold">{p.titolo}</h3>
+              <p class="mt-1 text-sm text-testo-secondario">{p.testo}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="lg:col-span-5">
+        <Foto ratio="4/3" scattoBrief="39" />
+        <p class="mt-3 text-sm text-testo-secondario">
+          La struttura: {clinica.struttura.metriQuadri} m², {clinica.struttura.saleVisita} sale
+          visita, {clinica.struttura.saleChirurgiche} sale chirurgiche,{' '}
+          {clinica.struttura.postiDegenza} posti di degenza.
+        </p>
+      </div>
+    </div>
+  </Sezione>
+
+  <Sezione tono="tinta" id="profili">
+    <Etichetta class="mb-3">Profili</Etichetta>
+    <h2 class="text-3xl md:text-4xl">Chi entra in una clinica come questa</h2>
+    <p class="mt-3 max-w-prose text-testo-secondario">
+      Le posizioni aperte cambiano nel corso dell'anno e non sono elencate qui. Questi sono i ruoli
+      che esistono in struttura: se ti riconosci in uno, scrivici anche senza un annuncio.
+    </p>
+    <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {profili.map((p) => (
+        <li class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
+          <h3 class="font-sans text-lg font-bold">{p.titolo}</h3>
+          <p class="mt-1 text-sm text-testo-secondario">{p.testo}</p>
+        </li>
+      ))}
+    </ul>
+  </Sezione>
+
+  <Sezione>
+    <TabellaDati
+      tabella={{
+        titolo: 'Come sono organizzati i turni',
+        intestazioni: ['Turno', 'Orario', 'Chi è in struttura'],
+        righe: [
+          ['Diurno, mezza giornata', '9.00–14.30 e 14.30–20.00', 'Almeno due medici veterinari'],
+          ['Diurno, intero', '9.00–20.00', 'Almeno due medici veterinari'],
+          ['Sabato e domenica', '9.00–20.00', 'Turno intero con due medici veterinari'],
+          [
+            'Pronto soccorso notturno',
+            '20.00–9.00',
+            'Un medico e un tecnico, oppure due medici veterinari',
+          ],
+          [
+            'Reperibilità',
+            'Su chiamata',
+            'Chirurgo e anestesista per gli interventi che non possono aspettare',
+          ],
+        ],
+        nota: "L'organizzazione dei turni può variare: quella indicata è la struttura abituale della settimana.",
+      }}
+    />
+  </Sezione>
+
+  <Sezione tono="tinta" id="candidatura">
+    <div class="grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <Etichetta class="mb-3">Candidatura</Etichetta>
+        <h2 class="text-3xl">Scrivici</h2>
+        <p class="mt-3 text-testo-secondario">
+          Compila il modulo e allega il curriculum via email: ti rispondiamo appena la candidatura è
+          stata letta dalla direzione sanitaria.
+        </p>
+        <div class="mt-6 space-y-3 text-sm">
+          <p class="flex items-start gap-2">
+            <Icona nome="mail" class="mt-0.5 size-5 shrink-0 text-primario-link" />
+            <span>
+              Curriculum a{' '}
+              <a href={`mailto:${emailPrincipale}?subject=Candidatura`} class="font-semibold">
+                {emailPrincipale}
+              </a>
+              , oggetto “Candidatura”.
+            </span>
+          </p>
+          <p class="flex items-start gap-2">
+            <Icona nome="telefono" class="mt-0.5 size-5 shrink-0 text-primario-link" />
+            <span>
+              Per parlarne a voce:{' '}
+              <a href={telHref} class="font-semibold">
+                {clinica.contatti.telefono.visualizzato}
+              </a>
+              , chiedi della direzione sanitaria.
+            </span>
+          </p>
+          <p class="flex items-start gap-2">
+            <Icona nome="scudo" class="mt-0.5 size-5 shrink-0 text-primario-link" />
+            <span>
+              I dati della candidatura sono trattati solo per la selezione e conservati per 24 mesi.
+              Vedi la <a href="/privacy-policy">privacy policy</a>.
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <form
+          name="candidatura"
+          method="POST"
+          action="/lavora-con-noi/grazie"
+          data-netlify="true"
+          netlify-honeypot="sito-web"
+          class="space-y-5 rounded-card border border-bordo bg-sfondo-rialzato p-6"
+        >
+          <input type="hidden" name="form-name" value="candidatura" />
+          <p class="hidden" aria-hidden="true">
+            <label>
+              Non compilare: <input name="sito-web" tabindex="-1" autocomplete="off" />
+            </label>
+          </p>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="cand-nome" class="block font-semibold">
+                Nome e cognome
+              </label>
+              <input
+                id="cand-nome"
+                name="nome"
+                type="text"
+                required
+                autocomplete="name"
+                class="mt-1 min-h-12 w-full rounded-card border border-bordo-forte bg-sfondo px-3"
+              />
+            </div>
+            <div>
+              <label for="cand-email" class="block font-semibold">
+                Email
+              </label>
+              <input
+                id="cand-email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                class="mt-1 min-h-12 w-full rounded-card border border-bordo-forte bg-sfondo px-3"
+              />
+            </div>
+            <div>
+              <label for="cand-telefono" class="block font-semibold">
+                Telefono
+              </label>
+              <input
+                id="cand-telefono"
+                name="telefono"
+                type="tel"
+                autocomplete="tel"
+                class="mt-1 min-h-12 w-full rounded-card border border-bordo-forte bg-sfondo px-3"
+              />
+            </div>
+            <div>
+              <label for="cand-ruolo" class="block font-semibold">
+                Ruolo
+              </label>
+              <select
+                id="cand-ruolo"
+                name="ruolo"
+                required
+                class="mt-1 min-h-12 w-full rounded-card border border-bordo-forte bg-sfondo px-3"
+              >
+                {ruoli.map((r) => (
+                  <option value={r}>{r}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="cand-ordine" class="block font-semibold">
+              Ordine dei Medici Veterinari{' '}
+              <span class="font-normal text-testo-secondario">(se medico)</span>
+            </label>
+            <input
+              id="cand-ordine"
+              name="ordine"
+              type="text"
+              class="mt-1 min-h-12 w-full rounded-card border border-bordo-forte bg-sfondo px-3"
+            />
+          </div>
+
+          <div>
+            <label for="cand-messaggio" class="block font-semibold">
+              Due righe su di te: casistica vista e disponibilità di turno
+            </label>
+            <textarea
+              id="cand-messaggio"
+              name="messaggio"
+              rows="5"
+              required
+              class="mt-1 w-full rounded-card border border-bordo-forte bg-sfondo p-3"
+            ></textarea>
+          </div>
+
+          <label class="flex items-start gap-3 text-sm">
+            <input
+              id="cand-consenso"
+              name="consenso"
+              type="checkbox"
+              required
+              class="mt-1 size-5 shrink-0"
+            />
+            <span>
+              Ho letto la <a href="/privacy-policy">privacy policy</a> e acconsento al trattamento
+              dei miei dati per la selezione del personale.
+            </span>
+          </label>
+
+          <Bottone type="submit" variante="primario" dimensione="lg" pieno>
+            Invia la candidatura
+          </Bottone>
+          <p class="text-sm text-testo-secondario">
+            Il curriculum va inviato via email: il modulo serve a farci sapere che stai scrivendo.
+          </p>
+        </form>
+      </div>
+    </div>
+  </Sezione>
+
+  <Sezione>
+    <Faq voci={faq} titolo="Domande frequenti su come si lavora qui" />
+  </Sezione>
+</PaginaLayout>

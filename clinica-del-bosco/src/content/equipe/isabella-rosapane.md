@@ -12,7 +12,7 @@ specializzazioni:
 aree: ['animali-esotici-e-conigli']
 formazione: ['Dottorato di ricerca (PhD)', 'Master in medicina degli animali non convenzionali']
 lingue: ['italiano']
-scattoBrief: '12'
+scattoBrief: '52'
 ordine: 3
 daValidare: true
 ---

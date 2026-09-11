@@ -16,7 +16,7 @@ formazione:
     'Lettore ufficiale CeLeMaSChe (displasia dell’anca e del gomito)',
   ]
 lingue: ['italiano']
-scattoBrief: '11'
+scattoBrief: '51'
 ordine: 1
 daValidare: true
 ---

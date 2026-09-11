@@ -4,22 +4,42 @@
  * ("È un'urgenza" in corallo · "Prenota una visita" in verde), menu mobile accessibile.
  * Senza JS: il pulsante menu diventa un link alla navigazione completa nel footer.
  */
+import { getCollection } from 'astro:content';
 import Bottone from '@ui/Bottone.astro';
 import Icona from '@ui/Icona.astro';
 import Logo from '@ui/Logo.astro';
 import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
-import { clinica, telHref } from '@lib/clinica';
+import { clinica, indirizzoBreve, telHref } from '@lib/clinica';
 
 const voci = [
   { nome: 'Pronto soccorso', href: '/pronto-soccorso', urgenza: true },
-  { nome: 'Servizi', href: '/servizi' },
+  { nome: 'Servizi', href: '/servizi', servizi: true },
   { nome: 'Piani Salute', href: '/piani-salute' },
   { nome: 'La struttura', href: '/la-struttura' },
   { nome: 'Équipe', href: '/equipe' },
   { nome: 'Magazine', href: '/magazine' },
   { nome: 'Per i colleghi', href: '/per-i-colleghi' },
+  { nome: 'Lavora con noi', href: '/lavora-con-noi' },
   { nome: 'Contatti', href: '/contatti' },
 ];
+
+/** Il menu servizi elenca tutte le voci raggruppate per area: chi cerca una specialistica la trova subito. */
+const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
+const areeServizi: Array<{ chiave: string; titolo: string }> = [
+  { chiave: 'urgenza', titolo: 'Urgenza e degenza' },
+  { chiave: 'diagnostica', titolo: 'Diagnostica' },
+  { chiave: 'chirurgia', titolo: 'Chirurgia' },
+  { chiave: 'specialistica', titolo: 'Medicina specialistica' },
+  { chiave: 'prevenzione', titolo: 'Prevenzione' },
+  { chiave: 'esotici', titolo: 'Animali esotici' },
+];
+const gruppiServizi = areeServizi
+  .map((a) => ({ ...a, lista: servizi.filter((s) => s.data.categoria === a.chiave) }))
+  .filter((a) => a.lista.length > 0);
+const social = [
+  { nome: 'Facebook', href: clinica.social.facebook, icona: 'facebook' as const },
+  { nome: 'Instagram', href: clinica.social.instagram, icona: 'instagram' as const },
+].filter((s) => !s.href.includes('DA_CONFERMARE'));
 const percorsoAttuale = Astro.url.pathname.replace(/\/$/, '') || '/';
 const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.startsWith(`${href}/`);
 ---
@@ -35,19 +55,38 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
         </span>
         <span>{clinica.orari.prontoSoccorso.etichetta}</span>
       </p>
-      <a
-        href={telHref}
-        data-evento="click_chiama"
-        data-evento-posizione="striscia-header"
-        class="flex items-center gap-1.5 font-semibold text-testo-inverso no-underline hover:underline"
-      >
-        <Icona nome="telefono" class="size-4" />
-        <span>Urgenze: {clinica.contatti.telefono.visualizzato}</span>
-      </a>
+      <div class="flex items-center gap-4">
+        <a
+          href="/contatti"
+          class="hidden items-center gap-1.5 text-testo-inverso no-underline hover:underline lg:flex"
+        >
+          <Icona nome="mappa" class="size-4" />
+          <span>{indirizzoBreve}</span>
+        </a>
+        {social.map((s) => (
+          <a
+            href={s.href}
+            class="text-testo-inverso no-underline hover:underline"
+            aria-label={s.nome}
+            rel="noopener"
+          >
+            <Icona nome={s.icona} class="size-4" />
+          </a>
+        ))}
+        <a
+          href={telHref}
+          data-evento="click_chiama"
+          data-evento-posizione="striscia-header"
+          class="flex items-center gap-1.5 font-semibold text-testo-inverso no-underline hover:underline"
+        >
+          <Icona nome="telefono" class="size-4" />
+          <span>Urgenze: {clinica.contatti.telefono.visualizzato}</span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="contenitore flex min-h-[4.25rem] items-center justify-between gap-4">
+  <div class="contenitore relative flex min-h-[4.25rem] items-center justify-between gap-4">
     <a href="/" class="shrink-0 rounded-md no-underline" aria-label={`${clinica.nome} — home`}>
       <Logo />
     </a>
@@ -56,20 +95,66 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
       <ul class="flex items-center gap-1">
         {voci
           .filter((v) => !v.urgenza)
-          .map((v) => (
-            <li>
-              <a
-                href={v.href}
-                aria-current={attiva(v.href) ? 'page' : undefined}
-                class:list={[
-                  'inline-flex min-h-10 items-center whitespace-nowrap rounded-pill px-2.5 text-[0.95rem] font-medium no-underline transition hover:bg-primario-tenue hover:text-primario-link',
-                  attiva(v.href) ? 'bg-primario-tenue text-primario-link' : 'text-testo',
-                ]}
-              >
-                {v.nome}
-              </a>
-            </li>
-          ))}
+          .map((v) =>
+            v.servizi ? (
+              <li class="menu-servizi">
+                <details>
+                  <summary
+                    class:list={[
+                      'inline-flex min-h-10 cursor-pointer list-none items-center gap-1 whitespace-nowrap rounded-pill px-2.5 text-[0.95rem] font-medium transition hover:bg-primario-tenue hover:text-primario-link',
+                      attiva(v.href) ? 'bg-primario-tenue text-primario-link' : 'text-testo',
+                    ]}
+                  >
+                    {v.nome}
+                    <Icona nome="chevron-giu" class="size-4 freccia" />
+                  </summary>
+                  <div class="pannello-servizi border-y border-bordo bg-sfondo-rialzato shadow-card">
+                    <div class="contenitore grid gap-x-8 gap-y-6 py-7 md:grid-cols-3">
+                      {gruppiServizi.map((g) => (
+                        <div>
+                          <p class="eyebrow mb-2">{g.titolo}</p>
+                          <ul class="space-y-1">
+                            {g.lista.map((sv) => (
+                              <li>
+                                <a
+                                  href={`/servizi/${sv.id}`}
+                                  class="block rounded-md px-2 py-1 text-[0.92rem] no-underline hover:bg-primario-tenue hover:text-primario-link"
+                                >
+                                  {sv.data.titoloBreve}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                      <div class="md:col-span-3">
+                        <a
+                          href="/servizi"
+                          class="inline-flex items-center gap-1 font-semibold text-primario-link"
+                        >
+                          Tutti i servizi in una pagina{' '}
+                          <Icona nome="freccia-destra" class="size-4" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </details>
+              </li>
+            ) : (
+              <li>
+                <a
+                  href={v.href}
+                  aria-current={attiva(v.href) ? 'page' : undefined}
+                  class:list={[
+                    'inline-flex min-h-10 items-center whitespace-nowrap rounded-pill px-2.5 text-[0.95rem] font-medium no-underline transition hover:bg-primario-tenue hover:text-primario-link',
+                    attiva(v.href) ? 'bg-primario-tenue text-primario-link' : 'text-testo',
+                  ]}
+                >
+                  {v.nome}
+                </a>
+              </li>
+            ),
+          )}
       </ul>
     </nav>
 
@@ -120,24 +205,54 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
   <div id="menu-mobile" class="menu-mobile hidden border-t border-bordo bg-sfondo xl:hidden" hidden>
     <nav aria-label="Navigazione principale (mobile)" class="contenitore py-4">
       <ul class="flex flex-col divide-y divide-bordo">
-        {voci.map((v) => (
-          <li>
-            <a
-              href={v.href}
-              aria-current={attiva(v.href) ? 'page' : undefined}
-              class:list={[
-                'flex min-h-12 items-center justify-between gap-3 py-2 text-lg font-medium no-underline',
-                v.urgenza ? 'text-urgenza-testo-su-chiaro' : 'text-testo',
-              ]}
-            >
-              <span class="flex items-center gap-2">
-                {v.urgenza && <Icona nome="ambulanza" class="size-5" />}
-                {v.nome}
-              </span>
-              <Icona nome="freccia-destra" class="size-4 opacity-50" />
-            </a>
-          </li>
-        ))}
+        {voci.map((v) =>
+          v.servizi ? (
+            <li>
+              <details class="py-2">
+                <summary class="flex min-h-12 cursor-pointer list-none items-center justify-between gap-3 text-lg font-medium text-testo">
+                  <span>Servizi</span>
+                  <Icona nome="chevron-giu" class="size-4 opacity-50 freccia" />
+                </summary>
+                <div class="pb-3 pl-1">
+                  {gruppiServizi.map((g) => (
+                    <div class="mt-3">
+                      <p class="eyebrow mb-1">{g.titolo}</p>
+                      <ul class="space-y-0.5">
+                        {g.lista.map((sv) => (
+                          <li>
+                            <a
+                              href={`/servizi/${sv.id}`}
+                              class="block min-h-10 py-1.5 no-underline"
+                            >
+                              {sv.data.titoloBreve}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            </li>
+          ) : (
+            <li>
+              <a
+                href={v.href}
+                aria-current={attiva(v.href) ? 'page' : undefined}
+                class:list={[
+                  'flex min-h-12 items-center justify-between gap-3 py-2 text-lg font-medium no-underline',
+                  v.urgenza ? 'text-urgenza-testo-su-chiaro' : 'text-testo',
+                ]}
+              >
+                <span class="flex items-center gap-2">
+                  {v.urgenza && <Icona nome="ambulanza" class="size-5" />}
+                  {v.nome}
+                </span>
+                <Icona nome="freccia-destra" class="size-4 opacity-50" />
+              </a>
+            </li>
+          ),
+        )}
       </ul>
       <div class="mt-4 flex flex-col gap-3">
         <BadgeApertoOra class="self-start" />
@@ -159,6 +274,32 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
     </nav>
   </div>
 </header>
+
+<style>
+  /* Menu servizi: <details> nativo, quindi funziona anche senza JavaScript. */
+  .menu-servizi details > summary::-webkit-details-marker {
+    display: none;
+  }
+  .menu-servizi details[open] .freccia,
+  .menu-mobile details[open] .freccia {
+    transform: rotate(180deg);
+  }
+  .freccia {
+    transition: transform 0.15s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .freccia {
+      transition: none;
+    }
+  }
+  .pannello-servizi {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 40;
+  }
+</style>
 
 <script>
   function inizializzaMenu() {
@@ -192,6 +333,23 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
       if (e.matches) imposta(false);
     });
   }
+
+  /** Il pannello servizi si chiude cliccando fuori o con Escape. */
+  function inizializzaPannelloServizi() {
+    const dettagli = document.querySelector<HTMLDetailsElement>('.menu-servizi details');
+    if (!dettagli) return;
+    document.addEventListener('click', (e) => {
+      if (dettagli.open && !dettagli.contains(e.target as Node)) dettagli.open = false;
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dettagli.open) {
+        dettagli.open = false;
+        dettagli.querySelector('summary')?.focus();
+      }
+    });
+  }
+  inizializzaPannelloServizi();
+  document.addEventListener('astro:after-swap', inizializzaPannelloServizi);
   inizializzaMenu();
   document.addEventListener('astro:after-swap', inizializzaMenu);
 </script>
