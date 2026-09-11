@@ -194,12 +194,60 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
 .faq details[open] summary::after{content:"–"}
 .faq .ans{padding:0 22px 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:70ch}
 
+/* "qui la leggi, in demo la senti" */
+.hear{
+  margin-top:24px;border:1px solid var(--teal);background:var(--night-2);
+  padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;align-items:center;border-radius:3px
+}
+.hear-t{display:grid;gap:9px;max-width:62ch}
+.hear-t p{font-size:.97rem;line-height:1.55;color:var(--night-muted)}
+.hear-t p strong{color:var(--night-ink)}
+.hear .btn{white-space:nowrap}
+@media (max-width:760px){.hear{grid-template-columns:1fr;justify-items:start}}
+
 /* closing */
 .close{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
-.close-in{display:grid;gap:22px;padding-block:clamp(50px,7vw,84px);justify-items:start;max-width:64ch}
+.close-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);
+  gap:clamp(30px,5vw,60px);padding-block:clamp(50px,7vw,84px);align-items:start
+}
+@media (max-width:900px){.close-grid{grid-template-columns:1fr}}
+.close-in{display:grid;gap:20px;justify-items:start;max-width:56ch}
 .close h2{color:var(--night-ink)}
 .close p{color:var(--night-muted)}
 .close .kick{color:var(--teal)}
+.close-list{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.close-list li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:.95rem;color:var(--night-muted);line-height:1.45}
+.close-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+
+/* booking form */
+.bookform{
+  background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;
+  padding:24px;display:grid;gap:14px;width:100%
+}
+.bf-h{
+  font-family:var(--f-disp);font-size:1.25rem;font-weight:700;color:var(--night-ink)!important;
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:2px
+}
+.bf-row{display:grid;gap:6px}
+.bf-row label{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--night-muted)
+}
+.bf-row input,.bf-row select{
+  font-family:var(--f-ui);font-size:.94rem;padding:11px 12px;width:100%;
+  background:var(--night);border:1px solid var(--night-line);border-radius:2px;
+  color:var(--night-ink);appearance:none
+}
+.bf-row input::placeholder{color:#5C716D}
+.bf-row select{background-image:none}
+.bf-row input:focus,.bf-row select:focus{border-color:var(--teal);outline:none}
+.bf-go{width:100%;text-align:center;border:0;margin-top:4px;font-size:.95rem}
+.bf-note{font-size:.82rem!important;line-height:1.5;color:var(--night-muted)!important}
+.bf-prev{
+  font-family:var(--f-mono);font-size:.6rem!important;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--teal)!important;border-top:1px solid var(--night-line);padding-top:12px
+}
 
 footer{background:var(--night);border-top:1px solid var(--night-line);padding-block:26px 44px;color:var(--night-muted)}
 .foot-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center}
@@ -242,7 +290,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       <p class="lede">La prima segreteria virtuale costruita solo per la clinica veterinaria. Giulia risponde al telefono della tua clinica, riconosce chi chiama, conosce il paziente e la terapia in corso, e fissa l'appuntamento in agenda. Anche alle 23. Anche di domenica.</p>
       <div class="btns">
         <a class="btn btn--p" href="#demo">Prenota una demo</a>
-        <a class="btn btn--s" href="#chiamata">Ascolta una chiamata vera</a>
+        <a class="btn btn--s" href="#chiamata">Guarda cosa sa mentre parla</a>
       </div>
       <div class="badge-row">
         <span class="badge badge--live">Pilota attivo · Carmagnola</span>
@@ -371,6 +419,14 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
         <p class="small" style="color:var(--night-muted);border-top:1px solid var(--night-line);padding-top:13px">Giulia non indovina e non inventa: legge la scheda. Con Snoots, questi dati sono quelli reali della tua clinica.</p>
       </div>
     </div>
+
+    <div class="hear">
+      <div class="hear-t">
+        <span class="kick">Qui la leggi. In demo la senti.</span>
+        <p>Il testo qui sopra è la trascrizione di una telefonata reale. La <strong>voce</strong> non la mettiamo online: te la facciamo sentire in diretta durante la demo, insieme alla scheda che Giulia ha davanti mentre parla. Trenta minuti, senza impegno.</p>
+      </div>
+      <a class="btn btn--p" href="#demo">Prenota la demo</a>
+    </div>
   </div>
 </section>
 
@@ -487,15 +543,50 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
 
 <!-- CLOSING -->
 <section class="close" id="demo">
-  <div class="wrap close-in">
-    <div class="kick">Il prossimo passo</div>
-    <h2>Trenta minuti, e la senti rispondere.</h2>
-    <p class="lede">In demo ti facciamo ascoltare una chiamata reale, ti mostriamo cosa vede Giulia mentre parla e facciamo insieme il conto di quanto ti costa oggi il telefono. Prezzo e condizioni te li diciamo lì, senza giri.</p>
-    <div class="btns">
-      <a class="btn btn--p" href="#">Prenota la demo</a>
-      <a class="btn btn--s" href="#conto">Prima fai il conto</a>
+  <div class="wrap close-grid">
+    <div class="close-in">
+      <div class="kick">Il prossimo passo</div>
+      <h2>Trenta minuti,<br>e la senti rispondere.</h2>
+      <p class="lede">In demo ti facciamo ascoltare una chiamata reale, ti mostriamo cosa vede Giulia mentre parla e facciamo insieme il conto di quanto ti costa oggi il telefono. Prezzo e condizioni te li diciamo lì, senza giri.</p>
+      <ul class="close-list">
+        <li>Ascolti Giulia rispondere a una chiamata vera</li>
+        <li>Vedi la scheda che ha davanti mentre parla</li>
+        <li>Facciamo il conto con i numeri della tua clinica</li>
+        <li>Prezzo e tempi di attivazione, detti in call</li>
+      </ul>
+      <p class="small" style="color:var(--night-muted)">Brave Vet Business × Icarus Technology · disponibile come add-on nel marketplace Snoots</p>
     </div>
-    <p class="small" style="color:var(--night-muted)">Brave Vet Business × Icarus Technology · disponibile come add-on nel marketplace Snoots</p>
+
+    <form class="bookform" id="form-demo" novalidate>
+      <p class="bf-h">Prenota la demo</p>
+      <div class="bf-row">
+        <label for="bf-nome">Nome e cognome</label>
+        <input id="bf-nome" name="nome" type="text" autocomplete="name" placeholder="Matteo Rosso">
+      </div>
+      <div class="bf-row">
+        <label for="bf-struttura">Struttura</label>
+        <input id="bf-struttura" name="struttura" type="text" autocomplete="organization" placeholder="Clinica Veterinaria…">
+      </div>
+      <div class="bf-row">
+        <label for="bf-email">Email</label>
+        <input id="bf-email" name="email" type="email" autocomplete="email" placeholder="nome@clinica.it">
+      </div>
+      <div class="bf-row">
+        <label for="bf-tel">Telefono</label>
+        <input id="bf-tel" name="telefono" type="tel" autocomplete="tel" placeholder="+39 …">
+      </div>
+      <div class="bf-row">
+        <label for="bf-gest">Gestionale in uso</label>
+        <select id="bf-gest" name="gestionale">
+          <option value="snoots">Snoots</option>
+          <option value="altro">Un altro gestionale</option>
+          <option value="nessuno">Nessuno / carta e agenda</option>
+        </select>
+      </div>
+      <button class="btn btn--p bf-go" type="submit">Richiedi la demo</button>
+      <p class="bf-note">Ti richiamiamo entro un giorno lavorativo per fissare l'orario. Nessun impegno, nessun preventivo automatico.</p>
+      <p class="bf-note bf-prev">Anteprima · il form non è ancora collegato</p>
+    </form>
   </div>
 </section>
 
@@ -546,5 +637,15 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     els[i].addEventListener('change', calc);
   });
   calc();
+
+  // Anteprima: il form non è ancora collegato a un endpoint.
+  var form = document.getElementById('form-demo');
+  var prev = form ? form.querySelector('.bf-prev') : null;
+  if (form && prev) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      prev.textContent = 'Anteprima · in produzione questa richiesta arriva al team commerciale';
+    });
+  }
 })();
 </script>
