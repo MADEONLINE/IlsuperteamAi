@@ -8,6 +8,19 @@ riportano il numero dello scatto: sostituire il file e aggiornare la pagina.
 Consenso: per ogni proprietario e animale ripreso, liberatoria scritta. Per l'équipe, liberatoria
 per uso sul sito e sui social.
 
+## Stato al 11 settembre 2026
+
+Gli scatti di ambiente, attrezzatura, gesto clinico e campagna sono già disponibili come **immagini
+generate** in `src/assets/img/scatto-NN-*.jpg` (1600–2000 px di lato lungo), coerenti per palette e
+luce e prive di volti riconoscibili. Servono come base di lavoro e vanno **sostituite dalle foto
+reali** quando il servizio fotografico è pronto: stesso numero di scatto, stesso nome file.
+
+**Non generati e non generabili**: gli scatti 12–20 (ritratti dei 21 medici) e gli scatti 01 e 25
+nella versione definitiva (facciata e insegna reali della clinica). Dove il sito cita un
+professionista per nome deve comparire la sua fotografia vera.
+
+Il piede pagina del sito riporta l'avviso sulle immagini generate con l'ausilio dell'AI.
+
 | #     | Soggetto                                                                                                                                           | Taglio           | Uso                                         | Note                                                                                                                                 |
 | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | 01    | Ingresso della clinica **di notte**, insegna accesa, porta illuminata                                                                              | Verticale 4:5    | Hero home                                   | È la foto più importante: deve dire "siamo aperti adesso". Blue hour, luci interne accese                                            |
