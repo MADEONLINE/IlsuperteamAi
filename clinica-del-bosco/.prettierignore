@@ -3,3 +3,7 @@ node_modules
 .astro
 package-lock.json
 public/fonts
+
+# Kit ufficiale del marchio: archivio fedele al file consegnato dalla clinica.
+# Non va riformattato, altrimenti non è più confrontabile con l'originale.
+docs/marchio-kit

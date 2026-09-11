@@ -1,0 +1,79 @@
+/* ============================================================
+   Clinica Veterinaria del Bosco — variabili di brand
+   Includere questo file (o copiarne il contenuto) nel progetto.
+   ============================================================ */
+
+/* Font — Google Fonts (licenza SIL OFL, uso commerciale consentito) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---- Colori ---- */
+  --bosco-verde:        #24603C; /* PRIMARIO — colore dominante del brand */
+  --bosco-verde-scuro:  #17402A; /* varianti scure, hover */
+  --bosco-petrolio:     #0C4E58; /* SECONDARIO — header, pulsanti, profondità */
+  --bosco-petrolio-cupo:#063C46; /* fondi scuri, footer */
+  --bosco-sabbia:       #C9A87E; /* ACCENTO caldo — dettagli, filetti, CTA calde */
+  --bosco-sabbia-scuro: #B98A56;
+  --bosco-inchiostro:   #182F2A; /* testi principali */
+  --bosco-testo:        #3F524C; /* testo corrente */
+  --bosco-tenue:        #8AA09B; /* testo secondario, didascalie */
+  --bosco-offwhite:     #F5F7F4; /* fondi chiari */
+  --bosco-bianco:       #FFFFFF;
+  --bosco-linea:        rgba(24, 47, 42, .14); /* bordi e separatori */
+
+  /* ---- Tipografia ---- */
+  --bosco-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --bosco-sans:  'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+/* ---- Impostazioni tipografiche di base ---- */
+body {
+  font-family: var(--bosco-sans);
+  color: var(--bosco-testo);
+  background: var(--bosco-bianco);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--bosco-serif);
+  font-weight: 600;
+  color: var(--bosco-petrolio-cupo);
+  line-height: 1.15;
+}
+
+/* Sopratitolo del brand: maiuscolo, spaziato */
+.bosco-eyebrow {
+  font-family: var(--bosco-sans);
+  font-weight: 500;
+  font-size: .78rem;
+  letter-spacing: .23em;
+  text-transform: uppercase;
+  color: var(--bosco-verde);
+}
+
+/* ---- Pulsanti ---- */
+.bosco-btn {
+  font-family: var(--bosco-sans);
+  font-weight: 600;
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .95rem 1.7rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+  transition: .2s;
+}
+.bosco-btn--primario { background: var(--bosco-petrolio); color: #fff; }
+.bosco-btn--primario:hover { background: var(--bosco-petrolio-cupo); }
+.bosco-btn--verde    { background: var(--bosco-verde); color: #fff; }
+.bosco-btn--caldo    { background: var(--bosco-sabbia); color: var(--bosco-inchiostro); }
+.bosco-btn--ghost    { background: transparent; border-color: var(--bosco-linea); color: var(--bosco-petrolio-cupo); }
+
+/* ---- Logo: spazio di rispetto e dimensione minima ---- */
+.bosco-logo { display: block; height: 56px; width: auto; }        /* header desktop */
+@media (max-width: 768px) { .bosco-logo { height: 44px; } }        /* header mobile  */
+.bosco-logo-area { padding: 0.5em; }  /* spazio di rispetto ≈ 50% dell'altezza del marchio */

@@ -6,22 +6,46 @@ import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
 import sharp from 'sharp';
 import { clinica } from '@lib/clinica';
+import { radura, lockup, coloriMarchio } from '@lib/marchio';
 
 const escape = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-function spezza(testo: string, max = 30): string[] {
-  const parole = testo.split(' ');
+/**
+ * Manda a capo e sceglie il corpo in base alla larghezza stimata.
+ *
+ * Il testo qui è reso da sharp con i font di sistema, che cambiano da macchina
+ * a macchina (in locale "Georgia, serif" diventa DejaVu Serif, molto più largo).
+ * Per questo la misura non si fida del numero di caratteri: stima la larghezza
+ * con un rapporto prudente e rimpicciolisce finché il titolo non sta dentro.
+ */
+const LARGHEZZA_UTILE = 1040;
+/** Rapporto larghezza/corpo per carattere, tarato sul serif più largo plausibile. */
+const RAPPORTO = 0.62;
+
+function spezza(testo: string, maxCaratteri: number): string[] {
   const righe: string[] = [];
   let riga = '';
-  for (const p of parole) {
-    if ((riga + ' ' + p).trim().length > max) {
-      righe.push(riga.trim());
-      riga = p;
-    } else riga += ' ' + p;
+  for (const parola of testo.split(' ')) {
+    if (riga && (riga + ' ' + parola).length > maxCaratteri) {
+      righe.push(riga);
+      riga = parola;
+    } else riga = riga ? riga + ' ' + parola : parola;
   }
-  if (riga.trim()) righe.push(riga.trim());
-  return righe.slice(0, 4);
+  if (riga) righe.push(riga);
+  return righe;
+}
+
+/** Restituisce le righe e il corpo più grande con cui il titolo sta nel riquadro. */
+function impagina(titolo: string): { righe: string[]; dim: number } {
+  for (const dim of [72, 64, 56, 48, 42]) {
+    const maxCaratteri = Math.floor(LARGHEZZA_UTILE / (dim * RAPPORTO));
+    const righe = spezza(titolo, maxCaratteri);
+    if (righe.length <= 3 && righe.every((r) => r.length <= maxCaratteri)) return { righe, dim };
+  }
+  const dim = 42;
+  const maxCaratteri = Math.floor(LARGHEZZA_UTILE / (dim * RAPPORTO));
+  return { righe: spezza(titolo, maxCaratteri).slice(0, 4), dim };
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -72,16 +96,29 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const GET: APIRoute = async ({ props }) => {
   const { titolo, sotto } = props as { titolo: string; sotto: string };
-  const righe = spezza(titolo);
-  const dim = righe.length > 2 ? 60 : 72;
+  const { righe, dim } = impagina(titolo);
+  // Lockup ufficiale in versione reverse (monocromatica off-white), tracciati
+  // vettoriali: nessun font da risolvere, resa identica su qualsiasi macchina.
+  const scalaMarchio = lockup.marchio.larghezza / 1624;
+  const marchioReverse = `<g transform="translate(80 54) scale(0.62)" fill="${coloriMarchio.offWhite}">
+      <g transform="scale(${scalaMarchio.toFixed(6)})">
+        <path fill-rule="evenodd" d="${radura.fronda}"/>
+        <path fill-rule="evenodd" d="${radura.petrolio}"/>
+        <path fill-rule="evenodd" d="${radura.sabbia}"/>
+      </g>
+      <rect x="${lockup.filetto.x}" y="${lockup.filetto.y}" width="${lockup.filetto.larghezza}" height="${lockup.filetto.altezza}"/>
+      <path d="${lockup.sopra}"/>
+      <path d="${lockup.nome}"/>
+    </g>`;
+
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-    <rect width="1200" height="630" fill="#09211a"/>
-    <circle cx="1040" cy="120" r="300" fill="#123a29"/>
-    <g transform="translate(80 70)"><circle cx="24" cy="24" r="24" fill="#8ec9a8"/><path d="M24 8c-5.4 5-10.8 10-10.8 16.8a10.8 10.8 0 0 0 21.6 0C34.8 18 29.4 13 24 8Z" fill="#09211a"/><path d="M24 17v16M15.6 25h16.8" stroke="#8ec9a8" stroke-width="3.6" stroke-linecap="round"/></g>
-    <text x="140" y="104" font-family="Georgia, serif" font-size="30" fill="#faf7f1">Clinica Veterinaria <tspan font-style="italic" font-weight="700" fill="#8ec9a8">del Bosco</tspan></text>
-    ${righe.map((r, i) => `<text x="80" y="${250 + i * (dim + 14)}" font-family="Georgia, serif" font-size="${dim}" font-weight="600" fill="#faf7f1">${escape(r)}</text>`).join('')}
-    <text x="80" y="${250 + righe.length * (dim + 14) + 16}" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#8ec9a8">${escape(sotto.slice(0, 70))}</text>
-    <text x="80" y="580" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#faf7f1" opacity="0.85">Pronto soccorso 24/7 · ${escape(clinica.contatti.telefono.visualizzato)} · Portici (NA)</text>
+    <rect width="1200" height="630" fill="${coloriMarchio.petrolioCupo}"/>
+    <circle cx="1040" cy="120" r="300" fill="${coloriMarchio.petrolio}"/>
+    ${marchioReverse}
+    <rect x="80" y="168" width="64" height="3" fill="${coloriMarchio.sabbia}"/>
+    ${righe.map((r, i) => `<text x="80" y="${250 + i * (dim + 14)}" font-family="Georgia, serif" font-size="${dim}" font-weight="600" fill="${coloriMarchio.offWhite}">${escape(r)}</text>`).join('')}
+    <text x="80" y="${250 + righe.length * (dim + 14) + 16}" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="${coloriMarchio.sabbia}">${escape(sotto.slice(0, 70))}</text>
+    <text x="80" y="580" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="${coloriMarchio.offWhite}" opacity="0.85">Pronto soccorso 24/7 · ${escape(clinica.contatti.telefono.visualizzato)} · Portici (NA)</text>
   </svg>`;
   const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9, palette: true }).toBuffer();
   return new Response(new Uint8Array(png), { headers: { 'Content-Type': 'image/png' } });

@@ -9,6 +9,7 @@ import { ClientRouter } from 'astro:transitions';
 import Seo, { type Props as PropsSeo } from '@/components/seo/Seo.astro';
 import JsonLd from '@/components/seo/JsonLd.astro';
 import Header from '@sezioni/Header.astro';
+import Marchio from '@ui/Marchio.astro';
 import Footer from '@sezioni/Footer.astro';
 import BarraSticky from '@sezioni/BarraSticky.astro';
 import CookieBanner from '@sezioni/CookieBanner.astro';
@@ -31,8 +32,8 @@ const plausibleAttivo = Boolean(clinica.misurazione.plausibleDomain) && import.m
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <Seo {...seo} />
-    <meta name="theme-color" content="#0f4c5c" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0e1512" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#0c4e58" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1714" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -77,6 +78,7 @@ const plausibleAttivo = Boolean(clinica.misurazione.plausibleDomain) && import.m
     )}
   </head>
   <body class:list={['antialiased', senzaBarraSticky ? '' : 'pb-sticky lg:pb-0', classeBody]}>
+    <Marchio />
     <a href="#contenuto" class="skip-link">
       Vai al contenuto
     </a>

@@ -35,64 +35,66 @@
 /* ---------- Token grezzi (palette) ---------- */
 @theme {
   /*
-   * Palette ricavata dal marchio della clinica (sigillo circolare, 2026):
-   * verde bosco delle fronde, petrolio dell'anello e della scritta, oro
-   * della fronda in evidenza e dei rombi, crema del fondo.
+   * Palette ufficiale del marchio (kit identità visiva, settembre 2026):
+   * verde foresta primario, blu petrolio secondario, sabbia come solo accento,
+   * verde notte per i testi, off-white per i fondi chiari.
+   * Gli esadecimali del kit sono ancoraggi esatti; i gradini intermedi sono
+   * interpolati in OKLCH per una scala percettivamente uniforme.
    */
 
-  /* Verde "del bosco": primario. Il 600 è il verde del marchio. */
-  --color-bosco-50: #f2f8f4;
-  --color-bosco-100: #dff0e6;
-  --color-bosco-200: #bde0cb;
-  --color-bosco-300: #8ac9a6;
-  --color-bosco-400: #55ab7f;
-  --color-bosco-500: #348d61;
-  --color-bosco-600: #2a6b42;
-  --color-bosco-700: #215636;
-  --color-bosco-800: #1a462c;
-  --color-bosco-900: #143523;
-  --color-bosco-950: #0b1f14;
+  /* Verde foresta: PRIMARIO, colore dominante. Il 600 è il verde del marchio. */
+  --color-bosco-50: #f2faf4;
+  --color-bosco-100: #e2f4e7;
+  --color-bosco-200: #c1e8cc;
+  --color-bosco-300: #94cda6;
+  --color-bosco-400: #66b281;
+  --color-bosco-500: #45885d;
+  --color-bosco-600: #24603c; /* kit: verde */
+  --color-bosco-700: #17402a; /* kit: verde scuro (hover, stati premuti) */
+  --color-bosco-800: #10331f;
+  --color-bosco-900: #092715;
+  --color-bosco-950: #062111;
 
-  /* Petrolio: anello e lettering del marchio. Colore istituzionale, superfici scure. */
-  --color-petrolio-50: #eff7f9;
-  --color-petrolio-100: #daedf1;
-  --color-petrolio-200: #b4dae2;
-  --color-petrolio-300: #7fbecd;
-  --color-petrolio-400: #4499b0;
-  --color-petrolio-500: #1f7891;
-  --color-petrolio-600: #146178;
-  --color-petrolio-700: #0f4c5c;
-  --color-petrolio-800: #0c3d4a;
-  --color-petrolio-900: #0a2f3a;
-  --color-petrolio-950: #061d24;
+  /* Blu petrolio: SECONDARIO. Profondità e autorevolezza, fondi scuri. */
+  --color-petrolio-50: #f0fafc;
+  --color-petrolio-100: #dcf2f7;
+  --color-petrolio-200: #b5e4ed;
+  --color-petrolio-300: #89c8d4;
+  --color-petrolio-400: #5aadbb;
+  --color-petrolio-500: #418c99;
+  --color-petrolio-600: #286c78;
+  --color-petrolio-700: #0c4e58; /* kit: petrolio */
+  --color-petrolio-800: #09454f;
+  --color-petrolio-900: #063c46; /* kit: petrolio cupo (footer, fondi scuri) */
+  --color-petrolio-950: #022227;
 
-  /* Oro: fronda in evidenza, anello interno, rombi. Solo decorazione e filetti. */
-  --color-oro-100: #f8f1e3;
-  --color-oro-200: #eedfc4;
-  --color-oro-300: #e0c89b;
-  --color-oro-400: #d3b482;
-  --color-oro-500: #c9a26b;
-  --color-oro-600: #a9823f;
-  --color-oro-700: #8a6a33;
-  --color-oro-800: #6a5027;
+  /* Sabbia: ACCENTO caldo. Solo filetti, rombi e dettagli: mai superfici estese. */
+  --color-oro-100: #f9f1e7;
+  --color-oro-200: #f1e1cd;
+  --color-oro-300: #e8d0b2;
+  --color-oro-400: #d8bc98;
+  --color-oro-500: #c9a87e; /* kit: sabbia */
+  --color-oro-600: #b98a56; /* kit: sabbia scuro */
+  --color-oro-700: #906d43;
+  --color-oro-800: #634d2e;
 
-  /* Crema: superfici calde, fondo del marchio */
-  --color-crema-50: #fdfcf9;
-  --color-crema-100: #f8f6f0;
-  --color-crema-200: #f1eee4;
-  --color-crema-300: #e4dfd0;
-  --color-crema-400: #d3ccb8;
+  /* Off-white: fondi chiari del marchio. */
+  --color-crema-50: #fafdfc;
+  --color-crema-100: #f5f7f4; /* kit: off-white */
+  --color-crema-200: #e3e9e4;
+  --color-crema-300: #d0dbd5;
+  --color-crema-400: #bdcdc9;
 
-  /* Neutri "inchiostro" (testi, bordi) */
-  --color-inchiostro-900: #131d17;
-  --color-inchiostro-800: #1f2b24;
-  --color-inchiostro-700: #35443c;
-  --color-inchiostro-600: #46564d;
-  --color-inchiostro-500: #66776d;
-  --color-inchiostro-400: #8a9a90;
-  --color-inchiostro-300: #b3bfb7;
-  --color-inchiostro-200: #d3dbd5;
-  --color-inchiostro-100: #e9eeea;
+  /* Verde notte: testi e bordi. */
+  --color-inchiostro-100: #e7efed;
+  --color-inchiostro-200: #c8d4d1;
+  --color-inchiostro-300: #a8bab5;
+  --color-inchiostro-400: #8aa09b; /* kit: tenue (didascalie) */
+  --color-inchiostro-500: #637872;
+  --color-inchiostro-600: #3f524c; /* kit: testo corrente */
+  --color-inchiostro-700: #324640;
+  --color-inchiostro-800: #253a35;
+  --color-inchiostro-900: #182f2a; /* kit: inchiostro (testi principali) */
 
   /* Urgenza (corallo): RISERVATO alle azioni di emergenza. Mai decorativo. */
   --color-urgenza-100: #fdeee6;
@@ -197,6 +199,13 @@
   --avviso: var(--color-avviso-600);
   --avviso-tenue: var(--color-avviso-100);
 
+  /* Marchio: colori del kit. Sui fondi scuri si passa alla versione reverse
+     (monocromatica off-white), come prescrive il manuale. */
+  --marchio-fronda: var(--color-bosco-600);
+  --marchio-petrolio: var(--color-petrolio-700);
+  --marchio-sabbia: var(--color-oro-500);
+  --marchio-sopra: var(--color-bosco-600);
+  --marchio-nome: var(--color-inchiostro-900);
   --accento-inverso: var(--color-bosco-300);
   --focus: var(--color-bosco-600);
 }
@@ -205,30 +214,30 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     color-scheme: dark;
-    --sfondo: #0e1512;
-    --sfondo-rialzato: #16201b;
-    --sfondo-tinta: #1b2721;
+    --sfondo: #0d1714;
+    --sfondo-rialzato: #14201c;
+    --sfondo-tinta: #1a2723;
     --sfondo-inverso: var(--color-crema-100);
-    --testo: #edf1ec;
-    --testo-secondario: #b7c2ba;
+    --testo: #eaf1ee;
+    --testo-secondario: #b4c4bd;
     --testo-inverso: var(--color-inchiostro-900);
-    --bordo: #263129;
-    --bordo-forte: #3d4a42;
+    --bordo: #26332e;
+    --bordo-forte: #3c4a44;
 
     --primario: var(--color-bosco-400);
     --primario-forte: var(--color-bosco-300);
-    --primario-tenue: #16332a;
+    --primario-tenue: #143026;
     --primario-testo: #061109;
     --primario-link: var(--color-bosco-300);
 
     --istituzionale: var(--color-petrolio-300);
     --istituzionale-forte: var(--color-petrolio-200);
-    --istituzionale-tenue: #0e2a33;
+    --istituzionale-tenue: #0b2c34;
     --istituzionale-testo: #04161c;
 
     --oro: var(--color-oro-400);
     --oro-scuro: var(--color-oro-300);
-    --oro-tenue: #33280f;
+    --oro-tenue: #332616;
 
     --urgenza: #f0693f;
     --urgenza-forte: #f7855f;
@@ -243,36 +252,42 @@
     --avviso: #f0c25a;
     --avviso-tenue: #3a2c0a;
 
+    /* Marchio: versione reverse del kit, monocromatica off-white. */
+    --marchio-fronda: var(--color-crema-100);
+    --marchio-petrolio: var(--color-crema-100);
+    --marchio-sabbia: var(--color-crema-100);
+    --marchio-sopra: var(--color-crema-100);
+    --marchio-nome: var(--color-crema-100);
     --accento-inverso: var(--color-bosco-700);
     --focus: var(--color-bosco-300);
   }
 }
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --sfondo: #0e1512;
-  --sfondo-rialzato: #16201b;
-  --sfondo-tinta: #1b2721;
+  --sfondo: #0d1714;
+  --sfondo-rialzato: #14201c;
+  --sfondo-tinta: #1a2723;
   --sfondo-inverso: var(--color-crema-100);
-  --testo: #edf1ec;
-  --testo-secondario: #b7c2ba;
+  --testo: #eaf1ee;
+  --testo-secondario: #b4c4bd;
   --testo-inverso: var(--color-inchiostro-900);
-  --bordo: #263129;
-  --bordo-forte: #3d4a42;
+  --bordo: #26332e;
+  --bordo-forte: #3c4a44;
 
   --primario: var(--color-bosco-400);
   --primario-forte: var(--color-bosco-300);
-  --primario-tenue: #16332a;
+  --primario-tenue: #143026;
   --primario-testo: #061109;
   --primario-link: var(--color-bosco-300);
 
   --istituzionale: var(--color-petrolio-300);
   --istituzionale-forte: var(--color-petrolio-200);
-  --istituzionale-tenue: #0e2a33;
+  --istituzionale-tenue: #0b2c34;
   --istituzionale-testo: #04161c;
 
   --oro: var(--color-oro-400);
   --oro-scuro: var(--color-oro-300);
-  --oro-tenue: #33280f;
+  --oro-tenue: #332616;
 
   --urgenza: #f0693f;
   --urgenza-forte: #f7855f;
@@ -287,6 +302,12 @@
   --avviso: #f0c25a;
   --avviso-tenue: #3a2c0a;
 
+  /* Marchio: versione reverse del kit, monocromatica off-white. */
+  --marchio-fronda: var(--color-crema-100);
+  --marchio-petrolio: var(--color-crema-100);
+  --marchio-sabbia: var(--color-crema-100);
+  --marchio-sopra: var(--color-crema-100);
+  --marchio-nome: var(--color-crema-100);
   --accento-inverso: var(--color-bosco-700);
   --focus: var(--color-bosco-300);
 }
@@ -470,6 +491,22 @@
       transform: none;
       transition: none;
     }
+  }
+  /* Contenitore delle definizioni del marchio: non occupa spazio e non si vede,
+     ma i <symbol> restano referenziabili con <use>. */
+  .sprite-marchio {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+  /* Marchio su fondo scuro: versione reverse del kit, monocromatica. */
+  .marchio--inverso {
+    --marchio-fronda: var(--color-crema-100);
+    --marchio-petrolio: var(--color-crema-100);
+    --marchio-sabbia: var(--color-crema-100);
+    --marchio-sopra: var(--color-crema-100);
+    --marchio-nome: var(--color-crema-100);
   }
   .skip-link {
     position: absolute;

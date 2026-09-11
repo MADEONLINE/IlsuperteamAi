@@ -2,10 +2,6 @@
   <!-- Variante SEMPLIFICATA della Radura per misure minime (16–32 px).
        Chioma tonda con due fessure + stelo e radici. Vettoriale puro.
        Colore: verde foresta #24603C. Per reverse sostituire con #F5F7F4. -->
-  <style>
-    .radura { fill: #24603C; }
-    @media (prefers-color-scheme: dark) { .radura { fill: #F5F7F4; } }
-  </style>
   <defs>
     <mask id="slits">
       <rect x="0" y="0" width="32" height="32" fill="#fff"/>
@@ -13,7 +9,7 @@
       <rect x="17.6" y="3" width="1.5" height="18" fill="#000"/>
     </mask>
   </defs>
-  <g class="radura">
+  <g fill="#24603C">
     <circle cx="16" cy="13.6" r="9.4" mask="url(#slits)"/>
     <path d="M14.8 20.5 h2.4 v5.2 q0 1.1 -1.2 1.1 q-1.2 0 -1.2 -1.1 Z"/>
     <path d="M16 24.4 q-2.6 -0.4 -4.2 -2.2 q2.6 0.6 4.2 2.2 Z"/>

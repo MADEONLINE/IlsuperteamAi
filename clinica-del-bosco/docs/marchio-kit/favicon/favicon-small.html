@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}body{background:transparent}
+.art{display:block}
+</style></head><body>
+
+<!-- Variante SEMPLIFICATA per misure minime: 3 linee convergenti + stelo.
+     Deriva dal marchio Radura, con spessori pensati per la griglia a 16px. -->
+
+<!-- A) su fondo trasparente, verde foresta -->
+<svg id="s-plain" class="art" width="256" height="256" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#24603C">
+    <path d="M7.6 8.2 C7.6 7.4 8.2 7.0 8.9 7.2 C9.6 7.4 10.0 8.0 10.1 8.8 L11.9 19.6 C12.0 20.4 11.6 21.0 15.2 22.6 L14.6 24.2 C10.2 22.2 10.3 21.2 10.1 19.9 Z"/>
+    <path d="M14.4 6.6 C14.4 5.8 15.1 5.3 16.0 5.3 C16.9 5.3 17.6 5.8 17.6 6.6 L17.6 22.6 L14.4 22.6 Z"/>
+    <path d="M24.4 8.2 C24.4 7.4 23.8 7.0 23.1 7.2 C22.4 7.4 22.0 8.0 21.9 8.8 L20.1 19.6 C20.0 20.4 20.4 21.0 16.8 22.6 L17.4 24.2 C21.8 22.2 21.7 21.2 21.9 19.9 Z"/>
+    <rect x="14.6" y="22.2" width="2.8" height="4.4" rx="1.2"/>
+  </g>
+</svg>
+
+<!-- B) tile petrolio con marchio bianco (massimo contrasto alle misure minime) -->
+<svg id="s-tile" class="art" width="256" height="256" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0" y="0" width="32" height="32" rx="7" fill="#0C4E58"/>
+  <g fill="#F5F7F4" transform="translate(16,16) scale(0.78) translate(-16,-16)">
+    <path d="M7.6 8.2 C7.6 7.4 8.2 7.0 8.9 7.2 C9.6 7.4 10.0 8.0 10.1 8.8 L11.9 19.6 C12.0 20.4 11.6 21.0 15.2 22.6 L14.6 24.2 C10.2 22.2 10.3 21.2 10.1 19.9 Z"/>
+    <path d="M14.4 6.6 C14.4 5.8 15.1 5.3 16.0 5.3 C16.9 5.3 17.6 5.8 17.6 6.6 L17.6 22.6 L14.4 22.6 Z"/>
+    <path d="M24.4 8.2 C24.4 7.4 23.8 7.0 23.1 7.2 C22.4 7.4 22.0 8.0 21.9 8.8 L20.1 19.6 C20.0 20.4 20.4 21.0 16.8 22.6 L17.4 24.2 C21.8 22.2 21.7 21.2 21.9 19.9 Z"/>
+    <rect x="14.6" y="22.2" width="2.8" height="4.4" rx="1.2"/>
+  </g>
+</svg>
+
+<!-- C) chioma tonda con 2 fessure + stelo: conserva la gestalt della Radura -->
+<svg id="s-canopy" class="art" width="256" height="256" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="slits">
+      <rect x="0" y="0" width="32" height="32" fill="#fff"/>
+      <rect x="12.9" y="3" width="1.5" height="18" fill="#000"/>
+      <rect x="17.6" y="3" width="1.5" height="18" fill="#000"/>
+    </mask>
+  </defs>
+  <g fill="#24603C">
+    <circle cx="16" cy="13.6" r="9.4" mask="url(#slits)"/>
+    <path d="M14.8 20.5 h2.4 v5.2 q0 1.1 -1.2 1.1 q-1.2 0 -1.2 -1.1 Z"/>
+    <path d="M16 24.4 q-2.6 -0.4 -4.2 -2.2 q2.6 0.6 4.2 2.2 Z"/>
+    <path d="M16 24.4 q2.6 -0.4 4.2 -2.2 q-2.6 0.6 -4.2 2.2 Z"/>
+  </g>
+</svg>
+
+<!-- D) tile petrolio con variante chioma -->
+<svg id="s-canopy-tile" class="art" width="256" height="256" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <mask id="slits2">
+      <rect x="0" y="0" width="32" height="32" fill="#fff"/>
+      <rect x="12.9" y="3" width="1.5" height="18" fill="#000"/>
+      <rect x="17.6" y="3" width="1.5" height="18" fill="#000"/>
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="32" height="32" rx="7" fill="#0C4E58"/>
+  <g fill="#F5F7F4" transform="translate(16,16) scale(0.76) translate(-16,-16)">
+    <circle cx="16" cy="13.6" r="9.4" mask="url(#slits2)"/>
+    <path d="M14.8 20.5 h2.4 v5.2 q0 1.1 -1.2 1.1 q-1.2 0 -1.2 -1.1 Z"/>
+    <path d="M16 24.4 q-2.6 -0.4 -4.2 -2.2 q2.6 0.6 4.2 2.2 Z"/>
+    <path d="M16 24.4 q2.6 -0.4 4.2 -2.2 q-2.6 0.6 -4.2 2.2 Z"/>
+  </g>
+</svg>
+
+</body></html>

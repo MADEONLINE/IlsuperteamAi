@@ -1,93 +1,44 @@
 ---
 /**
- * Marchio della clinica, versione per schermo.
+ * Marchio della clinica.
  *
- * Il sigillo completo (anello con la scritta circolare e i rombi) resta per la stampa:
- * a 36 px il lettering circolare non sarebbe leggibile. Qui c'è il simbolo semplificato,
- * fedele al marchio: anello petrolio, filetto oro, fronda di lame che convergono nel
- * tronco, con una lama oro e una petrolio come nel logo.
- * SVG inline: nessuna richiesta di rete, colori dai token del brand.
+ * Disegno ufficiale dal kit di identità visiva: i tracciati vivono una volta
+ * sola per pagina in Marchio.astro, qui si richiamano con <use> (nessuna
+ * richiesta di rete, nessun font da caricare, colori dai token del brand).
+ *
+ * - default: lockup orizzontale (marchio + filetto sabbia + nome). Il kit lo
+ *   indica come logo di default e non sotto i 140 px di larghezza: alle altezze
+ *   usate qui (40/44 px) il lockup misura 149/164 px.
+ * - `soloSimbolo`: la sola Radura, dove il nome è già presente.
+ * - `inverso`: versione reverse (monocromatica off-white) per i fondi scuri.
+ *
+ * Il testo accessibile sta sull'elemento che avvolge il logo (aria-label del
+ * link): qui il disegno è decorativo.
  */
-import { clinica } from '@lib/clinica';
 interface Props {
   class?: string;
   inverso?: boolean;
   soloSimbolo?: boolean;
 }
 const { class: classe = '', inverso = false, soloSimbolo = false } = Astro.props;
-
-/** Le lame della fronda: angolo di apertura, altezza e colore, dal centro verso l'esterno. */
-const lame: Array<{ rotazione: number; cima: number; colore: string }> = [
-  { rotazione: -40, cima: 19, colore: 'fill-bosco-800' },
-  { rotazione: -30, cima: 15, colore: 'fill-bosco-700' },
-  { rotazione: -20, cima: 12, colore: 'fill-bosco-600' },
-  { rotazione: -10, cima: 10, colore: 'fill-oro-500' },
-  { rotazione: 0, cima: 9, colore: 'fill-bosco-600' },
-  { rotazione: 10, cima: 10, colore: 'fill-petrolio-700' },
-  { rotazione: 20, cima: 12, colore: 'fill-bosco-600' },
-  { rotazione: 30, cima: 15, colore: 'fill-bosco-700' },
-  { rotazione: 40, cima: 19, colore: 'fill-bosco-800' },
-];
 ---
 
-<span class:list={['inline-flex items-center gap-2.5', classe]}>
-  <svg viewBox="0 0 48 48" class="size-10 shrink-0" aria-hidden="true" focusable="false">
-    <circle cx="24" cy="24" r="23" class="fill-crema-50"></circle>
-    <circle
-      cx="24"
-      cy="24"
-      r="22.2"
-      class="fill-none stroke-petrolio-700"
-      stroke-width="1.6"
-    ></circle>
-    <circle cx="24" cy="24" r="19" class="fill-none stroke-oro-500" stroke-width="0.7"></circle>
-    <g>
-      {lame.map((l) => (
-        <rect
-          x="22.5"
-          y={l.cima}
-          width="3"
-          height={37 - l.cima}
-          rx="1.5"
-          class={l.colore}
-          transform={`rotate(${l.rotazione} 24 37)`}
-        />
-      ))}
-    </g>
-    <path
-      d="M24 35v4.5"
-      class="stroke-bosco-700"
-      stroke-width="2.6"
-      stroke-linecap="round"
-      fill="none"
-    ></path>
-    <path
-      d="M24 38.5c-2.8 0-5.4 1.2-7.2 3.3M24 38.5c2.8 0 5.4 1.2 7.2 3.3"
-      class="stroke-bosco-700"
-      stroke-width="2"
-      stroke-linecap="round"
-      fill="none"
-    ></path>
+{soloSimbolo ? (
+  <svg
+    viewBox="0 0 1624 1737"
+    class:list={['block h-10 w-auto', inverso && 'marchio--inverso', classe]}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <use href="#marchio-radura" />
   </svg>
-  {!soloSimbolo && (
-    <span class="flex flex-col leading-none">
-      <span
-        class:list={[
-          'font-display text-[1.05rem] font-semibold tracking-tight',
-          inverso ? 'text-testo-inverso' : 'text-istituzionale',
-        ]}
-      >
-        Clinica Veterinaria
-      </span>
-      <span
-        class:list={[
-          'font-display text-[1.35rem] font-bold italic tracking-tight',
-          inverso ? 'text-accento-inverso' : 'text-primario-link',
-        ]}
-      >
-        del Bosco
-      </span>
-      <span class="sr-only">{clinica.indirizzo.comune}</span>
-    </span>
-  )}
-</span>
+) : (
+  <svg
+    viewBox="0 0 448 120"
+    class:list={['block h-10 w-auto sm:h-11', inverso && 'marchio--inverso', classe]}
+    aria-hidden="true"
+    focusable="false"
+  >
+    <use href="#marchio-lockup" />
+  </svg>
+)}

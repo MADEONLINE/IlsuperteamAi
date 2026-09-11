@@ -1,0 +1,38 @@
+---
+/**
+ * Definizioni SVG del marchio — incluse una sola volta per pagina (BaseLayout)
+ * e richiamate con <use> da Logo.astro.
+ *
+ * I tracciati stanno in @lib/marchio: qui c'è solo l'impaginazione dei
+ * <symbol>. I colori passano dalle variabili --marchio-*, che il tema scuro e
+ * la classe .marchio--inverso ribaltano sulla versione reverse del kit.
+ */
+import { radura, lockup } from '@lib/marchio';
+---
+
+<svg xmlns="http://www.w3.org/2000/svg" class="sprite-marchio" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="marchio-radura" viewBox={radura.viewBox}>
+      <path fill="var(--marchio-fronda)" fill-rule="evenodd" d={radura.fronda}></path>
+      <path fill="var(--marchio-petrolio)" fill-rule="evenodd" d={radura.petrolio}></path>
+      <path fill="var(--marchio-sabbia)" fill-rule="evenodd" d={radura.sabbia}></path>
+    </symbol>
+
+    <symbol id="marchio-lockup" viewBox={lockup.viewBox}>
+      <use
+        href="#marchio-radura"
+        width={lockup.marchio.larghezza}
+        height={lockup.marchio.altezza}
+      ></use>
+      <rect
+        x={lockup.filetto.x}
+        y={lockup.filetto.y}
+        width={lockup.filetto.larghezza}
+        height={lockup.filetto.altezza}
+        fill="var(--marchio-sabbia)"
+      ></rect>
+      <path fill="var(--marchio-sopra)" d={lockup.sopra}></path>
+      <path fill="var(--marchio-nome)" d={lockup.nome}></path>
+    </symbol>
+  </defs>
+</svg>

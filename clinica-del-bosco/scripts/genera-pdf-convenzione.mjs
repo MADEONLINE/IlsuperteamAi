@@ -22,22 +22,22 @@ const campo = (etichetta, larghezza = '100%') =>
 
 const html = `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>
   @page { size: A4; margin: 18mm 16mm; }
-  body { font: 11pt/1.45 Helvetica, Arial, sans-serif; color: #131d17; }
-  h1 { font: 700 20pt/1.2 Georgia, serif; color: #1e5f41; margin: 0 0 2mm; }
-  h2 { font: 700 12pt/1.2 Helvetica, Arial, sans-serif; margin: 7mm 0 2mm; color: #1e5f41; border-bottom: 1px solid #bfe0cc; padding-bottom: 1mm; }
-  .testa { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #1e5f41; padding-bottom: 4mm; margin-bottom: 5mm; }
-  .testa small { color: #46564d; }
+  body { font: 11pt/1.45 Helvetica, Arial, sans-serif; color: #182f2a; }
+  h1 { font: 700 20pt/1.2 Georgia, serif; color: #24603c; margin: 0 0 2mm; }
+  h2 { font: 700 12pt/1.2 Helvetica, Arial, sans-serif; margin: 7mm 0 2mm; color: #24603c; border-bottom: 1px solid #c1e8cc; padding-bottom: 1mm; }
+  .testa { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #24603c; padding-bottom: 4mm; margin-bottom: 5mm; }
+  .testa small { color: #3f524c; }
   .campi { display: flex; flex-wrap: wrap; gap: 3mm 4mm; }
   .campo { display: flex; flex-direction: column; }
-  .campo span { font-size: 8.5pt; color: #46564d; }
-  .riga { border-bottom: 1px solid #66776d; height: 7mm; }
-  .box { border: 1px solid #66776d; height: 24mm; margin-top: 2mm; }
+  .campo span { font-size: 8.5pt; color: #3f524c; }
+  .riga { border-bottom: 1px solid #8aa09b; height: 7mm; }
+  .box { border: 1px solid #8aa09b; height: 24mm; margin-top: 2mm; }
   ul { margin: 1mm 0; padding-left: 5mm; }
   li { margin-bottom: 1mm; }
-  .check { display: inline-block; width: 4mm; height: 4mm; border: 1px solid #131d17; vertical-align: middle; margin-right: 2mm; }
+  .check { display: inline-block; width: 4mm; height: 4mm; border: 1px solid #182f2a; vertical-align: middle; margin-right: 2mm; }
   .firma { display: flex; gap: 10mm; margin-top: 8mm; }
-  .firma div { flex: 1; border-top: 1px solid #131d17; padding-top: 1mm; font-size: 9pt; color: #46564d; }
-  .nota { font-size: 8.5pt; color: #46564d; margin-top: 6mm; }
+  .firma div { flex: 1; border-top: 1px solid #182f2a; padding-top: 1mm; font-size: 9pt; color: #3f524c; }
+  .nota { font-size: 8.5pt; color: #3f524c; margin-top: 6mm; }
 </style></head><body>
 <div class="testa">
   <div><h1>${clinica.nome}</h1><small>${clinica.ragioneSociale} · P. IVA ${clinica.partitaIva}<br>${indirizzo}<br>Tel. ${clinica.contatti.telefono.visualizzato} (h24) · ${email} · ${clinica.dominio.canonico.replace('https://', '')}</small></div>
