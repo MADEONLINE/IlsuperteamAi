@@ -96,6 +96,12 @@ Il presidio non dipende da una sessione aperta: gira su n8n, ogni lunedì alle 0
 
 L'email dice a chiare lettere che **nessuna prenotazione e nessun acquisto sono stati effettuati**.
 
+### Il match col sito, sempre
+
+Prima di consigliare o di chiedere qualcosa, ogni trasferta viene incrociata con il **catalogo eventi del sito** (WooCommerce). Il calendario dà le date, il sito dà città e sede della singola tappa. Da qui arrivano le informazioni che il calendario non ha: è così che il Super Master risulta a Milano e l'AI Revolution di Bologna all'Admiral Park Hotel.
+
+Regole e trabocchetti (una sede per tappa, mai un indirizzo generico su un tour multi-città, "sede da confermare" vale come sede assente) in `references/verificatore-n8n.md` §7.
+
 ### La sede manca? La chiedo
 
 **Workflow `BVB · Richiesta Sede`** — id `AYfD7zjVa7PzLYem`, [editor](https://bravevetbusiness.app.n8n.cloud/workflow/AYfD7zjVa7PzLYem) — gira anch'esso il lunedì, cinque minuti dopo.
@@ -103,7 +109,7 @@ L'email dice a chiare lettere che **nessuna prenotazione e nessun acquisto sono 
 Senza indirizzo della sede non esiste un consiglio sensato: la distanza a piedi è il primo criterio, e senza un punto di riferimento qualunque hotel è un'ipotesi. Quindi per gli eventi **fra 21 e 45 giorni** privi di sede parte una email di richiesta a `info@bravemedia.biz`, che elenca gli eventi, dice quanti giorni mancano e spiega come rispondere.
 
 - **Il solo nome della città non è una sede.** Serve un indirizzo vero: via, piazza, nome della struttura o un civico. `Milano` non basta, `Copernico, Via Copernico 34, Milano` sì.
-- **Il campo `Luogo` dell'evento a calendario è la fonte di verità.** Appena viene compilato, la richiesta smette da sola e quell'indirizzo diventa la sede usata dai consigli di prenotazione.
+- **Precedenza delle fonti**: campo `Luogo` del calendario → sede della tappa dal sito → mappa delle sedi note. Appena una delle prime due è compilata, la richiesta smette da sola.
 - La finestra parte da 45 giorni, prima dei consigli: la sede va saputa **prima** di poter consigliare.
 - Se nessuna sede manca, **non parte alcuna email**.
 

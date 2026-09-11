@@ -84,7 +84,39 @@ Per aggiungere una sede ricorrente alla mappa (con coordinate, e quindi con l'or
 | Selezione eventi senza sede, testo della richiesta | ✅ verificato: su dati realistici seleziona Padova e Bologna (città nota, indirizzo assente) e il Super Master (città non deducibile), scarta Milano (sede nota) e Roma (indirizzo completo) |
 | Invio email | condivide credenziale e limiti con l'alert T-21 |
 
-## 7. Scala di ripiego
+## 7. Match con gli eventi del sito
+
+Il calendario dice **quando**, il sito dice **dove**. Prima di consigliare o di chiedere una sede, ogni trasferta viene incrociata col catalogo eventi pubblicato sul sito, letto via **WooCommerce** (credenziale `WooCommerce account`, nodo `Catalogo sito` in entrambi i workflow, `executeOnce`).
+
+### Com'è fatto il catalogo
+
+- Le **date e le città** stanno negli attributi di prodotto: `Città = "Padova — 1 ottobre 2026 | Bologna — 2 ottobre 2026 | …"`, `Edizione = "2ª Edizione · 8-9 ott · 5-6 nov · 3-4 dic 2026"`.
+- Le **sedi** stanno nel testo della scheda, in tre forme: la tabella `Data | Città | Sede` del tour, la riga in linea `Milano, 1 e 2 ottobre 2026 (HUB Copernico, Via Zuretti 34)`, o il blocco `SedeCDVet AcademyRoma`.
+
+### Regole che evitano di sbagliare sede
+
+1. **Una sede per tappa.** L'indirizzo viene legato alla sua data e città. Prendere il primo indirizzo della pagina è l'errore da non fare: sul tour AI Revolution significherebbe mandare a Padova l'hotel di Bologna.
+2. **Un indirizzo generico vale solo per i corsi mono-città.** Su un prodotto multi-tappa non viene mai applicato a tutte.
+3. **"Sede da confermare" è una sede assente**, non una sede. Bari e Torino del tour 2026 sono in questo stato e fanno scattare la richiesta.
+4. **Precedenza**: campo `Luogo` del calendario → sede della tappa dal sito → mappa delle sedi note. L'email dichiara sempre da quale delle tre viene.
+5. **Discordanze**: se calendario e sito indicano città diverse per le stesse date, l'email lo segnala in rosso invece di sceglierne una.
+
+### Sedi note al 11/09/2026, dal sito
+
+| Tappa | Sede |
+|---|---|
+| Milano (Super Master, Marketing AI, AI Revolution 11 dic) | **Hub Copernico, Via Zuretti 34** |
+| Padova, 1 ott | Best Western Plus Net Tower Hotel |
+| Bologna, 2 ott | Admiral Park Hotel, Via Fontanella 3, Zola Predosa (BO) |
+| Roma (AI Revolution 29 ott, Marketing AI 15-16 ott) | Hotel Villa Eur, P.le Marcellino Champagnat 2 |
+| Firenze, 30 ott | NH Firenze |
+| Napoli, 20 nov | Starhotels Terminus, Piazza Garibaldi 91 |
+| Roma, 17 ott (Lab Business) | CDVet Academy |
+| Bari 19 nov, Torino 10 dic | ⚠️ sede da confermare |
+
+> Nota: la sede di Milano è **Via Zuretti 34**, non Via Copernico 34 come indicato in una prima versione di questa skill. Fa fede il sito.
+
+## 8. Scala di ripiego
 
 Quando il verificatore non risponde o la chiave è scaduta, **si dichiara e si scende di un gradino**, senza mai inventare numeri:
 
