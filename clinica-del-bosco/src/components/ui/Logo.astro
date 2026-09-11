@@ -1,7 +1,12 @@
 ---
 /**
- * Marchio: simbolo (albero stilizzato con croce sanitaria) + wordmark in Fraunces.
- * SVG inline: nessuna richiesta aggiuntiva, colori ereditati dai token.
+ * Marchio della clinica, versione per schermo.
+ *
+ * Il sigillo completo (anello con la scritta circolare e i rombi) resta per la stampa:
+ * a 36 px il lettering circolare non sarebbe leggibile. Qui c'è il simbolo semplificato,
+ * fedele al marchio: anello petrolio, filetto oro, fronda di lame che convergono nel
+ * tronco, con una lama oro e una petrolio come nel logo.
+ * SVG inline: nessuna richiesta di rete, colori dai token del brand.
  */
 import { clinica } from '@lib/clinica';
 interface Props {
@@ -10,32 +15,58 @@ interface Props {
   soloSimbolo?: boolean;
 }
 const { class: classe = '', inverso = false, soloSimbolo = false } = Astro.props;
+
+/** Le lame della fronda: angolo di apertura, altezza e colore, dal centro verso l'esterno. */
+const lame: Array<{ rotazione: number; cima: number; colore: string }> = [
+  { rotazione: -40, cima: 19, colore: 'fill-bosco-800' },
+  { rotazione: -30, cima: 15, colore: 'fill-bosco-700' },
+  { rotazione: -20, cima: 12, colore: 'fill-bosco-600' },
+  { rotazione: -10, cima: 10, colore: 'fill-oro-500' },
+  { rotazione: 0, cima: 9, colore: 'fill-bosco-600' },
+  { rotazione: 10, cima: 10, colore: 'fill-petrolio-700' },
+  { rotazione: 20, cima: 12, colore: 'fill-bosco-600' },
+  { rotazione: 30, cima: 15, colore: 'fill-bosco-700' },
+  { rotazione: 40, cima: 19, colore: 'fill-bosco-800' },
+];
 ---
 
 <span class:list={['inline-flex items-center gap-2.5', classe]}>
-  <svg viewBox="0 0 40 40" class="size-9 shrink-0" aria-hidden="true" focusable="false">
+  <svg viewBox="0 0 48 48" class="size-10 shrink-0" aria-hidden="true" focusable="false">
+    <circle cx="24" cy="24" r="23" class="fill-crema-50"></circle>
     <circle
-      cx="20"
-      cy="20"
-      r="20"
-      class:list={[inverso ? 'fill-sfondo' : 'fill-primario']}
+      cx="24"
+      cy="24"
+      r="22.2"
+      class="fill-none stroke-petrolio-700"
+      stroke-width="1.6"
     ></circle>
+    <circle cx="24" cy="24" r="19" class="fill-none stroke-oro-500" stroke-width="0.7"></circle>
+    <g>
+      {lame.map((l) => (
+        <rect
+          x="22.5"
+          y={l.cima}
+          width="3"
+          height={37 - l.cima}
+          rx="1.5"
+          class={l.colore}
+          transform={`rotate(${l.rotazione} 24 37)`}
+        />
+      ))}
+    </g>
     <path
-      d="M20 7c-4.5 4.2-9 8.4-9 14a9 9 0 0 0 18 0c0-5.6-4.5-9.8-9-14Z"
-      class:list={[inverso ? 'fill-primario' : 'fill-sfondo']}
-      opacity="0.95"
+      d="M24 35v4.5"
+      class="stroke-bosco-700"
+      stroke-width="2.6"
+      stroke-linecap="round"
+      fill="none"
     ></path>
     <path
-      d="M20 14v14M13 21h14"
-      class:list={[inverso ? 'stroke-sfondo' : 'stroke-primario']}
-      stroke-width="3"
+      d="M24 38.5c-2.8 0-5.4 1.2-7.2 3.3M24 38.5c2.8 0 5.4 1.2 7.2 3.3"
+      class="stroke-bosco-700"
+      stroke-width="2"
       stroke-linecap="round"
-    ></path>
-    <path
-      d="M20 28v6"
-      class:list={[inverso ? 'stroke-primario' : 'stroke-sfondo']}
-      stroke-width="3"
-      stroke-linecap="round"
+      fill="none"
     ></path>
   </svg>
   {!soloSimbolo && (
@@ -43,7 +74,7 @@ const { class: classe = '', inverso = false, soloSimbolo = false } = Astro.props
       <span
         class:list={[
           'font-display text-[1.05rem] font-semibold tracking-tight',
-          inverso ? 'text-testo-inverso' : 'text-testo',
+          inverso ? 'text-testo-inverso' : 'text-istituzionale',
         ]}
       >
         Clinica Veterinaria

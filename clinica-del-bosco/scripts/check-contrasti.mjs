@@ -79,6 +79,10 @@ const coppie = [
   ['errore', 'sfondo', 4.5],
   ['errore', 'sfondo-rialzato', 4.5],
   ['avviso', 'avviso-tenue', 4.5],
+  ['istituzionale', 'sfondo', 4.5],
+  ['istituzionale', 'sfondo-rialzato', 4.5],
+  ['istituzionale-testo', 'istituzionale', 4.5],
+  ['oro-scuro', 'oro-tenue', 4.5],
   ['focus', 'sfondo', 3],
   ['bordo-forte', 'sfondo', 1.5],
 ];

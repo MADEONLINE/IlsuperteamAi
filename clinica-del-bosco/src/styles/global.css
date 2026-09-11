@@ -34,25 +34,54 @@
 
 /* ---------- Token grezzi (palette) ---------- */
 @theme {
-  /* Verde "del bosco": primario */
-  --color-bosco-50: #f1f8f4;
-  --color-bosco-100: #e0efe6;
-  --color-bosco-200: #bfe0cc;
-  --color-bosco-300: #8ec9a8;
-  --color-bosco-400: #5aae82;
-  --color-bosco-500: #369263;
-  --color-bosco-600: #24774f;
-  --color-bosco-700: #1e5f41;
-  --color-bosco-800: #174a34;
-  --color-bosco-900: #123a29;
-  --color-bosco-950: #09211a;
+  /*
+   * Palette ricavata dal marchio della clinica (sigillo circolare, 2026):
+   * verde bosco delle fronde, petrolio dell'anello e della scritta, oro
+   * della fronda in evidenza e dei rombi, crema del fondo.
+   */
 
-  /* Crema: superfici calde */
+  /* Verde "del bosco": primario. Il 600 è il verde del marchio. */
+  --color-bosco-50: #f2f8f4;
+  --color-bosco-100: #dff0e6;
+  --color-bosco-200: #bde0cb;
+  --color-bosco-300: #8ac9a6;
+  --color-bosco-400: #55ab7f;
+  --color-bosco-500: #348d61;
+  --color-bosco-600: #2a6b42;
+  --color-bosco-700: #215636;
+  --color-bosco-800: #1a462c;
+  --color-bosco-900: #143523;
+  --color-bosco-950: #0b1f14;
+
+  /* Petrolio: anello e lettering del marchio. Colore istituzionale, superfici scure. */
+  --color-petrolio-50: #eff7f9;
+  --color-petrolio-100: #daedf1;
+  --color-petrolio-200: #b4dae2;
+  --color-petrolio-300: #7fbecd;
+  --color-petrolio-400: #4499b0;
+  --color-petrolio-500: #1f7891;
+  --color-petrolio-600: #146178;
+  --color-petrolio-700: #0f4c5c;
+  --color-petrolio-800: #0c3d4a;
+  --color-petrolio-900: #0a2f3a;
+  --color-petrolio-950: #061d24;
+
+  /* Oro: fronda in evidenza, anello interno, rombi. Solo decorazione e filetti. */
+  --color-oro-100: #f8f1e3;
+  --color-oro-200: #eedfc4;
+  --color-oro-300: #e0c89b;
+  --color-oro-400: #d3b482;
+  --color-oro-500: #c9a26b;
+  --color-oro-600: #a9823f;
+  --color-oro-700: #8a6a33;
+  --color-oro-800: #6a5027;
+
+  /* Crema: superfici calde, fondo del marchio */
   --color-crema-50: #fdfcf9;
-  --color-crema-100: #faf7f1;
-  --color-crema-200: #f2ece1;
-  --color-crema-300: #e6ddcd;
-  --color-crema-400: #d6cab5;
+  --color-crema-100: #f8f6f0;
+  --color-crema-200: #f1eee4;
+  --color-crema-300: #e4dfd0;
+  --color-crema-400: #d3ccb8;
 
   /* Neutri "inchiostro" (testi, bordi) */
   --color-inchiostro-900: #131d17;
@@ -131,18 +160,29 @@
   --sfondo: var(--color-crema-100);
   --sfondo-rialzato: #ffffff;
   --sfondo-tinta: var(--color-crema-200);
-  --sfondo-inverso: var(--color-bosco-950);
+  --sfondo-inverso: var(--color-petrolio-900);
   --testo: var(--color-inchiostro-900);
   --testo-secondario: var(--color-inchiostro-600);
   --testo-inverso: var(--color-crema-50);
   --bordo: var(--color-crema-300);
   --bordo-forte: var(--color-inchiostro-300);
 
-  --primario: var(--color-bosco-700);
-  --primario-forte: var(--color-bosco-800);
+  --primario: var(--color-bosco-600);
+  --primario-forte: var(--color-bosco-700);
   --primario-tenue: var(--color-bosco-100);
   --primario-testo: #ffffff;
   --primario-link: var(--color-bosco-700);
+
+  /* Istituzionale: aree tecniche e di servizio (colleghi, dati legali, barre di servizio). */
+  --istituzionale: var(--color-petrolio-700);
+  --istituzionale-forte: var(--color-petrolio-800);
+  --istituzionale-tenue: var(--color-petrolio-100);
+  --istituzionale-testo: #ffffff;
+
+  /* Oro: filetti, rombi, bordi decorativi. Mai testo di lettura. */
+  --oro: var(--color-oro-500);
+  --oro-scuro: var(--color-oro-800);
+  --oro-tenue: var(--color-oro-100);
 
   --urgenza: var(--color-urgenza-600);
   --urgenza-forte: var(--color-urgenza-700);
@@ -181,6 +221,15 @@
     --primario-testo: #061109;
     --primario-link: var(--color-bosco-300);
 
+    --istituzionale: var(--color-petrolio-300);
+    --istituzionale-forte: var(--color-petrolio-200);
+    --istituzionale-tenue: #0e2a33;
+    --istituzionale-testo: #04161c;
+
+    --oro: var(--color-oro-400);
+    --oro-scuro: var(--color-oro-300);
+    --oro-tenue: #33280f;
+
     --urgenza: #f0693f;
     --urgenza-forte: #f7855f;
     --urgenza-tenue: #3a1a0e;
@@ -216,6 +265,15 @@
   --primario-testo: #061109;
   --primario-link: var(--color-bosco-300);
 
+  --istituzionale: var(--color-petrolio-300);
+  --istituzionale-forte: var(--color-petrolio-200);
+  --istituzionale-tenue: #0e2a33;
+  --istituzionale-testo: #04161c;
+
+  --oro: var(--color-oro-400);
+  --oro-scuro: var(--color-oro-300);
+  --oro-tenue: #33280f;
+
   --urgenza: #f0693f;
   --urgenza-forte: #f7855f;
   --urgenza-tenue: #3a1a0e;
@@ -249,6 +307,13 @@
   --color-primario-tenue: var(--primario-tenue);
   --color-primario-testo: var(--primario-testo);
   --color-primario-link: var(--primario-link);
+  --color-istituzionale: var(--istituzionale);
+  --color-istituzionale-forte: var(--istituzionale-forte);
+  --color-istituzionale-tenue: var(--istituzionale-tenue);
+  --color-istituzionale-testo: var(--istituzionale-testo);
+  --color-oro: var(--oro);
+  --color-oro-scuro: var(--oro-scuro);
+  --color-oro-tenue: var(--oro-tenue);
   --color-urgenza: var(--urgenza);
   --color-urgenza-forte: var(--urgenza-forte);
   --color-urgenza-tenue: var(--urgenza-tenue);

@@ -1,5 +1,8 @@
 ---
-/** Eyebrow: piccola etichetta maiuscola sopra un titolo. */
+/**
+ * Eyebrow: piccola etichetta maiuscola sopra un titolo, preceduta dal rombo oro
+ * ripreso dal sigillo del marchio.
+ */
 interface Props {
   class?: string;
   tono?: 'primario' | 'urgenza' | 'neutro' | 'inverso';
@@ -13,6 +16,18 @@ const toni = {
 };
 ---
 
-<p class:list={['eyebrow', toni[tono], classe]}>
+<p class:list={['eyebrow flex items-center gap-2', toni[tono], classe]}>
+  <span class="rombo-marchio" aria-hidden="true"></span>
   <slot />
 </p>
+
+<style>
+  /* Rombo del sigillo: 5 px, oro, allineato alla x-height dell'etichetta. */
+  .rombo-marchio {
+    width: 5px;
+    height: 5px;
+    flex: none;
+    background: var(--oro);
+    transform: rotate(45deg);
+  }
+</style>

@@ -20,7 +20,7 @@ async function png(dim, nome, padding = 0) {
       width: dim,
       height: dim,
       channels: 4,
-      background: padding ? '#1e5f41' : { r: 0, g: 0, b: 0, alpha: 0 },
+      background: padding ? '#0f4c5c' : { r: 0, g: 0, b: 0, alpha: 0 },
     },
   })
     .composite([{ input: interno, left: padding, top: padding }])
@@ -52,13 +52,13 @@ writeFileSync(new URL('favicon.ico', pub).pathname, Buffer.concat([header, png32
 
 // Open Graph di default 1200×630 (testo in SVG: sostituire con fotografia reale, vedi BRIEF-FOTO.md)
 const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="#09211a"/>
-  <circle cx="1010" cy="140" r="260" fill="#123a29"/>
+  <rect width="1200" height="630" fill="#0a2f3a"/>
+  <circle cx="1010" cy="140" r="260" fill="#0c3d4a"/>
   <g transform="translate(90 90) scale(2.6)">${svg.toString().replace(/<\/?svg[^>]*>/g, '')}</g>
-  <text x="90" y="330" font-family="Georgia, serif" font-size="64" fill="#faf7f1" font-weight="600">Clinica Veterinaria</text>
-  <text x="90" y="410" font-family="Georgia, serif" font-size="88" font-style="italic" fill="#8ec9a8" font-weight="700">del Bosco</text>
-  <text x="90" y="490" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#faf7f1" opacity="0.9">Pronto soccorso veterinario 24 ore su 24 · Portici (NA)</text>
-  <text x="90" y="545" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#8ec9a8">081 7763859 · Corso Umberto I 10</text>
+  <text x="90" y="330" font-family="Georgia, serif" font-size="64" fill="#fdfcf9" font-weight="600">Clinica Veterinaria</text>
+  <text x="90" y="410" font-family="Georgia, serif" font-size="88" font-style="italic" fill="#8ac9a6" font-weight="700">del Bosco</text>
+  <text x="90" y="490" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#fdfcf9" opacity="0.9">Pronto soccorso veterinario 24 ore su 24 · Portici (NA)</text>
+  <text x="90" y="545" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#c9a26b">081 7763859 · Corso Umberto I 10</text>
 </svg>`;
 await sharp(Buffer.from(og))
   .png({ compressionLevel: 9 })
