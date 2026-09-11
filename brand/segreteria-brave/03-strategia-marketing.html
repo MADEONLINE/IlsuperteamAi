@@ -1,0 +1,413 @@
+<title>La Strategia di Segreteria Brave</title>
+<style>
+/* --- Parte III: classi proprie. I token e la tipografia arrivano dal dossier. --- */
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.seg > div{background:var(--paper);padding:22px 20px;display:grid;gap:10px;align-content:start}
+.seg .id{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-deep)}
+.seg h3{font-size:1.14rem}
+.seg .who{font-size:.9rem;color:var(--ink-2);line-height:1.45}
+.seg .pain{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.04em;text-transform:none;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:10px;line-height:1.55}
+@media (max-width:860px){.seg{grid-template-columns:1fr}}
+
+.vtable{overflow-x:auto;border:1px solid var(--line);background:var(--raise)}
+.vtable table{border-collapse:collapse;width:100%;min-width:680px;font-family:var(--f-display)}
+.vtable th,.vtable td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line-soft);font-size:.88rem;vertical-align:top;line-height:1.45}
+.vtable thead th{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:400;border-bottom:1px solid var(--line)}
+.vtable tbody th{font-weight:700;white-space:nowrap;font-size:.92rem}
+.vtable tbody tr:last-child td,.vtable tbody tr:last-child th{border-bottom:0}
+
+.funnel{display:grid;border-top:1px solid var(--line-soft)}
+.stage{display:grid;grid-template-columns:128px minmax(0,1fr);gap:clamp(16px,3vw,30px);padding-block:20px;border-bottom:1px solid var(--line-soft);align-items:start}
+.stage .lv{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:.4em;line-height:1.5}
+.stage .lv b{display:block;color:var(--teal-deep);font-weight:400;font-size:.76rem;letter-spacing:.05em}
+.stage .sb{display:grid;gap:8px;max-width:64ch}
+.stage h3{font-size:1.1rem}
+.stage p{font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+@media (max-width:660px){.stage{grid-template-columns:1fr;gap:6px}.stage .lv{padding-top:0}}
+
+.chan{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.chan > div{background:var(--paper);padding:19px 22px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start}
+.chan .rk{font-family:var(--f-mono);font-size:.7rem;color:var(--teal-deep);padding-top:.3em;letter-spacing:.08em}
+.chan .cc{display:grid;gap:5px}
+.chan .cc b{font-family:var(--f-display);font-size:1.02rem;font-weight:700;letter-spacing:-.012em}
+.chan .cc span{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+.chan .wt{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-top:.35em;text-align:right}
+@media (max-width:620px){.chan > div{grid-template-columns:auto 1fr}.chan .wt{grid-column:2;text-align:left;padding-top:0}}
+
+.risk{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.risk > div{background:var(--paper);padding:22px;display:grid;gap:11px}
+.risk .rq{font-family:var(--f-display);font-size:1.08rem;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:var(--signal)}
+.risk .ra{font-size:.96rem;line-height:1.55;color:var(--ink-2)}
+.risk .rm{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.04em;text-transform:none;color:var(--teal-deep);border-top:1px dashed var(--line);padding-top:10px;line-height:1.5}
+
+.metr{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.metr > div{background:var(--paper);padding:19px;display:grid;gap:6px;align-content:start}
+.metr .ml{font-family:var(--f-mono);font-size:.59rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.metr .mv{font-family:var(--f-display);font-weight:800;font-size:1.28rem;letter-spacing:-.025em;color:var(--teal-deep);line-height:1.1}
+.metr .md{font-size:.85rem;color:var(--ink-2);line-height:1.45}
+@media (max-width:880px){.metr{grid-template-columns:1fr 1fr}}
+
+.phase90{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.phase90 > div{background:var(--paper);padding:22px;display:grid;gap:10px;align-content:start}
+.phase90 .pw{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.phase90 h3{font-size:1.12rem}
+.phase90 ul{margin:0;padding-left:1.05em;display:grid;gap:6px}
+.phase90 li{font-size:.93rem;line-height:1.45;color:var(--ink-2)}
+</style>
+
+<div class="hero">
+  <div class="kicker">Parte III · strategia di marketing</div>
+  <h1>A chi vendiamo,<br>con cosa,<br>e in che ordine.</h1>
+  <p class="lede">Segreteria Brave è già in vendita e la pipeline converte a chiamata diretta. Questo documento serve a rispondere alla domanda che arriva subito dopo: <strong>cosa succede quando la community si esaurisce?</strong> Qui dentro: i segmenti, l'architettura d'offerta, la posizione di prezzo, il funnel, i canali in ordine di priorità, i primi novanta giorni e i quattro rischi commerciali da governare.</p>
+</div>
+
+<!-- ===== SEGMENTI ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Chi compra</div>
+    <h2>Tre segmenti con tre dolori diversi.</h2>
+    <p class="lede">Non è un prodotto per «le cliniche veterinarie». Sono tre mercati che comprano la stessa cosa per ragioni opposte, e la frase di apertura che funziona su uno affonda sull'altro.</p>
+  </div>
+
+  <div class="seg">
+    <div>
+      <span class="id">S1 · primario</span>
+      <h3>La clinica con il front office saturo</h3>
+      <p class="who">Due o più veterinari, agenda piena, una o due persone al banco che non ce la fanno. Il telefono squilla mentre c'è già qualcuno davanti.</p>
+      <p class="pain">Dolore: il <strong>volume</strong>. Compra capacità, non tecnologia. Ha già provato ad assumere. Decide in fretta se il conto torna.</p>
+    </div>
+    <div>
+      <span class="id">S2 · volume</span>
+      <h3>L'ambulatorio senza segreteria</h3>
+      <p class="who">Uno o due professionisti che rispondono da soli tra una visita e l'altra — o che non rispondono affatto e richiamano la sera.</p>
+      <p class="pain">Dolore: l'<strong>assenza</strong>. Compra presenza. Ticket più basso, ciclo più corto, numerosità molto alta. È il segmento che fa massa.</p>
+    </div>
+    <div>
+      <span class="id">S3 · valore</span>
+      <h3>Il gruppo e la catena</h3>
+      <p class="who">Più sedi, centralino distribuito o accentrato, standard di accoglienza diversi da una struttura all'altra.</p>
+      <p class="pain">Dolore: l'<strong>inconsistenza</strong>. Compra controllo e uniformità. Ciclo lungo, più interlocutori, valore per contratto molto alto.</p>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:26px">
+    <p class="small">Esiste un quarto insieme che <strong>non è un segmento ma un canale</strong>: la base installata di Snoots. Quelle cliniche non hanno un dolore diverso — hanno una porta d'ingresso diversa. Vanno raggiunte dentro il gestionale, non con lo stesso messaggio di chi Snoots non ce l'ha.</p>
+  </div>
+</section>
+
+<!-- ===== PROPOSTA DI VALORE ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Cosa comprano davvero</div>
+    <h2>La stessa voce, tre promesse diverse.</h2>
+  </div>
+  <div class="vtable">
+    <table>
+      <thead>
+        <tr><th>Segmento</th><th>Cosa compra davvero</th><th>La frase che apre</th><th>Dove si perde la trattativa</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>S1 · front office saturo</th>
+          <td>Ore restituite a chi è già in struttura, senza assumere.</td>
+          <td>«Quante volte, questa settimana, il telefono ha squillato mentre eri in visita?»</td>
+          <td>Se sente «sostituisce la segretaria». Va detto il contrario, per primo.</td>
+        </tr>
+        <tr>
+          <th>S2 · senza segreteria</th>
+          <td>Esistere al telefono nelle ore in cui oggi non esiste.</td>
+          <td>«Chi risponde quando sei con le mani occupate? Nessuno, giusto?»</td>
+          <td>Sul prezzo, se il canone non è ancorato a una prestazione recuperata.</td>
+        </tr>
+        <tr>
+          <th>S3 · gruppo e catena</th>
+          <td>Uno standard unico di accoglienza su tutte le sedi, misurabile.</td>
+          <td>«Le tue tre sedi rispondono al telefono nello stesso modo?»</td>
+          <td>Su governance e dati: qui la compliance è un requisito, non un argomento.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== ARCHITETTURA D'OFFERTA ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">L'offerta</div>
+    <h2>Due livelli, e un marketplace che non è un canale di domanda.</h2>
+    <p class="lede">La modalità A apre il mercato, la B lo difende. Il marketplace Snoots non porta clienti nuovi: rende irreversibili quelli che ci sono già.</p>
+  </div>
+
+  <div class="modes">
+    <div>
+      <span class="lvl">Livello 1 · porta d'ingresso</span>
+      <h3>Giulia <span>istruita</span></h3>
+      <p class="small">Add-on indipendente dal gestionale, configurato su informazioni ed esigenze della clinica. È ciò che si vende a chiunque, subito, senza dipendere da un'integrazione.</p>
+      <ul>
+        <li>Mercato indirizzabile: <strong>tutte</strong> le strutture veterinarie italiane</li>
+        <li>Ciclo di vendita corto, attivazione rapida</li>
+        <li>Facilmente imitabile: qui non abbiamo un fossato</li>
+      </ul>
+      <span class="who">Serve a fare volume e a costruire la base di prova.</span>
+    </div>
+    <div>
+      <span class="lvl">Livello 2 · il fossato</span>
+      <h3>Giulia <span>connessa</span></h3>
+      <p class="small">Nativa nel marketplace Snoots, legge i dati reali: chi chiama, quali visite, quali terapie, quali appuntamenti. Risponde puntualmente invece che genericamente.</p>
+      <ul>
+        <li>Mercato indirizzabile: la <strong>base installata Snoots</strong></li>
+        <li>Valore percepito molto più alto a parità di canone</li>
+        <li>Costo di abbandono alto: è dentro il gestionale</li>
+      </ul>
+      <span class="who">Serve a difendere il margine e a rendere difficile la sostituzione.</span>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:26px">
+    <p class="small"><strong>La regola commerciale che ne discende:</strong> in demo si mostra sempre la B, anche a chi non usa Snoots. Si vende la A come punto di partenza e la B come destinazione. Vendere la A per prima abbassa il valore percepito di tutto il prodotto, e chi compra la A senza aver visto la B non capirà mai perché dovrebbe passare a Snoots.</p>
+  </div>
+</section>
+
+<!-- ===== PREZZO ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Il prezzo</div>
+    <h2>Una posizione, non un listino.</h2>
+    <p class="lede">I numeri sono una decisione vostra e della partnership. Questi sono i quattro principi che li rendono difendibili in trattativa, qualunque cifra scegliate.</p>
+  </div>
+
+  <div class="steps">
+    <div>
+      <span class="n">01</span>
+      <span class="c"><b>Il prezzo si dice in demo, e presto.</b><span>Il canone nascosto fino all'ultimo minuto è la prima causa di trattative che non si chiudono: l'interlocutore smette di ascoltare e comincia a stimare. Chi dice il prezzo per primo comanda la conversazione.</span></span>
+    </div>
+    <div>
+      <span class="n">02</span>
+      <span class="c"><b>Il canone si ancora alle prestazioni recuperate, non alle ore risparmiate.</b><span>«Ti costa quanto una visita e mezza al mese» è un confronto che il veterinario fa da solo in due secondi. «Ti fa risparmiare X ore di segreteria» lo costringe a valutare il costo del proprio personale — un terreno su cui non vogliamo portarlo.</span></span>
+    </div>
+    <div>
+      <span class="n">03</span>
+      <span class="c"><b>Non si sconta il canone. Semmai si sconta l'attivazione.</b><span>Uno sconto sul ricorrente vale per sempre e distrugge il valore del prodotto sul mercato; uno sconto sull'una tantum costa una volta sola. La leva di chiusura è lì.</span></span>
+    </div>
+    <div>
+      <span class="n">04</span>
+      <span class="c"><b>Il gettone di attivazione è un filtro, non un ricavo.</b><span>Serve a distinguere chi è disposto a configurare davvero la propria clinica da chi vuole «provare». Un'attivazione senza configurazione seria produce una Giulia mediocre, e una Giulia mediocre produce disdette e passaparola negativo.</span></span>
+    </div>
+  </div>
+
+  <div class="note warn" style="margin-top:26px">
+    <p class="small"><strong>Da chiudere prima di pubblicare qualsiasi prezzo:</strong> la struttura economica tra BVB e Icarus Technology è già concordata, ma il listino al cliente finale — canone, gettone, eventuale differenza tra modalità A e B, durata minima — non è ancora stato fissato in questo documento. Finché non lo è, nei materiali pubblici non compare nessuna cifra: il prezzo si dice in call.</p>
+  </div>
+</section>
+
+<!-- ===== FUNNEL ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Il percorso</div>
+    <h2>Sette stadi, e uno che oggi saltiamo.</h2>
+    <p class="lede">La pipeline attuale nasce dalla community: salta gli stadi di generazione della domanda e atterra direttamente in demo. È un vantaggio che va sfruttato adesso e un rischio che va coperto subito, perché la community è un bacino, non una sorgente.</p>
+  </div>
+
+  <div class="funnel">
+    <div class="stage">
+      <span class="lv"><b>F0</b>Bacino</span>
+      <div class="sb">
+        <h3>La community BVB</h3>
+        <p>Veterinari imprenditori che già ci conoscono e ci attribuiscono competenza. Non è un pubblico da convincere: è un pubblico da informare. Da qui arrivano i primi clienti, e da qui è arrivato il feedback che ha costruito il prodotto.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <span class="lv"><b>F1</b>Domanda latente</span>
+      <div class="sb">
+        <h3>Chi ha il problema e non lo ha ancora messo a fuoco</h3>
+        <p>Il veterinario sa che il telefono è un disastro, ma non lo ha mai contato né quantificato. È lo stadio che il piano di comunicazione lavora per intero nella prima settimana, parlando solo del telefono e mai del prodotto.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <span class="lv"><b>F2</b>Interesse</span>
+      <div class="sb">
+        <h3>Il segnale dichiarato</h3>
+        <p>Un commento, un messaggio diretto, il calcolatore compilato sul sito, il form inviato. È la metrica che anticipa le demo di tre-dieci giorni ed è quella da guardare per capire se la comunicazione funziona, molto prima che arrivino le firme.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <span class="lv"><b>F3</b>Demo</span>
+      <div class="sb">
+        <h3>Trenta minuti su Meet</h3>
+        <p>Si ascolta una chiamata reale, si mostra la scheda che Giulia ha davanti, si fa il conto con i numeri della clinica, si dice il prezzo. <strong>È lo stadio dove oggi atterra tutta la pipeline</strong>, perché la community bypassa F1 e F2.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <span class="lv"><b>F4</b>Attivazione</span>
+      <div class="sb">
+        <h3>La configurazione, che è una conversazione</h3>
+        <p>Orari, servizi, regole di prenotazione, criteri di urgenza, perimetro di ciò che Giulia non fa. È il momento in cui si decide se il cliente sarà soddisfatto: una configurazione frettolosa produce una segreteria mediocre e una disdetta a tre mesi.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <span class="lv"><b>F5</b>Prima prova</span>
+      <div class="sb">
+        <h3>I primi trenta giorni al telefono</h3>
+        <p>Qui si gioca il rinnovo, non alla scadenza. Serve un contatto strutturato nella prima settimana e uno al trentesimo giorno, con in mano le chiamate effettivamente gestite. Chi non vede il risultato non lo cerca da solo.</p>
+      </div>
+    </div>
+    <div class="stage">
+      <span class="lv"><b>F6</b>Passaparola</span>
+      <div class="sb">
+        <h3>Il veterinario che lo racconta a un altro veterinario</h3>
+        <p>È il canale più efficace del settore e il meno governato. Va chiesto esplicitamente, nel momento giusto — non alla firma, ma quando il cliente pronuncia per la prima volta una frase di soddisfazione spontanea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CANALI ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Dove investiamo</div>
+    <h2>Sei canali, in quest'ordine.</h2>
+    <p class="lede">L'ordine non è per dimensione del pubblico: è per costo di acquisizione e per velocità. Si scende nella lista solo quando quello sopra ha smesso di produrre.</p>
+  </div>
+
+  <div class="chan">
+    <div>
+      <span class="rk">01</span>
+      <span class="cc"><b>La community BVB</b><span>Fiducia già costruita, costo marginale vicino a zero, ciclo brevissimo. È il canale che sta producendo la pipeline di adesso. Va sfruttato al massimo nelle prime sei settimane, sapendo che è un bacino finito.</span></span>
+      <span class="wt">Ora · massima</span>
+    </div>
+    <div>
+      <span class="rk">02</span>
+      <span class="cc"><b>Il pilota e i primi clienti</b><span>La prova sociale è l'asset commerciale più prezioso che abbiamo: nel veterinario italiano vale più di qualunque campagna. Ogni cliente attivo va trattato come un futuro caso, dal primo giorno e con il consenso chiesto per tempo.</span></span>
+      <span class="wt">Ora · alta</span>
+    </div>
+    <div>
+      <span class="rk">03</span>
+      <span class="cc"><b>I social organici BVB</b><span>Non converte a freddo nel B2B, ma costruisce la domanda per quando la community si esaurisce e riscalda chi arriverà in demo tra due mesi. È un investimento a scadenza differita: va fatto adesso proprio perché non serve adesso.</span></span>
+      <span class="wt">Ora · media</span>
+    </div>
+    <div>
+      <span class="rk">04</span>
+      <span class="cc"><b>Il marketplace Snoots</b><span>Canale distributivo, non di domanda: non genera interesse, lo raccoglie e lo rende attivabile in un clic. Vale per la credibilità e per il tasso di conversione di chi è già interessato, non per il volume in ingresso.</span></span>
+      <span class="wt">Da sett. 4</span>
+    </div>
+    <div>
+      <span class="rk">05</span>
+      <span class="cc"><b>Gli eventi e la formazione BVB</b><span>Il palco è il posto dove far sentire Giulia a cento persone insieme. Un'aula che ascolta una chiamata in diretta produce più domande di un mese di post. Da innestare sul calendario formativo già esistente.</span></span>
+      <span class="wt">Da sett. 6</span>
+    </div>
+    <div>
+      <span class="rk">06</span>
+      <span class="cc"><b>Outbound verso gruppi e catene</b><span>Ciclo lungo, più interlocutori, richiede materiali dedicati su governance e dati. Ha senso aprirlo solo con qualche decina di cliniche attive alle spalle: prima, non c'è la prova che regge quel tipo di conversazione.</span></span>
+      <span class="wt">Non prima del trimestre 2</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SITO ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">L'asset di conversione</div>
+    <h2>La pagina sul sito fa un lavoro solo: portare alla demo.</h2>
+  </div>
+  <p class="lede" style="margin-bottom:26px">La sezione <em>bravevetbusiness.it/segreteria-brave</em> non è una brochure. È costruita attorno a tre meccanismi che fanno lavorare il visitatore invece di farlo leggere.</p>
+
+  <div class="steps">
+    <div>
+      <span class="n">01</span>
+      <span class="c"><b>Il calcolatore del mancato fatturato.</b><span>Il visitatore inserisce i suoi numeri — chiamate al giorno, quota persa, ticket medio — e vede la cifra annua. Un numero che uno si è calcolato da solo non si discute: è lo stesso meccanismo che usiamo in demo, messo in autonomia.</span></span>
+    </div>
+    <div>
+      <span class="n">02</span>
+      <span class="c"><b>Il perimetro scritto.</b><span>«Cosa Giulia non fa mai»: niente diagnosi, niente terapie, niente urgenze decise da sola, nessuna finzione di essere una persona. Dichiarare i limiti in pagina disinnesca le obiezioni prima che diventino ragioni per non prenotare.</span></span>
+    </div>
+    <div>
+      <span class="n">03</span>
+      <span class="c"><b>Il form, non il numero.</b><span>La prova al telefono resta un momento della demo, dove c'è qualcuno che la guida e la commenta. Pubblicare il numero significherebbe regalare la dimostrazione senza raccogliere il contatto — e lasciarla avvenire senza controllo, con il rischio che un ascolto fuori contesto diventi il giudizio sul prodotto.</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 90 GIORNI ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">L'esecuzione</div>
+    <h2>I primi novanta giorni.</h2>
+  </div>
+  <div class="phase90">
+    <div>
+      <span class="pw">Giorni 0–30 · raccogliere</span>
+      <h3>Chiudere dalla community e costruire la prova</h3>
+      <ul>
+        <li>Portare in demo tutti i veterinari che hanno manifestato interesse</li>
+        <li>Raccogliere da ogni demo: obiezioni testuali, frasi usate, motivi di no</li>
+        <li>Ottenere le autorizzazioni all'uso di audio, nome clinica, citazione</li>
+        <li>Fissare il listino al cliente finale e smettere di improvvisarlo in call</li>
+      </ul>
+    </div>
+    <div>
+      <span class="pw">Giorni 30–60 · trasformare</span>
+      <h3>Da clienti a casi, e apertura del marketplace</h3>
+      <ul>
+        <li>Primo contatto strutturato al trentesimo giorno su ogni cliente attivo</li>
+        <li>Pubblicare il primo dato verificato dal campo — uno solo, ma vero</li>
+        <li>Attivare la scheda nel marketplace Snoots con la tile definitiva</li>
+        <li>Chiedere il primo referral ai clienti che si sono detti soddisfatti</li>
+      </ul>
+    </div>
+    <div>
+      <span class="pw">Giorni 60–90 · misurare</span>
+      <h3>Aprire il freddo e capire quanto costa</h3>
+      <ul>
+        <li>Primo test a pagamento su pubblico freddo, budget contenuto</li>
+        <li>Calcolare il costo per demo e per attivazione fuori dalla community</li>
+        <li>Verificare il churn della prima coorte: è il numero che dice se il prodotto mantiene</li>
+        <li>Decidere se e quando aprire il canale gruppi e catene</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== METRICHE ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Come si capisce se funziona</div>
+    <h2>Quattro numeri, non quaranta.</h2>
+    <p class="lede">I target non li fissiamo noi in un documento: si fissano sui primi trenta giorni di dati reali. Quello che va deciso adesso è <em>quali</em> numeri guardare, perché misurare la cosa sbagliata è peggio che non misurare.</p>
+  </div>
+  <div class="metr">
+    <div><span class="ml">Metrica nord</span><span class="mv">Demo tenute</span><span class="md">Non le richieste: le demo effettivamente fatte. È l'unico numero che precede il fatturato senza illusioni.</span></div>
+    <div><span class="ml">Qualità dell'offerta</span><span class="mv">Demo → attivazione</span><span class="md">Se scende, il problema è il prezzo o la demo, non il traffico. Va letto prima di spendere in acquisizione.</span></div>
+    <div><span class="ml">Qualità della consegna</span><span class="mv">Giorni alla 1ª chiamata</span><span class="md">Dal contratto alla prima telefonata realmente gestita. È il primo predittore di soddisfazione.</span></div>
+    <div><span class="ml">Tenuta</span><span class="mv">Churn a 90 giorni</span><span class="md">Dice se stiamo vendendo bene o promettendo troppo. È il numero che decide se si può accelerare.</span></div>
+  </div>
+</section>
+
+<!-- ===== RISCHI ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Cosa può andare storto</div>
+    <h2>I quattro rischi commerciali, e come li governiamo.</h2>
+  </div>
+  <div class="risk">
+    <div>
+      <p class="rq">La community si esaurisce e la pipeline si ferma.</p>
+      <p class="ra">È il rischio più probabile e il più prevedibile: un bacino caldo produce molto e in fretta, poi finisce. Il momento in cui ce ne accorgeremo è anche il momento peggiore per cominciare a costruire il canale successivo.</p>
+      <p class="rm">→ Presidio: il piano di comunicazione parte <em>adesso</em>, mentre la pipeline è piena. L'indicatore di allarme non è il calo delle demo, è il calo dei messaggi diretti e dei commenti con domanda — anticipa di settimane.</p>
+    </div>
+    <div>
+      <p class="rq">La demo promette più di quanto l'attivazione consegni.</p>
+      <p class="ra">In demo si mostra la modalità connessa, con tutti i dati in mano. Se il cliente attiva la modalità istruita e si aspetta quella connessa, la delusione arriva alla prima telefonata — e non è recuperabile con l'assistenza.</p>
+      <p class="rm">→ Presidio: la differenza tra A e B va detta in demo con la stessa enfasi con cui si mostra la B, e ripetuta per iscritto in fase di attivazione. È l'unico punto del processo dove conviene essere pignoli fino alla noia.</p>
+    </div>
+    <div>
+      <p class="rq">La dipendenza da Snoots diventa un collo di bottiglia.</p>
+      <p class="ra">Il fossato del prodotto sta nell'integrazione, ma l'integrazione è di qualcun altro. Tempi di sviluppo, priorità e roadmap del partner gestionale diventano vincoli commerciali nostri.</p>
+      <p class="rm">→ Presidio: la modalità A deve restare vendibile e presidiata, non trattata come ripiego. Finché sappiamo vendere senza integrazione, l'integrazione è una leva e non una dipendenza.</p>
+    </div>
+    <div>
+      <p class="rq">Un incidente al telefono diventa il racconto del prodotto.</p>
+      <p class="ra">Basta un caso mal gestito — un'urgenza non riconosciuta, un cliente che si sente ingannato — perché la storia giri nel settore molto più velocemente di qualunque caso di successo. Il mercato veterinario italiano è piccolo e parla.</p>
+      <p class="rm">→ Presidio: perimetro scritto e stretto, dichiarazione esplicita di assistente virtuale, escalation immediata nel dubbio. Non sono adempimenti: sono la gestione del rischio reputazionale del brand BVB, che vale più del prodotto.</p>
+    </div>
+  </div>
+</section>

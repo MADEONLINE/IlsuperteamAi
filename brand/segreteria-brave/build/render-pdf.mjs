@@ -1,0 +1,13 @@
+import pw from '/opt/node22/lib/node_modules/playwright/index.js';
+const { chromium } = pw;
+import { pathToFileURL } from 'node:url';
+const [ , , SRC, OUT ] = process.argv;
+const b = await chromium.launch();
+const p = await b.newPage({ colorScheme: 'light' });
+const bad = [];
+p.on('requestfailed', r => bad.push(r.url().slice(-50)));
+await p.goto(pathToFileURL(SRC).href, { waitUntil: 'networkidle' });
+await p.evaluate(() => document.fonts.ready);
+await p.pdf({ path: OUT, format: 'A4', printBackground: true, preferCSSPageSize: true });
+await b.close();
+console.log(bad.length ? 'RISORSE FALLITE: ' + bad.join(', ') : 'nessuna risorsa fallita');
