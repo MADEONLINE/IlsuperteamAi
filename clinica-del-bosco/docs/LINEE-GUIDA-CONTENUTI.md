@@ -20,6 +20,21 @@ Valgono per chiunque scriva testi per il sito (redazione, medici, agenzia, agent
 
 **Vietato**: orari dell'ambulatorio (non noti), prezzi in cifre, nomi di attrezzature con marca/modello, anno di fondazione, numero di dipendenti, parcheggio riservato, qualsiasi dato economico o societario.
 
+## 1b. Palette del marchio (dal logo, settembre 2026)
+
+| Colore            | Valore    | Dove si usa                                                                           |
+| ----------------- | --------- | ------------------------------------------------------------------------------------- |
+| Verde bosco       | `#2a6b42` | Colore primario: pulsanti di prenotazione, link, icone, titoli di sezione             |
+| Verde scuro       | `#215636` | Link su fondo chiaro, stati premuti                                                   |
+| Petrolio          | `#0f4c5c` | Colore istituzionale: lettering del marchio, aree tecniche, dati legali               |
+| Petrolio profondo | `#0a2f3a` | Superfici scure: apertura, striscia di servizio, piede pagina                         |
+| Oro               | `#c9a26b` | Solo decorazione: rombi, filetti, pillola del piano consigliato. Mai testo di lettura |
+| Crema             | `#f8f6f0` | Fondo delle pagine                                                                    |
+| Corallo           | `#b93a0b` | **Riservato all'urgenza.** Mai decorativo, mai su elementi non di emergenza           |
+
+I valori vivono in `src/styles/global.css` come token: non scrivere mai un colore direttamente
+nelle pagine, usa le utility (`bg-primario`, `text-istituzionale`, `bg-oro`, `bg-urgenza`).
+
 ## 2. Regole deontologiche (FNOVI, pubblicità sanitaria) — non negoziabili
 
 - Veritiero, verificabile, **non suggestivo, non comparativo**. Mai: "i migliori", "n. 1", "unici", "leader", "eccellenza", confronti con altre strutture, "garantiamo", promesse di guarigione, "risultati straordinari".
