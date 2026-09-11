@@ -222,14 +222,17 @@ jobs:
           for coppia in $IMMAGINI; do
             nome="${coppia%%=*}"; url="${coppia#*=}"
             echo "-> $nome"
-            curl -sS -L -m 120 -o "/tmp/dl/$nome.png" "$url"
+            if ! curl -sS -f -L -m 120 -o "/tmp/dl/$nome.png" "$url"; then
+              echo "   SALTATO: download fallito"; continue
+            fi
             node -e "
               const sharp = require('sharp');
               sharp('/tmp/dl/$nome.png').resize({ width: 2000, withoutEnlargement: true })
                 .jpeg({ quality: 82, mozjpeg: true })
                 .toFile('src/assets/img/$nome.jpg')
-                .then((i) => console.log('   ', '$nome.jpg', i.width + 'x' + i.height, Math.round(i.size / 1024) + ' KB'));
-            "
+                .then((i) => console.log('   ', '$nome.jpg', i.width + 'x' + i.height, Math.round(i.size / 1024) + ' KB'))
+                .catch((e) => { console.log('   SALTATO:', e.message); });
+            " || echo "   SALTATO: conversione fallita"
           done
           ls -l src/assets/img
       - name: Commit
