@@ -1,3 +1,6 @@
 .superpowers/
 .DS_Store
 .claude/
+
+# Pacchetto di deploy: si rigenera da brand/segreteria-brave/dist/
+*.zip
