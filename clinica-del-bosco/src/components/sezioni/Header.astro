@@ -19,7 +19,7 @@ const voci = [
   { nome: 'Équipe', href: '/equipe' },
   { nome: 'Magazine', href: '/magazine' },
   { nome: 'Per i colleghi', href: '/per-i-colleghi' },
-  { nome: 'Lavora con noi', href: '/lavora-con-noi' },
+  { nome: 'Lavora con noi', href: '/lavora-con-noi', utility: true },
   { nome: 'Contatti', href: '/contatti' },
 ];
 
@@ -56,6 +56,9 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
         <span>{clinica.orari.prontoSoccorso.etichetta}</span>
       </p>
       <div class="flex items-center gap-4">
+        <a href="/lavora-con-noi" class="text-testo-inverso no-underline hover:underline">
+          Lavora con noi
+        </a>
         <a
           href="/contatti"
           class="hidden items-center gap-1.5 text-testo-inverso no-underline hover:underline lg:flex"
@@ -94,7 +97,7 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
     <nav aria-label="Navigazione principale" class="hidden xl:block">
       <ul class="flex items-center gap-1">
         {voci
-          .filter((v) => !v.urgenza)
+          .filter((v) => !v.urgenza && !v.utility)
           .map((v) =>
             v.servizi ? (
               <li class="menu-servizi">

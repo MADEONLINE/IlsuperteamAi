@@ -24,6 +24,8 @@ interface Props {
   sizes?: string;
   class?: string;
   posizione?: string;
+  /** Nelle sezioni a tutta altezza l'immagine riempie la colonna invece di fermarsi al suo rapporto. */
+  riempi?: boolean;
 }
 const {
   src,
@@ -37,6 +39,7 @@ const {
   sizes = '(min-width: 1280px) 60vw, 100vw',
   class: classe = '',
   posizione = 'center',
+  riempi = false,
 } = Astro.props;
 /**
  * Quando la pagina indica solo il numero di scatto, l'immagine e il suo testo alternativo
@@ -61,7 +64,7 @@ const posizioni: Record<string, string> = {
 ---
 
 <figure class:list={['relative m-0 overflow-hidden rounded-card bg-sfondo-tinta', classe]}>
-  <div class:list={[ratioClasse[ratio], 'relative w-full']}>
+  <div class:list={[ratioClasse[ratio], 'relative w-full', riempi && 'lg:aspect-auto lg:h-full']}>
     {immagine ? (
       <Picture
         src={immagine}
