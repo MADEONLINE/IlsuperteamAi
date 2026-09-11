@@ -1,13 +1,13 @@
 # Segreteria Brave — dossier di marca
 
 Prima segreteria virtuale dedicata esclusivamente alla clinica veterinaria.
-Nasce da **Brave Vet Business × Icarus Technologies**.
+Nasce da **Brave Vet Business × Icarus Technology**.
 
 ## Architettura di marca
 
 | Livello | Nome | Dove vive |
 |---|---|---|
-| Garanzia | Brave Vet Business × Icarus Technologies | firma, footer, materiali commerciali |
+| Garanzia | Brave Vet Business × Icarus Technology | firma, footer, materiali commerciali |
 | Prodotto | **Segreteria Brave** | marketplace Snoots, contratto, pagina prodotto |
 | Voce | **Giulia** | telefono, WhatsApp, SMS — l'unico nome che esce dalla clinica |
 
