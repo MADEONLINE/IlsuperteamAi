@@ -6,7 +6,7 @@ SRC = pathlib.Path('/home/user/IlsuperteamAi/brand/segreteria-brave')
 OUT = pathlib.Path(sys.argv[1])
 
 PARTS = [
-    ('I',   'Il marchio',            'Cinque proposte, architettura di marca, matrice di confronto e raccomandazione.', '01-marchio.html'),
+    ('I',   'Il marchio',            'Cinque proposte, architettura di marca, matrice di confronto sui vincoli reali.', '01-marchio.html'),
     ('II',  'Storytelling e posizionamento', 'Il racconto di fondazione, il manifesto, i pitch, il copione della demo, le obiezioni.', '02-storytelling.html'),
     ('III', 'Strategia di marketing', 'Segmenti, architettura d’offerta, prezzo, funnel, canali, novanta giorni, rischi.', '03-strategia-marketing.html'),
     ('IV',  'Piano di comunicazione', 'Otto settimane su quattro canali, calendario giorno per giorno, contenuti pronti.', '04-piano-editoriale.html'),
@@ -229,7 +229,7 @@ h2 {{ font-size: 2rem !important; }}
 <div class="wrap toc">
   <h2>Che cosa c'&egrave; dentro.</h2>
 {toc_rows}
-  <p class="tnote"><strong>Una cosa da sapere prima di leggere:</strong> il marchio non &egrave; ancora scelto. La Parte I si chiude con una raccomandazione e con cinque strade aperte; tutto il resto del dossier &egrave; costruito per reggere qualunque delle cinque venga validata. Il brand book definitivo &mdash; palette completa, scala tipografica, regole d'uso, lockup, kit social &mdash; si produce dopo quella scelta, e non prima.</p>
+  <p class="tnote"><strong>Una cosa da sapere prima di leggere:</strong> il marchio non &egrave; ancora scelto. La Parte I lascia cinque strade aperte, senza indicarne una: sono cinque scommesse diverse e la scelta &egrave; da fare insieme. Tutto il resto del dossier &egrave; costruito per reggere qualunque delle cinque venga validata. Il brand book definitivo &mdash; palette completa, scala tipografica, regole d'uso, lockup, kit social &mdash; si produce dopo quella scelta, e non prima.</p>
 </div>
 
 {''.join(body)}
