@@ -1,0 +1,763 @@
+<title>Marchio Segreteria Brave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&family=Archivo:wdth,wght@75..125,400;75..125,600;75..125,800&display=swap">
+<style>
+:root{
+  --paper:#F1F4F3;
+  --field:#E6ECEA;
+  --raise:#FFFFFF;
+  --ink:#0D1B19;
+  --ink-2:#3B4E4B;
+  --muted:#6E807D;
+  --line:#CBD7D4;
+  --line-soft:#DCE5E3;
+  --teal:#76B6B5;
+  --teal-deep:#2B6E6C;
+  --teal-wash:#DCECEB;
+  --signal:#C7562F;
+  --gold:#C9A227;
+
+  --f-display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Newsreader',Georgia,'Times New Roman',serif;
+  --f-mono:'Space Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
+  --f-alt:'Archivo','Helvetica Neue',Arial,sans-serif;
+
+  --maxw:1140px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0A1413;
+    --field:#101E1C;
+    --raise:#162725;
+    --ink:#E9F0EE;
+    --ink-2:#B3C4C0;
+    --muted:#839894;
+    --line:#223633;
+    --line-soft:#1A2B29;
+    --teal:#76B6B5;
+    --teal-deep:#9AD2D1;
+    --teal-wash:#15302E;
+    --signal:#E8825C;
+    --gold:#D9B53F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0A1413;
+  --field:#101E1C;
+  --raise:#162725;
+  --ink:#E9F0EE;
+  --ink-2:#B3C4C0;
+  --muted:#839894;
+  --line:#223633;
+  --line-soft:#1A2B29;
+  --teal:#76B6B5;
+  --teal-deep:#9AD2D1;
+  --teal-wash:#15302E;
+  --signal:#E8825C;
+  --gold:#D9B53F;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px;padding-block:0}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.08;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,6.4vw,4.4rem);font-weight:800}
+h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:700}
+h3{font-size:1.28rem;font-weight:700;letter-spacing:-.01em}
+h4{font-size:1rem;font-weight:700;letter-spacing:-.005em}
+p{margin:0}
+.lede{font-size:clamp(1.06rem,1.9vw,1.32rem);line-height:1.55;color:var(--ink-2);max-width:62ch}
+.kicker{
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--teal-deep);display:flex;align-items:center;gap:.6em;
+}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.small{font-size:.93rem;line-height:1.5;color:var(--ink-2)}
+em{font-style:italic}
+strong{font-weight:600;color:var(--ink)}
+hr.rule{border:0;border-top:1px solid var(--line);margin:0}
+
+/* ---------- masthead ---------- */
+header.top{border-bottom:1px solid var(--line);background:var(--paper)}
+.top-in{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:baseline;justify-content:space-between;padding-block:20px}
+.bvb{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:.9rem;letter-spacing:.02em}
+.bvb .pep{width:9px;height:9px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg)}
+
+.hero{padding-block:clamp(52px,9vw,96px) clamp(40px,6vw,64px);display:grid;gap:26px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px}
+.tag{
+  font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:2px;padding:5px 9px;color:var(--ink-2);background:var(--raise)
+}
+.tag--on{border-color:var(--teal);color:var(--teal-deep);background:var(--teal-wash)}
+
+/* ---------- section shell ---------- */
+section{padding-block:clamp(44px,6vw,72px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:14px;margin-bottom:34px;max-width:72ch}
+
+/* ---------- architecture ---------- */
+.arch{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.arch > div{background:var(--paper);padding:24px 22px;display:grid;gap:10px;align-content:start}
+.arch .lvl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.arch .nm{font-family:var(--f-display);font-weight:800;font-size:1.5rem;letter-spacing:-.02em}
+.arch .nm span{color:var(--teal-deep)}
+@media (max-width:760px){.arch{grid-template-columns:1fr}}
+
+.script{
+  margin-top:28px;border:1px solid var(--line);background:var(--raise);
+  padding:24px 24px 22px;display:grid;gap:12px;border-left:3px solid var(--teal)
+}
+.script .line{font-family:var(--f-body);font-size:clamp(1.05rem,2.2vw,1.35rem);line-height:1.5}
+.script .line .who{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:5px}
+
+/* ---------- concept band ---------- */
+.concept{border-top:1px solid var(--line);padding-block:clamp(40px,5.5vw,64px)}
+.concept:first-of-type{border-top:0}
+.c-grid{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:clamp(28px,4vw,54px);align-items:start}
+@media (max-width:880px){.c-grid{grid-template-columns:1fr}}
+
+.specimen{
+  background:var(--field);border:1px solid var(--line-soft);
+  display:grid;place-items:center;aspect-ratio:1/.82;padding:28px;
+  position:relative;overflow:hidden
+}
+.specimen svg{width:min(52%,190px);height:auto;color:var(--teal-deep)}
+.specimen .cnum{
+  position:absolute;top:12px;left:14px;font-family:var(--f-mono);font-size:.64rem;
+  letter-spacing:.16em;color:var(--muted)
+}
+
+.apps{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-items:center}
+.app{
+  display:grid;place-items:center;border-radius:13px;flex:none;
+}
+.app svg{width:60%;height:auto}
+.app--fill{width:54px;height:54px;background:var(--teal-deep);color:var(--paper)}
+.app--out{width:54px;height:54px;background:var(--raise);border:1px solid var(--line);color:var(--ink)}
+.app--tiny{width:32px;height:32px;background:var(--ink);color:var(--paper);border-radius:8px}
+.app-note{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-left:4px}
+
+.c-body{display:grid;gap:18px;align-content:start}
+.c-title{display:grid;gap:6px}
+.c-title .nome{font-family:var(--f-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.025em}
+.c-terr{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+
+.prosc{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft)}
+.prosc > div{background:var(--paper);padding:15px 16px;display:grid;gap:8px;align-content:start}
+.prosc h4{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;font-weight:400}
+.prosc .up h4{color:var(--teal-deep)}
+.prosc .dn h4{color:var(--signal)}
+.prosc ul{margin:0;padding-left:1.05em;display:grid;gap:5px}
+.prosc li{font-size:.9rem;line-height:1.45;color:var(--ink-2)}
+@media (max-width:520px){.prosc{grid-template-columns:1fr}}
+
+.swatches{display:flex;gap:8px;flex-wrap:wrap}
+.sw{display:flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;color:var(--muted)}
+.sw i{width:17px;height:17px;border-radius:3px;display:block;border:1px solid rgba(0,0,0,.12)}
+
+/* lockup */
+.lock{display:flex;align-items:center;gap:14px;border:1px solid var(--line);background:var(--raise);padding:16px 18px}
+.lock svg{width:44px;height:44px;flex:none;color:var(--teal-deep)}
+.lock .wm{display:grid;gap:3px;min-width:0}
+.wm .l1{font-family:var(--f-display);font-size:1.22rem;letter-spacing:-.025em;line-height:1;font-weight:300}
+.wm .l1 b{font-weight:800}
+.wm .l2{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* concept 5 wordmark specimen */
+.wordmark-spec{display:grid;gap:9px;justify-items:center;text-align:center}
+.wm-big{font-family:var(--f-alt);font-weight:800;font-size:clamp(2rem,7vw,3rem);letter-spacing:-.045em;line-height:1;color:var(--ink);position:relative;font-stretch:112%}
+.wm-big .dot{
+  display:inline-block;width:.17em;height:.17em;border-radius:50%;background:var(--teal-deep);
+  vertical-align:baseline;margin-inline:.02em
+}
+.wm-sub{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- matrix ---------- */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);background:var(--raise)}
+table{border-collapse:collapse;width:100%;min-width:660px;font-family:var(--f-display)}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line-soft);font-size:.9rem}
+thead th{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;border-bottom:1px solid var(--line);vertical-align:bottom
+}
+tbody th{font-weight:700;font-size:.95rem;letter-spacing:-.01em;white-space:nowrap}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+.score{display:flex;gap:3px}
+.score i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+.score i.on{background:var(--teal-deep)}
+tr.best th,tr.best td{background:var(--teal-wash)}
+
+/* ---------- recommendation ---------- */
+.reco{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:clamp(26px,4vw,48px);align-items:start}
+@media (max-width:880px){.reco{grid-template-columns:1fr}}
+.reco-body{display:grid;gap:18px}
+.tile{
+  background:var(--raise);border:1px solid var(--line);padding:18px;display:grid;gap:14px
+}
+.tile .th{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mk-row{display:flex;align-items:center;gap:12px}
+.mk-row .ic{width:44px;height:44px;border-radius:11px;background:var(--teal-deep);color:var(--paper);display:grid;place-items:center;flex:none}
+.mk-row .ic svg{width:60%;height:auto}
+.mk-row .tx{display:grid;gap:2px}
+.mk-row .tx b{font-family:var(--f-display);font-weight:700;font-size:.98rem;letter-spacing:-.01em}
+.mk-row .tx span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pill{
+  font-family:var(--f-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--teal);color:var(--teal-deep);background:var(--teal-wash);padding:4px 8px;border-radius:2px;flex:none
+}
+.tile p{font-size:.88rem;line-height:1.5;color:var(--ink-2)}
+.tile .price{font-family:var(--f-display);font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+
+.callcard{background:var(--raise);border:1px solid var(--line);padding:0;overflow:hidden}
+.callcard .cc-top{background:var(--ink);color:var(--paper);padding:16px 18px;display:flex;align-items:center;gap:12px}
+.callcard .cc-top .av{width:38px;height:38px;border-radius:50%;background:var(--teal);color:var(--ink);display:grid;place-items:center;flex:none}
+.callcard .cc-top .av svg{width:62%;height:auto}
+.callcard .cc-top .who{display:grid;gap:2px}
+.callcard .cc-top .who b{font-family:var(--f-display);font-size:.95rem;font-weight:700}
+.callcard .cc-top .who span{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.callcard dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:0}
+.callcard dt{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:11px 14px 11px 18px;border-bottom:1px solid var(--line-soft);white-space:nowrap}
+.callcard dd{margin:0;padding:11px 18px 11px 14px;border-bottom:1px solid var(--line-soft);font-size:.9rem;font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.callcard dl > :nth-last-child(-n+2){border-bottom:0}
+
+/* ---------- next ---------- */
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.steps > div{background:var(--paper);padding:20px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.steps .n{font-family:var(--f-mono);font-size:.7rem;color:var(--teal-deep);padding-top:.25em;letter-spacing:.1em}
+.steps .c{display:grid;gap:5px}
+.steps .c b{font-family:var(--f-display);font-size:1.02rem;font-weight:700;letter-spacing:-.01em}
+.steps .c span{font-size:.9rem;color:var(--ink-2);line-height:1.5}
+
+footer{border-top:1px solid var(--line);padding-block:28px 46px}
+.foot{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center}
+
+/* ---------- motion ---------- */
+@keyframes listen{
+  0%,100%{opacity:.28;transform:scale(.94)}
+  50%{opacity:1;transform:scale(1)}
+}
+.specimen--live #r1{transform-origin:60px 60px;animation:listen 2.8s ease-in-out infinite}
+.specimen--live #r2{transform-origin:60px 60px;animation:listen 2.8s ease-in-out .28s infinite}
+.specimen--live #r3{transform-origin:60px 60px;animation:listen 2.8s ease-in-out .56s infinite}
+@media (prefers-reduced-motion:reduce){
+  .specimen--live #r1,.specimen--live #r2,.specimen--live #r3{animation:none;opacity:1;transform:none}
+}
+:focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+</style>
+
+<!-- ===== symbol library ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="m-ascolto" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="11" fill="currentColor"/>
+    <circle cx="60" cy="60" r="24" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="120.6 30.2" transform="rotate(36 60 60)"/>
+    <circle cx="60" cy="60" r="38" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="162.4 76.4" transform="rotate(58 60 60)"/>
+    <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="176.4 150.4" transform="rotate(83 60 60)"/>
+  </symbol>
+  <symbol id="m-ascolto-live" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="11" fill="currentColor"/>
+    <circle id="r1" cx="60" cy="60" r="24" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="120.6 30.2" transform="rotate(36 60 60)"/>
+    <circle id="r2" cx="60" cy="60" r="38" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="162.4 76.4" transform="rotate(58 60 60)"/>
+    <circle id="r3" cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-dasharray="176.4 150.4" transform="rotate(83 60 60)"/>
+  </symbol>
+  <symbol id="m-ascolto-avatar" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="26" fill="currentColor"/>
+    <circle cx="60" cy="60" r="40" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-dasharray="170 81" transform="rotate(58 60 60)"/>
+    <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-dasharray="184 155" transform="rotate(83 60 60)"/>
+  </symbol>
+  <symbol id="m-giulia" viewBox="0 0 120 120">
+    <path d="M91.2 38 A36 36 0 1 0 91.2 74 L91.2 60 L72 60" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M32 82 L22 107 L50 95 Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="m-onda" viewBox="0 0 120 120">
+    <rect x="6.5"   y="46" width="11" height="28"  rx="5.5" fill="currentColor"/>
+    <rect x="22.5"  y="34" width="11" height="52"  rx="5.5" fill="currentColor"/>
+    <rect x="38.5"  y="22" width="11" height="76"  rx="5.5" fill="currentColor"/>
+    <rect x="54.5"  y="42" width="11" height="36"  rx="5.5" fill="currentColor"/>
+    <rect x="70.5"  y="10" width="11" height="100" rx="5.5" fill="currentColor"/>
+    <rect x="86.5"  y="31" width="11" height="58"  rx="5.5" fill="currentColor"/>
+    <rect x="102.5" y="48" width="11" height="24"  rx="5.5" fill="currentColor"/>
+  </symbol>
+  <symbol id="m-zampa" viewBox="0 0 120 120">
+    <rect x="23" y="72" width="64" height="40" rx="20" fill="currentColor"/>
+    <rect x="13" y="40" width="15" height="22" rx="7.5" fill="currentColor"/>
+    <rect x="36" y="22" width="15" height="40" rx="7.5" fill="currentColor"/>
+    <rect x="59" y="18" width="15" height="44" rx="7.5" fill="currentColor"/>
+    <rect x="82" y="36" width="15" height="26" rx="7.5" fill="currentColor"/>
+  </symbol>
+  <symbol id="m-punto" viewBox="0 0 120 120">
+    <rect x="6" y="6" width="108" height="108" rx="32" fill="none" stroke="currentColor" stroke-width="8"/>
+    <circle cx="60" cy="60" r="34" fill="none" stroke="currentColor" stroke-width="5" opacity=".34"/>
+    <circle cx="60" cy="60" r="20" fill="currentColor"/>
+  </symbol>
+  <symbol id="m-punto-solid" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="46" fill="none" stroke="currentColor" stroke-width="6" opacity=".4"/>
+    <circle cx="60" cy="60" r="26" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="bvb"><i class="pep"></i> BRAVE VET BUSINESS <span class="mono" style="letter-spacing:.14em">× ICARUS TECHNOLOGIES</span></div>
+    <div class="mono">Round 1 · proposte di marchio · da validare</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kicker">Segreteria Brave — la voce si chiama Giulia</div>
+    <h1>Cinque marchi per la<br>prima segreteria che<br>parla veterinario.</h1>
+    <p class="lede">Il marchio di Segreteria Brave deve fare tre cose in trentadue pixel: dire <em>voce</em>, dire <em>veterinario</em>, e togliere al veterinario la paura che dall'altra parte del telefono ci sia un robot. Qui sotto cinque strade che risolvono quel problema in cinque modi diversi. Non sono variazioni: sono cinque posizionamenti visivi alternativi. Se ne sceglie <strong>uno</strong>.</p>
+    <div class="meta">
+      <span class="tag tag--on">Da decidere questa settimana</span>
+      <span class="tag">Vincolo · leggibile a 32&nbsp;px</span>
+      <span class="tag">Vincolo · tile marketplace Snoots</span>
+      <span class="tag">Vincolo · avatar animabile in-app</span>
+      <span class="tag">Vincolo · famiglia BVB riconoscibile</span>
+    </div>
+  </div>
+
+  <!-- ============ ARCHITETTURA DI MARCA ============ -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Prima del segno</div>
+      <h2>Il prodotto si chiama Segreteria Brave.<br>La persona che risponde si chiama Giulia.</h2>
+      <p class="lede">È la decisione che governa tutto il resto. Il veterinario <strong>compra</strong> Segreteria Brave; il suo cliente <strong>incontra</strong> Giulia e non deve mai sentire il nome del software. Un marchio solo non può fare entrambe le cose: serve un sistema a tre livelli, dove il segno è progettato per vivere sia come logo di prodotto sia come avatar di persona.</p>
+    </div>
+
+    <div class="arch">
+      <div>
+        <span class="lvl">Livello 1 · Garanzia</span>
+        <span class="nm">Brave Vet Business<br><span>× Icarus Technologies</span></span>
+        <p class="small">Chi risponde della qualità. Vive in firma, in footer, sui materiali commerciali. Mai al telefono.</p>
+      </div>
+      <div>
+        <span class="lvl">Livello 2 · Prodotto</span>
+        <span class="nm">Segreteria <span>Brave</span></span>
+        <p class="small">Ciò che il veterinario acquista, attiva e paga. Vive nel marketplace Snoots, in fattura, nel contratto, in pagina prodotto.</p>
+      </div>
+      <div>
+        <span class="lvl">Livello 3 · Voce</span>
+        <span class="nm"><span>Giulia</span></span>
+        <p class="small">Chi il cliente finale sente. Vive nel telefono, nel WhatsApp, nell'SMS di conferma. È l'unico nome che esce dalla clinica.</p>
+      </div>
+    </div>
+
+    <div class="script">
+      <div class="line">
+        <span class="who">Squilla il telefono della Clinica Veterinaria Carmagnola · secondo squillo</span>
+        «Clinica Veterinaria Carmagnola, buongiorno. Sono <strong>Giulia</strong>. Parlo con il signor Rossi, vero? Come sta Luna dopo la visita di martedì?»
+      </div>
+      <p class="small">Il nome della clinica viene prima. Poi Giulia. Il nome del prodotto — Segreteria Brave — non compare mai in questa frase, e questo è un requisito di progetto, non un dettaglio. <span class="mono" style="text-transform:none;letter-spacing:.04em">→ il marchio serve al veterinario, non al suo cliente.</span></p>
+    </div>
+  </section>
+
+  <!-- ============ CONCEPT 1 ============ -->
+  <section style="padding-bottom:0">
+    <div class="sec-head">
+      <div class="kicker">Le cinque strade</div>
+      <h2>Cinque territori, non cinque disegni.</h2>
+      <p class="lede">Per ciascuno: il segno grande, il comportamento in icona e in monocromia, il lockup di prodotto, e cosa comporta sceglierlo — perché ogni marchio porta con sé un mondo di colore, di tono e di aspettative.</p>
+    </div>
+  </section>
+
+  <div class="concept">
+    <div class="c-grid">
+      <div>
+        <div class="specimen specimen--live">
+          <span class="cnum">01</span>
+          <svg viewBox="0 0 120 120" role="img" aria-label="Marchio Il Punto di Ascolto: un punto pieno circondato da tre archi che si aprono verso destra"><use href="#m-ascolto-live"/></svg>
+        </div>
+        <div class="apps">
+          <span class="app app--fill"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-ascolto"/></svg></span>
+          <span class="app app--out"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-ascolto"/></svg></span>
+          <span class="app app--tiny"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-ascolto"/></svg></span>
+          <span class="app-note">32 px →</span>
+        </div>
+        <div class="lock" style="margin-top:10px">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-ascolto"/></svg>
+          <span class="wm"><span class="l1">Segreteria <b>Brave</b></span><span class="l2">la voce · Giulia</span></span>
+        </div>
+      </div>
+
+      <div class="c-body">
+        <div class="c-title">
+          <span class="c-terr">Territorio · il segnale, l'ascolto</span>
+          <span class="nome">Il Punto di Ascolto</span>
+        </div>
+        <p>Un punto fermo, e tre archi che si aprono verso destra con ampiezze crescenti. Letto da vicino è una <strong>coclea</strong> — l'organo dell'udito, un dettaglio che un veterinario riconosce. Letto da lontano è un segnale che si propaga: la chiamata che arriva, la risposta che parte. Il punto centrale è Giulia, ferma, sempre lì; gli archi sono tutto ciò che le gira intorno.</p>
+        <p>È l'unico dei cinque che <strong>respira</strong>: gli archi pulsano quando Giulia ascolta e si fermano quando parla. Questo lo rende l'unico candidato che funziona davvero come stato dell'interfaccia, non solo come logo.</p>
+        <div class="prosc">
+          <div class="up"><h4>A favore</h4><ul>
+            <li>Astratto: non invecchia con la tecnologia né con la moda del settore</li>
+            <li>Sistema completo: logo, avatar, stato "in ascolto", favicon, loader</li>
+            <li>Nitido a 32 px e in monocromia da fax</li>
+            <li>Nessun altro nel vet italiano ha questo segno</li>
+          </ul></div>
+          <div class="dn"><h4>Contro</h4><ul>
+            <li>Non dice "veterinario" da solo: ha bisogno del wordmark accanto</li>
+            <li>Richiede disciplina — un segno astratto perdona poco gli usi sciatti</li>
+            <li>Meno immediatamente "simpatico" di una zampa</li>
+          </ul></div>
+        </div>
+        <div class="swatches">
+          <span class="sw"><i style="background:#76B6B5"></i>#76B6B5 verde BVB</span>
+          <span class="sw"><i style="background:#0D1B19"></i>#0D1B19 inchiostro</span>
+          <span class="sw"><i style="background:#F1F4F3"></i>#F1F4F3 carta</span>
+          <span class="sw"><i style="background:#C7562F"></i>#C7562F segnale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 2 ============ -->
+  <div class="concept">
+    <div class="c-grid">
+      <div>
+        <div class="specimen">
+          <span class="cnum">02</span>
+          <svg viewBox="0 0 120 120" role="img" aria-label="Marchio Giulia: una lettera G che termina in una coda da fumetto"><use href="#m-giulia"/></svg>
+        </div>
+        <div class="apps">
+          <span class="app app--fill"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-giulia"/></svg></span>
+          <span class="app app--out"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-giulia"/></svg></span>
+          <span class="app app--tiny"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-giulia"/></svg></span>
+          <span class="app-note">32 px →</span>
+        </div>
+        <div class="lock" style="margin-top:10px">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-giulia"/></svg>
+          <span class="wm"><span class="l1">Segreteria <b>Brave</b></span><span class="l2">la voce · Giulia</span></span>
+        </div>
+      </div>
+
+      <div class="c-body">
+        <div class="c-title">
+          <span class="c-terr">Territorio · la persona</span>
+          <span class="nome">Giulia</span>
+        </div>
+        <p>Una <strong>G</strong> costruita come un anello che, invece di chiudersi, lascia cadere una coda da fumetto. Monogramma e nuvoletta nello stesso gesto: la lettera è già la battuta. È la strada che mette la persona davanti al software, e per questo è la più efficace contro l'obiezione numero uno emersa dalla community — <em>«non voglio un robot che risponde ai miei clienti»</em>.</p>
+        <p>Ha un costo strategico: se il segno è la G di Giulia, il marchio di prodotto diventa secondario. Funziona benissimo se la scommessa è far diventare Giulia il nome che i veterinari si passano tra loro; funziona meno se domani la voce si chiamerà anche Marco o Sara.</p>
+        <div class="prosc">
+          <div class="up"><h4>A favore</h4><ul>
+            <li>Umanizza subito: disinnesca la paura del "robot al telefono"</li>
+            <li>Il monogramma è naturalmente l'avatar in chat e WhatsApp</li>
+            <li>Memorabile e facilissimo da nominare a voce</li>
+          </ul></div>
+          <div class="dn"><h4>Contro</h4><ul>
+            <li>Blocca il nome: una seconda voce richiederebbe un secondo segno</li>
+            <li>La nuvoletta è il segno più affollato della categoria</li>
+            <li>Sposta l'equity da "Brave" a "Giulia"</li>
+          </ul></div>
+        </div>
+        <div class="swatches">
+          <span class="sw"><i style="background:#76B6B5"></i>#76B6B5 verde BVB</span>
+          <span class="sw"><i style="background:#E7B8A4"></i>#E7B8A4 incarnato</span>
+          <span class="sw"><i style="background:#1B2E2B"></i>#1B2E2B inchiostro</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 3 ============ -->
+  <div class="concept">
+    <div class="c-grid">
+      <div>
+        <div class="specimen">
+          <span class="cnum">03</span>
+          <svg viewBox="0 0 120 120" role="img" aria-label="Marchio L'Onda: sette barre verticali di altezza variabile, con un picco centrale"><use href="#m-onda"/></svg>
+        </div>
+        <div class="apps">
+          <span class="app app--fill"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-onda"/></svg></span>
+          <span class="app app--out"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-onda"/></svg></span>
+          <span class="app app--tiny"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-onda"/></svg></span>
+          <span class="app-note">32 px →</span>
+        </div>
+        <div class="lock" style="margin-top:10px">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-onda"/></svg>
+          <span class="wm"><span class="l1">Segreteria <b>Brave</b></span><span class="l2">la voce · Giulia</span></span>
+        </div>
+      </div>
+
+      <div class="c-body">
+        <div class="c-title">
+          <span class="c-terr">Territorio · la categoria</span>
+          <span class="nome">L'Onda</span>
+        </div>
+        <p>L'impronta vocale. Sette barre, e una sequenza costruita di proposito: la quarta si abbassa, la quinta schizza — è il profilo di un <strong>QRS</strong>, il battito sul monitor. Voce e clinica nello stesso ritmo, senza dover disegnare né una cornetta né un cuore.</p>
+        <p>È la strada più leggibile in assoluto: chiunque, in mezzo secondo, capisce che il prodotto ha a che fare con la voce. È anche la più affollata — ogni assistente vocale del pianeta ha delle barrette. La differenza la fa il battito nascosto, che però va spiegato per essere visto.</p>
+        <div class="prosc">
+          <div class="up"><h4>A favore</h4><ul>
+            <li>Comprensione immediata: "è una voce" si legge senza didascalia</li>
+            <li>Il doppio senso voce/battito è vero e raccontabile in demo</li>
+            <li>Animazione ovvia e già attesa dall'utente</li>
+          </ul></div>
+          <div class="dn"><h4>Contro</h4><ul>
+            <li>Territorio saturo: rischio di sembrare uno dei tanti</li>
+            <li>A 32 px le barre sottili si impastano</li>
+            <li>Poco difendibile come marchio registrabile</li>
+          </ul></div>
+        </div>
+        <div class="swatches">
+          <span class="sw"><i style="background:#76B6B5"></i>#76B6B5 verde BVB</span>
+          <span class="sw"><i style="background:#0B2F3A"></i>#0B2F3A blu clinico</span>
+          <span class="sw"><i style="background:#EDF2F1"></i>#EDF2F1 carta</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 4 ============ -->
+  <div class="concept">
+    <div class="c-grid">
+      <div>
+        <div class="specimen">
+          <span class="cnum">04</span>
+          <svg viewBox="0 0 120 120" role="img" aria-label="Marchio La Zampa che Parla: un'impronta le cui dita sono barre sonore di altezza diversa"><use href="#m-zampa"/></svg>
+        </div>
+        <div class="apps">
+          <span class="app app--fill"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-zampa"/></svg></span>
+          <span class="app app--out"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-zampa"/></svg></span>
+          <span class="app app--tiny"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-zampa"/></svg></span>
+          <span class="app-note">32 px →</span>
+        </div>
+        <div class="lock" style="margin-top:10px">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-zampa"/></svg>
+          <span class="wm"><span class="l1">Segreteria <b>Brave</b></span><span class="l2">la voce · Giulia</span></span>
+        </div>
+      </div>
+
+      <div class="c-body">
+        <div class="c-title">
+          <span class="c-terr">Territorio · il settore</span>
+          <span class="nome">La Zampa che Parla</span>
+        </div>
+        <p>Un'impronta in cui i quattro polpastrelli sono diventati barre sonore di altezza diversa. Da lontano è una zampa; da vicino è un'onda. Zero ambiguità sul settore, calore immediato, altissima memorabilità: è il marchio che un veterinario riconosce anche sfocato nello scroll di Instagram.</p>
+        <p>Il rischio è il posizionamento di prezzo. La zampa è il segno più usato del mondo veterinario e porta con sé un registro affettuoso; Segreteria Brave però si vende a un imprenditore che compra <strong>efficienza operativa</strong>, non tenerezza. Va tenuta molto rigorosa — niente arrotondamenti extra, niente pastelli — per non scivolare nel pet shop.</p>
+        <div class="prosc">
+          <div class="up"><h4>A favore</h4><ul>
+            <li>Riconoscibilità di settore istantanea, anche fuori contesto</li>
+            <li>Il doppio senso zampa/onda si legge da solo, senza spiegazioni</li>
+            <li>Ottima resa social: regge la miniatura e lo sfondo fotografico</li>
+          </ul></div>
+          <div class="dn"><h4>Contro</h4><ul>
+            <li>La zampa è ovunque nel vet: bassa distintività, difficile da registrare</li>
+            <li>Registro affettivo in conflitto con un acquisto gestionale</li>
+            <li>Tende a schiacciare il prodotto su "carino" invece che "efficace"</li>
+          </ul></div>
+        </div>
+        <div class="swatches">
+          <span class="sw"><i style="background:#76B6B5"></i>#76B6B5 verde BVB</span>
+          <span class="sw"><i style="background:#2B352A"></i>#2B352A verde stelo</span>
+          <span class="sw"><i style="background:#F4EFE7"></i>#F4EFE7 sabbia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONCEPT 5 ============ -->
+  <div class="concept">
+    <div class="c-grid">
+      <div>
+        <div class="specimen">
+          <span class="cnum">05</span>
+          <div class="wordmark-spec">
+            <span class="wm-big">GIUL<span class="dot"></span>A</span>
+            <span class="wm-sub">segreteria brave</span>
+          </div>
+        </div>
+        <div class="apps">
+          <span class="app app--fill"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-punto-solid"/></svg></span>
+          <span class="app app--out"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-punto"/></svg></span>
+          <span class="app app--tiny"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-punto-solid"/></svg></span>
+          <span class="app-note">32 px →</span>
+        </div>
+        <div class="lock" style="margin-top:10px">
+          <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-punto-solid"/></svg>
+          <span class="wm"><span class="l1">Segreteria <b>Brave</b></span><span class="l2">la voce · Giulia</span></span>
+        </div>
+      </div>
+
+      <div class="c-body">
+        <div class="c-title">
+          <span class="c-terr">Territorio · la firma, nessun pittogramma</span>
+          <span class="nome">Il Punto Verde</span>
+        </div>
+        <p>Nessun simbolo disegnato. Il marchio è la parola, e l'unica mossa grafica è il <strong>puntino della i</strong> di GIULIA: diventa il pallino verde di "in linea". Quel punto, staccato dalla parola, è l'intera icona — il segno più piccolo possibile, e quindi il più scalabile che esista.</p>
+        <p>È la strada più adulta e la più software: è così che si presentano i prodotti che vogliono essere presi sul serio in un marketplace accanto ad altri gestionali. È anche la più esigente, perché senza pittogramma tutto il carico espressivo si sposta sulla tipografia e sull'uso rigoroso del colore: sbagliare font qui significa non avere marchio.</p>
+        <div class="prosc">
+          <div class="up"><h4>A favore</h4><ul>
+            <li>Scalabilità perfetta: il punto funziona da 1024 px a 16 px</li>
+            <li>Registro premium e software-native, coerente col marketplace</li>
+            <li>Produzione rapidissima e costi di declinazione minimi</li>
+            <li>Il verde "in linea" è anche uno stato funzionale reale del prodotto</li>
+          </ul></div>
+          <div class="dn"><h4>Contro</h4><ul>
+            <li>Un punto da solo non è appropriabile: serve sempre la parola</li>
+            <li>Nessun calore: rischia di risultare freddo con la platea vet</li>
+            <li>Zero riconoscibilità di settore</li>
+          </ul></div>
+        </div>
+        <div class="swatches">
+          <span class="sw"><i style="background:#22C55E"></i>#22C55E verde in linea</span>
+          <span class="sw"><i style="background:#76B6B5"></i>#76B6B5 verde BVB</span>
+          <span class="sw"><i style="background:#101413"></i>#101413 inchiostro</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MATRICE ============ -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Confronto</div>
+      <h2>Come si comportano sui cinque vincoli reali.</h2>
+      <p class="lede">I criteri non sono estetici: sono i punti in cui un marchio sbagliato costa soldi — la tile del marketplace, l'avatar in app, la miniatura social, la paura del cliente, il tempo di produzione.</p>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Concept</th>
+            <th>Tiene<br>a 32 px</th>
+            <th>Distintivo<br>nel vet</th>
+            <th>Disinnesca<br>il "robot"</th>
+            <th>Regge il<br>sistema in-app</th>
+            <th>Velocità di<br>produzione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="best">
+            <th>01 · Punto di Ascolto</th>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+          </tr>
+          <tr>
+            <th>02 · Giulia</th>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+          </tr>
+          <tr>
+            <th>03 · L'Onda</th>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+          </tr>
+          <tr>
+            <th>04 · Zampa che Parla</th>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+          </tr>
+          <tr>
+            <th>05 · Punto Verde</th>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i></i><i></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+            <td><span class="score"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============ RACCOMANDAZIONE ============ -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">La mia raccomandazione</div>
+      <h2>01 · Il Punto di Ascolto,<br>con la G di Giulia dentro.</h2>
+    </div>
+
+    <div class="reco">
+      <div class="reco-body">
+        <p>È l'unico concept che risolve <strong>tutti e tre</strong> i livelli dell'architettura di marca con un segno solo. Il marchio di prodotto è il punto con gli archi. L'avatar di Giulia è lo stesso segno con la <strong>G</strong> al posto del punto centrale: stessa famiglia, ruolo diverso, zero lavoro di raccordo. Lo stato "sta ascoltando" è il segno che pulsa; lo stato "sta parlando" è il segno fermo.</p>
+        <p>Risolve anche il problema commerciale immediato: nel marketplace Snoots, Segreteria Brave compare accanto ad altri add-on gestionali, e lì un segno astratto e nitido comunica <em>infrastruttura affidabile</em>, che è esattamente ciò che il veterinario sta comprando. La zampa, in quella vetrina, si legge come accessorio.</p>
+        <p>Sul punto debole — non dice "veterinario" — la risposta è che non deve: lo dicono il nome del prodotto, il contesto del marketplace e ogni riga di copy. Un logo che urla il settore in cui vive è un logo che ripete un'informazione già data.</p>
+        <p class="small" style="border-left:2px solid var(--teal);padding-left:14px">Se invece la priorità dichiarata fosse <strong>vincere la paura del robot nelle quattro demo della prossima settimana</strong>, la scelta corretta cambia: è il <strong>02 · Giulia</strong>. È una decisione commerciale, non estetica, e va presa da chi conosce la temperatura di quei quattro interlocutori.</p>
+      </div>
+
+      <div style="display:grid;gap:14px">
+        <div class="tile">
+          <div class="th"><span class="mono" style="letter-spacing:.14em">Marketplace Snoots</span><span class="pill">Add-on</span></div>
+          <div class="mk-row">
+            <span class="ic"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-ascolto"/></svg></span>
+            <span class="tx"><b>Segreteria Brave</b><span>Brave Vet Business × Icarus</span></span>
+          </div>
+          <p>Risponde al telefono della clinica 24/7 con la voce di Giulia. Collegata a Snoots, riconosce il cliente, legge l'agenda e fissa l'appuntamento.</p>
+          <span class="price">Attiva →</span>
+        </div>
+
+        <div class="callcard">
+          <div class="cc-top">
+            <span class="av"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#m-ascolto-avatar"/></svg></span>
+            <span class="who"><b>Giulia è in linea</b><span>chiamata in corso · 00:42</span></span>
+          </div>
+          <dl>
+            <dt>Chiama</dt><dd>+39 340 118 27 64</dd>
+            <dt>Cliente</dt><dd>Mario Rossi</dd>
+            <dt>Paziente</dt><dd>Luna · meticcio, 7 anni</dd>
+            <dt>Ultima visita</dt><dd>04/09 · dermatologica</dd>
+            <dt>In terapia</dt><dd>Apoquel 16 mg · 1×/die</dd>
+            <dt>Prossimo</dt><dd>18/09 · controllo</dd>
+          </dl>
+        </div>
+        <p class="small" style="color:var(--muted)">L'avatar con la G e la scheda chiamante sono la ragione tecnica della raccomandazione: il segno deve reggere questo, non solo una brochure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROSSIMI PASSI ============ -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Cosa serve da te</div>
+      <h2>Una riga di risposta e parte tutto il resto.</h2>
+    </div>
+    <div class="steps">
+      <div>
+        <span class="n">01</span>
+        <span class="c"><b>Scegli un numero da 1 a 5.</b><span>Va bene anche «l'1 ma con il calore del 2»: da lì derivo un ibrido in un secondo giro, senza ripartire da zero.</span></span>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <span class="c"><b>Confermi o correggi l'architettura Segreteria Brave / Giulia.</b><span>Se Giulia deve poter diventare un giorno anche un'altra voce, va saputo ora: cambia la scelta del marchio.</span></span>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <span class="c"><b>Sul verde BVB: lo teniamo o lo stacchiamo?</b><span>Tenerlo lega Segreteria Brave alla casa madre. Staccarlo la rende un prodotto vendibile anche a chi non conosce BVB. Propendo per tenerlo come colore-famiglia e affiancare un verde "in linea" più acceso come colore funzionale.</span></span>
+      </div>
+      <div>
+        <span class="n">04</span>
+        <span class="c"><b>Poi consegno il branding definito.</b><span>Palette completa, scala tipografica, sistema di stati vocali, regole d'uso e violazioni, lockup con Icarus, kit social, tile marketplace, template documenti. Non prima: un brand book su un logo non validato è carta sprecata.</span></span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="bvb"><i class="pep"></i> Segreteria Brave · Round 1 marchio</span>
+    <span class="mono">Segni costruiti in vettoriale · pronti per la messa in esecutivo</span>
+  </div>
+</footer>

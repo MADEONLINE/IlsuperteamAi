@@ -1,0 +1,724 @@
+<title>Il Lancio di Giulia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F1F4F3; --raise:#FFFFFF; --field:#E6ECEA;
+  --ink:#0D1B19; --ink-2:#3B4E4B; --muted:#6E807D;
+  --line:#CBD7D4; --line-soft:#DCE5E3;
+  --teal:#76B6B5; --teal-deep:#2B6E6C; --teal-wash:#DCECEB;
+  --ig:#B8437E; --li:#1E5C93; --fb:#2B5CA8; --yt:#B03A2E;
+  --ig-w:#F6E6EE; --li-w:#E2ECF5; --fb-w:#E4ECF7; --yt-w:#F8E6E3;
+  --signal:#C7562F;
+  --f-display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Newsreader',Georgia,serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1240px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0A1413; --raise:#162725; --field:#101E1C;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --ig:#E88DB8; --li:#6FAEDC; --fb:#7FA6E0; --yt:#E58A7C;
+  --ig-w:#2A1520; --li-w:#10202E; --fb-w:#131E31; --yt-w:#2B1714;
+  --signal:#E8825C;
+}}
+:root[data-theme="dark"]{
+  --paper:#0A1413; --raise:#162725; --field:#101E1C;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --ig:#E88DB8; --li:#6FAEDC; --fb:#7FA6E0; --yt:#E58A7C;
+  --ig-w:#2A1520; --li-w:#10202E; --fb-w:#131E31; --yt-w:#2B1714;
+  --signal:#E8825C;
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.09;letter-spacing:-.022em;text-wrap:balance}
+h1{font-size:clamp(2.5rem,6vw,4.2rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.4vw,2.35rem);font-weight:700}
+h3{font-size:1.18rem;font-weight:700;letter-spacing:-.012em}
+h4{font-size:1rem;font-weight:700}
+p{margin:0}
+.lede{font-size:clamp(1.04rem,1.85vw,1.28rem);line-height:1.55;color:var(--ink-2);max-width:62ch}
+.kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.19em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.6em}
+.kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.mono{font-family:var(--f-mono);font-size:.69rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.small{font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+header.top{border-bottom:1px solid var(--line)}
+.top-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:baseline;padding-block:19px}
+.bvb{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:.88rem}
+.bvb .pep{width:9px;height:9px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg)}
+
+.hero{padding-block:clamp(48px,8vw,88px) clamp(32px,5vw,54px);display:grid;gap:22px}
+section{padding-block:clamp(42px,6vw,70px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:13px;margin-bottom:32px;max-width:70ch}
+
+/* fasi */
+.fasi{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.fasi > div{background:var(--paper);padding:22px 20px;display:grid;gap:10px;align-content:start}
+.fasi .wk{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.fasi h3{font-size:1.22rem}
+.fasi .goal{font-size:.9rem;color:var(--ink-2);line-height:1.45}
+.fasi .kpi{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.03em;text-transform:none;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:10px;line-height:1.55}
+@media (max-width:900px){.fasi{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.fasi{grid-template-columns:1fr}}
+
+/* pillar */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.pillars > div{background:var(--paper);padding:20px;display:grid;gap:8px;align-content:start}
+.pillars .n{font-family:var(--f-mono);font-size:.61rem;letter-spacing:.15em;color:var(--teal-deep)}
+.pillars b{font-family:var(--f-display);font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
+.pillars span{font-size:.9rem;color:var(--ink-2);line-height:1.45}
+.pillars .mix{font-family:var(--f-mono);font-size:.62rem;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:9px;letter-spacing:.04em}
+@media (max-width:860px){.pillars{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.pillars{grid-template-columns:1fr}}
+
+/* filtri */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;align-items:center}
+.filters .lb{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.fbtn{
+  font-family:var(--f-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--line);background:var(--raise);color:var(--ink-2);
+  padding:7px 12px;border-radius:2px;cursor:pointer
+}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* calendario */
+.calwrap{overflow-x:auto;border:1px solid var(--line);background:var(--raise)}
+table{border-collapse:collapse;width:100%;min-width:1020px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:400;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--field);z-index:2
+}
+tbody tr.phase td{
+  background:var(--ink);color:var(--paper);font-family:var(--f-mono);font-size:.64rem;
+  letter-spacing:.16em;text-transform:uppercase;padding-block:9px
+}
+td.day{white-space:nowrap;font-family:var(--f-display);font-weight:700;font-size:.88rem;letter-spacing:-.005em;width:96px}
+td.day span{display:block;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-top:3px}
+td.pil{width:120px}
+.pilchip{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep);background:var(--teal-wash);border:1px solid var(--teal);padding:3px 6px;border-radius:2px;display:inline-block;line-height:1.4}
+td.ch{font-family:var(--f-display);font-size:.88rem;line-height:1.42;letter-spacing:-.005em}
+td.ch b{display:block;font-family:var(--f-mono);font-size:.55rem;letter-spacing:.11em;text-transform:uppercase;margin-bottom:5px;font-weight:400}
+td.ig b{color:var(--ig)} td.li b{color:var(--li)} td.fb b{color:var(--fb)}
+td.ig{background:var(--ig-w)} td.li{background:var(--li-w)} td.fb{background:var(--fb-w)}
+tbody tr:hover td:not(.phase){filter:brightness(.985)}
+
+/* youtube */
+.yt{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.yt > div{background:var(--paper);padding:20px;display:grid;gap:9px;align-content:start}
+.yt .w{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--yt)}
+.yt b{font-family:var(--f-display);font-size:1.04rem;font-weight:700;letter-spacing:-.015em;line-height:1.25}
+.yt span{font-size:.9rem;color:var(--ink-2);line-height:1.45}
+.yt .fmt{font-family:var(--f-mono);font-size:.62rem;color:var(--muted);letter-spacing:.04em;border-top:1px solid var(--line-soft);padding-top:9px}
+@media (max-width:700px){.yt{grid-template-columns:1fr}}
+
+/* copy pronti */
+.post{border:1px solid var(--line);background:var(--raise);margin-bottom:20px}
+.post-h{display:flex;flex-wrap:wrap;gap:9px 16px;justify-content:space-between;align-items:baseline;padding:13px 20px;border-bottom:1px solid var(--line-soft);background:var(--field)}
+.post-h b{font-family:var(--f-display);font-size:.98rem;font-weight:700;letter-spacing:-.01em}
+.chip{font-family:var(--f-mono);font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:2px;border:1px solid}
+.chip--ig{color:var(--ig);border-color:var(--ig);background:var(--ig-w)}
+.chip--li{color:var(--li);border-color:var(--li);background:var(--li-w)}
+.chip--fb{color:var(--fb);border-color:var(--fb);background:var(--fb-w)}
+.chip--yt{color:var(--yt);border-color:var(--yt);background:var(--yt-w)}
+.post-b{padding:20px;display:grid;gap:12px;max-width:66ch}
+.post-b p{font-size:1rem;line-height:1.55}
+.post-b .slide{display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:9px}
+.post-b .slide:last-of-type{border-bottom:0}
+.post-b .slide i{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-deep);font-style:normal}
+.post-b .slide span{font-family:var(--f-display);font-size:.98rem;font-weight:500;line-height:1.35;letter-spacing:-.01em}
+.tags{font-family:var(--f-mono);font-size:.72rem;color:var(--teal-deep);letter-spacing:.02em;line-height:1.7;border-top:1px solid var(--line-soft);padding-top:12px}
+.brief{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);letter-spacing:.02em;line-height:1.65;background:var(--field);padding:12px 14px;border-left:2px solid var(--teal)}
+
+/* regole */
+.rules{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.rules > div{background:var(--paper);padding:19px 22px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.rules .n{font-family:var(--f-mono);font-size:.68rem;color:var(--teal-deep);padding-top:.3em;letter-spacing:.08em}
+.rules .c{display:grid;gap:5px}
+.rules .c b{font-family:var(--f-display);font-size:1.02rem;font-weight:700;letter-spacing:-.012em}
+.rules .c span{font-size:.93rem;color:var(--ink-2);line-height:1.5}
+
+.note{border-left:3px solid var(--teal);padding:4px 0 4px 16px;display:grid;gap:9px;max-width:68ch}
+.note--w{border-left-color:var(--signal)}
+
+.kpigrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.kpigrid > div{background:var(--paper);padding:19px;display:grid;gap:6px}
+.kpigrid .l{font-family:var(--f-mono);font-size:.59rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.kpigrid .v{font-family:var(--f-display);font-weight:800;font-size:1.5rem;letter-spacing:-.025em;color:var(--teal-deep);font-variant-numeric:tabular-nums}
+.kpigrid .d{font-size:.85rem;color:var(--ink-2);line-height:1.4}
+@media (max-width:880px){.kpigrid{grid-template-columns:1fr 1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:26px 44px}
+.foot{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center}
+:focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="bvb"><i class="pep"></i> SEGRETERIA BRAVE <span class="mono">piano editoriale canali bvb</span></div>
+    <div class="mono">14 settembre → 8 novembre 2026</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kick">Otto settimane · quattro canali · una storia sola</div>
+    <h1>Il lancio<br>di Giulia.</h1>
+    <p class="lede">Piano editoriale per Instagram, LinkedIn, Facebook e YouTube di Brave Vet Business. Non è un calendario di post: è una <strong>sequenza</strong>, costruita sullo stesso ordine narrativo dello storytelling — prima il problema, poi il nome, poi la prova, poi la richiesta. Chi entra a metà capisce comunque; chi segue dall'inizio arriva alla demo già convinto.</p>
+    <div class="note" style="margin-top:6px">
+      <p class="small"><strong>Il vincolo che decide tutto:</strong> la settimana 1 ospita le prime quattro demo su Meet. Quelle call non sono solo vendita — sono <em>la produzione</em> dei contenuti delle settimane 2, 3 e 4. Obiezioni reali, frasi reali, reazioni reali. Quello che i social non possono inventare, lunedì lo regalano.</p>
+    </div>
+  </div>
+
+  <!-- ===== FASI ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">L'architettura</div>
+      <h2>Quattro fasi, una all'anno-luce dall'altra.</h2>
+      <p class="lede">L'errore classico di un lancio è dire il nome del prodotto al primo post. Qui il nome arriva il ventunesimo giorno di calendario, e ci arriva su un pubblico che ha già ammesso di avere il problema.</p>
+    </div>
+    <div class="fasi">
+      <div>
+        <span class="wk">Settimana 1 · 14–20 set</span>
+        <h3>Semina</h3>
+        <p class="goal">Si parla solo del telefono. Zero prodotto, zero teaser, zero «presto qualcosa di grande». Il pubblico deve riconoscere il problema come <em>proprio</em> e dirlo nei commenti.</p>
+        <p class="kpi">KPI: commenti che raccontano il problema · salvataggi del carosello del conto · risposte al sondaggio</p>
+      </div>
+      <div>
+        <span class="wk">Settimana 2 · 21–27 set</span>
+        <h3>Rivelazione</h3>
+        <p class="goal">Giulia esiste e si sente. Il perno della settimana è <strong>l'audio</strong>: un reel in cui la si ascolta rispondere. Prima la voce, poi la spiegazione.</p>
+        <p class="kpi">KPI: reach del reel · visualizzazioni complete · DM ricevuti · click al link in bio</p>
+      </div>
+      <div>
+        <span class="wk">Settimana 3 · 28 set – 4 ott</span>
+        <h3>Prova &amp; paure</h3>
+        <p class="goal">Il pilota di Carmagnola e le obiezioni della community, dette da noi per primi. È la settimana in cui si guadagna la fiducia, non l'attenzione.</p>
+        <p class="kpi">KPI: salvataggi e condivisioni · commenti con obiezioni (è un buon segno) · tasso di risposta ai DM</p>
+      </div>
+      <div>
+        <span class="wk">Settimana 4 · 5–11 ott</span>
+        <h3>Conversione</h3>
+        <p class="goal">Marketplace Snoots, modalità di attivazione, richiesta esplicita di demo. Una sola CTA in tutta la settimana, ripetuta su tutti i canali.</p>
+        <p class="kpi">KPI: demo prenotate · costo per demo se c'è ADV · qualità dei lead (clinica con struttura, non solo curiosi)</p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:24px">
+      <p class="small"><strong>Dalla settimana 5 il piano cambia natura:</strong> finito il lancio, Giulia diventa uno dei pillar ricorrenti dei canali BVB — due contenuti a settimana, non più sette. Il motore a regime è in fondo a questa pagina.</p>
+    </div>
+  </section>
+
+  <!-- ===== PILLAR ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">I contenuti</div>
+      <h2>Sei pillar di lancio, innestati sui sei di BVB.</h2>
+      <p class="lede">Non sostituiscono i temi storici dei canali: ci si appoggiano. «Il telefono» è Front Office Management; «Il conto» è Business Management; «Le paure» è Leadership. Il pubblico non percepisce uno stacco, percepisce un approfondimento.</p>
+    </div>
+    <div class="pillars">
+      <div><span class="n">P1</span><b>Il telefono</b><span>Il problema, raccontato dall'interno della clinica. Scene riconoscibili, mai teoria.</span><span class="mix">≈ 25% · pillar BVB: Front Office</span></div>
+      <div><span class="n">P2</span><b>Il conto</b><span>L'economia del front office: cosa costa una chiamata persa, cosa vale un'ora di veterinario.</span><span class="mix">≈ 15% · pillar BVB: Business</span></div>
+      <div><span class="n">P3</span><b>Giulia</b><span>Chi è, come parla, cosa sa. Sempre col nome, mai «il sistema».</span><span class="mix">≈ 25% · pillar BVB: AI</span></div>
+      <div><span class="n">P4</span><b>Le paure</b><span>Obiezioni, perimetro, dati, etica. Dette da noi prima che le dica il pubblico.</span><span class="mix">≈ 15% · pillar BVB: Leadership</span></div>
+      <div><span class="n">P5</span><b>La prova</b><span>Carmagnola, dietro le quinte, come è nata, chi l'ha costruita.</span><span class="mix">≈ 12% · pillar BVB: Pet Economy</span></div>
+      <div><span class="n">P6</span><b>La community</b><span>Domande, sondaggi, risposte ai commenti. Il pubblico co-costruisce il prodotto.</span><span class="mix">≈ 8% · pillar BVB: Community</span></div>
+    </div>
+  </section>
+
+  <!-- ===== CALENDARIO ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Il calendario</div>
+      <h2>Ventotto giorni, giorno per giorno.</h2>
+      <p class="lede">Un contenuto al giorno per canale, secondo le frequenze e gli orari già in uso su BVB. Instagram 7:30 / 12:30 / 19:00 · LinkedIn 7:00 / 12:00 · Facebook 9:00 / 13:00 / 19:00. YouTube ha il suo blocco più sotto.</p>
+    </div>
+
+    <div class="filters">
+      <span class="lb">Mostra</span>
+      <button class="fbtn" type="button" id="f-all" data-ch="all" aria-pressed="true">Tutti</button>
+      <button class="fbtn" type="button" id="f-ig" data-ch="ig" aria-pressed="false">Instagram</button>
+      <button class="fbtn" type="button" id="f-li" data-ch="li" aria-pressed="false">LinkedIn</button>
+      <button class="fbtn" type="button" id="f-fb" data-ch="fb" aria-pressed="false">Facebook</button>
+    </div>
+
+    <div class="calwrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Giorno</th>
+            <th>Pillar</th>
+            <th class="h-ig">Instagram</th>
+            <th class="h-li">LinkedIn</th>
+            <th class="h-fb">Facebook</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="phase"><td colspan="5">Fase 1 · Semina — si parla solo del telefono. Il nome «Giulia» non compare mai.</td></tr>
+
+          <tr>
+            <td class="day">Lun 14<span>set</span></td>
+            <td class="pil"><span class="pilchip">P1 Telefono</span></td>
+            <td class="ch ig"><b>Carosello 10 slide</b>«Le 7 volte in cui il telefono squilla nel momento peggiore» — scene riconoscibili di una giornata in clinica. Ultima slide: «quante ne hai riconosciute?»</td>
+            <td class="ch li"><b>Testo lungo</b>«Il costo invisibile del front office»: l'interruzione come problema clinico, non organizzativo. Taglio da business trainer.</td>
+            <td class="ch fb"><b>Post + immagine</b>Versione conversazionale del carosello. Domanda diretta: «tu a quale ora del giorno perdi più chiamate?»</td>
+          </tr>
+          <tr>
+            <td class="day">Mar 15<span>set</span></td>
+            <td class="pil"><span class="pilchip">P2 Conto</span></td>
+            <td class="ch ig"><b>Carosello 8 slide</b>«Il conto che nessuna clinica fa»: le quattro domande, e la formula finale. Slide salvabile. <em>Contenuto chiave della settimana.</em></td>
+            <td class="ch li"><b>Carosello PDF 9 slide</b>Stessa formula, taglio analitico con i benchmark BVB dichiarati come tali. CTA: «rifallo con i tuoi numeri».</td>
+            <td class="ch fb"><b>Post testo</b>Il conto raccontato a parole, senza grafica. Chiusura: «fammi sapere che cifra ti viene».</td>
+          </tr>
+          <tr>
+            <td class="day">Mer 16<span>set</span></td>
+            <td class="pil"><span class="pilchip">P1 Telefono</span></td>
+            <td class="ch ig"><b>Reel 35"</b>Il suono di un telefono che squilla a vuoto sopra immagini di clinica. Nessuna voce fuori campo fino all'ultima riga.</td>
+            <td class="ch li"><b>Testo breve</b>«Nessuno lascia più messaggi in segreteria»: perché il comportamento del proprietario è cambiato e l'organizzazione della clinica no.</td>
+            <td class="ch fb"><b>Video nativo</b>Lo stesso reel, con caption più esplicativa per il pubblico Facebook.</td>
+          </tr>
+          <tr>
+            <td class="day">Gio 17<span>set</span></td>
+            <td class="pil"><span class="pilchip">P6 Community</span></td>
+            <td class="ch ig"><b>Story · sondaggio</b>«Quante chiamate perdi in un giorno?» 0–5 / 5–15 / più di 15 / non lo so. <em>Il risultato diventa contenuto la settimana 2.</em></td>
+            <td class="ch li"><b>Sondaggio nativo</b>Stessa domanda, formulata per titolari e manager di struttura.</td>
+            <td class="ch fb"><b>Domanda al gruppo</b>«Chi risponde al telefono nella tua clinica, davvero?» — apertura per i racconti.</td>
+          </tr>
+          <tr>
+            <td class="day">Ven 18<span>set</span></td>
+            <td class="pil"><span class="pilchip">P1 Telefono</span></td>
+            <td class="ch ig"><b>Post singolo</b>Frase secca su fondo scuro: «Chi non trova risposta non richiama. Chiama il numero dopo.»</td>
+            <td class="ch li"><b>Testo lungo</b>Le tre strade già provate — assumere, segreteria telefonica, call center — e perché nessuna ha funzionato.</td>
+            <td class="ch fb"><b>Post + immagine</b>Versione breve delle tre strade. Chiusura: «quale hai provato tu?»</td>
+          </tr>
+          <tr>
+            <td class="day">Sab 19<span>set</span></td>
+            <td class="pil"><span class="pilchip">P5 Prova</span></td>
+            <td class="ch ig"><b>Story serie</b>Dietro le quinte dalle demo della settimana (schermo sfocato, nessun nome). «Quattro veterinari, quattro ore di domande.»</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">sabato: canale a riposo, coerente con l'uso BVB</span></td>
+            <td class="ch fb"><b>Post leggero</b>Il weekend in cui il telefono della clinica squilla di più. Tono community.</td>
+          </tr>
+          <tr>
+            <td class="day">Dom 20<span>set</span></td>
+            <td class="pil"><span class="pilchip">P6 Community</span></td>
+            <td class="ch ig"><b>Story · risultati</b>I risultati del sondaggio di giovedì. «Uno su tre non sa quante chiamate perde.» Ponte verso lunedì.</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">domenica: canale a riposo</span></td>
+            <td class="ch fb"><b>Post riflessivo</b>Chiusura di settimana: «una settimana di telefono. Da domani parliamo di come si risolve.»</td>
+          </tr>
+
+          <tr class="phase"><td colspan="5">Fase 2 · Rivelazione — il nome, la voce, l'audio. Il perno è il reel di lunedì.</td></tr>
+
+          <tr>
+            <td class="day">Lun 21<span>set</span></td>
+            <td class="pil"><span class="pilchip">P3 Giulia</span></td>
+            <td class="ch ig"><b>Reel 45" · REVEAL</b>Solo audio della chiamata reale, sottotitolato, su nero. Alla quarta battuta appare il nome: <em>Giulia</em>. <strong>Il contenuto più importante del piano.</strong></td>
+            <td class="ch li"><b>Testo lungo + video</b>Post di annuncio: perché l'abbiamo costruita, con chi, e cosa fa. Firma Marta e Massimo.</td>
+            <td class="ch fb"><b>Video nativo</b>Lo stesso reveal, caption estesa che spiega la nascita da BVB × Icarus.</td>
+          </tr>
+          <tr>
+            <td class="day">Mar 22<span>set</span></td>
+            <td class="pil"><span class="pilchip">P3 Giulia</span></td>
+            <td class="ch ig"><b>Carosello 10 slide</b>«Cosa sa Giulia mentre parla»: chi chiama, di cosa ha bisogno, visite, terapie, appuntamenti. Una slide per riga.</td>
+            <td class="ch li"><b>Carosello PDF</b>Stesso contenuto con l'angolo tecnico: il collegamento al gestionale come differenza sostanziale.</td>
+            <td class="ch fb"><b>Post + carosello</b>Versione discorsiva: «al telefono non ti chiede come si chiama il tuo cane».</td>
+          </tr>
+          <tr>
+            <td class="day">Mer 23<span>set</span></td>
+            <td class="pil"><span class="pilchip">P4 Paure</span></td>
+            <td class="ch ig"><b>Reel 40"</b>«Non finge di essere una persona.» La posizione etica come punto di forza, non come disclaimer.</td>
+            <td class="ch li"><b>Testo lungo</b>Post di posizione: perché un assistente vocale deve dichiararsi. Il contenuto più condivisibile della settimana su LinkedIn.</td>
+            <td class="ch fb"><b>Post testo</b>Stesso tema, tono rassicurante. «Se te lo chiede, te lo dice.»</td>
+          </tr>
+          <tr>
+            <td class="day">Gio 24<span>set</span></td>
+            <td class="pil"><span class="pilchip">P5 Prova</span></td>
+            <td class="ch ig"><b>Carosello 8 slide</b>«Come nasce una segreteria che parla veterinario»: l'incontro tra Icarus e BVB, e perché nessuno dei due da solo bastava.</td>
+            <td class="ch li"><b>Testo lungo</b>La storia della partnership, taglio imprenditoriale. Ottimo per il pubblico aziende del settore.</td>
+            <td class="ch fb"><b>Post + foto team</b>Racconto umano della nascita del progetto.</td>
+          </tr>
+          <tr>
+            <td class="day">Ven 25<span>set</span></td>
+            <td class="pil"><span class="pilchip">P2 Conto</span></td>
+            <td class="ch ig"><b>Post singolo</b>Ritorno sul conto della settimana 1, ora con la soluzione accanto. «Quel numero, adesso, ha un'alternativa.»</td>
+            <td class="ch li"><b>Testo breve + link</b>Primo rimando alla pagina <em>bravevetbusiness.it/segreteria-brave</em> e al calcolatore.</td>
+            <td class="ch fb"><b>Post + link</b>Stesso rimando, con invito esplicito a provare il calcolatore.</td>
+          </tr>
+          <tr>
+            <td class="day">Sab 26<span>set</span></td>
+            <td class="pil"><span class="pilchip">P6 Community</span></td>
+            <td class="ch ig"><b>Story · Q&amp;A box</b>«Chiedimi qualsiasi cosa su Giulia.» Le domande raccolte diventano il carosello obiezioni della settimana 3.</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">canale a riposo</span></td>
+            <td class="ch fb"><b>Post domanda</b>«Cosa vorresti chiederle prima di fidarti?»</td>
+          </tr>
+          <tr>
+            <td class="day">Dom 27<span>set</span></td>
+            <td class="pil"><span class="pilchip">P3 Giulia</span></td>
+            <td class="ch ig"><b>Story · recap</b>Riepilogo della settimana in cinque story. Ultimo frame: «lunedì rispondiamo alle vostre paure.»</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">canale a riposo</span></td>
+            <td class="ch fb"><b>Post leggero</b>Recap + anticipazione della settimana delle obiezioni.</td>
+          </tr>
+
+          <tr class="phase"><td colspan="5">Fase 3 · Prova &amp; paure — si guadagna fiducia. Materiale: le domande raccolte + le obiezioni delle demo.</td></tr>
+
+          <tr>
+            <td class="day">Lun 28<span>set</span></td>
+            <td class="pil"><span class="pilchip">P4 Paure</span></td>
+            <td class="ch ig"><b>Carosello 10 slide</b>«Le 6 cose che ci avete chiesto di Giulia» — obiezioni reali, risposte oneste, una per slide. <strong>Contenuto chiave.</strong></td>
+            <td class="ch li"><b>Carosello PDF 10 slide</b>Stesso contenuto, aggiunta la settima: la responsabilità professionale del veterinario.</td>
+            <td class="ch fb"><b>Post lungo</b>Le tre obiezioni più frequenti, in forma di conversazione.</td>
+          </tr>
+          <tr>
+            <td class="day">Mar 29<span>set</span></td>
+            <td class="pil"><span class="pilchip">P4 Paure</span></td>
+            <td class="ch ig"><b>Carosello 7 slide</b>«Cosa Giulia non fa mai»: il perimetro scritto. Niente diagnosi, niente terapie, niente urgenze decise da sola.</td>
+            <td class="ch li"><b>Testo lungo</b>La fiducia si costruisce sui limiti dichiarati. Angolo governance e responsabilità.</td>
+            <td class="ch fb"><b>Post + immagine</b>Il perimetro spiegato in sei righe.</td>
+          </tr>
+          <tr>
+            <td class="day">Mer 30<span>set</span></td>
+            <td class="pil"><span class="pilchip">P4 Paure</span></td>
+            <td class="ch ig"><b>Reel 45"</b>«Non sostituisce la tua segretaria. Lavora per lei.» Girato al front office di una clinica vera.</td>
+            <td class="ch li"><b>Testo lungo</b>Il tema del lavoro: cosa succede davvero al front office quando le chiamate smettono di arrivare tutte insieme.</td>
+            <td class="ch fb"><b>Video nativo</b>Stesso reel. È il tema che genera più commenti: presidiare le risposte.</td>
+          </tr>
+          <tr>
+            <td class="day">Gio 1<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P5 Prova</span></td>
+            <td class="ch ig"><b>Reel o carosello</b>Carmagnola: il pilota. <em>Solo se la citazione del dott. Rosso è stata raccolta e autorizzata.</em> Altrimenti slitta.</td>
+            <td class="ch li"><b>Testo lungo</b>Il caso pilota raccontato come scelta imprenditoriale di una clinica che ha deciso di provarci per prima.</td>
+            <td class="ch fb"><b>Post + foto clinica</b>Racconto del pilota, tono community.</td>
+          </tr>
+          <tr>
+            <td class="day">Ven 2<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P4 Paure</span></td>
+            <td class="ch ig"><b>Carosello 8 slide</b>«Dove finiscono i dati dei tuoi clienti»: titolarità, conservazione, avviso in apertura di chiamata.</td>
+            <td class="ch li"><b>Testo lungo</b>Il tema privacy trattato seriamente: è il contenuto che distingue BVB dai venditori di software generalisti.</td>
+            <td class="ch fb"><b>Post testo</b>Versione semplice e rassicurante sullo stesso tema.</td>
+          </tr>
+          <tr>
+            <td class="day">Sab 3<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P3 Giulia</span></td>
+            <td class="ch ig"><b>Story serie</b>«Una giornata di Giulia»: sei story, sei momenti, dalle 7:00 alle 23:00.</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">canale a riposo</span></td>
+            <td class="ch fb"><b>Post leggero</b>Le chiamate del sabato: quelle che oggi nessuno prende.</td>
+          </tr>
+          <tr>
+            <td class="day">Dom 4<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P6 Community</span></td>
+            <td class="ch ig"><b>Story · countdown</b>«Da domani puoi attivarla.» Countdown alla settimana di conversione.</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">canale a riposo</span></td>
+            <td class="ch fb"><b>Post annuncio</b>Anticipazione della settimana di apertura attivazioni.</td>
+          </tr>
+
+          <tr class="phase"><td colspan="5">Fase 4 · Conversione — una sola CTA su tutti i canali: prenota la demo.</td></tr>
+
+          <tr>
+            <td class="day">Lun 5<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P3 Giulia</span></td>
+            <td class="ch ig"><b>Carosello 9 slide</b>«Due modi di attivare Giulia»: add-on indipendente o nativa nel marketplace Snoots. Differenze chiare, nessuna ambiguità.</td>
+            <td class="ch li"><b>Testo lungo + link</b>L'annuncio della disponibilità nel marketplace Snoots. Angolo: cosa cambia quando la segreteria legge il gestionale.</td>
+            <td class="ch fb"><b>Post + link</b>Stesso annuncio, linguaggio semplice.</td>
+          </tr>
+          <tr>
+            <td class="day">Mar 6<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P2 Conto</span></td>
+            <td class="ch ig"><b>Reel 40"</b>Il calcolatore usato in diretta: si inseriscono i numeri, esce la cifra. Chiusura sul link in bio.</td>
+            <td class="ch li"><b>Testo breve + link</b>«Fai il conto prima di sentirci»: rimando diretto al calcolatore della pagina.</td>
+            <td class="ch fb"><b>Post + link</b>Invito al calcolatore con esempio numerico.</td>
+          </tr>
+          <tr>
+            <td class="day">Mer 7<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P5 Prova</span></td>
+            <td class="ch ig"><b>Reel 50"</b>Audio della chiamata completa, dall'inizio alla prenotazione. La demo, condensata in cinquanta secondi.</td>
+            <td class="ch li"><b>Video + testo</b>Cosa succede in una demo di trenta minuti: si ascolta, si guarda la scheda, si fa il conto. Prezzo detto in call.</td>
+            <td class="ch fb"><b>Video nativo</b>Stesso audio, caption con CTA esplicita.</td>
+          </tr>
+          <tr>
+            <td class="day">Gio 8<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P1 Telefono</span></td>
+            <td class="ch ig"><b>Post singolo</b>Ritorno alla frase d'apertura del piano: «Il telefono non squilla più a vuoto.» Chiusura del cerchio narrativo.</td>
+            <td class="ch li"><b>Testo lungo</b>Bilancio delle prime settimane: cosa abbiamo imparato dalle domande dei veterinari. Contenuto onesto, non celebrativo.</td>
+            <td class="ch fb"><b>Post + immagine</b>Stessa frase, tono community.</td>
+          </tr>
+          <tr>
+            <td class="day">Ven 9<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P6 Community</span></td>
+            <td class="ch ig"><b>Story · Q&amp;A live</b>Mezz'ora di risposte in diretta alle domande su Giulia. Le migliori diventano contenuto di novembre.</td>
+            <td class="ch li"><b>Testo breve + link</b>Ultimo richiamo della settimana alla prenotazione demo.</td>
+            <td class="ch fb"><b>Post + link</b>Richiamo finale, con le date disponibili.</td>
+          </tr>
+          <tr>
+            <td class="day">Sab 10<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P5 Prova</span></td>
+            <td class="ch ig"><b>Story</b>Dietro le quinte: quante demo prenotate, cosa chiedono i veterinari. Trasparenza sul processo.</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">canale a riposo</span></td>
+            <td class="ch fb"><b>Post leggero</b>Ringraziamento alla community che ha fatto le domande.</td>
+          </tr>
+          <tr>
+            <td class="day">Dom 11<span>ott</span></td>
+            <td class="pil"><span class="pilchip">P6 Community</span></td>
+            <td class="ch ig"><b>Story · recap</b>Chiusura del lancio. Da lunedì Giulia entra nel piano ordinario.</td>
+            <td class="ch li"><b>Nessun post</b><span class="mono" style="text-transform:none">canale a riposo</span></td>
+            <td class="ch fb"><b>Post chiusura</b>«Quattro settimane fa parlavamo di un telefono che squilla. Adesso sai chi risponde.»</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== YOUTUBE ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">YouTube</div>
+      <h2>Un long-form a settimana, più gli Shorts.</h2>
+      <p class="lede">YouTube non segue la sequenza del feed: è l'archivio. Ogni puntata deve reggere anche per chi la trova fra sei mesi cercando «segreteria clinica veterinaria».</p>
+    </div>
+    <div class="yt">
+      <div>
+        <span class="w">Settimana 1 · long-form 14 min</span>
+        <b>Quanto ti costa davvero il telefono della tua clinica</b>
+        <span>Il conto fatto in diretta con numeri reali di una clinica tipo. Zero prodotto, valore puro. È il video che porterà traffico organico più a lungo.</span>
+        <span class="fmt">Titolo keyword-first · timestamp · 12 tag · miniatura con la cifra grande</span>
+      </div>
+      <div>
+        <span class="w">Settimana 2 · long-form 18 min</span>
+        <b>Abbiamo fatto rispondere una AI al telefono di una clinica veterinaria</b>
+        <span>L'audio completo, le reazioni, come funziona. Marta e Massimo in conversazione, non in presentazione.</span>
+        <span class="fmt">Il video più clippabile: da qui escono 4-6 Shorts</span>
+      </div>
+      <div>
+        <span class="w">Settimana 3 · long-form 15 min</span>
+        <b>Le 6 obiezioni dei veterinari su una segreteria AI (e le risposte)</b>
+        <span>Formato domanda-risposta secco. Include la parte su dati e responsabilità professionale — la sezione più cercata e meno trattata dalla concorrenza.</span>
+        <span class="fmt">Capitoli nella descrizione, uno per obiezione</span>
+      </div>
+      <div>
+        <span class="w">Settimana 4 · long-form 12 min</span>
+        <b>Come si attiva Giulia nel marketplace Snoots</b>
+        <span>Video operativo, screen recording. Serve alla vendita e al post-vendita: si linka in trattativa e in onboarding.</span>
+        <span class="fmt">Evergreen · da aggiornare a ogni cambio di interfaccia</span>
+      </div>
+    </div>
+    <div class="note" style="margin-top:24px">
+      <p class="small"><strong>Shorts:</strong> 3 a settimana, tutti ritagliati dai long-form — mai girati a parte. I tre migliori candidati: la quarta battuta della chiamata, la frase «non finge di essere una persona», il momento in cui esce la cifra del calcolatore.</p>
+    </div>
+  </section>
+
+  <!-- ===== COPY PRONTI ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Pronti da pubblicare</div>
+      <h2>Sei contenuti scritti per intero.</h2>
+      <p class="lede">Sono i sei che decidono il lancio. Gli altri si costruiscono su questi modelli, rispettando le regole BVB: <em>tu</em> e mai <em>voi</em>, 2-4 emoji, CTA unica, e fuori dal vocabolario <em>sinergia</em>, <em>a 360°</em>, <em>best practice</em>.</p>
+    </div>
+
+    <div class="post">
+      <div class="post-h"><b>Carosello · «Il conto che nessuna clinica fa»</b><span class="chip chip--ig">Instagram · mar 15 set · 8 slide</span></div>
+      <div class="post-b">
+        <div class="slide"><i>01</i><span>Nessuna clinica sa quante chiamate perde.<br>Facciamo il conto insieme.</span></div>
+        <div class="slide"><i>02</i><span>Quante chiamate ricevi in un giorno?<br><em>Scrivi il numero da qualche parte.</em></span></div>
+        <div class="slide"><i>03</i><span>Di queste, quante finiscono senza risposta?<br>Non serve il dato esatto. La tua sensazione basta.</span></div>
+        <div class="slide"><i>04</i><span>Di quelle perse, quante erano una prenotazione?</span></div>
+        <div class="slide"><i>05</i><span>Quanto vale, in media, una prestazione da voi?</span></div>
+        <div class="slide"><i>06</i><span>Moltiplica tutto.<br>Poi moltiplica per i giorni che stai aperto in un anno.</span></div>
+        <div class="slide"><i>07</i><span>Quel numero è quanto ti costa<br>il telefono a cui non risponde nessuno.</span></div>
+        <div class="slide"><i>08</i><span>E non include<br>chi, dopo una chiamata a vuoto,<br>non è più tornato.</span></div>
+        <p style="margin-top:6px"><strong>Caption:</strong><br>C'è un numero che nessuna clinica veterinaria calcola mai, ed è quasi sempre più grande di quanto si pensi. 📞</p>
+        <p>Non è il costo del personale. Non è il costo dei farmaci. È il costo delle chiamate che nessuno ha preso.</p>
+        <p>Il punto non è il fastidio di sentire il telefono squillare mentre sei in visita. Il punto è che chi non trova risposta non richiama: chiama il numero successivo su Google. E quel cliente, statisticamente, non lo recuperi con una campagna.</p>
+        <p>Fai il conto con i tuoi numeri seguendo le slide. Ci metti trenta secondi. 💡</p>
+        <p>Poi scrivimi nei commenti che cifra ti è venuta — sono curiosa di vedere la forbice tra una clinica e l'altra.</p>
+        <p class="tags">#veterinarioimprenditore #clinicaveterinaria #frontoffice #businessveterinario #peteconomy</p>
+        <p class="brief">BRIEF VISUAL — 1080×1350. Fondo carta #F1F4F3, testo #0D1B19 in Bricolage Grotesque bold. Un solo accento verde #76B6B5: il numero di slide in alto a sinistra. Slide 07 e 08 invertite (fondo #0D1B19, testo carta) per segnare lo stacco. Nessuna icona, nessuna foto: solo tipografia grande. Marchio BVB piccolo in basso a destra da slide 02 in poi.</p>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-h"><b>Reel · il reveal</b><span class="chip chip--ig">Instagram · lun 21 set · 45"</span></div>
+      <div class="post-b">
+        <p><strong>00:00–00:03</strong> — Nero. Suono di telefono che squilla. Testo bianco: «Questa è una chiamata vera.»</p>
+        <p><strong>00:03–00:10</strong> — Audio: «Clinica Veterinaria Carmagnola, buongiorno. Sono Giulia. Parlo con il signor Rossi, vero?» Sottotitoli grandi, centrati.</p>
+        <p><strong>00:10–00:18</strong> — Audio cliente: «Sì, buongiorno. Luna si gratta ancora tantissimo, l'avete vista martedì…»</p>
+        <p><strong>00:18–00:30</strong> — Audio: «Sì, visita dermatologica del quattro settembre, con il dottor Rosso. Le era stato prescritto Apoquel sedici milligrammi, una volta al giorno. Lo sta prendendo regolarmente?» <em>Qui l'immagine si ferma un istante.</em></p>
+        <p><strong>00:30–00:38</strong> — Testo su nero, una riga alla volta: «Giulia non è una persona. / Ma sa più cose di quante ne saprebbe chiunque risponda al telefono alle 21 di sabato.»</p>
+        <p><strong>00:38–00:45</strong> — Marchio Segreteria Brave + «Brave Vet Business × Icarus Technologies». Voce fuori campo: nessuna.</p>
+        <p style="margin-top:6px"><strong>Caption:</strong><br>Questa chiamata è vera. Giulia è la nostra segreteria virtuale, e da oggi risponde al telefono delle cliniche veterinarie. 🎙️</p>
+        <p>Non è un centralino che smista. Non è un risponditore che legge uno script. Riconosce chi chiama, sa che animale ha, sa che terapia sta facendo e sa quando deve tornare — perché legge la cartella, non perché indovina.</p>
+        <p>L'abbiamo costruita in due: Icarus Technologies, che fa segreterie virtuali per la medicina, e noi, che stiamo dentro le cliniche veterinarie italiane tutti i giorni. Nessuno dei due, da solo, avrebbe potuto farla.</p>
+        <p>Si chiama Segreteria Brave. La voce si chiama Giulia. 🐾</p>
+        <p>Ascoltala con l'audio acceso e dimmi cosa ne pensi.</p>
+        <p class="tags">#aiveterinaria #clinicaveterinaria #veterinarioimprenditore #frontoffice #segreteriavirtuale</p>
+        <p class="brief">BRIEF VIDEO — 1080×1920. Fondo #07120F. Sottotitoli in Archivo semibold bianco, una riga alla volta, alti nel frame. L'unica forma in movimento è il marchio che pulsa a tempo con la voce. Nessuna stock footage, nessuna musica sotto il parlato: il silenzio intorno alla voce è metà dell'effetto. Musica solo negli ultimi 7 secondi.</p>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-h"><b>Post di annuncio</b><span class="chip chip--li">LinkedIn · lun 21 set · ~1.300 caratteri</span></div>
+      <div class="post-b">
+        <p>Tre settimane fa, in una clinica veterinaria a Carmagnola, il telefono ha squillato e ha risposto Giulia.</p>
+        <p>Il proprietario dall'altra parte non se n'è accorto. Non perché l'abbiamo ingannato — se lo avesse chiesto, Giulia glielo avrebbe detto. Non se n'è accorto perché lei sapeva chi era, sapeva che cane aveva, sapeva che terapia stava facendo e gli ha proposto due orari liberi con il suo veterinario.</p>
+        <p>Quello che nessuno dice, quando si parla di front office veterinario, è che il problema non è la cortesia. È il volume. Una clinica riceve chiamate mentre è in chirurgia, mentre sta dando una diagnosi difficile, e soprattutto nelle ore in cui è chiusa — che sono esattamente le ore in cui un proprietario si accorge che il cane non sta bene.</p>
+        <p>E chi non trova risposta non richiama. Chiama il numero dopo.</p>
+        <p>Abbiamo costruito Segreteria Brave insieme a Icarus Technologies, che sviluppa segreterie virtuali per la medicina. Loro sanno far parlare una macchina al telefono. Noi sappiamo cosa chiede davvero un proprietario alle nove di sera, come è fatta l'agenda di una clinica, dove si rompe il front office.</p>
+        <p>Il risultato è la prima segreteria virtuale costruita solo per la clinica veterinaria. Collegata al gestionale, riconosce il cliente dal numero, legge lo storico, conosce le terapie in corso e fissa l'appuntamento successivo.</p>
+        <p>Non sostituisce nessuno. Prende le chiamate che oggi si perdono.</p>
+        <p>Nei commenti trovate l'audio di una chiamata reale. Ascoltatelo e ditemi se somiglia a quello che vi aspettavate. 👇</p>
+        <p class="tags">#clinicaveterinaria #intelligenzaartificiale #peteconomy</p>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-h"><b>Carosello · «Le 6 cose che ci avete chiesto»</b><span class="chip chip--ig">Instagram · lun 28 set · 10 slide</span></div>
+      <div class="post-b">
+        <div class="slide"><i>01</i><span>Vi abbiamo chiesto cosa vi preoccupa di una segreteria AI.<br>Avete risposto in 200.<br>Ecco le 6 domande più frequenti.</span></div>
+        <div class="slide"><i>02</i><span>«I miei clienti capiranno che è un robot.»<br><em>Se lo chiedono, Giulia lo dice. Ma il fastidio non nasce dalla macchina: nasce dalla macchina che non sa niente.</em></span></div>
+        <div class="slide"><i>03</i><span>«Voglio che la mia segretaria mantenga il rapporto umano.»<br><em>Anche noi. Oggi lo interrompe ogni 90 secondi per rispondere al telefono.</em></span></div>
+        <div class="slide"><i>04</i><span>«E se dà un'informazione sbagliata?»<br><em>Non fa diagnosi, non tocca le terapie, non decide urgenze. Fuori dal perimetro passa al veterinario.</em></span></div>
+        <div class="slide"><i>05</i><span>«Dove finiscono i dati dei miei clienti?»<br><em>Restano tuoi. Sei tu il titolare. Ti consegniamo per iscritto cosa si registra, per quanto e chi può accedere.</em></span></div>
+        <div class="slide"><i>06</i><span>«Ho già comprato software che poi non abbiamo usato.»<br><em>Qui non c'è niente da imparare. Il telefono è lo stesso: cambia chi risponde quando non potete voi.</em></span></div>
+        <div class="slide"><i>07</i><span>«Quanto costa?»<br><em>Te lo diciamo in demo, subito, senza giri. Ma prima facciamo il conto di quanto ti costa oggi non averla.</em></span></div>
+        <div class="slide"><i>08</i><span>La domanda che nessuno ha fatto:<br>«Cosa NON fa Giulia?»<br>È quella con la risposta più lunga. → prossimo post</span></div>
+        <div class="slide"><i>09</i><span>Nessuna di queste risposte<br>è arrivata prima delle vostre domande.<br>Il prodotto lo state costruendo anche voi.</span></div>
+        <div class="slide"><i>10</i><span>Vuoi sentirla rispondere?<br>Link in bio → prenota una demo.</span></div>
+        <p style="margin-top:6px"><strong>Caption:</strong><br>Le abbiamo chiamate «paure» e non «obiezioni», perché è quello che sono — e sono tutte ragionevoli. 🐾</p>
+        <p>Abbiamo raccolto le domande nelle vostre storie e nelle prime demo. Quelle sei tornano sempre, quasi con le stesse parole. Le trovi nelle slide con la risposta che diamo davvero, non quella da brochure.</p>
+        <p>Quella su cui insisto di più è la quarta: Giulia lavora dentro un perimetro deciso da te e messo per iscritto. Non fa diagnosi, non modifica terapie, non decide da sola cos'è un'urgenza. La fiducia si costruisce sui limiti dichiarati, non sulle promesse. ✅</p>
+        <p>Se la tua domanda non è tra queste sei, scrivimela qui sotto: le risposte alle prossime finiscono nel post di venerdì.</p>
+        <p class="tags">#clinicaveterinaria #aiveterinaria #veterinarioimprenditore #frontoffice #gestioneclinica</p>
+        <p class="brief">BRIEF VISUAL — 1080×1350. Le domande in rosso mattone #C7562F tra virgolette, le risposte in inchiostro #0D1B19 sotto una riga sottile. Slide 08 e 09 su fondo scuro. Slide 10 unica con il verde #76B6B5 pieno: è la sola CTA del carosello.</p>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-h"><b>Post di posizione · «Non finge di essere una persona»</b><span class="chip chip--li">LinkedIn · mer 23 set</span></div>
+      <div class="post-b">
+        <p>Quando abbiamo progettato Giulia, la nostra segreteria virtuale per cliniche veterinarie, la discussione più lunga non è stata su cosa dovesse saper fare.</p>
+        <p>È stata su cosa dovesse ammettere.</p>
+        <p>La tentazione, in un prodotto vocale, è far credere a chi chiama di parlare con una persona. Tecnicamente si può. Commercialmente sembra anche conveniente: meno attrito, meno domande.</p>
+        <p>Abbiamo deciso il contrario. Se chi chiama lo chiede, Giulia risponde che è l'assistente virtuale della clinica.</p>
+        <p>Tre ragioni, in ordine di importanza.</p>
+        <p>La prima è che è corretto. Il proprietario di un animale che chiama una clinica ha diritto di sapere con chi sta parlando, e non è una concessione: è il minimo.</p>
+        <p>La seconda è di rischio. L'unico scenario davvero dannoso per una clinica non è «i clienti hanno capito che è un'AI». È «un cliente si è sentito ingannato e lo ha raccontato in giro». Il primo è un fatto; il secondo è un danno reputazionale che nessun risparmio di attrito ripaga.</p>
+        <p>La terza è la più controintuitiva. Dichiararsi <em>alza</em> la percezione del prodotto, non la abbassa. Una voce che dice di essere virtuale e poi conosce il caso meglio di chi avrebbe risposto al centralino è più impressionante, non meno.</p>
+        <p>Nel settore veterinario stanno per arrivare molti prodotti vocali. Su questa scelta, credo, si vedrà chi ha costruito uno strumento e chi ha costruito un trucco.</p>
+        <p>Voi da che parte state? 🎯</p>
+        <p class="tags">#intelligenzaartificiale #eticadigitale #clinicaveterinaria</p>
+      </div>
+    </div>
+
+    <div class="post">
+      <div class="post-h"><b>Post community · il pilota</b><span class="chip chip--fb">Facebook · gio 1 ott</span></div>
+      <div class="post-b">
+        <p>C'è una clinica, a Carmagnola, che ha deciso di provarci per prima.</p>
+        <p>Quando abbiamo chiesto al dott. Matteo Rosso se voleva far rispondere Giulia al telefono della sua clinica, la domanda che ci ha fatto non è stata «quanto costa». È stata: «e se sbaglia?».</p>
+        <p>È la domanda giusta, ed è il motivo per cui il pilota esiste. Non si lancia un prodotto che parla con i clienti di qualcun altro basandosi su un test di laboratorio. Serve una clinica vera, con chiamate vere, con proprietari che chiamano alle nove di sera perché il gatto non mangia.</p>
+        <p>Quello che stiamo imparando lì dentro sta cambiando il prodotto ogni settimana. Non le funzioni: le sfumature. Come si chiude una telefonata. Quando è meglio passare la parola a un umano. Quanto silenzio lasciare prima di rispondere.</p>
+        <p>Se hai una struttura e ti stai chiedendo se ha senso per te, la cosa più utile che puoi fare adesso non è prenotare una demo. È scrivermi qui sotto la tua obiezione più scomoda.</p>
+        <p>Quelle che ci hanno fatto a Carmagnola sono servite più di sei mesi di riunioni.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MOTORE A REGIME ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Dalla settimana 5</div>
+      <h2>Il motore a regime.</h2>
+      <p class="lede">Finito il lancio, Giulia non sparisce e non occupa più il calendario. Due contenuti a settimana, che si rigenerano da soli perché la materia prima la produce il prodotto stesso.</p>
+    </div>
+    <div class="rules">
+      <div>
+        <span class="n">MAR</span>
+        <span class="c"><b>La chiamata della settimana</b><span>Un frammento reale (anonimizzato e autorizzato) con una riga di commento su cosa ci ha insegnato. Reel su IG, video nativo su FB, testo su LinkedIn. È il formato più difendibile: nessun concorrente può copiarlo senza avere cliniche attive.</span></span>
+      </div>
+      <div>
+        <span class="n">GIO</span>
+        <span class="c"><b>Una domanda, una risposta</b><span>Una domanda vera ricevuta in demo o nei commenti, con la risposta onesta. Carosello su IG, testo su LinkedIn. Alimenta anche la FAQ della pagina prodotto: un contenuto, due destinazioni.</span></span>
+      </div>
+      <div>
+        <span class="n">MENS</span>
+        <span class="c"><b>Il numero del mese</b><span>Un dato dal campo — quando ce ne sarà uno verificato. Chiamate gestite, appuntamenti fissati fuori orario, tempo restituito al front office. Un solo numero, grande, con la fonte dichiarata. Mai prima di averlo verificato.</span></span>
+      </div>
+      <div>
+        <span class="n">TRIM</span>
+        <span class="c"><b>Il caso cliente</b><span>Una clinica che racconta com'è cambiata la giornata. Formato lungo su YouTube, ritagli ovunque. Da preparare con largo anticipo: la disponibilità a metterci la faccia va costruita, non chiesta all'ultimo.</span></span>
+      </div>
+    </div>
+
+    <div style="margin-top:30px">
+      <h3 style="margin-bottom:16px">Serbatoio temi · da cui pescare senza ripartire da zero</h3>
+      <div class="pillars">
+        <div><b>Le chiamate delle 21</b><span>Cosa chiedono davvero i proprietari fuori orario, e perché è diverso da quello che chiedono di giorno.</span></div>
+        <div><b>Il no-show</b><span>Il promemoria che parte da solo e la telefonata di recall: l'effetto sull'agenda.</span></div>
+        <div><b>Front office manager</b><span>Come cambia il ruolo quando il telefono smette di essere un'emergenza continua.</span></div>
+        <div><b>Il richiamo vaccinale</b><span>Chi chiama per ricordarlo, oggi, nella tua clinica? Nessuno: è lì che Giulia paga il canone.</span></div>
+        <div><b>Il gestionale che parla</b><span>Cosa significa, tecnicamente, che una voce legge Snoots. Contenuto per il pubblico più tecnico.</span></div>
+        <div><b>Cosa abbiamo sbagliato</b><span>Un contenuto all'anno sugli errori del pilota. È quello che genera più fiducia in assoluto.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MISURA ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Come si capisce se funziona</div>
+      <h2>Quattro numeri, non quaranta.</h2>
+      <p class="lede">Il lancio di un prodotto B2B con ciclo di vendita a chiamata non si misura in like. Si misura in conversazioni aperte.</p>
+    </div>
+    <div class="kpigrid">
+      <div><span class="l">Metrica nord</span><span class="v">Demo</span><span class="d">Demo prenotate attribuibili ai social. È l'unico numero che conta davvero.</span></div>
+      <div><span class="l">Segnale di intenzione</span><span class="v">DM</span><span class="d">Messaggi diretti e commenti con una domanda vera. Precede la demo di 3-10 giorni.</span></div>
+      <div><span class="l">Segnale di rilevanza</span><span class="v">Salvataggi</span><span class="d">Su IG e LinkedIn: chi salva il carosello del conto sta valutando, non passando.</span></div>
+      <div><span class="l">Segnale di fiducia</span><span class="v">Obiezioni</span><span class="d">Commenti che sollevano paure. Contro-intuitivo ma vero: se nessuno obietta, nessuno sta considerando.</span></div>
+    </div>
+    <div class="note note--w" style="margin-top:28px">
+      <p class="small"><strong>Se dopo la settimana 2 il reel di reveal non supera la reach media del canale:</strong> il problema non è il prodotto, è che l'audio non è abbastanza sorprendente. La correzione non è pubblicare di più — è rifare il reel partendo da un'altra chiamata, scegliendo un momento in cui Giulia dice una cosa che nessuno si aspetta. Tutto il lancio poggia su quei 45 secondi.</p>
+    </div>
+    <div class="note" style="margin-top:22px">
+      <p class="small"><strong>Prima di pubblicare qualsiasi cosa, tre autorizzazioni:</strong> la clinica pilota per nome e voce; il proprietario per l'audio della chiamata, anche se anonimizzato; il dott. Rosso per la citazione. Nessun contenuto del piano con audio reale può uscire senza le prime due per iscritto.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="bvb"><i class="pep"></i> Segreteria Brave · piano editoriale v1</span>
+    <span class="mono">Instagram · LinkedIn · Facebook · YouTube</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.fbtn'));
+  var chans = ['ig','li','fb'];
+
+  function apply(ch){
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.ch === ch)); });
+    chans.forEach(function(c){
+      var show = (ch === 'all' || ch === c);
+      document.querySelectorAll('td.' + c).forEach(function(td){ td.hidden = !show; });
+      var h = document.querySelector('th.h-' + c);
+      if (h) h.hidden = !show;
+    });
+    document.querySelectorAll('tr.phase td').forEach(function(td){
+      td.colSpan = (ch === 'all') ? 5 : 3;
+    });
+  }
+
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.dataset.ch); });
+  });
+})();
+</script>

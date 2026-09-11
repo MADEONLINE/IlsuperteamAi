@@ -1,0 +1,521 @@
+<title>Il Copione di Giulia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F1F4F3; --field:#E6ECEA; --raise:#FFFFFF;
+  --ink:#0D1B19; --ink-2:#3B4E4B; --muted:#6E807D;
+  --line:#CBD7D4; --line-soft:#DCE5E3;
+  --teal:#76B6B5; --teal-deep:#2B6E6C; --teal-wash:#DCECEB;
+  --signal:#C7562F; --signal-wash:#F7E7E0;
+  --f-display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Newsreader',Georgia,'Times New Roman',serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0A1413; --field:#101E1C; --raise:#162725;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --signal:#E8825C; --signal-wash:#2C1B15;
+}}
+:root[data-theme="dark"]{
+  --paper:#0A1413; --field:#101E1C; --raise:#162725;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --signal:#E8825C; --signal-wash:#2C1B15;
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.09;letter-spacing:-.022em;text-wrap:balance}
+h1{font-size:clamp(2.5rem,6vw,4.2rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.4vw,2.35rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700;letter-spacing:-.012em}
+p{margin:0}
+.lede{font-size:clamp(1.05rem,1.9vw,1.3rem);line-height:1.55;color:var(--ink-2);max-width:62ch}
+.kicker{font-family:var(--f-mono);font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.6em}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.mono{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.small{font-size:.94rem;line-height:1.55;color:var(--ink-2)}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+
+header.top{border-bottom:1px solid var(--line)}
+.top-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:baseline;padding-block:19px}
+.bvb{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:.88rem}
+.bvb .pep{width:9px;height:9px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg)}
+
+.hero{padding-block:clamp(50px,9vw,94px) clamp(34px,5vw,56px);display:grid;gap:24px}
+section{padding-block:clamp(42px,6vw,70px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:13px;margin-bottom:32px;max-width:70ch}
+
+/* ---- narrative beats: timecode gutter ---- */
+.beats{display:grid;gap:0;border-top:1px solid var(--line-soft)}
+.beat{display:grid;grid-template-columns:112px minmax(0,1fr);gap:clamp(16px,3vw,34px);padding-block:24px;border-bottom:1px solid var(--line-soft);align-items:start}
+.beat .tc{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding-top:.45em;line-height:1.5}
+.beat .tc b{display:block;color:var(--teal-deep);font-weight:400;font-size:.78rem;letter-spacing:.06em}
+.beat .bd{display:grid;gap:11px;max-width:66ch}
+.beat h3{margin-bottom:1px}
+@media (max-width:660px){.beat{grid-template-columns:1fr;gap:8px}.beat .tc{padding-top:0}}
+
+/* ---- manifesto ---- */
+.manifesto{background:var(--ink);color:var(--paper);padding:clamp(30px,5vw,58px);display:grid;gap:20px}
+.manifesto p{font-family:var(--f-display);font-weight:300;font-size:clamp(1.35rem,3.3vw,2.05rem);line-height:1.26;letter-spacing:-.025em;max-width:26ch}
+.manifesto p b{font-weight:800}
+.manifesto p.last{color:var(--teal)}
+.manifesto .sig{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-top:8px}
+
+/* ---- payoff ---- */
+.payoffs{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.po{background:var(--paper);padding:20px 22px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center}
+.po .line{font-family:var(--f-display);font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+.po .use{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);text-align:right}
+.po .rk{font-family:var(--f-mono);font-size:.66rem;color:var(--teal-deep);letter-spacing:.1em}
+.po--main{background:var(--teal-wash)}
+@media (max-width:640px){.po{grid-template-columns:auto minmax(0,1fr);gap:12px}.po .use{grid-column:2;text-align:left}}
+
+/* ---- pitch cards ---- */
+.pitch{border:1px solid var(--line);background:var(--raise);display:grid;margin-bottom:20px}
+.pitch-h{display:flex;flex-wrap:wrap;gap:10px 16px;justify-content:space-between;align-items:baseline;padding:15px 22px;border-bottom:1px solid var(--line-soft);background:var(--field)}
+.pitch-h b{font-family:var(--f-display);font-size:1.02rem;font-weight:700;letter-spacing:-.01em}
+.pitch-b{padding:22px;display:grid;gap:14px;max-width:64ch}
+.pitch-b p{font-size:1.04rem}
+.pitch-b .stage{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+
+/* ---- dialogue ---- */
+.dlg{display:grid;gap:0;border:1px solid var(--line);background:var(--raise)}
+.turn{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:15px 20px;border-bottom:1px solid var(--line-soft)}
+.turn:last-child{border-bottom:0}
+.turn .sp{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:.35em}
+.turn--g{background:var(--teal-wash)}
+.turn--g .sp{color:var(--teal-deep)}
+.turn .tx{font-size:1.02rem;line-height:1.5}
+.turn .note{display:block;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.04em;text-transform:none;color:var(--muted);margin-top:6px;line-height:1.45}
+@media (max-width:560px){.turn{grid-template-columns:1fr;gap:5px}.turn .sp{padding-top:0}}
+
+/* ---- objections ---- */
+.obj{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.obj > div{background:var(--paper);padding:22px;display:grid;gap:12px}
+.obj .q{font-family:var(--f-display);font-size:1.12rem;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:var(--signal)}
+.obj .a{font-size:.98rem;line-height:1.55}
+.obj .move{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.05em;text-transform:none;color:var(--teal-deep);border-top:1px dashed var(--line);padding-top:10px;line-height:1.5}
+
+/* ---- lexicon ---- */
+.lex{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.lex > div{background:var(--paper);padding:22px;display:grid;gap:12px;align-content:start}
+.lex h4{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;font-weight:400}
+.lex .yes h4{color:var(--teal-deep)} .lex .no h4{color:var(--signal)}
+.lex ul{margin:0;padding-left:1.05em;display:grid;gap:7px}
+.lex li{font-size:.95rem;line-height:1.45;color:var(--ink-2)}
+.lex li b{color:var(--ink)}
+@media (max-width:640px){.lex{grid-template-columns:1fr}}
+
+/* ---- two modes ---- */
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.modes > div{background:var(--paper);padding:24px 22px;display:grid;gap:13px;align-content:start}
+.modes .lvl{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.modes h3 span{color:var(--teal-deep)}
+.modes ul{margin:0;padding-left:1.05em;display:grid;gap:6px}
+.modes li{font-size:.94rem;line-height:1.45;color:var(--ink-2)}
+.modes .who{font-family:var(--f-mono);font-size:.65rem;letter-spacing:.05em;text-transform:none;color:var(--teal-deep);border-top:1px solid var(--line-soft);padding-top:11px}
+@media (max-width:700px){.modes{grid-template-columns:1fr}}
+
+/* ---- calc ---- */
+.calc{border:1px solid var(--line);background:var(--raise);padding:24px;display:grid;gap:16px;max-width:660px}
+.calc ol{margin:0;padding-left:1.3em;display:grid;gap:9px}
+.calc li{font-size:1rem;line-height:1.5}
+.calc .out{font-family:var(--f-display);font-weight:800;font-size:clamp(1.1rem,2.6vw,1.45rem);letter-spacing:-.02em;color:var(--teal-deep);border-top:1px solid var(--line);padding-top:14px;line-height:1.25}
+
+.note{border-left:3px solid var(--teal);padding:4px 0 4px 16px;display:grid;gap:8px;max-width:66ch}
+.warn{border-left-color:var(--signal)}
+
+footer{border-top:1px solid var(--line);padding-block:26px 44px}
+.foot{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center}
+:focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+</style>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="bvb"><i class="pep"></i> SEGRETERIA BRAVE <span class="mono">brave vet business × icarus technologies</span></div>
+    <div class="mono">Storytelling di presentazione · v1</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kicker">Come si racconta Giulia</div>
+    <h1>Nessuno compra<br>una segreteria.<br>Comprano il<br>telefono che<br>smette di squillare<br>a vuoto.</h1>
+    <p class="lede">Questo è il materiale narrativo di Segreteria Brave: il racconto di fondazione, il manifesto, tre pitch di durata diversa, il copione della demo, le sei obiezioni che arrivano dalla community con le risposte, e il lessico da tenere. Serve a chi va in call lunedì, a chi scrive la pagina e a chi gira i video: <strong>la stessa storia, tre lunghezze</strong>.</p>
+  </div>
+
+  <!-- ========= IL RACCONTO ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Il racconto di fondazione</div>
+      <h2>Otto movimenti. In quest'ordine, sempre.</h2>
+      <p class="lede">Non è una scaletta di argomenti: è una sequenza emotiva. Se si salta il movimento 2, il prodotto sembra un costo. Se si salta il 3, sembra un'idea già sentita. Se si anticipa il 5, sembra una vendita.</p>
+    </div>
+
+    <div class="beats">
+      <div class="beat">
+        <span class="tc"><b>01</b>Il fatto</span>
+        <div class="bd">
+          <h3>In clinica il telefono squilla sempre nel momento sbagliato.</h3>
+          <p>Squilla mentre hai le mani nel campo operatorio. Squilla mentre stai spiegando a una signora che il suo gatto ha un'insufficienza renale. Squilla alle 20:40 di venerdì, quando avete appena chiuso. Squilla quattro volte insieme mentre la ragazza al front office ne sta già gestendo una.</p>
+          <p class="small">Questo non va argomentato. Va solo detto. Chi sta dall'altra parte annuisce prima che tu finisca la frase.</p>
+        </div>
+      </div>
+
+      <div class="beat">
+        <span class="tc"><b>02</b>Il costo nascosto</span>
+        <div class="bd">
+          <h3>Una chiamata persa non è una seccatura. È un cliente che chiama la clinica dopo.</h3>
+          <p>Nessuno lascia messaggi in segreteria: chiama il numero successivo su Google. E c'è un secondo costo, meno visibile e più caro: il veterinario interrotto sbaglia di più, va più lento e finisce la giornata più stanco. Il telefono non ruba solo fatturato, ruba <strong>qualità clinica</strong>.</p>
+        </div>
+      </div>
+
+      <div class="beat">
+        <span class="tc"><b>03</b>I tentativi che non hanno funzionato</span>
+        <div class="bd">
+          <h3>Hai già provato tutte e tre le strade.</h3>
+          <p><strong>Assumere:</strong> costa, va formata, va sostituita quando è in ferie o quando se ne va — e comunque alle 22 non c'è. <strong>La segreteria telefonica:</strong> nessuno lascia il messaggio. <strong>Il call center generalista:</strong> risponde una voce che non sa cos'è una piometra, legge uno script e passa la palla. Il cliente se ne accorge in dieci secondi e si sente trattato come un numero.</p>
+          <p class="small">Qui la platea si rilassa: stai dicendo che conosci il problema meglio di come loro se lo aspettavano.</p>
+        </div>
+      </div>
+
+      <div class="beat">
+        <span class="tc"><b>04</b>La domanda</span>
+        <div class="bd">
+          <h3>E se rispondesse qualcuno che ti conosce già?</h3>
+          <p>Non «qualcuno che risponde». Qualcuno che, al secondo squillo, sa già che al telefono c'è il signor Rossi, che Luna è una meticcia di sette anni, che è stata in visita dermatologica martedì, che è in terapia con Apoquel e che ha un controllo il 18. Che non chiede «mi dice il nome del suo animale?».</p>
+        </div>
+      </div>
+
+      <div class="beat">
+        <span class="tc"><b>05</b>La rivelazione</span>
+        <div class="bd">
+          <h3>Si chiama Giulia. Risponde al telefono della tua clinica.</h3>
+          <p>Il nome prima della categoria. Prima si presenta la persona, poi si spiega cos'è: <em>«Giulia è la voce di Segreteria Brave, la prima segreteria virtuale costruita solo per la clinica veterinaria»</em>. Mai il contrario — perché «segreteria virtuale basata su intelligenza artificiale» fa alzare le difese, «Giulia» no.</p>
+        </div>
+      </div>
+
+      <div class="beat">
+        <span class="tc"><b>06</b>Perché proprio noi</span>
+        <div class="bd">
+          <h3>Due competenze che da sole non bastavano.</h3>
+          <p><strong>Icarus Technologies</strong> costruisce segreterie virtuali per la medicina: sa far parlare una macchina al telefono senza che sembri una macchina. <strong>Brave Vet Business</strong> sta dentro le cliniche veterinarie italiane da anni: sa cosa chiede davvero un proprietario alle 21, sa come è fatta un'agenda vet, sa dove si rompe il front office.</p>
+          <p>Una segreteria generalista non conosce il veterinario. Un formatore veterinario non sa costruire una voce. Segreteria Brave esiste perché queste due cose si sono incontrate — <strong>e prima non c'era</strong>.</p>
+        </div>
+      </div>
+
+      <div class="beat">
+        <span class="tc"><b>07</b>La prova</span>
+        <div class="bd">
+          <h3>Non è un'idea. È già al telefono, a Carmagnola.</h3>
+          <p>Il progetto pilota è aperto alla <strong>Clinica Veterinaria Carmagnola</strong> del dott. Matteo Rosso. Non un mock-up, non una beta di laboratorio: una clinica vera, con clienti veri che chiamano e non si accorgono di niente.</p>
+          <p class="small">Il pilota è l'asset più prezioso che abbiamo in questa fase. Va nominato in ogni pitch, con nome e cognome, perché è la differenza tra «stiamo lanciando» e «sta già funzionando».</p>
+        </div>
+      </div>
+
+      <div class="beat">
+        <span class="tc"><b>08</b>La chiusura</span>
+        <div class="bd">
+          <h3>Non stai sostituendo una persona. Stai smettendo di perdere chiamate.</h3>
+          <p>È la frase con cui si chiude, ed è vera: le cliniche che attivano Giulia non licenziano il front office — gli restituiscono le ore per fare il lavoro che vale, cioè accogliere chi è entrato dalla porta invece di rincorrere chi sta al telefono.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= MANIFESTO ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Manifesto</div>
+      <h2>Il testo lungo quaranta secondi.</h2>
+      <p class="lede">Da usare come apertura video, come primo blocco della pagina prodotto e come testo del carosello di lancio. È scritto per essere <em>letto ad alta voce</em>: le righe sono respiri.</p>
+    </div>
+
+    <div class="manifesto">
+      <p>Ogni clinica veterinaria ha un rumore di fondo.</p>
+      <p>È il telefono.</p>
+      <p>Squilla durante una chirurgia. Squilla mentre dai una diagnosi difficile. Squilla quando avete già chiuso.</p>
+      <p>E ogni volta che nessuno risponde, <b>qualcuno chiama un'altra clinica.</b></p>
+      <p>Da oggi risponde <b>Giulia</b>.</p>
+      <p>Conosce il tuo cliente per nome. Sa che cane ha, quando è stato l'ultima volta, che terapia sta facendo, quando deve tornare.</p>
+      <p>Non legge uno script. <b>Ha studiato la tua clinica.</b></p>
+      <p class="last">Il telefono non squilla più a vuoto.</p>
+      <span class="sig">Segreteria Brave · Brave Vet Business × Icarus Technologies</span>
+    </div>
+  </section>
+
+  <!-- ========= PAYOFF ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">La riga sotto il logo</div>
+      <h2>Payoff: una da tenere, quattro da tenere in panchina.</h2>
+      <p class="lede">Il payoff va scelto insieme al marchio, non dopo: il concept 01 regge una riga astratta, il 02 ne chiede una in prima persona. La prima è quella che raccomando.</p>
+    </div>
+    <div class="payoffs">
+      <div class="po po--main">
+        <span class="rk">01</span>
+        <span class="line">Risponde sempre. Sa già chi sei.</span>
+        <span class="use">Payoff istituzionale · sotto il logo</span>
+      </div>
+      <div class="po">
+        <span class="rk">02</span>
+        <span class="line">La prima segreteria che ha studiato veterinaria.</span>
+        <span class="use">Titolo pagina prodotto · hero</span>
+      </div>
+      <div class="po">
+        <span class="rk">03</span>
+        <span class="line">Il telefono non squilla più a vuoto.</span>
+        <span class="use">Chiusura video · social</span>
+      </div>
+      <div class="po">
+        <span class="rk">04</span>
+        <span class="line">Giulia risponde al secondo squillo. Anche alle 23.</span>
+        <span class="use">Adv · hook a freddo</span>
+      </div>
+      <div class="po">
+        <span class="rk">05</span>
+        <span class="line">Conosce i tuoi pazienti. Perché legge la tua agenda.</span>
+        <span class="use">Versione Snoots-connessa</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= I DUE LIVELLI ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Come si vende</div>
+      <h2>Due prodotti, una voce sola.</h2>
+      <p class="lede">La differenza tra le due modalità è la parte più delicata del racconto: va detta con chiarezza assoluta, perché è lì che si decide il prezzo e si evita il malinteso in fase di attivazione.</p>
+    </div>
+    <div class="modes">
+      <div>
+        <span class="lvl">Modalità A · add-on indipendente</span>
+        <h3>Giulia <span>istruita</span></h3>
+        <p class="small">Si configura sulle informazioni e sulle esigenze della clinica: orari, servizi, prezzi indicativi, come si prenota, cosa è urgenza e cosa no, come si gestiscono i richiami, cosa non deve mai dire.</p>
+        <ul>
+          <li>Risponde, filtra, informa, prende il messaggio strutturato</li>
+          <li>Prenota secondo le regole che le hai dato</li>
+          <li>Funziona con qualsiasi gestionale — o senza</li>
+          <li>Non conosce lo storico del singolo cliente</li>
+        </ul>
+        <span class="who">Per chi non usa Snoots, o vuole partire subito senza toccare il gestionale.</span>
+      </div>
+      <div>
+        <span class="lvl">Modalità B · nativa nel marketplace Snoots</span>
+        <h3>Giulia <span>connessa</span></h3>
+        <p class="small">Attivata dentro Snoots, legge i dati reali della clinica. Riconosce chi chiama dal numero, apre la scheda giusta e risponde puntualmente invece che genericamente.</p>
+        <ul>
+          <li>Sa <strong>con chi parla</strong>: per nome e cognome, o dal solo numero di telefono</li>
+          <li>Sa <strong>quali visite</strong> sono state fatte e quando</li>
+          <li>Sa <strong>quali farmaci</strong> sono in terapia</li>
+          <li>Sa <strong>quali appuntamenti</strong> ci sono in calendario, e ne fissa di nuovi</li>
+        </ul>
+        <span class="who">È qui che il prodotto smette di essere una segreteria e diventa un pezzo di clinica.</span>
+      </div>
+    </div>
+    <div class="note" style="margin-top:26px">
+      <p class="small">In demo, mostrare <strong>sempre la B</strong> e spiegare la A come porta d'ingresso. È il contrario dell'istinto commerciale — si tende a partire dall'offerta più semplice — ma la B è ciò che nessun concorrente può fare, e va vista prima che l'interlocutore si costruisca un'idea del prodotto a partire dalla A.</p>
+    </div>
+  </section>
+
+  <!-- ========= PITCH ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Tre lunghezze</div>
+      <h2>Trenta secondi, due minuti, otto minuti.</h2>
+      <p class="lede">Stessa storia, tre tagli. Da imparare a memoria il primo, da conoscere bene il secondo, da avere sotto mano il terzo.</p>
+    </div>
+
+    <div class="pitch">
+      <div class="pitch-h"><b>Trenta secondi</b><span class="mono">telefonata a freddo · presentazione a un evento · risposta a «di che ti occupi?»</span></div>
+      <div class="pitch-b">
+        <p>«Sai quante chiamate perde una clinica veterinaria in una settimana? Nessuno lo sa, perché nessuno le conta — e ognuna di quelle è un cliente che chiama la clinica dopo. Abbiamo costruito Giulia: risponde al telefono della clinica ventiquattr'ore su ventiquattro, sa chi sta chiamando, che animale ha, che terapia sta facendo, e fissa l'appuntamento in agenda. È la prima segreteria virtuale fatta solo per il veterinario. È già al lavoro in una clinica a Carmagnola. Ti va se te la faccio sentire?»</p>
+        <span class="stage">→ chiude sempre con l'ascolto, mai con una spiegazione</span>
+      </div>
+    </div>
+
+    <div class="pitch">
+      <div class="pitch-h"><b>Due minuti</b><span class="mono">apertura della demo su Meet · primo blocco del webinar</span></div>
+      <div class="pitch-b">
+        <span class="stage">Movimento 1 — il fatto</span>
+        <p>«Prima di mostrarti qualsiasi cosa ti faccio una domanda: quante volte, questa settimana, il telefono ha squillato mentre eri in visita o in sala operatoria?»</p>
+        <span class="stage">Movimento 2 — il costo</span>
+        <p>«Il punto non è il fastidio. Il punto è che chi non trova risposta non richiama: chiama il numero dopo su Google. E nel frattempo tu, interrotto quindici volte al giorno, lavori peggio.»</p>
+        <span class="stage">Movimento 3 — i falsi rimedi</span>
+        <p>«Le strade sono tre e le hai già provate tutte. Assumi: costa, va formata, e alle dieci di sera non c'è. Metti la segreteria telefonica: nessuno lascia messaggi. Prendi un call center: risponde una voce che non sa cos'è una piometra, e il tuo cliente lo capisce in dieci secondi.»</p>
+        <span class="stage">Movimento 4 — la rivelazione</span>
+        <p>«Noi abbiamo fatto una cosa diversa. Lei si chiama Giulia. Risponde: <em>Clinica Veterinaria Carmagnola, buongiorno, sono Giulia, parlo con il signor Rossi, vero? Come sta Luna dopo la visita di martedì?</em>»</p>
+        <span class="stage">Movimento 5 — perché noi</span>
+        <p>«L'abbiamo costruita in due: Icarus Technologies, che fa segreterie virtuali per la medicina, e Brave Vet Business, che sta dentro le cliniche veterinarie italiane tutti i giorni. Nessuno dei due, da solo, avrebbe potuto farla.»</p>
+        <span class="stage">Movimento 6 — il passaggio alla demo</span>
+        <p>«Adesso te la faccio sentire mentre risponde davvero. Poi ti mostro cosa vede lei mentre parla.»</p>
+      </div>
+    </div>
+
+    <div class="pitch">
+      <div class="pitch-h"><b>Otto minuti</b><span class="mono">talk da palco · puntata YouTube · keynote community</span></div>
+      <div class="pitch-b">
+        <p>Gli otto movimenti del racconto di fondazione, nell'ordine, con tre aggiunte:</p>
+        <p><strong>Dopo il movimento 2</strong> — il calcolo fatto in diretta con i numeri della sala (vedi sotto: «Il conto che fa il veterinario»). Trasforma un disagio in una cifra.</p>
+        <p><strong>Dopo il movimento 5</strong> — l'audio reale della chiamata. Trenta secondi di registrazione valgono più di otto minuti di parole, e il silenzio della sala mentre ascolta è il momento in cui il prodotto si vende da solo.</p>
+        <p><strong>Dopo il movimento 7</strong> — le paure, dette da noi prima che le dica il pubblico (vedi «Le sei obiezioni»). Chi anticipa l'obiezione la disinnesca; chi la subisce la ingigantisce.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= IL CONTO ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Il momento in cui cambia la conversazione</div>
+      <h2>Il conto che fa il veterinario, non noi.</h2>
+      <p class="lede">Non si porta un dato di mercato: si fa fare il calcolo a lui, con i suoi numeri, in diretta. Un numero che uno si è calcolato da solo non si discute più.</p>
+    </div>
+    <div class="calc">
+      <ol>
+        <li>«Quante chiamate ricevi in un giorno?»</li>
+        <li>«Di queste, quante finiscono senza risposta o in segreteria? Non serve il dato esatto: la tua sensazione.»</li>
+        <li>«Di quelle perse, quante secondo te erano una prenotazione?»</li>
+        <li>«Quanto vale, in media, una prestazione da voi?»</li>
+      </ol>
+      <p class="out">chiamate perse al giorno × quota che era una prenotazione × ticket medio × giorni di apertura<br>= quello che il telefono ti costa in un anno</p>
+      <p class="small">Poi si tace e si lascia il numero sullo schermo. Il confronto con il canone di Segreteria Brave lo fa lui, in silenzio, meglio di come lo faremmo noi.</p>
+    </div>
+    <div class="note warn" style="margin-top:22px">
+      <p class="small"><strong>Regola ferrea:</strong> non portare in demo percentuali di chiamate perse prese da studi esteri o da benchmark di altri settori. Se salta fuori che il dato non regge, salta tutto il resto del racconto. I benchmark BVB (ticket medio, no-show, valore-ora del veterinario) si possono citare <em>dichiarandoli come benchmark BVB</em>. Il numero che convince è comunque il suo.</p>
+    </div>
+  </section>
+
+  <!-- ========= DEMO ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Il copione della demo</div>
+      <h2>La chiamata da far sentire lunedì.</h2>
+      <p class="lede">Novanta secondi. Un caso normalissimo — non un'emergenza, non un caso esotico: la telefonata più frequente che una clinica riceve. È lì che si vede la differenza.</p>
+    </div>
+    <div class="dlg">
+      <div class="turn"><span class="sp">Squillo</span><span class="tx">— secondo squillo —<span class="note">Mai al primo: suona artificiale. Mai dopo il quarto: suona abbandonato.</span></span></div>
+      <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Clinica Veterinaria Carmagnola, buongiorno. Sono Giulia. Parlo con il signor Rossi, vero?»<span class="note">Il nome della clinica viene prima di tutto. Il riconoscimento arriva dal numero chiamante.</span></span></div>
+      <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, buongiorno. Senta, Luna si gratta ancora tantissimo, l'avete vista martedì…»</span></div>
+      <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Sì, visita dermatologica del quattro settembre, con il dottor Rosso. Le era stato prescritto Apoquel sedici milligrammi, una volta al giorno. Lo sta prendendo regolarmente?»<span class="note">Qui, in demo, si ferma il video. È il punto della dimostrazione: nessuna segreteria generalista può dire questa frase.</span></span></div>
+      <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì sì, tutte le sere. Però non è che migliora granché.»</span></div>
+      <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Ho capito. Ha già un controllo fissato per il diciotto, ma se il prurito non sta cedendo ha senso anticiparlo. Ho un posto giovedì alle 15:40 e uno venerdì alle 9:20, entrambi con il dottor Rosso. Quale le va meglio?»<span class="note">Non chiede «vuole un appuntamento?». Propone due slot reali, letti dall'agenda. È il passaggio da segreteria ad agente operativo.</span></span></div>
+      <div class="turn"><span class="sp">Cliente</span><span class="tx">«Facciamo giovedì.»</span></div>
+      <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Fissato: giovedì 11 alle 15:40, controllo dermatologico per Luna. Le mando il promemoria su questo numero. Intanto segnalo al dottor Rosso che il prurito non è migliorato, così arriva preparato. Buona giornata, signor Rossi.»<span class="note">Chiude tre cose in una frase: appuntamento, promemoria, nota clinica al veterinario. È il vero prodotto.</span></span></div>
+    </div>
+    <div class="note" style="margin-top:24px">
+      <p class="small"><strong>Cosa mostrare sullo schermo mentre l'audio gira:</strong> la scheda che Giulia ha davanti — numero, cliente, paziente, ultima visita, terapia in corso, prossimo appuntamento. Il pubblico deve vedere che Giulia non indovina: <em>legge</em>. È la risposta visiva all'obiezione «e se si inventa le cose?».</p>
+    </div>
+  </section>
+
+  <!-- ========= OBIEZIONI ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Dalla community</div>
+      <h2>Le sei paure, e cosa si risponde.</h2>
+      <p class="lede">Sono le obiezioni raccolte dai veterinari con struttura. Vanno tutte anticipate da noi: pronunciate per prime, diventano prova di onestà; subite, diventano il motivo per cui la trattativa si ferma.</p>
+    </div>
+    <div class="obj">
+      <div>
+        <p class="q">«I miei clienti capiranno che è un robot e si sentiranno presi in giro.»</p>
+        <p class="a">Il fastidio non nasce dal fatto che sia una macchina: nasce dal fatto che la macchina <em>non sappia niente</em> e faccia perdere tempo. Giulia riconosce chi chiama, conosce il caso e risolve in novanta secondi. La reazione che raccogliamo al pilota non è «ho parlato con un robot», è «finalmente qualcuno che risponde».</p>
+        <p class="move">→ Mossa: far sentire l'audio prima di rispondere. La risposta migliore a questa obiezione non è una frase, è una registrazione.</p>
+      </div>
+      <div>
+        <p class="q">«Voglio che la mia segretaria mantenga il rapporto umano con i clienti.»</p>
+        <p class="a">Anche noi. Giulia non toglie il rapporto umano: lo libera. Oggi la tua segretaria il rapporto umano non riesce a farlo, perché lo interrompe ogni novanta secondi per rispondere al telefono, davanti a un cliente in piedi al bancone. Giulia prende le chiamate; lei torna a occuparsi di chi è entrato dalla porta.</p>
+        <p class="move">→ Mossa: nominare la persona reale. «Come si chiama la ragazza al front office? Ecco: Giulia lavora per lei, non al posto suo.»</p>
+      </div>
+      <div>
+        <p class="q">«E se dà un'informazione clinica sbagliata? La responsabilità è mia.»</p>
+        <p class="a">Giulia non fa diagnosi, non dà terapie e non decide urgenze da sola: legge ciò che è scritto nella cartella e applica le regole che le hai dato tu. Su tutto ciò che esce dal perimetro — un sintomo grave, una domanda clinica, un caso dubbio — il protocollo è uno solo: passa al veterinario o richiama immediatamente. Il perimetro si decide in configurazione, e si decide insieme.</p>
+        <p class="move">→ Mossa: mostrare la lista «cosa Giulia non fa mai». Il confine scritto vale più di qualunque rassicurazione.</p>
+      </div>
+      <div>
+        <p class="q">«I dati dei miei clienti e dei pazienti dove finiscono?»</p>
+        <p class="a">Restano dati della clinica, che resta titolare del trattamento. Giulia li legge per rispondere, non li porta altrove. Vanno messe nero su bianco tre cose prima dell'attivazione: cosa viene registrato, per quanto tempo, e chi può ascoltarlo. Su questo forniamo l'informativa e il testo dell'avviso in apertura di chiamata.</p>
+        <p class="move">→ Mossa: arrivare in demo con i documenti già pronti. Chi ha paura dei dati si tranquillizza vedendo la carta, non sentendo una promessa.</p>
+      </div>
+      <div>
+        <p class="q">«Ho già speso in software che poi non abbiamo usato.»</p>
+        <p class="a">È la paura più ragionevole delle sei. Segreteria Brave non chiede al team di cambiare abitudini: non c'è una nuova schermata da imparare, non c'è un processo da riscrivere. Il telefono è lo stesso; cambia solo chi risponde quando non potete rispondere voi. L'adozione non dipende dalla buona volontà dello staff — è l'unico software che funziona anche se nessuno lo apre.</p>
+        <p class="move">→ Mossa: non promettere risultati. Promettere che non serve fare niente per ottenerli.</p>
+      </div>
+      <div>
+        <p class="q">«Quanto costa e in quanto tempo rientro?»</p>
+        <p class="a">Il ritorno non si dimostra con una slide: si calcola con i suoi numeri, in diretta (vedi «Il conto che fa il veterinario»). Il canone va detto subito, con chiarezza, senza giri: il prezzo nascosto fino alla fine della call è la prima causa di trattative che non si chiudono.</p>
+        <p class="move">→ Mossa: prezzo alla luce, presto. Chi lo dice per primo comanda la conversazione.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= TRASPARENZA ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Da decidere prima di lunedì</div>
+      <h2>Le due cose che dobbiamo dire prima che ce le chiedano.</h2>
+    </div>
+    <div class="note warn">
+      <h3>1 · Giulia dichiara di essere un assistente virtuale?</h3>
+      <p class="small">La raccomandazione è <strong>sì, e apertamente</strong>: una formula breve in apertura o alla prima richiesta («sono l'assistente virtuale della clinica»). Tre ragioni. È corretto verso chi chiama. Toglie di mezzo l'unico scenario davvero dannoso per il brand — il cliente che si sente ingannato e lo racconta in giro. E paradossalmente <em>alza</em> la percezione del prodotto: una voce che dichiara di essere virtuale e poi conosce il caso meglio di un umano è più impressionante, non meno.</p>
+      <p class="small">Questa è una posizione di marca, non solo un adempimento: «Giulia non finge di essere una persona. Non ne ha bisogno.» È una riga che va nel manifesto.</p>
+    </div>
+    <div class="note warn" style="margin-top:22px">
+      <h3>2 · Registrazione delle chiamate e dati sanitari</h3>
+      <p class="small">Le telefonate contengono dati personali del proprietario e informazioni sanitarie dell'animale. Prima delle attivazioni servono, già pronti: l'avviso in apertura di chiamata, l'informativa per la clinica, il registro di cosa si conserva e per quanto, e la risposta alla domanda «chi può riascoltare». Va verificato con il consulente privacy, non risolto a orecchio — e va portato in demo come <strong>punto di forza</strong>, perché nessun concorrente generalista arriva con questa roba in ordine.</p>
+    </div>
+  </section>
+
+  <!-- ========= LESSICO ========= -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Lessico di marca</div>
+      <h2>Le parole che teniamo e quelle che non usiamo mai.</h2>
+      <p class="lede">Vale per la pagina, per i social, per le call, per le mail e per i video. Una parola sbagliata nel titolo annulla il lavoro di tutto il resto.</p>
+    </div>
+    <div class="lex">
+      <div class="yes">
+        <h4>Si dice</h4>
+        <ul>
+          <li><b>Giulia</b> — sempre per prima, sempre per nome</li>
+          <li><b>risponde</b>, <b>conosce</b>, <b>fissa</b>, <b>richiama</b> — verbi di servizio, concreti</li>
+          <li><b>la voce della tua clinica</b></li>
+          <li><b>segreteria virtuale</b> — la categoria, quando serve nominarla</li>
+          <li><b>ha studiato la tua clinica</b></li>
+          <li><b>il telefono</b> — parola concreta, immagine immediata</li>
+          <li><b>front office</b> — il linguaggio che i vet usano già</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h4>Non si dice</h4>
+        <ul>
+          <li><b>bot</b>, <b>chatbot</b>, <b>voicebot</b> — attivano la difesa in mezzo secondo</li>
+          <li><b>AI</b> in apertura di frase: è un mezzo, non una promessa</li>
+          <li><b>sostituisce la segretaria</b> — mai, in nessun contesto, nemmeno per scherzo</li>
+          <li><b>rivoluzionario</b>, <b>innovativo</b>, <b>all'avanguardia</b> — parole che non dicono niente</li>
+          <li><b>sinergia</b>, <b>a 360°</b>, <b>best practice</b> — fuori dal tono BVB</li>
+          <li><b>umanoide</b>, <b>indistinguibile da una persona</b> — promessa che non vogliamo fare</li>
+          <li><b>soluzione</b> al posto del nome del prodotto</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="bvb"><i class="pep"></i> Segreteria Brave · storytelling v1</span>
+    <span class="mono">Pilota · Clinica Veterinaria Carmagnola, dott. Matteo Rosso</span>
+  </div>
+</footer>

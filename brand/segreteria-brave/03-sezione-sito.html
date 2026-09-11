@@ -1,0 +1,550 @@
+<title>Segreteria Brave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Archivo:wdth,wght@75..125,400;75..125,500;75..125,600;75..125,700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F2F5F4;
+  --raise:#FFFFFF;
+  --field:#E7EDEB;
+  --ink:#0B1715;
+  --ink-2:#3D504D;
+  --muted:#6F8280;
+  --line:#CCD8D5;
+  --line-soft:#DEE7E5;
+  --teal:#76B6B5;
+  --teal-deep:#26706E;
+  --teal-wash:#DEEDEC;
+  --live:#1FA463;
+  --night:#07120F;
+  --night-2:#0E1D1A;
+  --night-line:#1E322E;
+  --night-ink:#E7EFED;
+  --night-muted:#8FA5A1;
+
+  --f-disp:'Fraunces',Georgia,'Times New Roman',serif;
+  --f-ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1160px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0A1512; --raise:#111F1C; --field:#0E1A18;
+  --ink:#E7EFED; --ink-2:#B2C3BF; --muted:#879C98;
+  --line:#20342F; --line-soft:#1A2C29;
+  --teal:#76B6B5; --teal-deep:#96CFCE; --teal-wash:#12302D;
+  --live:#3BC77F;
+  --night:#040C0A; --night-2:#0B1714; --night-line:#1B2D29;
+}}
+:root[data-theme="dark"]{
+  --paper:#0A1512; --raise:#111F1C; --field:#0E1A18;
+  --ink:#E7EFED; --ink-2:#B2C3BF; --muted:#879C98;
+  --line:#20342F; --line-soft:#1A2C29;
+  --teal:#76B6B5; --teal-deep:#96CFCE; --teal-wash:#12302D;
+  --live:#3BC77F;
+  --night:#040C0A; --night-2:#0B1714; --night-line:#1B2D29;
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+
+h1,h2,h3{font-family:var(--f-disp);margin:0;line-height:1.06;letter-spacing:-.018em;text-wrap:balance;font-variation-settings:'SOFT' 20,'WONK' 1}
+h1{font-size:clamp(2.6rem,6.6vw,4.6rem);font-weight:700}
+h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:700}
+h3{font-size:1.32rem;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+.lede{font-size:clamp(1.05rem,1.85vw,1.24rem);line-height:1.58;color:var(--ink-2);max-width:60ch}
+.kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.65em}
+.kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.mono{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.small{font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+strong{font-weight:600;color:var(--ink)}
+
+/* ---------- nav (chrome BVB) ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:40}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--f-ui);font-weight:700;font-size:.88rem;letter-spacing:.01em;line-height:1.05}
+.logo .pep{width:11px;height:11px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg);flex:none}
+.logo span{display:block;font-weight:400;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:.85rem;font-weight:500}
+.nav a.on{color:var(--ink);border-bottom:2px solid var(--teal);padding-bottom:2px}
+.nav .cta{background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:2px;font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--night);color:var(--night-ink);border-bottom:1px solid var(--night-line)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(30px,5vw,60px);padding-block:clamp(48px,7vw,86px);align-items:center}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr}}
+.hero h1{color:var(--night-ink)}
+.hero .lede{color:var(--night-muted);max-width:52ch}
+.hero-copy{display:grid;gap:22px}
+.hero .kick{color:var(--teal)}
+.badge-row{display:flex;flex-wrap:wrap;gap:9px}
+.badge{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;border:1px solid var(--night-line);color:var(--night-muted);padding:5px 9px;border-radius:2px}
+.badge--live{border-color:var(--live);color:var(--live);display:flex;align-items:center;gap:6px}
+.badge--live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){.badge--live::before{animation:none}}
+.btns{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+.btn{font-family:var(--f-ui);font-weight:600;font-size:.92rem;padding:13px 22px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer;display:inline-block}
+.btn--p{background:var(--teal);color:#06201F}
+.btn--s{border-color:var(--night-line);color:var(--night-ink)}
+
+/* live call card */
+.call{background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+.call-h{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+.call-h .av{width:42px;height:42px;border-radius:50%;background:var(--teal);color:var(--night);display:grid;place-items:center;flex:none;font-family:var(--f-disp);font-weight:900;font-size:1.2rem;line-height:1}
+.call-h .who{display:grid;gap:2px;min-width:0}
+.call-h .who b{font-size:.94rem;font-weight:600;color:var(--night-ink)}
+.call-h .who span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--live)}
+.call-h .tm{margin-left:auto;font-family:var(--f-mono);font-size:.74rem;color:var(--night-muted);font-variant-numeric:tabular-nums}
+.call dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr)}
+.call dt{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--night-muted);padding:11px 12px 11px 18px;border-bottom:1px solid var(--night-line);white-space:nowrap}
+.call dd{margin:0;padding:11px 18px 11px 0;border-bottom:1px solid var(--night-line);font-size:.9rem;color:var(--night-ink);font-variant-numeric:tabular-nums}
+.call dl > :nth-last-child(-n+2){border-bottom:0}
+.call-f{padding:12px 18px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;color:var(--night-muted);border-top:1px solid var(--night-line)}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:14px;margin-bottom:38px;max-width:68ch}
+
+/* problem */
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.probs > div{background:var(--paper);padding:26px 24px;display:grid;gap:11px;align-content:start}
+.probs .n{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.16em;color:var(--teal-deep)}
+.probs h3{font-size:1.18rem}
+@media (max-width:800px){.probs{grid-template-columns:1fr}}
+
+/* dialogo */
+.demo{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+.demo h2,.demo h3{color:var(--night-ink)}
+.demo .lede{color:var(--night-muted)}
+.demo .kick{color:var(--teal)}
+.demo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:clamp(24px,4vw,44px);align-items:start}
+@media (max-width:900px){.demo-grid{grid-template-columns:1fr}}
+.turns{display:grid;border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+.turn{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+.turn:last-child{border-bottom:0}
+.turn .sp{font-family:var(--f-mono);font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--night-muted);padding-top:.3em}
+.turn--g{background:var(--night-2)}
+.turn--g .sp{color:var(--teal)}
+.turn .tx{font-size:1rem;line-height:1.5}
+.turn em{font-style:normal;color:var(--teal);font-weight:500}
+@media (max-width:520px){.turn{grid-template-columns:1fr;gap:5px}.turn .sp{padding-top:0}}
+.knows{border:1px solid var(--night-line);border-radius:3px;padding:20px;display:grid;gap:13px;background:var(--night-2)}
+.knows h3{font-size:1.05rem;font-family:var(--f-ui);font-weight:600;letter-spacing:0}
+.knows ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.knows li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.92rem;color:var(--night-muted);line-height:1.45}
+.knows li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.48em}
+.knows li b{color:var(--night-ink);font-weight:600}
+
+/* calcolatore */
+.calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:880px){.calc-grid{grid-template-columns:1fr}}
+.inputs{display:grid;gap:0;border:1px solid var(--line);background:var(--raise)}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:14px;align-items:center;padding:15px 18px;border-bottom:1px solid var(--line-soft)}
+.field:last-child{border-bottom:0}
+.field label{font-size:.94rem;color:var(--ink-2);line-height:1.35}
+.field input{
+  font-family:var(--f-mono);font-size:.95rem;text-align:right;padding:8px 10px;
+  border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);width:100%;
+  font-variant-numeric:tabular-nums
+}
+.result{border:1px solid var(--teal);background:var(--teal-wash);padding:26px 24px;display:grid;gap:12px;align-content:start}
+.result .rl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.result .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums;font-variation-settings:'SOFT' 0,'WONK' 0}
+.result .sub{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+.result .brk{font-family:var(--f-mono);font-size:.72rem;color:var(--teal-deep);border-top:1px solid var(--teal);padding-top:12px;line-height:1.6;font-variant-numeric:tabular-nums}
+
+/* modalità */
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.modes > div{background:var(--paper);padding:28px 26px;display:grid;gap:15px;align-content:start}
+.modes .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.modes--hi{background:var(--raise)!important;border-left:3px solid var(--teal)}
+.modes--hi .tag{color:var(--teal-deep)}
+.modes ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.modes li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.94rem;color:var(--ink-2);line-height:1.45}
+.modes li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+.modes .foot{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:14px;line-height:1.5}
+@media (max-width:760px){.modes{grid-template-columns:1fr}}
+
+/* limiti */
+.limits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.limits > div{background:var(--paper);padding:20px 22px;display:grid;gap:7px;align-content:start}
+.limits b{font-family:var(--f-ui);font-weight:600;font-size:1rem;display:flex;gap:10px;align-items:baseline}
+.limits b::before{content:"—";color:var(--teal-deep)}
+.limits span{font-size:.92rem;color:var(--ink-2);line-height:1.5;padding-left:22px}
+@media (max-width:700px){.limits{grid-template-columns:1fr}}
+
+/* pilota */
+.pilot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:clamp(24px,4vw,44px);align-items:center;border:1px solid var(--line);background:var(--raise);padding:clamp(24px,4vw,38px)}
+@media (max-width:800px){.pilot{grid-template-columns:1fr}}
+.pilot blockquote{margin:0;font-family:var(--f-disp);font-size:clamp(1.3rem,2.8vw,1.8rem);line-height:1.3;letter-spacing:-.015em;color:var(--ink)}
+.pilot .att{margin-top:16px;font-size:.9rem;color:var(--muted);line-height:1.5}
+.pilot .ph{border:1px dashed var(--teal);background:var(--teal-wash);padding:16px;font-family:var(--f-mono);font-size:.68rem;line-height:1.7;color:var(--teal-deep);letter-spacing:.03em}
+
+/* faq */
+.faq{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.faq details{background:var(--paper)}
+.faq summary{cursor:pointer;padding:19px 22px;font-family:var(--f-ui);font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);color:var(--teal-deep);font-size:1.1rem;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq .ans{padding:0 22px 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:70ch}
+
+/* closing */
+.close{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+.close-in{display:grid;gap:22px;padding-block:clamp(50px,7vw,84px);justify-items:start;max-width:64ch}
+.close h2{color:var(--night-ink)}
+.close p{color:var(--night-muted)}
+.close .kick{color:var(--teal)}
+
+footer{background:var(--night);border-top:1px solid var(--night-line);padding-block:26px 44px;color:var(--night-muted)}
+.foot-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center}
+.foot-in .logo{color:var(--night-ink)}
+.foot-in .logo span{color:var(--night-muted)}
+
+.editnote{background:var(--teal-wash);border-top:1px solid var(--teal);border-bottom:1px solid var(--teal)}
+.editnote-in{padding-block:14px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline}
+.editnote b{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.editnote span{font-size:.88rem;color:var(--ink-2)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+</style>
+
+<div class="editnote">
+  <div class="wrap editnote-in">
+    <b>Anteprima</b>
+    <span>Sezione <em>bravevetbusiness.it/segreteria-brave</em> — impaginata sul concept di marchio 01. Il marchio nell'header è provvisorio fino alla validazione.</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="logo"><i class="pep"></i> BRAVE<span>vet business</span></a>
+    <ul>
+      <li><a href="#">Formazione</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="#" class="on">Segreteria Brave</a></li>
+      <li><a href="#">Consulenza</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <a href="#demo" class="cta">Prenota una demo</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <div class="kick">Segreteria Brave · la voce si chiama Giulia</div>
+      <h1>Risponde sempre.<br>Sa già chi sei.</h1>
+      <p class="lede">La prima segreteria virtuale costruita solo per la clinica veterinaria. Giulia risponde al telefono della tua clinica, riconosce chi chiama, conosce il paziente e la terapia in corso, e fissa l'appuntamento in agenda. Anche alle 23. Anche di domenica.</p>
+      <div class="btns">
+        <a class="btn btn--p" href="#demo">Prenota una demo</a>
+        <a class="btn btn--s" href="#chiamata">Ascolta una chiamata vera</a>
+      </div>
+      <div class="badge-row">
+        <span class="badge badge--live">Pilota attivo · Carmagnola</span>
+        <span class="badge">Add-on marketplace Snoots</span>
+        <span class="badge">Brave Vet Business × Icarus Technologies</span>
+      </div>
+    </div>
+
+    <div class="call" aria-label="Esempio di chiamata in corso">
+      <div class="call-h">
+        <span class="av">G</span>
+        <span class="who"><b>Giulia è in linea</b><span>chiamata in corso</span></span>
+        <span class="tm">00:42</span>
+      </div>
+      <dl>
+        <dt>Chiama</dt><dd>+39 340 118 27 64</dd>
+        <dt>Cliente</dt><dd>Mario Rossi</dd>
+        <dt>Paziente</dt><dd>Luna · meticcio, 7 anni</dd>
+        <dt>Ultima visita</dt><dd>04/09 · dermatologica</dd>
+        <dt>In terapia</dt><dd>Apoquel 16 mg · 1×/die</dd>
+        <dt>Prossimo</dt><dd>18/09 · controllo</dd>
+      </dl>
+      <div class="call-f">Esempio dimostrativo · dati non reali</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- PROBLEMA -->
+  <section style="border-top:0">
+    <div class="sec-head">
+      <div class="kick">Il problema</div>
+      <h2>Il telefono squilla sempre nel momento sbagliato.</h2>
+      <p class="lede">E chi non trova risposta non richiama. Chiama il numero successivo su Google.</p>
+    </div>
+    <div class="probs">
+      <div>
+        <span class="n">01</span>
+        <h3>Squilla mentre sei in visita</h3>
+        <p class="small">Ogni interruzione ti costa concentrazione nel momento in cui serve di più. Il telefono non ruba solo tempo: ruba qualità clinica.</p>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <h3>Squilla quando avete chiuso</h3>
+        <p class="small">Le sere, i sabati, i festivi. Sono le ore in cui il proprietario si accorge che il cane non sta bene — ed è esattamente quando nessuno può rispondere.</p>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <h3>Squilla mentre c'è già qualcuno al bancone</h3>
+        <p class="small">Il front office deve scegliere tra chi è entrato dalla porta e chi sta al telefono. Qualunque cosa scelga, perde l'altro.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCOLATORE -->
+  <section id="conto">
+    <div class="sec-head">
+      <div class="kick">Fai il conto con i tuoi numeri</div>
+      <h2>Quanto ti costa il telefono in un anno?</h2>
+      <p class="lede">Non serve un dato di mercato: bastano quattro numeri che conosci già. Cambia i valori e guarda il risultato.</p>
+    </div>
+    <div class="calc-grid">
+      <div class="inputs">
+        <div class="field">
+          <label for="c-chiamate">Chiamate che ricevi in un giorno</label>
+          <input id="c-chiamate" type="number" min="0" max="500" step="1" value="40" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="c-perse">Quante finiscono senza risposta <span class="mono" style="text-transform:none">(%)</span></label>
+          <input id="c-perse" type="number" min="0" max="100" step="1" value="15" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="c-pren">Di quelle perse, quante erano una prenotazione <span class="mono" style="text-transform:none">(%)</span></label>
+          <input id="c-pren" type="number" min="0" max="100" step="1" value="30" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="c-ticket">Valore medio di una prestazione <span class="mono" style="text-transform:none">(€)</span></label>
+          <input id="c-ticket" type="number" min="0" max="2000" step="5" value="110" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="c-giorni">Giorni di apertura in un anno</label>
+          <input id="c-giorni" type="number" min="1" max="366" step="1" value="300" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="result">
+        <span class="rl">Mancato fatturato stimato · anno</span>
+        <span class="big" id="out-anno">€ 59.400</span>
+        <p class="sub">È la stima di quanto vale, in dodici mesi, il telefono a cui non risponde nessuno. Non include i clienti che, dopo una chiamata a vuoto, non tornano più.</p>
+        <p class="brk" id="out-brk">6,0 chiamate perse al giorno · 1,8 prenotazioni mancate · € 198 al giorno</p>
+      </div>
+    </div>
+    <p class="small" style="margin-top:18px;color:var(--muted);max-width:70ch">Simulazione basata sui valori che inserisci tu. I valori precompilati sono un esempio, non un dato di settore.</p>
+  </section>
+</div>
+
+<!-- CHIAMATA -->
+<section class="demo" id="chiamata" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">Novanta secondi</div>
+      <h2>Una chiamata normale.<br>La differenza è nella quarta battuta.</h2>
+      <p class="lede">Nessuna emergenza, nessun caso raro: la telefonata più frequente che una clinica riceve.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="turns">
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Clinica Veterinaria Carmagnola, buongiorno. Sono Giulia, l'assistente della clinica. Parlo con il signor Rossi, vero?»</span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, buongiorno. Senta, Luna si gratta ancora tantissimo, l'avete vista martedì…»</span></div>
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx"><em>«Sì, visita dermatologica del quattro settembre, con il dottor Rosso. Le era stato prescritto Apoquel sedici milligrammi, una volta al giorno. Lo sta prendendo regolarmente?»</em></span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, tutte le sere. Però non è che migliora granché.»</span></div>
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Ho capito. Ha già un controllo il diciotto, ma se il prurito non sta cedendo ha senso anticiparlo. Ho giovedì alle 15:40 e venerdì alle 9:20, entrambi con il dottor Rosso. Quale le va meglio?»</span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Facciamo giovedì.»</span></div>
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Fissato: giovedì alle 15:40, controllo dermatologico per Luna. Le mando il promemoria su questo numero. Intanto segnalo al dottor Rosso che il prurito non è migliorato, così arriva preparato.»</span></div>
+      </div>
+
+      <div class="knows">
+        <h3>Cosa ha davanti Giulia mentre parla</h3>
+        <ul>
+          <li><span><b>Chi sta chiamando</b> — per nome e cognome, o riconosciuto dal solo numero di telefono</span></li>
+          <li><span><b>Di che cosa ha bisogno</b> — e a chi passarlo se esce dal suo perimetro</span></li>
+          <li><span><b>Quali visite sono state fatte</b> — data, tipo, veterinario</span></li>
+          <li><span><b>Quali farmaci sono in terapia</b> — principio attivo, dosaggio, posologia</span></li>
+          <li><span><b>Quali appuntamenti ci sono</b> — e quali slot sono liberi per fissarne uno nuovo</span></li>
+        </ul>
+        <p class="small" style="color:var(--night-muted);border-top:1px solid var(--night-line);padding-top:13px">Giulia non indovina e non inventa: legge la scheda. Con Snoots, questi dati sono quelli reali della tua clinica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- MODALITÀ -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Due modi di attivarla</div>
+      <h2>Funziona con qualsiasi clinica.<br>Dentro Snoots, funziona meglio.</h2>
+    </div>
+    <div class="modes">
+      <div>
+        <span class="tag">Modalità A · add-on indipendente</span>
+        <h3>Giulia istruita</h3>
+        <p class="small">Si configura sulle informazioni e sulle esigenze della tua clinica, a prescindere dal gestionale che usi. Orari, servizi, come si prenota, cosa è urgenza, cosa non deve mai dire.</p>
+        <ul>
+          <li>Risponde, filtra e informa secondo le tue regole</li>
+          <li>Prende il messaggio strutturato e te lo recapita</li>
+          <li>Prenota secondo i criteri che le hai dato</li>
+          <li>Nessuna integrazione richiesta: si parte subito</li>
+        </ul>
+        <p class="foot">Per chi non usa Snoots, o vuole partire senza toccare il gestionale.</p>
+      </div>
+      <div class="modes--hi">
+        <span class="tag">Modalità B · nativa nel marketplace Snoots</span>
+        <h3>Giulia connessa</h3>
+        <p class="small">Attivata dentro Snoots, legge i dati reali della clinica. Non risponde genericamente: risponde <strong>puntualmente</strong>, sul caso di chi ha in linea.</p>
+        <ul>
+          <li>Riconosce il cliente per nome e cognome, o dal numero</li>
+          <li>Vede lo storico delle visite fatte</li>
+          <li>Conosce i farmaci in terapia</li>
+          <li>Legge l'agenda e fissa l'appuntamento successivo</li>
+        </ul>
+        <p class="foot">È qui che Giulia smette di essere una segreteria e diventa un pezzo della clinica.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIMITI -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Il perimetro, scritto</div>
+      <h2>Cosa Giulia non fa mai.</h2>
+      <p class="lede">Il confine si decide insieme in configurazione, e resta scritto. Perché la fiducia si costruisce sui limiti dichiarati, non sulle promesse.</p>
+    </div>
+    <div class="limits">
+      <div><b>Non fa diagnosi</b><span>Non interpreta sintomi e non ipotizza patologie. Se la domanda è clinica, la domanda passa al veterinario.</span></div>
+      <div><b>Non prescrive e non modifica terapie</b><span>Può leggere ciò che è in cartella. Non può cambiarlo, aggiungerlo o sospenderlo.</span></div>
+      <div><b>Non decide da sola un'urgenza</b><span>Applica i criteri che le hai dato. Nel dubbio, escalation immediata al numero che indichi tu.</span></div>
+      <div><b>Non finge di essere una persona</b><span>Se le viene chiesto, dichiara di essere l'assistente virtuale della clinica. Non ne ha bisogno per fare bene il suo lavoro.</span></div>
+      <div><b>Non porta i tuoi dati altrove</b><span>I dati restano della clinica, che resta titolare del trattamento. Giulia li legge per rispondere.</span></div>
+      <div><b>Non sostituisce il tuo front office</b><span>Prende le chiamate che oggi si perdono, così chi c'è può occuparsi di chi è entrato dalla porta.</span></div>
+    </div>
+  </section>
+
+  <!-- PILOTA -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Il pilota</div>
+      <h2>Non è un'idea. È già al telefono.</h2>
+    </div>
+    <div class="pilot">
+      <div>
+        <blockquote>Segreteria Brave è in funzione alla Clinica Veterinaria Carmagnola del dott. Matteo Rosso.</blockquote>
+        <p class="att">Clienti veri che chiamano, un'agenda vera che si riempie. Il pilota è aperto: i primi veterinari che attivano Giulia entrano in una fase in cui il prodotto si modella anche sulle loro segnalazioni.</p>
+      </div>
+      <div class="ph">
+        [ da raccogliere ]<br><br>
+        Citazione del dott. Matteo Rosso<br>
+        + 1 dato dal pilota<br>
+        (es. chiamate gestite / appuntamenti fissati<br>
+        in un periodo definito)<br><br>
+        → nessun numero pubblicato<br>
+        finché non è verificato
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Le domande che ci fate</div>
+      <h2>Quelle vere, con risposte vere.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>I miei clienti capiranno che non è una persona?</summary>
+        <p class="ans">Se lo chiedono, Giulia lo dice: è l'assistente virtuale della clinica. Ma il fastidio, al telefono, non nasce dal fatto che dall'altra parte ci sia una macchina — nasce da una macchina che non sa niente e fa perdere tempo. Giulia riconosce chi chiama, conosce il caso e risolve in novanta secondi. La reazione più frequente non è «ho parlato con un robot», è «finalmente qualcuno che risponde».</p>
+      </details>
+      <details>
+        <summary>Sostituisce la mia segretaria?</summary>
+        <p class="ans">No, e non vogliamo che lo faccia. Oggi il tuo front office interrompe ogni novanta secondi la persona che ha davanti per rispondere al telefono. Giulia prende le chiamate — soprattutto quelle che oggi si perdono, la sera, nei weekend, quando ne arrivano quattro insieme — e restituisce al tuo staff le ore per fare il lavoro che vale.</p>
+      </details>
+      <details>
+        <summary>E se dà un'informazione sbagliata? La responsabilità è mia.</summary>
+        <p class="ans">Giulia lavora dentro un perimetro deciso da te e messo per iscritto (vedi «Cosa Giulia non fa mai»). Non fa diagnosi, non tocca le terapie, non decide da sola un'urgenza. Fuori dal perimetro c'è un solo comportamento: passare al veterinario o far richiamare subito.</p>
+      </details>
+      <details>
+        <summary>Dove finiscono i dati dei miei clienti e dei pazienti?</summary>
+        <p class="ans">Restano dati della tua clinica, che resta titolare del trattamento. Prima dell'attivazione ti consegniamo per iscritto cosa viene registrato, per quanto tempo viene conservato e chi può accedervi, insieme all'avviso da dare in apertura di chiamata.</p>
+      </details>
+      <details>
+        <summary>Devo cambiare gestionale per usarla?</summary>
+        <p class="ans">No. In modalità A Giulia funziona con qualsiasi gestionale — o senza. Se usi Snoots puoi attivarla dal marketplace e da quel momento legge i dati reali della clinica: è la stessa Giulia, con molto più in mano.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo serve per attivarla?</summary>
+        <p class="ans">La configurazione è una conversazione, non un progetto: si raccolgono orari, servizi, regole di prenotazione, criteri di urgenza e il perimetro di cosa non deve fare. I tempi esatti te li diciamo in demo, sul tuo caso.</p>
+      </details>
+    </div>
+  </section>
+</div>
+
+<!-- CLOSING -->
+<section class="close" id="demo">
+  <div class="wrap close-in">
+    <div class="kick">Il prossimo passo</div>
+    <h2>Trenta minuti, e la senti rispondere.</h2>
+    <p class="lede">In demo ti facciamo ascoltare una chiamata reale, ti mostriamo cosa vede Giulia mentre parla e facciamo insieme il conto di quanto ti costa oggi il telefono. Prezzo e condizioni te li diciamo lì, senza giri.</p>
+    <div class="btns">
+      <a class="btn btn--p" href="#">Prenota la demo</a>
+      <a class="btn btn--s" href="#conto">Prima fai il conto</a>
+    </div>
+    <p class="small" style="color:var(--night-muted)">Brave Vet Business × Icarus Technologies · disponibile come add-on nel marketplace Snoots</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <a href="#" class="logo"><i class="pep"></i> BRAVE<span>vet business</span></a>
+    <span class="mono">Anteprima di sezione · non ancora pubblicata</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ids = ['c-chiamate','c-perse','c-pren','c-ticket','c-giorni'];
+  var els = {};
+  ids.forEach(function(i){ els[i] = document.getElementById(i); });
+  var outAnno = document.getElementById('out-anno');
+  var outBrk  = document.getElementById('out-brk');
+
+  var eur = new Intl.NumberFormat('it-IT',{maximumFractionDigits:0});
+  var dec = new Intl.NumberFormat('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1});
+
+  function num(el, fallback){
+    var v = parseFloat(el.value);
+    if (isNaN(v) || v < 0) return fallback;
+    return v;
+  }
+
+  function calc(){
+    var chiamate = num(els['c-chiamate'], 0);
+    var perse    = Math.min(num(els['c-perse'], 0), 100) / 100;
+    var pren     = Math.min(num(els['c-pren'], 0), 100) / 100;
+    var ticket   = num(els['c-ticket'], 0);
+    var giorni   = num(els['c-giorni'], 0);
+
+    var perseGG = chiamate * perse;
+    var prenGG  = perseGG * pren;
+    var euroGG  = prenGG * ticket;
+    var anno    = euroGG * giorni;
+
+    outAnno.textContent = '€ ' + eur.format(Math.round(anno));
+    outBrk.textContent  = dec.format(perseGG) + ' chiamate perse al giorno · '
+                        + dec.format(prenGG) + ' prenotazioni mancate · € '
+                        + eur.format(Math.round(euroGG)) + ' al giorno';
+  }
+
+  ids.forEach(function(i){
+    els[i].addEventListener('input', calc);
+    els[i].addEventListener('change', calc);
+  });
+  calc();
+})();
+</script>
