@@ -9,7 +9,8 @@ PARTS = [
     ('I',   'Il marchio',            'Cinque proposte, architettura di marca, matrice di confronto sui vincoli reali.', '01-marchio.html'),
     ('II',  'Storytelling e posizionamento', 'Il racconto di fondazione, il manifesto, i pitch, il copione della demo, le obiezioni.', '02-storytelling.html'),
     ('III', 'Strategia di marketing', 'Segmenti, architettura d’offerta, prezzo, funnel, canali, novanta giorni, rischi.', '03-strategia-marketing.html'),
-    ('IV',  'Piano di comunicazione', 'Otto settimane su quattro canali, calendario giorno per giorno, contenuti pronti.', '04-piano-editoriale.html'),
+    ('IV',  'La sezione sul sito',    'Il sistema di lead generation: cinque punti di contatto e l’anteprima della pagina.', '05-sezione-sito-preview.html'),
+    ('V',   'Piano di comunicazione', 'Otto settimane su quattro canali, calendario giorno per giorno, contenuti pronti.', '04-piano-editoriale.html'),
 ]
 
 styles, body = [], []
@@ -28,6 +29,7 @@ for num, title, sub, fname in PARTS:
     markup = re.sub(r'<header class="top">.*?</header>', '', markup, flags=re.S)
     markup = re.sub(r'<footer>.*?</footer>', '', markup, flags=re.S)
     markup = markup.strip()
+    markup = markup.replace('src="preview/', f'src="{SRC}/preview/')
 
     # La Parte III è scritta senza gabbia: gliela diamo qui.
     if 'class="wrap"' not in markup:
@@ -45,7 +47,7 @@ for num, title, sub, fname in PARTS:
 </div>''')
 
 font_css = pathlib.Path(
-    '/tmp/claude-0/-home-user-IlsuperteamAi/6e01e6e4-fa9f-5cd4-b087-c88c3d704f7e/scratchpad/gf.css'
+    '/tmp/claude-0/-home-user-IlsuperteamAi/6e01e6e4-fa9f-5cd4-b087-c88c3d704f7e/scratchpad/gf-all.css'
 ).read_text(encoding='utf-8')
 
 toc_rows = '\n'.join(
@@ -163,7 +165,7 @@ section + .concept {{ break-before: auto; }}
 .arch, .script, .prosc, .steps, .tablewrap, .reco, .lock, .apps, .c-grid,
 .payoffs, .modes, .beat, .pitch, .obj > div, .lex, .yt, .post, .rules,
 .pillars, .fasi, .kpigrid, .seg, .vtable, .stage, .chan > div, .risk > div,
-.metr, .phase90, .funnel, .note, .dlg {{ break-inside: avoid; }}
+.metr, .phase90, .funnel, .note, .dlg, .figure, .tp > div, .qual {{ break-inside: avoid; }}
 .calwrap tr, .vtable tr, .tablewrap tr {{ break-inside: avoid; }}
 .calwrap thead {{ display: table-header-group; }}
 

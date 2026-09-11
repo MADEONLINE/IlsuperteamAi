@@ -1,0 +1,183 @@
+<title>La Pagina che Genera le Demo</title>
+<style>
+/* --- Parte V: anteprima della sezione sito. Token e tipografia dal dossier. --- */
+.tp{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.tp > div{background:var(--paper);padding:19px 22px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:start}
+.tp .tnum{font-family:var(--f-mono);font-size:.7rem;color:var(--teal-deep);padding-top:.3em;letter-spacing:.08em}
+.tp .tc{display:grid;gap:5px}
+.tp .tc b{font-family:var(--f-display);font-size:1.02rem;font-weight:700;letter-spacing:-.012em}
+.tp .tc span{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+.tp .tk{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;padding-top:.35em;text-align:right}
+.tp .tk--ask{color:var(--signal)}
+.tp .tk--give{color:var(--teal-deep)}
+@media (max-width:640px){.tp > div{grid-template-columns:auto 1fr}.tp .tk{grid-column:2;text-align:left;padding-top:0}}
+
+.figure{display:grid;gap:12px;margin-top:8px}
+.figure img{width:100%;height:auto;display:block;border:1px solid var(--line)}
+.figcap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:baseline}
+.figcap .fn{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep);white-space:nowrap}
+.figcap .ft{font-size:.93rem;line-height:1.55;color:var(--ink-2);max-width:72ch}
+.figcap .ft b{color:var(--ink);font-weight:600}
+
+.qual{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.qual > div{background:var(--paper);padding:20px;display:grid;gap:9px;align-content:start}
+.qual .qa{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.qual .qb{font-family:var(--f-display);font-weight:700;font-size:1.06rem;letter-spacing:-.015em;line-height:1.2}
+.qual .qc{font-size:.91rem;color:var(--ink-2);line-height:1.5}
+@media (max-width:800px){.qual{grid-template-columns:1fr}}
+</style>
+
+<div class="hero">
+  <div class="kicker">Parte V · la sezione sul sito</div>
+  <h1>La pagina esiste<br>per una cosa sola:<br>far arrivare<br>la richiesta di demo.</h1>
+  <p class="lede">Non è una brochure e non è una vetrina. È il sistema di lead generation del prodotto: ogni blocco che segue ha un compito nel portare il visitatore al form, e i punti di contatto sono definiti uno per uno. Qui sotto l'impianto e l'anteprima della pagina così com'è oggi.</p>
+</div>
+
+<!-- ===== SISTEMA DI LEAD GENERATION ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Il sistema</div>
+    <h2>Cinque punti di contatto, uno solo che chiede qualcosa.</h2>
+    <p class="lede">La regola che governa la pagina: <strong>si chiede una volta sola</strong>. Tutto il resto dà — un numero, una prova, un limite dichiarato — e serve a far arrivare al form una persona che ha già deciso.</p>
+  </div>
+
+  <div class="tp">
+    <div>
+      <span class="tnum">01</span>
+      <span class="tc"><b>Il pulsante in barra di navigazione</b><span>«Prenota una demo», sempre visibile mentre si scorre. Non convince nessuno da solo: serve a non far cercare l'uscita a chi si è già convinto tre schermate prima.</span></span>
+      <span class="tk tk--ask">Chiede</span>
+    </div>
+    <div>
+      <span class="tnum">02</span>
+      <span class="tc"><b>Le due azioni dell'apertura</b><span>«Prenota una demo» e «Guarda cosa sa mentre parla». La seconda non è una fuga: manda alla trascrizione della chiamata, cioè al punto in cui il prodotto si dimostra da solo, e da lì rimanda alla prenotazione.</span></span>
+      <span class="tk tk--ask">Chiede</span>
+    </div>
+    <div>
+      <span class="tnum">03</span>
+      <span class="tc"><b>Il calcolatore del mancato fatturato</b><span>Quattro numeri che il veterinario conosce già, e la cifra annua appare. Non chiede nulla — niente email in cambio del risultato. È il punto in cui il visitatore si auto-qualifica: chi arriva al form dopo aver visto la propria cifra arriva con il problema già quantificato.</span></span>
+      <span class="tk tk--give">Dà</span>
+    </div>
+    <div>
+      <span class="tnum">04</span>
+      <span class="tc"><b>La chiusura della trascrizione</b><span>«Qui la leggi. In demo la senti.» La voce non è online di proposito: è la ragione per prenotare. È il punto di conversione più forte della pagina, perché arriva subito dopo la battuta in cui Giulia cita la terapia in corso.</span></span>
+      <span class="tk tk--ask">Chiede</span>
+    </div>
+    <div>
+      <span class="tnum">05</span>
+      <span class="tc"><b>Il form in chiusura</b><span>Cinque campi, nessuno di troppo: nome, struttura, email, telefono, gestionale in uso. È l'unico momento in cui la pagina chiede davvero qualcosa, e arriva dopo che tutto il resto ha già lavorato.</span></span>
+      <span class="tk tk--ask">Chiede</span>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:26px">
+    <p class="small"><strong>Quello che la pagina non fa:</strong> non pubblica il numero di telefono di Giulia. La prova al telefono resta un momento della demo, dove c'è qualcuno che la guida e la commenta. Pubblicarlo significherebbe regalare la dimostrazione senza raccogliere il contatto — e lasciarla avvenire senza controllo, con il rischio che un ascolto fuori contesto diventi il giudizio sul prodotto.</p>
+  </div>
+</section>
+
+<!-- ===== QUALIFICAZIONE ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Chi arriva, e come lo riconosciamo</div>
+    <h2>Un campo del form fa il lavoro di una call di scoperta.</h2>
+    <p class="lede">«Gestionale in uso» non è un dato anagrafico: è il campo che dice in quale conversazione entrare, prima ancora di aver parlato con la persona.</p>
+  </div>
+  <div class="qual">
+    <div>
+      <span class="qa">Risponde «Snoots»</span>
+      <span class="qb">Demo sulla modalità connessa</span>
+      <span class="qc">Si parte subito dalla dimostrazione forte: Giulia che legge lo storico e fissa l'appuntamento. Ciclo corto, valore percepito alto.</span>
+    </div>
+    <div>
+      <span class="qa">Risponde «un altro gestionale»</span>
+      <span class="qb">Demo sulla modalità istruita</span>
+      <span class="qc">Si mostra comunque la connessa come destinazione, dichiarando la differenza. È il caso in cui la promessa va calibrata con più attenzione.</span>
+    </div>
+    <div>
+      <span class="qa">Risponde «nessuno»</span>
+      <span class="qb">Struttura piccola, ciclo rapido</span>
+      <span class="qc">Il dolore è l'assenza di risposta, non il volume. Conversazione più semplice, ticket più basso, decisione quasi immediata.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANTEPRIMA ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">L'anteprima</div>
+    <h2>La pagina, così com'è oggi.</h2>
+    <p class="lede">Struttura, testi e meccanismi sono definitivi. Il marchio non compare ancora: si applica dopo la scelta, senza toccare l'impianto della pagina.</p>
+  </div>
+  <div class="figure">
+    <img src="preview/a-hero.png" alt="Apertura della pagina: titolo, due pulsanti e la scheda della chiamata in corso">
+    <div class="figcap">
+      <span class="fn">01 · Apertura</span>
+      <span class="ft"><b>«Risponde sempre. Sa già chi sei.»</b> A destra non c'è un'illustrazione ma la scheda che Giulia ha davanti mentre parla: chi chiama, il paziente, l'ultima visita, la terapia in corso, il prossimo appuntamento. È la cosa più caratteristica del prodotto, e sta nella prima schermata.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="figure">
+    <img src="preview/b-conto.png" alt="Sezione del problema in tre fatti e calcolatore del mancato fatturato">
+    <div class="figcap">
+      <span class="fn">02 · Il problema, e il conto</span>
+      <span class="ft">Tre fatti riconoscibili, poi il calcolatore. <b>Il visitatore inserisce i suoi numeri e la cifra si muove.</b> Un numero che uno si è calcolato da solo non si discute: è lo stesso meccanismo che usiamo in demo, messo in autonomia.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="figure">
+    <img src="preview/c-chiamata.png" alt="Trascrizione della chiamata con accanto l'elenco di ciò che Giulia conosce">
+    <div class="figcap">
+      <span class="fn">03 · La chiamata</span>
+      <span class="ft">Novanta secondi, nessuna emergenza: la telefonata più frequente che una clinica riceve. <b>La differenza sta nella quarta battuta</b>, quella in cui Giulia cita la visita e il farmaco. Accanto, cosa ha davanti mentre parla. Subito sotto, l'invito a prenotare: qui la leggi, in demo la senti.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="figure">
+    <img src="preview/d-offerta.png" alt="Le due modalità di attivazione e l'elenco di ciò che Giulia non fa mai">
+    <div class="figcap">
+      <span class="fn">04 · Le due modalità e il perimetro</span>
+      <span class="ft">A sinistra la versione indipendente dal gestionale, a destra quella connessa a Snoots, evidenziata. Sotto, <b>«Cosa Giulia non fa mai»</b>: niente diagnosi, niente terapie, nessuna urgenza decisa da sola, nessuna finzione di essere una persona. Dichiarare i limiti in pagina disinnesca le obiezioni prima che diventino ragioni per non prenotare.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="figure">
+    <img src="preview/e-form.png" alt="Sezione di chiusura con cosa succede in demo e il form di prenotazione a cinque campi">
+    <div class="figcap">
+      <span class="fn">05 · Il form</span>
+      <span class="ft">A sinistra cosa succede nei trenta minuti, a destra i cinque campi. <b>È l'unico punto della pagina che chiede qualcosa</b>, e ci si arriva dopo aver ricevuto un numero, una prova e un perimetro. Il form non è ancora collegato: serve decidere dove atterrano le richieste prima di pubblicare.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COSA MANCA ===== -->
+<section>
+  <div class="sec-head">
+    <div class="kicker">Prima di pubblicarla</div>
+    <h2>Quattro cose da chiudere.</h2>
+  </div>
+  <div class="steps">
+    <div>
+      <span class="n">01</span>
+      <span class="c"><b>Dove atterrano le richieste.</b><span>Il form va collegato: una casella, un foglio, o direttamente il CRM. Va deciso anche chi richiama e in quanto tempo — la promessa scritta in pagina è «entro un giorno lavorativo», e va mantenuta.</span></span>
+    </div>
+    <div>
+      <span class="n">02</span>
+      <span class="c"><b>Il marchio.</b><span>La pagina è costruita per accoglierlo senza modifiche strutturali. Appena il segno è scelto, entra nella barra di navigazione e nella scheda della chiamata.</span></span>
+    </div>
+    <div>
+      <span class="n">03</span>
+      <span class="c"><b>La citazione dal pilota.</b><span>Nella sezione del pilota c'è uno spazio riservato, oggi vuoto di proposito: nessun numero e nessuna citazione finché non sono verificati e autorizzati.</span></span>
+    </div>
+    <div>
+      <span class="n">04</span>
+      <span class="c"><b>Il tracciamento.</b><span>Senza misurare quanti aprono il calcolatore, quanti lo completano e quanti poi inviano il form, la pagina non dice se funziona. È il minimo indispensabile: tre eventi, non venti.</span></span>
+    </div>
+  </div>
+</section>
