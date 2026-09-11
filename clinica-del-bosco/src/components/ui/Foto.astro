@@ -18,6 +18,7 @@ interface Props {
   scattoBrief?: string | undefined;
   descrizioneSegnaposto?: string;
   didascalia?: string;
+  /** Carica subito l'immagine (senza però rubare priorità ai font, che reggono l'LCP testuale). */
   priorita?: boolean;
   larghezze?: number[];
   sizes?: string;
@@ -69,7 +70,8 @@ const posizioni: Record<string, string> = {
         sizes={sizes}
         formats={['avif']}
         fallbackFormat="webp"
-        priority={priorita}
+        loading={priorita ? 'eager' : 'lazy'}
+        decoding={priorita ? 'sync' : 'async'}
         pictureAttributes={{ class: 'absolute inset-0 block size-full' }}
         class:list={['size-full object-cover', posizioni[posizione]]}
       />

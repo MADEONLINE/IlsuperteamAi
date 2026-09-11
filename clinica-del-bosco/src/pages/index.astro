@@ -78,6 +78,27 @@ const pilastri = [
   },
 ] as const;
 
+/** Le tre porte d'ingresso: il visitatore si riconosce prima di cercare il servizio. */
+const porte = [
+  {
+    titolo: 'Cane e gatto',
+    testo: 'Visite, vaccini, chirurgia, specialistiche',
+    href: '/servizi',
+    icona: 'cane' as const,
+  },
+  {
+    titolo: 'Coniglio ed esotici',
+    testo: 'Conigli, piccoli mammiferi, rettili, uccelli',
+    href: '/servizi/animali-esotici-e-conigli',
+    icona: 'coniglio' as const,
+  },
+  {
+    titolo: 'Sei un veterinario',
+    testo: 'TAC, endoscopia, chirurgia e degenza in service',
+    href: '/per-i-colleghi',
+    icona: 'stetoscopio' as const,
+  },
+];
 const numeri = clinica.numeri.confermato
   ? [
       {
@@ -167,6 +188,8 @@ const euro = (n: number) =>
           ratio="4/5"
           scattoBrief="01"
           descrizioneSegnaposto="Ingresso della clinica illuminato di notte, insegna visibile"
+          larghezze={[320, 480, 640, 900]}
+          sizes="(min-width: 1024px) 34vw, 88vw"
           priorita
           class="ring-1 ring-sfondo/15"
         />
@@ -222,6 +245,34 @@ const euro = (n: number) =>
         ))}
       </ul>
     </div>
+  </Sezione>
+
+  <!-- PORTE D'INGRESSO: da chi sei, a dove vuoi andare -->
+  <Sezione tono="base" compatta etichettaAria="Da dove vuoi cominciare">
+    <ul class="grid gap-4 md:grid-cols-3">
+      {porte.map((p) => (
+        <li class="rivela">
+          <a
+            href={p.href}
+            class="group flex h-full items-center gap-4 rounded-card border border-bordo bg-sfondo-rialzato p-5 no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario"
+          >
+            <span class="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primario-tenue text-primario-link">
+              <Icona nome={p.icona} class="size-7" />
+            </span>
+            <span class="min-w-0">
+              <span class="block font-sans text-lg font-bold text-testo group-hover:text-primario-link">
+                {p.titolo}
+              </span>
+              <span class="block text-sm text-testo-secondario">{p.testo}</span>
+            </span>
+            <Icona
+              nome="freccia-destra"
+              class="ml-auto size-5 shrink-0 text-primario-link transition group-hover:translate-x-0.5"
+            />
+          </a>
+        </li>
+      ))}
+    </ul>
   </Sezione>
 
   <!-- TRIAGE RAPIDO -->
@@ -413,6 +464,46 @@ const euro = (n: number) =>
       <Dato valore={`${clinica.direttoreSanitario.titolo} ${clinica.direttoreSanitario.nome}`} />
     </p>
   </Sezione>
+
+  <!-- PERCORSO GATTO -->
+  <section class="bg-sfondo-tinta" aria-labelledby="gatto-titolo">
+    <div class="grid lg:grid-cols-12">
+      <div class="flex flex-col justify-center px-gutter py-12 lg:col-span-5 lg:pl-gutter lg:pr-12">
+        <Etichetta class="mb-3">Percorso gatto</Etichetta>
+        <h2 id="gatto-titolo" class="text-3xl md:text-4xl">
+          Il gatto non è un cane piccolo. Nemmeno in sala d'attesa.
+        </h2>
+        <p class="mt-4 text-testo-secondario">
+          Trasportino coperto, attesa ridotta al minimo, manipolazione a basso stress, ambulatorio
+          silenzioso. Anche la degenza è separata da quella dei cani.
+        </p>
+        <ul class="mt-6 space-y-3">
+          {[
+            'Attesa separata e trasportino tenuto coperto',
+            'Contenimento gentile, senza forzature',
+            'Degenza dei gatti lontana dai cani',
+          ].map((t) => (
+            <li class="flex items-start gap-3">
+              <Icona nome="check" class="mt-1 size-5 shrink-0 text-successo" />
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-8">
+          <Bottone
+            href="/servizi/gatto-cat-friendly"
+            variante="secondario"
+            iconaDopo="freccia-destra"
+          >
+            Come accogliamo i gatti
+          </Bottone>
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <Foto ratio="3/2" scattoBrief="20" class="rounded-none lg:min-h-full" />
+      </div>
+    </div>
+  </section>
 
   <!-- RECENSIONI (solo reali) -->
   {recensioniVisibili.length > 0 && (
