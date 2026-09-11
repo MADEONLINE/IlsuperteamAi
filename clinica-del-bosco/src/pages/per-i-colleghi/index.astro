@@ -89,6 +89,34 @@ const faq = [
       'Sì: un accordo scritto che definisce modalità di invio, tempi, refertazione e rientro del paziente. Il modulo di richiesta è scaricabile in questa pagina; ti ricontattiamo per completarlo.',
   },
 ];
+const percorso = [
+  [
+    'Invio',
+    'Modulo online, scheda PDF via email o telefono per le urgenze. Allega referti, esami e immagini.',
+  ],
+  [
+    'Presa in carico',
+    'Entro il giorno lavorativo successivo ricevi data proposta, nome del referente e stima dei costi da condividere con il proprietario.',
+  ],
+  [
+    'Esecuzione',
+    'Il referente esegue la prestazione richiesta. Se emerge altro, ti chiama prima di procedere.',
+  ],
+  [
+    'Referto',
+    'Anticipazione verbale al termine; referto scritto entro 24–48 ore lavorative, immagini DICOM condivise.',
+  ],
+  [
+    'Rientro',
+    'Il paziente torna da te con relazione e indicazioni. I controlli li decidi tu, in sede o da noi.',
+  ],
+];
+const limiti = [
+  'Nessuna risonanza magnetica in sede: per i casi che la richiedono indichiamo un centro attrezzato e teniamo il coordinamento con te.',
+  "Le sedute di endoscopia programmata seguono un calendario: i corpi estranei e le urgenze passano dal pronto soccorso h24 e dall'équipe chirurgica.",
+  'Gli specialisti in collaborazione hanno giornate fisse (vedi sotto): per una visita specialistica non urgente conta la prima data utile, non il giorno dopo.',
+  'Di notte sono in struttura un medico e un tecnico, o due medici: per i trasferimenti notturni chiama prima, così prepariamo la degenza.',
+];
 const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
 ---
 
@@ -184,6 +212,33 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
           </p>
         </div>
       </div>
+    </div>
+  </Sezione>
+
+  <Sezione id="percorso">
+    <Etichetta class="mb-3">Il percorso del caso</Etichetta>
+    <h2 class="text-3xl md:text-4xl">Dall'invio al rientro, in cinque passaggi</h2>
+    <ol class="mt-8 grid gap-4 md:grid-cols-5">
+      {percorso.map(([t, d], i) => (
+        <li class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
+          <span class="inline-flex size-8 items-center justify-center rounded-full bg-primario font-sans text-sm font-bold text-testo-inverso">
+            {i + 1}
+          </span>
+          <h3 class="mt-3 font-sans text-lg font-bold">{t}</h3>
+          <p class="mt-1 text-sm text-testo-secondario">{d}</p>
+        </li>
+      ))}
+    </ol>
+    <div class="mt-10 rounded-card border border-bordo bg-sfondo-rialzato p-6">
+      <h3 class="font-sans text-xl font-bold">Quello che è giusto sapere prima di inviare</h3>
+      <ul class="mt-3 space-y-2 text-sm">
+        {limiti.map((l) => (
+          <li class="flex items-start gap-2">
+            <Icona nome="info" class="mt-0.5 size-4 shrink-0 text-primario-link" />
+            <span>{l}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </Sezione>
 
