@@ -152,40 +152,44 @@ jobs:
               try { await page.getByRole('button', { name: new RegExp('^' + t, 'i') }).first().click({ timeout: 700 }); } catch {}
             }
             await page.waitForTimeout(1500);
-            const info = await page.evaluate(() => {
+            let info;
+            try {
+            info = await page.evaluate(() => {
+              const cs = (el) => (el instanceof Element ? getComputedStyle(el) : null);
               const txt = (el) => (el?.innerText || '').replace(/\s+/g, ' ').trim();
               const header = document.querySelector('header') || document.querySelector('[class*=header]');
-              const hs = header ? getComputedStyle(header) : null;
+              const hs = cs(header);
               const nav = [...(header || document).querySelectorAll('a')].map(txt).filter((t) => t && t.length < 40);
               const tel = [...document.querySelectorAll('a[href^="tel:"]')].map((a) => txt(a) || a.getAttribute('href')).slice(0, 6);
-              const body = getComputedStyle(document.body);
-              const h1 = document.querySelector('h1'); const h1s = h1 ? getComputedStyle(h1) : null;
+              const body = cs(document.body) || {};
+              const h1 = document.querySelector('h1'); const h1s = cs(h1);
               const colors = {};
               for (const el of document.querySelectorAll('*')) {
-                const cs = getComputedStyle(el);
-                if (cs.backgroundColor && cs.backgroundColor !== 'rgba(0, 0, 0, 0)') colors[cs.backgroundColor] = (colors[cs.backgroundColor] || 0) + 1;
+                const s2 = cs(el); if (!s2) continue;
+                if (s2.backgroundColor && s2.backgroundColor !== 'rgba(0, 0, 0, 0)') colors[s2.backgroundColor] = (colors[s2.backgroundColor] || 0) + 1;
               }
               const topColors = Object.entries(colors).sort((a, b) => b[1] - a[1]).slice(0, 10);
               const cta = [...document.querySelectorAll('a,button')]
                 .filter((b) => /btn|button|cta/i.test(b.className) || b.tagName === 'BUTTON')
-                .map((b) => { const cs = getComputedStyle(b); return { t: txt(b).slice(0, 45), bg: cs.backgroundColor, col: cs.color, r: cs.borderRadius, pad: cs.padding }; })
+                .map((b) => { const s2 = cs(b) || {}; return { t: txt(b).slice(0, 45), bg: s2.backgroundColor, col: s2.color, r: s2.borderRadius, pad: s2.padding }; })
                 .filter((b) => b.t).slice(0, 20);
               // sezioni di primo livello: altezza, sfondo, titolo, colonne, immagini
               const root = document.querySelector('main') || document.body;
               const sezioni = [...root.children].flatMap((c) => (c.children.length === 1 && c.tagName === 'DIV' ? [...c.children] : [c]))
-                .map((s) => {
-                  const r = s.getBoundingClientRect(); const cs = getComputedStyle(s);
-                  const grid = [...s.querySelectorAll('*')].find((e) => /grid|flex/.test(getComputedStyle(e).display) && e.children.length > 2);
-                  return { tag: s.tagName, h: Math.round(r.height), bg: cs.backgroundColor, titolo: txt(s.querySelector('h1,h2,h3')).slice(0, 70),
-                           colonne: grid ? grid.children.length : 0, img: s.querySelectorAll('img').length, testo: txt(s).slice(0, 150) };
-                }).filter((s) => s.h > 100);
+                .map((sec) => {
+                  const r = sec.getBoundingClientRect(); const s2 = cs(sec) || {};
+                  const grid = [...sec.querySelectorAll('*')].find((e) => { const g = cs(e); return g && /grid|flex/.test(g.display) && e.children.length > 2; });
+                  return { tag: sec.tagName, h: Math.round(r.height), bg: s2.backgroundColor, titolo: txt(sec.querySelector('h1,h2,h3')).slice(0, 70),
+                           colonne: grid ? grid.children.length : 0, img: sec.querySelectorAll('img').length, testo: txt(sec).slice(0, 150) };
+                }).filter((x) => x.h > 100);
               const heads = [...document.querySelectorAll('h1,h2')].map((h) => h.tagName + ' ' + txt(h)).filter((t) => t.length > 5).slice(0, 40);
               const imgs = [...document.images].filter((i) => i.naturalWidth > 300).map((i) => (i.alt || '(no alt)').slice(0, 55) + ' [' + i.naturalWidth + 'x' + i.naturalHeight + ']').slice(0, 30);
               return { title: document.title, headerBg: hs?.backgroundColor, headerPos: hs?.position, nav: [...new Set(nav)].slice(0, 30), tel,
-                       bodyFont: body.fontFamily.slice(0, 60), bodySize: body.fontSize, h1: txt(h1).slice(0, 120),
-                       h1Font: h1s?.fontFamily.slice(0, 60), h1Size: h1s?.fontSize, h1Weight: h1s?.fontWeight, h1Transform: h1s?.textTransform,
+                       bodyFont: (body.fontFamily || '').slice(0, 60), bodySize: body.fontSize, h1: txt(h1).slice(0, 120),
+                       h1Font: (h1s?.fontFamily || '').slice(0, 60), h1Size: h1s?.fontSize, h1Weight: h1s?.fontWeight, h1Transform: h1s?.textTransform,
                        topColors, cta, sezioni, heads, imgs, altezzaPagina: document.documentElement.scrollHeight };
             });
+            } catch (e) { info = { errore: e.message.slice(0, 200) }; }
             console.log(JSON.stringify(info, null, 1));
             await ctx.close();
           }
