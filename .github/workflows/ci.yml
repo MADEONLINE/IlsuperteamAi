@@ -240,8 +240,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add src/assets/img
-          git diff --cached --quiet || git commit -m "chore(foto): importa immagini generate per gli slot fotografici"
-          git push origin HEAD:${{ github.ref_name }}
+          git diff --cached --quiet && { echo "nessuna nuova immagine"; exit 0; }
+          git commit -m "chore(foto): importa immagini generate per gli slot fotografici"
+          for tentativo in 1 2 3; do
+            git pull --rebase origin ${{ github.ref_name }} && git push origin HEAD:${{ github.ref_name }} && exit 0
+            echo "push fallito, ritento ($tentativo)"; sleep 5
+          done
+          exit 1
 
   indexnow:
     name: IndexNow dopo il deploy di produzione
