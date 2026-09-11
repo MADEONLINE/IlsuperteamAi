@@ -190,7 +190,7 @@ jobs:
                        topColors, cta, sezioni, heads, imgs, altezzaPagina: document.documentElement.scrollHeight };
             });
             } catch (e) { info = { errore: e.message.slice(0, 200) }; }
-            console.log(JSON.stringify(info, null, 1));
+            console.log(JSON.stringify(info));
             await ctx.close();
           }
           await browser.close();
