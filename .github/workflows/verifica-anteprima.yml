@@ -1,0 +1,29 @@
+name: Verifica anteprima pubblicata
+
+# Sonda l'anteprima pubblicata su Netlify da GitHub Actions (che raggiunge Netlify):
+# codice HTTP, redirect e <title> delle pagine principali.
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: 'URL base del sito da verificare'
+        default: 'https://anteprima-clinica-del-bosco.netlify.app'
+        type: string
+
+jobs:
+  sonda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Codici HTTP e titoli
+        env:
+          BASE: ${{ inputs.base_url }}
+        run: |
+          for p in / /la-struttura /per-i-colleghi /equipe /servizi /servizi/cardiologia /pronto-soccorso /prenota /piani-salute /prima-visita /contatti /magazine /domande-frequenti /per-i-colleghi/grazie /chi-siamo /colleghi /la-struttura/ /sitemap-index.xml /llms.txt; do
+            code=$(curl -sS -m 25 -o /tmp/pg -w "%{http_code} %{redirect_url}" "$BASE$p" || echo "ERR")
+            title=$(grep -o "<title>[^<]*" /tmp/pg 2>/dev/null | head -1 | sed 's/<title>//')
+            printf "%-28s %s   %s\n" "$p" "$code" "$title"
+          done
+      - name: Header di /la-struttura
+        env:
+          BASE: ${{ inputs.base_url }}
+        run: curl -sS -m 25 -I "$BASE/la-struttura" | head -30
