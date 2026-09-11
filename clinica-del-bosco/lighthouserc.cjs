@@ -37,7 +37,15 @@ module.exports = {
         'categories:accessibility': ['error', { minScore: 0.98 }],
         'categories:best-practices': ['error', { minScore: 0.98 }],
         'categories:seo': ['error', { minScore: 0.98 }],
-        'largest-contentful-paint': ['error', { maxNumericValue: 1800 }],
+        // 1800 ms era tarato su una configurazione che metteva il CSS in linea in
+        // ogni pagina: veloce, ma con la CSP nativa rendeva il sito illeggibile
+        // dopo ogni navigazione interna (vedi astro.config.mjs). Con il foglio di
+        // stile esterno il primo caricamento paga un giro di rete in più — circa
+        // 300 ms secondo Lighthouse — mentre dalla seconda pagina in poi il CSS
+        // è in cache. Soglia riportata alla misura reale dell'architettura
+        // corretta, comunque molto dentro la fascia "buona" di Google (2500 ms).
+        // Il punteggio di prestazioni resta a 100 ed è il vero guardiano qui.
+        'largest-contentful-paint': ['error', { maxNumericValue: 2000 }],
         'cumulative-layout-shift': ['error', { maxNumericValue: 0.05 }],
         'total-blocking-time': ['error', { maxNumericValue: 200 }],
         'resource-summary:script:size': ['error', { maxNumericValue: 92160 }],

@@ -23,6 +23,15 @@ export default defineConfig({
     // 'self', vale per tutte le pagine e viene messo in cache una volta sola.
     inlineStylesheets: 'never',
   },
+  vite: {
+    build: {
+      // Un solo foglio di stile per tutto il sito invece di uno per rotta e per
+      // componente: con il CSS esterno ogni file in più è una richiesta bloccante
+      // sul percorso di rendering. Un file solo viene anche messo in cache una
+      // volta per l'intera visita.
+      cssCodeSplit: false,
+    },
+  },
   compressHTML: true,
   markdown: {
     // Nessun blocco di codice nei contenuti: disattivato per evitare stili inline incompatibili con la CSP.
