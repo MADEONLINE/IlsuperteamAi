@@ -142,6 +142,52 @@ test.describe('Accessibilità e tastiera', () => {
   });
 });
 
+test.describe('Marchio e stili', () => {
+  test('dopo una navigazione lato client la pagina resta formattata', async ({ page }) => {
+    // Regressione: con il CSS inline la CSP nativa di Astro calcola un hash per
+    // pagina, ma dopo una navigazione del ClientRouter resta in vigore la CSP del
+    // documento iniziale. Il browser rifiutava gli stili della pagina di arrivo e
+    // il sito si presentava senza formattazione. Vedi astro.config.mjs.
+    const rifiuti: string[] = [];
+    page.on('console', (m) => {
+      if (m.type() === 'error' && /Refused to apply inline style/.test(m.text())) {
+        rifiuti.push(m.text());
+      }
+    });
+
+    await page.goto('/');
+    const sfondoIniziale = await page.evaluate(
+      () => getComputedStyle(document.body).backgroundColor,
+    );
+    expect(sfondoIniziale).not.toBe('rgba(0, 0, 0, 0)');
+
+    // Il piede pagina espone gli stessi link a ogni larghezza: su mobile la
+    // navigazione della testata è dentro il menu a scomparsa.
+    for (const href of ['/la-struttura', '/contatti', '/equipe']) {
+      const link = page.locator(`footer a[href="${href}"]`).first();
+      await link.scrollIntoViewIfNeeded();
+      await link.click();
+      await page.waitForURL(new RegExp(`${href}/?$`));
+      await expect
+        .poll(() => page.evaluate(() => document.styleSheets.length), { timeout: 5000 })
+        .toBeGreaterThan(0);
+      const sfondo = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+      expect(sfondo, `sfondo del body dopo la navigazione a ${href}`).toBe(sfondoIniziale);
+    }
+    expect(rifiuti, 'la CSP non deve rifiutare gli stili').toEqual([]);
+  });
+
+  test('il marchio ufficiale è quello del kit e rispetta la misura minima', async ({ page }) => {
+    await page.goto('/');
+    // Lo sprite definisce il lockup una volta sola; header e piede lo richiamano.
+    await expect(page.locator('#marchio-lockup')).toHaveCount(1);
+    const logo = page.locator('header a[href="/"] svg').first();
+    const box = await logo.boundingBox();
+    // Il kit non ammette il lockup sotto i 140 px di larghezza.
+    expect(box!.width).toBeGreaterThanOrEqual(140);
+  });
+});
+
 test.describe('SEO e GEO', () => {
   test('JSON-LD valido e canonical coerente', async ({ page }) => {
     await page.goto('/pronto-soccorso');

@@ -15,7 +15,13 @@ export default defineConfig({
   trailingSlash: 'never',
   build: {
     format: 'file', // /servizi/chirurgia.html → URL /servizi/chirurgia (senza slash finale)
-    inlineStylesheets: 'always', // CSS critico inline: una richiesta in meno sul percorso LCP
+    // Foglio di stile esterno, non inline. Con la CSP nativa Astro calcola l'hash
+    // dello <style> pagina per pagina: dopo una navigazione lato client del
+    // ClientRouter resta in vigore la CSP del documento iniziale, che non
+    // contiene l'hash della pagina di arrivo, e il browser rifiuta gli stili
+    // lasciando la pagina senza formattazione. Un file esterno ricade su
+    // 'self', vale per tutte le pagine e viene messo in cache una volta sola.
+    inlineStylesheets: 'never',
   },
   compressHTML: true,
   markdown: {
