@@ -6,11 +6,12 @@ SRC = pathlib.Path('/home/user/IlsuperteamAi/brand/segreteria-brave')
 OUT = pathlib.Path(sys.argv[1])
 
 PARTS = [
-    ('I',   'Il marchio',            'Cinque proposte, architettura di marca, matrice di confronto sui vincoli reali.', '01-marchio.html'),
+    ('I',   'Il marchio',            'Cinque proposte, rosa ristretta a due, e il mandato per la ricerca di anteriorit\u00e0.', '01-marchio.html'),
     ('II',  'Storytelling e posizionamento', 'Il racconto di fondazione, il manifesto, i pitch, il copione della demo, le obiezioni.', '02-storytelling.html'),
-    ('III', 'Strategia di marketing', 'Segmenti, architettura d’offerta, prezzo, funnel, canali, novanta giorni, rischi.', '03-strategia-marketing.html'),
+    ('III', 'Strategia di marketing', 'Quattro segmenti, offerta, il prezzo reale detto in demo, funnel, novanta giorni, rischi.', '03-strategia-marketing.html'),
     ('IV',  'La sezione sul sito',    'Il sistema di lead generation: cinque punti di contatto e l’anteprima della pagina.', '05-sezione-sito-preview.html'),
-    ('V',   'Piano di comunicazione', 'Otto settimane su quattro canali, calendario giorno per giorno, contenuti pronti.', '04-piano-editoriale.html'),
+    ('V',   'Piano di comunicazione', 'Quattro fasi su quattro canali, la materia prima raccolta in demo, contenuti pronti.', '04-piano-editoriale.html'),
+    ('VI',  'L\u2019ascolto delle call',   'Sedici call riascoltate: dolori, domande, prezzi, e le decisioni prese con Icarus.', '06-ascolto-call.html'),
 ]
 
 styles, body = [], []
@@ -165,7 +166,9 @@ section + .concept {{ break-before: auto; }}
 .arch, .script, .prosc, .steps, .tablewrap, .reco, .lock, .apps, .c-grid,
 .payoffs, .modes, .beat, .pitch, .obj > div, .lex, .yt, .post, .rules,
 .pillars, .fasi, .kpigrid, .seg, .vtable, .stage, .chan > div, .risk > div,
-.metr, .phase90, .funnel, .note, .dlg, .figure, .tp > div, .qual {{ break-inside: avoid; }}
+.metr, .phase90, .funnel, .note, .dlg, .figure, .tp > div, .qual,
+.src > div, .theme > div, .verd > div, .doubt > div, .act > div, .qs > div,
+.dec > div, .raw > div, .risk > div, .brief > div, .res3 > div, .q {{ break-inside: avoid; }}
 .calwrap tr, .vtable tr, .tablewrap tr {{ break-inside: avoid; }}
 .calwrap thead {{ display: table-header-group; }}
 
@@ -220,10 +223,10 @@ h2 {{ font-size: 2rem !important; }}
   <div>
     <h1>Segreteria<br>Brave</h1>
     <p class="csub">Dossier di marca e di lancio</p>
-    <p class="cline">La prima segreteria virtuale dedicata esclusivamente alla clinica veterinaria. Il prodotto si chiama Segreteria Brave. La voce che risponde al telefono si chiama <strong style="color:#E7EFED">Giulia</strong>.</p>
+    <p class="cline">La prima segreteria virtuale dedicata esclusivamente alla clinica veterinaria. Il prodotto si chiama <strong style="color:#E7EFED">Segreteria Brave</strong>. La voce che risponde al telefono la battezza ogni clinica.</p>
   </div>
   <div class="cfoot">
-    <span>Documento di lavoro &middot; versione 1</span>
+    <span>Documento di lavoro &middot; versione 2 &middot; rivista sulle call</span>
     <span>Settembre 2026</span>
   </div>
 </div>
@@ -231,22 +234,22 @@ h2 {{ font-size: 2rem !important; }}
 <div class="wrap toc">
   <h2>Che cosa c'&egrave; dentro.</h2>
 {toc_rows}
-  <p class="tnote"><strong>Una cosa da sapere prima di leggere:</strong> il marchio non &egrave; ancora scelto. La Parte I lascia cinque strade aperte, senza indicarne una: sono cinque scommesse diverse e la scelta &egrave; da fare insieme. Tutto il resto del dossier &egrave; costruito per reggere qualunque delle cinque venga validata. Il brand book definitivo &mdash; palette completa, scala tipografica, regole d'uso, lockup, kit social &mdash; si produce dopo quella scelta, e non prima.</p>
+  <p class="tnote"><strong>Che cosa &egrave; cambiato dalla versione 1:</strong> fra le due stesure sono state fatte <strong>cinque demo a veterinari veri</strong> e un allineamento in cui il team Icarus ha revisionato questi materiali riga per riga. La Parte VI, nuova, riporta tutto quello che &egrave; emerso, con i link al minuto esatto delle registrazioni. Le Parti I, III, IV e V sono state riviste di conseguenza e dichiarano ogni modifica. Due cose che qui dentro erano ipotesi adesso sono fatti, e due erano sbagliate: il modello di prezzo non &egrave; un canone, e l'argomento che converte non &egrave; sempre il fatturato.</p>
 </div>
 
 {''.join(body)}
 
 <div class="endpage">
   <div>
-    <h2>Le quattro decisioni<br>che sbloccano tutto.</h2>
+    <h2>Le quattro decisioni<br>che restano aperte.</h2>
     <div class="eq">
-      <div><b>1. Un numero da 1 a 5.</b><span>Va bene anche &laquo;l'1 con il calore del 2&raquo;: da l&igrave; deriviamo un ibrido in un secondo giro, senza ripartire da zero.</span></div>
-      <div><b>2. Giulia rester&agrave; l'unica voce?</b><span>Se un domani potr&agrave; esserci anche un'altra persona, il concept 02 va escluso adesso: cambia la scelta del marchio.</span></div>
-      <div><b>3. Il listino al cliente finale.</b><span>Canone, gettone di attivazione, differenza tra modalit&agrave; A e B, durata minima. Finch&eacute; non &egrave; fissato, nei materiali pubblici non compare nessuna cifra.</span></div>
-      <div><b>4. La documentazione di compliance.</b><span>Polizza, informativa, avviso in apertura di chiamata, conservazione delle registrazioni. In capo a Icarus Technology, da avere prima delle attivazioni e prima di pubblicare.</span></div>
+      <div><b>1. Che cosa promette l'apertura della pagina.</b><span>Il riconoscimento del chiamante dal gestionale &mdash; che era il titolo &mdash; non &egrave; confermato dal fornitore. La pagina &egrave; gi&agrave; stata riscritta su ci&ograve; che il servizio fa oggi, ma la scelta va ratificata insieme prima di pubblicare.</span></div>
+      <div><b>2. Il via libera alla ricerca di anteriorit&agrave;.</b><span>La rosa &egrave; ristretta a due segni e Icarus ha chiesto la verifica sui marchi registrati. Circa 350 euro per l'Italia, 520 per Italia e Unione Europea. Blocca tutto il resto del branding.</span></div>
+      <div><b>3. Il listino ufficiale al cliente finale.</b><span>I numeri esistono e sono stati detti in demo. Mancano durata minima, comportamento al superamento di un pacchetto minuti e ripartizione economica tra BVB e Icarus.</span></div>
+      <div><b>4. Il rapporto con la landing emergenze.</b><span>Due strumenti nostri rispondono allo stesso dolore e nessun materiale li tiene insieme. O si compongono in un'offerta sola, o si fanno concorrenza dentro la stessa clinica.</span></div>
     </div>
   </div>
-  <div class="esig">Segreteria Brave &middot; Brave Vet Business &times; Icarus Technology &middot; pilota attivo presso la struttura del dott. Matteo Rosso</div>
+  <div class="esig">Segreteria Brave &middot; powered by Icarus &middot; pilota attivo, cinque demo fatte, due kickoff a calendario</div>
 </div>
 
 </body>
