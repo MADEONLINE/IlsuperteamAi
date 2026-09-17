@@ -145,12 +145,24 @@ section{padding-block:clamp(40px,6vw,66px);border-top:1px solid var(--line)}
 footer{border-top:1px solid var(--line);padding-block:26px 44px}
 .foot{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center}
 :focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+
+/* decisioni */
+.dec{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.dec > div{background:var(--paper);padding:22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:start}
+.dec .st{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;padding:4px 8px;border-radius:2px;white-space:nowrap;margin-top:.25em}
+.dec .st--ok{color:var(--teal-deep);background:var(--teal-wash);border:1px solid var(--teal)}
+.dec .st--no{color:var(--alert);background:var(--signal-wash);border:1px solid var(--signal)}
+.dec .b{display:grid;gap:10px}
+.dec h3{font-size:1.1rem;line-height:1.25}
+.dec p{font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.dec .todo{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.03em;color:var(--teal-deep);border-top:1px dashed var(--line);padding-top:10px;line-height:1.6}
+@media (max-width:660px){.dec > div{grid-template-columns:1fr;gap:12px}.dec .st{justify-self:start;margin-top:0}}
 </style>
 
 <header class="top">
   <div class="wrap top-in">
     <div class="bvb"><i class="pep"></i> SEGRETERIA BRAVE <span class="mono">ascolto delle call · icarus × bvb</span></div>
-    <div class="mono">14 call · 25 giu → 17 set 2026</div>
+    <div class="mono">16 call · 25 giu → 17 set 2026</div>
   </div>
 </header>
 
@@ -159,19 +171,122 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
   <div class="hero">
     <div class="kick">Quello che abbiamo sentito davvero</div>
     <h1>I veterinari<br>non ci hanno<br>chiesto quello<br>che pensavamo.</h1>
-    <p class="lede">Quattro demo integrali con Icarus, cinque call nostre con gli stessi veterinari e quattro call di partnership, riascoltate riga per riga. Il problema che raccontiamo nei materiali — il telefono che squilla a vuoto — è confermato da tutti. Ma <strong>non è il canale che li sta uccidendo</strong>, il prezzo non funziona come lo abbiamo scritto, e una delle fondamenta dell'architettura di marca non regge alla prova dei fatti.</p>
+    <p class="lede">Cinque demo integrali con Icarus, cinque call nostre con gli stessi veterinari e cinque call di partnership, riascoltate riga per riga. Il problema che raccontiamo nei materiali — il telefono che squilla a vuoto — è confermato da tutti. Ma <strong>non è il canale che li sta uccidendo</strong>, il prezzo non funziona come lo abbiamo scritto, e una delle fondamenta dell'architettura di marca non regge alla prova dei fatti.</p>
     <p class="lede">Le call fatte da noi, senza Icarus in stanza, dicono una cosa in più: <strong>non siamo stati noi a proporre la segreteria.</strong> Ce l'hanno chiesta loro, mesi prima del lancio. E uno di loro ha già calcolato quanto risparmia licenziando una figura.</p>
     <p class="lede">La demo di oggi con la Clinica Valdinievole — quarantacinque veterinari, picchi di mille chiamate al giorno — aggiunge l'ultima cosa che mancava: <strong>esiste una taglia di cliente per cui questo non è un miglioramento ma un incendio da spegnere</strong>, e per cui quasi tutto quello che abbiamo scritto va ridimensionato o riscritto.</p>
+    <div class="note" style="margin-top:14px">
+      <p class="small"><strong>Aggiornamento del 17 settembre, sera.</strong> Dopo la quinta demo, il team Icarus ha rivisto i nostri materiali insieme a noi. Otto cose sono state decise, e il dubbio che qui apriva tutto — il nome Giulia — ha ricevuto risposta. <strong>La sezione che segue viene prima di tutto il resto</strong>: quello che c'è dopo resta valido, ma va letto sapendo cosa è già chiuso.</p>
+    </div>
     <div class="note note--w" style="margin-top:6px">
       <p class="small"><strong>Una premessa metodologica.</strong> Tutto ciò che segue viene dalle trascrizioni Fireflies, con link al minuto esatto. Dove un'affermazione è un'impressione mia e non una frase detta in call, è marcata come tale. I numeri commerciali riportati sono quelli pronunciati da Icarus in demo: vanno confermati con loro prima di finire in qualunque materiale.</p>
     </div>
   </div>
 
+  <!-- ===== DECISIONI ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">L'allineamento con Icarus · 17 settembre, 17:45</div>
+      <h2>Otto decisioni prese sui nostri materiali.</h2>
+      <p class="lede">Questa call cambia lo stato del documento. Non è più un elenco di dubbi da portare a Icarus: <strong>a metà di quei dubbi Icarus ha già risposto</strong>, punto per punto, guardando la pagina insieme. Qui sotto cosa è deciso e cosa resta da fare. Il resto del report tiene, ma va letto sapendo questo.</p>
+    </div>
+
+    <div class="dec">
+      <div>
+        <span class="st st--no">Chiuso · sfavorevole</span>
+        <span class="b">
+          <h3>Giulia non è il nome del prodotto. È un esempio, e va tolto dai materiali.</h3>
+          <p>La risposta al dubbio 1 è arrivata senza che dovessimo chiederla. Icarus ha un proprio nome di prodotto — <strong>Jenny</strong> — e <em>«Jenny cambia nome»</em> a ogni cliente (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=380">06:20</a>). Alla domanda se si possa imporre Giulia a tutti, la risposta è stata prima «possiamo decidere che rimanga Giulia per tutti quanti» e poi, concretamente: <em>«visto che comunque cambierà per ogni cliente, io lo eviterei. Giulia lo chiamiamo fra di noi, per fare esempio»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=2302">38:22</a>).</p>
+          <p>La ragione non è tecnica ma umana, e in call è stata detta ridendo: c'è chi ha un'ex moglie che si chiama Giulia e non vuole sentirsela rispondere al telefono. È anche emerso che <strong>sono tutte voci femminili</strong> e che una maschile sarebbe da prevedere.</p>
+          <p class="todo">→ Il livello «voce» dell'architettura di marca si riduce a due: garanzia (BVB × Icarus) e prodotto (Segreteria Brave). Giulia resta come <em>personaggio esemplificativo</em> nei materiali, dichiarato tale. Il concept di logo costruito sulla G decade.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="st st--ok">Deciso</span>
+        <span class="b">
+          <h3>Il lockup è «Segreteria Brave · Powered by Icarus».</h3>
+          <p>Roberta: il nome <em>«è perfetto»</em>, ma va dichiarata anche la competenza software. <em>«Segreteria Brave powered by Icarus»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=261">04:21</a>). Marta ha accettato in call, precisando che Icarus è già sempre nominata a voce con i clienti.</p>
+          <p class="todo">→ Chiude anche il verdetto sulla coerenza con quello che a luglio abbiamo detto a Zanini: non ci presentiamo più come produttori. Il lockup va disegnato insieme al marchio, non aggiunto dopo.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="st st--no">Da rifare</span>
+        <span class="b">
+          <h3>Il calcolatore chiede dati che i veterinari non hanno.</h3>
+          <p>Carlo è stato netto: <em>«la maggior parte non ha o non è in grado di rispondere a quei dati, nemmeno ragionandoci»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=543">09:03</a>). E Roberta: se per usarlo devo prima recuperare i numeri dal centralino, il calcolatore <strong>perde l'immediatezza</strong>, che è tutta la sua ragione di esistere.</p>
+          <p>Il nuovo impianto concordato: <strong>un solo dato inserito</strong> (chiamate al giorno stimate, più i giorni di apertura), <strong>la percentuale di perse la mettiamo noi</strong> — circa il 20% su dati Icarus — e la <strong>durata media fissa a 2–2,5 minuti</strong>. Da lì escono due cifre invece di una: il fatturato mancato <em>e</em> il costo stimato del servizio, che è molto più basso.</p>
+          <p>Un numero detto in call che vale la pena tenere: in alcuni centri medici hanno trovato <strong>il 60-70% delle chiamate in entrata perse</strong> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=844">14:04</a>).</p>
+          <p class="todo">→ Conferma e supera l'azione 05 di questo documento. Da rifare prima della pubblicazione.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="st st--no">Da rifare</span>
+        <span class="b">
+          <h3>Non tutti vogliono più fatturato. Alcuni vogliono meno rumore.</h3>
+          <p>È il ragionamento più fine emerso dall'allineamento, e viene dalle demo: <em>«non tutti sono estremamente concentrati sul fatturato in più che potrebbe derivare dal recupero delle chiamate perse»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=430">07:10</a>). Il caso citato è Viglietti: unico veterinario del posto, <em>«andare a prendere anche altro lavoro gli veniva l'angoscia»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=497">08:17</a>).</p>
+          <p>La pagina oggi vende una cosa sola — recuperi il fatturato perso — e a una parte del mercato vende <strong>esattamente ciò che teme</strong>. Roberta lo ha detto con una formula da tenere: non è solo lavoro in più, è <em>la qualità del lavoro che cambia</em>.</p>
+          <p class="todo">→ Due argomenti affiancati, non uno: «recuperi quello che perdi» per chi ha capienza, «ti togli il telefono di dosso» per chi è saturo. Il campo del form che li distingue ce l'abbiamo già: la taglia della struttura.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="st st--no">Da riscrivere</span>
+        <span class="b">
+          <h3>La quarta battuta del copione va tolta. È parere clinico.</h3>
+          <p>Il momento in cui Giulia dice che «se il prurito non cede è meglio anticipare il controllo» è stato fermato in call: <em>«per onestà ti dico che noi queste cose qua le evitiamo, perché è tutta la parte clinica»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=932">15:32</a>), e Carlo ha aggiunto che è importante evitarlo anche per noi. Il motivo pratico citato: <strong>le assicurazioni sugli animali</strong>.</p>
+          <p>La sostituzione è già stata dettata da Roberta, ed è più forte dell'originale perché è vera: Giulia può <strong>anticipare l'appuntamento, verificare se c'è uno slot precedente, confermarlo, aggiungere la nota per il medico e aprire il ticket</strong>, così che il veterinario trovi a portale che quel cane, nonostante i farmaci, non ha risolto (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=967">16:07</a>).</p>
+          <p class="todo">→ Conferma il verdetto «il copione fa dire a Giulia cose che Giulia non dice». La riscrittura è autorizzata e specifica: si applica subito.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="st st--no">Da riscrivere</span>
+        <span class="b">
+          <h3>Le due modalità non sono serie A e serie B.</h3>
+          <p>Osservazione di Roberta sulla pagina: così com'è, <em>«possiamo dare l'idea che se ce l'hai con Snoots è di serie A, se è svincolato da Snoots è di serie B»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=1239">20:39</a>). La riformulazione proposta: <strong>«si configura in base agli strumenti che hai»</strong> — modalità indipendente e modalità con Snoots — con l'accento sulle <em>funzionalità</em>, che ci sono in entrambi i casi.</p>
+          <p>Marta ha chiuso così: essere trasversali in pagina, e <em>«in trattativa tirare fuori la carta della connessione»</em>. È la soluzione giusta anche commercialmente, perché il vantaggio di Snoots è la semplicità, non una funzione in più.</p>
+          <p class="todo">→ Riscrittura della sezione offerta della pagina. Sparisce la modalità «consigliata» evidenziata.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="st st--no">Vincolo di legge</span>
+        <span class="b">
+          <h3>L'AI Act obbliga la voce a dichiararsi. Non è più una scelta editoriale.</h3>
+          <p>Roberta: dal 2 agosto è in vigore l'AI Act, <em>«se usiamo un agente vocale si deve presentare e dire che è un assistente virtuale»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=1545">25:45</a>). La FAQ «i miei clienti capiranno che non è una persona?» non ha più una risposta sfumata: <strong>sì, glielo dice lei stessa all'inizio della chiamata</strong>.</p>
+          <p>Carlo ha confermato che i documenti e gli allegati contrattuali sono già pronti, e ha indicato due obblighi ulteriori: <strong>un'informativa stampabile da esporre in clinica</strong> e <strong>una sezione dedicata sul sito</strong>. Sui dati, la richiesta è di usare una <em>formula prudente</em> invece di affermare che restano della clinica (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=1965">32:45</a>), e di mettere il <strong>link alla privacy nel form</strong>.</p>
+          <p class="todo">→ Tre FAQ da riscrivere (identificazione, responsabilità per informazioni sbagliate, destinazione dei dati), più due elementi nuovi da chiedere a Icarus: l'informativa da esporre e il testo della sezione sito.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="st st--ok">Deciso</span>
+        <span class="b">
+          <h3>Il caso studio del dott. Rosso si usa, ma anonimizzato.</h3>
+          <p>Roberta lo raccomanda: <em>«il caso studio ha sempre molto appeal, è la controprova che la soluzione funziona quando qualcuno già la usa»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=1069">17:49</a>). Ma anonimizzato, per una ragione che non avevamo considerato: nell'ambiente lo riconoscono, e se un giorno cade la linea o qualcosa non funziona, <strong>qualcuno andrà a chiedere a lui come si trova</strong> — e il feedback negativo ricade sulla pagina (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=1098">18:18</a>).</p>
+          <p class="todo">→ La trascrizione inventata della pagina può essere sostituita con quella reale del pilota, anonimizzata nei nomi. È l'occasione per rendere vera la parte più esposta della pagina, e risolve lo spazio lasciato vuoto nella sezione del pilota.</p>
+        </span>
+      </div>
+    </div>
+
+    <div class="note note--w" style="margin-top:34px">
+      <p class="small"><strong>E una cosa che non era un dubbio e adesso lo è.</strong> In chiusura, Carlo: <em>«non esponiamoci troppo su cosa può fare l'agente AI con Snoots, perché sostanzialmente ancora non lo sappiamo. Il fatto anche di dire "ciao Salvatore": non sappiamo con che velocità l'agente può interrogare il database di Snoots, capire che quel numero è collegato a me e salutarmi per nome»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=2587">43:07</a>).</p>
+      <p class="small">Il riconoscimento dal numero di telefono è <strong>il titolo della nostra pagina</strong> — «Risponde sempre. Sa già chi sei» — ed è la scheda che abbiamo messo nella prima schermata. Oggi non è garantita, nemmeno come tempo di risposta. Non è un dettaglio da marcare «in arrivo»: <strong>è la promessa principale del prodotto</strong>, e va decisa prima di pubblicare. O si sposta l'accento su ciò che l'agente fa con certezza — risponde sempre, non perde nulla, scrive tutto — o si pubblica una pagina che promette una cosa che il fornitore non conferma.</p>
+    </div>
+
+    <div class="note" style="margin-top:22px">
+      <p class="small"><strong>Sul marchio, Icarus si è sbilanciata.</strong> Preferenza netta per il concept con <strong>la zampa e l'onda audio</strong>: <em>«la zampetta con il voice recorder è geniale»</em>, <em>«la zampetta richiama subito il mondo veterinario, gli altri sono meno veloci da intuire»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=2087">34:47</a>). Carlo la trova forse scontata ma efficace, e ricorda che i proprietari di animali scelgono ciò che richiama il pet — con l'obiezione giusta di Marta: <em>qui la zampa la vede il veterinario, non il proprietario</em>. La rosa si è ristretta a <strong>due concept</strong> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=2328">38:48</a>): la zampa e il punto di ascolto.</p>
+      <p class="small"><strong>Con una verifica obbligata prima di scegliere:</strong> due dei cinque concept assomigliano a marchi esistenti — uno a Whisper Flow, e la G di Giulia alla G stilizzata di Google (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=2143">35:43</a>). Roberta ha chiesto esplicitamente un controllo sui marchi registrati prima di affezionarsi a un segno (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=2386">39:46</a>). Va fatto adesso, non dopo.</p>
+    </div>
+  </section>
+
   <!-- ===== FONTI ===== -->
   <section>
     <div class="sec-head">
       <div class="kick">Le fonti</div>
-      <h2>Quattordici call: quattro demo Icarus e cinque nostre con gli stessi clienti.</h2>
+      <h2>Sedici call: cinque demo Icarus, cinque nostre, e l'allineamento di stasera.</h2>
       <p class="lede">A destra la durata. Le righe in colore sono le call in cui il veterinario parla del problema <em>senza avere un venditore davanti</em>: sono le più attendibili di tutte.</p>
     </div>
     <div class="src">
@@ -245,11 +360,20 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
         <span class="w"><b>Ugo Lotti × Icarus</b> <span style="color:var(--signal);display:inline"> — DEMO</span><span>Clinica Valdinievole: 45 veterinari, 15-20 infermieri, picchi di 1.000 chiamate al giorno</span></span>
         <span class="t">38 min</span>
       </div>
+      <div>
+        <span class="d">17 set</span>
+        <span class="w"><b>Martina Cozzi × Icarus</b> <span style="color:var(--signal);display:inline"> — DEMO</span><span>Manager di due cliniche, Ferrara e Trieste, non corporate · 19 persone ciascuna</span></span>
+        <span class="t">35 min</span>
+      </div>
+      <div style="background:var(--signal-wash)">
+        <span class="d">17 set</span>
+        <span class="w"><b>Allineamento comunicazione segreteria Brave</b> <span style="color:var(--signal);display:inline"> — DECISIONI</span><span>Marta, Massimo, Carlo Usai, Salvatore, Roberta · revisione punto per punto dei nostri materiali</span></span>
+        <span class="t">47 min</span>
+      </div>
     </div>
     <p class="small" style="margin-top:16px;color:var(--muted)">Non in Fireflies: la call Icarus × Snoots del 2 settembre e quella con il dott. Rosso del 4 settembre (coperta da Read.ai). Se servono, vanno recuperate da lì. Cercate e scartate perché non toccano la segreteria: Brunori-Ronga, Dario Ferrari, Luca Buonemani, Cli Vet Mercurio, Vantellini, Trevisan, Sinigaglia.</p>
-    <div class="note note--w" style="margin-top:18px">
-      <p class="small"><strong>Una demo è ancora in corso mentre scrivo.</strong> A calendario, oggi 17 settembre dalle 17:00 alle 17:45, c'è <strong>Martina Cozzi × Icarus Technology</strong>: è la quinta demo e non è ancora in Fireflies. Di Martina Cozzi abbiamo per ora solo l'audit del 30 giugno, riportato sopra. Appena la trascrizione è disponibile il report va riaperto su quel punto — vale la pena, perché è l'unico caso <em>multi-struttura</em> del gruppo.</p>
-      <p class="small">Attenzione anche a un secondo appuntamento di oggi: <strong>«Allineamento comunicazione segreteria Brave», 17:45–18:30, con Icarus e Massimo.</strong> È la riunione in cui questo documento serve.</p>
+    <div class="note" style="margin-top:18px">
+      <p class="small"><strong>Il quadro è completo.</strong> Le due call che mancavano — la demo con Martina Cozzi e l'allineamento con il team Icarus — sono state recuperate e lette per intero. L'allineamento è la più importante del corpus: <strong>è la call in cui i nostri materiali sono stati rivisti riga per riga con Icarus</strong>, e in cui metà dei dubbi aperti in questo documento ha ricevuto una risposta.</p>
     </div>
   </section>
 
@@ -338,11 +462,50 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
     </div>
   </section>
 
+  <!-- ===== MARTINA ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">La quinta demo</div>
+      <h2>Martina Cozzi compra due configurazioni diverse<br>per due cliniche sue.</h2>
+      <p class="lede">Manager di due strutture non corporate: una nella provincia di Ferrara, in un paese di mille abitanti, una a Trieste, in città. Diciannove persone ciascuna, una sola segretaria. È l'unico caso multi-struttura del gruppo, e si è segmentata da sola in tempo reale.</p>
+    </div>
+
+    <div class="q q--hot">
+      <p>«C'è sempre il messaggio su WhatsApp della clinica che dice: <strong>ho provato a chiamare ma non mi ha risposto nessuno.</strong> E da un anno che ricevo questi messaggi.»</p>
+      <span class="att">Martina Cozzi · <a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=813">13:33</a></span>
+    </div>
+    <p class="small" style="max-width:68ch;margin-top:4px">Terza conferma indipendente, dopo Viglietti e Valdinievole, che <strong>WhatsApp è il canale dove finisce la chiamata che non passa</strong>. Tre veterinari su cinque lo dicono spontaneamente, con le stesse parole e la stessa durata: «da un anno». Non è un canale da aggiungere al prodotto: è il sintomo che vende il prodotto.</p>
+
+    <div class="q" style="margin-top:30px">
+      <p>«Per Ferrara potrei immaginare Icarus per le chiamate perse, quindi <strong>non una sostituzione di segretaria</strong>. Invece Trieste è un po' più cittadina, quindi anche per le notti secondo me quello potrebbe essere più fattibile.»</p>
+      <span class="att">Martina Cozzi · <a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=830">13:50</a></span>
+    </div>
+    <p class="small" style="max-width:68ch;margin-top:4px">Due cliniche, due modalità, stesso proprietario. Icarus ha poi dato la regola di vendita che ci mancava: <strong>si parte sempre dal recupero delle chiamate perse</strong>, perché <em>«tranquillizza molto chi lavora in segreteria: sai che se anche lasci squillare, ci sarà comunque qualcuno che risponde»</em> (<a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=1035">17:15</a>). Il primo risponditore viene dopo, se serve.</p>
+
+    <div class="q q--hot" style="margin-top:30px">
+      <p>«Se mi chiedono come sta il mio cane che ho ricoverato ieri notte, <strong>io non voglio che vengano estrapolate notizie da Snoots.</strong> Voglio che gli venga detto: il veterinario la chiamerà il prima possibile dopo la rivalutazione delle degenze.»</p>
+      <span class="att">Martina Cozzi · <a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=609">10:09</a></span>
+    </div>
+    <p class="small" style="max-width:68ch;margin-top:4px">È la prima volta che un cliente <strong>rifiuta esplicitamente la funzione che raccontiamo come il nostro vantaggio</strong>. Leggere il gestionale e rispondere al proprietario, per lei, è un rischio clinico e relazionale — vuole che quella chiamata diventi un task per il medico, non una risposta automatica. E subito dopo dice qual è per lei il valore: <em>«la cosa fondamentale è l'annotare tutto e l'unione con Snoots»</em> (<a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=1815">30:15</a>). La connessione le serve <strong>per scrivere dentro Snoots, non per leggerne fuori</strong>. È l'esatto opposto di come la vendiamo.</p>
+
+    <div class="note note--w" style="margin-top:30px">
+      <p class="small"><strong>Il concorrente non è un altro software: è un'assunzione già fatta.</strong> Martina ha appena assunto la settima infermiera, anche perché <em>«nei momenti bui risponde a quelle telefonate che puntualmente vengono perse»</em>. Lo dice lei stessa: <em>«potrebbe essere proprio l'unica cosa che mi cozza»</em> (<a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=1754">29:14</a>). Poi ci ragiona ad alta voce e si risponde: <em>«questa è proprio una cosa in più che snellisce le telefonate in generale»</em>. Nessun materiale nostro affronta il caso — molto comune — di chi <strong>ha già speso per risolvere il problema a mano</strong>.</p>
+    </div>
+
+    <div class="note" style="margin-top:22px">
+      <p class="small"><strong>Due cose da rubare per la comunicazione.</strong> Primo: l'agente si presenta come <em>«Ciao, sono Anna, l'assistente virtuale di Icarus»</em> (<a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=1170">19:30</a>) — quarto nome diverso sentito in cinque demo, e conferma che l'identificazione come assistente virtuale è già nel prodotto. Secondo, il momento più divertente e più veterinario di tutto il corpus: i nomi storpiati dei farmaci. Martina cita <strong>«elettrospirosi»</strong> per leptospirosi e <strong>«simpatica»</strong> per Simparica (<a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=1302">21:42</a>). Icarus racconta di averci lavorato <strong>quasi due anni</strong>: l'agente riconosce il farmaco incrociando il numero del chiamante con lo storico delle ricette. È una funzione difficilissima, immediatamente comprensibile e con una battuta già pronta — e nei nostri materiali non esiste.</p>
+    </div>
+
+    <div class="note note--w" style="margin-top:22px">
+      <p class="small"><strong>La segretaria decide.</strong> Martina: <em>«vorrei parlare con la mia segretaria ed eventualmente fare la call con lei, per avere un riscontro suo»</em> (<a href="https://app.fireflies.ai/view/01M25SD06DQ69FJXGMSEW8SAFQ?t=1513">25:13</a>). Valdinievole aveva detto la stessa cosa. E nell'allineamento Roberta lo ha portato alle conseguenze: <strong>«se passa il messaggio che è una soluzione per togliere il lavoro delle segretarie, avremo la guerra — perché poi sono le segretarie che lo usano»</strong>. Tutti i nostri materiali parlano al titolare. Manca del tutto il pezzo che parla a chi il prodotto lo userà ogni giorno, e che può affossarlo.</p>
+    </div>
+  </section>
+
   <!-- ===== I DOLORI ===== -->
   <section>
     <div class="sec-head">
       <div class="kick">Il dolore, con parole loro</div>
-      <h2>Cinque cose che tornano in tutte e quattro le demo.</h2>
+      <h2>Cinque cose che tornano in tutte e cinque le demo.</h2>
       <p class="lede">Nessuna è stata suggerita: sono uscite spontaneamente. Le prime due le avevamo previste. Le altre tre no.</p>
     </div>
 
@@ -449,14 +612,19 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
     <div class="nums">
       <div><span class="l">Costo al minuto</span><span class="v">0,38 → 0,34</span><span class="d">38 cent i primi 500 minuti, poi 36, poi 34. Decresce sul volume.</span></div>
       <div><span class="l">Contemporaneità</span><span class="v">15 € / mese</span><span class="d">Per due chiamate insieme. 30 € per tre. Si paga a scaglioni.</span></div>
-      <div><span class="l">Setup iniziale</span><span class="v">~800 €</span><span class="d">Una tantum, variabile secondo la complessità della configurazione.</span></div>
-      <div><span class="l">Studio con un veterinario</span><span class="v">57 → 114 €</span><span class="d">Stima Icarus: 150-300 minuti al mese. Ambulatorio strutturato fino a 190 €.</span></div>
+      <div><span class="l">Setup iniziale</span><span class="v">800 → 1.000 €</span><span class="d">Una tantum. 800 detto a Viglietti, «intorno ai mille» a Martina Cozzi.</span></div>
+      <div><span class="l">Studio con un veterinario</span><span class="v">57 → 114 €</span><span class="d">Stima Icarus: 150-300 minuti al mese.</span></div>
+      <div><span class="l">Ambulatorio strutturato</span><span class="v">190 → 300 €</span><span class="d">500 minuti al mese ≈ 190 €, 1.000 minuti ≈ 300 €. Detto a Martina Cozzi.</span></div>
+      <div><span class="l">Struttura grande</span><span class="v">da trattare</span><span class="d">Valdinievole: ~3.000 minuti al mese stimati da Icarus, con costo al minuto da abbassare.</span></div>
     </div>
     <div class="note note--w" style="margin-top:24px">
-      <p class="small"><strong>Perché questo cambia la comunicazione.</strong> Un canone si comunica («ti costa quanto una visita e mezza al mese»). Un costo al minuto no: il veterinario non sa quanti minuti fa, e infatti Zanini ha chiesto <em>«questo come lo facciamo a capire?»</em>. Il modello a consumo sposta la conversazione sul <strong>traffico</strong> — un dato che quasi nessuno ha. Il calcolatore della pagina, che oggi stima il fatturato perso, potrebbe fare anche l'altro mezzo giro: stimare il costo del servizio sulle stesse chiamate. Sarebbe la risposta automatica alla domanda 12.</p>
+      <p class="small"><strong>Perché questo cambia la comunicazione.</strong> Un canone si comunica («ti costa quanto una visita e mezza al mese»). Un costo al minuto no: il veterinario non sa quanti minuti fa, e infatti Zanini ha chiesto <em>«questo come lo facciamo a capire?»</em>. Il modello a consumo sposta la conversazione sul <strong>traffico</strong> — un dato che quasi nessuno ha. Il calcolatore della pagina, che oggi stima il fatturato perso, potrebbe fare anche l'altro mezzo giro: stimare il costo del servizio sulle stesse chiamate. Sarebbe la risposta automatica alla domanda 12. <strong>Nell'allineamento di stasera Carlo ha proposto esattamente questo</strong>, con la durata media fissata a 2-2,5 minuti: la doppia cifra affiancata — quanto perdi, quanto spendi — è ora una decisione presa, non una proposta.</p>
     </div>
     <div class="note note--w" style="margin-top:20px">
       <p class="small"><strong>Attenzione al dato che gira in demo.</strong> Le «2.050 chiamate e 60 ore risparmiate ad agosto» sono di un centro di <strong>medici di base</strong>, non di una clinica veterinaria — lo precisa Roberta in call (<a href="https://app.fireflies.ai/view/01M25SD06EE2DF0FCD8DPNADT2?t=1529">25:29</a>). Usarlo nei materiali vet senza dirlo sarebbe scorretto e, se qualcuno lo scoprisse, molto costoso.</p>
+    </div>
+    <div class="note" style="margin-top:20px">
+      <p class="small"><strong>Un listino a scaglioni è già nella testa di Icarus.</strong> Su Valdinievole, Carlo: <em>«ci fanno almeno 3.000 minuti al mese, quindi possiamo anche abbassare un pochino il costo al minuto»</em>, e propone <em>«un'offerta dedicata»</em> (<a href="https://app.fireflies.ai/view/01M2J27T5K6ETXZ4CV8RCW8JGA?t=2667">44:27</a>). Significa che la struttura grande non è un cliente più caro: è un cliente con un altro listino. Se lo diciamo in pagina — «per le strutture oltre un certo volume l'offerta è dedicata» — smettiamo di far sentire fuori posto il segmento più redditizio.</p>
     </div>
   </section>
 
@@ -487,6 +655,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
           <li><b>«Adesso è un'emergenza»</b> — Valdinievole, sul telefono</li>
           <li><b>«Noi veterinari siamo una nicchia: è chiaro che è qualcosa che va creata»</b> — Valdinievole</li>
           <li><b>«Se io riuscissi a gestire una terza clinica con l'AI, allora ho ottenuto quello che volevo»</b> — Martina Cozzi</li>
+          <li><b>«Elettrospirosi» e «simpatica»</b> — Martina Cozzi, i farmaci come li pronunciano i clienti</li>
         </ul>
       </div>
       <div>
@@ -497,6 +666,8 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
           <li><b>«Quando squilla, basta abbassare la suoneria: c'è comunque qualcuno che risponde»</b></li>
           <li><b>«Tante persone ci parlano come se fosse una persona: la ringraziano, signorina lei è molto gentile»</b> — prova sociale già pronta</li>
           <li><b>«In questo centro il telefono non squilla proprio più»</b></li>
+          <li><b>«Non è solo lavoro in più: è la qualità del lavoro che cambia»</b> — Roberta, la formula che sostituisce il nostro «recuperi fatturato»</li>
+          <li><b>«Se passa il messaggio che toglie lavoro alle segretarie, avremo la guerra»</b> — Roberta, sul vero rischio di adozione</li>
         </ul>
       </div>
     </div>
@@ -559,11 +730,11 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
     </div>
     <div class="doubt">
       <div class="doubt--max">
-        <span class="idx">Dubbio 1 · struttura</span>
+        <span class="idx" style="color:var(--teal-deep)">Dubbio 1 · struttura · RISOLTO IL 17 SETTEMBRE</span>
         <h3>«Giulia» non è il nome del prodotto. È il nome che ha scelto il dott. Rosso.</h3>
         <p>In demo, a Viglietti, Salvatore dice testualmente: <em>«Questo numero risponde, lei ha il nome che gli vuoi dare, lo scegli tu»</em> (<a href="https://app.fireflies.ai/view/01M25SD06EE2DF0FCD8DPNADT2?t=966">16:06</a>). E infatti nella demo a Zanini l'agente si presenta come <strong>Anna</strong>, in una trascrizione mostrata a video come <strong>Sara</strong>, e solo negli agenti derivati da Rosso come Giulia.</p>
         <p>Tutta l'architettura che abbiamo costruito — prodotto Segreteria Brave, voce Giulia, «l'unico nome che esce dalla clinica» — poggia su un nome che oggi è <strong>una variabile di configurazione</strong>, non un asset di marca. Se ogni clinica battezza la propria voce, Giulia non è la nostra persona: è la persona di Carmagnola.</p>
-        <p class="imp">→ Impatto: riguarda il marchio (il concept 02 è interamente costruito sulla G), il manifesto, il piano editoriale e il reveal. Va deciso con Icarus prima di qualsiasi pubblicazione. Le due strade: <strong>Giulia come standard BVB</strong> — tutte le cliniche del nostro canale hanno la stessa voce, e diventa un marchio — oppure <strong>Giulia come esempio</strong>, e allora la comunicazione parla di «la voce della tua clinica, che chiami come vuoi». Sono due prodotti diversi, non due copy diversi.</p>
+        <p class="imp">→ <strong>Risposta avuta nell'allineamento di stasera: Giulia è un esempio.</strong> Icarus ha il proprio nome di prodotto (Jenny) e lo cambia a ogni cliente; la raccomandazione è stata di non imporlo. Vale la seconda strada: la comunicazione parla della voce della tua clinica, che chiami come vuoi. Il concept di logo costruito sulla G decade. Dettagli e citazioni nella sezione delle decisioni, in apertura.</p>
       </div>
 
       <div>
@@ -665,67 +836,92 @@ footer{border-top:1px solid var(--line);padding-block:26px 44px}
   <section>
     <div class="sec-head">
       <div class="kick">Cosa cambio nel piano</div>
-      <h2>Dodici modifiche concrete.</h2>
-      <p class="lede">Non le applico finché non mi dici quali. La prima dipende da una decisione che non è nostra da sola.</p>
+      <h2>Le modifiche, riordinate dopo l'allineamento.</h2>
+      <p class="lede">Dopo la call con Icarus l'ordine cambia: le prime cinque sono <strong>decise e da eseguire</strong>, non più da proporre. Resta aperta una sola domanda davvero bloccante, ed è la più scomoda. Non applico nulla finché non mi dici di procedere.</p>
     </div>
     <div class="act">
       <div>
         <span class="n">01</span>
-        <span class="c"><b>Chiedere a Icarus se Giulia è un nome imponibile.</b><span>È la domanda che sblocca o affonda metà dell'impianto di marca. Va nella mail di follow-up, prima di tutto il resto.</span></span>
+        <span class="c"><b>Decidere cosa promette la pagina, se non «sa già chi sei».</b><span>Icarus non conferma il riconoscimento dal numero via Snoots. È il titolo e la prima schermata. Nessun'altra cosa va toccata prima di questa.</span></span>
         <span class="w">Bloccante</span>
       </div>
       <div>
         <span class="n">02</span>
-        <span class="c"><b>Aggiungere WhatsApp al racconto, come problema e non come funzione.</b><span>Oggi non lo copriamo: dirlo noi per primi, con la data di arrivo, vale più che tacerlo e farcelo chiedere in ogni demo.</span></span>
-        <span class="w">Alta</span>
+        <span class="c"><b>Verifica marchi sui due concept rimasti, poi si sceglie.</b><span>Richiesta esplicita di Icarus. Due dei cinque assomigliano a segni esistenti. La rosa è zampa+onda o punto di ascolto; la G decade con Giulia.</span></span>
+        <span class="w">Bloccante</span>
       </div>
       <div>
         <span class="n">03</span>
-        <span class="c"><b>Marcare la modalità connessa come «in arrivo».</b><span>In pagina e nel dossier. Con il mese, appena Icarus lo dà.</span></span>
-        <span class="w">Alta</span>
+        <span class="c"><b>Rifare il calcolatore: un dato inserito, il resto lo mettiamo noi.</b><span>Chiamate stimate al giorno e giorni di apertura. Perse al 20%, durata 2-2,5 minuti. Due cifre in uscita: quanto perdi e quanto spendi.</span></span>
+        <span class="w">Decisa</span>
       </div>
       <div>
         <span class="n">04</span>
-        <span class="c"><b>Riscrivere le nove domande scoperte come FAQ.</b><span>Sono già ordinate per frequenza reale. Sei le chiude Icarus, tre le chiudiamo noi.</span></span>
-        <span class="w">Alta</span>
+        <span class="c"><b>Riscrivere la quarta battuta e le due modalità.</b><span>Niente parere clinico: Giulia anticipa, verifica lo slot, conferma, annota, apre il ticket. E le modalità diventano «si configura in base agli strumenti che hai».</span></span>
+        <span class="w">Decisa</span>
       </div>
       <div>
         <span class="n">05</span>
-        <span class="c"><b>Aggiungere al calcolatore la stima del costo.</b><span>Stesso input, due output: quanto perdi e quanto spenderesti. Risponde da sola alla domanda sul prezzo.</span></span>
-        <span class="w">Media</span>
+        <span class="c"><b>Aggiungere «Powered by Icarus» al lockup.</b><span>Deciso in call. Va disegnato insieme al marchio, non appiccicato dopo.</span></span>
+        <span class="w">Decisa</span>
       </div>
       <div>
         <span class="n">06</span>
-        <span class="c"><b>Comprimere la Fase 1 e togliere il no-show dalle promesse.</b><span>Sei giorni di semina in meno, una promessa non verificata in meno.</span></span>
-        <span class="w">Media</span>
+        <span class="c"><b>Riscrivere le tre FAQ legali e chiedere i due documenti.</b><span>Identificazione obbligatoria per AI Act, responsabilità, destinazione dei dati con formula prudente. Più informativa da esporre in clinica e sezione sito, da Icarus.</span></span>
+        <span class="w">Decisa</span>
       </div>
       <div>
         <span class="n">07</span>
-        <span class="c"><b>Sostituire il lessico scritto a tavolino con il loro.</b><span>«Non meno, meglio», «le segretarie vittime della mia segreteria», «in segreteria friggono» sono headline già pronte, e non le abbiamo scritte noi.</span></span>
-        <span class="w">Media</span>
+        <span class="c"><b>Sostituire la chiamata inventata con quella vera del pilota, anonimizzata.</b><span>Autorizzato in call. Rende vera la parte più esposta della pagina e riempie lo spazio lasciato bianco nella sezione del pilota.</span></span>
+        <span class="w">Decisa</span>
       </div>
       <div>
         <span class="n">08</span>
-        <span class="c"><b>Riscrivere l'apertura dello storytelling: ce l'hanno chiesta.</b><span>Il movimento 1 parte oggi dalla partnership. Deve partire dalla frase di Zanini del 22 luglio. Serve solo la sua autorizzazione a citarla.</span></span>
+        <span class="c"><b>Scrivere il pezzo che parla alla segretaria.</b><span>È lei che userà il prodotto e che può affossarlo, ed è lei che i clienti vogliono in call. Oggi tutti i materiali parlano solo al titolare.</span></span>
         <span class="w">Alta</span>
       </div>
       <div>
         <span class="n">09</span>
-        <span class="c"><b>Decidere il rapporto tra segreteria e landing emergenze.</b><span>Prima delle demo della settimana prossima. Due prodotti sullo stesso dolore, o si compongono o si tolgono i piedi dai piatti a vicenda.</span></span>
-        <span class="w">Bloccante</span>
+        <span class="c"><b>Aggiungere WhatsApp al racconto, come problema e non come funzione.</b><span>Oggi non lo copriamo: dirlo noi per primi, con la data di arrivo, vale più che tacerlo e farcelo chiedere in ogni demo.</span></span>
+        <span class="w">Alta</span>
       </div>
       <div>
         <span class="n">10</span>
-        <span class="c"><b>Chiedere a Icarus un ambiente dimostrativo veterinario.</b><span>Oggi la demo mostra ricette di medici di base. È la richiesta più veloce e più visibile: va nell'allineamento di stasera.</span></span>
-        <span class="w">Bloccante</span>
+        <span class="c"><b>Marcare la modalità connessa come «in arrivo».</b><span>In pagina e nel dossier. Con il mese, appena Icarus lo dà.</span></span>
+        <span class="w">Alta</span>
       </div>
       <div>
         <span class="n">11</span>
-        <span class="c"><b>Sdoppiare il calcolatore: studio e struttura.</b><span>Due preset, più il campo delle chiamate lasciate in attesa oltre cinque minuti. Senza, la clinica grande pensa che il prodotto non sia per lei.</span></span>
+        <span class="c"><b>Riscrivere le nove domande scoperte come FAQ.</b><span>Sono già ordinate per frequenza reale. Sei le chiude Icarus, tre le chiudiamo noi.</span></span>
         <span class="w">Alta</span>
       </div>
       <div>
         <span class="n">12</span>
+        <span class="c"><b>Comprimere la Fase 1 e togliere il no-show dalle promesse.</b><span>Sei giorni di semina in meno, una promessa non verificata in meno.</span></span>
+        <span class="w">Media</span>
+      </div>
+      <div>
+        <span class="n">13</span>
+        <span class="c"><b>Sostituire il lessico scritto a tavolino con il loro.</b><span>«Non meno, meglio», «le segretarie vittime della mia segreteria», «in segreteria friggono» sono headline già pronte, e non le abbiamo scritte noi.</span></span>
+        <span class="w">Media</span>
+      </div>
+      <div>
+        <span class="n">14</span>
+        <span class="c"><b>Riscrivere l'apertura dello storytelling: ce l'hanno chiesta.</b><span>Il movimento 1 parte oggi dalla partnership. Deve partire dalla frase di Zanini del 22 luglio. Serve solo la sua autorizzazione a citarla.</span></span>
+        <span class="w">Alta</span>
+      </div>
+      <div>
+        <span class="n">15</span>
+        <span class="c"><b>Decidere il rapporto tra segreteria e landing emergenze.</b><span>Prima delle demo della settimana prossima. Due prodotti sullo stesso dolore, o si compongono o si tolgono i piedi dai piatti a vicenda.</span></span>
+        <span class="w">Bloccante</span>
+      </div>
+      <div>
+        <span class="n">16</span>
+        <span class="c"><b>Chiedere a Icarus un ambiente dimostrativo veterinario.</b><span>Oggi la demo mostra ricette di medici di base. Nell'allineamento non è stato toccato: resta la richiesta più veloce e più visibile da fare a Icarus.</span></span>
+        <span class="w">Bloccante</span>
+      </div>
+      <div>
+        <span class="n">17</span>
         <span class="c"><b>Dichiarare il tetto per taglia, e aggiungere la terza modalità.</b><span>Trenta-quaranta per cento sulle strutture complesse, detto da noi. E la connessione al calendario in sola lettura, che oggi nei materiali non esiste.</span></span>
         <span class="w">Alta</span>
       </div>
