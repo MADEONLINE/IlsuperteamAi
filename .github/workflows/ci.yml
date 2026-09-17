@@ -19,6 +19,10 @@ on:
         description: 'Importa immagini: coppie nome=URL separate da spazio. Vuoto = salta'
         default: ''
         type: string
+      deploy:
+        description: 'Pubblica dalla CI invece di lasciar fare a Netlify (richiede i secret)'
+        default: false
+        type: boolean
 
 defaults:
   run:
@@ -65,14 +69,15 @@ jobs:
   # Deploy di anteprima su Netlify (progetto "anteprima-clinica-del-bosco").
   # Richiede due secret del repository: NETLIFY_AUTH_TOKEN (Netlify → User settings →
   # Personal access tokens) e NETLIFY_SITE_ID (id del progetto). Senza secret il job viene saltato.
-  # Netlify costruisce e pubblica da sé a ogni push (integrazione Git del progetto
-  # "anteprima-clinica-del-bosco"): questo job è solo una via di riserva, usata
-  # se un giorno si vorrà pubblicare dalla CI. Senza i secret non fa nulla —
-  # e in quel caso lo dichiara fallendo, invece di uscire verde: un deploy
-  # saltato che si presenta come riuscito è peggio di un deploy fallito.
+  # Netlify costruisce e pubblica da sé a ogni push, tramite l'integrazione Git del
+  # progetto "anteprima-clinica-del-bosco": normalmente questo job non serve e
+  # infatti non parte. Si accende solo spuntando "deploy" in "Run workflow", per
+  # pubblicare dalla CI. In quel caso, se i secret mancano, fallisce e lo dice:
+  # un deploy saltato che si presenta come riuscito è peggio di un deploy fallito
+  # — è già successo, e ha fatto riferire come online una versione che non lo era.
   anteprima-netlify:
     name: Deploy anteprima su Netlify (riserva)
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref != 'refs/heads/main')
+    if: github.event_name == 'workflow_dispatch' && inputs.deploy
     runs-on: ubuntu-latest
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
