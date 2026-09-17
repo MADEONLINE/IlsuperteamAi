@@ -65,8 +65,13 @@ jobs:
   # Deploy di anteprima su Netlify (progetto "anteprima-clinica-del-bosco").
   # Richiede due secret del repository: NETLIFY_AUTH_TOKEN (Netlify → User settings →
   # Personal access tokens) e NETLIFY_SITE_ID (id del progetto). Senza secret il job viene saltato.
+  # Netlify costruisce e pubblica da sé a ogni push (integrazione Git del progetto
+  # "anteprima-clinica-del-bosco"): questo job è solo una via di riserva, usata
+  # se un giorno si vorrà pubblicare dalla CI. Senza i secret non fa nulla —
+  # e in quel caso lo dichiara fallendo, invece di uscire verde: un deploy
+  # saltato che si presenta come riuscito è peggio di un deploy fallito.
   anteprima-netlify:
-    name: Deploy anteprima su Netlify
+    name: Deploy anteprima su Netlify (riserva)
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref != 'refs/heads/main')
     runs-on: ubuntu-latest
     env:
@@ -77,7 +82,12 @@ jobs:
       - name: Verifica secret
         id: secret
         run: |
-          if [ -n "$NETLIFY_AUTH_TOKEN" ] && [ -n "$NETLIFY_SITE_ID" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; echo "::warning::Secret NETLIFY_AUTH_TOKEN / NETLIFY_SITE_ID assenti: deploy saltato"; fi
+          if [ -n "$NETLIFY_AUTH_TOKEN" ] && [ -n "$NETLIFY_SITE_ID" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::Secret NETLIFY_AUTH_TOKEN / NETLIFY_SITE_ID assenti: da qui non è stato pubblicato nulla. Il sito viene comunque costruito da Netlify a ogni push; se vuoi la pubblicazione dalla CI aggiungi i due secret al repository."
+            exit 1
+          fi
       - uses: actions/setup-node@v4
         if: steps.secret.outputs.ok == 'true'
         with:
