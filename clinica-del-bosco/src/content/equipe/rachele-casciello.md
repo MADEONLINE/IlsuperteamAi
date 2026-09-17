@@ -5,9 +5,9 @@ ruolo: 'Medico veterinario · medicina interna'
 tipo: 'interno'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
-specializzazioni: ['Medicina interna', 'Medicina generale']
+numeroOrdine: '1824'
+provinciaOrdine: 'Napoli'
+specializzazioni: ['Medicina interna', 'Pronto soccorso']
 aree: ['medicina-interna-endocrinologia']
 formazione: ['Percorso GPCert in medicina interna (in corso)']
 lingue: ['italiano']

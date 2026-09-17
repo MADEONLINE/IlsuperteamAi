@@ -5,12 +5,18 @@ ruolo: 'Medico veterinario, socia fondatrice · animali esotici e non convenzion
 tipo: 'socio'
 socio: true
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
+numeroOrdine: '1607'
+provinciaOrdine: 'Napoli'
 specializzazioni:
   ['Medicina e chirurgia degli animali esotici', 'Conigli e piccoli mammiferi', 'Rettili e uccelli']
 aree: ['animali-esotici-e-conigli']
-formazione: ['Dottorato di ricerca (PhD)', 'Master in medicina degli animali non convenzionali']
+formazione:
+  [
+    'Laurea in Medicina veterinaria, 2008',
+    'Master in medicina degli animali non convenzionali',
+    'Dottorato di ricerca in clinica ostetrica',
+    'Specializzazione in patologia aviare',
+  ]
 lingue: ['italiano']
 scattoBrief: '52'
 ordine: 3

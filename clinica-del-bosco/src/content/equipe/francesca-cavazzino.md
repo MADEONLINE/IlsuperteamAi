@@ -5,8 +5,8 @@ ruolo: 'Medico veterinario · anestesia'
 tipo: 'interno'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
+numeroOrdine: '1708'
+provinciaOrdine: 'Napoli'
 specializzazioni: ['Anestesia e analgesia']
 aree: ['chirurgia']
 formazione: ['Percorso di residency in anestesia veterinaria']

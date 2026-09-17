@@ -5,13 +5,15 @@ ruolo: 'Medico veterinario, socio fondatore · anestesia e agopuntura'
 tipo: 'socio'
 socio: true
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
+numeroOrdine: '1174'
+provinciaOrdine: 'Napoli'
 specializzazioni: ['Anestesia e analgesia', 'Agopuntura veterinaria', 'Terapia del dolore']
 aree: ['terapia-del-dolore-agopuntura']
 formazione:
   [
-    'Dottorato di ricerca (PhD)',
+    'Laurea in Medicina veterinaria, 2001',
+    'Specializzazione in fisiopatologia della riproduzione',
+    'Dottorato di ricerca in anestesia degli animali',
     'Diploma in agopuntura veterinaria',
     'Lettore ufficiale CeLeMaSChe (displasia dell’anca e del gomito)',
   ]

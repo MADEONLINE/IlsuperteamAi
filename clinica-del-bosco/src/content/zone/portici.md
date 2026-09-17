@@ -2,7 +2,7 @@
 nome: 'Portici'
 nomeCompleto: 'Portici (NA)'
 descrizioneMeta: 'Veterinario a Portici aperto 24h: pronto soccorso h24 con medici in sede, TAC, chirurgia e terapia intensiva in Corso Umberto I, a pochi minuti da casa.'
-risposta: 'La Clinica Veterinaria del Bosco si trova a Portici, in Corso Umberto I 10, e serve tutta la città con pronto soccorso attivo 24 ore su 24, TAC in sede, chirurgia e terapia intensiva. Da qualunque quartiere di Portici, dal Granatello a Bellavista, si arriva in auto in 3–8 minuti. Il telefono unico, anche di notte, è 081 7763859.'
+risposta: 'La Clinica Veterinaria del Bosco si trova a Portici, in Corso Umberto I 12, e serve tutta la città con pronto soccorso attivo 24 ore su 24, TAC in sede, chirurgia e terapia intensiva. Da qualunque quartiere di Portici, dal Granatello a Bellavista, si arriva in auto in 3–8 minuti. Il telefono unico, anche di notte, è 081 7763859.'
 tempoAutoMinuti: [3, 8]
 distanzaKm: 1
 comeArrivare:
@@ -40,7 +40,7 @@ dataRevisione: 2026-09-10
 
 ## Perché a Portici conviene una clinica aperta 24 ore con la TAC in sede?
 
-Perché nel bacino vesuviano la maggior parte delle strutture veterinarie sono ambulatori diurni: dopo la chiusura serale il proprietario deve cercare un pronto soccorso altrove, spesso verso Napoli. La Clinica Veterinaria del Bosco è in Corso Umberto I 10, nel cuore di Portici, con medici e personale di assistenza presenti in struttura giorno e notte, festivi compresi.
+Perché nel bacino vesuviano la maggior parte delle strutture veterinarie sono ambulatori diurni: dopo la chiusura serale il proprietario deve cercare un pronto soccorso altrove, spesso verso Napoli. La Clinica Veterinaria del Bosco è in Corso Umberto I 12, nel cuore di Portici, con medici e personale di assistenza presenti in struttura giorno e notte, festivi compresi.
 
 Per chi abita in città il vantaggio è concreto: il tempo tra il momento in cui ti accorgi che qualcosa non va e la visita si riduce a pochi minuti. Se poi serve un esame del sangue, una radiografia, un'ecografia o una TAC, tutto avviene nello stesso edificio, senza trasferimenti tra strutture diverse nel cuore della notte.
 

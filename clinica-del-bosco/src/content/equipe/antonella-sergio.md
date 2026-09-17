@@ -5,11 +5,17 @@ ruolo: 'Medico veterinario, socia fondatrice · cardiologia ed ecografia'
 tipo: 'socio'
 socio: true
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
+numeroOrdine: '1803'
+provinciaOrdine: 'Napoli'
 specializzazioni: ['Cardiologia', 'Ecocardiografia', 'Ecografia addominale']
 aree: ['cardiologia', 'diagnostica-per-immagini']
-formazione: ['Master in cardiologia veterinaria']
+formazione:
+  [
+    'Laurea in Medicina veterinaria, 2006',
+    'Specializzazione in malattie infettive',
+    'Master in cardiologia veterinaria',
+    'Lettore ufficiale FSA per le patologie cardiache congenite',
+  ]
 lingue: ['italiano']
 scattoBrief: '53'
 ordine: 4

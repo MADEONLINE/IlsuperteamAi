@@ -5,11 +5,11 @@ ruolo: 'Medico veterinario · clinica e anestesia'
 tipo: 'interno'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
-specializzazioni: ['Medicina generale', 'Anestesia e analgesia']
+numeroOrdine: '1532'
+provinciaOrdine: 'Napoli'
+specializzazioni: ['Medicina generale', 'Anestesia e analgesia', 'Citologia']
 aree: ['chirurgia']
-formazione: ['GPCert in anestesia e analgesia']
+formazione: ['GPCert in anestesia e analgesia', 'Corsi di perfezionamento in citologia']
 lingue: ['italiano']
 ordine: 10
 daValidare: true

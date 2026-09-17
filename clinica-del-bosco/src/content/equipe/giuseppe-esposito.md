@@ -5,9 +5,9 @@ ruolo: 'Medico veterinario · medicina interna ed endocrinologia'
 tipo: 'interno'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
-specializzazioni: ['Endocrinologia', 'Medicina generale']
+numeroOrdine: '1962'
+provinciaOrdine: 'Napoli'
+specializzazioni: ['Medicina interna', 'Endocrinologia', 'Pronto soccorso']
 aree: ['medicina-interna-endocrinologia']
 formazione: ['Master in endocrinologia veterinaria (in corso)']
 lingue: ['italiano']

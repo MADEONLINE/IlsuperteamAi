@@ -7,7 +7,7 @@ socio: false
 direttoreSanitario: false
 numeroOrdine: '{{DA_CONFERMARE}}'
 provinciaOrdine: '{{DA_CONFERMARE}}'
-specializzazioni: ['Chirurgia dei tessuti molli']
+specializzazioni: ['Chirurgia']
 aree: ['chirurgia']
 formazione: ['GPCert in chirurgia']
 lingue: ['italiano']

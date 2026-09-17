@@ -4,7 +4,7 @@
   "nomeBreve": "Del Bosco",
   "ragioneSociale": "PAN S.r.l.",
   "partitaIva": "04669140651",
-  "partitaIvaDaVerificare": true,
+  "partitaIvaDaVerificare": false,
   "annoFondazione": "2010",
   "slogan": "Pronto soccorso veterinario 24 ore su 24 a Portici",
   "descrizioneBreve": "Clinica veterinaria a Portici (Napoli) con pronto soccorso attivo 24 ore su 24, 7 giorni su 7, terapia intensiva, due sale chirurgiche, TAC in sede, endoscopia e laboratorio analisi interno. Cani, gatti, conigli e animali esotici.",
@@ -20,16 +20,16 @@
   },
   "indirizzo": {
     "via": "Corso Umberto I",
-    "civico": "10",
-    "civicoDaConfermare": true,
+    "civico": "12",
+    "civicoDaConfermare": false,
     "cap": "80055",
     "comune": "Portici",
     "provincia": "NA",
     "provinciaEstesa": "Napoli",
     "regione": "Campania",
     "paese": "IT",
-    "riferimenti": "{{DA_CONFERMARE}}",
-    "parcheggio": "{{DA_CONFERMARE}}"
+    "riferimenti": "A pochi passi da piazza San Ciro, la piazza principale di Portici.",
+    "parcheggio": "Davanti alla clinica c'è un posto riservato alle soste brevi per le emergenze. Nelle vicinanze si trovano un garage privato (non convenzionato) e posteggi a strisce blu."
   },
   "geo": {
     "lat": "{{DA_CONFERMARE}}",
@@ -56,12 +56,12 @@
         "_nota": "Quando le caselle sul dominio saranno attive, impostare attiva=true: il sito passerà automaticamente ai nuovi indirizzi."
       }
     },
-    "pec": "{{DA_CONFERMARE}}"
+    "pec": "clinicadelbosco@pec.it"
   },
   "social": {
     "facebook": "https://www.facebook.com/clinicadelbosco/",
-    "instagram": "https://www.instagram.com/clinicaveterinariadelbosco/",
-    "instagramHandle": "@clinicaveterinariadelbosco",
+    "instagram": "https://www.instagram.com/clinicaveterinariadelbosconew/",
+    "instagramHandle": "@clinicaveterinariadelbosconew",
     "googleBusiness": "{{DA_CONFERMARE}}"
   },
   "orari": {
@@ -79,7 +79,7 @@
     },
     "ambulatorio": {
       "confermato": false,
-      "_nota": "Orari delle visite programmate, giorno per giorno. Formato: [\"09:00\",\"13:00\"] per ogni fascia. Lasciare [] per il giorno di chiusura. Impostare confermato=true dopo la verifica con la reception.",
+      "_nota": "Orari delle visite programmate, giorno per giorno. Formato: [\"09:00\",\"13:00\"] per ogni fascia. Lasciare [] per il giorno di chiusura. Impostare confermato=true dopo la verifica con la reception. ATTESA: Dario Ferrari (16/09/2026) ha indicato le fasce 09:00-13:30 e 15:00-19:30 senza specificare i giorni: servono i giorni di apertura prima di pubblicarle.",
       "settimana": {
         "lunedi": [],
         "martedi": [],
@@ -94,8 +94,8 @@
   "direttoreSanitario": {
     "nome": "Alessandro Sica",
     "titolo": "Dott.",
-    "numeroOrdine": "{{DA_CONFERMARE}}",
-    "provinciaOrdine": "{{DA_CONFERMARE}}",
+    "numeroOrdine": "1080",
+    "provinciaOrdine": "Napoli",
     "_nota": "OBBLIGO DI LEGGE: nome, cognome e numero di iscrizione all'Ordine dei Medici Veterinari, con provincia. Bloccante per il go-live."
   },
   "autorizzazioneSanitaria": {

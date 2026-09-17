@@ -5,11 +5,17 @@ ruolo: 'Medico veterinario chirurgo, socio fondatore e direttore sanitario'
 tipo: 'socio'
 socio: true
 direttoreSanitario: true
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
-specializzazioni: ['Chirurgia dei tessuti molli', 'Chirurgia ortopedica']
+numeroOrdine: '1080'
+provinciaOrdine: 'Napoli'
+specializzazioni: ['Chirurgia dei tessuti molli', "Clinica dell'apparato riproduttivo"]
 aree: ['chirurgia']
-formazione: ['Dottorato di ricerca (PhD)', 'Percorso GPCert in chirurgia (in completamento)']
+formazione:
+  [
+    'Laurea in Medicina veterinaria, 2001',
+    'Specializzazione in fisiopatologia della riproduzione',
+    'Dottorato di ricerca in clinica ostetrica',
+    'Percorso GPCert in chirurgia (in completamento)',
+  ]
 lingue: ['italiano']
 scattoBrief: '54'
 ordine: 2

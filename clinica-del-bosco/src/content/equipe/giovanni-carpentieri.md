@@ -5,11 +5,11 @@ ruolo: 'Medico veterinario · clinica e chirurgia'
 tipo: 'interno'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
+numeroOrdine: '1042'
+provinciaOrdine: 'Napoli'
 specializzazioni: ['Medicina generale', 'Chirurgia']
 aree: ['chirurgia']
-formazione: ['Percorso GPCert in anestesia e chirurgia (in corso)']
+formazione: ['GPCert in anestesia e analgesia', 'Percorso GPCert in chirurgia (in corso)']
 lingue: ['italiano']
 ordine: 15
 daValidare: true

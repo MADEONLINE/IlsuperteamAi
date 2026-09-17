@@ -4,7 +4,7 @@ Valgono per chiunque scriva testi per il sito (redazione, medici, agenzia, agent
 
 ## 1. Fatti sulla clinica che si possono usare (tutto il resto NON va inventato)
 
-- Nome: **Clinica Veterinaria del Bosco**, Corso Umberto I 10, 80055 Portici (NA). Telefono unico h24: **081 7763859**.
+- Nome: **Clinica Veterinaria del Bosco**, Corso Umberto I 12, 80055 Portici (NA). Telefono unico h24: **081 7763859**.
 - Pronto soccorso **24 ore su 24, 7 giorni su 7, festivi inclusi**, con personale **in struttura** (non reperibilità).
 - Degenza e **terapia intensiva** con ossigenoterapia e monitoraggio continuo.
 - **Due sale chirurgiche**. Chirurgia di base e specialistica: oncologica, ricostruttiva, laser, ortopedica, laparoscopia.

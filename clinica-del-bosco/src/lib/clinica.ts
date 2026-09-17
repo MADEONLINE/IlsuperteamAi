@@ -156,10 +156,10 @@ export const clinica: Clinica = risultato.data;
 
 /* ---------- Helper derivati (una sola definizione per tutto il sito) ---------- */
 
-/** Indirizzo su una riga: "Corso Umberto I 10, 80055 Portici (NA)". */
+/** Indirizzo su una riga: "Corso Umberto I 12, 80055 Portici (NA)". */
 export const indirizzoRiga = `${clinica.indirizzo.via} ${clinica.indirizzo.civico}, ${clinica.indirizzo.cap} ${clinica.indirizzo.comune} (${clinica.indirizzo.provincia})`;
 
-/** Indirizzo breve per header/hero: "Corso Umberto I 10, Portici". */
+/** Indirizzo breve per header/hero: "Corso Umberto I 12, Portici". */
 export const indirizzoBreve = `${clinica.indirizzo.via} ${clinica.indirizzo.civico}, ${clinica.indirizzo.comune}`;
 
 /** Link tel: con numero reale in formato E.164. */
