@@ -254,6 +254,25 @@ footer{border-top:1px solid var(--line);padding-block:28px 46px}
   .specimen--live #r1,.specimen--live #r2,.specimen--live #r3{animation:none;opacity:1;transform:none}
 }
 :focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+
+.shortlist{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:6px}
+.shortlist img{width:100%;height:auto;display:block;background:var(--paper)}
+.risk{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:26px}
+.risk > div{background:var(--paper);padding:24px;display:grid;gap:11px;align-content:start}
+.risk .rh{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.risk h3{font-size:1.14rem}
+.risk .lv{font-family:var(--f-mono);font-size:.57rem;letter-spacing:.11em;text-transform:uppercase;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.lv--ok{color:var(--teal-deep);background:var(--teal-wash);border:1px solid var(--teal)}
+.lv--no{color:var(--alert);background:var(--signal-wash);border:1px solid var(--signal)}
+.risk p{font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.risk .vd{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.03em;color:var(--teal-deep);border-top:1px dashed var(--line);padding-top:10px;line-height:1.6}
+@media (max-width:820px){.risk{grid-template-columns:1fr}}
+.brief{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.brief > div{background:var(--paper);padding:17px 20px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:baseline}
+.brief .bk{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-deep)}
+.brief .bv{font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.brief .bv b{color:var(--ink);font-weight:600}
+@media (max-width:700px){.brief > div{grid-template-columns:1fr;gap:5px}}
 </style>
 
 <!-- ===== symbol library ===== -->
@@ -332,8 +351,8 @@ footer{border-top:1px solid var(--line);padding-block:28px 46px}
   <section>
     <div class="sec-head">
       <div class="kicker">Prima del segno</div>
-      <h2>Il prodotto si chiama Segreteria Brave.<br>La persona che risponde si chiama Giulia.</h2>
-      <p class="lede">È la decisione che governa tutto il resto. Il veterinario <strong>compra</strong> Segreteria Brave; il suo cliente <strong>incontra</strong> Giulia e non deve mai sentire il nome del software. Un marchio solo non può fare entrambe le cose: serve un sistema a tre livelli, dove il segno è progettato per vivere sia come logo di prodotto sia come avatar di persona.</p>
+      <h2>Il prodotto si chiama Segreteria Brave.<br>La voce la battezza ogni clinica.</h2>
+      <p class="lede">È la decisione che governa tutto il resto, ed è cambiata il 17 settembre. Il veterinario <strong>compra</strong> Segreteria Brave; il suo cliente <strong>incontra una voce che si chiama come la clinica ha deciso</strong> — Giulia in un caso, Anna in un altro — e non sente mai il nome del software. Il marchio deve quindi funzionare come logo di prodotto e come garanzia, <strong>non come volto di una persona</strong>: quel volto cambia da cliente a cliente.</p>
     </div>
 
     <div class="arch">
@@ -348,18 +367,18 @@ footer{border-top:1px solid var(--line);padding-block:28px 46px}
         <p class="small">Ciò che il veterinario acquista, attiva e paga. Vive nel marketplace Snoots, in fattura, nel contratto, in pagina prodotto.</p>
       </div>
       <div>
-        <span class="lvl">Livello 3 · Voce</span>
-        <span class="nm"><span>Giulia</span></span>
-        <p class="small">Chi il cliente finale sente. Vive nel telefono, nel WhatsApp, nell'SMS di conferma. È l'unico nome che esce dalla clinica.</p>
+        <span class="lvl">Livello 3 · Voce · variabile</span>
+        <span class="nm"><span>Giulia</span>, Anna, …</span>
+        <p class="small">Chi il cliente finale sente: lo sceglie la clinica in configurazione. Nei nostri materiali «Giulia» resta come esempio ricorrente, dichiarato tale. Non è un asset di marca e non può diventarlo.</p>
       </div>
     </div>
 
     <div class="script">
       <div class="line">
         <span class="who">Squilla il telefono della Clinica Veterinaria Carmagnola · secondo squillo</span>
-        «Clinica Veterinaria Carmagnola, buongiorno. Sono <strong>Giulia</strong>. Parlo con il signor Rossi, vero? Come sta Luna dopo la visita di martedì?»
+        «Clinica Veterinaria Carmagnola, buongiorno. Sono <strong>Giulia</strong>, l'assistente virtuale della clinica. Come posso aiutarla?»
       </div>
-      <p class="small">Il nome della clinica viene prima. Poi Giulia. Il nome del prodotto — Segreteria Brave — non compare mai in questa frase, e questo è un requisito di progetto, non un dettaglio. <span class="mono" style="text-transform:none;letter-spacing:.04em">→ il marchio serve al veterinario, non al suo cliente.</span></p>
+      <p class="small">Il nome della clinica viene prima. Poi il nome scelto per la voce, seguito dalla dichiarazione di assistente virtuale — obbligatoria per il regolamento europeo sull'intelligenza artificiale dal 2 agosto 2026. Il nome del prodotto non compare mai in questa frase, e questo è un requisito di progetto. <span class="mono" style="text-transform:none;letter-spacing:.04em">→ il marchio serve al veterinario, non al suo cliente.</span></p>
     </div>
   </section>
 
@@ -682,28 +701,75 @@ footer{border-top:1px solid var(--line);padding-block:28px 46px}
     </div>
   </section>
 
+  <!-- ============ VERIFICA MARCHIO ============ -->
+  <section>
+    <div class="sec-head">
+      <div class="kicker">Aggiornamento del 17 settembre · rosa ristretta</div>
+      <h2>Restano due segni.<br>E uno va verificato prima di innamorarsene.</h2>
+      <p class="lede">Nell'allineamento con Icarus la scelta si è ristretta a <strong>il 04 e il 01</strong>. Il 02 decade insieme a Giulia: era costruito sulla G di un nome che non è del prodotto. Il 03 e il 05 restano disponibili ma nessuno li ha difesi.</p>
+    </div>
+    <div class="shortlist">
+      <img src="preview/marchi-shortlist.png" alt="I due concept rimasti a confronto: la zampa con le dita a barre di vumetro, e il punto di ascolto con archi concentrici">
+    </div>
+
+    <div class="risk">
+      <div>
+        <div class="rh"><h3>04 · La zampa che parla</h3><span class="lv lv--ok">Rischio gestibile</span></div>
+        <p>È il preferito di Icarus: <em>«la zampetta con il voice recorder è geniale»</em>, <em>«richiama subito il mondo veterinario, gli altri sono meno veloci da intuire»</em>. L'obiezione interna — che la zampa sia scontata — è reale ma pesa meno di quanto sembri: <strong>qui la zampa non la vede il proprietario dell'animale, la vede il veterinario</strong>, e il veterinario deve capire in mezzo secondo di che cosa si tratta.</p>
+        <p>Sul piano legale il punto non è la zampa in sé — ce ne sono migliaia — ma la <strong>costruzione</strong>: qui le quattro dita <em>sono</em> le barre di un vumetro, di altezza diversa. Non è una zampa con delle onde accanto: è una zampa fatta di suono. È una combinazione specifica, e la specificità è esattamente ciò che rende un marchio figurativo difendibile.</p>
+        <p class="vd">→ Da verificare: quanto è affollata la combinazione zampa + livelli audio nelle classi che ci servono. Il primo screening non ha trovato collisioni dirette su questa costruzione.</p>
+      </div>
+      <div>
+        <div class="rh"><h3>01 · Il punto di ascolto</h3><span class="lv lv--no">Rischio alto</span></div>
+        <p>Bello, ma è il segno più esposto dei cinque, e per due ragioni diverse. La prima: <strong>archi concentrici attorno a un punto è uno degli elementi figurativi più usati al mondo</strong> — wi-fi, segnale, broadcast, podcast, udito. Un segno così non collide con un marchio in particolare: collide con centinaia, e soprattutto fatica a essere considerato <em>distintivo</em>, che è il requisito per registrarlo davvero.</p>
+        <p>La seconda l'ha detta Carlo senza volerlo, chiamandolo <em>«quello con la C»</em>: con i vuoti sulla destra il segno legge come una lettera C. Una C che non è l'iniziale di niente di nostro, e che ci mette in rotta con qualunque marchio a lettera C del settore.</p>
+        <p class="vd">→ Se la scelta cadesse qui, andrebbe prima ridisegnato per aggiungere distintività. Non è un problema di gusto: è un problema di registrabilità.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:28px">
+      <p class="small"><strong>Cosa ho potuto verificare io, e cosa no.</strong> Ho fatto uno screening preliminare in rete, non una ricerca di anteriorità. Due cose sono emerse e vanno messe nero su bianco. Primo: esiste negli Stati Uniti un marchio figurativo registrato (<strong>n. 5.854.238</strong>, registrato nel 2019) descritto come <em>«una zampa animale a quattro dita rivolta verso l'alto sotto tre linee curve»</em>, indicizzato sia sotto «impronte/zampe» sia sotto «onde sonore». <strong>Non è la nostra costruzione</strong> — lì le onde sono separate e sopra la zampa, da noi le dita sono le barre — ma dimostra che l'accostamento zampa + suono è già stato registrato da qualcuno, da qualche parte. Secondo: nel vertical esistono già marchi che giocano sullo stesso terreno verbale e visivo, in particolare <strong>VetPawer</strong> (con l'assistente vocale «AVA») e <strong>Paw Pal AI</strong>, entrambi receptionist AI per cliniche veterinarie. Non sono nostri concorrenti in Italia oggi, ma sono titolari potenziali di diritti anteriori.</p>
+      <p class="small">Quello che <strong>non</strong> ho potuto fare: interrogare UIBM, EUIPO e WIPO. Sono banche dati che richiedono ricerca per codici figurativi di Vienna, non per parole, e la valutazione di «somiglianza confondibile» è un giudizio tecnico. Uno screening in rete non sostituisce quel passaggio e non protegge da niente.</p>
+    </div>
+
+    <div class="sec-head" style="margin-top:44px;margin-bottom:18px">
+      <div class="kicker">Il mandato da dare</div>
+      <h2 style="font-size:clamp(1.3rem,2.4vw,1.7rem)">La ricerca di anteriorità, in dieci righe.</h2>
+      <p class="lede">Questo è tutto quello che serve a un consulente in proprietà industriale per partire. Ordine di grandezza del costo: <strong>circa 350 € per la sola Italia, circa 520 € per Italia + Unione Europea</strong>, con parere scritto di registrabilità.</p>
+    </div>
+    <div class="brief">
+      <div><span class="bk">Oggetto</span><span class="bv">Ricerca di anteriorità su <b>marchio figurativo</b> (il segno) e su <b>marchio denominativo</b> «<b>Segreteria Brave</b>». Due ricerche distinte: il segno e il nome si registrano insieme ma si verificano separatamente.</span></div>
+      <div><span class="bk">Territori</span><span class="bv"><b>Italia (UIBM)</b> e <b>Unione Europea (EUIPO)</b> come minimo. <b>Internazionale (WIPO / Madrid)</b> se si prevede di uscire dall'Italia: il servizio è vendibile ovunque si parli la lingua, e il marchio si difende solo dove è registrato.</span></div>
+      <div><span class="bk">Classi di Nizza</span><span class="bv"><b>9</b> software e apparecchi per registrazione e trasmissione del suono · <b>35</b> servizi di segreteria telefonica e risposta per conto terzi — <b>è la classe centrale, quella che si dimentica</b> · <b>38</b> telecomunicazioni e instradamento chiamate · <b>42</b> software come servizio e intelligenza artificiale · <b>44</b> servizi veterinari.</span></div>
+      <div><span class="bk">Elementi figurativi</span><span class="bv">Far impostare al consulente i codici di Vienna per <b>impronte e zampe di animali</b> e per <b>onde sonore, barre di livello e figure concentriche</b>, cercando sia i codici separati sia la loro <b>combinazione</b>. È la combinazione che decide.</span></div>
+      <div><span class="bk">Da segnalare</span><span class="bv">Il marchio USA <b>n. 5.854.238</b> e i titolari <b>VetPawer</b> e <b>Paw Pal AI</b>, per far verificare se hanno estensioni europee o italiane.</span></div>
+      <div><span class="bk">Domanda da porre</span><span class="bv">Non «è libero?» ma <b>«con quale ampiezza di tutela lo possiamo registrare, e quali modifiche al segno aumentano la distintività senza snaturarlo?»</b>. Un segno registrabile ma indifendibile costa quanto uno buono e non protegge niente.</span></div>
+      <div><span class="bk">Tempi</span><span class="bv">La ricerca richiede pochi giorni. <b>Va avviata prima di applicare il marchio alla pagina</b>, non dopo: cambiare un segno già pubblicato costa infinitamente di più che sceglierne un altro adesso.</span></div>
+    </div>
+  </section>
+
   <!-- ============ PROSSIMI PASSI ============ -->
   <section>
     <div class="sec-head">
       <div class="kicker">Cosa ci serve per andare avanti</div>
-      <h2>Quattro risposte, e parte tutto il resto.</h2>
+      <h2>Due risposte, e parte tutto il resto.</h2>
     </div>
     <div class="steps">
       <div>
         <span class="n">01</span>
-        <span class="c"><b>Un numero da 1 a 5.</b><span>Va bene anche «l'1 ma con il calore del 2»: da lì deriviamo un ibrido in un secondo giro, senza ripartire da zero. Non c'è una risposta sbagliata: i cinque sono cinque scommesse diverse, e la scelta è di chi conosce la temperatura del mercato.</span></span>
+        <span class="c"><b>Il via libera alla ricerca di anteriorità sul 04.</b><span>È la zampa: preferita da Icarus, la più difendibile delle due, e l'unica su cui ha senso spendere trecentocinquanta euro adesso. Se torna pulita si chiude il marchio; se torna sporca si rilavora, ma sapendo perché.</span></span>
       </div>
       <div>
         <span class="n">02</span>
-        <span class="c"><b>Una conferma sull'architettura Segreteria Brave / Giulia.</b><span>Se Giulia deve poter diventare un giorno anche un'altra voce, va saputo ora: cambia la scelta del marchio.</span></span>
+        <span class="c"><b>Una conferma che «Segreteria Brave» si registra come nome.</b><span>Va verificato con la stessa ricerca, in parallelo al segno. È il nome che Icarus ha definito «perfetto» e che finisce in fattura, in contratto e nel marketplace: vale più del disegno.</span></span>
       </div>
       <div>
         <span class="n">03</span>
-        <span class="c"><b>Sul verde BVB: lo teniamo o lo stacchiamo?</b><span>Tenerlo lega Segreteria Brave alla casa madre. Staccarlo la rende un prodotto vendibile anche a chi non conosce BVB. La nostra proposta è tenerlo come colore-famiglia e affiancare un verde "in linea" più acceso come colore funzionale.</span></span>
+        <span class="c"><b>Sul verde BVB: deciso, lo teniamo.</b><span>Icarus ha chiesto coerenza con il sito, e la pagina è una sezione del sito, non una landing a sé. Resta come colore-famiglia, con un verde funzionale più acceso in appoggio.</span></span>
       </div>
       <div>
         <span class="n">04</span>
-        <span class="c"><b>Poi chiudiamo il branding definito.</b><span>Palette completa, scala tipografica, sistema di stati vocali, regole d'uso e violazioni, lockup con Icarus, kit social, tile marketplace, template documenti. Non prima: un brand book su un logo non validato è carta sprecata.</span></span>
+        <span class="c"><b>Poi chiudiamo il branding definito.</b><span>Palette completa, scala tipografica, regole d'uso e violazioni, <b>lockup «Segreteria Brave · powered by Icarus»</b> — deciso in call — kit social, tile marketplace, template documenti. Non prima: un brand book su un logo non verificato è carta sprecata due volte.</span></span>
       </div>
     </div>
   </section>
