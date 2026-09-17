@@ -5,8 +5,6 @@ ruolo: 'Medico veterinario · chirurgia'
 tipo: 'interno'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Chirurgia']
 aree: ['chirurgia']
 formazione: ['GPCert in chirurgia']

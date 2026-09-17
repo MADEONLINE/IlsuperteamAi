@@ -3,12 +3,12 @@
  * GA4 viene caricato SOLO dopo consenso esplicito (vedi CookieBanner).
  *
  * Eventi standard del sito (vedi MISURAZIONE.md):
- *  click_chiama · click_whatsapp · click_indicazioni · form_step_1..4 · form_inviato
+ *  click_chiama · click_indicazioni · form_step_1..4 · form_inviato
+ *  assistente_aperto · assistente_domanda
  *  piano_salute_scelto · caso_collega_inviato · scroll_75
  */
 export type EventoSito =
   | 'click_chiama'
-  | 'click_whatsapp'
   | 'click_indicazioni'
   | 'form_step_1'
   | 'form_step_2'
@@ -17,7 +17,9 @@ export type EventoSito =
   | 'form_inviato'
   | 'piano_salute_scelto'
   | 'caso_collega_inviato'
-  | 'scroll_75';
+  | 'scroll_75'
+  | 'assistente_aperto'
+  | 'assistente_domanda';
 
 type Proprieta = Record<string, string | number | boolean>;
 

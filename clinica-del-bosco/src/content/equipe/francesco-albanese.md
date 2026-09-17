@@ -5,8 +5,6 @@ ruolo: 'Dermatologo veterinario · specialista in collaborazione'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Dermatologia', 'Allergologia', 'Otologia']
 aree: ['dermatologia']
 formazione: ['Socio ESVD (European Society of Veterinary Dermatology)']

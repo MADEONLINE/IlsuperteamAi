@@ -5,8 +5,6 @@ ruolo: 'Oculista veterinaria · specialista in collaborazione'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Oftalmologia']
 aree: ['oftalmologia']
 formazione: ['Dottorato di ricerca (PhD)', 'Executive master in oftalmologia veterinaria']

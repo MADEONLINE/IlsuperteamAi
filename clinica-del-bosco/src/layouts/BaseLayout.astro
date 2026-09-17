@@ -12,6 +12,7 @@ import Header from '@sezioni/Header.astro';
 import Marchio from '@ui/Marchio.astro';
 import Footer from '@sezioni/Footer.astro';
 import BarraSticky from '@sezioni/BarraSticky.astro';
+import Assistente from '@sezioni/Assistente.astro';
 import CookieBanner from '@sezioni/CookieBanner.astro';
 import { clinica } from '@lib/clinica';
 import { veterinaryCare, webSite, type JsonLd as TipoJsonLd } from '@lib/schema';
@@ -88,6 +89,7 @@ const plausibleAttivo = Boolean(clinica.misurazione.plausibleDomain) && import.m
     </main>
     <Footer />
     {!senzaBarraSticky && <BarraSticky />}
+    <Assistente />
     <CookieBanner />
     <script>
       import { collegaEventiClick, osservaScroll75 } from '@lib/analytics';

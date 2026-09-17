@@ -212,8 +212,8 @@ export function physician(medico: {
   titolo: string;
   ruolo: string;
   specializzazioni: string[];
-  numeroOrdine: string;
-  provinciaOrdine: string;
+  numeroOrdine?: string | undefined;
+  provinciaOrdine?: string | undefined;
   foto?: string;
 }): JsonLd {
   const persona: JsonLd = {
@@ -230,7 +230,12 @@ export function physician(medico: {
     memberOf: { '@id': ID_ORGANIZZAZIONE },
     knowsAbout: medico.specializzazioni.filter((x) => !daConfermare(x)),
   };
-  if (!daConfermare(medico.numeroOrdine) && !daConfermare(medico.provinciaOrdine)) {
+  if (
+    medico.numeroOrdine &&
+    medico.provinciaOrdine &&
+    !daConfermare(medico.numeroOrdine) &&
+    !daConfermare(medico.provinciaOrdine)
+  ) {
     persona['identifier'] = {
       '@type': 'PropertyValue',
       propertyID: `Ordine dei Medici Veterinari di ${medico.provinciaOrdine}`,

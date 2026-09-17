@@ -5,8 +5,6 @@ ruolo: 'Ortopedico e neurologo veterinario · specialista in collaborazione'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Ortopedia', 'Neurologia']
 aree: ['ortopedia', 'neurologia']
 formazione:

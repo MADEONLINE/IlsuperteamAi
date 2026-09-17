@@ -188,6 +188,57 @@ test.describe('Marchio e stili', () => {
   });
 });
 
+test.describe('Assistente del sito', () => {
+  test('si apre, cerca nei contenuti del sito e si chiude con Escape', async ({ page }) => {
+    const rifiuti: string[] = [];
+    page.on('console', (m) => {
+      if (m.type() === 'error' && /Refused to|Content Security Policy/.test(m.text())) {
+        rifiuti.push(m.text());
+      }
+    });
+
+    await page.goto('/');
+    const avvio = page.locator('[data-assistente-avvio]');
+    await expect(avvio).toHaveAttribute('aria-expanded', 'false');
+    await avvio.click();
+
+    const pannello = page.locator('[data-assistente-pannello]');
+    await expect(pannello).toBeVisible();
+    await expect(avvio).toHaveAttribute('aria-expanded', 'true');
+
+    // Il numero delle urgenze è sempre in vista, con il richiamo all'uso corretto.
+    await expect(pannello.getByText(/solo per le vere urgenze/i)).toBeVisible();
+
+    // Ricerca libera sui contenuti reali.
+    await page.fill('[data-assistente-input]', 'tac');
+    await expect(page.locator('.assistente-risposta').first()).toBeVisible();
+    const primo = page.locator('.assistente-risposta').first();
+    await expect(primo).toHaveAttribute('href', /.+/);
+
+    // Le scorciatoie lasciano il posto alle risposte.
+    await expect(page.locator('[data-assistente-scorciatoie]')).toBeHidden();
+
+    // Una domanda che sembra urgente porta al telefono, non a una valutazione clinica.
+    await page.fill('[data-assistente-input]', 'il mio cane sanguina');
+    await expect(page.getByText(/chiama, risponde un medico a qualsiasi ora/i)).toBeVisible();
+
+    await page.keyboard.press('Escape');
+    await expect(pannello).toBeHidden();
+    expect(rifiuti, 'la CSP non deve bloccare nulla').toEqual([]);
+  });
+
+  test('senza JavaScript il pulsante porta alle domande frequenti', async ({ browser }) => {
+    const contesto = await browser.newContext({ javaScriptEnabled: false });
+    const pagina = await contesto.newPage();
+    await pagina.goto('/');
+    await expect(pagina.locator('[data-assistente-avvio]')).toHaveAttribute(
+      'href',
+      '/domande-frequenti',
+    );
+    await contesto.close();
+  });
+});
+
 test.describe('SEO e GEO', () => {
   test('JSON-LD valido e canonical coerente', async ({ page }) => {
     await page.goto('/pronto-soccorso');

@@ -72,8 +72,13 @@ const equipe = defineCollection({
     /** Quando è presente in struttura (solo per gli specialisti in collaborazione), es. "Ogni lunedì". */
     presenza: z.string().optional(),
     direttoreSanitario: z.boolean().default(false),
-    numeroOrdine: z.string(),
-    provinciaOrdine: z.string(),
+    /**
+     * Iscrizione all'Ordine. Facoltativa: l'obbligo di legge riguarda il
+     * direttore sanitario (in clinica.json), non ogni medico dell'équipe.
+     * Dove manca, la riga non viene mostrata.
+     */
+    numeroOrdine: z.string().optional(),
+    provinciaOrdine: z.string().optional(),
     specializzazioni: z.array(z.string()).min(1),
     aree: z.array(z.string()).default([]),
     formazione: z.array(z.string()).default([]),

@@ -5,8 +5,6 @@ ruolo: 'Chirurgo veterinario · specialista in collaborazione'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Chirurgia']
 aree: ['chirurgia']
 formazione: ['Master in diagnostica per immagini', 'Perfezionamento in neurologia veterinaria']

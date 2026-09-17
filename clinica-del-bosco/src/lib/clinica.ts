@@ -58,7 +58,6 @@ const schemaClinica = z.object({
       e164: z.string().regex(/^\+\d{6,15}$/),
       nota: z.string().optional(),
     }),
-    whatsapp: z.object({ e164: z.string(), visualizzato: z.string() }),
     email: z.object({
       principale: z.email(),
       proposta: z.object({
@@ -103,7 +102,6 @@ const schemaClinica = z.object({
     numeroOrdine: z.string(),
     provinciaOrdine: z.string(),
   }),
-  autorizzazioneSanitaria: z.object({ numero: z.string(), ente: z.string() }),
   soci: z.array(z.object({ nome: z.string(), titolo: z.string(), slug: z.string() })),
   numeri: z.object({
     confermato: z.boolean(),
@@ -173,17 +171,6 @@ export const emailPrincipale = clinica.contatti.email.proposta.attiva
 export const emailUrgenze = clinica.contatti.email.proposta.attiva
   ? clinica.contatti.email.proposta.urgenze
   : clinica.contatti.email.principale;
-
-/** Vero se il numero WhatsApp è stato confermato e può essere linkato. */
-export const whatsappDisponibile = !daConfermare(clinica.contatti.whatsapp.e164);
-
-/** Link wa.me con messaggio precompilato (solo se il numero è confermato). */
-export function whatsappHref(messaggio?: string): string | null {
-  if (!whatsappDisponibile) return null;
-  const numero = clinica.contatti.whatsapp.e164.replace(/[^\d]/g, '');
-  const testo = messaggio ? `?text=${encodeURIComponent(messaggio)}` : '';
-  return `https://wa.me/${numero}${testo}`;
-}
 
 const destinazione = encodeURIComponent(`${clinica.nome}, ${indirizzoRiga}`);
 

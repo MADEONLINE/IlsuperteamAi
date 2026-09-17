@@ -5,8 +5,6 @@ ruolo: 'Ecografista veterinaria · specialista in collaborazione'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Ecografia addominale', 'Ecocardiografia']
 aree: ['diagnostica-per-immagini', 'cardiologia']
 formazione: ['Perfezionamento in cardiologia veterinaria']

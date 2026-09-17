@@ -42,11 +42,6 @@
       "e164": "+390817763859",
       "nota": "Numero unico, attivo 24 ore su 24 anche per il pronto soccorso."
     },
-    "whatsapp": {
-      "e164": "{{DA_CONFERMARE}}",
-      "visualizzato": "{{DA_CONFERMARE}}",
-      "_nota": "Numero WhatsApp Business dedicato alle prenotazioni. Formato E.164 senza spazi, es. +393401234567."
-    },
     "email": {
       "principale": "clinicadelbosco@alice.it",
       "proposta": {
@@ -78,16 +73,37 @@
       "_notaPromesse": "aiutoAllArrivo: true se, chiamando prima, il personale può venire incontro in auto. proprietarioAccanto: true se il proprietario può restare accanto all'animale durante il triage. null = non confermato: la promessa non viene mostrata."
     },
     "ambulatorio": {
-      "confermato": false,
-      "_nota": "Orari delle visite programmate, giorno per giorno. Formato: [\"09:00\",\"13:00\"] per ogni fascia. Lasciare [] per il giorno di chiusura. Impostare confermato=true dopo la verifica con la reception. ATTESA: Dario Ferrari (16/09/2026) ha indicato le fasce 09:00-13:30 e 15:00-19:30 senza specificare i giorni: servono i giorni di apertura prima di pubblicarle.",
+      "confermato": true,
+      "_nota": "Orari delle visite programmate, giorno per giorno. Formato: [\"09:00\",\"13:00\"] per ogni fascia. Lasciare [] per il giorno di chiusura. Confermati da Dario Ferrari: fasce 09:00-13:30 e 15:00-19:30, dal lunedì alla domenica (17/09/2026). Il pronto soccorso resta comunque h24.",
       "settimana": {
-        "lunedi": [],
-        "martedi": [],
-        "mercoledi": [],
-        "giovedi": [],
-        "venerdi": [],
-        "sabato": [],
-        "domenica": []
+        "lunedi": [
+          ["09:00", "13:30"],
+          ["15:00", "19:30"]
+        ],
+        "martedi": [
+          ["09:00", "13:30"],
+          ["15:00", "19:30"]
+        ],
+        "mercoledi": [
+          ["09:00", "13:30"],
+          ["15:00", "19:30"]
+        ],
+        "giovedi": [
+          ["09:00", "13:30"],
+          ["15:00", "19:30"]
+        ],
+        "venerdi": [
+          ["09:00", "13:30"],
+          ["15:00", "19:30"]
+        ],
+        "sabato": [
+          ["09:00", "13:30"],
+          ["15:00", "19:30"]
+        ],
+        "domenica": [
+          ["09:00", "13:30"],
+          ["15:00", "19:30"]
+        ]
       }
     }
   },
@@ -97,11 +113,6 @@
     "numeroOrdine": "1080",
     "provinciaOrdine": "Napoli",
     "_nota": "OBBLIGO DI LEGGE: nome, cognome e numero di iscrizione all'Ordine dei Medici Veterinari, con provincia. Bloccante per il go-live."
-  },
-  "autorizzazioneSanitaria": {
-    "numero": "{{DA_CONFERMARE}}",
-    "ente": "{{DA_CONFERMARE}}",
-    "_nota": "Estremi dell'autorizzazione sanitaria regionale della struttura (numero, ente e data)."
   },
   "soci": [
     {

@@ -55,15 +55,17 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
           descrizioneSegnaposto={`Ritratto di ${nome}`}
         />
         <dl class="mt-6 space-y-3 text-sm">
-          <div>
-            <dt class="font-bold uppercase tracking-wider text-testo-secondario">
-              Iscrizione all'Ordine
-            </dt>
-            <dd>
-              Ordine dei Medici Veterinari di <Dato valore={medico.data.provinciaOrdine} /> n.{' '}
-              <Dato valore={medico.data.numeroOrdine} />
-            </dd>
-          </div>
+          {medico.data.numeroOrdine && medico.data.provinciaOrdine && (
+            <div>
+              <dt class="font-bold uppercase tracking-wider text-testo-secondario">
+                Iscrizione all'Ordine
+              </dt>
+              <dd>
+                Ordine dei Medici Veterinari di {medico.data.provinciaOrdine} n.{' '}
+                {medico.data.numeroOrdine}
+              </dd>
+            </div>
+          )}
           {medico.data.direttoreSanitario && (
             <div>
               <dt class="sr-only">Incarico</dt>

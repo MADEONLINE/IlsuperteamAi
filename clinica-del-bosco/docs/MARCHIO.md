@@ -58,3 +58,26 @@ Il kit indica **Playfair Display** (titoli) e **Poppins** (testo). Il sito usa o
 Il lockup conserva comunque i font del marchio perché è vettorializzato. Allineare anche i
 testi di pagina al kit è una scelta aperta: va decisa con la clinica, perché cambia l'aspetto
 di tutte le pagine e il peso dei font.
+
+---
+
+## Assistente del sito
+
+`src/components/sezioni/Assistente.astro` + `src/pages/assistente.json.ts`.
+
+Accompagna il visitatore tra le aree del sito e risponde pescando **solo** dai
+contenuti già pubblicati (24 domande frequenti, 19 servizi, 12 pagine
+principali), indicizzati a build time in `/assistente.json` e scaricati alla
+prima apertura: le pagine non ne pagano il peso.
+
+Due limiti sono voluti e non vanno rimossi senza parlarne con la clinica:
+
+- **Non è un modello linguistico.** Non chiama servizi esterni — la CSP del sito
+  non lo consentirebbe — e quindi non può inventare una risposta. Su un sito
+  sanitario è una garanzia, non una rinuncia.
+- **Non fa triage e non dà consigli clinici.** Se la domanda contiene parole che
+  fanno pensare a una situazione urgente non valuta la gravità: mette in cima il
+  numero e invita a parlare con un medico. Il numero delle urgenze è sempre
+  visibile nel pannello, con il richiamo a usarlo solo per le vere emergenze.
+
+Senza JavaScript il pulsante resta un link alle domande frequenti.

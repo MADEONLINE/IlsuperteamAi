@@ -13,8 +13,6 @@ import {
   indicazioniHref,
   indirizzoRiga,
   telHref,
-  whatsappDisponibile,
-  whatsappHref,
 } from '@lib/clinica';
 import { orariLeggibili } from '@lib/orari';
 
@@ -50,7 +48,6 @@ const colonne = [
     })),
   },
 ];
-const wa = whatsappHref();
 const orari = clinica.orari.ambulatorio.confermato
   ? orariLeggibili(clinica.orari.ambulatorio.settimana)
   : null;
@@ -93,20 +90,6 @@ const orari = clinica.orari.ambulatorio.confermato
             </a>
             <span class="text-sm text-testo-secondario">(anche per urgenze, 24/7)</span>
           </li>
-          {whatsappDisponibile && wa && (
-            <li class="flex items-center gap-2.5">
-              <Icona nome="whatsapp" class="size-4 shrink-0 text-primario-link" />
-              <a
-                href={wa}
-                target="_blank"
-                rel="noopener"
-                data-evento="click_whatsapp"
-                data-evento-posizione="footer"
-              >
-                WhatsApp {clinica.contatti.whatsapp.visualizzato}
-              </a>
-            </li>
-          )}
           <li class="flex items-center gap-2.5">
             <Icona nome="mail" class="size-4 shrink-0 text-primario-link" />
             <a href={`mailto:${emailPrincipale}`}>{emailPrincipale}</a>
@@ -201,9 +184,6 @@ const orari = clinica.orari.ambulatorio.confermato
         <Dato valore={direttoreSanitarioRiga} />
       </p>
       <p>
-        <strong class="text-testo">Autorizzazione sanitaria:</strong>{' '}
-        <Dato valore={clinica.autorizzazioneSanitaria.numero} /> —{' '}
-        <Dato valore={clinica.autorizzazioneSanitaria.ente} />·{' '}
         <strong class="text-testo">PEC:</strong> <Dato valore={clinica.contatti.pec} />
       </p>
       <p class="text-xs">

@@ -105,12 +105,12 @@ const descrizione =
                       {m.data.presenza}
                     </p>
                   )}
-                  <p class="mt-3 text-sm">
-                    <span class="text-testo-secondario">Ordine di</span>{' '}
-                    <Dato valore={m.data.provinciaOrdine} />{' '}
-                    <span class="text-testo-secondario">n.</span>{' '}
-                    <Dato valore={m.data.numeroOrdine} />
-                  </p>
+                  {m.data.numeroOrdine && m.data.provinciaOrdine && (
+                    <p class="mt-3 text-sm">
+                      <span class="text-testo-secondario">Ordine di</span> {m.data.provinciaOrdine}{' '}
+                      <span class="text-testo-secondario">n.</span> {m.data.numeroOrdine}
+                    </p>
+                  )}
                   <span class="mt-auto inline-flex items-center gap-1 pt-3 text-sm font-semibold text-primario-link">
                     Scheda{' '}
                     <Icona

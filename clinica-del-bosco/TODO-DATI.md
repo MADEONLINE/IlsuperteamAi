@@ -9,40 +9,63 @@ salvare, eseguire `npm run build`. Nessun altro file va toccato.
 
 ## Stato al 17 settembre 2026
 
-Dario Ferrari ha risposto il 16/09/2026 con il documento _info sito clinica.docx_.
-Applicato tutto quanto ha confermato: i segnaposto nelle pagine pubbliche sono
-scesi da 585 a 218.
+Applicate le risposte di Dario Ferrari (documento _info sito clinica.docx_ del
+16/09) e le decisioni della direzione del 17/09.
 
-**Restano quattro cose, e la prima da sola blocca ancora la pubblicazione:**
+**Nessun segnaposto resta nelle pagine pubblicate: il controllo che blocca il
+build di produzione ora passa.** Il sito è tecnicamente pubblicabile.
 
-1. 🔴 **Autorizzazione sanitaria regionale** (numero, ente, data) — la riga nel
-   documento è rimasta vuota. È un obbligo di legge: senza, il sito non si pubblica.
-2. 🟠 **Giorni di apertura dell'ambulatorio** — ha dato le fasce orarie, non i giorni.
-3. 🟠 **Numero WhatsApp** — riga lasciata con i puntini.
-4. 🟡 **Numeri di prova sociale** e **prezzi dei Piani Salute** — domande rimaste
-   senza risposta: restano non pubblicati.
+Chiusi in questo giro: civico 12, PEC, Ordine del direttore sanitario, Instagram,
+partita IVA, anno di apertura, parcheggio e punto di riferimento, numeri d'Ordine
+di nove medici, titoli e aree cliniche, orari delle visite (tutti i giorni,
+09:00–13:30 e 15:00–19:30). L'autorizzazione sanitaria regionale è stata tolta dal
+sito: la direzione ha verificato che non è richiesta per il sito web. WhatsApp è
+stato sostituito da un assistente che accompagna tra le pagine.
 
-Da chiarire anche la **provincia dell'Ordine** degli otto medici diversi dal
-direttore sanitario (voce 5c) e il **numero di iscrizione dei restanti 12 medici**.
+**Cosa manca ancora** — niente di bloccante:
+
+1. 🟡 **Fotografie** della struttura e dei 21 medici (oggi immagini generate).
+2. 🟡 **Numeri di prova sociale** (4.500 clienti, 20.000 animali, 1.015 accessi di
+   pronto soccorso) e **prezzi dei Piani Salute**: domande rimaste senza risposta,
+   quindi non pubblicati.
+3. 🟡 **Rilettura dei testi** clinici da parte del medico che li firma, e
+   **consenso scritto** alla pubblicazione per i medici non soci (voce 5b).
+4. 🟡 **Coordinate GPS** dell'ingresso e **URL della scheda Google Business**.
+5. 🟡 **Numeri d'Ordine** dei restanti 12 medici e conferma che la provincia degli
+   altri otto sia Napoli (dedotta). Non è un obbligo di legge: lo è solo per il
+   direttore sanitario, già inserito.
+6. 🟡 **Dominio e caselle email**: pubblicazione su clinicaveterinariadelbosco.it,
+   redirect dei due domini alternativi, attivazione di info@ e urgenze@.
 
 ## 🔴 Bloccanti per il go-live (obblighi di legge)
 
-| #     | Dato                                                                                                                                                                                                                                                                                                             | Dove va                                               | Chiave in `clinica.json`                                                                   | Chi lo fornisce             |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------- |
-| 1     | ~~Direttore sanitario: nome e cognome~~ → **Dott. Alessandro Sica** (dal file staff su Drive, 24/07/2026). Da confermare formalmente                                                                                                                                                                             | Footer di ogni pagina, `/la-struttura`, JSON-LD       | `direttoreSanitario.nome` (inserito)                                                       | Direzione                   |
-| ~~2~~ | ~~N. iscrizione all'Ordine del direttore sanitario~~ → ✅ **Ordine di Napoli n. 1080** (Dario Ferrari, 16/09/2026)                                                                                                                                                                                               | Footer, `/la-struttura`                               | inserito                                                                                   | Fatto                       |
-| 3     | **Autorizzazione sanitaria regionale**: numero, ente e data                                                                                                                                                                                                                                                      | Footer, `/note-legali`                                | `autorizzazioneSanitaria.numero`, `autorizzazioneSanitaria.ente`                           | Direzione / amministrazione |
-| ~~4~~ | ~~PEC della società~~ → ✅ **clinicadelbosco@pec.it** (Dario Ferrari, 16/09/2026)                                                                                                                                                                                                                                | Footer, `/note-legali`                                | inserito                                                                                   | Fatto                       |
-| 5     | **Numeri di iscrizione all'Ordine**: ✅ ricevuti per **9 medici** (Dario Ferrari, 16/09/2026) — Sica 1080, Ferrari 1174, Sergio 1803, Rosapane 1607, Cardaropoli 1532, Cavazzino 1708, Casciello 1824, Esposito 1962, Carpentieri 1042. **Mancano i restanti 12** (Conte e gli 11 specialisti in collaborazione) | Schede `/equipe/[slug]`, schema `Physician`           | `src/content/equipe/*.md` → campi `numeroOrdine`, `provinciaOrdine`                        | Ogni medico                 |
-| 5c    | ⚠️ **Provincia dell'Ordine dei 9 medici**: dichiarata esplicitamente solo per il direttore sanitario ("Napoli 1080"). Per gli altri otto è stata dedotta — stessa serie di numeri, struttura in provincia di Napoli. **Serve una conferma sì/no da Dario** prima della pubblicazione                             | Schede équipe, footer                                 | `src/content/equipe/*.md` → `provinciaOrdine`                                              | Direzione                   |
-| 5b    | **Consenso scritto alla pubblicazione** di nome, ruolo, titoli e (in futuro) foto per ogni medico non socio e per gli specialisti in collaborazione                                                                                                                                                              | Schede équipe, blocchi "Chi se ne occupa" nei servizi | Modulo di consenso (GDPR) da far firmare; finché manca, la scheda resta `daValidare: true` | Direzione + ogni medico     |
+| #     | Dato                                                                                                                                                | Dove va                                               | Chiave in `clinica.json`                                                                   | Chi lo fornisce             |
+| ----- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------ | --------------------------- |
+| ~~1~~ | ~~Direttore sanitario: nome e cognome~~ → ✅ **Dott. Alessandro Sica**, confermato (Dario Ferrari, 16/09/2026)                                      | Footer di ogni pagina, `/la-struttura`, JSON-LD       | `direttoreSanitario.nome` (inserito)                                                       | Direzione                   |
+| ~~2~~ | ~~N. iscrizione all'Ordine del direttore sanitario~~ → ✅ **Ordine di Napoli n. 1080** (Dario Ferrari, 16/09/2026)                                  | Footer, `/la-struttura`                               | inserito                                                                                   | Fatto                       |
+| 3     | **Autorizzazione sanitaria regionale**: numero, ente e data                                                                                         | Footer, `/note-legali`                                | `autorizzazioneSanitaria.numero`, `autorizzazioneSanitaria.ente`                           | Direzione / amministrazione |
+| ~~4~~ | ~~PEC della società~~ → ✅ **clinicadelbosco@pec.it** (Dario Ferrari, 16/09/2026)                                                                   | Footer, `/note-legali`                                | inserito                                                                                   | Fatto                       |
+| 5b    | **Consenso scritto alla pubblicazione** di nome, ruolo, titoli e (in futuro) foto per ogni medico non socio e per gli specialisti in collaborazione | Schede équipe, blocchi "Chi se ne occupa" nei servizi | Modulo di consenso (GDPR) da far firmare; finché manca, la scheda resta `daValidare: true` | Direzione + ogni medico     |
+
+> **Iscrizione all'Ordine dei singoli medici.** Non è un obbligo di legge:
+> lo è quella del **direttore sanitario** (voci 1 e 2, entrambe risolte). I campi
+> `numeroOrdine` e `provinciaOrdine` nelle schede sono quindi **facoltativi** —
+> dove il dato manca la riga non viene mostrata e non blocca la pubblicazione.
+>
+> Pubblicati i nove numeri forniti da Dario Ferrari il 16/09/2026: Sica 1080,
+> Ferrari 1174, Sergio 1803, Rosapane 1607, Cardaropoli 1532, Cavazzino 1708,
+> Casciello 1824, Esposito 1962, Carpentieri 1042. Gli altri dodici medici si
+> potranno aggiungere quando comodo, come elemento di fiducia in più.
+>
+> Per gli otto medici diversi dal direttore sanitario la **provincia** è stata
+> dedotta (Napoli): vale una conferma, ma non è bloccante.
 
 ## 🟠 Necessari per funzionare bene (conversione e SEO locale)
 
 | #      | Dato                                                                                                                                                                                                                                                                                 | Perché serve                                                                                                                                                                                                        | Chiave                                                                                         |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | 6      | **Orari dell'ambulatorio**: ⚠️ ricevute le fasce **09:00–13:30** e **15:00–19:30** (Dario Ferrari, 16/09/2026) ma **senza i giorni della settimana**. Non pubblicati: serve sapere quali giorni (lun–ven? sabato? domenica?)                                                         | Badge "aperto ora" con stato ambulatorio, `openingHoursSpecification`, tabella orari nel footer, Google Business Profile completo. Finché non confermati il sito mostra solo "pronto soccorso 24/7" (mai "chiuso"). | `orari.ambulatorio.settimana` + `orari.ambulatorio.confermato = true`                          |
-| 7      | **Numero WhatsApp Business** dedicato                                                                                                                                                                                                                                                | Barra sticky mobile, fallback del form di prenotazione. Finché manca, il pulsante WhatsApp è sostituito da "Prenota".                                                                                               | `contatti.whatsapp.e164` (es. `+393401234567`) e `contatti.whatsapp.visualizzato`              |
+| ~~7~~  | ~~Numero WhatsApp Business dedicato~~ → ✅ **Scelta superata**: WhatsApp è stato rimosso dal sito e sostituito da un assistente che guida tra le pagine (17/09/2026)                                                                                                                 | Barra sticky mobile, fallback del form di prenotazione. Finché manca, il pulsante WhatsApp è sostituito da "Prenota".                                                                                               | `contatti.whatsapp.e164` (es. `+393401234567`) e `contatti.whatsapp.visualizzato`              |
 | 8      | **Coordinate GPS dell'ingresso** (non del centroide)                                                                                                                                                                                                                                 | JSON-LD `geo`, deep link mappe più precisi. Rilevarle da Google Maps con un clic destro sull'ingresso.                                                                                                              | `geo.lat`, `geo.lng` (numeri con il punto, es. `40.8151`)                                      |
 | 9      | **URL del profilo Google Business**                                                                                                                                                                                                                                                  | `sameAs` in JSON-LD, coerenza NAP, link "recensioni"                                                                                                                                                                | `social.googleBusiness`                                                                        |
 | ~~10~~ | ~~Anno di fondazione~~ → ✅ **2010**, confermato (Dario Ferrari, 16/09/2026)                                                                                                                                                                                                         | Prova di solidità in home, `/la-struttura`, `foundingDate`                                                                                                                                                          | inserito                                                                                       |

@@ -5,8 +5,6 @@ ruolo: 'Neurologa veterinaria · specialista in collaborazione'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Neurologia']
 aree: ['neurologia']
 formazione: ['Master in diagnostica per immagini', 'Perfezionamento in neurologia veterinaria']

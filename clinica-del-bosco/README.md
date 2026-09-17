@@ -55,7 +55,6 @@ pagine, dati strutturati per Google e sitemap si aggiornano da soli.
   fasce, ad esempio `"lunedi": [["09:00", "13:00"], ["16:00", "20:00"]]`. Giorno chiuso: `[]`.
   Quando gli orari sono giusti imposta `"confermato": true`: da quel momento il sito mostra la
   tabella nel footer e il badge "Aperto ora" dice anche se l'ambulatorio è aperto.
-- **Numero WhatsApp**: `contatti.whatsapp.e164` nel formato `+39...` senza spazi.
 - **Email sul dominio**: quando `info@clinicaveterinariadelbosco.it` esiste, imposta
   `contatti.email.proposta.attiva` a `true`.
 - **Direttore sanitario e autorizzazione**: sezioni `direttoreSanitario` e
@@ -213,7 +212,7 @@ via email, oppure a un servizio esterno; il markup non cambia (`action` e `metho
 15. **Immagini Open Graph generate al build** (`/og/<pagina>.png`, sharp + SVG): nessun servizio
     esterno, titolo reale della pagina.
 16. **Form senza JavaScript**: un unico `<form>` HTML che Netlify Forms riceve comunque; JS aggiunge
-    passi, validazione, bozza in `sessionStorage`, deviazione urgenza e WhatsApp precompilato.
+    passi, validazione, bozza in `sessionStorage` e deviazione urgenza.
 17. **PDF della convenzione** generato da HTML con Chromium (`scripts/genera-pdf-convenzione.mjs`)
     dai dati di `clinica.json`: nessun dato duplicato a mano.
 

@@ -15,8 +15,6 @@ import {
   indicazioniHref,
   indirizzoRiga,
   telHref,
-  whatsappDisponibile,
-  whatsappHref,
 } from '@lib/clinica';
 import { orariLeggibili } from '@lib/orari';
 import { webPage } from '@lib/schema';
@@ -25,7 +23,6 @@ const zone = (await getCollection('zone')).sort((a, b) => a.data.ordine - b.data
 const orari = clinica.orari.ambulatorio.confermato
   ? orariLeggibili(clinica.orari.ambulatorio.settimana)
   : null;
-const wa = whatsappHref();
 const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco: ${indirizzoRiga}. Telefono ${clinica.contatti.telefono.visualizzato} attivo 24 ore su 24. Indicazioni da Portici, Ercolano, San Giorgio, Torre del Greco, Napoli.`;
 ---
 
@@ -67,25 +64,6 @@ const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco
                 </a>
               </dd>
             </div>
-            {whatsappDisponibile && wa && (
-              <div>
-                <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
-                  WhatsApp (prenotazioni)
-                </dt>
-                <dd class="mt-1">
-                  <a
-                    href={wa}
-                    target="_blank"
-                    rel="noopener"
-                    class="text-lg font-semibold"
-                    data-evento="click_whatsapp"
-                    data-evento-posizione="contatti"
-                  >
-                    {clinica.contatti.whatsapp.visualizzato}
-                  </a>
-                </dd>
-              </div>
-            )}
             <div>
               <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
                 Email

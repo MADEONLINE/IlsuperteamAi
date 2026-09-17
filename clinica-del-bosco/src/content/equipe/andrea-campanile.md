@@ -5,8 +5,6 @@ ruolo: 'Endoscopista e gastroenterologo · specialista in collaborazione'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
-numeroOrdine: '{{DA_CONFERMARE}}'
-provinciaOrdine: '{{DA_CONFERMARE}}'
 specializzazioni: ['Endoscopia', 'Gastroenterologia']
 aree: ['endoscopia-gastroenterologia']
 formazione: ['Master in gastroenterologia veterinaria']

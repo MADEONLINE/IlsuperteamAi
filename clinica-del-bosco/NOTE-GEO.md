@@ -40,7 +40,7 @@ citi la Clinica Veterinaria del Bosco, con il numero giusto.
 
 ## Cosa deve fare la clinica per mantenerlo
 
-- **Compilare i dati mancanti** (direttore sanitario, numeri d'Ordine, orari, WhatsApp, GPS,
+- **Compilare i dati mancanti** (numeri d'Ordine dei medici, GPS,
   profilo Google): finché mancano, il sito è meno credibile per le AI quanto per le persone.
 - **Tenere identici nome, indirizzo e telefono** su Google Business Profile, Facebook, Instagram,
   PagineGialle, Yelp: lettera per lettera, come in `src/data/clinica.json`.

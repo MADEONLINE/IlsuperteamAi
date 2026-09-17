@@ -5,14 +5,14 @@
  *   riceve l'invio e reindirizza alla pagina di ringraziamento (attributo action).
  * - Con JavaScript: un passo alla volta, barra di avanzamento, validazione inline gentile,
  *   stato salvato in sessionStorage, deviazione "è un'urgenza" verso la chiamata,
- *   fallback WhatsApp precompilato, precompilazione da query string (?motivo=…&piano=…&specie=…).
+ *   precompilazione da query string (?motivo=…&piano=…&specie=…).
  * - Anti-spam: honeypot Netlify ("indirizzo-web") + filtro Akismet lato Netlify + campo tempo.
  * - Privacy: informativa specifica e doppio consenso (gestione richiesta ≠ marketing, mai preselezionato).
  */
 import Bottone from '@ui/Bottone.astro';
 import Icona from '@ui/Icona.astro';
 import Rassicurazioni from '@ui/Rassicurazioni.astro';
-import { clinica, telHref, whatsappDisponibile, whatsappHref } from '@lib/clinica';
+import { clinica, telHref } from '@lib/clinica';
 
 interface Props {
   nomeForm?: string;
@@ -43,7 +43,6 @@ const motivi = [
 ] as const;
 
 const oggi = new Date().toISOString().slice(0, 10);
-const wa = whatsappHref('');
 ---
 
 <form
@@ -349,7 +348,7 @@ const wa = whatsappHref('');
         />
         <span>
           Acconsento a ricevere promemoria di prevenzione (vaccini, antiparassitari, campagne
-          stagionali) via email o WhatsApp.{' '}
+          stagionali) via email.{' '}
           <span class="text-testo-secondario">(facoltativo, revocabile in qualsiasi momento)</span>
         </span>
       </label>
@@ -388,24 +387,6 @@ const wa = whatsappHref('');
   </div>
   <p class="stato mt-3 text-sm" aria-live="polite"></p>
   <Rassicurazioni class="mt-4" voci={['richiamo', 'pagamento', 'preventivo']} />
-
-  {whatsappDisponibile && wa && (
-    <p class="mt-6 text-sm text-testo-secondario">
-      Preferisci WhatsApp?{' '}
-      <a
-        href={wa}
-        class="fallback-whatsapp font-semibold text-primario-link"
-        target="_blank"
-        rel="noopener"
-        data-base={wa}
-        data-evento="click_whatsapp"
-        data-evento-posizione="form"
-      >
-        Scrivici su WhatsApp
-      </a>{' '}
-      con i dati che hai già inserito.
-    </p>
-  )}
 </form>
 
 <style>
@@ -536,25 +517,6 @@ const wa = whatsappHref('');
       } catch {
         /* storage pieno o negato */
       }
-      aggiornaWhatsapp();
-    };
-
-    const aggiornaWhatsapp = () => {
-      const link = form.querySelector<HTMLAnchorElement>('.fallback-whatsapp');
-      if (!link) return;
-      const d = new FormData(form);
-      const parti = [
-        'Buongiorno, vorrei prenotare una visita.',
-        d.get('nome-animale')
-          ? `Animale: ${d.get('specie') ?? ''} ${d.get('nome-animale')} (${d.get('eta-animale') ?? ''})`
-          : '',
-        d.get('motivo') ? `Motivo: ${d.get('motivo')}` : '',
-        d.get('fascia') || d.get('data-1')
-          ? `Preferenza: ${d.get('fascia') ?? ''} ${d.get('data-1') ?? ''}`
-          : '',
-        d.get('nome') ? `Mi chiamo ${d.get('nome')}` : '',
-      ].filter(Boolean);
-      link.href = `${link.dataset['base']}?text=${encodeURIComponent(parti.join('\n'))}`;
     };
 
     const mostraErrore = (nome: string, visibile: boolean) => {
@@ -660,7 +622,6 @@ const wa = whatsappHref('');
 
     invia.hidden = true;
     mostra(1, false);
-    aggiornaWhatsapp();
   }
   inizializza();
   document.addEventListener('astro:page-load', inizializza);

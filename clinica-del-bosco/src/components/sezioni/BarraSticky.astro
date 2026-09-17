@@ -1,12 +1,10 @@
 ---
 /**
- * Barra sticky mobile su tutto il sito: Chiama · WhatsApp (o Prenota) · Indicazioni.
+ * Barra sticky mobile su tutto il sito: Chiama · Prenota · Indicazioni.
  * Sempre sopra il cookie banner; nascosta da lg in su (le CTA sono nell'header).
  */
 import Icona from '@ui/Icona.astro';
-import { clinica, indicazioniHref, telHref, whatsappHref } from '@lib/clinica';
-
-const wa = whatsappHref(`Buongiorno, vorrei prenotare una visita alla ${clinica.nome}.`);
+import { indicazioniHref, telHref } from '@lib/clinica';
 ---
 
 <nav
@@ -26,27 +24,13 @@ const wa = whatsappHref(`Buongiorno, vorrei prenotare una visita alla ${clinica.
       </a>
     </li>
     <li>
-      {wa ? (
-        <a
-          href={wa}
-          target="_blank"
-          rel="noopener"
-          data-evento="click_whatsapp"
-          data-evento-posizione="barra-sticky"
-          class="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-xl bg-primario-tenue text-primario-link no-underline"
-        >
-          <Icona nome="whatsapp" class="size-5" />
-          <span class="text-xs font-bold uppercase tracking-wide">WhatsApp</span>
-        </a>
-      ) : (
-        <a
-          href="/prenota"
-          class="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-xl bg-primario-tenue text-primario-link no-underline"
-        >
-          <Icona nome="calendario" class="size-5" />
-          <span class="text-xs font-bold uppercase tracking-wide">Prenota</span>
-        </a>
-      )}
+      <a
+        href="/prenota"
+        class="flex min-h-14 flex-col items-center justify-center gap-0.5 rounded-xl bg-primario-tenue text-primario-link no-underline"
+      >
+        <Icona nome="calendario" class="size-5" />
+        <span class="text-xs font-bold uppercase tracking-wide">Prenota</span>
+      </a>
     </li>
     <li>
       <a

@@ -4,7 +4,6 @@
  * pubblicazione e ultima revisione. Segnale E-E-A-T per Google e per i sistemi AI.
  */
 import type { CollectionEntry } from 'astro:content';
-import Dato from '@ui/Dato.astro';
 import Icona from '@ui/Icona.astro';
 
 interface Props {
@@ -38,11 +37,13 @@ const iso = (d: Date) => d.toISOString().slice(0, 10);
           {autore.data.titolo} {autore.data.nome}
         </a>
         ,<span>{autore.data.ruolo}</span>
-        <span class="text-testo-secondario">
-          {' '}
-          · Ordine dei Medici Veterinari di <Dato valore={autore.data.provinciaOrdine} /> n.{' '}
-          <Dato valore={autore.data.numeroOrdine} />
-        </span>
+        {autore.data.numeroOrdine && autore.data.provinciaOrdine && (
+          <span class="text-testo-secondario">
+            {' '}
+            · Ordine dei Medici Veterinari di {autore.data.provinciaOrdine} n.{' '}
+            {autore.data.numeroOrdine}
+          </span>
+        )}
       </p>
       {revisore && (
         <p>
