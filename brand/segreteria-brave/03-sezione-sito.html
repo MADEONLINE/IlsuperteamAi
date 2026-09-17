@@ -141,18 +141,21 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
 .knows li b{color:var(--night-ink);font-weight:600}
 
 /* calcolatore */
-.calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:clamp(24px,4vw,48px);align-items:start}
+.calc-grid{display:grid;gap:clamp(20px,3vw,30px)}
 @media (max-width:880px){.calc-grid{grid-template-columns:1fr}}
-.inputs{display:grid;gap:0;border:1px solid var(--line);background:var(--raise)}
-.field{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:14px;align-items:center;padding:15px 18px;border-bottom:1px solid var(--line-soft)}
-.field:last-child{border-bottom:0}
+.inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.inputs > .field{background:var(--raise)}
+.inputs > .assump{grid-column:1/-1;background:var(--raise);padding:14px 18px;border-top:1px solid var(--line-soft)}
+@media (max-width:760px){.inputs{grid-template-columns:1fr}}
+.field{display:grid;grid-template-rows:1fr auto;gap:12px;align-items:start;padding:16px 18px}
+.field input{width:100%}
 .field label{font-size:.94rem;color:var(--ink-2);line-height:1.35}
 .field input{
   font-family:var(--f-mono);font-size:.95rem;text-align:right;padding:8px 10px;
   border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);width:100%;
   font-variant-numeric:tabular-nums
 }
-.result{border:1px solid var(--teal);background:var(--teal-wash);padding:26px 24px;display:grid;gap:12px;align-content:start}
+.result{display:grid;gap:0;border:1px solid var(--teal)}
 .result .rl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
 .result .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums;font-variation-settings:'SOFT' 0,'WONK' 0}
 .result .sub{font-size:.92rem;color:var(--ink-2);line-height:1.5}
@@ -259,12 +262,22 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
 .editnote b{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
 .editnote span{font-size:.88rem;color:var(--ink-2)}
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+.res3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--teal)}
+.res3 > div{display:grid;gap:7px;align-content:start;background:var(--teal-wash);padding:24px 22px}
+.res3 .big{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.res3 .sub b{color:var(--ink);font-weight:600}
+@media (max-width:860px){.res3{grid-template-columns:1fr}}
+.cmp{background:var(--teal-wash);border-top:1px solid var(--teal);padding:22px;display:grid;gap:7px}
+.cmp-l{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.cmp-v{font-family:var(--f-disp);font-weight:800;font-size:1.5rem;letter-spacing:-.025em;color:var(--ink)}
+.cmp-n{font-size:.86rem;line-height:1.55;color:var(--ink-2);max-width:82ch}
 </style>
 
 <div class="editnote">
   <div class="wrap editnote-in">
     <b>Anteprima</b>
-    <span>Sezione <em>bravevetbusiness.it/segreteria-brave</em> — struttura, testi e meccanismi di conversione. Il marchio non compare: si applica dopo la scelta, senza toccare l'impianto della pagina.</span>
+    <span>Sezione <em>bravevetbusiness.it/segreteria-brave</em> — versione 2, con le modifiche concordate con Icarus il 17 settembre. Il marchio non compare ancora: si applica dopo la scelta, senza toccare l'impianto della pagina.</span>
   </div>
 </div>
 
@@ -285,33 +298,33 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
 <header class="hero">
   <div class="wrap hero-in">
     <div class="hero-copy">
-      <div class="kick">Segreteria Brave · la voce si chiama Giulia</div>
-      <h1>Risponde sempre.<br>Sa già chi sei.</h1>
-      <p class="lede">La prima segreteria virtuale costruita solo per la clinica veterinaria. Giulia risponde al telefono della tua clinica, riconosce chi chiama, conosce il paziente e la terapia in corso, e fissa l'appuntamento in agenda. Anche alle 23. Anche di domenica.</p>
+      <div class="kick">Segreteria Brave · powered by Icarus</div>
+      <h1>Risponde sempre.<br>Non perde niente.</h1>
+      <p class="lede">La prima segreteria virtuale costruita solo per la clinica veterinaria. Risponde quando voi non potete, capisce che cosa serve a chi chiama, fissa l'appuntamento secondo le vostre regole e vi lascia ogni richiesta scritta e ordinata. Anche alle 23. Anche di domenica. Anche quando arrivano quattro chiamate insieme.</p>
       <div class="btns">
         <a class="btn btn--p" href="#demo">Prenota una demo</a>
-        <a class="btn btn--s" href="#chiamata">Guarda cosa sa mentre parla</a>
+        <a class="btn btn--s" href="#chiamata">Guarda cosa lascia scritto</a>
       </div>
       <div class="badge-row">
         <span class="badge badge--live">Pilota attivo · Carmagnola</span>
-        <span class="badge">Add-on marketplace Snoots</span>
+        <span class="badge">Con o senza gestionale</span>
         <span class="badge">Brave Vet Business × Icarus Technology</span>
       </div>
     </div>
 
-    <div class="call" aria-label="Esempio di chiamata in corso">
+    <div class="call" aria-label="Esempio di richiesta registrata a portale">
       <div class="call-h">
-        <span class="av">G</span>
-        <span class="who"><b>Giulia è in linea</b><span>chiamata in corso</span></span>
-        <span class="tm">00:42</span>
+        <span class="av">21</span>
+        <span class="who"><b>Richieste di oggi</b><span>una richiesta, aperta</span></span>
+        <span class="tm">18:04</span>
       </div>
       <dl>
         <dt>Chiama</dt><dd>+39 340 118 27 64</dd>
         <dt>Cliente</dt><dd>Mario Rossi</dd>
-        <dt>Paziente</dt><dd>Luna · meticcio, 7 anni</dd>
-        <dt>Ultima visita</dt><dd>04/09 · dermatologica</dd>
-        <dt>In terapia</dt><dd>Apoquel 16 mg · 1×/die</dd>
-        <dt>Prossimo</dt><dd>18/09 · controllo</dd>
+        <dt>Paziente</dt><dd>Luna</dd>
+        <dt>Categoria</dt><dd>Controllo · da anticipare</dd>
+        <dt>In sintesi</dt><dd>Prurito non migliorato dopo la visita. Chiede un appuntamento prima del 18.</dd>
+        <dt>Stato</dt><dd>Fissato giovedì 15:40 · nota al medico</dd>
       </dl>
       <div class="call-f">Esempio dimostrativo · dati non reali</div>
     </div>
@@ -325,7 +338,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     <div class="sec-head">
       <div class="kick">Il problema</div>
       <h2>Il telefono squilla sempre nel momento sbagliato.</h2>
-      <p class="lede">E chi non trova risposta non richiama. Chiama il numero successivo su Google.</p>
+      <p class="lede">E chi non trova risposta non richiama: chiama il numero successivo su Google. Chi invece resta in coda venti minuti vi risponde con una recensione.</p>
     </div>
     <div class="probs">
       <div>
@@ -343,48 +356,64 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
         <h3>Squilla mentre c'è già qualcuno al bancone</h3>
         <p class="small">Il front office deve scegliere tra chi è entrato dalla porta e chi sta al telefono. Qualunque cosa scelga, perde l'altro.</p>
       </div>
+      <div>
+        <span class="n">04</span>
+        <h3>E chi non perdete, lo mettete in coda</h3>
+        <p class="small">La chiamata in attesa risulta «risposta» in qualunque statistica. Ma chi è quarto in fila riaggancia dopo venti minuti — e quella non la conta nessuno.</p>
+      </div>
     </div>
   </section>
 
   <!-- CALCOLATORE -->
   <section id="conto">
     <div class="sec-head">
-      <div class="kick">Fai il conto con i tuoi numeri</div>
-      <h2>Quanto ti costa il telefono in un anno?</h2>
-      <p class="lede">Non serve un dato di mercato: bastano quattro numeri che conosci già. Cambia i valori e guarda il risultato.</p>
+      <div class="kick">Fai il conto in dieci secondi</div>
+      <h2>Il telefono ti costa tre cose.<br>Solo una è in euro.</h2>
+      <p class="lede">Non servono i dati del centralino: bastano due numeri che sai a memoria. Le medie le mettiamo noi, e sono dichiarate qui sotto. Poi guarda quale delle tre cifre ti fa più male — è quella che dice di che cosa hai bisogno.</p>
     </div>
     <div class="calc-grid">
       <div class="inputs">
         <div class="field">
-          <label for="c-chiamate">Chiamate che ricevi in un giorno</label>
-          <input id="c-chiamate" type="number" min="0" max="500" step="1" value="40" inputmode="numeric">
+          <label for="c-chiamate">Quante chiamate ricevete in un giorno, più o meno</label>
+          <input id="c-chiamate" type="number" min="0" max="2000" step="5" value="40" inputmode="numeric">
         </div>
         <div class="field">
-          <label for="c-perse">Quante finiscono senza risposta <span class="mono" style="text-transform:none">(%)</span></label>
-          <input id="c-perse" type="number" min="0" max="100" step="1" value="15" inputmode="numeric">
-        </div>
-        <div class="field">
-          <label for="c-pren">Di quelle perse, quante erano una prenotazione <span class="mono" style="text-transform:none">(%)</span></label>
-          <input id="c-pren" type="number" min="0" max="100" step="1" value="30" inputmode="numeric">
+          <label for="c-giorni">Quanti giorni all'anno siete aperti</label>
+          <input id="c-giorni" type="number" min="1" max="366" step="1" value="300" inputmode="numeric">
         </div>
         <div class="field">
           <label for="c-ticket">Valore medio di una prestazione <span class="mono" style="text-transform:none">(€)</span></label>
           <input id="c-ticket" type="number" min="0" max="2000" step="5" value="110" inputmode="numeric">
         </div>
-        <div class="field">
-          <label for="c-giorni">Giorni di apertura in un anno</label>
-          <input id="c-giorni" type="number" min="1" max="366" step="1" value="300" inputmode="numeric">
-        </div>
+        <p class="assump small" style="color:var(--muted);line-height:1.6">Cosa mettiamo noi, sui dati di chi già usa il servizio: <strong>20%</strong> di chiamate che restano senza risposta o in coda, <strong>30%</strong> di quelle che erano una prenotazione, <strong>2 minuti e mezzo</strong> di durata media.</p>
       </div>
 
       <div class="result">
-        <span class="rl">Mancato fatturato stimato · anno</span>
-        <span class="big" id="out-anno">€ 59.400</span>
-        <p class="sub">È la stima di quanto vale, in dodici mesi, il telefono a cui non risponde nessuno. Non include i clienti che, dopo una chiamata a vuoto, non tornano più.</p>
-        <p class="brk" id="out-brk">6,0 chiamate perse al giorno · 1,8 prenotazioni mancate · € 198 al giorno</p>
+        <div class="res3">
+          <div>
+            <span class="rl">Il tempo · ore all'anno</span>
+            <span class="big" id="out-ore">500 ore</span>
+            <p class="sub">È quanto il telefono prende al vostro staff in dodici mesi: <b id="out-gg">63</b> giornate piene di una persona. <b id="out-ore-rec">100</b> di quelle ore sono chiamate che oggi non riuscite nemmeno a prendere.</p>
+          </div>
+          <div>
+            <span class="rl">Le persone · in un anno</span>
+            <span class="big" id="out-pers">2.400</span>
+            <p class="sub">Quanti se ne vanno senza risposta, o dopo venti minuti di attesa. Qualcuno richiama. Qualcuno vi scrive su WhatsApp. Qualcuno chiama il numero dopo su Google e non lo sapete.</p>
+          </div>
+          <div>
+            <span class="rl">Il fatturato · anno</span>
+            <span class="big" id="out-anno">€ 79.200</span>
+            <p class="sub">Quanto vale in dodici mesi il telefono a cui non risponde nessuno. Non include chi, dopo una chiamata a vuoto, non torna più.</p>
+          </div>
+        </div>
+        <div class="cmp">
+          <span class="cmp-l">E quanto costa togliersele di dosso</span>
+          <span class="cmp-v" id="out-costo">circa € 180 al mese</span>
+          <span class="cmp-n">Ordine di grandezza sul traffico che ci girate, non un preventivo: quello arriva dopo i dati del vostro centralino. Qui serve solo il rapporto tra questa cifra e le tre qui sopra. Sopra i 3.000 minuti al mese il costo al minuto scende e l'offerta si costruisce sul caso.</span>
+        </div>
       </div>
     </div>
-    <p class="small" style="margin-top:18px;color:var(--muted);max-width:70ch">Simulazione basata sui valori che inserisci tu. I valori precompilati sono un esempio, non un dato di settore.</p>
+    <p class="small" style="margin-top:18px;color:var(--muted);max-width:76ch">Una stima, non una promessa. Le chiamate lasciate in attesa risultano «risposte» in qualunque statistica di centralino: sono contate qui perché nella realtà si comportano come quelle perse.</p>
   </section>
 </div>
 
@@ -393,37 +422,37 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
   <div class="wrap">
     <div class="sec-head">
       <div class="kick">Novanta secondi</div>
-      <h2>Una chiamata normale.<br>La differenza è nella quarta battuta.</h2>
-      <p class="lede">Nessuna emergenza, nessun caso raro: la telefonata più frequente che una clinica riceve.</p>
+      <h2>Una chiamata normale.<br>E quello che resta scritto dopo.</h2>
+      <p class="lede">Nessuna emergenza, nessun caso raro: la telefonata più frequente che una clinica riceve. Guardate dove finisce.</p>
     </div>
     <div class="demo-grid">
       <div class="turns">
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Clinica Veterinaria Carmagnola, buongiorno. Sono Giulia, l'assistente della clinica. Parlo con il signor Rossi, vero?»</span></div>
-        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, buongiorno. Senta, Luna si gratta ancora tantissimo, l'avete vista martedì…»</span></div>
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx"><em>«Sì, visita dermatologica del quattro settembre, con il dottor Rosso. Le era stato prescritto Apoquel sedici milligrammi, una volta al giorno. Lo sta prendendo regolarmente?»</em></span></div>
-        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, tutte le sere. Però non è che migliora granché.»</span></div>
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Ho capito. Ha già un controllo il diciotto, ma se il prurito non sta cedendo ha senso anticiparlo. Ho giovedì alle 15:40 e venerdì alle 9:20, entrambi con il dottor Rosso. Quale le va meglio?»</span></div>
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Clinica Veterinaria Carmagnola, buongiorno. Sono Giulia, <em>l'assistente virtuale</em> della clinica. Come posso aiutarla?»</span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Buongiorno. Sono il signor Rossi, per Luna. Si gratta ancora tantissimo, l'avete vista la settimana scorsa…»</span></div>
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Ho qui il controllo di Luna fissato per il diciotto. Vuole che verifichi se c'è un posto prima?»</span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, magari sì, perché così non va.»</span></div>
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Ho giovedì alle 15:40 e venerdì alle 9:20, entrambi con il dottor Rosso. Quale le va meglio?»</span></div>
         <div class="turn"><span class="sp">Cliente</span><span class="tx">«Facciamo giovedì.»</span></div>
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Fissato: giovedì alle 15:40, controllo dermatologico per Luna. Le mando il promemoria su questo numero. Intanto segnalo al dottor Rosso che il prurito non è migliorato, così arriva preparato.»</span></div>
+        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx"><em>«Fissato: giovedì 15:40, controllo per Luna. Le mando il promemoria su questo numero. Scrivo al dottor Rosso che il prurito non è migliorato, così quando la vede sa già di che si tratta.»</em></span></div>
       </div>
 
       <div class="knows">
-        <h3>Cosa ha davanti Giulia mentre parla</h3>
+        <h3>Cosa resta a voi, chiamata per chiamata</h3>
         <ul>
-          <li><span><b>Chi sta chiamando</b> — per nome e cognome, o riconosciuto dal solo numero di telefono</span></li>
-          <li><span><b>Di che cosa ha bisogno</b> — e a chi passarlo se esce dal suo perimetro</span></li>
-          <li><span><b>Quali visite sono state fatte</b> — data, tipo, veterinario</span></li>
-          <li><span><b>Quali farmaci sono in terapia</b> — principio attivo, dosaggio, posologia</span></li>
-          <li><span><b>Quali appuntamenti ci sono</b> — e quali slot sono liberi per fissarne uno nuovo</span></li>
+          <li><span><b>Chi ha chiamato e per che cosa</b> — numero, cliente, paziente, richiesta in due righe</span></li>
+          <li><span><b>La categoria</b> — ricetta, appuntamento, informazione, urgenza: filtrabile, contabile</span></li>
+          <li><span><b>Che cosa è stato fatto</b> — appuntamento fissato, messaggio preso, chiamata passata</span></li>
+          <li><span><b>La nota per il medico</b> — così chi visita sa già prima di entrare in sala</span></li>
+          <li><span><b>Audio e trascrizione integrali</b> — se volete verificare parola per parola</span></li>
         </ul>
-        <p class="small" style="color:var(--night-muted);border-top:1px solid var(--night-line);padding-top:13px">Giulia non indovina e non inventa: legge la scheda. Con Snoots, questi dati sono quelli reali della tua clinica.</p>
+        <p class="small" style="color:var(--night-muted);border-top:1px solid var(--night-line);padding-top:13px">Questo è quello che il servizio fa oggi, in ogni configurazione. <strong>Il riconoscimento del chiamante dal gestionale — nome, storico, terapie — è l'integrazione su cui stiamo lavorando adesso</strong>, e sarà il passo successivo.</p>
       </div>
     </div>
 
     <div class="hear">
       <div class="hear-t">
         <span class="kick">Qui la leggi. In demo la senti.</span>
-        <p>Il testo qui sopra è la trascrizione di una telefonata reale. La <strong>voce</strong> non la mettiamo online: te la facciamo sentire in diretta durante la demo, insieme alla scheda che Giulia ha davanti mentre parla. Trenta minuti, senza impegno.</p>
+        <p>Il testo qui sopra è la ricostruzione di una telefonata tipo. La <strong>voce</strong> non la mettiamo online: te la facciamo sentire in diretta durante la demo, insieme al portale dove ogni chiamata finisce scritta. Trenta minuti, senza impegno.</p>
       </div>
       <a class="btn btn--p" href="#demo">Prenota la demo</a>
     </div>
@@ -436,32 +465,33 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
   <section>
     <div class="sec-head">
       <div class="kick">Due modi di attivarla</div>
-      <h2>Funziona con qualsiasi clinica.<br>Dentro Snoots, funziona meglio.</h2>
+      <h2>Si configura in base<br>agli strumenti che avete già.</h2>
+      <p class="lede">Non dovete cambiare niente e non dovete integrare niente. Quello che usate oggi continuate a usarlo: cambia solo da dove la segreteria prende le informazioni.</p>
     </div>
     <div class="modes">
       <div>
-        <span class="tag">Modalità A · add-on indipendente</span>
-        <h3>Giulia istruita</h3>
-        <p class="small">Si configura sulle informazioni e sulle esigenze della tua clinica, a prescindere dal gestionale che usi. Orari, servizi, come si prenota, cosa è urgenza, cosa non deve mai dire.</p>
+        <span class="tag">Modalità indipendente</span>
+        <h3>Istruita sulla clinica</h3>
+        <p class="small">Si configura sulle informazioni e sulle regole della vostra struttura, a prescindere dal gestionale che usate — o anche senza gestionale. Orari, servizi, come si prenota, cosa è urgenza, cosa non deve mai dire.</p>
         <ul>
-          <li>Risponde, filtra e informa secondo le tue regole</li>
-          <li>Prende il messaggio strutturato e te lo recapita</li>
-          <li>Prenota secondo i criteri che le hai dato</li>
+          <li>Risponde, filtra e informa secondo le vostre regole</li>
+          <li>Prende la richiesta strutturata e ve la lascia a portale</li>
+          <li>Prenota secondo i criteri che le avete dato</li>
           <li>Nessuna integrazione richiesta: si parte subito</li>
         </ul>
-        <p class="foot">Per chi non usa Snoots, o vuole partire senza toccare il gestionale.</p>
+        <p class="foot">Le funzioni ci sono tutte. È la strada più veloce per partire.</p>
       </div>
-      <div class="modes--hi">
-        <span class="tag">Modalità B · nativa nel marketplace Snoots</span>
-        <h3>Giulia connessa</h3>
-        <p class="small">Attivata dentro Snoots, legge i dati reali della clinica. Non risponde genericamente: risponde <strong>puntualmente</strong>, sul caso di chi ha in linea.</p>
+      <div>
+        <span class="tag">Modalità con Snoots</span>
+        <h3>Collegata al gestionale</h3>
+        <p class="small">Attivata dentro Snoots, lavora sui dati della clinica invece che su quelli che le avete insegnato. Le stesse funzioni, con meno configurazione da fare e più cose già sapute.</p>
         <ul>
-          <li>Riconosce il cliente per nome e cognome, o dal numero</li>
-          <li>Vede lo storico delle visite fatte</li>
-          <li>Conosce i farmaci in terapia</li>
-          <li>Legge l'agenda e fissa l'appuntamento successivo</li>
+          <li>Le richieste tornano dentro Snoots, senza ricopiare</li>
+          <li>Legge l'agenda per rispondere, e scrive solo dove le dite voi</li>
+          <li>Aggancia il chiamante alla scheda esistente</li>
+          <li>Si configura in meno tempo, perché molto è già lì</li>
         </ul>
-        <p class="foot">È qui che Giulia smette di essere una segreteria e diventa un pezzo della clinica.</p>
+        <p class="foot">Integrazione in corso di sviluppo: le funzioni in elenco arrivano progressivamente.</p>
       </div>
     </div>
   </section>
@@ -471,15 +501,33 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     <div class="sec-head">
       <div class="kick">Il perimetro, scritto</div>
       <h2>Cosa Giulia non fa mai.</h2>
-      <p class="lede">Il confine si decide insieme in configurazione, e resta scritto. Perché la fiducia si costruisce sui limiti dichiarati, non sulle promesse.</p>
+      <p class="lede">Il confine si decide insieme in configurazione, e resta scritto. Perché la fiducia si costruisce sui limiti dichiarati, non sulle promesse. Su un punto in particolare non c'è margine: <strong>la parte clinica non la tocca</strong>.</p>
     </div>
     <div class="limits">
       <div><b>Non fa diagnosi</b><span>Non interpreta sintomi e non ipotizza patologie. Se la domanda è clinica, la domanda passa al veterinario.</span></div>
       <div><b>Non prescrive e non modifica terapie</b><span>Può leggere ciò che è in cartella. Non può cambiarlo, aggiungerlo o sospenderlo.</span></div>
       <div><b>Non decide da sola un'urgenza</b><span>Applica i criteri che le hai dato. Nel dubbio, escalation immediata al numero che indichi tu.</span></div>
-      <div><b>Non finge di essere una persona</b><span>Se le viene chiesto, dichiara di essere l'assistente virtuale della clinica. Non ne ha bisogno per fare bene il suo lavoro.</span></div>
-      <div><b>Non porta i tuoi dati altrove</b><span>I dati restano della clinica, che resta titolare del trattamento. Giulia li legge per rispondere.</span></div>
-      <div><b>Non sostituisce il tuo front office</b><span>Prende le chiamate che oggi si perdono, così chi c'è può occuparsi di chi è entrato dalla porta.</span></div>
+      <div><b>Non finge di essere una persona</b><span>Lo dichiara da sola, in apertura di chiamata, a chiunque: è quello che il regolamento europeo sull'intelligenza artificiale richiede dal 2 agosto 2026. E non le serve fingere per fare bene il suo lavoro.</span></div>
+      <div><b>Non fa niente con i dati che non sia stato concordato</b><span>Che cosa viene registrato, per quanto si conserva e chi vi accede si stabilisce per iscritto prima dell'attivazione. La clinica resta titolare del trattamento.</span></div>
+      <div><b>Non sostituisce il tuo front office</b><span>Prende le chiamate che oggi si perdono, così chi c'è può occuparsi di chi è entrato dalla porta. Cambia che cosa fa la segreteria, non quante persone servono.</span></div>
+    </div>
+  </section>
+
+  <!-- SEGRETERIA -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">A chi sta al bancone</div>
+      <h2>Questa pagina parla al titolare.<br>Ma il prodotto lo userete voi.</h2>
+      <p class="lede">Se siete voi a rispondere al telefono tutto il giorno, la domanda vera è una sola, e non è se funziona.</p>
+    </div>
+    <div class="limits">
+      <div><b>Non vi toglie il posto: vi toglie la parte peggiore</b><span>Gli orari, il «siete aperti sabato», il farmaco da ripetere, il numero da dare. Quelle chiamate le prende lei. Quelle in cui serve una persona restano vostre — e finalmente avete il tempo di farle bene.</span></div>
+      <div><b>Non dovete imparare un programma nuovo</b><span>Una pagina sola, sempre aperta di fianco al gestionale, con l'elenco di quello che è arrivato. Si legge, si segna fatto, si archivia.</span></div>
+      <div><b>Smettete di dire «scusi, un attimo» a chi avete davanti</b><span>Chi è entrato dalla porta non viene più interrotto ogni novanta secondi. È la cosa che cambia di più, e non si vede in nessun numero.</span></div>
+      <div><b>Decidete voi che cosa le fate fare</b><span>Le regole si scrivono in configurazione, e la configurazione la facciamo con voi, non sopra di voi. Nessuno conosce le telefonate di quella clinica meglio di chi le risponde.</span></div>
+    </div>
+    <div class="note" style="margin-top:22px;border-left:3px solid var(--teal);padding-left:16px;max-width:70ch">
+      <p class="small">In demo chiediamo sempre che ci sia anche chi risponde al telefono. Non per cortesia: perché senza quella mezz'ora il servizio viene configurato male, e le domande giuste le fa solo chi le telefonate le conosce a memoria.</p>
     </div>
   </section>
 
@@ -492,16 +540,18 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     <div class="pilot">
       <div>
         <blockquote>Segreteria Brave è in funzione alla Clinica Veterinaria Carmagnola del dott. Matteo Rosso.</blockquote>
-        <p class="att">Clienti veri che chiamano, un'agenda vera che si riempie. Il pilota è aperto: i primi veterinari che attivano Giulia entrano in una fase in cui il prodotto si modella anche sulle loro segnalazioni.</p>
+        <p class="att">Clienti veri che chiamano, un'agenda vera che si riempie. Il pilota è aperto: i primi veterinari che attivano la segreteria entrano in una fase in cui il prodotto si modella anche sulle loro segnalazioni.</p>
       </div>
       <div class="ph">
-        [ da raccogliere ]<br><br>
-        Citazione del dott. Matteo Rosso<br>
-        + 1 dato dal pilota<br>
-        (es. chiamate gestite / appuntamenti fissati<br>
-        in un periodo definito)<br><br>
-        → nessun numero pubblicato<br>
-        finché non è verificato
+        [ da inserire ]<br><br>
+        Una chiamata <b>reale</b> del pilota,<br>
+        anonimizzata nei nomi,<br>
+        al posto della ricostruzione qui sopra<br>
+        + 1 dato verificato<br>
+        (chiamate gestite / appuntamenti fissati)<br><br>
+        → nessun numero e nessun nome<br>
+        pubblicato finché non è verificato<br>
+        e autorizzato
       </div>
     </div>
   </section>
@@ -515,27 +565,27 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     <div class="faq">
       <details open>
         <summary>I miei clienti capiranno che non è una persona?</summary>
-        <p class="ans">Se lo chiedono, Giulia lo dice: è l'assistente virtuale della clinica. Ma il fastidio, al telefono, non nasce dal fatto che dall'altra parte ci sia una macchina — nasce da una macchina che non sa niente e fa perdere tempo. Giulia riconosce chi chiama, conosce il caso e risolve in novanta secondi. La reazione più frequente non è «ho parlato con un robot», è «finalmente qualcuno che risponde».</p>
+        <p class="ans">Sì, e glielo dice lei: si presenta come assistente virtuale all'inizio di ogni chiamata. Non è una scelta nostra, è un obbligo del regolamento europeo sull'intelligenza artificiale in vigore dal 2 agosto 2026 — e ci mettiamo il nome sopra volentieri. Il fastidio, al telefono, non nasce dal fatto che dall'altra parte ci sia una macchina: nasce da una macchina che non capisce e fa perdere tempo. La reazione più frequente che raccogliamo non è «ho parlato con un robot», è «finalmente qualcuno che risponde».</p>
       </details>
       <details>
         <summary>Sostituisce la mia segretaria?</summary>
-        <p class="ans">No, e non vogliamo che lo faccia. Oggi il tuo front office interrompe ogni novanta secondi la persona che ha davanti per rispondere al telefono. Giulia prende le chiamate — soprattutto quelle che oggi si perdono, la sera, nei weekend, quando ne arrivano quattro insieme — e restituisce al tuo staff le ore per fare il lavoro che vale.</p>
+        <p class="ans">No: cambia che cosa fa. Oggi il tuo front office interrompe ogni novanta secondi la persona che ha davanti per dire un orario al telefono. La segreteria prende quelle chiamate — soprattutto quelle che oggi si perdono, la sera, nei weekend, quando ne arrivano quattro insieme — e restituisce al tuo staff le ore per il lavoro che vale davvero. Nelle strutture in cui è attiva il telefono ha smesso di squillare, e le persone sono le stesse.</p>
       </details>
       <details>
         <summary>E se dà un'informazione sbagliata? La responsabilità è mia.</summary>
-        <p class="ans">Giulia lavora dentro un perimetro deciso da te e messo per iscritto (vedi «Cosa Giulia non fa mai»). Non fa diagnosi, non tocca le terapie, non decide da sola un'urgenza. Fuori dal perimetro c'è un solo comportamento: passare al veterinario o far richiamare subito.</p>
+        <p class="ans">Prima dell'attivazione si stabilisce per iscritto che cosa può dire, che cosa non deve dire mai e come si comporta nei casi che non sa gestire — e quel perimetro lo decidi tu (vedi «Cosa Giulia non fa mai»). Fuori dal perimetro c'è un solo comportamento possibile: passare al veterinario, o far richiamare. Sulla parte clinica non c'è configurazione che tenga: non la tocca, punto. Il quadro completo di responsabilità e obblighi è parte del contratto, non una rassicurazione a voce.</p>
       </details>
       <details>
         <summary>Dove finiscono i dati dei miei clienti e dei pazienti?</summary>
-        <p class="ans">Restano dati della tua clinica, che resta titolare del trattamento. Prima dell'attivazione ti consegniamo per iscritto cosa viene registrato, per quanto tempo viene conservato e chi può accedervi, insieme all'avviso da dare in apertura di chiamata.</p>
+        <p class="ans">La clinica resta titolare del trattamento. Registrazioni, trascrizioni e richieste sono trattate per erogare il servizio, con tempi di conservazione concordati con voi e messi per iscritto prima di attivare qualunque cosa. Ricevete l'informativa da esporre in struttura e l'avviso che viene dato in apertura di chiamata. Se volete leggere tutto prima di firmare, è esattamente quello che ci aspettiamo.</p>
       </details>
       <details>
         <summary>Devo cambiare gestionale per usarla?</summary>
-        <p class="ans">No. In modalità A Giulia funziona con qualsiasi gestionale — o senza. Se usi Snoots puoi attivarla dal marketplace e da quel momento legge i dati reali della clinica: è la stessa Giulia, con molto più in mano.</p>
+        <p class="ans">No, e non devi integrare niente. Funziona con qualsiasi gestionale, o anche senza: quello che usi oggi continui a usarlo. Se usi Snoots la configurazione è più rapida perché molte informazioni sono già lì, ma le funzioni sono le stesse.</p>
       </details>
       <details>
         <summary>Quanto tempo serve per attivarla?</summary>
-        <p class="ans">La configurazione è una conversazione, non un progetto: si raccolgono orari, servizi, regole di prenotazione, criteri di urgenza e il perimetro di cosa non deve fare. I tempi esatti te li diciamo in demo, sul tuo caso.</p>
+        <p class="ans">La configurazione è una conversazione, non un progetto: si raccolgono orari, servizi, regole di prenotazione, criteri di urgenza e il perimetro di cosa non deve fare. Il passaggio che decide i tempi è un altro, e conviene saperlo subito: <strong>l'inoltro delle chiamate lo imposta chi vi gestisce il centralino</strong>. Se non ne avete uno, se ne parla in demo: ci sono soluzioni semplici.</p>
       </details>
     </div>
   </section>
@@ -547,14 +597,15 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     <div class="close-in">
       <div class="kick">Il prossimo passo</div>
       <h2>Trenta minuti,<br>e la senti rispondere.</h2>
-      <p class="lede">In demo ti facciamo ascoltare una chiamata reale, ti mostriamo cosa vede Giulia mentre parla e facciamo insieme il conto di quanto ti costa oggi il telefono. Prezzo e condizioni te li diciamo lì, senza giri.</p>
+      <p class="lede">In demo ti facciamo ascoltare una chiamata vera, ti mostriamo il portale dove finisce scritta e facciamo insieme il conto di quanto ti costa oggi il telefono. Prezzo e condizioni te li diciamo lì, senza giri.</p>
       <ul class="close-list">
-        <li>Ascolti Giulia rispondere a una chiamata vera</li>
-        <li>Vedi la scheda che ha davanti mentre parla</li>
+        <li>Ascolti la segreteria rispondere a una chiamata vera</li>
+        <li>Vedi il portale dove ogni richiesta resta scritta</li>
         <li>Facciamo il conto con i numeri della tua clinica</li>
         <li>Prezzo e tempi di attivazione, detti in call</li>
       </ul>
-      <p class="small" style="color:var(--night-muted)">Brave Vet Business × Icarus Technology · disponibile come add-on nel marketplace Snoots</p>
+      <p class="small" style="color:var(--night-muted)">Se puoi, porta in call anche chi risponde al telefono: è la mezz'ora che vale di più.</p>
+      <p class="small" style="color:var(--night-muted)">Segreteria Brave · Brave Vet Business × Icarus Technology</p>
     </div>
 
     <form class="bookform" id="form-demo" novalidate>
@@ -580,11 +631,12 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
         <select id="bf-gest" name="gestionale">
           <option value="snoots">Snoots</option>
           <option value="altro">Un altro gestionale</option>
+          <option value="altro-api">Un altro gestionale, ma non lo gestisco io</option>
           <option value="nessuno">Nessuno / carta e agenda</option>
         </select>
       </div>
       <button class="btn btn--p bf-go" type="submit">Richiedi la demo</button>
-      <p class="bf-note">Ti richiamiamo entro un giorno lavorativo per fissare l'orario. Nessun impegno, nessun preventivo automatico.</p>
+      <p class="bf-note">Ti richiamiamo entro un giorno lavorativo per fissare l'orario. Nessun impegno, nessun preventivo automatico. Inviando la richiesta accetti l'<a href="#">informativa privacy</a>.</p>
       <p class="bf-note bf-prev">Anteprima · il form non è ancora collegato</p>
     </form>
   </div>
@@ -593,20 +645,24 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
 <footer>
   <div class="wrap foot-in">
     <a href="#" class="logo"><i class="pep"></i> BRAVE<span>vet business</span></a>
-    <span class="mono">Anteprima di sezione · non ancora pubblicata</span>
+    <span class="mono">Segreteria Brave · powered by Icarus · anteprima non pubblicata</span>
   </div>
 </footer>
 
 <script>
 (function(){
-  var ids = ['c-chiamate','c-perse','c-pren','c-ticket','c-giorni'];
+  // Medie nostre, dichiarate in pagina: l'utente inserisce solo cio che sa a memoria.
+  var PERSE = 0.20, PREN = 0.30, MIN_CHIAMATA = 2.5, EURO_MIN = 0.36, ORE_GIORNATA = 8;
+
+  var ids = ['c-chiamate','c-giorni','c-ticket'];
   var els = {};
   ids.forEach(function(i){ els[i] = document.getElementById(i); });
-  var outAnno = document.getElementById('out-anno');
-  var outBrk  = document.getElementById('out-brk');
+  var out = {};
+  ['out-ore','out-gg','out-ore-rec','out-pers','out-anno','out-costo'].forEach(function(i){
+    out[i] = document.getElementById(i);
+  });
 
   var eur = new Intl.NumberFormat('it-IT',{maximumFractionDigits:0});
-  var dec = new Intl.NumberFormat('it-IT',{minimumFractionDigits:1,maximumFractionDigits:1});
 
   function num(el, fallback){
     var v = parseFloat(el.value);
@@ -616,20 +672,34 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
 
   function calc(){
     var chiamate = num(els['c-chiamate'], 0);
-    var perse    = Math.min(num(els['c-perse'], 0), 100) / 100;
-    var pren     = Math.min(num(els['c-pren'], 0), 100) / 100;
-    var ticket   = num(els['c-ticket'], 0);
     var giorni   = num(els['c-giorni'], 0);
+    var ticket   = num(els['c-ticket'], 0);
 
-    var perseGG = chiamate * perse;
-    var prenGG  = perseGG * pren;
-    var euroGG  = prenGG * ticket;
-    var anno    = euroGG * giorni;
+    var perseGG  = chiamate * PERSE;
 
-    outAnno.textContent = '€ ' + eur.format(Math.round(anno));
-    outBrk.textContent  = dec.format(perseGG) + ' chiamate perse al giorno · '
-                        + dec.format(prenGG) + ' prenotazioni mancate · € '
-                        + eur.format(Math.round(euroGG)) + ' al giorno';
+    // 1. Il tempo: ore che il telefono assorbe, e quota che oggi non riuscite a prendere.
+    var oreAnno  = (chiamate * giorni * MIN_CHIAMATA) / 60;
+    var oreRec   = (perseGG  * giorni * MIN_CHIAMATA) / 60;
+    var giornate = oreAnno / ORE_GIORNATA;
+
+    // 2. Le persone rimaste senza risposta.
+    var persone  = perseGG * giorni;
+
+    // 3. Il fatturato mancato.
+    var anno     = perseGG * PREN * ticket * giorni;
+
+    // Costo: solo i minuti che girate al servizio.
+    var minutiMese = (oreRec * 60) / 12;
+    var costoMese  = minutiMese * EURO_MIN;
+
+    out['out-ore'].textContent     = eur.format(Math.round(oreAnno)) + ' ore';
+    out['out-gg'].textContent      = eur.format(Math.round(giornate));
+    out['out-ore-rec'].textContent = eur.format(Math.round(oreRec));
+    out['out-pers'].textContent    = eur.format(Math.round(persone));
+    out['out-anno'].textContent    = '\u20AC ' + eur.format(Math.round(anno));
+    out['out-costo'].textContent   = minutiMese > 3000
+      ? 'offerta dedicata'
+      : 'circa \u20AC ' + eur.format(Math.round(costoMese/10)*10) + ' al mese';
   }
 
   ids.forEach(function(i){
