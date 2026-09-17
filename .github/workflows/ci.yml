@@ -12,7 +12,7 @@ on:
         default: ''
         type: string
       urls:
-        description: 'Benchmark layout: URL di siti di riferimento separati da spazio. Vuoto = salta'
+        description: 'URL extra separati da spazio: percorsi in più per la sonda, siti interi per il benchmark'
         default: ''
         type: string
       immagini:
@@ -119,14 +119,24 @@ jobs:
         working-directory: .
     env:
       BASE: ${{ inputs.base_url }}
+      EXTRA: ${{ inputs.urls }}
     steps:
+      # La sonda deve poter fallire, altrimenti "success" non dimostra nulla:
+      # 2xx e 3xx passano, tutto il resto fa fallire il job.
       - name: Codici HTTP, redirect e titoli
         run: |
-          for p in / /la-struttura /per-i-colleghi /equipe /servizi /servizi/cardiologia /pronto-soccorso /prenota /piani-salute /prima-visita /contatti /magazine /domande-frequenti /per-i-colleghi/grazie /chi-siamo /colleghi /la-struttura/ /sitemap-index.xml /llms.txt; do
-            code=$(curl -sS -m 25 -o /tmp/pg -w "%{http_code} %{redirect_url}" "$BASE$p" || echo "ERR")
+          errori=0
+          for p in / /la-struttura /per-i-colleghi /equipe /servizi /servizi/cardiologia /pronto-soccorso /prenota /piani-salute /prima-visita /contatti /magazine /domande-frequenti /per-i-colleghi/grazie /chi-siamo /colleghi /la-struttura/ /sitemap-index.xml /llms.txt $EXTRA; do
+            code=$(curl -sS -m 25 -o /tmp/pg -w "%{http_code}" "$BASE$p" || echo "000")
             title=$(grep -o "<title>[^<]*" /tmp/pg 2>/dev/null | head -1 | sed 's/<title>//')
-            printf "%-28s %s   %s\n" "$p" "$code" "$title"
+            stato="ok"
+            case "$code" in 2*|3*) ;; *) stato="FALLITO"; errori=$((errori+1)) ;; esac
+            printf "%-28s %s %-8s %s\n" "$p" "$code" "$stato" "$title"
           done
+          if [ "$errori" -gt 0 ]; then
+            echo "::error::$errori URL non raggiungibili sull'anteprima pubblicata"
+            exit 1
+          fi
       - name: Header di /la-struttura e /per-i-colleghi
         run: |
           curl -sS -m 25 -I "$BASE/la-struttura" | head -20
