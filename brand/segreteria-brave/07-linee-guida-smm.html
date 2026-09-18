@@ -1,0 +1,498 @@
+<title>Linee Guida SMM — Segreteria Brave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F1F4F3; --field:#E6ECEA; --raise:#FFFFFF;
+  --ink:#0D1B19; --ink-2:#3B4E4B; --muted:#6E807D;
+  --line:#CBD7D4; --line-soft:#DCE5E3;
+  --teal:#76B6B5; --teal-deep:#2B6E6C; --teal-wash:#DCECEB;
+  --signal:#C7562F; --signal-wash:#F8E9E2; --alert:#B0472A;
+  --f-display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Newsreader',Georgia,'Times New Roman',serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0A1413; --field:#101E1C; --raise:#162725;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --signal:#E8825C; --signal-wash:#2B1A14; --alert:#EF9878;
+}}
+:root[data-theme="dark"]{
+  --paper:#0A1413; --field:#101E1C; --raise:#162725;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --signal:#E8825C; --signal-wash:#2B1A14; --alert:#EF9878;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.09;letter-spacing:-.022em;text-wrap:balance}
+h1{font-size:clamp(2.4rem,5.8vw,4rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:700}
+h3{font-size:1.16rem;font-weight:700;letter-spacing:-.012em}
+p{margin:0}
+.lede{font-size:clamp(1.04rem,1.85vw,1.28rem);line-height:1.55;color:var(--ink-2);max-width:62ch}
+.kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.19em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.6em}
+.kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.mono{font-family:var(--f-mono);font-size:.69rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.small{font-family:var(--f-body);font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+strong{font-weight:600;color:var(--ink)}
+a{color:var(--teal-deep)}
+header.top{border-bottom:1px solid var(--line)}
+.top-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:baseline;padding-block:19px}
+.bvb{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:.88rem}
+.mk{width:17px;height:17px;color:var(--teal);flex:none}
+.hero{padding-block:clamp(46px,8vw,86px) clamp(30px,5vw,50px);display:grid;gap:22px}
+section{padding-block:clamp(40px,6vw,66px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:13px;margin-bottom:30px;max-width:70ch}
+
+/* divieti */
+.no{display:grid;gap:1px;background:var(--line);border:1px solid var(--signal)}
+.no > div{background:var(--signal-wash);padding:18px 22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start}
+.no .x{font-family:var(--f-mono);font-weight:700;font-size:.9rem;color:var(--alert);line-height:1.4}
+.no .c{display:grid;gap:5px}
+.no .c b{font-family:var(--f-display);font-size:1.02rem;font-weight:700;letter-spacing:-.012em}
+.no .c span{font-size:.93rem;color:var(--ink-2);line-height:1.5}
+
+/* due colonne sì/no */
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.yn > div{background:var(--paper);padding:22px;display:grid;gap:12px;align-content:start}
+.yn h4{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;font-weight:400}
+.yn--ok h4{color:var(--teal-deep)}
+.yn--no h4{color:var(--alert)}
+.yn ul{margin:0;padding-left:1.05em;display:grid;gap:8px}
+.yn li{font-size:.95rem;line-height:1.45;color:var(--ink-2)}
+.yn li b{color:var(--ink);font-weight:600}
+@media (max-width:700px){.yn{grid-template-columns:1fr}}
+
+/* griglia generica */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.g3 > div{background:var(--paper);padding:22px;display:grid;gap:9px;align-content:start}
+.g3 .n{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.g3 p{font-size:.93rem;line-height:1.5;color:var(--ink-2)}
+@media (max-width:800px){.g3{grid-template-columns:1fr}}
+
+/* tabella */
+.tb{border:1px solid var(--line);overflow-x:auto}
+.tb table{border-collapse:collapse;width:100%;min-width:640px}
+.tb th,.tb td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top;font-size:.92rem;line-height:1.45}
+.tb thead th{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal-deep);background:var(--field);border-bottom:1px solid var(--line)}
+.tb tbody th{font-family:var(--f-display);font-weight:700;font-size:.97rem;letter-spacing:-.01em;white-space:nowrap}
+.tb td{color:var(--ink-2)}
+.tb tr:last-child th,.tb tr:last-child td{border-bottom:0}
+
+/* tracce di contenuto */
+.tr{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.tr > div{background:var(--paper);padding:24px;display:grid;gap:12px}
+.tr .th{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.tr .tn{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.tr .tg{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;padding:3px 8px;border-radius:2px;color:var(--teal-deep);background:var(--teal-wash);border:1px solid var(--teal)}
+.tr h3{font-size:1.2rem;line-height:1.25}
+.tr .hook{font-family:var(--f-display);font-weight:500;font-size:1.06rem;line-height:1.4;color:var(--ink);border-left:3px solid var(--teal);padding-left:15px}
+.tr p{font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.tr .cta{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.03em;color:var(--teal-deep);border-top:1px dashed var(--line);padding-top:11px;line-height:1.6}
+
+/* blocco da incollare */
+.paste{background:var(--ink);color:#E9F0EE;border:1px solid var(--ink);padding:26px 24px;overflow-x:auto}
+.paste pre{margin:0;font-family:var(--f-mono);font-size:.76rem;line-height:1.72;white-space:pre-wrap;word-break:break-word}
+.paste h4{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:400;margin-bottom:16px}
+
+.note{border-left:3px solid var(--teal);padding:4px 0 4px 16px;display:grid;gap:9px;max-width:70ch}
+.note--w{border-left-color:var(--signal)}
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.steps > div{background:var(--paper);padding:17px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.steps .n{font-family:var(--f-mono);font-size:.68rem;color:var(--teal-deep);padding-top:.25em}
+.steps .c{display:grid;gap:4px}
+.steps .c b{font-family:var(--f-display);font-size:1rem;font-weight:700;letter-spacing:-.012em}
+.steps .c span{font-size:.93rem;color:var(--ink-2);line-height:1.5}
+footer{border-top:1px solid var(--line);padding-block:26px 44px}
+.foot{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center}
+:focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+</style>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="sb-mark" viewBox="0 0 120 120">
+    <rect x="23" y="72" width="64" height="40" rx="20" fill="currentColor"/>
+    <rect x="13" y="40" width="15" height="22" rx="7.5" fill="currentColor"/>
+    <rect x="36" y="22" width="15" height="40" rx="7.5" fill="currentColor"/>
+    <rect x="59" y="18" width="15" height="44" rx="7.5" fill="currentColor"/>
+    <rect x="82" y="36" width="15" height="26" rx="7.5" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="bvb"><svg class="mk" viewBox="0 0 120 120"><use href="#sb-mark"/></svg> SEGRETERIA BRAVE <span class="mono">linee guida per l'agente SMM</span></div>
+    <div class="mono">v1 · 18 settembre 2026</div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kick">Il mandato operativo</div>
+    <h1>Come si parla<br>di Segreteria Brave<br>sui canali Brave.</h1>
+    <p class="lede">Questo documento governa ogni contenuto su Segreteria Brave pubblicato su Instagram, LinkedIn, Facebook e YouTube di Brave Vet Business. Non è un'ispirazione: è un <strong>perimetro</strong>. Dentro il perimetro c'è molta libertà; fuori c'è un rischio legale, reputazionale o commerciale che non vale nessun contenuto.</p>
+    <p class="lede">Tutto quello che c'è qui dentro viene da sedici call registrate con veterinari veri e dall'allineamento con Icarus Technology. Le frasi virgolettate sono state pronunciate: <strong>non vanno riscritte per farle suonare meglio.</strong></p>
+    <div class="note" style="margin-top:6px">
+      <p class="small"><strong>Una destinazione sola.</strong> Ogni contenuto porta a <strong>bravevetbusiness.it/segreteria-brave</strong>. Non al DM, non a un numero di telefono, non a una pagina generica. Quella pagina fa un lavoro solo — far arrivare la richiesta di demo — ed è costruita per riceverlo.</p>
+    </div>
+  </div>
+
+  <!-- ===== DIVIETI ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Leggi prima questo</div>
+      <h2>Le dieci cose che non si dicono mai.</h2>
+      <p class="lede">Non sono preferenze di stile. Ognuna nasce da una frase detta in call da Icarus o da un veterinario, e violarla costa più di quanto qualunque contenuto possa rendere.</p>
+    </div>
+    <div class="no">
+      <div><span class="x">01</span><span class="c"><b>Non promettere che riconosce chi chiama dal numero</b><span>È l'integrazione con il gestionale, ancora in sviluppo. Icarus ha chiesto esplicitamente di non esporsi. Niente «sa già chi sei», «conosce il tuo cane», «legge la cartella». Si dice cosa fa oggi: risponde, capisce, prenota, scrive tutto.</span></span></div>
+      <div><span class="x">02</span><span class="c"><b>Non pubblicare prezzi, canoni o cifre di listino</b><span>Il listino ufficiale non è chiuso e il modello è a consumo, non ad abbonamento. In pagina c'è un calcolatore che dà un ordine di grandezza: basta quello. Il prezzo si dice in demo.</span></span></div>
+      <div><span class="x">03</span><span class="c"><b>Non dire che sostituisce la segretaria, né alludere a tagli di personale</b><span>Chi userà il prodotto ogni giorno è la persona al bancone. Icarus è stata netta: «se passa il messaggio che toglie lavoro alle segretarie avremo la guerra, perché poi sono loro che lo usano». Il messaggio pubblico è la qualità delle mansioni, non il numero di persone.</span></span></div>
+      <div><span class="x">04</span><span class="c"><b>Non promettere effetti sul no-show</b><span>Un veterinario in demo ha sostenuto l'opposto — un appuntamento preso senza una persona vale meno — e non abbiamo dati per smentirlo. Si potrà dire quando il pilota l'avrà misurato.</span></span></div>
+      <div><span class="x">05</span><span class="c"><b>Non usare il dato «2.050 chiamate, 60 ore risparmiate»</b><span>È di un centro di medici di base, non di una clinica veterinaria. Usarlo in un contenuto vet sarebbe scorretto, e se qualcuno lo verificasse sarebbe molto costoso.</span></span></div>
+      <div><span class="x">06</span><span class="c"><b>Non nominare la clinica pilota né il suo titolare</b><span>Deciso con Icarus: il caso studio si usa <strong>anonimizzato</strong>. La ragione è pratica — nell'ambiente lo riconoscono, e se un giorno cade la linea qualcuno andrà a chiedere a lui come si trova.</span></span></div>
+      <div><span class="x">07</span><span class="c"><b>Non attribuire citazioni a persone identificabili senza autorizzazione scritta</b><span>Le frasi raccolte in call si possono usare, ma in forma non attribuita: «un veterinario ci ha detto», «una clinica con quarantacinque medici». Il dolore è collettivo, la frase è di qualcuno.</span></span></div>
+      <div><span class="x">08</span><span class="c"><b>Non chiamare il prodotto «Giulia»</b><span>Il prodotto si chiama <strong>Segreteria Brave</strong>. Giulia è il nome che una clinica ha scelto per la propria voce: si cita come esempio, dichiarandolo — «da noi si chiama Giulia, tu la chiami come vuoi» — mai come personaggio di marca.</span></span></div>
+      <div><span class="x">09</span><span class="c"><b>Non presentare Snoots come la versione superiore</b><span>Niente «modalità A e B», niente «con Snoots funziona meglio». La formula è: <strong>si configura in base agli strumenti che hai</strong>. Chi non usa Snoots non deve sentirsi di serie B.</span></span></div>
+      <div><span class="x">10</span><span class="c"><b>Non inventare statistiche di settore</b><span>Nessun «il 70% delle cliniche perde chiamate» preso da nessuna parte. Le uniche percentuali utilizzabili sono quelle dichiarate nel calcolatore in pagina, che sono presentate come medie nostre e non come dati di mercato.</span></span></div>
+    </div>
+    <div class="note note--w" style="margin-top:26px">
+      <p class="small"><strong>Una in più, che vale per ogni contenuto:</strong> il regolamento europeo sull'intelligenza artificiale, in vigore dal 2 agosto 2026, impone che un agente vocale si dichiari tale. Non è un vincolo da nascondere: <strong>è un argomento</strong>. Ogni volta che si mostra una chiamata, la prima battuta deve contenere la dichiarazione. Chi la sente capisce che non stiamo provando a fregare nessuno, ed è esattamente la fiducia che serve a far prenotare una demo.</p>
+    </div>
+  </section>
+
+  <!-- ===== PUBBLICO ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">A chi stiamo parlando</div>
+      <h2>Cinque pubblici, e la frase che affonda su ciascuno.</h2>
+      <p class="lede">Un contenuto che funziona sull'ambulatorio solitario può spaventare la clinica grande, e viceversa. Prima di scrivere: <strong>a chi di questi cinque sto parlando?</strong></p>
+    </div>
+    <div class="tb">
+      <table>
+        <thead><tr><th>Pubblico</th><th>Cosa vuole davvero</th><th>Gancio che funziona</th><th>Frase che affonda</th></tr></thead>
+        <tbody>
+          <tr><th>Front office saturo</th><td>Ore restituite senza assumere.</td><td>«Quante volte questa settimana il telefono ha squillato mentre eri in visita?»</td><td>«Sostituisce la tua segretaria.»</td></tr>
+          <tr><th>Ambulatorio solo</th><td>Smettere di essere interrotto. Meno rumore, non più lavoro.</td><td>«Quanti messaggi ti arrivano in un giorno sul telefono tuo?»</td><td>«Recuperi fatturato.» Chi è già saturo si spaventa.</td></tr>
+          <tr><th>Gruppo multi-sede</th><td>Uno standard unico, con configurazioni diverse per sedi diverse.</td><td>«Le tue sedi rispondono al telefono nello stesso modo?»</td><td>«Una configurazione sola per tutte.»</td></tr>
+          <tr><th>Struttura complessa</th><td>Togliersi di dosso il reclamo quotidiano sul telefono.</td><td>«Quante mail ricevi che iniziano con: ho provato a chiamare?»</td><td>«Risolve tutto.» Qui la credibilità si compra dichiarando il limite.</td></tr>
+          <tr><th>Chi sta al bancone</th><td>Sapere che non le tolgono il posto, ma la parte peggiore.</td><td>«Quante volte al giorno dici: scusi, un attimo?»</td><td>Qualunque cosa suoni come automazione del suo lavoro.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== TONO ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Come si scrive</div>
+      <h2>Il tono: da collega, non da fornitore.</h2>
+      <p class="lede">Brave Vet Business parla a veterinari imprenditori che ci attribuiscono competenza. Il registro è quello di chi conosce il mestiere dall'interno, non di chi vende una tecnologia.</p>
+    </div>
+    <div class="yn">
+      <div class="yn--ok">
+        <h4>Si fa</h4>
+        <ul>
+          <li><b>Si parte dalla scena, non dal prodotto.</b> Il telefono che squilla mentre hai le mani nei guanti. Il WhatsApp alle 23.</li>
+          <li><b>Frasi corte.</b> Un'idea per frase. Il punto è più forte della virgola.</li>
+          <li><b>Si dichiarano i limiti.</b> «Su una clinica come la tua copre il trenta, quaranta per cento delle chiamate. Che però sono tante.» Converte più di una promessa piena.</li>
+          <li><b>Si usa l'ironia del mestiere.</b> «Elettrospirosi» e «simpatica» fanno ridere solo chi lavora in clinica: è esattamente il pubblico che vogliamo.</li>
+          <li><b>Si citano i veterinari, non noi.</b> Una loro frase vale dieci nostre.</li>
+          <li><b>Si dice «voi» alla clinica</b>, non «tu» all'imprenditore solitario, tranne quando parliamo all'ambulatorio singolo.</li>
+        </ul>
+      </div>
+      <div class="yn--no">
+        <h4>Non si fa</h4>
+        <ul>
+          <li><b>Niente «rivoluzionario», «innovativo», «game changer», «il futuro è qui».</b> Questo pubblico le ha già sentite e le legge come rumore.</li>
+          <li><b>Niente gergo da AI.</b> Non «agente conversazionale», «LLM», «voice AI». Si dice segreteria, voce, risponde.</li>
+          <li><b>Niente promesse assolute.</b> «Non perdi più nemmeno una chiamata» è falso e verificabile.</li>
+          <li><b>Niente paura come leva.</b> «Stai perdendo clienti ogni giorno» è vero ma ricatta. Meglio il numero, che parla da solo.</li>
+          <li><b>Niente emoji a raffica</b> e niente maiuscolo gridato. Al massimo una emoji per post, se serve a scandire.</li>
+          <li><b>Niente domande retoriche a catena.</b> Una domanda per contenuto, e deve essere una a cui si può rispondere nei commenti.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:44px;margin-bottom:18px">
+      <div class="kick">Il lessico</div>
+      <h2 style="font-size:clamp(1.3rem,2.4vw,1.7rem)">Le parole esatte.</h2>
+    </div>
+    <div class="yn">
+      <div class="yn--ok">
+        <h4>Parole nostre</h4>
+        <ul>
+          <li>Segreteria Brave · <b>shaped by Icarus</b></li>
+          <li>La segreteria, la voce, risponde, filtra, smista</li>
+          <li>Assistente virtuale (termine di legge, si usa)</li>
+          <li>Richiesta scritta, portale, nota al medico, ticket</li>
+          <li>Modalità indipendente · modalità con Snoots</li>
+          <li>Chiamate perse <b>e chiamate lasciate in coda</b></li>
+          <li>Front office, bancone, chi risponde al telefono</li>
+        </ul>
+      </div>
+      <div class="yn--no">
+        <h4>Parole da evitare</h4>
+        <ul>
+          <li><b>Powered by</b> → si dice <b>shaped by Icarus</b></li>
+          <li><b>Bot, chatbot, robot, centralino automatico</b></li>
+          <li><b>Modalità A / modalità B</b> → sono configurazioni, non livelli</li>
+          <li><b>Sostituire, rimpiazzare, tagliare, risparmiare sul personale</b></li>
+          <li><b>Giulia</b> come nome del prodotto</li>
+          <li><b>Sempre, mai, tutto, zero</b> in una promessa</li>
+          <li><b>Soluzione</b> → è una parola da brochure: si dice cosa fa</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">La chiamata all'azione</div>
+      <h2>Una destinazione sola,<br>scritta in tre modi.</h2>
+      <p class="lede">Ogni contenuto finisce sulla pagina. Il link cambia solo nei parametri di tracciamento, mai nella destinazione.</p>
+    </div>
+    <div class="tb">
+      <table>
+        <thead><tr><th>Se il contenuto</th><th>La CTA suona così</th><th>Dove va</th></tr></thead>
+        <tbody>
+          <tr><th>Racconta il problema</th><td>«Il conto lo puoi fare con i tuoi numeri, ci vogliono dieci secondi. Link in bio.»</td><td>/segreteria-brave#conto</td></tr>
+          <tr><th>Mostra come funziona</th><td>«Qui la leggi. In demo la senti: trenta minuti, senza impegno.»</td><td>/segreteria-brave#demo</td></tr>
+          <tr><th>Risponde a un'obiezione</th><td>«Tutto quello che non fa è scritto in pagina, nero su bianco.»</td><td>/segreteria-brave</td></tr>
+          <tr><th>Parla a chi sta al bancone</th><td>«Se rispondi tu al telefono, la parte che riguarda te è in fondo alla pagina. E in demo ti vogliamo lì.»</td><td>/segreteria-brave</td></tr>
+          <tr><th>È un video lungo</th><td>«Link in descrizione: c'è il calcolatore e il form per la demo.»</td><td>/segreteria-brave</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="g3" style="margin-top:26px">
+      <div>
+        <span class="n">Tracciamento</span>
+        <h3>I parametri, sempre</h3>
+        <p>Ogni link porta <span class="mono" style="text-transform:none;letter-spacing:.02em">?utm_source=</span> con il canale, <span class="mono" style="text-transform:none;letter-spacing:.02em">utm_medium=social</span> e <span class="mono" style="text-transform:none;letter-spacing:.02em">utm_campaign=segreteria-brave</span>. Senza, non sapremo mai quale canale ha portato le demo — che è l'unico numero che conta.</p>
+      </div>
+      <div>
+        <span class="n">Instagram</span>
+        <h3>Il link in bio è uno solo</h3>
+        <p>Per tutta la durata del lancio il link in bio punta alla pagina. Niente aggregatori con dieci voci: chi arriva da un contenuto sulla segreteria deve trovare la segreteria, non un menù.</p>
+      </div>
+      <div>
+        <span class="n">Mai</span>
+        <h3>Tre cose che non si fanno</h3>
+        <p>Non si pubblica il numero di telefono della segreteria: la prova è un momento della demo, guidato. Non si chiude in DM: il DM si usa per rispondere, poi si porta in pagina. Non si manda a una pagina generica dei servizi.</p>
+      </div>
+    </div>
+
+    <div class="note note--w" style="margin-top:26px">
+      <p class="small"><strong>Sulla risposta ai commenti e ai DM.</strong> Un commento con un'obiezione è un buon segno, e va risposto in pubblico, brevemente, senza difendersi: si dichiara il limite e si rimanda alla pagina. Un DM con una domanda sul prezzo si risponde così: <em>«Il costo dipende da quante chiamate giri al servizio: in pagina c'è un calcolatore che dà l'ordine di grandezza, e in demo ti diciamo la cifra sul tuo caso.»</em> Non si improvvisano cifre, mai.</p>
+    </div>
+  </section>
+
+  <!-- ===== TRACCE ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Il focus di generazione</div>
+      <h2>Otto tracce da cui nasce tutto.</h2>
+      <p class="lede">Non sono otto post: sono otto <strong>angoli</strong>. Da ciascuno si ricava un reel, un carosello, un post LinkedIn e uno short, cambiando il formato e non il contenuto. Il gancio in grassetto è materiale vero, raccolto in call: si usa così com'è.</p>
+    </div>
+    <div class="tr">
+
+      <div>
+        <div class="th"><span class="tn">Traccia 01</span><span class="tg">Problema</span><span class="tg">Tutti i pubblici</span></div>
+        <h3>Il reclamo che arriva in sala d'attesa</h3>
+        <p class="hook">«Voi con il telefono siete un disastro.» È la frase che una clinica con quarantacinque veterinari si sente dire più volte al giorno, dai clienti, ad alta voce, mentre aspettano.</p>
+        <p>Il contenuto racconta il momento, non la tecnologia. Chi ascolta riconosce la scena prima di aver capito di che cosa stiamo parlando. Chiusura possibile: «Il telefono non è un problema di centralino. È il primo motivo per cui vi giudicano.»</p>
+        <p class="cta">→ CTA: il calcolatore. «Quanto vi costa in un anno? Ci vogliono dieci secondi.»</p>
+      </div>
+
+      <div>
+        <div class="th"><span class="tn">Traccia 02</span><span class="tg">Problema</span><span class="tg">Ambulatorio solo</span></div>
+        <h3>Ottanta messaggi al giorno su un numero privato</h3>
+        <p class="hook">«Adesso transita tutto sul mio telefonino. Telefonate urgenti, appuntamenti, WhatsApp dei clienti. È un'intossicazione: ottanta, novanta messaggi al giorno. È un anno che ce l'ho silenziato, perché altrimenti non lavori.»</p>
+        <p>Il pezzo più forte che abbiamo per il veterinario singolo, e quello dove <strong>non si parla di fatturato</strong>. Qui il beneficio è il silenzio, non il guadagno. Sondaggio naturale in storia: «Quanti messaggi ti arrivano in un giorno? Meno di 20 / 20-50 / più di 50 / ho smesso di contarli».</p>
+        <p class="cta">→ CTA: il calcolatore, guardando le <strong>ore</strong>, non gli euro.</p>
+      </div>
+
+      <div>
+        <div class="th"><span class="tn">Traccia 03</span><span class="tg">Problema</span><span class="tg">Struttura</span></div>
+        <h3>La chiamata che risulta «risposta» e invece è persa</h3>
+        <p class="hook">«Chi è quarto in coda, dopo venti minuti si rompe le scatole e riaggancia. Poi ci manda una mail: sono stato mezz'ora al telefono.»</p>
+        <p>È l'angolo più originale del piano, perché nessuno lo racconta: in qualunque statistica di centralino quelle chiamate risultano <em>gestite</em>. Il contenuto spiega la differenza tra la chiamata persa e la chiamata messa in attesa, e perché la seconda fa più danno — chi riaggancia dopo venti minuti non richiama, scrive una recensione.</p>
+        <p class="cta">→ CTA: la pagina, con la riga sul perché le contiamo anche noi.</p>
+      </div>
+
+      <div>
+        <div class="th"><span class="tn">Traccia 04</span><span class="tg">Prodotto</span><span class="tg">Tutti</span></div>
+        <h3>Che cosa resta scritto, dopo</h3>
+        <p class="hook">Non «cosa sa mentre parla». <strong>Cosa vi lascia quando ha finito.</strong></p>
+        <p>È il cuore della dimostrazione oggi: chi ha chiamato, per che cosa, in che categoria, che cosa è stato fatto, la nota per il medico, audio e trascrizione integrali. Due clienti su cinque, in demo, hanno indicato questo come il valore vero — uno l'ha detto esplicitamente: «per noi la cosa fondamentale è annotare tutto». Formato ideale: carosello o screen recording del portale, con i dati anonimizzati.</p>
+        <p class="cta">→ CTA: «Qui la leggi. In demo la senti.»</p>
+      </div>
+
+      <div>
+        <div class="th"><span class="tn">Traccia 05</span><span class="tg">Prodotto</span><span class="tg">Tutti</span></div>
+        <h3>Elettrospirosi e simpatica</h3>
+        <p class="hook">«Elettrospirosi» per leptospirosi. «Simpatica» per Simparica. Sono i nomi che i clienti pronunciano davvero al telefono — e la segreteria li capisce lo stesso.</p>
+        <p>Il contenuto più divertente e più veterinario di tutto il materiale, e quello che dimostra una competenza di dominio che nessun concorrente generalista può reggere: ci sono voluti quasi due anni di lavoro perché l'agente incroci il numero del chiamante con lo storico delle ricette e capisca quale farmaco sta chiedendo. Si può chiedere alla community: «Qual è la storpiatura peggiore che avete sentito?» — e il commento migliore diventa il contenuto della settimana dopo.</p>
+        <p class="cta">→ CTA leggera. Questo contenuto serve a farsi condividere fra colleghi, non a convertire.</p>
+      </div>
+
+      <div>
+        <div class="th"><span class="tn">Traccia 06</span><span class="tg">Paure</span><span class="tg">Tutti</span></div>
+        <h3>Cosa non fa mai, detto per primi</h3>
+        <p class="hook">Non fa diagnosi. Non tocca le terapie. Non decide da sola un'urgenza. E dice di essere un'assistente virtuale nella prima frase della telefonata.</p>
+        <p>Qui si usa l'analogia migliore che abbiamo, ed è di Icarus: <em>«come una segretaria non può decidere che cosa è urgente, allo stesso modo l'intelligenza artificiale non può»</em>. Si aggiunge il dettaglio legale come argomento di fiducia, non come adempimento: dal 2 agosto il regolamento europeo lo impone, e noi lo mettiamo in prima battuta.</p>
+        <p class="cta">→ CTA: «Il perimetro è scritto in pagina, punto per punto.»</p>
+      </div>
+
+      <div>
+        <div class="th"><span class="tn">Traccia 07</span><span class="tg">Paure</span><span class="tg">Chi sta al bancone</span></div>
+        <h3>Alla persona che risponde al telefono</h3>
+        <p class="hook">Non ti toglie il posto. Ti toglie gli orari, il «siete aperti sabato» e il farmaco da ripetere.</p>
+        <p>Il contenuto che manca a tutti i competitor e che ci serve davvero: in due demo su cinque il titolare ha chiesto di rifare la call con la propria segretaria prima di decidere. Il tono è diretto a lei, non al titolare, e la chiusura è un invito: «in demo ti vogliamo lì, perché nessuno conosce quelle telefonate meglio di te». Su LinkedIn funziona come post di posizionamento; su Instagram come carosello.</p>
+        <p class="cta">→ CTA: la pagina, sezione dedicata, più l'invito a esserci in demo.</p>
+      </div>
+
+      <div>
+        <div class="th"><span class="tn">Traccia 08</span><span class="tg">Origine</span><span class="tg">Community</span></div>
+        <h3>Non l'abbiamo inventata noi. Ce l'hanno chiesta</h3>
+        <p class="hook">«Posso chiederti una cosa? In segreteria friggono, sono un po' oberate. Voi avete qualche segreteria che utilizzate?» — Luglio, in mezzo a una call che parlava di tutt'altro.</p>
+        <p>È il racconto d'origine vero, ed è più forte di quello che avevamo scritto: la domanda è arrivata dal portafoglio due mesi prima del lancio, e non è arrivata una volta sola. Ci protegge anche dall'accusa più pericolosa — aver messo un'etichetta veterinaria su un prodotto nato per gli studi medici — perché la risposta è documentata: <em>«noi veterinari siamo una nicchia, è chiaro che è qualcosa che va creata»</em>, detto da un cliente prima che glielo proponessimo.</p>
+        <p class="cta">→ CTA: la pagina. Questo è il post di apertura del lancio.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== CANALI ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Come si declina</div>
+      <h2>Stessa traccia, quattro canali.</h2>
+      <p class="lede">Il contenuto non si riscrive per canale: si <strong>riformatta</strong>. Il pensiero resta uno, cambiano la lunghezza e il punto d'ingresso.</p>
+    </div>
+    <div class="tb">
+      <table>
+        <thead><tr><th>Canale</th><th>Formato di punta</th><th>Regola specifica</th><th>Dove porta</th></tr></thead>
+        <tbody>
+          <tr><th>Instagram</th><td>Reel 30-45″ · carosello 6-8 schede · storie con sondaggio</td><td>I primi due secondi sono la scena, non il logo. Sottotitoli sempre: si guarda senza audio.</td><td>Link in bio, uno solo</td></tr>
+          <tr><th>LinkedIn</th><td>Post testuale 900-1.300 battute · carosello documento</td><td>Qui vive il ragionamento da imprenditore: numeri, limiti dichiarati, il pezzo per il front office. Il link va nel primo commento se la reach ne risente.</td><td>Link diretto</td></tr>
+          <tr><th>Facebook</th><td>Post + carosello, ripresi da IG</td><td>È il canale della community: si scrive come in un gruppo, si risponde a tutti nei commenti.</td><td>Link diretto</td></tr>
+          <tr><th>YouTube</th><td>Long-form 8-12′ · Shorts tagliati dal long</td><td>Un long a settimana, tre Shorts ricavati. Il long fa da pagina di approfondimento per chi sta valutando.</td><td>Link in descrizione, prima riga</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note" style="margin-top:24px">
+      <p class="small"><strong>Il mix settimanale, a regime.</strong> Due contenuti a settimana su Segreteria Brave, non di più: è uno dei pillar dei canali BVB, non l'unico argomento. Uno sul problema o sulla prova, uno sul prodotto o sulle paure. In fase di lancio si sale a quattro, per trenta giorni, poi si torna a due.</p>
+    </div>
+  </section>
+
+  <!-- ===== CHECKLIST ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Prima di premere pubblica</div>
+      <h2>Sette controlli, in un minuto.</h2>
+    </div>
+    <div class="steps">
+      <div><span class="n">01</span><span class="c"><b>Ogni numero in questo contenuto da dove viene?</b><span>Se non viene dal calcolatore in pagina o da un dato verificato del pilota, esce.</span></span></div>
+      <div><span class="n">02</span><span class="c"><b>C'è una promessa che non possiamo mantenere oggi?</b><span>Riconoscimento del chiamante, no-show, «non perdi più nemmeno una chiamata». Se c'è, si riscrive.</span></span></div>
+      <div><span class="n">03</span><span class="c"><b>Una persona al bancone come leggerebbe questo post?</b><span>Se può sentirsi minacciata, il post va cambiato prima di uscire. È lei che userà il prodotto.</span></span></div>
+      <div><span class="n">04</span><span class="c"><b>La citazione è attribuita a qualcuno di riconoscibile?</b><span>Se sì, serve l'autorizzazione scritta. Altrimenti si anonimizza.</span></span></div>
+      <div><span class="n">05</span><span class="c"><b>Se c'è una chiamata, la voce si dichiara assistente virtuale?</b><span>Nella prima battuta, sempre, anche nei tagli brevi.</span></span></div>
+      <div><span class="n">06</span><span class="c"><b>La CTA porta alla pagina, con i parametri di tracciamento?</b><span>Una destinazione sola. Senza parametri non sapremo che cosa ha funzionato.</span></span></div>
+      <div><span class="n">07</span><span class="c"><b>Il marchio e la firma sono giusti?</b><span>Segreteria Brave, <b>shaped by Icarus</b>. Mai «powered by», mai «Giulia» come nome del prodotto.</span></span></div>
+    </div>
+    <div class="note note--w" style="margin-top:24px">
+      <p class="small"><strong>Quando fermarsi e chiedere.</strong> Tre casi in cui non si pubblica e si porta la questione a Marta: un contenuto che cita un cliente per nome; un contenuto che risponde a una critica pubblica sul prodotto; un contenuto che nomina Snoots in relazione a funzioni non ancora rilasciate. In tutti e tre il costo di sbagliare è più alto del valore del post.</p>
+    </div>
+  </section>
+
+  <!-- ===== MISURA ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Come si capisce se funziona</div>
+      <h2>Quattro numeri, e uno solo conta davvero.</h2>
+    </div>
+    <div class="g3">
+      <div><span class="n">Metrica nord</span><h3>Demo prenotate</h3><p>Richieste dal form attribuibili ai social, grazie ai parametri di tracciamento. È l'unico numero che decide se il lavoro sta funzionando.</p></div>
+      <div><span class="n">Anticipatore</span><h3>DM e commenti con domanda</h3><p>Precede la demo di tre-dieci giorni. Se cala questo, fra due settimane cala la pipeline: è il primo campanello, molto prima delle firme.</p></div>
+      <div><span class="n">Rilevanza</span><h3>Calcolatore aperto</h3><p>Quanti arrivano in pagina e aprono il conto, e quanti lo completano. Dice se il contenuto ha portato persone che stanno valutando o solo curiosi.</p></div>
+    </div>
+    <div class="note" style="margin-top:24px">
+      <p class="small"><strong>Il quarto numero è controintuitivo: le obiezioni nei commenti.</strong> Un commento che solleva una paura — «e se sbaglia?», «i miei clienti se ne accorgono» — non è un problema: è la prova che qualcuno sta considerando l'acquisto. Se nessuno obietta, nessuno sta valutando. Vanno contate e riportate: sono anche il materiale per i contenuti del mese successivo.</p>
+    </div>
+  </section>
+
+  <!-- ===== BLOCCO AGENTE ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Da incollare</div>
+      <h2>Il blocco per l'agente.</h2>
+      <p class="lede">Questa è la versione compressa da mettere nelle istruzioni dell'agente che genera i contenuti. Il resto del documento serve a chi supervisiona; questo serve alla macchina.</p>
+    </div>
+    <div class="paste">
+      <h4>system prompt · segreteria brave · smm</h4>
+<pre>Scrivi contenuti social per Brave Vet Business su SEGRETERIA BRAVE,
+la segreteria virtuale per cliniche veterinarie. Firma: "shaped by Icarus".
+
+PUBBLICO: veterinari imprenditori italiani. Cinque profili — front office
+saturo, ambulatorio solo, gruppo multi-sede, struttura complessa, e la
+persona che risponde al telefono. Dichiara sempre a quale stai parlando.
+
+TONO: da collega che conosce il mestiere. Frasi corte, una idea per frase.
+Parti dalla scena concreta, mai dal prodotto. Dichiara i limiti: converte
+piu' di una promessa piena. Ironia del mestiere ammessa.
+
+DIVIETI ASSOLUTI — se il contenuto ne viola uno, riscrivilo:
+ 1. Non promettere che riconosce chi chiama dal gestionale (in sviluppo).
+ 2. Nessun prezzo, canone o cifra di listino.
+ 3. Non dire che sostituisce la segretaria, ne' alludere a tagli di personale.
+ 4. Nessuna promessa sul no-show.
+ 5. Non usare il dato "2.050 chiamate / 60 ore": e' di medici di base.
+ 6. Non nominare la clinica pilota ne' il suo titolare.
+ 7. Nessuna citazione attribuita a persone riconoscibili.
+ 8. Il prodotto NON si chiama Giulia: Giulia e' un nome di esempio.
+ 9. Niente "modalita' A/B", niente gerarchia con Snoots.
+10. Nessuna statistica di settore inventata.
+
+OBBLIGO: se mostri una telefonata, la prima battuta contiene la
+dichiarazione "sono l'assistente virtuale della clinica" — lo impone il
+regolamento europeo sull'IA. Usalo come argomento di fiducia.
+
+PAROLE SI': segreteria, voce, risponde, filtra, smista, richiesta scritta,
+portale, nota al medico, chiamate perse e in coda, modalita' indipendente,
+modalita' con Snoots, assistente virtuale.
+PAROLE NO: bot, chatbot, robot, powered by, sostituire, rivoluzionario,
+innovativo, soluzione, game changer, sempre/mai/zero in una promessa.
+
+OTTO ANGOLI da cui generare: 1) "voi con il telefono siete un disastro"
+2) ottanta messaggi al giorno sul telefono privato 3) la chiamata in coda
+che risulta risposta 4) cosa resta scritto dopo 5) elettrospirosi e
+simpatica 6) cosa non fa mai 7) alla persona al bancone 8) ce l'hanno
+chiesta loro.
+
+CTA: una sola destinazione, bravevetbusiness.it/segreteria-brave, con
+utm_source=&lt;canale&gt;&amp;utm_medium=social&amp;utm_campaign=segreteria-brave.
+Mai pubblicare il numero di telefono del servizio. Mai chiudere in DM.
+
+FORMATO: dichiara sempre canale, formato, pubblico e angolo prima del
+testo. Chiudi ogni output con la checklist dei sette controlli superati.</pre>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="bvb"><svg class="mk" viewBox="0 0 120 120"><use href="#sb-mark"/></svg> Segreteria Brave · shaped by Icarus</span>
+    <span class="mono">Linee guida SMM · v1 · 18 settembre 2026</span>
+  </div>
+</footer>
