@@ -34,12 +34,25 @@ stato sostituito da un assistente che accompagna tra le pagine.
 5. 🟡 **Numeri d'Ordine** dei restanti 12 medici e conferma che la provincia degli
    altri otto sia Napoli (dedotta). Non è un obbligo di legge: lo è solo per il
    direttore sanitario, già inserito.
-6. 🟠 **A chi inoltrare le richieste dei moduli.** Il 18/09/2026 il rilevamento
-   moduli di Netlify è stato attivato e verificato: prenotazione, caso collega e
-   candidatura vengono raccolti (prova d'invio, tutti 200) e finiscono nella
-   bacheca del progetto. **Manca la notifica via email**: va indicato l'indirizzo
-   a cui far arrivare ogni richiesta, altrimenti bisogna ricordarsi di entrare
-   nel pannello. Da impostare in Netlify → Forms → Form notifications.
+6. 🟠 **Notifica via email dei moduli — da impostare a mano nel pannello.**
+   Il rilevamento moduli è attivo e verificato (18/09/2026): prenotazione, caso
+   collega e candidatura vengono raccolti e finiscono nella bacheca del progetto.
+   Manca solo l'inoltro per email. **Indirizzi decisi dalla direzione:**
+   - `clinicadelbosco@alice.it` — la clinica;
+   - `dessenama@gmail.com` — **solo per i test di questa fase, da togliere prima
+     del go-live**: le richieste contengono dati personali (nome, telefono,
+     email, dati dell'animale) e non devono continuare ad arrivare su una casella
+     personale una volta finito il collaudo.
+
+   Come si imposta, per ciascuno dei tre moduli: Netlify → progetto
+   _anteprima-clinica-del-bosco_ → **Forms** → si sceglie il modulo → **Form
+   notifications** → _Add notification_ → **Email notification** → si incolla
+   l'indirizzo. Va ripetuto per i due indirizzi e per i tre moduli.
+
+   Non è automatizzabile da qui: il connettore Netlify espone l'attivazione dei
+   moduli e la gestione delle richieste, non le notifiche, e l'API non è
+   raggiungibile da questo ambiente.
+
 7. 🟡 **Dominio e caselle email**: pubblicazione su clinicaveterinariadelbosco.it,
    redirect dei due domini alternativi, attivazione di info@ e urgenze@.
 
