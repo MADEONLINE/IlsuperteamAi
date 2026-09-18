@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools — gli strumenti operativi di Brave Vet Business</title>
+<meta name="description" content="Gli strumenti che Brave Vet Business porta dentro le cliniche veterinarie: software, automazioni e servizi scelti, veterinarizzati e messi in funzione.">
+<link rel="canonical" href="https://www.bravevetbusiness.it/tools/">
+<meta name="theme-color" content="#0B1715">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Brave Vet Business">
+<meta property="og:url" content="https://www.bravevetbusiness.it/tools/">
+<meta property="og:title" content="Tools — gli strumenti operativi di Brave Vet Business">
+<meta property="og:description" content="Gli strumenti che Brave Vet Business porta dentro le cliniche veterinarie: software, automazioni e servizi scelti, veterinarizzati e messi in funzione.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&amp;family=Archivo:wdth,wght@75..125,400;75..125,500;75..125,600;75..125,700&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+<style>
+
+:root{
+  --paper:#F2F5F4;
+  --raise:#FFFFFF;
+  --field:#E7EDEB;
+  --ink:#0B1715;
+  --ink-2:#3D504D;
+  --muted:#5E716F;
+  --line:#CCD8D5;
+  --line-soft:#DEE7E5;
+  --teal:#76B6B5;
+  --teal-deep:#26706E;
+  --teal-wash:#DEEDEC;
+  --live:#1FA463;
+  --night:#07120F;
+  --night-2:#0E1D1A;
+  --night-line:#1E322E;
+  --night-ink:#E7EFED;
+  --night-muted:#8FA5A1;
+
+  --f-disp:'Fraunces',Georgia,'Times New Roman',serif;
+  --f-ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1160px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0A1512; --raise:#111F1C; --field:#0E1A18;
+  --ink:#E7EFED; --ink-2:#B2C3BF; --muted:#879C98;
+  --line:#20342F; --line-soft:#1A2C29;
+  --teal:#76B6B5; --teal-deep:#96CFCE; --teal-wash:#12302D;
+  --live:#3BC77F;
+  --night:#040C0A; --night-2:#0B1714; --night-line:#1B2D29;
+}}
+:root[data-theme="dark"]{
+  --paper:#0A1512; --raise:#111F1C; --field:#0E1A18;
+  --ink:#E7EFED; --ink-2:#B2C3BF; --muted:#879C98;
+  --line:#20342F; --line-soft:#1A2C29;
+  --teal:#76B6B5; --teal-deep:#96CFCE; --teal-wash:#12302D;
+  --live:#3BC77F;
+  --night:#040C0A; --night-2:#0B1714; --night-line:#1B2D29;
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+
+h1,h2,h3{font-family:var(--f-disp);margin:0;line-height:1.06;letter-spacing:-.018em;text-wrap:balance;font-variation-settings:'SOFT' 20,'WONK' 1}
+h1{font-size:clamp(2.6rem,6.6vw,4.6rem);font-weight:700}
+h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:700}
+h3{font-size:1.32rem;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+.lede{font-size:clamp(1.05rem,1.85vw,1.24rem);line-height:1.58;color:var(--ink-2);max-width:60ch}
+.kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.65em}
+.kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.mono{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.small{font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+strong{font-weight:600;color:var(--ink)}
+
+/* ---------- nav (chrome BVB) ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:40}
+/* La barra e appiccicata: gli ancoraggi non devono finirci sotto. */
+[id]{scroll-margin-top:84px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--f-ui);font-weight:700;font-size:.88rem;letter-spacing:.01em;line-height:1.05}
+.logo .pep{width:11px;height:11px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg);flex:none}
+.logo span{display:block;font-weight:400;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav a{color:var(--ink-2);text-decoration:none;font-size:.85rem;font-weight:500}
+.nav a.on{color:var(--ink);border-bottom:2px solid var(--teal);padding-bottom:2px}
+.nav .cta{background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:2px;font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--night);color:var(--night-ink);border-bottom:1px solid var(--night-line)}
+/* Sui fondi scuri: link leggibili, ma i pulsanti tengono il proprio colore. */
+.hero a:not(.btn):not(.cta), .demo a:not(.btn), .close a:not(.btn){color:var(--teal)}
+.hero .small, .demo .small, .close .small{color:var(--night-muted)}
+/* Il grassetto eredita --ink, che sul nero e' nero: va riportato in chiaro. */
+.hero strong, .demo strong, .close strong, .call strong{color:var(--night-ink)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(30px,5vw,60px);padding-block:clamp(48px,7vw,86px);align-items:center}
+@media (max-width:900px){.hero-in{grid-template-columns:1fr}}
+.hero h1{color:var(--night-ink)}
+.hero .lede{color:var(--night-muted);max-width:52ch}
+.hero-copy{display:grid;gap:22px}
+.hero .kick{color:var(--teal)}
+.badge-row{display:flex;flex-wrap:wrap;gap:9px}
+.badge{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;border:1px solid var(--night-line);color:var(--night-muted);padding:5px 9px;border-radius:2px}
+.badge--live{border-color:var(--live);color:var(--live);display:flex;align-items:center;gap:6px}
+.badge--live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){.badge--live::before{animation:none}}
+.btns{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+.btn{font-family:var(--f-ui);font-weight:600;font-size:.92rem;padding:13px 22px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer;display:inline-block}
+.btn--p{background:var(--teal);color:#06201F}
+.btn--s{border-color:var(--night-line);color:var(--night-ink)}
+
+/* live call card */
+.call{background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+.call-h{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+.call-h .av{width:42px;height:42px;border-radius:50%;background:var(--teal);color:var(--night);display:grid;place-items:center;flex:none;font-family:var(--f-disp);font-weight:900;font-size:1.2rem;line-height:1}
+.call-h .who{display:grid;gap:2px;min-width:0}
+.call-h .who b{font-size:.94rem;font-weight:600;color:var(--night-ink)}
+.call-h .who span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--live)}
+.call-h .tm{margin-left:auto;font-family:var(--f-mono);font-size:.74rem;color:var(--night-muted);font-variant-numeric:tabular-nums}
+.call dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr)}
+.call dt{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--night-muted);padding:11px 12px 11px 18px;border-bottom:1px solid var(--night-line);white-space:nowrap}
+.call dd{margin:0;padding:11px 18px 11px 0;border-bottom:1px solid var(--night-line);font-size:.9rem;color:var(--night-ink);font-variant-numeric:tabular-nums}
+.call dl > :nth-last-child(-n+2){border-bottom:0}
+.call-f{padding:12px 18px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;color:var(--night-muted);border-top:1px solid var(--night-line)}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:14px;margin-bottom:38px;max-width:68ch}
+
+/* problem */
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.probs > div{background:var(--paper);padding:26px 24px;display:grid;gap:11px;align-content:start}
+.probs .n{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.16em;color:var(--teal-deep)}
+.probs h3{font-size:1.18rem}
+@media (max-width:800px){.probs{grid-template-columns:1fr}}
+
+/* dialogo */
+.demo{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+.demo h2,.demo h3{color:var(--night-ink)}
+.demo .lede{color:var(--night-muted)}
+.demo .kick{color:var(--teal)}
+.demo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:clamp(24px,4vw,44px);align-items:start}
+@media (max-width:900px){.demo-grid{grid-template-columns:1fr}}
+.turns{display:grid;border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+.turn{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+.turn:last-child{border-bottom:0}
+.turn .sp{font-family:var(--f-mono);font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--night-muted);padding-top:.3em}
+.turn--g{background:var(--night-2)}
+.turn--g .sp{color:var(--teal)}
+.turn .tx{font-size:1rem;line-height:1.5}
+.turn em{font-style:normal;color:var(--teal);font-weight:500}
+@media (max-width:520px){.turn{grid-template-columns:1fr;gap:5px}.turn .sp{padding-top:0}}
+.knows{border:1px solid var(--night-line);border-radius:3px;padding:20px;display:grid;gap:13px;background:var(--night-2)}
+.knows h3{font-size:1.05rem;font-family:var(--f-ui);font-weight:600;letter-spacing:0}
+.knows ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.knows li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.92rem;color:var(--night-muted);line-height:1.45}
+.knows li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.48em}
+.knows li b{color:var(--night-ink);font-weight:600}
+
+/* calcolatore */
+.calc-grid{display:grid;gap:clamp(20px,3vw,30px)}
+@media (max-width:880px){.calc-grid{grid-template-columns:1fr}}
+.inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.inputs > .field{background:var(--raise)}
+.inputs > .assump{grid-column:1/-1;background:var(--raise);padding:14px 18px;border-top:1px solid var(--line-soft)}
+@media (max-width:760px){.inputs{grid-template-columns:1fr}}
+.field{display:grid;grid-template-rows:1fr auto;gap:12px;align-items:start;padding:16px 18px}
+.field input{width:100%}
+.field label{font-size:.94rem;color:var(--ink-2);line-height:1.35}
+.field input{
+  font-family:var(--f-mono);font-size:.95rem;text-align:right;padding:8px 10px;
+  border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);width:100%;
+  font-variant-numeric:tabular-nums
+}
+.result{display:grid;gap:0;border:1px solid var(--teal)}
+.result .rl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.result .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums;font-variation-settings:'SOFT' 0,'WONK' 0}
+.result .sub{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+.result .brk{font-family:var(--f-mono);font-size:.72rem;color:var(--teal-deep);border-top:1px solid var(--teal);padding-top:12px;line-height:1.6;font-variant-numeric:tabular-nums}
+
+/* modalità */
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.modes > div{background:var(--paper);padding:28px 26px;display:grid;gap:15px;align-content:start}
+.modes .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.modes--hi{background:var(--raise)!important;border-left:3px solid var(--teal)}
+.modes--hi .tag{color:var(--teal-deep)}
+.modes ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.modes li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.94rem;color:var(--ink-2);line-height:1.45}
+.modes li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+.modes .foot{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:14px;line-height:1.5}
+@media (max-width:760px){.modes{grid-template-columns:1fr}}
+
+/* limiti */
+.limits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.limits > div{background:var(--paper);padding:20px 22px;display:grid;gap:7px;align-content:start}
+.limits b{font-family:var(--f-ui);font-weight:600;font-size:1rem;display:flex;gap:10px;align-items:baseline}
+.limits b::before{content:"—";color:var(--teal-deep)}
+.limits span{font-size:.92rem;color:var(--ink-2);line-height:1.5;padding-left:22px}
+@media (max-width:700px){.limits{grid-template-columns:1fr}}
+
+
+/* faq */
+.faq{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.faq details{background:var(--paper)}
+.faq summary{cursor:pointer;padding:19px 22px;font-family:var(--f-ui);font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);color:var(--teal-deep);font-size:1.1rem;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq .ans{padding:0 22px 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:70ch}
+
+/* "qui la leggi, in demo la senti" */
+.hear{
+  margin-top:24px;border:1px solid var(--teal);background:var(--night-2);
+  padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;align-items:center;border-radius:3px
+}
+.hear-t{display:grid;gap:9px;max-width:62ch}
+.hear-t p{font-size:.97rem;line-height:1.55;color:var(--night-muted)}
+.hear-t p strong{color:var(--night-ink)}
+.hear .btn{white-space:nowrap}
+@media (max-width:760px){.hear{grid-template-columns:1fr;justify-items:start}}
+
+/* closing */
+.close{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+.close-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);
+  gap:clamp(30px,5vw,60px);padding-block:clamp(50px,7vw,84px);align-items:start
+}
+@media (max-width:900px){.close-grid{grid-template-columns:1fr}}
+.close-in{display:grid;gap:20px;justify-items:start;max-width:56ch}
+.close h2{color:var(--night-ink)}
+.close p{color:var(--night-muted)}
+.close .kick{color:var(--teal)}
+.close-list{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+.close-list li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:.95rem;color:var(--night-muted);line-height:1.45}
+.close-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+
+/* booking form */
+.bookform{
+  background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;
+  padding:24px;display:grid;gap:14px;width:100%
+}
+.bf-h{
+  font-family:var(--f-disp);font-size:1.25rem;font-weight:700;color:var(--night-ink)!important;
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:2px
+}
+.bf-row{display:grid;gap:6px}
+.bf-row label{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--night-muted)
+}
+.bf-row input,.bf-row select{
+  font-family:var(--f-ui);font-size:.94rem;padding:11px 12px;width:100%;
+  background:var(--night);border:1px solid var(--night-line);border-radius:2px;
+  color:var(--night-ink);appearance:none
+}
+.bf-row input::placeholder{color:#5C716D}
+.bf-row select{background-image:none}
+.bf-row input:focus,.bf-row select:focus{border-color:var(--teal);outline:none}
+.bf-go{width:100%;text-align:center;border:0;margin-top:4px;font-size:.95rem}
+.bf-note{font-size:.82rem!important;line-height:1.5;color:var(--night-muted)!important}
+.bf-prev{
+  font-family:var(--f-mono);font-size:.6rem!important;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--teal)!important;border-top:1px solid var(--night-line);padding-top:12px
+}
+
+footer{background:var(--night);border-top:1px solid var(--night-line);padding-block:26px 44px;color:var(--night-muted)}
+.foot-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center}
+.foot-in .logo{color:var(--night-ink)}
+.foot-in .logo span{color:var(--night-muted)}
+
+.editnote{background:var(--teal-wash);border-top:1px solid var(--teal);border-bottom:1px solid var(--teal)}
+.editnote-in{padding-block:14px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline}
+.editnote b{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.editnote span{font-size:.88rem;color:var(--ink-2)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+.res3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--teal)}
+.res3 > div{display:grid;gap:7px;align-content:start;background:var(--teal-wash);padding:24px 22px}
+.res3 .big{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+.res3 .sub b{color:var(--ink);font-weight:600}
+@media (max-width:860px){.res3{grid-template-columns:1fr}}
+.cmp{background:var(--teal-wash);border-top:1px solid var(--teal);padding:22px;display:grid;gap:7px}
+.cmp-l{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.cmp-v{font-family:var(--f-disp);font-weight:800;font-size:1.5rem;letter-spacing:-.025em;color:var(--ink)}
+.cmp-n{font-size:.86rem;line-height:1.55;color:var(--ink-2);max-width:82ch}
+
+/* ===== marchio Segreteria Brave ===== */
+.sbmark{display:block;flex:none;color:var(--teal)}
+.lockup{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+.lockup .sbmark{width:26px;height:26px}
+.lockup .lw{display:grid;gap:2px;line-height:1}
+.lockup .lw b{font-family:var(--f-disp);font-weight:800;font-size:1.02rem;letter-spacing:-.025em;color:var(--ink)}
+.lockup .lw span{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.lockup--hero{gap:13px}
+.lockup--hero .sbmark{width:32px;height:32px}
+.lockup--hero .lw{gap:4px}
+.lockup--hero .lw b{font-size:1.2rem}
+.lockup--dark .lw b{color:var(--night-ink)}
+.lockup--dark .lw span{color:var(--night-muted)}
+.lockup--dark .sbmark{color:var(--teal)}
+.navmark{display:flex;align-items:center;gap:8px;padding-left:13px;margin-left:3px;border-left:1px solid var(--line)}
+.navmark .sbmark{width:19px;height:19px}
+.navmark b{font-family:var(--f-disp);font-weight:700;font-size:.82rem;letter-spacing:-.018em}
+@media (max-width:900px){.navmark{display:none}}
+.call-h .av--mark{background:transparent;display:grid;place-items:center}
+.call-h .av--mark .sbmark{width:26px;height:26px;color:var(--teal)}
+/* ---- indice Tools ---- */
+.tools{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+.tools > article{background:var(--paper);padding:clamp(26px,3.6vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(18px,3vw,34px);align-items:center}
+.tools .tmark{width:52px;height:52px;color:var(--teal);flex:none}
+.tools .tbody{display:grid;gap:9px}
+.tools .tstate{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:#14703F;display:flex;align-items:center;gap:7px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tools .tstate{color:var(--live)}}
+.tools .tstate::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live)}
+.tools .tstate--soon{color:var(--muted)}
+.tools .tstate--soon::before{background:var(--muted)}
+.tools h3{font-size:clamp(1.3rem,2.4vw,1.7rem);font-family:var(--f-disp);font-weight:700;letter-spacing:-.02em}
+.tools p{font-size:.98rem;line-height:1.55;color:var(--ink-2);max-width:56ch}
+.tools .tgo{white-space:nowrap}
+.tools > article.soon{opacity:.62}
+@media (max-width:860px){.tools > article{grid-template-columns:1fr;gap:16px}.tools .tgo{justify-self:start}}
+.foot-in .mono{color:var(--night-muted)}
+.tin{padding-block:clamp(44px,6vw,74px) clamp(30px,4vw,44px);display:grid;gap:20px;max-width:62ch}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="sb-mark" viewBox="0 0 120 120">
+    <rect x="23" y="72" width="64" height="40" rx="20" fill="currentColor"/>
+    <rect x="13" y="40" width="15" height="22" rx="7.5" fill="currentColor"/>
+    <rect x="36" y="22" width="15" height="40" rx="7.5" fill="currentColor"/>
+    <rect x="59" y="18" width="15" height="44" rx="7.5" fill="currentColor"/>
+    <rect x="82" y="36" width="15" height="26" rx="7.5" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo"><i class="pep"></i> BRAVE<span>vet business</span></a>
+    <ul>
+      <li><a href="#">Formazione</a></li>
+      <li><a href="#">Community</a></li>
+      <li><a href="/tools/" class="on">Tools</a></li>
+      <li><a href="#">Consulenza</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+    <a href="/tools/segreteria-brave/#demo" class="cta">Prenota una demo</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="tin">
+    <div class="kick">Tools</div>
+    <h1>Gli strumenti<br>che entrano in clinica.</h1>
+    <p class="lede">Non recensiamo software. Scegliamo quello che nel nostro settore non esiste ancora, lo facciamo costruire per la clinica veterinaria e lo mettiamo in funzione — con la configurazione, la formazione di chi lo userà e il presidio dei primi mesi.</p>
+    <p class="small">Un veterinario non ha bisogno di una lista di strumenti. Ha bisogno che qualcuno abbia già fatto la fatica di capire quale funziona nel suo mestiere, e sia lì il giorno in cui va acceso.</p>
+  </header>
+
+  <div class="tools">
+    <article>
+      <svg class="tmark" viewBox="0 0 120 120" role="img" aria-label="Segreteria Brave"><use href="#sb-mark"/></svg>
+      <div class="tbody">
+        <span class="tstate">In funzione</span>
+        <h3>Segreteria Brave</h3>
+        <p>La segreteria virtuale costruita solo per la clinica veterinaria. Risponde quando voi non potete, fissa gli appuntamenti secondo le vostre regole e vi lascia ogni richiesta scritta e ordinata. Anche alle 23, anche di domenica, anche quando arrivano quattro chiamate insieme.</p>
+      </div>
+      <a class="btn btn--p tgo" href="/tools/segreteria-brave/">Scopri di più</a>
+    </article>
+
+    <article class="soon">
+      <svg class="tmark" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--muted)"><use href="#sb-mark"/></svg>
+      <div class="tbody">
+        <span class="tstate tstate--soon">In lavorazione</span>
+        <h3>Gli strumenti che arrivano</h3>
+        <p>Stiamo lavorando ad altri strumenti nati dagli stessi problemi che ci raccontate: la gestione delle richieste urgenti fuori orario, e l'analisi dei dati del gestionale. Chi è nella community li vede per primo.</p>
+      </div>
+      <a class="btn tgo" style="border-color:var(--line);color:var(--ink)" href="#">Resta aggiornato</a>
+    </article>
+  </div>
+
+  <section style="border-top:1px solid var(--line);margin-top:clamp(40px,6vw,70px)">
+    <div class="sec-head">
+      <div class="kick">Come lavoriamo</div>
+      <h2>Prima lo proviamo noi.</h2>
+      <p class="lede">Ogni strumento che trovate qui è passato per la stessa strada: un problema raccontato da un veterinario, una tecnologia che esisteva per altri settori, mesi di lavoro per adattarla al nostro, e una clinica che l'ha messa al telefono prima di tutti.</p>
+    </div>
+    <div class="probs">
+      <div>
+        <span class="n">01</span>
+        <h3>Lo chiedete voi</h3>
+        <p class="small">Nessuno di questi strumenti nasce da un'idea nostra. Nascono da una frase detta in una call, ripetuta da più persone, su un problema che nessun software affrontava.</p>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <h3>Lo veterinarizziamo</h3>
+        <p class="small">La tecnologia spesso c'è già, ma parla un'altra lingua. Il lavoro sta nel farla funzionare con le richieste, i tempi e il vocabolario di una clinica veterinaria.</p>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <h3>Restiamo quando parte</h3>
+        <p class="small">Configurazione, formazione di chi lo userà ogni giorno, e i primi mesi seguiti. Uno strumento consegnato e abbandonato è uno strumento che nessuno usa.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <a href="/" class="logo"><i class="pep"></i> BRAVE<span>vet business</span></a>
+    <span class="mono">Tools · strumenti operativi per la clinica veterinaria</span>
+  </div>
+</footer>
+</body>
+</html>
