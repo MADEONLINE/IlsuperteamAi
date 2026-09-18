@@ -11,7 +11,7 @@ Fonte: sedici call registrate con veterinari e l'allineamento con Icarus Technol
 ## 0. In una riga
 
 Segreteria Brave è la segreteria virtuale costruita solo per le cliniche veterinarie.
-Firma: **shaped by Icarus**. Ogni contenuto porta a
+Firma: **powered by Icarus**. Ogni contenuto porta a
 `bravevetbusiness.it/segreteria-brave`.
 
 ---
@@ -83,7 +83,7 @@ La paura come leva. Emoji a raffica. Domande retoriche a catena.
 portale, nota al medico, chiamate perse *e in coda*, istruita sulla clinica,
 collegata ai sistemi, assistente virtuale, front office.
 
-**Parole da evitare:** powered by (si dice *shaped by Icarus*), bot, chatbot,
+**Parole da evitare:** bot, chatbot,
 robot, centralino automatico, modalità A/B, sostituire, rimpiazzare, tagliare,
 bancone, soluzione, sempre/mai/tutto/zero dentro una promessa.
 
@@ -169,7 +169,7 @@ fase di lancio quattro, per trenta giorni, poi si torna a due.
 4. La citazione è attribuita a qualcuno di riconoscibile? Serve autorizzazione.
 5. Se c'è una chiamata, la voce si dichiara assistente virtuale nella prima battuta?
 6. La CTA porta alla pagina, con i parametri di tracciamento?
-7. Marchio e firma giusti: Segreteria Brave, **shaped by Icarus**.
+7. Marchio e firma giusti: Segreteria Brave, **powered by Icarus**.
 
 **Non si pubblica e si chiede a Marta** in tre casi: un contenuto che cita un
 cliente per nome; un contenuto che risponde a una critica pubblica sul prodotto;
@@ -190,7 +190,7 @@ un contenuto che nomina Snoots in relazione a funzioni non ancora rilasciate.
 
 ```
 Scrivi contenuti social per Brave Vet Business su SEGRETERIA BRAVE,
-la segreteria virtuale per cliniche veterinarie. Firma: "shaped by Icarus".
+la segreteria virtuale per cliniche veterinarie. Firma: "powered by Icarus".
 
 PUBBLICO: veterinari imprenditori italiani. Cinque profili — front office
 saturo, ambulatorio solo, gruppo multi-sede, struttura complessa, e chi
@@ -223,7 +223,7 @@ configurazione e' piu' rapida ed e' presente nel suo marketplace.
 PAROLE SI': segreteria, voce, risponde, filtra, smista, richiesta scritta,
 portale, nota al medico, chiamate perse e in coda, istruita sulla clinica,
 collegata ai sistemi, assistente virtuale, front office.
-PAROLE NO: bot, chatbot, robot, powered by, bancone, sostituire,
+PAROLE NO: bot, chatbot, robot, bancone, sostituire,
 rivoluzionario, innovativo, soluzione, sempre/mai/zero in una promessa.
 
 OTTO ANGOLI da cui generare: 1) "voi con il telefono siete un disastro"

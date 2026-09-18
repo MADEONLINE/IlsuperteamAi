@@ -78,9 +78,11 @@ strong{font-weight:600;color:var(--ink)}
 
 /* ---------- hero ---------- */
 .hero{background:var(--night);color:var(--night-ink);border-bottom:1px solid var(--night-line)}
-/* Sui fondi scuri i link devono restare leggibili: niente blu di sistema. */
-.hero a:not(.btn), .demo a, .close a{color:var(--teal)}
+/* Sui fondi scuri: link leggibili, ma i pulsanti tengono il proprio colore. */
+.hero a:not(.btn):not(.cta), .demo a:not(.btn), .close a:not(.btn){color:var(--teal)}
 .hero .small, .demo .small, .close .small{color:var(--night-muted)}
+/* Il grassetto eredita --ink, che sul nero e' nero: va riportato in chiaro. */
+.hero strong, .demo strong, .close strong, .call strong{color:var(--night-ink)}
 .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(30px,5vw,60px);padding-block:clamp(48px,7vw,86px);align-items:center}
 @media (max-width:900px){.hero-in{grid-template-columns:1fr}}
 .hero h1{color:var(--night-ink)}
@@ -308,7 +310,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
 <div class="editnote">
   <div class="wrap editnote-in">
     <b>Anteprima</b>
-    <span>Sezione <em>bravevetbusiness.it/segreteria-brave</em> — versione 3, con il marchio applicato e la firma «shaped by Icarus». Pronta per la pubblicazione: restano da collegare il form e il link alla privacy.</span>
+    <span>Sezione <em>bravevetbusiness.it/segreteria-brave</em> — versione 3, con il marchio applicato e la firma «powered by Icarus». Pronta per la pubblicazione: restano da collegare il form e il link alla privacy.</span>
   </div>
 </div>
 
@@ -332,7 +334,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     <div class="hero-copy">
       <div class="lockup lockup--hero lockup--dark" style="margin-bottom:6px">
         <svg class="sbmark" viewBox="0 0 120 120" role="img" aria-label="Segreteria Brave"><use href="#sb-mark"/></svg>
-        <span class="lw"><b>Segreteria Brave</b><span>shaped by Icarus</span></span>
+        <span class="lw"><b>Segreteria Brave</b><span>powered by Icarus</span></span>
       </div>
       <h1>Risponde sempre.<br>Non perde niente.</h1>
       <p class="lede">La prima segreteria virtuale costruita solo per la clinica veterinaria. Risponde quando voi non potete, capisce che cosa serve a chi chiama, fissa l'appuntamento secondo le vostre regole e vi lascia ogni richiesta scritta e ordinata. Anche alle 23. Anche di domenica. Anche quando arrivano quattro chiamate insieme.</p>
@@ -442,7 +444,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
         </div>
       </div>
     </div>
-    <p class="small" style="margin-top:18px;color:var(--muted);max-width:76ch">Una stima, non una promessa. Le chiamate lasciate in attesa risultano «risposte» in qualunque statistica di centralino: sono contate qui perché nella realtà si comportano come quelle perse.</p>
+    <p class="small" style="margin-top:18px;color:var(--muted);max-width:76ch">Una stima, non una promessa: la verifica puntuale e la personalizzazione della soluzione arrivano dopo la call con noi. Le chiamate lasciate in attesa risultano «risposte» in qualunque statistica di centralino: sono contate qui perché nella realtà si comportano come quelle perse.</p>
   </section>
 </div>
 
@@ -494,18 +496,19 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
   <section>
     <div class="sec-head">
       <div class="kick">Come si attiva</div>
-      <h2>Istruita sulla vostra clinica.<br>E capace di parlare<br>con i software che usate.</h2>
-      <p class="lede">Non è un prodotto che si accende e va: si configura. La prima parte del lavoro è insegnarle la vostra struttura; la seconda è collegarla a quello che avete già — il centralino, l'agenda, il gestionale — nella misura in cui questi lo permettono.</p>
+      <h2>Il mestiere lo sa già.<br>Quello che impara<br>è la vostra clinica.</h2>
+      <p class="lede">L'addestramento sul mondo veterinario è già stato fatto: il linguaggio, le richieste che arrivano davvero, i nomi dei farmaci come li pronunciano i proprietari. Quello che resta da fare è la parte che riguarda solo voi — com'è organizzata la vostra struttura — e il collegamento a quello che usate già.</p>
     </div>
     <div class="modes">
       <div>
-        <span class="tag">Primo · l'istruzione</span>
+        <span class="tag">Primo · la personalizzazione</span>
         <h3>Impara com'è fatta la vostra clinica</h3>
-        <p class="small">Orari, sedi, servizi, come si prenota, chi fa cosa, che cosa è urgenza e che cosa non deve mai dire. Sono le informazioni che oggi stanno nella testa di chi risponde al telefono: le mettiamo per iscritto una volta, e da lì in avanti ci sono.</p>
+        <p class="small">La base veterinaria c'è già. Quello che aggiungiamo è il vostro caso: orari, sedi, servizi, come si prenota da voi, chi fa cosa, che cosa è urgenza e che cosa non deve mai dire. Sono le informazioni che oggi stanno nella testa di chi risponde al telefono: le mettiamo per iscritto una volta, e da lì in avanti ci sono.</p>
         <ul>
           <li>Risponde, filtra e informa secondo le vostre regole</li>
           <li>Prende la richiesta strutturata e ve la lascia a portale</li>
           <li>Prenota secondo i criteri che le avete dato</li>
+          <li>Riconosce i farmaci anche quando il nome viene storpiato</li>
           <li>Le regole si cambiano quando volete, senza rifare tutto</li>
         </ul>
         <p class="foot">Si fa insieme, in configurazione, con chi le telefonate le conosce a memoria.</p>
@@ -626,7 +629,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       <p class="small" style="color:var(--night-muted)">Se puoi, porta in call anche chi risponde al telefono: è la mezz'ora che vale di più.</p>
       <div class="lockup lockup--dark" style="margin-top:6px">
         <svg class="sbmark" viewBox="0 0 120 120" aria-hidden="true"><use href="#sb-mark"/></svg>
-        <span class="lw"><b>Segreteria Brave</b><span>shaped by Icarus</span></span>
+        <span class="lw"><b>Segreteria Brave</b><span>powered by Icarus</span></span>
       </div>
     </div>
 
@@ -667,7 +670,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
 <footer>
   <div class="wrap foot-in">
     <a href="#" class="logo"><i class="pep"></i> BRAVE<span>vet business</span></a>
-    <span class="lockup lockup--dark"><svg class="sbmark" viewBox="0 0 120 120" aria-hidden="true"><use href="#sb-mark"/></svg><span class="lw"><b>Segreteria Brave</b><span>shaped by Icarus</span></span></span>
+    <span class="lockup lockup--dark"><svg class="sbmark" viewBox="0 0 120 120" aria-hidden="true"><use href="#sb-mark"/></svg><span class="lw"><b>Segreteria Brave</b><span>powered by Icarus</span></span></span>
   </div>
 </footer>
 
