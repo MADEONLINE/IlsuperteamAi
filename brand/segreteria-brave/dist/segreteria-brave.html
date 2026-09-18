@@ -43,7 +43,7 @@
   --field:#E7EDEB;
   --ink:#0B1715;
   --ink-2:#3D504D;
-  --muted:#6F8280;
+  --muted:#5E716F;
   --line:#CCD8D5;
   --line-soft:#DEE7E5;
   --teal:#76B6B5;
@@ -112,6 +112,9 @@ strong{font-weight:600;color:var(--ink)}
 
 /* ---------- hero ---------- */
 .hero{background:var(--night);color:var(--night-ink);border-bottom:1px solid var(--night-line)}
+/* Sui fondi scuri i link devono restare leggibili: niente blu di sistema. */
+.hero a:not(.btn), .demo a, .close a{color:var(--teal)}
+.hero .small, .demo .small, .close .small{color:var(--night-muted)}
 .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(30px,5vw,60px);padding-block:clamp(48px,7vw,86px);align-items:center}
 @media (max-width:900px){.hero-in{grid-template-columns:1fr}}
 .hero h1{color:var(--night-ink)}
@@ -218,12 +221,6 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
 .limits span{font-size:.92rem;color:var(--ink-2);line-height:1.5;padding-left:22px}
 @media (max-width:700px){.limits{grid-template-columns:1fr}}
 
-/* pilota */
-.pilot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:clamp(24px,4vw,44px);align-items:center;border:1px solid var(--line);background:var(--raise);padding:clamp(24px,4vw,38px)}
-@media (max-width:800px){.pilot{grid-template-columns:1fr}}
-.pilot blockquote{margin:0;font-family:var(--f-disp);font-size:clamp(1.3rem,2.8vw,1.8rem);line-height:1.3;letter-spacing:-.015em;color:var(--ink)}
-.pilot .att{margin-top:16px;font-size:.9rem;color:var(--muted);line-height:1.5}
-.pilot .ph{border:1px dashed var(--teal);background:var(--teal-wash);padding:16px;font-family:var(--f-mono);font-size:.68rem;line-height:1.7;color:var(--teal-deep);letter-spacing:.03em}
 
 /* faq */
 .faq{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -365,11 +362,6 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       <p class="lede">La prima segreteria virtuale costruita solo per la clinica veterinaria. Risponde quando voi non potete, capisce che cosa serve a chi chiama, fissa l'appuntamento secondo le vostre regole e vi lascia ogni richiesta scritta e ordinata. Anche alle 23. Anche di domenica. Anche quando arrivano quattro chiamate insieme.</p>
       <div class="btns">
         <a class="btn btn--p" href="#demo">Prenota una demo</a>
-        <a class="btn btn--s" href="#chiamata">Guarda cosa lascia scritto</a>
-      </div>
-      <div class="badge-row">
-        <span class="badge badge--live">Pilota attivo · Carmagnola</span>
-        <span class="badge">Con o senza gestionale</span>
       </div>
     </div>
 
@@ -414,7 +406,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       </div>
       <div>
         <span class="n">03</span>
-        <h3>Squilla mentre c'è già qualcuno al bancone</h3>
+        <h3>Squilla mentre c'è già qualcuno davanti</h3>
         <p class="small">Il front office deve scegliere tra chi è entrato dalla porta e chi sta al telefono. Qualunque cosa scelga, perde l'altro.</p>
       </div>
       <div>
@@ -488,13 +480,13 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     </div>
     <div class="demo-grid">
       <div class="turns">
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Clinica Veterinaria Carmagnola, buongiorno. Sono Giulia, <em>l'assistente virtuale</em> della clinica. Come posso aiutarla?»</span></div>
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx">«Clinica Veterinaria Le Betulle, buongiorno. Sono <em>l'assistente virtuale</em> della clinica. Come posso aiutarla?»</span></div>
         <div class="turn"><span class="sp">Cliente</span><span class="tx">«Buongiorno. Sono il signor Rossi, per Luna. Si gratta ancora tantissimo, l'avete vista la settimana scorsa…»</span></div>
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Ho qui il controllo di Luna fissato per il diciotto. Vuole che verifichi se c'è un posto prima?»</span></div>
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx">«Ho qui il controllo di Luna fissato per il diciotto. Vuole che verifichi se c'è un posto prima?»</span></div>
         <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, magari sì, perché così non va.»</span></div>
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx">«Ho giovedì alle 15:40 e venerdì alle 9:20, entrambi con il dottor Rosso. Quale le va meglio?»</span></div>
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx">«Ho giovedì alle 15:40 e venerdì alle 9:20, entrambi con il dottor Ferraris. Quale le va meglio?»</span></div>
         <div class="turn"><span class="sp">Cliente</span><span class="tx">«Facciamo giovedì.»</span></div>
-        <div class="turn turn--g"><span class="sp">Giulia</span><span class="tx"><em>«Fissato: giovedì 15:40, controllo per Luna. Le mando il promemoria su questo numero. Scrivo al dottor Rosso che il prurito non è migliorato, così quando la vede sa già di che si tratta.»</em></span></div>
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx"><em>«Fissato: giovedì 15:40, controllo per Luna. Le mando il promemoria su questo numero. Scrivo al dottor Ferraris che il prurito non è migliorato, così quando la vede sa già di che si tratta.»</em></span></div>
       </div>
 
       <div class="knows">
@@ -525,35 +517,39 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
   <!-- MODALITÀ -->
   <section>
     <div class="sec-head">
-      <div class="kick">Due modi di attivarla</div>
-      <h2>Si configura in base<br>agli strumenti che avete già.</h2>
-      <p class="lede">Non dovete cambiare niente e non dovete integrare niente. Quello che usate oggi continuate a usarlo: cambia solo da dove la segreteria prende le informazioni.</p>
+      <div class="kick">Come si attiva</div>
+      <h2>Istruita sulla vostra clinica.<br>E capace di parlare<br>con i software che usate.</h2>
+      <p class="lede">Non è un prodotto che si accende e va: si configura. La prima parte del lavoro è insegnarle la vostra struttura; la seconda è collegarla a quello che avete già — il centralino, l'agenda, il gestionale — nella misura in cui questi lo permettono.</p>
     </div>
     <div class="modes">
       <div>
-        <span class="tag">Modalità indipendente</span>
-        <h3>Istruita sulla clinica</h3>
-        <p class="small">Si configura sulle informazioni e sulle regole della vostra struttura, a prescindere dal gestionale che usate — o anche senza gestionale. Orari, servizi, come si prenota, cosa è urgenza, cosa non deve mai dire.</p>
+        <span class="tag">Primo · l'istruzione</span>
+        <h3>Impara com'è fatta la vostra clinica</h3>
+        <p class="small">Orari, sedi, servizi, come si prenota, chi fa cosa, che cosa è urgenza e che cosa non deve mai dire. Sono le informazioni che oggi stanno nella testa di chi risponde al telefono: le mettiamo per iscritto una volta, e da lì in avanti ci sono.</p>
         <ul>
           <li>Risponde, filtra e informa secondo le vostre regole</li>
           <li>Prende la richiesta strutturata e ve la lascia a portale</li>
           <li>Prenota secondo i criteri che le avete dato</li>
-          <li>Nessuna integrazione richiesta: si parte subito</li>
+          <li>Le regole si cambiano quando volete, senza rifare tutto</li>
         </ul>
-        <p class="foot">Le funzioni ci sono tutte. È la strada più veloce per partire.</p>
+        <p class="foot">Si fa insieme, in configurazione, con chi le telefonate le conosce a memoria.</p>
       </div>
       <div>
-        <span class="tag">Modalità con Snoots</span>
-        <h3>Collegata al gestionale</h3>
-        <p class="small">Attivata dentro Snoots, lavora sui dati della clinica invece che su quelli che le avete insegnato. Le stesse funzioni, con meno configurazione da fare e più cose già sapute.</p>
+        <span class="tag">Secondo · il collegamento</span>
+        <h3>Si aggancia a quello che avete già</h3>
+        <p class="small">Il centralino deve poterle girare le chiamate, e l'agenda deve poter essere letta. Sono i due collegamenti che decidono i tempi di attivazione, e dipendono da che cosa i vostri sistemi consentono: in demo lo verifichiamo prima di partire, non dopo.</p>
         <ul>
-          <li>Le richieste tornano dentro Snoots, senza ricopiare</li>
-          <li>Legge l'agenda per rispondere, e scrive solo dove le dite voi</li>
-          <li>Aggancia il chiamante alla scheda esistente</li>
-          <li>Si configura in meno tempo, perché molto è già lì</li>
+          <li>Inoltro delle chiamate dal vostro centralino</li>
+          <li>Lettura dell'agenda per rispondere sugli appuntamenti</li>
+          <li>Collegamento al gestionale, dove le sue interfacce lo permettono</li>
+          <li>Se un pezzo non c'è, si parte lo stesso e si aggiunge dopo</li>
         </ul>
-        <p class="foot">Integrazione in corso di sviluppo: le funzioni in elenco arrivano progressivamente.</p>
+        <p class="foot">Nessuno dei due collegamenti lo fate voi: li seguiamo noi con chi vi gestisce i sistemi.</p>
       </div>
+    </div>
+
+    <div class="note" style="border-left:3px solid var(--teal);padding:6px 0 6px 18px;margin-top:28px;max-width:74ch">
+      <p class="small"><strong>Se usate Snoots, la strada è più corta.</strong> Molte delle informazioni che servono a istruirla sono già nel gestionale, e <strong>Segreteria Brave è presente nel marketplace Snoots</strong>: la configurazione si accorcia e il collegamento è già previsto. Con gli altri gestionali si valuta caso per caso che cosa le loro interfacce permettono — e quello che non si può collegare, glielo insegniamo.</p>
     </div>
   </section>
 
@@ -561,7 +557,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
   <section>
     <div class="sec-head">
       <div class="kick">Il perimetro, scritto</div>
-      <h2>Cosa Giulia non fa mai.</h2>
+      <h2>Cosa non fa mai.</h2>
       <p class="lede">Il confine si decide insieme in configurazione, e resta scritto. Perché la fiducia si costruisce sui limiti dichiarati, non sulle promesse. Su un punto in particolare non c'è margine: <strong>la parte clinica non la tocca</strong>.</p>
     </div>
     <div class="limits">
@@ -577,8 +573,8 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
   <!-- SEGRETERIA -->
   <section>
     <div class="sec-head">
-      <div class="kick">A chi sta al bancone</div>
-      <h2>Questa pagina parla al titolare.<br>Ma il prodotto lo userete voi.</h2>
+      <div class="kick">A chi gestisce il front office</div>
+      <h2>Questa pagina parla al titolare.<br>Ma il servizio lo userete voi.</h2>
       <p class="lede">Se siete voi a rispondere al telefono tutto il giorno, la domanda vera è una sola, e non è se funziona.</p>
     </div>
     <div class="limits">
@@ -587,33 +583,19 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       <div><b>Smettete di dire «scusi, un attimo» a chi avete davanti</b><span>Chi è entrato dalla porta non viene più interrotto ogni novanta secondi. È la cosa che cambia di più, e non si vede in nessun numero.</span></div>
       <div><b>Decidete voi che cosa le fate fare</b><span>Le regole si scrivono in configurazione, e la configurazione la facciamo con voi, non sopra di voi. Nessuno conosce le telefonate di quella clinica meglio di chi le risponde.</span></div>
     </div>
-    <div class="note" style="margin-top:22px;border-left:3px solid var(--teal);padding-left:16px;max-width:70ch">
-      <p class="small">In demo chiediamo sempre che ci sia anche chi risponde al telefono. Non per cortesia: perché senza quella mezz'ora il servizio viene configurato male, e le domande giuste le fa solo chi le telefonate le conosce a memoria.</p>
-    </div>
   </section>
 
-  <!-- PILOTA -->
+  <!-- IN FUNZIONE -->
   <section>
     <div class="sec-head">
-      <div class="kick">Il pilota</div>
-      <h2>Non è un'idea. È già al telefono.</h2>
+      <div class="kick">Non è un annuncio</div>
+      <h2>È già al telefono,<br>in cliniche veterinarie italiane.</h2>
+      <p class="lede">Clienti veri che chiamano, agende vere che si riempiono, richieste che ogni sera sono scritte e ordinate. Non stiamo presentando un progetto: stiamo aprendo a nuove strutture un servizio che è già in funzione.</p>
     </div>
-    <div class="pilot">
-      <div>
-        <blockquote>Segreteria Brave è in funzione alla Clinica Veterinaria Carmagnola del dott. Matteo Rosso.</blockquote>
-        <p class="att">Clienti veri che chiamano, un'agenda vera che si riempie. Il pilota è aperto: i primi veterinari che attivano la segreteria entrano in una fase in cui il prodotto si modella anche sulle loro segnalazioni.</p>
-      </div>
-      <div class="ph">
-        [ da inserire ]<br><br>
-        Una chiamata <b>reale</b> del pilota,<br>
-        anonimizzata nei nomi,<br>
-        al posto della ricostruzione qui sopra<br>
-        + 1 dato verificato<br>
-        (chiamate gestite / appuntamenti fissati)<br><br>
-        → nessun numero e nessun nome<br>
-        pubblicato finché non è verificato<br>
-        e autorizzato
-      </div>
+    <div class="limits">
+      <div><b>Risponde tutti i giorni</b><span>Comprese le sere, i sabati e i festivi, cioè le ore in cui il proprietario si accorge che l'animale non sta bene ed è esattamente quando nessuno può rispondere.</span></div>
+      <div><b>Impara dalle strutture che la usano</b><span>Ogni configurazione nuova aggiunge casistiche veterinarie al modo in cui il servizio gestisce le richieste. Chi entra adesso contribuisce a come funzionerà.</span></div>
+      <div><b>Si parte in piccolo</b><span>Si comincia recuperando le chiamate che oggi si perdono, si guardano i risultati nel portale, e solo dopo si decide se farle prendere più traffico.</span></div>
     </div>
   </section>
 
@@ -634,7 +616,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       </details>
       <details>
         <summary>E se dà un'informazione sbagliata? La responsabilità è mia.</summary>
-        <p class="ans">Prima dell'attivazione si stabilisce per iscritto che cosa può dire, che cosa non deve dire mai e come si comporta nei casi che non sa gestire — e quel perimetro lo decidi tu (vedi «Cosa Giulia non fa mai»). Fuori dal perimetro c'è un solo comportamento possibile: passare al veterinario, o far richiamare. Sulla parte clinica non c'è configurazione che tenga: non la tocca, punto. Il quadro completo di responsabilità e obblighi è parte del contratto, non una rassicurazione a voce.</p>
+        <p class="ans">Prima dell'attivazione si stabilisce per iscritto che cosa può dire, che cosa non deve dire mai e come si comporta nei casi che non sa gestire — e quel perimetro lo decidi tu (vedi «Cosa non fa mai»). Fuori dal perimetro c'è un solo comportamento possibile: passare al veterinario, o far richiamare. Sulla parte clinica non c'è configurazione che tenga: non la tocca, punto. Il quadro completo di responsabilità e obblighi è parte del contratto, non una rassicurazione a voce.</p>
       </details>
       <details>
         <summary>Dove finiscono i dati dei miei clienti e dei pazienti?</summary>
@@ -642,7 +624,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       </details>
       <details>
         <summary>Devo cambiare gestionale per usarla?</summary>
-        <p class="ans">No, e non devi integrare niente. Funziona con qualsiasi gestionale, o anche senza: quello che usi oggi continui a usarlo. Se usi Snoots la configurazione è più rapida perché molte informazioni sono già lì, ma le funzioni sono le stesse.</p>
+        <p class="ans">No. Quello che usi oggi continui a usarlo: la segreteria si istruisce sulla tua clinica e <strong>si collega ai sistemi che hai già</strong>, nella misura in cui questi lo consentono — alcuni gestionali si aprono facilmente, altri meno, e lo verifichiamo prima di partire. Con <strong>Snoots la configurazione è la più rapida</strong>: molte informazioni sono già lì e Segreteria Brave è presente nel suo marketplace.</p>
       </details>
       <details>
         <summary>Quanto tempo serve per attivarla?</summary>
@@ -676,7 +658,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       <p class="bf-h">Prenota la demo</p>
       <div class="bf-row">
         <label for="bf-nome">Nome e cognome</label>
-        <input id="bf-nome" name="nome" type="text" autocomplete="name" placeholder="Matteo Rosso">
+        <input id="bf-nome" name="nome" type="text" autocomplete="name" placeholder="Andrea Ferraris">
       </div>
       <div class="bf-row">
         <label for="bf-struttura">Struttura</label>
