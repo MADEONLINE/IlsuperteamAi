@@ -34,7 +34,13 @@ stato sostituito da un assistente che accompagna tra le pagine.
 5. 🟡 **Numeri d'Ordine** dei restanti 12 medici e conferma che la provincia degli
    altri otto sia Napoli (dedotta). Non è un obbligo di legge: lo è solo per il
    direttore sanitario, già inserito.
-6. 🟡 **Dominio e caselle email**: pubblicazione su clinicaveterinariadelbosco.it,
+6. 🟠 **A chi inoltrare le richieste dei moduli.** Il 18/09/2026 il rilevamento
+   moduli di Netlify è stato attivato e verificato: prenotazione, caso collega e
+   candidatura vengono raccolti (prova d'invio, tutti 200) e finiscono nella
+   bacheca del progetto. **Manca la notifica via email**: va indicato l'indirizzo
+   a cui far arrivare ogni richiesta, altrimenti bisogna ricordarsi di entrare
+   nel pannello. Da impostare in Netlify → Forms → Form notifications.
+7. 🟡 **Dominio e caselle email**: pubblicazione su clinicaveterinariadelbosco.it,
    redirect dei due domini alternativi, attivazione di info@ e urgenze@.
 
 ## 🔴 Bloccanti per il go-live (obblighi di legge)
