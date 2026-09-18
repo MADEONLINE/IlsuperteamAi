@@ -1,0 +1,415 @@
+<title>Messa Online e Conformità — Segreteria Brave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --paper:#F1F4F3; --field:#E6ECEA; --raise:#FFFFFF;
+  --ink:#0D1B19; --ink-2:#3B4E4B; --muted:#5C6E6B;
+  --line:#CBD7D4; --line-soft:#DCE5E3;
+  --teal:#76B6B5; --teal-deep:#2B6E6C; --teal-wash:#DCECEB;
+  --signal:#C7562F; --signal-wash:#F8E9E2; --alert:#B0472A;
+  --f-display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Newsreader',Georgia,'Times New Roman',serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0A1413; --field:#101E1C; --raise:#162725;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --signal:#E8825C; --signal-wash:#2B1A14; --alert:#EF9878;
+}}
+:root[data-theme="dark"]{
+  --paper:#0A1413; --field:#101E1C; --raise:#162725;
+  --ink:#E9F0EE; --ink-2:#B3C4C0; --muted:#839894;
+  --line:#223633; --line-soft:#1A2B29;
+  --teal:#76B6B5; --teal-deep:#9AD2D1; --teal-wash:#15302E;
+  --signal:#E8825C; --signal-wash:#2B1A14; --alert:#EF9878;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.09;letter-spacing:-.022em;text-wrap:balance}
+h1{font-size:clamp(2.4rem,5.8vw,4rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem);font-weight:700}
+h3{font-size:1.16rem;font-weight:700;letter-spacing:-.012em}
+p{margin:0}
+.lede{font-size:clamp(1.04rem,1.85vw,1.28rem);line-height:1.55;color:var(--ink-2);max-width:62ch}
+.kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.19em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.6em}
+.kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+.mono{font-family:var(--f-mono);font-size:.69rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+.small{font-family:var(--f-body);font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+strong{font-weight:600;color:var(--ink)}
+a{color:var(--teal-deep)}
+header.top{border-bottom:1px solid var(--line)}
+.top-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:baseline;padding-block:19px}
+.bvb{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:.88rem}
+.mk{width:17px;height:17px;color:var(--teal);flex:none}
+.hero{padding-block:clamp(46px,8vw,86px) clamp(30px,5vw,50px);display:grid;gap:22px}
+section{padding-block:clamp(40px,6vw,66px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:13px;margin-bottom:30px;max-width:70ch}
+
+/* divieti */
+.no{display:grid;gap:1px;background:var(--line);border:1px solid var(--signal)}
+.no > div{background:var(--signal-wash);padding:18px 22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start}
+.no .x{font-family:var(--f-mono);font-weight:700;font-size:.9rem;color:var(--alert);line-height:1.4}
+.no .c{display:grid;gap:5px}
+.no .c b{font-family:var(--f-display);font-size:1.02rem;font-weight:700;letter-spacing:-.012em}
+.no .c span{font-size:.93rem;color:var(--ink-2);line-height:1.5}
+
+/* due colonne sì/no */
+.yn{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.yn > div{background:var(--paper);padding:22px;display:grid;gap:12px;align-content:start}
+.yn h4{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;font-weight:400}
+.yn--ok h4{color:var(--teal-deep)}
+.yn--no h4{color:var(--alert)}
+.yn ul{margin:0;padding-left:1.05em;display:grid;gap:8px}
+.yn li{font-size:.95rem;line-height:1.45;color:var(--ink-2)}
+.yn li b{color:var(--ink);font-weight:600}
+@media (max-width:700px){.yn{grid-template-columns:1fr}}
+
+/* griglia generica */
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.g3 > div{background:var(--paper);padding:22px;display:grid;gap:9px;align-content:start}
+.g3 .n{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.g3 p{font-size:.93rem;line-height:1.5;color:var(--ink-2)}
+@media (max-width:800px){.g3{grid-template-columns:1fr}}
+
+/* tabella */
+.tb{border:1px solid var(--line);overflow-x:auto}
+.tb table{border-collapse:collapse;width:100%;min-width:640px}
+.tb th,.tb td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line-soft);vertical-align:top;font-size:.92rem;line-height:1.45}
+.tb thead th{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--teal-deep);background:var(--field);border-bottom:1px solid var(--line)}
+.tb tbody th{font-family:var(--f-display);font-weight:700;font-size:.97rem;letter-spacing:-.01em;white-space:nowrap}
+.tb td{color:var(--ink-2)}
+.tb tr:last-child th,.tb tr:last-child td{border-bottom:0}
+
+/* tracce di contenuto */
+.tr{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.tr > div{background:var(--paper);padding:24px;display:grid;gap:12px}
+.tr .th{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline}
+.tr .tn{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+.tr .tg{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;padding:3px 8px;border-radius:2px;color:var(--teal-deep);background:var(--teal-wash);border:1px solid var(--teal)}
+.tr h3{font-size:1.2rem;line-height:1.25}
+.tr .hook{font-family:var(--f-display);font-weight:500;font-size:1.06rem;line-height:1.4;color:var(--ink);border-left:3px solid var(--teal);padding-left:15px}
+.tr p{font-size:.95rem;line-height:1.55;color:var(--ink-2)}
+.tr .cta{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.03em;color:var(--teal-deep);border-top:1px dashed var(--line);padding-top:11px;line-height:1.6}
+
+/* blocco da incollare */
+.paste{background:var(--ink);color:#E9F0EE;border:1px solid var(--ink);padding:26px 24px;overflow-x:auto}
+.paste pre{margin:0;font-family:var(--f-mono);font-size:.76rem;line-height:1.72;white-space:pre-wrap;word-break:break-word}
+.paste h4{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:400;margin-bottom:16px}
+
+.note{border-left:3px solid var(--teal);padding:4px 0 4px 16px;display:grid;gap:9px;max-width:70ch}
+.note--w{border-left-color:var(--signal)}
+.steps{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.steps > div{background:var(--paper);padding:17px 22px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.steps .n{font-family:var(--f-mono);font-size:.68rem;color:var(--teal-deep);padding-top:.25em}
+.steps .c{display:grid;gap:4px}
+.steps .c b{font-family:var(--f-display);font-size:1rem;font-weight:700;letter-spacing:-.012em}
+.steps .c span{font-size:.93rem;color:var(--ink-2);line-height:1.5}
+footer{border-top:1px solid var(--line);padding-block:26px 44px}
+.foot{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center}
+:focus-visible{outline:2px solid var(--teal-deep);outline-offset:3px}
+</style><style>
+.tree{font-family:var(--f-mono);font-size:.8rem;line-height:2;background:var(--field);border:1px solid var(--line);padding:22px 24px;overflow-x:auto}
+.tree b{font-family:var(--f-mono);color:var(--teal-deep)}
+.tree span{color:var(--muted)}
+.code{background:var(--ink);color:#E9F0EE;border:1px solid var(--ink);padding:22px;overflow-x:auto}
+.code pre{margin:0;font-family:var(--f-mono);font-size:.74rem;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code h4{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:400;margin-bottom:14px}
+.gap{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.gap > div{background:var(--paper);padding:22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start}
+.gap .lv{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.11em;text-transform:uppercase;padding:4px 9px;border-radius:2px;white-space:nowrap;margin-top:.2em}
+.lv--must{color:var(--alert);background:var(--signal-wash);border:1px solid var(--signal)}
+.lv--should{color:var(--teal-deep);background:var(--teal-wash);border:1px solid var(--teal)}
+.lv--ok{color:var(--muted);background:var(--field);border:1px solid var(--line)}
+.gap .c{display:grid;gap:8px}
+.gap .c b{font-family:var(--f-display);font-size:1.04rem;font-weight:700;letter-spacing:-.012em}
+.gap .c p{font-size:.94rem;line-height:1.55;color:var(--ink-2)}
+.gap .c .ref{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.04em;color:var(--teal-deep);border-top:1px dashed var(--line);padding-top:9px}
+@media (max-width:640px){.gap > div{grid-template-columns:1fr;gap:11px}.gap .lv{justify-self:start;margin-top:0}}
+code{font-family:var(--f-mono);font-size:.86em;background:var(--field);border:1px solid var(--line-soft);padding:1px 5px;border-radius:2px;color:var(--ink)}
+.tree span{color:var(--ink-2)}
+.mono, .lv--ok{color:var(--ink-2)}
+.gap .c .ref{color:var(--teal-deep)}
+</style>
+
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="sb-mark" viewBox="0 0 120 120">
+    <rect x="23" y="72" width="64" height="40" rx="20" fill="currentColor"/>
+    <rect x="13" y="40" width="15" height="22" rx="7.5" fill="currentColor"/>
+    <rect x="36" y="22" width="15" height="40" rx="7.5" fill="currentColor"/>
+    <rect x="59" y="18" width="15" height="44" rx="7.5" fill="currentColor"/>
+    <rect x="82" y="36" width="15" height="26" rx="7.5" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="bvb"><svg class="mk" viewBox="0 0 120 120"><use href="#sb-mark"/></svg> SEGRETERIA BRAVE <span class="mono">messa online e conformità</span></div>
+    <div class="mono">18 settembre 2026</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="kick">Due cose da chiudere prima di pubblicare</div>
+    <h1>La pagina sotto Tools,<br>e quello che l'AI Act<br>ci chiede di scrivere.</h1>
+    <p class="lede">Prima parte: la scheda tecnica per chi mette mano a WordPress — struttura del menu, percorsi, form, privacy. Seconda parte: l'analisi di conformità del servizio rispetto al regolamento europeo sull'intelligenza artificiale, con l'elenco di che cosa deve comparire nell'informativa.</p>
+    <div class="note note--w" style="margin-top:6px">
+      <p class="small"><strong>Due limiti dichiarati subito.</strong> Il sito è un'installazione WordPress self-hosted con Jetpack: <strong>l'accesso in scrittura via connettore non è attivo</strong> — richiede Jetpack AI o Jetpack Complete — quindi la pagina non l'ho creata io, l'ho preparata perché possa essere creata in pochi minuti. E <strong>non ho potuto leggere l'informativa privacy pubblicata</strong>: il dominio non è raggiungibile da questo ambiente. L'analisi che segue dice quindi che cosa <em>deve</em> esserci: va confrontata con il testo reale, e sono in grado di farlo se mi si passa il documento.</p>
+    </div>
+  </div>
+
+  <!-- ===== STRUTTURA ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Parte I · WordPress</div>
+      <h2>Tools diventa una voce di menu con figlie.</h2>
+      <p class="lede">Non una pagina sola: un contenitore. Segreteria Brave è il primo strumento, e la struttura è già pronta per quelli che verranno — la landing emergenze, il calcolatore, qualunque cosa costruiamo dopo.</p>
+    </div>
+    <div class="tree">
+<b>Tools</b>                                <span>/tools/            · pagina indice, voce di menu</span>
+└─ <b>Segreteria Brave</b>                  <span>/tools/segreteria-brave/  · la landing completa</span>
+   <span>(futuro) Landing emergenze         /tools/emergenze/</span>
+   <span>(futuro) Altri strumenti           /tools/…</span>
+    </div>
+
+    <div class="g3" style="margin-top:26px">
+      <div>
+        <span class="n">Voce di menu</span>
+        <h3>Tools, dopo Community</h3>
+        <p>Nel menu principale fra <em>Community</em> e <em>Consulenza</em>. Sottovoce a tendina: <em>Segreteria Brave</em>. Appena ci sarà il secondo strumento la tendina si popola da sola.</p>
+      </div>
+      <div>
+        <span class="n">Pagina indice</span>
+        <h3>/tools/ non è un contenitore vuoto</h3>
+        <p>Una pagina breve: che cosa sono i Tools — strumenti operativi che BVB porta alle cliniche — e una scheda per ciascuno con link. Oggi una sola scheda. Serve per la SEO e perché la voce di menu deve portare da qualche parte.</p>
+      </div>
+      <div>
+        <span class="n">La landing</span>
+        <h3>Blocco HTML personalizzato</h3>
+        <p>La pagina è un file unico autoportante. In WordPress va come <em>blocco HTML personalizzato</em> a piena larghezza, con il template senza titolo e senza sidebar. Non usare l'editor a blocchi per ricostruirla: si perderebbero calcolatore e stili.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:26px">
+      <p class="small"><strong>Una precauzione sul tema.</strong> La pagina porta il proprio CSS, e alcune regole del tema possono sovrascriverlo — tipicamente <code>h1</code>, <code>h2</code>, i pulsanti e i margini del contenuto. Se succede, la via più pulita non è ritoccare i fogli di stile del tema ma usare un <strong>template di pagina a larghezza piena, senza intestazione di contenuto</strong>, oppure incapsulare tutto in un <code>&lt;iframe&gt;</code> che punta al file caricato in <code>/wp-content/uploads/</code>. La prima è preferibile: l'iframe costa in SEO.</p>
+    </div>
+  </section>
+
+  <!-- ===== FORM ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Il form</div>
+      <h2>Cinque campi, e dove devono arrivare.</h2>
+      <p class="lede">Oggi il form mostra il messaggio di conferma ma non invia niente: è il punto marcato <code>DA COLLEGARE</code> nel codice. Va sostituito con l'invio al plugin che già usate — Contact Form 7, WPForms, Gravity — oppure con una chiamata diretta al webhook.</p>
+    </div>
+    <div class="tb">
+      <table>
+        <thead><tr><th>Campo</th><th>Nome tecnico</th><th>Dove va</th><th>A cosa serve</th></tr></thead>
+        <tbody>
+          <tr><th>Nome e cognome</th><td><code>nome</code></td><td>Brevo · CRM · notifica</td><td>Anagrafica</td></tr>
+          <tr><th>Struttura</th><td><code>struttura</code></td><td>Brevo · CRM</td><td>Qualifica la taglia prima della call</td></tr>
+          <tr><th>Email</th><td><code>email</code></td><td>Brevo (chiave) · CRM</td><td>Identificativo del contatto</td></tr>
+          <tr><th>Telefono</th><td><code>telefono</code></td><td>CRM · notifica</td><td>È il canale con cui si richiama</td></tr>
+          <tr><th>Gestionale in uso</th><td><code>gestionale</code></td><td>Brevo (attributo) · CRM</td><td><strong>Decide quale demo fare</strong> e i tempi di attivazione</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="code" style="margin-top:24px">
+      <h4>il punto esatto da sostituire — dist/segreteria-brave.html</h4>
+<pre>form.addEventListener('submit', function(e){
+  e.preventDefault();
+  // DA COLLEGARE prima della pubblicazione: invio della richiesta all'endpoint
+  // scelto (casella, foglio, CRM). Finche' non c'e', la richiesta non parte.
+  prev.textContent = 'Grazie: ti richiamiamo entro un giorno lavorativo.';
+});</pre>
+    </div>
+
+    <div class="steps" style="margin-top:24px">
+      <div><span class="n">01</span><span class="c"><b>Una destinazione sola in ingresso, poi si dirama.</b><span>Il form chiama un webhook — n8n è già nello stack — e da lì partono in parallelo: contatto in Brevo con l'attributo del gestionale, riga nel CRM, notifica a chi richiama. Se il form scrive direttamente in tre posti, il giorno che uno cambia si rompe tutto.</span></span></div>
+      <div><span class="n">02</span><span class="c"><b>La promessa in pagina è «entro un giorno lavorativo».</b><span>È scritta sotto il pulsante. Va assegnata a una persona e va misurata: è la prima cosa che il cliente verifica su di noi, e riguarda un servizio che vende puntualità nella risposta.</span></span></div>
+      <div><span class="n">03</span><span class="c"><b>Tracciamento della conversione.</b><span>Sull'invio riuscito va sparato l'evento verso l'analitica, con i parametri UTM che il contenuto social ha portato. Senza, non sapremo quale canale genera demo — che è l'unica metrica del piano.</span></span></div>
+      <div><span class="n">04</span><span class="c"><b>Protezione anti-spam senza attrito.</b><span>Campo nascosto a trabocchetto o verifica invisibile. Niente reCAPTCHA con i quadratini: su un form da cinque campi in fondo a una pagina lunga, ogni secondo in più costa una richiesta.</span></span></div>
+    </div>
+  </section>
+
+  <!-- ===== PRIVACY LINK ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Privacy e SEO</div>
+      <h2>Quattro collegamenti da confermare.</h2>
+    </div>
+    <div class="steps">
+      <div><span class="n">01</span><span class="c"><b>Informativa privacy.</b><span>Nel file è impostata su <code>/privacy-policy/</code>, che è il percorso convenzionale di WordPress. <strong>Va confermato l'indirizzo reale</strong>: compare in due punti, sotto il form e nella chiusura. Si cambia in un posto solo, nella variabile <code>PRIVACY</code> dello script di build.</span></span></div>
+      <div><span class="n">02</span><span class="c"><b>Canonical e Open Graph.</b><span>Già impostati su <code>/tools/segreteria-brave/</code>. Se il percorso finale fosse un altro, si aggiorna la variabile <code>URL</code> e si ricostruisce.</span></span></div>
+      <div><span class="n">03</span><span class="c"><b>Immagine di anteprima.</b><span>Manca: serve un 1200×630 da caricare in media library. Senza, ogni condivisione su LinkedIn e WhatsApp esce grigia — e il piano editoriale vive di condivisioni.</span></span></div>
+      <div><span class="n">04</span><span class="c"><b>Voce nella sitemap e nel menu mobile.</b><span>Verificare che Tools compaia in entrambi: su questo pubblico il traffico da telefono è la maggioranza.</span></span></div>
+    </div>
+  </section>
+
+  <!-- ===== AI ACT: CLASSIFICAZIONE ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Parte II · il regolamento europeo sull'IA</div>
+      <h2>Rischio limitato.<br>Ma per una ragione che va protetta.</h2>
+      <p class="lede">Il regolamento (UE) 2024/1689 classifica i sistemi su quattro livelli. Segreteria Brave sta nel terzo — <strong>rischio limitato</strong> — e questo significa obblighi di trasparenza, non una valutazione di conformità completa. La cosa importante è <em>perché</em> ci sta, perché è una posizione che si può perdere con una scelta di prodotto.</p>
+    </div>
+
+    <div class="g3">
+      <div>
+        <span class="n">Perché non è vietato</span>
+        <h3>Nessuna pratica proibita</h3>
+        <p>Non fa punteggio sociale, non riconosce biometricamente nessuno, non deduce emozioni in contesti di lavoro o istruzione. L'analisi del tono di voce, se un giorno venisse proposta, aprirebbe un problema serio: oggi non c'è.</p>
+      </div>
+      <div>
+        <span class="n">Perché non è alto rischio</span>
+        <h3>Non è un servizio d'emergenza</h3>
+        <p>L'allegato III elenca fra gli alti rischi i sistemi che <em>classificano le chiamate d'emergenza e stabiliscono le priorità di intervento</em>. Quello riguarda i servizi di emergenza e il triage sanitario su persone. Qui i pazienti sono animali e la struttura non è un servizio di soccorso pubblico: non ricade nella categoria.</p>
+      </div>
+      <div>
+        <span class="n">Perché sta nel terzo</span>
+        <h3>Interagisce con persone</h3>
+        <p>Chi chiama è una persona fisica e parla con una macchina. Da qui l'obbligo dell'articolo 50: dirglielo. È l'unico vero obbligo che ci riguarda, ed è già nel prodotto.</p>
+      </div>
+    </div>
+
+    <div class="note note--w" style="margin-top:28px">
+      <p class="small"><strong>La riga sottile, e come la stiamo già presidiando.</strong> Più l'agente <em>decide da solo</em> che cosa è urgente, più si avvicina alla categoria che parla di classificazione delle chiamate e priorità di intervento. Finché applica regole scritte dalla clinica e nel dubbio passa la chiamata a una persona, resta trasparenza e basta. Nei materiali questo è già scritto — «non decide da sola un'urgenza», «nel dubbio escalation immediata» — e ci eravamo arrivati per ragioni commerciali. <strong>Vale la pena sapere che è anche la ragione per cui non serve una valutazione di conformità.</strong> Se un domani si vendesse un triage automatico, il quadro cambierebbe del tutto e andrebbe rifatto con un legale.</p>
+    </div>
+  </section>
+
+  <!-- ===== RUOLI ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Chi risponde di che cosa</div>
+      <h2>Tre ruoli diversi, e il nostro è il meno oneroso.</h2>
+      <p class="lede">Il regolamento distingue chi costruisce, chi mette sul mercato e chi usa. Confonderli è il modo più rapido per prendersi obblighi che non sono nostri — o per non accorgersi di quelli che lo sono.</p>
+    </div>
+    <div class="tb">
+      <table>
+        <thead><tr><th>Chi</th><th>Ruolo</th><th>Che cosa gli compete</th></tr></thead>
+        <tbody>
+          <tr><th>Icarus Technology</th><td>Fornitore</td><td>Progetta il sistema perché dichiari la propria natura, documenta come funziona, garantisce accuratezza e sicurezza, gestisce gli incidenti. È il ruolo con il carico maggiore.</td></tr>
+          <tr><th>Brave Vet Business</th><td>Distributore</td><td>Verificare che il sistema porti le informazioni richieste prima di proporlo, non alterarlo, e <strong>non dichiarare in comunicazione cose che il fornitore non conferma</strong>. Sospendere la proposta se emerge una non conformità.</td></tr>
+          <tr><th>La clinica</th><td>Deployer</td><td>Usarlo secondo le istruzioni, garantire la sorveglianza umana, informare chi chiama, conservare i registri delle conversazioni. È anche il titolare del trattamento dei dati.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note" style="margin-top:24px">
+      <p class="small"><strong>Il dovere del distributore, tradotto in pratica.</strong> È esattamente la regola che ci siamo già dati per la comunicazione: non promettere il riconoscimento del chiamante finché Icarus non lo conferma. Quella non è prudenza commerciale, <strong>è l'obbligo del nostro ruolo</strong>. Chi distribuisce un sistema di IA risponde di quello che dichiara al mercato.</p>
+    </div>
+  </section>
+
+  <!-- ===== COSA MODIFICARE ===== -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">La risposta alla domanda</div>
+      <h2>Che cosa modificare nei documenti privacy.</h2>
+      <p class="lede">Non ho potuto leggere i vostri testi: il dominio non è raggiungibile da qui. Questa è la lista di che cosa <strong>deve</strong> esserci per un servizio che risponde al telefono, registra e trascrive. Nove punti su dieci mancano in qualunque informativa scritta prima che esistesse un agente vocale — la vostra è quasi certamente fra queste, perché il servizio è nuovo.</p>
+    </div>
+
+    <div class="gap">
+      <div>
+        <span class="lv lv--must">Obbligatorio</span>
+        <span class="c">
+          <b>Un'informativa separata per la clinica, non una riga nella vostra</b>
+          <p>Il titolare del trattamento delle telefonate è <strong>la clinica</strong>, non Brave Vet Business. L'informativa del sito bravevetbusiness.it copre chi visita il sito e chi compila il form: non può coprire il proprietario di un cane che telefona alla Clinica X. Serve un <strong>modello di informativa per le cliniche</strong>, che ogni struttura pubblica come propria.</p>
+          <p class="ref">→ Chi lo prepara: Icarus, con il nostro contributo sulla parte veterinaria. È uno dei documenti da chiedere.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--must">Obbligatorio</span>
+        <span class="c">
+          <b>L'avviso all'inizio della chiamata, e il testo esatto</b>
+          <p>Chi chiama riceve l'informazione quando i dati vengono raccolti, cioè al telefono. Devono starci tre cose in pochi secondi: che si parla con un'assistente virtuale, che la chiamata è registrata, e dove leggere l'informativa completa. <strong>Il testo va fissato per iscritto</strong>, non lasciato alla configurazione della singola clinica.</p>
+          <p class="ref">→ Verificare che l'avviso attuale contenga anche la registrazione, non solo la natura artificiale.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--must">Obbligatorio</span>
+        <span class="c">
+          <b>Base giuridica e tempi di conservazione di registrazioni e trascrizioni</b>
+          <p>Audio, trascrizione e sintesi della richiesta sono dati personali del chiamante. Vanno dichiarati: perché si conservano, per quanto, chi vi accede. <strong>Il tempo va deciso e scritto</strong> — indefinito non è una risposta. E servono due tempi distinti: uno per l'audio, uno per la richiesta strutturata che resta nel gestionale.</p>
+          <p class="ref">→ In call Icarus ha detto che la conservazione «si concorda con le cliniche». Va trasformato in un valore predefinito, altrimenti nessuno lo decide.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--must">Obbligatorio</span>
+        <span class="c">
+          <b>Il contratto fra clinica e Icarus come responsabile del trattamento</b>
+          <p>Icarus tratta dati per conto della clinica: serve l'atto di nomina a responsabile, con l'elenco dei sub-responsabili — chi fornisce il modello vocale, chi ospita i server — e l'indicazione se qualcuno di questi sta fuori dall'Unione europea. <strong>Il trasferimento extra-UE è la domanda che un veterinario attento farà</strong>, e oggi non abbiamo la risposta scritta.</p>
+          <p class="ref">→ Da chiedere a Icarus insieme alla polizza: è il documento che sblocca le attivazioni.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--must">Obbligatorio</span>
+        <span class="c">
+          <b>Dire se le conversazioni servono ad addestrare il sistema</b>
+          <p>Se le registrazioni vengono usate per migliorare il modello, è una finalità <em>diversa</em> dall'erogare il servizio e va dichiarata a parte, con la sua base giuridica e la possibilità di opporsi. Se non vengono usate, <strong>conviene scriverlo comunque</strong>: è una rassicurazione che costa una riga e vale molto.</p>
+          <p class="ref">→ Domanda diretta a Icarus, con risposta per iscritto. Non è un dettaglio tecnico.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--should">Raccomandato</span>
+        <span class="c">
+          <b>La via d'uscita verso una persona</b>
+          <p>Chi non vuole parlare con una macchina deve poter arrivare a un essere umano. Non è un obbligo esplicito del regolamento, ma è la prima obiezione che un cliente della clinica solleverà, e il modo più semplice per disinnescarla è che l'avviso lo dica: <em>«se preferisce, la faccio richiamare»</em>.</p>
+          <p class="ref">→ È anche un argomento di vendita: toglie al veterinario la paura del cliente arrabbiato.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--should">Raccomandato</span>
+        <span class="c">
+          <b>L'informativa da esporre in clinica</b>
+          <p>Carlo lo ha già detto in call: serve un foglio affisso in struttura. Vale per chi telefona ma anche per chi entra e vede il servizio nominato. <strong>È un documento che Icarus deve produrre</strong> e che noi dobbiamo avere prima di far partire le attivazioni.</p>
+          <p class="ref">→ Già in elenco fra le cose da chiedere. Non è arrivato.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--must">Obbligatorio · e nessuno ci pensa</span>
+        <span class="c">
+          <b>La formazione del personale della clinica</b>
+          <p>Dal 2 febbraio 2025 chi mette in uso un sistema di IA deve assicurare che il proprio personale abbia una <strong>alfabetizzazione sufficiente</strong> sullo strumento: che cosa fa, che cosa non fa, quando intervenire. Riguarda la clinica, non noi — ma la clinica lo scoprirà dopo aver firmato, e verrà a chiederlo a chi le ha venduto il servizio.</p>
+          <p class="ref">→ È un obbligo per loro e <strong>un'occasione per noi</strong>: mezza giornata di formazione al front office è un servizio che possiamo erogare e che nessun concorrente sta offrendo.</p>
+        </span>
+      </div>
+
+      <div>
+        <span class="lv lv--ok">Già a posto</span>
+        <span class="c">
+          <b>La dichiarazione di natura artificiale</b>
+          <p>È nel prodotto e adesso è anche in pagina, nella prima battuta della trascrizione e nel blocco di chiusura. È l'obbligo principale che ci riguarda ed è l'unico che possiamo dichiarare soddisfatto.</p>
+          <p class="ref">→ Da non toccare: è quello che regge tutto il resto.</p>
+        </span>
+      </div>
+    </div>
+
+    <div class="note note--w" style="margin-top:28px">
+      <p class="small"><strong>Che cosa modificare, in una riga.</strong> Sull'informativa del <em>sito</em> basta poco: una voce che spiega che il form raccoglie una richiesta di demo e dove finiscono quei dati. Il lavoro vero non è sul vostro documento — <strong>è produrre i documenti della clinica</strong>, e quelli sono in capo a Icarus: informativa per il chiamante, testo dell'avviso, nomina a responsabile, foglio da esporre, tempi di conservazione. Cinque documenti. Finché non ci sono, ogni attivazione avviene scoperta, e il rischio non è di Icarus: è della clinica che ha firmato e di chi gliel'ha venduta.</p>
+    </div>
+
+    <div class="note" style="margin-top:22px">
+      <p class="small"><strong>Come posso chiudere la verifica.</strong> Se mi si passa il testo dell'informativa attuale — copia e incolla, PDF, o l'indirizzo se lo apro da un'altra parte — lo confronto punto per punto con questa lista e restituisco le modifiche da fare, riga per riga. Da questo ambiente il dominio non è raggiungibile e non posso farlo da solo.</p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span class="bvb"><svg class="mk" viewBox="0 0 120 120"><use href="#sb-mark"/></svg> Segreteria Brave · powered by Icarus</span>
+    <span class="mono">Documento di lavoro · non è un parere legale</span>
+  </div>
+</footer>

@@ -10,7 +10,10 @@ import re, pathlib, sys
 SRC = pathlib.Path(__file__).resolve().parent.parent
 OUT = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else SRC / 'dist' / 'segreteria-brave.html'
 
-URL   = 'https://www.bravevetbusiness.it/segreteria-brave'
+# Percorso definitivo: voce di menu Tools, sottopagina Segreteria Brave.
+URL     = 'https://www.bravevetbusiness.it/tools/segreteria-brave/'
+# DA CONFERMARE: indirizzo reale dell'informativa privacy gia pubblicata sul sito.
+PRIVACY = '/privacy-policy/'
 TITLE = 'Segreteria Brave — la segreteria virtuale per la clinica veterinaria'
 DESC  = ('La prima segreteria virtuale costruita solo per la clinica veterinaria. '
          'Risponde quando non potete, fissa gli appuntamenti secondo le vostre regole '
@@ -30,6 +33,9 @@ raw = raw.replace(
     '''      // DA COLLEGARE prima della pubblicazione: invio della richiesta all'endpoint
       // scelto (casella, foglio, CRM). Finché non c'è, la richiesta non parte.
       prev.textContent = 'Grazie: ti richiamiamo entro un giorno lavorativo.';''')
+
+raw = raw.replace('accetti l\'<a href="#">informativa privacy</a>',
+                  'accetti l\'<a href="%s" target="_blank" rel="noopener">informativa privacy</a>' % PRIVACY)
 
 style = re.search(r'<style>(.*?)</style>', raw, re.S).group(1)
 body  = re.sub(r'<title>.*?</title>\s*', '', raw, count=1, flags=re.S)
@@ -68,7 +74,7 @@ doc = f'''<!doctype html>
 <meta property="og:title" content="{TITLE}">
 <meta property="og:description" content="{DESC}">
 <!-- DA COLLEGARE: immagine di anteprima 1200x630 -->
-<meta property="og:image" content="{URL.rsplit('/',1)[0]}/og-segreteria-brave.png">
+<meta property="og:image" content="https://www.bravevetbusiness.it/wp-content/uploads/og-segreteria-brave.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
