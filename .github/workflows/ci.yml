@@ -23,6 +23,10 @@ on:
         description: 'Pubblica dalla CI invece di lasciar fare a Netlify (richiede i secret)'
         default: false
         type: boolean
+      prova_form:
+        description: 'Prova un invio reale dei moduli (crea una richiesta di prova in Netlify)'
+        default: false
+        type: boolean
 
 defaults:
   run:
@@ -142,6 +146,29 @@ jobs:
           curl -sS -m 25 -I "$BASE/la-struttura" | head -20
           echo ---
           curl -sS -m 25 -I "$BASE/per-i-colleghi" | head -20
+
+      # Un modulo che accetta la richiesta e la perde è il difetto peggiore di un
+      # sito del genere: qui si controlla che Netlify raccolga davvero gli invii.
+      # Crea una richiesta di prova, quindi parte solo se lo si chiede.
+      - name: Invio di prova dei moduli
+        if: inputs.prova_form
+        run: |
+          esito=0
+          for modulo in prenotazione caso-collega candidatura; do
+            code=$(curl -sS -m 25 -o /dev/null -w "%{http_code}" -X POST "$BASE/" \
+              --data-urlencode "form-name=$modulo" \
+              --data-urlencode "nome=PROVA AUTOMATICA — ignorare" \
+              --data-urlencode "telefono=0000000000" \
+              --data-urlencode "messaggio=Invio di prova dalla CI, $(date -u +%FT%TZ). Non è una richiesta reale." || echo "000")
+            case "$code" in
+              2*|3*) echo "$modulo: $code — Netlify ha accettato l'invio" ;;
+              *)     echo "$modulo: $code — NON raccolto"; esito=1 ;;
+            esac
+          done
+          if [ "$esito" -ne 0 ]; then
+            echo "::error::Almeno un modulo non viene raccolto da Netlify: le richieste dei clienti andrebbero perse. Attivare il rilevamento moduli nel pannello del progetto (Forms → Enable form detection) e ripubblicare."
+            exit 1
+          fi
 
   # Analisi di layout di siti di riferimento (rete aperta da GitHub Actions): struttura,
   # navigazione, colori, font e screenshot compressi in base64 nel log.
