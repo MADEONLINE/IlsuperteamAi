@@ -409,9 +409,29 @@ const oggi = new Date().toISOString().slice(0, 10);
   .campo[aria-invalid='true'] {
     border-color: var(--errore);
   }
-  /* Con JS attivo mostriamo un passo alla volta */
-  :global(html.js) .passo:not(.attivo) {
+  /*
+   * Un passo alla volta solo quando è lo script di QUESTO modulo ad averlo
+   * chiesto, aggiungendo .a-passi. Prima dipendeva dalla classe "js" messa da
+   * uno script inline del layout: se quello non girava (bloccato, fallito) ma
+   * girava lo script del modulo, si finiva in uno stato rotto — tutti i passi
+   * visibili, "Continua" mostrato ma inutile perché nulla cambiava a schermo, e
+   * "Invia" nascosto. Il modulo raccoglieva tutto in una schermata e non
+   * permetteva né di proseguire né di inviare. Ora le tre cose si accendono
+   * insieme: o c'è la procedura a passi, o c'è il modulo intero con il suo
+   * pulsante di invio.
+   */
+  .form-prenotazione.a-passi .passo:not(.attivo) {
     display: none;
+  }
+  /* Quando l'invio compare prima dell'ultimo passo affianca "Continua": resta
+     a portata di mano ma non compete con il pulsante del percorso guidato. */
+  .invia.anticipato {
+    background: transparent;
+    color: var(--primario-link);
+    box-shadow: inset 0 0 0 2px var(--bordo);
+  }
+  .invia.anticipato:hover {
+    background: var(--primario-tenue);
   }
   .avanzamento-passo.completato > span:first-child,
   .avanzamento-passo.corrente > span:first-child {
@@ -553,14 +573,38 @@ const oggi = new Date().toISOString().slice(0, 10);
         }
       }
       if (!ok) {
-        stato.textContent = 'Controlla i campi evidenziati.';
+        // Dire "controlla i campi evidenziati" costringe a cercare: meglio dire
+        // subito cosa manca, riusando il messaggio del primo campo non valido.
+        const primoMessaggio = [...passo.querySelectorAll<HTMLElement>('.errore')]
+          .find((e) => !e.classList.contains('hidden'))
+          ?.textContent?.trim();
+        stato.textContent = primoMessaggio || 'Controlla i campi evidenziati.';
         primoErrore?.focus();
+        primoErrore?.scrollIntoView({ block: 'center', behavior: 'smooth' });
       } else stato.textContent = '';
       return ok;
     };
 
     const urgenzaSelezionata = () =>
       (form.elements.namedItem('motivo') as RadioNodeList | null)?.value === 'urgenza';
+
+    /**
+     * Il pulsante di invio non aspetta per forza l'ultimo passo: se chi compila
+     * ha già riempito tutto quello che serve — perché torna su una bozza, perché
+     * arriva da un link precompilato o semplicemente perché ha scorso il modulo —
+     * può mandare la richiesta subito, senza ripassare da "Continua".
+     * `checkValidity()` guarda l'intero modulo, anche i passi non a schermo, e
+     * non segnala nulla: è un controllo silenzioso, non una bacchettata.
+     * Sull'urgenza resta nascosto: lì la risposta giusta è la telefonata, e il
+     * pannello dedicato lo spiega.
+     */
+    const aggiornaInvio = () => {
+      const urgenza = corrente === 2 && urgenzaSelezionata();
+      const ultimo = corrente === passi.length;
+      const anticipato = !ultimo && !urgenza && form.checkValidity();
+      invia.hidden = urgenza || !(ultimo || anticipato);
+      invia.classList.toggle('anticipato', anticipato);
+    };
 
     const mostra = (n: number, scorri = true) => {
       corrente = n;
@@ -574,7 +618,7 @@ const oggi = new Date().toISOString().slice(0, 10);
       pannelloUrgenza.classList.toggle('hidden', !urgenza);
       indietro.hidden = n === 1;
       avanti.hidden = n === passi.length || urgenza;
-      invia.hidden = n !== passi.length;
+      aggiornaInvio();
       passi[n - 1]?.querySelector('legend')?.setAttribute('tabindex', '-1');
       (passi[n - 1]?.querySelector('legend') as HTMLElement | undefined)?.focus();
       if (scorri)
@@ -600,8 +644,10 @@ const oggi = new Date().toISOString().slice(0, 10);
         avanti.hidden = urgenza;
         if (urgenza) traccia('click_chiama', { posizione: 'form-urgenza-mostrata' });
       }
+      aggiornaInvio();
       salva();
     });
+    form.addEventListener('input', aggiornaInvio);
     form.addEventListener('submit', (e) => {
       for (let i = 1; i <= passi.length; i++) {
         if (!validaPasso(i)) {
@@ -620,7 +666,11 @@ const oggi = new Date().toISOString().slice(0, 10);
       }
     });
 
-    invia.hidden = true;
+    // Da qui in poi il modulo va a passi: i passi si nascondono, compare
+    // "Continua" e sparisce "Invia". Se questo script non arriva a eseguirsi,
+    // resta il modulo intero in una schermata con il suo pulsante di invio,
+    // che funziona lo stesso.
+    form.classList.add('a-passi');
     mostra(1, false);
   }
   inizializza();

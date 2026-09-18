@@ -188,6 +188,133 @@ test.describe('Marchio e stili', () => {
   });
 });
 
+test.describe('Modulo di prenotazione', () => {
+  // Invariante: o il modulo va a passi (e allora c'è "Continua"), oppure si
+  // vede tutto in una schermata (e allora c'è "Invia la richiesta"). Lo stato
+  // intermedio — tutto visibile ma senza modo di inviare — lasciava il
+  // visitatore bloccato senza capire perché.
+  for (const conJs of [true, false]) {
+    test(`con JavaScript ${conJs ? 'attivo' : 'spento'} si può sempre arrivare a inviare`, async ({
+      browser,
+    }) => {
+      const contesto = await browser.newContext({ javaScriptEnabled: conJs });
+      const pagina = await contesto.newPage();
+      await pagina.goto('/prenota');
+
+      const passiVisibili = await pagina.evaluate(
+        () =>
+          [...document.querySelectorAll('.passo')].filter(
+            (f) => (f as HTMLElement).offsetParent !== null,
+          ).length,
+      );
+      const continuaNascosto = await pagina.locator('.avanti').isHidden();
+      const inviaNascosto = await pagina.locator('.invia').isHidden();
+
+      if (passiVisibili > 1) {
+        // Tutto in una schermata: deve esserci il pulsante di invio.
+        expect(inviaNascosto, 'con tutti i passi a schermo serve il pulsante di invio').toBe(false);
+      } else {
+        // A passi: deve esserci "Continua".
+        expect(continuaNascosto, 'con un passo alla volta serve "Continua"').toBe(false);
+      }
+      await contesto.close();
+    });
+  }
+
+  test('senza JavaScript la richiesta si invia direttamente', async ({ browser }) => {
+    // `reducedMotion` spegne lo scroll morbido: il modulo è lungo e Playwright,
+    // mentre la pagina sta ancora scorrendo, considera i campi "non stabili".
+    // Non cambia nulla del comportamento in prova, solo il modo di raggiungerli.
+    const contesto = await browser.newContext({
+      javaScriptEnabled: false,
+      reducedMotion: 'reduce',
+    });
+    const pagina = await contesto.newPage();
+    await pagina.goto('/prenota');
+    await pagina.locator('label.scelta').filter({ hasText: 'Cane' }).first().click();
+    await pagina.getByLabel('Come si chiama?').fill('Luna');
+    await pagina.getByLabel('Quanti anni ha?').selectOption('4-7');
+    await pagina
+      .locator('.passo[data-passo="2"] label')
+      .filter({ hasText: 'Vaccinazione o antiparassitari' })
+      .first()
+      .click();
+    await pagina
+      .locator('.passo[data-passo="3"] label')
+      .filter({ hasText: 'Mattina' })
+      .first()
+      .click();
+    await pagina
+      .locator('input[name="data-1"]')
+      .fill(new Date(Date.now() + 86_400_000).toISOString().slice(0, 10));
+    await pagina.getByLabel('Nome e cognome').fill('Maria Rossi');
+    await pagina.getByLabel('Telefono').fill('333 1234567');
+    await pagina.getByLabel(/Ho letto l'informativa/).check();
+    // I campi facoltativi restano vuoti: non devono impedire l'invio.
+    await pagina.route('**/prenota/grazie', (r) =>
+      r.fulfill({ status: 200, contentType: 'text/html', body: '<h1>Richiesta ricevuta</h1>' }),
+    );
+    // Su mobile la barra fissa in basso occupa l'ultima fascia dello schermo:
+    // si scorre a fondo pagina (il body ha il padding che le lascia spazio)
+    // prima di premere, come farebbe chi compila davvero.
+    await pagina.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await pagina.locator('.invia').click();
+    await expect(pagina.locator('h1')).toContainText('Richiesta ricevuta');
+    await contesto.close();
+  });
+
+  test('con tutti i dati inseriti si invia senza ripassare dai passi', async ({ page }) => {
+    await page.goto('/prenota');
+    const invia = page.locator('.invia');
+    const continua = page.getByRole('button', { name: 'Continua' });
+
+    // Passo 1: l'invio non c'è ancora, mancano i dati dei passi successivi.
+    await page.locator('label.scelta').filter({ hasText: 'Cane' }).first().click();
+    await page.getByLabel('Come si chiama?').fill('Luna');
+    await page.getByLabel('Quanti anni ha?').selectOption('4-7');
+    await expect(invia).toBeHidden();
+    await continua.click();
+
+    await page
+      .locator('.passo[data-passo="2"] label')
+      .filter({ hasText: 'Vaccinazione o antiparassitari' })
+      .first()
+      .click();
+    await continua.click();
+
+    await page
+      .locator('.passo[data-passo="3"] label')
+      .filter({ hasText: 'Mattina' })
+      .first()
+      .click();
+    await page
+      .locator('input[name="data-1"]')
+      .fill(new Date(Date.now() + 86_400_000).toISOString().slice(0, 10));
+    await continua.click();
+
+    await page.getByLabel('Nome e cognome').fill('Maria Rossi');
+    await page.getByLabel('Telefono').fill('333 1234567');
+    await page.getByLabel(/Ho letto l'informativa/).check();
+    await expect(invia).toBeVisible();
+
+    // Tornando indietro i dati restano completi: l'invio deve restare a
+    // disposizione, senza costringere a rifare tutta la procedura.
+    await page.getByRole('button', { name: 'Indietro' }).click();
+    await expect(invia).toBeVisible();
+    await page.route('**/prenota/grazie', (r) =>
+      r.fulfill({ status: 200, contentType: 'text/html', body: '<h1>Richiesta ricevuta</h1>' }),
+    );
+    await invia.click();
+    await expect(page.locator('h1')).toContainText('Richiesta ricevuta');
+  });
+
+  test('quando manca un campo il messaggio dice quale', async ({ page }) => {
+    await page.goto('/prenota');
+    await page.getByRole('button', { name: 'Continua' }).click();
+    await expect(page.locator('.stato')).toContainText(/Scegli il tipo di animale/i);
+  });
+});
+
 test.describe('Assistente del sito', () => {
   test('si apre, cerca nei contenuti del sito e si chiude con Escape', async ({ page }) => {
     const rifiuti: string[] = [];
