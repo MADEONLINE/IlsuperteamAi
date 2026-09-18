@@ -45,15 +45,14 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
 ---
 
 <header class="sticky top-0 z-50 border-b border-bordo bg-sfondo/92 backdrop-blur supports-[backdrop-filter]:bg-sfondo/85 print:static">
-  <!-- Striscia urgenza (solo desktop: su mobile c'è la barra sticky) -->
+  <!-- Striscia di servizio (solo desktop: su mobile c'è la barra sticky).
+       L'informazione sul pronto soccorso resta, senza il pallino pulsante:
+       la home non è più costruita attorno all'urgenza. -->
   <div class="hidden bg-sfondo-inverso text-testo-inverso md:block">
     <div class="contenitore flex min-h-9 items-center justify-between gap-4 text-sm">
       <p class="flex items-center gap-2">
-        <span class="relative flex size-2" aria-hidden="true">
-          <span class="absolute inline-flex size-full animate-ping rounded-full bg-accento-inverso opacity-70 motion-reduce:hidden"></span>
-          <span class="relative inline-flex size-2 rounded-full bg-accento-inverso"></span>
-        </span>
-        <span>{clinica.orari.prontoSoccorso.etichetta}</span>
+        <Icona nome="orologio" class="size-4 shrink-0 text-accento-inverso" />
+        <span>Pronto soccorso attivo 24 ore su 24, festivi inclusi</span>
       </p>
       <div class="flex items-center gap-4">
         <a href="/lavora-con-noi" class="text-testo-inverso no-underline hover:underline">

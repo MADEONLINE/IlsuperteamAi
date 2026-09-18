@@ -11,7 +11,7 @@ import Icona, { type NomeIcona } from '@ui/Icona.astro';
 
 interface Props {
   href?: string;
-  variante?: 'primario' | 'urgenza' | 'secondario' | 'fantasma' | 'inverso';
+  variante?: 'primario' | 'urgenza' | 'secondario' | 'secondario-inverso' | 'fantasma' | 'inverso';
   dimensione?: 'sm' | 'md' | 'lg';
   icona?: NomeIcona;
   iconaDopo?: NomeIcona;
@@ -47,6 +47,9 @@ const varianti: Record<NonNullable<Props['variante']>, string> = {
     'bg-transparent text-testo border-2 border-bordo-forte hover:border-primario hover:text-primario-link',
   fantasma: 'bg-transparent text-primario-link hover:bg-primario-tenue',
   inverso: 'bg-sfondo text-testo hover:bg-sfondo-tinta',
+  // Secondaria sui fondi scuri: presente ma senza rubare la scena alla principale.
+  'secondario-inverso':
+    'bg-transparent text-testo-inverso border-2 border-sfondo/40 hover:border-sfondo/80 hover:bg-sfondo/10',
 };
 const dimensioni: Record<NonNullable<Props['dimensione']>, string> = {
   sm: 'min-h-10 px-4 text-sm',

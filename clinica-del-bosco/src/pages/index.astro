@@ -144,18 +144,29 @@ const euro = (n: number) =>
           Portici · Napoli sud · Vesuviano
         </Etichetta>
         <h1 id="hero-titolo" class="text-4xl text-testo-inverso sm:text-5xl md:text-6xl">
-          Il tuo veterinario,{' '}
-          <em class="not-italic text-accento-inverso">anche alle 3 di notte.</em>
+          La salute del tuo animale,{' '}
+          <em class="not-italic text-accento-inverso">giorno dopo giorno.</em>
         </h1>
         <p class="prosa mt-5 text-lg text-testo-inverso/85 md:text-xl">
-          Pronto soccorso attivo 24 ore su 24 con personale in struttura, terapia intensiva, TAC e
-          chirurgia nella stessa sede. A {indirizzoBreve}.
+          Prevenzione, visite specialistiche, chirurgia e degenza nella stessa sede, con medici che
+          lo conoscono. A {indirizzoBreve}.
         </p>
         <div class="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-4">
-          <div class="rounded-card bg-urgenza-tenue/10 p-1 ring-1 ring-sfondo/15">
+          <div class="rounded-card bg-sfondo/10 p-1 ring-1 ring-sfondo/15">
+            <Bottone href="/prenota" variante="inverso" dimensione="lg" icona="calendario" pieno>
+              Prenoto una visita
+            </Bottone>
+            <p class="px-3 py-2 text-center text-sm text-testo-inverso/80">
+              Visite, vaccini, controlli e chirurgia programmata ·{' '}
+              <a href="/prima-visita" class="text-testo-inverso">
+                prima volta da noi?
+              </a>
+            </p>
+          </div>
+          <div class="p-1">
             <Bottone
               href={telHref}
-              variante="urgenza"
+              variante="secondario-inverso"
               dimensione="lg"
               icona="telefono"
               pieno
@@ -169,25 +180,14 @@ const euro = (n: number) =>
               {clinica.contatti.telefono.visualizzato} · risponde un medico, sempre
             </p>
           </div>
-          <div class="p-1">
-            <Bottone href="/prenota" variante="inverso" dimensione="lg" icona="calendario" pieno>
-              Prenoto una visita
-            </Bottone>
-            <p class="px-3 py-2 text-center text-sm text-testo-inverso/80">
-              Visite, vaccini, controlli e chirurgia programmata ·{' '}
-              <a href="/prima-visita" class="text-testo-inverso">
-                prima volta da noi?
-              </a>
-            </p>
-          </div>
         </div>
         <Rassicurazioni inverso voci={['richiamo', 'preventivo', 'pagamento']} class="mt-6" />
       </div>
       <div class="lg:col-span-5">
         <Foto
           ratio="4/5"
-          scattoBrief="01"
-          descrizioneSegnaposto="Ingresso della clinica illuminato di notte, insegna visibile"
+          scattoBrief="44"
+          descrizioneSegnaposto="Facciata della clinica di giorno, ingresso e insegna"
           larghezze={[320, 480, 640, 900]}
           sizes="(min-width: 1024px) 34vw, 88vw"
           priorita

@@ -1,22 +1,17 @@
 ---
-/** "Scheda anagrafica" leggibile da macchina: chi siamo, dove, cosa facciamo, da quando, con quali attrezzature, chi è il direttore sanitario. */
+/** La struttura: numeri, aree, attrezzature e specialisti. I dati societari e il
+ * direttore sanitario non si ripetono qui: stanno nel piede pagina di ogni pagina
+ * e in /note-legali. */
 import { getCollection } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import CtaDoppia from '@ui/CtaDoppia.astro';
-import Dato from '@ui/Dato.astro';
 import Faq from '@ui/Faq.astro';
 import Foto from '@ui/Foto.astro';
 import Etichetta from '@ui/Etichetta.astro';
 import Icona from '@ui/Icona.astro';
 import Sezione from '@ui/Sezione.astro';
 import TabellaDati from '@ui/TabellaDati.astro';
-import {
-  clinica,
-  daConfermare,
-  direttoreSanitarioRiga,
-  emailPrincipale,
-  indirizzoRiga,
-} from '@lib/clinica';
+import { clinica, daConfermare } from '@lib/clinica';
 import { faqPage, webPage } from '@lib/schema';
 
 const equipe = (await getCollection('equipe')).sort((a, b) => a.data.ordine - b.data.ordine);
@@ -143,34 +138,13 @@ const aree = [
         </ul>
       </div>
       <div class="lg:col-span-5">
-        <dl class="divide-y divide-bordo rounded-card border border-bordo bg-sfondo-rialzato text-sm">
-          {(
-            [
-              ['Denominazione', clinica.nome],
-              ['Ragione sociale', `${clinica.ragioneSociale} · P. IVA ${clinica.partitaIva}`],
-              ['Sede', indirizzoRiga],
-              ['Telefono h24', clinica.contatti.telefono.visualizzato],
-              ['Email', emailPrincipale],
-              ['Attiva dal', clinica.annoFondazione],
-              ['Direttore sanitario', direttoreSanitarioRiga],
-              [
-                'Struttura',
-                `${clinica.struttura.metriQuadri} m², ${clinica.struttura.saleVisita} sale visita, ${clinica.struttura.saleChirurgiche} sale chirurgiche, ${clinica.struttura.postiDegenza} posti di degenza`,
-              ],
-              [
-                'Équipe',
-                `${clinica.struttura.veterinari} medici veterinari tra soci, collaboratori e specialisti, ${clinica.struttura.tecnici} tecnici, ${clinica.struttura.reception} persone in reception`,
-              ],
-              ['Specie trattate', 'Cani, gatti, conigli, piccoli mammiferi, rettili, uccelli'],
-              ['Area servita', clinica.areaServita.map((z) => z.nome).join(', ')],
-            ] as Array<[string, string]>
-          ).map(([k, v]) => (
-            <div class="grid grid-cols-[9rem_1fr] gap-3 px-4 py-3">
-              <dt class="font-bold text-testo-secondario">{k}</dt>
-              <dd>{daConfermare(v) ? <Dato valore={v} /> : v}</dd>
-            </div>
-          ))}
-        </dl>
+        <Foto
+          ratio="4/5"
+          scattoBrief="44"
+          descrizioneSegnaposto="Facciata della clinica di giorno, ingresso e insegna"
+          riempi
+          class="h-full"
+        />
       </div>
     </div>
   </Sezione>

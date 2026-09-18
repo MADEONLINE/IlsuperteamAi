@@ -99,3 +99,23 @@ const posizioni: Record<string, string> = {
     <figcaption class="px-4 py-2 text-sm text-testo-secondario">{didascalia}</figcaption>
   )}
 </figure>
+
+<style>
+  /*
+   * Gli stili delle immagini responsive di Astro (@layer astro.images) impongono
+   * height:auto, e una regola dentro un layer batte le utility di Tailwind a
+   * prescindere dalla specificità: l'immagine restava alta quanto il suo rapporto
+   * naturale e "object-cover" non ritagliava mai. Finché i segnaposto avevano lo
+   * stesso rapporto dello slot non si vedeva; con una fotografia di forma diversa
+   * resta una fascia vuota sotto. Questa regola non sta in nessun layer, quindi
+   * vince, e fa sì che la foto riempia davvero il riquadro.
+   */
+  figure > div > picture,
+  figure > div > picture > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
