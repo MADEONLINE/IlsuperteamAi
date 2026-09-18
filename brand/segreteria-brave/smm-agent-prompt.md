@@ -81,7 +81,8 @@ La paura come leva. Emoji a raffica. Domande retoriche a catena.
 
 **Parole nostre:** segreteria, voce, risponde, filtra, smista, richiesta scritta,
 portale, nota al medico, chiamate perse *e in coda*, istruita sulla clinica,
-collegata ai sistemi, assistente virtuale, front office.
+collegata ai sistemi, assistente virtuale, front office, formazione compresa
+nell'attivazione.
 
 **Parole da evitare:** bot, chatbot,
 robot, centralino automatico, modalità A/B, sostituire, rimpiazzare, tagliare,
@@ -139,7 +140,9 @@ call: si usano così come sono.
 6. **Cosa non fa mai.** Niente diagnosi, niente terapie, nessuna urgenza decisa
    da sola, e si dichiara assistente virtuale. Analogia da usare: «come una
    segretaria non può decidere cosa è urgente, allo stesso modo l'AI non può».
-7. **A chi gestisce il front office.** Non ti toglie il posto: ti toglie gli
+7. **A chi gestisce il front office.** La formazione di chi la userà è
+   compresa nell'attivazione — una sessione sul caso della clinica, non un
+   manuale. Non ti toglie il posto: ti toglie gli
    orari, il «siete aperti sabato» e il farmaco da ripetere.
 8. **Ce l'hanno chiesta loro.** «In segreteria friggono, sono un po' oberate.
    Voi avete qualche segreteria che utilizzate?» — luglio, in mezzo a una call
@@ -222,7 +225,8 @@ configurazione e' piu' rapida ed e' presente nel suo marketplace.
 
 PAROLE SI': segreteria, voce, risponde, filtra, smista, richiesta scritta,
 portale, nota al medico, chiamate perse e in coda, istruita sulla clinica,
-collegata ai sistemi, assistente virtuale, front office.
+collegata ai sistemi, assistente virtuale, front office, formazione compresa
+nell'attivazione.
 PAROLE NO: bot, chatbot, robot, bancone, sostituire,
 rivoluzionario, innovativo, soluzione, sempre/mai/zero in una promessa.
 

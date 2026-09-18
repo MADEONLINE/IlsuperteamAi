@@ -204,7 +204,8 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
 .result .brk{font-family:var(--f-mono);font-size:.72rem;color:var(--teal-deep);border-top:1px solid var(--teal);padding-top:12px;line-height:1.6;font-variant-numeric:tabular-nums}
 
 /* modalità */
-.modes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:1000px){.modes{grid-template-columns:1fr}}
 .modes > div{background:var(--paper);padding:28px 26px;display:grid;gap:15px;align-content:start}
 .modes .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 .modes--hi{background:var(--raise)!important;border-left:3px solid var(--teal)}
@@ -549,6 +550,18 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
         </ul>
         <p class="foot">Nessuno dei due collegamenti lo fate voi: li seguiamo noi con chi vi gestisce i sistemi.</p>
       </div>
+      <div>
+        <span class="tag">Terzo · la formazione, compresa</span>
+        <h3>Insegniamo a usarla a chi la userà</h3>
+        <p class="small">Un servizio che nessuno sa governare è un servizio che dopo tre mesi non usa più nessuno. Per questo <strong>l'attivazione comprende la formazione di chi se ne prende carico in clinica</strong>: non un manuale da leggere, una sessione con noi sul vostro caso, con la vostra configurazione davanti.</p>
+        <ul>
+          <li>Come si legge il portale e come si chiude una richiesta</li>
+          <li>Quando intervenire e quando lasciar fare</li>
+          <li>Come si cambia una regola senza chiamare nessuno</li>
+          <li>Che cosa dire a un cliente che chiede di parlare con una persona</li>
+        </ul>
+        <p class="foot">È compresa nell'attivazione, non è un costo a parte.</p>
+      </div>
     </div>
 
     <div class="note" style="border-left:3px solid var(--teal);padding:6px 0 6px 18px;margin-top:28px;max-width:74ch">
@@ -582,7 +595,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
     </div>
     <div class="limits">
       <div><b>Non vi toglie il posto: vi toglie la parte peggiore</b><span>Gli orari, il «siete aperti sabato», il farmaco da ripetere, il numero da dare. Quelle chiamate le prende lei. Quelle in cui serve una persona restano vostre — e finalmente avete il tempo di farle bene.</span></div>
-      <div><b>Non dovete imparare un programma nuovo</b><span>Una pagina sola, sempre aperta di fianco al gestionale, con l'elenco di quello che è arrivato. Si legge, si segna fatto, si archivia.</span></div>
+      <div><b>Non dovete imparare un programma nuovo</b><span>Una pagina sola, sempre aperta di fianco al gestionale, con l'elenco di quello che è arrivato. Si legge, si segna fatto, si archivia. E non ve lo lasciamo scoprire da soli: <strong>la formazione di chi la gestisce è compresa nell'attivazione</strong>, e si fa con voi, non sopra di voi.</span></div>
       <div><b>Smettete di dire «scusi, un attimo» a chi avete davanti</b><span>Chi è entrato dalla porta non viene più interrotto ogni novanta secondi. È la cosa che cambia di più, e non si vede in nessun numero.</span></div>
       <div><b>Decidete voi che cosa le fate fare</b><span>Le regole si scrivono in configurazione, e la configurazione la facciamo con voi, non sopra di voi. Nessuno conosce le telefonate di quella clinica meglio di chi le risponde.</span></div>
     </div>
@@ -631,7 +644,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
       </details>
       <details>
         <summary>Quanto tempo serve per attivarla?</summary>
-        <p class="ans">La configurazione è una conversazione, non un progetto: si raccolgono orari, servizi, regole di prenotazione, criteri di urgenza e il perimetro di cosa non deve fare. Il passaggio che decide i tempi è un altro, e conviene saperlo subito: <strong>l'inoltro delle chiamate lo imposta chi vi gestisce il centralino</strong>. Se non ne avete uno, se ne parla in demo: ci sono soluzioni semplici.</p>
+        <p class="ans">La configurazione è una conversazione, non un progetto: si raccolgono orari, servizi, regole di prenotazione, criteri di urgenza e il perimetro di cosa non deve fare. Il passaggio che decide i tempi è un altro, e conviene saperlo subito: <strong>l'inoltro delle chiamate lo imposta chi vi gestisce il centralino</strong>. Se non ne avete uno, se ne parla in demo: ci sono soluzioni semplici. Nel percorso di attivazione è compresa anche la formazione di chi in clinica la userà ogni giorno: è l'ultimo passo prima di accenderla.</p>
       </details>
     </div>
   </section>
@@ -648,7 +661,7 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
         <li>Ascolti la segreteria rispondere a una chiamata vera</li>
         <li>Vedi il portale dove ogni richiesta resta scritta</li>
         <li>Facciamo il conto con i numeri della tua clinica</li>
-        <li>Prezzo e tempi di attivazione, detti in call</li>
+        <li>Prezzo, tempi di attivazione e formazione compresa, detti in call</li>
       </ul>
       <p class="small" style="color:var(--night-muted)">Se puoi, porta in call anche chi risponde al telefono: è la mezz'ora che vale di più.</p>
       <div class="lockup lockup--dark" style="margin-top:6px">
