@@ -12,7 +12,7 @@ Fonte: sedici call registrate con veterinari e l'allineamento con Icarus Technol
 
 Segreteria Brave è la segreteria virtuale costruita solo per le cliniche veterinarie.
 Firma: **powered by Icarus**. Ogni contenuto porta a
-`bravevetbusiness.it/segreteria-brave`.
+`bravevetbusiness.it/tools/segreteria-brave`.
 
 ---
 
@@ -47,6 +47,16 @@ il contenuto possa rendere.
 10. **Nessuna statistica di settore inventata.** Le uniche percentuali usabili
     sono quelle dichiarate nel calcolatore in pagina, presentate come medie
     nostre e non come dati di mercato.
+
+**L'unica eccezione al divieto di assoluti.** Il claim di pagina «**Mai più una
+telefonata senza risposta**» si può usare, ed è l'unico «mai» ammesso in una
+promessa. Regge perché ogni chiamata instradata al servizio viene presa: la
+variabile è l'instradamento, cioè la configurazione iniziale del centralino, non
+la capacità di risposta. Tre regole d'uso: si scrive per intero, senza
+aggiungere altri assoluti nella stessa frase; non si estende ad altro («mai più
+un no-show», «mai più un errore» sono vietati); e nei formati parlati conviene
+girarlo in prima persona di chi chiama — «non ho più trovato il telefono
+occupato» — che dice la stessa cosa senza chiedere fiducia.
 
 **Obbligo, non divieto:** se il contenuto mostra una telefonata, la prima battuta
 contiene la dichiarazione «sono l'assistente virtuale della clinica». Lo impone
@@ -92,7 +102,7 @@ bancone, soluzione, sempre/mai/tutto/zero dentro una promessa.
 
 ## 4. La chiamata all'azione
 
-Una destinazione sola: **bravevetbusiness.it/segreteria-brave**.
+Una destinazione sola: **bravevetbusiness.it/tools/segreteria-brave**.
 
 | Se il contenuto | La CTA suona così | Dove va |
 |---|---|---|
@@ -117,7 +127,7 @@ di grandezza, e in demo ti diciamo la cifra sul tuo caso.»*
 
 ---
 
-## 5. Gli otto angoli
+## 5. I nove angoli
 
 Da ciascuno si ricava un reel, un carosello, un post LinkedIn e uno short:
 cambia il formato, non il contenuto. I ganci sono materiale vero, raccolto in
@@ -147,6 +157,18 @@ call: si usano così come sono.
 8. **Ce l'hanno chiesta loro.** «In segreteria friggono, sono un po' oberate.
    Voi avete qualche segreteria che utilizzate?» — luglio, in mezzo a una call
    su tutt'altro. È il racconto d'origine vero, ed è il post di apertura.
+9. **L'esperienza di chi chiama.** L'unico angolo scritto dal lato del
+   proprietario, non della clinica: il telefono è il primo punto di contatto e
+   spesso quello su cui vi giudicano prima ancora di conoscere la vostra
+   medicina. Tre scene, una per contenuto: *al primo squillo, non al quarto
+   posto in coda*; *anche quando ne arrivano quattro insieme* (lunedì mattina,
+   dopo un ponte, con già qualcuno davanti al front office); *alle 23 e di
+   domenica*, quando il proprietario si accorge che l'animale non sta bene e la
+   clinica è chiusa. Il colpo finale è che chi non vi trova non ve lo dice: vi
+   scrive su WhatsApp la sera, o chiama il numero successivo su Google. Claim
+   ammesso: «Mai più una telefonata senza risposta». → CTA: pagina, ancora
+   `#esperienza`. Non sovrapporlo all'angolo 3, che sta dal lato dei conti:
+   questo sta dal lato della reputazione.
 
 ---
 
@@ -229,14 +251,18 @@ collegata ai sistemi, assistente virtuale, front office, formazione compresa
 nell'attivazione.
 PAROLE NO: bot, chatbot, robot, bancone, sostituire,
 rivoluzionario, innovativo, soluzione, sempre/mai/zero in una promessa.
+UNICA ECCEZIONE: il claim "Mai piu' una telefonata senza risposta", scritto
+per intero, non esteso ad altro, mai con un secondo assoluto nella stessa
+frase.
 
-OTTO ANGOLI da cui generare: 1) "voi con il telefono siete un disastro"
+NOVE ANGOLI da cui generare: 1) "voi con il telefono siete un disastro"
 2) ottanta messaggi al giorno sul telefono privato 3) la chiamata in coda
 che risulta risposta 4) cosa resta scritto dopo 5) elettrospirosi e
 simpatica 6) cosa non fa mai 7) a chi gestisce il front office 8) ce
-l'hanno chiesta loro.
+l'hanno chiesta loro 9) l'esperienza di chi chiama (primo squillo e non
+quarto posto in coda; quattro chiamate insieme; le 23 e la domenica).
 
-CTA: una sola destinazione, bravevetbusiness.it/segreteria-brave, con
+CTA: una sola destinazione, bravevetbusiness.it/tools/segreteria-brave, con
 utm_source=<canale>&utm_medium=social&utm_campaign=segreteria-brave.
 Mai pubblicare il numero di telefono del servizio. Mai chiudere in DM.
 
