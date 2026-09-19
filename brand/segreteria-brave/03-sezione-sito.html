@@ -793,9 +793,31 @@ footer{background:var(--night);border-top:1px solid var(--night-line);padding-bl
   var form = document.getElementById('form-demo');
   var prev = form ? form.querySelector('.bf-prev') : null;
   if (form && prev) {
+    // Indirizzo a cui arriva la richiesta di demo. Finche' resta vuoto il
+    // modulo NON invia niente: in quel caso non diciamo a chi compila che lo
+    // richiameremo, perche' non sarebbe vero e perderemmo il contatto.
+    var ENDPOINT = '';
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      prev.textContent = 'Anteprima · in produzione questa richiesta arriva al team commerciale';
+      if (!ENDPOINT){
+        prev.textContent = 'Anteprima · il modulo non è ancora collegato: la richiesta non parte';
+        return;
+      }
+      var dati = {};
+      new FormData(form).forEach(function(v,k){ dati[k] = v; });
+      prev.textContent = 'Invio in corso\u2026';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(dati)
+      }).then(function(r){
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        prev.textContent = 'Grazie: ti richiamiamo entro un giorno lavorativo.';
+      }).catch(function(){
+        prev.textContent = 'Non siamo riusciti a inviare la richiesta. Riprova, oppure scrivici.';
+      });
     });
   }
 })();

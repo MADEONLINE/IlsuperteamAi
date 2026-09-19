@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Importazione pagine Segreteria Brave — Brave Vet Business -->
+<rss version="2.0"
+  xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:wp="http://wordpress.org/export/1.2/">
+<channel>
+  <title>Brave Vet Business</title>
+  <link>https://www.bravevetbusiness.it</link>
+  <description>Pagine Tools e Segreteria Brave</description>
+  <language>it-IT</language>
+  <wp:wxr_version>1.2</wp:wxr_version>
+  <wp:base_site_url>https://www.bravevetbusiness.it</wp:base_site_url>
+  <wp:base_blog_url>https://www.bravevetbusiness.it</wp:base_blog_url>
+  <wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[admin]]></wp:author_login>
+    <wp:author_email><![CDATA[]]></wp:author_email><wp:author_display_name><![CDATA[Brave Vet Business]]></wp:author_display_name>
+    <wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+  <item>
+    <title>Tools</title>
+    <link>https://www.bravevetbusiness.it/tools/</link>
+    <pubDate>Sat, 19 Sep 2026 07:11:59 +0000</pubDate>
+    <dc:creator><![CDATA[admin]]></dc:creator>
+    <guid isPermaLink="false">https://www.bravevetbusiness.it/?page_id=9101</guid>
+    <description></description>
+    <content:encoded><![CDATA[<!-- Tools · generata da build/build-wordpress.py, non modificare a mano -->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Archivo:wdth,wght@75..125,400;75..125,500;75..125,600;75..125,700&family=Space+Mono:wght@400;700&display=swap");
+#tools-page{color-scheme:light}
+
+/* Corazza contro il tema del sito.
+   Il tema colpisce gli elementi per nome (h2, a, p) e una regola
+   diretta batte sempre un valore ereditato: senza questo blocco i titoli di
+   sezione prenderebbero il colore del tema invece del nostro. Sta PRIMA del
+   CSS della pagina, quindi tutte le nostre regole continuano a vincere su
+   di esso. Non tocca font-weight ne' sfondi: quelli la pagina se li imposta
+   da sola, e sovrascriverli qui sarebbe rischioso senza guadagno. */
+#tools-page h1,#tools-page h2,#tools-page h3,#tools-page h4,#tools-page h5,#tools-page h6,#tools-page p,#tools-page a,#tools-page li,#tools-page dt,#tools-page dd,
+#tools-page span,#tools-page small,#tools-page label,#tools-page th,#tools-page td,#tools-page blockquote,#tools-page figcaption,
+#tools-page strong,#tools-page b,#tools-page em,#tools-page i,#tools-page code{color:inherit;font-family:inherit}
+#tools-page input,#tools-page select,#tools-page textarea,#tools-page button{color:inherit;font-family:inherit;font-size:inherit;line-height:inherit}
+#tools-page h1,#tools-page h2,#tools-page h3,#tools-page h4,#tools-page h5,#tools-page h6,#tools-page p,#tools-page ul,#tools-page ol,#tools-page li,
+#tools-page figure,#tools-page blockquote{margin:0;padding:0}
+#tools-page ul,#tools-page ol{list-style:none}
+#tools-page a{text-decoration:none}
+
+#tools-page{
+  --paper:#F2F5F4;
+  --raise:#FFFFFF;
+  --field:#E7EDEB;
+  --ink:#0B1715;
+  --ink-2:#3D504D;
+  --muted:#5E716F;
+  --line:#CCD8D5;
+  --line-soft:#DEE7E5;
+  --teal:#76B6B5;
+  --teal-deep:#26706E;
+  --teal-wash:#DEEDEC;
+  --live:#1FA463;
+  --night:#07120F;
+  --night-2:#0E1D1A;
+  --night-line:#1E322E;
+  --night-ink:#E7EFED;
+  --night-muted:#8FA5A1;
+
+  --f-disp:'Fraunces',Georgia,'Times New Roman',serif;
+  --f-ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1160px;
+}
+#tools-page,#tools-page *{box-sizing:border-box}
+#tools-page{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+#tools-page img{max-width:100%}
+#tools-page .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+#tools-page h1,#tools-page h2,#tools-page h3{font-family:var(--f-disp);margin:0;line-height:1.06;letter-spacing:-.018em;text-wrap:balance;font-variation-settings:'SOFT' 20,'WONK' 1}
+#tools-page h1{font-size:clamp(2.6rem,6.6vw,4.6rem);font-weight:700}
+#tools-page h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:700}
+#tools-page h3{font-size:1.32rem;font-weight:600;letter-spacing:-.01em}
+#tools-page p{margin:0}
+#tools-page .lede{font-size:clamp(1.05rem,1.85vw,1.24rem);line-height:1.58;color:var(--ink-2);max-width:60ch}
+#tools-page .kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.65em}
+#tools-page .kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+#tools-page .mono{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#tools-page .small{font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+#tools-page strong{font-weight:600;color:var(--ink)}
+#tools-page /* ---------- nav (chrome BVB) ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:40}
+#tools-page /* La barra e appiccicata: gli ancoraggi non devono finirci sotto. */
+[id]{scroll-margin-top:84px}
+@media (prefers-reduced-motion:no-preference){}
+#tools-page .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+#tools-page .logo{display:flex;align-items:center;gap:9px;font-family:var(--f-ui);font-weight:700;font-size:.88rem;letter-spacing:.01em;line-height:1.05}
+#tools-page .logo .pep{width:11px;height:11px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg);flex:none}
+#tools-page .logo span{display:block;font-weight:400;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+#tools-page .nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+#tools-page .nav a{color:var(--ink-2);text-decoration:none;font-size:.85rem;font-weight:500}
+#tools-page .nav a.on{color:var(--ink);border-bottom:2px solid var(--teal);padding-bottom:2px}
+#tools-page .nav .cta{background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:2px;font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap}
+@media (max-width:860px){#tools-page .nav ul{display:none}}
+#tools-page /* ---------- hero ---------- */
+.hero{background:var(--night);color:var(--night-ink);border-bottom:1px solid var(--night-line)}
+#tools-page /* Sui fondi scuri: link leggibili,#tools-page ma i pulsanti tengono il proprio colore. */
+.hero a:not(.btn):not(.cta),#tools-page .demo a:not(.btn),#tools-page .close a:not(.btn){color:var(--teal)}
+#tools-page .hero .small,#tools-page .demo .small,#tools-page .close .small{color:var(--night-muted)}
+#tools-page /* Il grassetto eredita --ink,#tools-page che sul nero e' nero: va riportato in chiaro. */
+.hero strong,#tools-page .demo strong,#tools-page .close strong,#tools-page .call strong{color:var(--night-ink)}
+#tools-page .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(30px,5vw,60px);padding-block:clamp(48px,7vw,86px);align-items:center}
+@media (max-width:900px){#tools-page .hero-in{grid-template-columns:1fr}}
+#tools-page .hero h1{color:var(--night-ink)}
+#tools-page .hero .lede{color:var(--night-muted);max-width:52ch}
+#tools-page .hero-copy{display:grid;gap:22px}
+#tools-page .hero .kick{color:var(--teal)}
+#tools-page .badge-row{display:flex;flex-wrap:wrap;gap:9px}
+#tools-page .badge{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;border:1px solid var(--night-line);color:var(--night-muted);padding:5px 9px;border-radius:2px}
+#tools-page .badge--live{border-color:var(--live);color:var(--live);display:flex;align-items:center;gap:6px}
+#tools-page .badge--live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){#tools-page .badge--live::before{animation:none}}
+#tools-page .btns{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+#tools-page .btn{font-family:var(--f-ui);font-weight:600;font-size:.92rem;padding:13px 22px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer;display:inline-block}
+#tools-page .btn--p{background:var(--teal);color:#06201F}
+#tools-page .btn--s{border-color:var(--night-line);color:var(--night-ink)}
+#tools-page /* live call card */
+.call{background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+#tools-page .call-h{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+#tools-page .call-h .av{width:42px;height:42px;border-radius:50%;background:var(--teal);color:var(--night);display:grid;place-items:center;flex:none;font-family:var(--f-disp);font-weight:900;font-size:1.2rem;line-height:1}
+#tools-page .call-h .who{display:grid;gap:2px;min-width:0}
+#tools-page .call-h .who b{font-size:.94rem;font-weight:600;color:var(--night-ink)}
+#tools-page .call-h .who span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--live)}
+#tools-page .call-h .tm{margin-left:auto;font-family:var(--f-mono);font-size:.74rem;color:var(--night-muted);font-variant-numeric:tabular-nums}
+#tools-page .call dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr)}
+#tools-page .call dt{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--night-muted);padding:11px 12px 11px 18px;border-bottom:1px solid var(--night-line);white-space:nowrap}
+#tools-page .call dd{margin:0;padding:11px 18px 11px 0;border-bottom:1px solid var(--night-line);font-size:.9rem;color:var(--night-ink);font-variant-numeric:tabular-nums}
+#tools-page .call dl > :nth-last-child(-n+2){border-bottom:0}
+#tools-page .call-f{padding:12px 18px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;color:var(--night-muted);border-top:1px solid var(--night-line)}
+#tools-page /* ---------- sections ---------- */
+section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
+#tools-page .sec-head{display:grid;gap:14px;margin-bottom:38px;max-width:68ch}
+#tools-page /* problem */
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .probs > div{background:var(--paper);padding:26px 24px;display:grid;gap:11px;align-content:start}
+#tools-page .probs .n{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.16em;color:var(--teal-deep)}
+#tools-page .probs h3{font-size:1.18rem}
+@media (max-width:800px){#tools-page .probs{grid-template-columns:1fr}}
+#tools-page /* dialogo */
+.demo{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+#tools-page .demo h2,#tools-page .demo h3{color:var(--night-ink)}
+#tools-page .demo .lede{color:var(--night-muted)}
+#tools-page .demo .kick{color:var(--teal)}
+#tools-page .demo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:clamp(24px,4vw,44px);align-items:start}
+@media (max-width:900px){#tools-page .demo-grid{grid-template-columns:1fr}}
+#tools-page .turns{display:grid;border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+#tools-page .turn{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+#tools-page .turn:last-child{border-bottom:0}
+#tools-page .turn .sp{font-family:var(--f-mono);font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--night-muted);padding-top:.3em}
+#tools-page .turn--g{background:var(--night-2)}
+#tools-page .turn--g .sp{color:var(--teal)}
+#tools-page .turn .tx{font-size:1rem;line-height:1.5}
+#tools-page .turn em{font-style:normal;color:var(--teal);font-weight:500}
+@media (max-width:520px){#tools-page .turn{grid-template-columns:1fr;gap:5px}
+#tools-page .turn .sp{padding-top:0}}
+#tools-page .knows{border:1px solid var(--night-line);border-radius:3px;padding:20px;display:grid;gap:13px;background:var(--night-2)}
+#tools-page .knows h3{font-size:1.05rem;font-family:var(--f-ui);font-weight:600;letter-spacing:0}
+#tools-page .knows ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+#tools-page .knows li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.92rem;color:var(--night-muted);line-height:1.45}
+#tools-page .knows li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.48em}
+#tools-page .knows li b{color:var(--night-ink);font-weight:600}
+#tools-page /* calcolatore */
+.calc-grid{display:grid;gap:clamp(20px,3vw,30px)}
+@media (max-width:880px){#tools-page .calc-grid{grid-template-columns:1fr}}
+#tools-page .inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .inputs > .field{background:var(--raise)}
+#tools-page .inputs > .assump{grid-column:1/-1;background:var(--raise);padding:14px 18px;border-top:1px solid var(--line-soft)}
+@media (max-width:760px){#tools-page .inputs{grid-template-columns:1fr}}
+#tools-page .field{display:grid;grid-template-rows:1fr auto;gap:12px;align-items:start;padding:16px 18px}
+#tools-page .field input{width:100%}
+#tools-page .field label{font-size:.94rem;color:var(--ink-2);line-height:1.35}
+#tools-page .field input{
+  font-family:var(--f-mono);font-size:.95rem;text-align:right;padding:8px 10px;
+  border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);width:100%;
+  font-variant-numeric:tabular-nums
+}
+#tools-page .result{display:grid;gap:0;border:1px solid var(--teal)}
+#tools-page .result .rl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#tools-page .result .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums;font-variation-settings:'SOFT' 0,'WONK' 0}
+#tools-page .result .sub{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+#tools-page .result .brk{font-family:var(--f-mono);font-size:.72rem;color:var(--teal-deep);border-top:1px solid var(--teal);padding-top:12px;line-height:1.6;font-variant-numeric:tabular-nums}
+#tools-page /* modalità */
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .modes > div{background:var(--paper);padding:28px 26px;display:grid;gap:15px;align-content:start}
+#tools-page .modes .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+#tools-page .modes--hi{background:var(--raise)!important;border-left:3px solid var(--teal)}
+#tools-page .modes--hi .tag{color:var(--teal-deep)}
+#tools-page .modes ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+#tools-page .modes li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.94rem;color:var(--ink-2);line-height:1.45}
+#tools-page .modes li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+#tools-page .modes .foot{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:14px;line-height:1.5}
+@media (max-width:760px){#tools-page .modes{grid-template-columns:1fr}}
+#tools-page /* limiti */
+.limits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .limits > div{background:var(--paper);padding:20px 22px;display:grid;gap:7px;align-content:start}
+#tools-page .limits b{font-family:var(--f-ui);font-weight:600;font-size:1rem;display:flex;gap:10px;align-items:baseline}
+#tools-page .limits b::before{content:"—";color:var(--teal-deep)}
+#tools-page .limits span{font-size:.92rem;color:var(--ink-2);line-height:1.5;padding-left:22px}
+@media (max-width:700px){#tools-page .limits{grid-template-columns:1fr}}
+#tools-page /* faq */
+.faq{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .faq details{background:var(--paper)}
+#tools-page .faq summary{cursor:pointer;padding:19px 22px;font-family:var(--f-ui);font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+#tools-page .faq summary::-webkit-details-marker{display:none}
+#tools-page .faq summary::after{content:"+";font-family:var(--f-mono);color:var(--teal-deep);font-size:1.1rem;flex:none}
+#tools-page .faq details[open] summary::after{content:"–"}
+#tools-page .faq .ans{padding:0 22px 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:70ch}
+#tools-page /* "qui la leggi,#tools-page in demo la senti" */
+.hear{
+  margin-top:24px;border:1px solid var(--teal);background:var(--night-2);
+  padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;align-items:center;border-radius:3px
+}
+#tools-page .hear-t{display:grid;gap:9px;max-width:62ch}
+#tools-page .hear-t p{font-size:.97rem;line-height:1.55;color:var(--night-muted)}
+#tools-page .hear-t p strong{color:var(--night-ink)}
+#tools-page .hear .btn{white-space:nowrap}
+@media (max-width:760px){#tools-page .hear{grid-template-columns:1fr;justify-items:start}}
+#tools-page /* closing */
+.close{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+#tools-page .close-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);
+  gap:clamp(30px,5vw,60px);padding-block:clamp(50px,7vw,84px);align-items:start
+}
+@media (max-width:900px){#tools-page .close-grid{grid-template-columns:1fr}}
+#tools-page .close-in{display:grid;gap:20px;justify-items:start;max-width:56ch}
+#tools-page .close h2{color:var(--night-ink)}
+#tools-page .close p{color:var(--night-muted)}
+#tools-page .close .kick{color:var(--teal)}
+#tools-page .close-list{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+#tools-page .close-list li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:.95rem;color:var(--night-muted);line-height:1.45}
+#tools-page .close-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+#tools-page /* booking form */
+.bookform{
+  background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;
+  padding:24px;display:grid;gap:14px;width:100%
+}
+#tools-page .bf-h{
+  font-family:var(--f-disp);font-size:1.25rem;font-weight:700;color:var(--night-ink)!important;
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:2px
+}
+#tools-page .bf-row{display:grid;gap:6px}
+#tools-page .bf-row label{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--night-muted)
+}
+#tools-page .bf-row input,#tools-page .bf-row select{
+  font-family:var(--f-ui);font-size:.94rem;padding:11px 12px;width:100%;
+  background:var(--night);border:1px solid var(--night-line);border-radius:2px;
+  color:var(--night-ink);appearance:none
+}
+#tools-page .bf-row input::placeholder{color:#5C716D}
+#tools-page .bf-row select{background-image:none}
+#tools-page .bf-row input:focus,#tools-page .bf-row select:focus{border-color:var(--teal);outline:none}
+#tools-page .bf-go{width:100%;text-align:center;border:0;margin-top:4px;font-size:.95rem}
+#tools-page .bf-note{font-size:.82rem!important;line-height:1.5;color:var(--night-muted)!important}
+#tools-page .bf-prev{
+  font-family:var(--f-mono);font-size:.6rem!important;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--teal)!important;border-top:1px solid var(--night-line);padding-top:12px
+}
+#tools-page footer{background:var(--night);border-top:1px solid var(--night-line);padding-block:26px 44px;color:var(--night-muted)}
+#tools-page .foot-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center}
+#tools-page .foot-in .logo{color:var(--night-ink)}
+#tools-page .foot-in .logo span{color:var(--night-muted)}
+#tools-page .editnote{background:var(--teal-wash);border-top:1px solid var(--teal);border-bottom:1px solid var(--teal)}
+#tools-page .editnote-in{padding-block:14px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline}
+#tools-page .editnote b{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#tools-page .editnote span{font-size:.88rem;color:var(--ink-2)}
+#tools-page :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+#tools-page .res3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--teal)}
+#tools-page .res3 > div{display:grid;gap:7px;align-content:start;background:var(--teal-wash);padding:24px 22px}
+#tools-page .res3 .big{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+#tools-page .res3 .sub b{color:var(--ink);font-weight:600}
+@media (max-width:860px){#tools-page .res3{grid-template-columns:1fr}}
+#tools-page .cmp{background:var(--teal-wash);border-top:1px solid var(--teal);padding:22px;display:grid;gap:7px}
+#tools-page .cmp-l{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#tools-page .cmp-v{font-family:var(--f-disp);font-weight:800;font-size:1.5rem;letter-spacing:-.025em;color:var(--ink)}
+#tools-page .cmp-n{font-size:.86rem;line-height:1.55;color:var(--ink-2);max-width:82ch}
+#tools-page /* ===== marchio Segreteria Brave ===== */
+.sbmark{display:block;flex:none;color:var(--teal)}
+#tools-page .lockup{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+#tools-page .lockup .sbmark{width:26px;height:26px}
+#tools-page .lockup .lw{display:grid;gap:2px;line-height:1}
+#tools-page .lockup .lw b{font-family:var(--f-disp);font-weight:800;font-size:1.02rem;letter-spacing:-.025em;color:var(--ink)}
+#tools-page .lockup .lw span{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+#tools-page .lockup--hero{gap:13px}
+#tools-page .lockup--hero .sbmark{width:32px;height:32px}
+#tools-page .lockup--hero .lw{gap:4px}
+#tools-page .lockup--hero .lw b{font-size:1.2rem}
+#tools-page .lockup--dark .lw b{color:var(--night-ink)}
+#tools-page .lockup--dark .lw span{color:var(--night-muted)}
+#tools-page .lockup--dark .sbmark{color:var(--teal)}
+#tools-page .navmark{display:flex;align-items:center;gap:8px;padding-left:13px;margin-left:3px;border-left:1px solid var(--line)}
+#tools-page .navmark .sbmark{width:19px;height:19px}
+#tools-page .navmark b{font-family:var(--f-disp);font-weight:700;font-size:.82rem;letter-spacing:-.018em}
+@media (max-width:900px){#tools-page .navmark{display:none}}
+#tools-page .call-h .av--mark{background:transparent;display:grid;place-items:center}
+#tools-page .call-h .av--mark .sbmark{width:26px;height:26px;color:var(--teal)}
+#tools-page /* ---- indice Tools ---- */
+.tools{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+#tools-page .tools > article{background:var(--paper);padding:clamp(26px,3.6vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(18px,3vw,34px);align-items:center}
+#tools-page .tools .tmark{width:52px;height:52px;color:var(--teal);flex:none}
+#tools-page .tools .tbody{display:grid;gap:9px}
+#tools-page .tools .tstate{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:#14703F;display:flex;align-items:center;gap:7px}
+#tools-page .tools .tstate::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live)}
+#tools-page .tools .tstate--soon{color:var(--muted)}
+#tools-page .tools .tstate--soon::before{background:var(--muted)}
+#tools-page .tools h3{font-size:clamp(1.3rem,2.4vw,1.7rem);font-family:var(--f-disp);font-weight:700;letter-spacing:-.02em}
+#tools-page .tools p{font-size:.98rem;line-height:1.55;color:var(--ink-2);max-width:56ch}
+#tools-page .tools .tgo{white-space:nowrap}
+#tools-page .tools > article.soon{opacity:.62}
+@media (max-width:860px){#tools-page .tools > article{grid-template-columns:1fr;gap:16px}
+#tools-page .tools .tgo{justify-self:start}}
+#tools-page .foot-in .mono{color:var(--night-muted)}
+#tools-page .tin{padding-block:clamp(44px,6vw,74px) clamp(30px,4vw,44px);display:grid;gap:20px;max-width:62ch}
+</style>
+<div id="tools-page">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="sb-mark" viewBox="0 0 120 120">
+    <rect x="23" y="72" width="64" height="40" rx="20" fill="currentColor"/>
+    <rect x="13" y="40" width="15" height="22" rx="7.5" fill="currentColor"/>
+    <rect x="36" y="22" width="15" height="40" rx="7.5" fill="currentColor"/>
+    <rect x="59" y="18" width="15" height="44" rx="7.5" fill="currentColor"/>
+    <rect x="82" y="36" width="15" height="26" rx="7.5" fill="currentColor"/>
+  </symbol>
+</svg>
+
+
+
+<div class="wrap">
+  <header class="tin">
+    <div class="kick">Tools</div>
+    <h1>Gli strumenti<br>che entrano in clinica.</h1>
+    <p class="lede">Non recensiamo software. Scegliamo quello che nel nostro settore non esiste ancora, lo facciamo costruire per la clinica veterinaria e lo mettiamo in funzione — con la configurazione, la formazione di chi lo userà e il presidio dei primi mesi.</p>
+    <p class="small">Un veterinario non ha bisogno di una lista di strumenti. Ha bisogno che qualcuno abbia già fatto la fatica di capire quale funziona nel suo mestiere, e sia lì il giorno in cui va acceso.</p>
+  </header>
+
+  <div class="tools">
+    <article>
+      <svg class="tmark" viewBox="0 0 120 120" role="img" aria-label="Segreteria Brave"><use href="#sb-mark"/></svg>
+      <div class="tbody">
+        <span class="tstate">In funzione</span>
+        <h3>Segreteria Brave</h3>
+        <p>La segreteria virtuale costruita solo per la clinica veterinaria. Risponde quando voi non potete, fissa gli appuntamenti secondo le vostre regole e vi lascia ogni richiesta scritta e ordinata. Anche alle 23, anche di domenica, anche quando arrivano quattro chiamate insieme.</p>
+      </div>
+      <a class="btn btn--p tgo" href="/tools/segreteria-brave/">Scopri di più</a>
+    </article>
+
+    <article class="soon">
+      <svg class="tmark" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--muted)"><use href="#sb-mark"/></svg>
+      <div class="tbody">
+        <span class="tstate tstate--soon">In lavorazione</span>
+        <h3>Gli strumenti che arrivano</h3>
+        <p>Stiamo lavorando ad altri strumenti nati dagli stessi problemi che ci raccontate: la gestione delle richieste urgenti fuori orario, e l'analisi dei dati del gestionale. Chi è nella community li vede per primo.</p>
+      </div>
+      <a class="btn tgo" style="border-color:var(--line);color:var(--ink)" href="#">Resta aggiornato</a>
+    </article>
+  </div>
+
+  <section style="border-top:1px solid var(--line);margin-top:clamp(40px,6vw,70px)">
+    <div class="sec-head">
+      <div class="kick">Come lavoriamo</div>
+      <h2>Prima lo proviamo noi.</h2>
+      <p class="lede">Ogni strumento che trovate qui è passato per la stessa strada: un problema raccontato da un veterinario, una tecnologia che esisteva per altri settori, mesi di lavoro per adattarla al nostro, e una clinica che l'ha messa al telefono prima di tutti.</p>
+    </div>
+    <div class="probs">
+      <div>
+        <span class="n">01</span>
+        <h3>Lo chiedete voi</h3>
+        <p class="small">Nessuno di questi strumenti nasce da un'idea nostra. Nascono da una frase detta in una call, ripetuta da più persone, su un problema che nessun software affrontava.</p>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <h3>Lo veterinarizziamo</h3>
+        <p class="small">La tecnologia spesso c'è già, ma parla un'altra lingua. Il lavoro sta nel farla funzionare con le richieste, i tempi e il vocabolario di una clinica veterinaria.</p>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <h3>Restiamo quando parte</h3>
+        <p class="small">Configurazione, formazione di chi lo userà ogni giorno, e i primi mesi seguiti. Uno strumento consegnato e abbandonato è uno strumento che nessuno usa.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+]]></content:encoded>
+    <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    <wp:post_id>9101</wp:post_id>
+    <wp:post_date>2026-09-19 07:11:59</wp:post_date>
+    <wp:post_date_gmt>2026-09-19 07:11:59</wp:post_date_gmt>
+    <wp:comment_status>closed</wp:comment_status>
+    <wp:ping_status>closed</wp:ping_status>
+    <wp:post_name>tools</wp:post_name>
+    <wp:status>draft</wp:status>
+    <wp:post_parent>0</wp:post_parent>
+    <wp:menu_order>0</wp:menu_order>
+    <wp:post_type>page</wp:post_type>
+    <wp:post_password></wp:post_password>
+    <wp:is_sticky>0</wp:is_sticky>
+  </item>
+  <item>
+    <title>Segreteria Brave</title>
+    <link>https://www.bravevetbusiness.it/segreteria-brave/</link>
+    <pubDate>Sat, 19 Sep 2026 07:11:59 +0000</pubDate>
+    <dc:creator><![CDATA[admin]]></dc:creator>
+    <guid isPermaLink="false">https://www.bravevetbusiness.it/?page_id=9102</guid>
+    <description></description>
+    <content:encoded><![CDATA[<!-- Segreteria Brave · generata da build/build-wordpress.py, non modificare a mano -->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Archivo:wdth,wght@75..125,400;75..125,500;75..125,600;75..125,700&family=Space+Mono:wght@400;700&display=swap");
+#sb-page{color-scheme:light}
+
+/* Corazza contro il tema del sito.
+   Il tema colpisce gli elementi per nome (h2, a, p) e una regola
+   diretta batte sempre un valore ereditato: senza questo blocco i titoli di
+   sezione prenderebbero il colore del tema invece del nostro. Sta PRIMA del
+   CSS della pagina, quindi tutte le nostre regole continuano a vincere su
+   di esso. Non tocca font-weight ne' sfondi: quelli la pagina se li imposta
+   da sola, e sovrascriverli qui sarebbe rischioso senza guadagno. */
+#sb-page h1,#sb-page h2,#sb-page h3,#sb-page h4,#sb-page h5,#sb-page h6,#sb-page p,#sb-page a,#sb-page li,#sb-page dt,#sb-page dd,
+#sb-page span,#sb-page small,#sb-page label,#sb-page th,#sb-page td,#sb-page blockquote,#sb-page figcaption,
+#sb-page strong,#sb-page b,#sb-page em,#sb-page i,#sb-page code{color:inherit;font-family:inherit}
+#sb-page input,#sb-page select,#sb-page textarea,#sb-page button{color:inherit;font-family:inherit;font-size:inherit;line-height:inherit}
+#sb-page h1,#sb-page h2,#sb-page h3,#sb-page h4,#sb-page h5,#sb-page h6,#sb-page p,#sb-page ul,#sb-page ol,#sb-page li,
+#sb-page figure,#sb-page blockquote{margin:0;padding:0}
+#sb-page ul,#sb-page ol{list-style:none}
+#sb-page a{text-decoration:none}
+
+#sb-page{
+  --paper:#F2F5F4;
+  --raise:#FFFFFF;
+  --field:#E7EDEB;
+  --ink:#0B1715;
+  --ink-2:#3D504D;
+  --muted:#5E716F;
+  --line:#CCD8D5;
+  --line-soft:#DEE7E5;
+  --teal:#76B6B5;
+  --teal-deep:#26706E;
+  --teal-wash:#DEEDEC;
+  --live:#1FA463;
+  --night:#07120F;
+  --night-2:#0E1D1A;
+  --night-line:#1E322E;
+  --night-ink:#E7EFED;
+  --night-muted:#8FA5A1;
+
+  --f-disp:'Fraunces',Georgia,'Times New Roman',serif;
+  --f-ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1160px;
+}
+#sb-page,#sb-page *{box-sizing:border-box}
+#sb-page{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+#sb-page img{max-width:100%}
+#sb-page .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+#sb-page h1,#sb-page h2,#sb-page h3{font-family:var(--f-disp);margin:0;line-height:1.06;letter-spacing:-.018em;text-wrap:balance;font-variation-settings:'SOFT' 20,'WONK' 1}
+#sb-page h1{font-size:clamp(2.6rem,6.6vw,4.6rem);font-weight:700}
+#sb-page h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:700}
+#sb-page h3{font-size:1.32rem;font-weight:600;letter-spacing:-.01em}
+#sb-page p{margin:0}
+#sb-page .lede{font-size:clamp(1.05rem,1.85vw,1.24rem);line-height:1.58;color:var(--ink-2);max-width:60ch}
+#sb-page .kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.65em}
+#sb-page .kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+#sb-page .mono{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#sb-page .small{font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+#sb-page strong{font-weight:600;color:var(--ink)}
+#sb-page /* ---------- nav (chrome BVB) ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:40}
+#sb-page /* La barra e appiccicata: gli ancoraggi non devono finirci sotto. */
+[id]{scroll-margin-top:84px}
+@media (prefers-reduced-motion:no-preference){}
+#sb-page .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+#sb-page .logo{display:flex;align-items:center;gap:9px;font-family:var(--f-ui);font-weight:700;font-size:.88rem;letter-spacing:.01em;line-height:1.05}
+#sb-page .logo .pep{width:11px;height:11px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg);flex:none}
+#sb-page .logo span{display:block;font-weight:400;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+#sb-page .nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+#sb-page .nav a{color:var(--ink-2);text-decoration:none;font-size:.85rem;font-weight:500}
+#sb-page .nav a.on{color:var(--ink);border-bottom:2px solid var(--teal);padding-bottom:2px}
+#sb-page .nav .cta{background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:2px;font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap}
+@media (max-width:860px){#sb-page .nav ul{display:none}}
+#sb-page /* ---------- hero ---------- */
+.hero{background:var(--night);color:var(--night-ink);border-bottom:1px solid var(--night-line)}
+#sb-page /* Sui fondi scuri: link leggibili,#sb-page ma i pulsanti tengono il proprio colore. */
+.hero a:not(.btn):not(.cta),#sb-page .demo a:not(.btn),#sb-page .close a:not(.btn){color:var(--teal)}
+#sb-page .hero .small,#sb-page .demo .small,#sb-page .close .small{color:var(--night-muted)}
+#sb-page /* Il grassetto eredita --ink,#sb-page che sul nero e' nero: va riportato in chiaro. */
+.hero strong,#sb-page .demo strong,#sb-page .close strong,#sb-page .call strong{color:var(--night-ink)}
+#sb-page .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(30px,5vw,60px);padding-block:clamp(48px,7vw,86px);align-items:center}
+@media (max-width:900px){#sb-page .hero-in{grid-template-columns:1fr}}
+#sb-page .hero h1{color:var(--night-ink)}
+#sb-page .hero .lede{color:var(--night-muted);max-width:52ch}
+#sb-page .hero-copy{display:grid;gap:22px}
+#sb-page .hero .kick{color:var(--teal)}
+#sb-page .badge-row{display:flex;flex-wrap:wrap;gap:9px}
+#sb-page .badge{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;border:1px solid var(--night-line);color:var(--night-muted);padding:5px 9px;border-radius:2px}
+#sb-page .badge--live{border-color:var(--live);color:var(--live);display:flex;align-items:center;gap:6px}
+#sb-page .badge--live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){#sb-page .badge--live::before{animation:none}}
+#sb-page .btns{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+#sb-page .btn{font-family:var(--f-ui);font-weight:600;font-size:.92rem;padding:13px 22px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer;display:inline-block}
+#sb-page .btn--p{background:var(--teal);color:#06201F}
+#sb-page .btn--s{border-color:var(--night-line);color:var(--night-ink)}
+#sb-page /* live call card */
+.call{background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+#sb-page .call-h{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+#sb-page .call-h .av{width:42px;height:42px;border-radius:50%;background:var(--teal);color:var(--night);display:grid;place-items:center;flex:none;font-family:var(--f-disp);font-weight:900;font-size:1.2rem;line-height:1}
+#sb-page .call-h .who{display:grid;gap:2px;min-width:0}
+#sb-page .call-h .who b{font-size:.94rem;font-weight:600;color:var(--night-ink)}
+#sb-page .call-h .who span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--live)}
+#sb-page .call-h .tm{margin-left:auto;font-family:var(--f-mono);font-size:.74rem;color:var(--night-muted);font-variant-numeric:tabular-nums}
+#sb-page .call dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr)}
+#sb-page .call dt{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--night-muted);padding:11px 12px 11px 18px;border-bottom:1px solid var(--night-line);white-space:nowrap}
+#sb-page .call dd{margin:0;padding:11px 18px 11px 0;border-bottom:1px solid var(--night-line);font-size:.9rem;color:var(--night-ink);font-variant-numeric:tabular-nums}
+#sb-page .call dl > :nth-last-child(-n+2){border-bottom:0}
+#sb-page .call-f{padding:12px 18px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;color:var(--night-muted);border-top:1px solid var(--night-line)}
+#sb-page /* esperienza di chi chiama */
+.xp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+#sb-page .xp > div{background:var(--paper);padding:26px 24px;display:grid;gap:10px;align-content:start}
+#sb-page .xp .q{font-family:var(--f-disp);font-weight:700;font-size:1.5rem;letter-spacing:-.025em;color:var(--teal-deep);line-height:1}
+#sb-page .xp h3{font-size:1.14rem}
+@media (max-width:820px){#sb-page .xp{grid-template-columns:1fr}}
+#sb-page .claim{border:1px solid var(--teal);background:var(--teal-wash);padding:clamp(26px,3.6vw,38px);display:grid;gap:12px;margin-top:26px}
+#sb-page .claim p.big{font-family:var(--f-disp);font-weight:700;font-size:clamp(1.45rem,3vw,2.05rem);line-height:1.18;letter-spacing:-.025em;color:var(--ink);max-width:24ch}
+#sb-page .claim p.sub{font-size:.97rem;line-height:1.55;color:var(--ink-2);max-width:66ch}
+#sb-page /* ---------- sections ---------- */
+section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
+#sb-page .sec-head{display:grid;gap:14px;margin-bottom:38px;max-width:68ch}
+#sb-page /* problem */
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+#sb-page .probs > div{background:var(--paper);padding:26px 24px;display:grid;gap:11px;align-content:start}
+#sb-page .probs .n{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.16em;color:var(--teal-deep)}
+#sb-page .probs h3{font-size:1.18rem}
+@media (max-width:800px){#sb-page .probs{grid-template-columns:1fr}}
+#sb-page /* dialogo */
+.demo{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+#sb-page .demo h2,#sb-page .demo h3{color:var(--night-ink)}
+#sb-page .demo .lede{color:var(--night-muted)}
+#sb-page .demo .kick{color:var(--teal)}
+#sb-page .demo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:clamp(24px,4vw,44px);align-items:start}
+@media (max-width:900px){#sb-page .demo-grid{grid-template-columns:1fr}}
+#sb-page .turns{display:grid;border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+#sb-page .turn{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+#sb-page .turn:last-child{border-bottom:0}
+#sb-page .turn .sp{font-family:var(--f-mono);font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--night-muted);padding-top:.3em}
+#sb-page .turn--g{background:var(--night-2)}
+#sb-page .turn--g .sp{color:var(--teal)}
+#sb-page .turn .tx{font-size:1rem;line-height:1.5}
+#sb-page .turn em{font-style:normal;color:var(--teal);font-weight:500}
+@media (max-width:520px){#sb-page .turn{grid-template-columns:1fr;gap:5px}
+#sb-page .turn .sp{padding-top:0}}
+#sb-page .knows{border:1px solid var(--night-line);border-radius:3px;padding:20px;display:grid;gap:13px;background:var(--night-2)}
+#sb-page .knows h3{font-size:1.05rem;font-family:var(--f-ui);font-weight:600;letter-spacing:0}
+#sb-page .knows ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+#sb-page .knows li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.92rem;color:var(--night-muted);line-height:1.45}
+#sb-page .knows li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.48em}
+#sb-page .knows li b{color:var(--night-ink);font-weight:600}
+#sb-page /* calcolatore */
+.calc-grid{display:grid;gap:clamp(20px,3vw,30px)}
+@media (max-width:880px){#sb-page .calc-grid{grid-template-columns:1fr}}
+#sb-page .inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+#sb-page .inputs > .field{background:var(--raise)}
+#sb-page .inputs > .assump{grid-column:1/-1;background:var(--raise);padding:14px 18px;border-top:1px solid var(--line-soft)}
+@media (max-width:760px){#sb-page .inputs{grid-template-columns:1fr}}
+#sb-page .field{display:grid;grid-template-rows:1fr auto;gap:12px;align-items:start;padding:16px 18px}
+#sb-page .field input{width:100%}
+#sb-page .field label{font-size:.94rem;color:var(--ink-2);line-height:1.35}
+#sb-page .field input{
+  font-family:var(--f-mono);font-size:.95rem;text-align:right;padding:8px 10px;
+  border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);width:100%;
+  font-variant-numeric:tabular-nums
+}
+#sb-page .result{display:grid;gap:0;border:1px solid var(--teal)}
+#sb-page .result .rl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#sb-page .result .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums;font-variation-settings:'SOFT' 0,'WONK' 0}
+#sb-page .result .sub{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+#sb-page .result .brk{font-family:var(--f-mono);font-size:.72rem;color:var(--teal-deep);border-top:1px solid var(--teal);padding-top:12px;line-height:1.6;font-variant-numeric:tabular-nums}
+#sb-page /* modalità */
+.modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+@media (max-width:1000px){#sb-page .modes{grid-template-columns:1fr}}
+#sb-page .modes > div{background:var(--paper);padding:28px 26px;display:grid;gap:15px;align-content:start}
+#sb-page .modes .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+#sb-page .modes--hi{background:var(--raise)!important;border-left:3px solid var(--teal)}
+#sb-page .modes--hi .tag{color:var(--teal-deep)}
+#sb-page .modes ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+#sb-page .modes li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.94rem;color:var(--ink-2);line-height:1.45}
+#sb-page .modes li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+#sb-page .modes .foot{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:14px;line-height:1.5}
+@media (max-width:760px){#sb-page .modes{grid-template-columns:1fr}}
+#sb-page /* limiti */
+.limits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+#sb-page .limits > div{background:var(--paper);padding:20px 22px;display:grid;gap:7px;align-content:start}
+#sb-page .limits b{font-family:var(--f-ui);font-weight:600;font-size:1rem;display:flex;gap:10px;align-items:baseline}
+#sb-page .limits b::before{content:"—";color:var(--teal-deep)}
+#sb-page .limits span{font-size:.92rem;color:var(--ink-2);line-height:1.5;padding-left:22px}
+@media (max-width:700px){#sb-page .limits{grid-template-columns:1fr}}
+#sb-page /* faq */
+.faq{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+#sb-page .faq details{background:var(--paper)}
+#sb-page .faq summary{cursor:pointer;padding:19px 22px;font-family:var(--f-ui);font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+#sb-page .faq summary::-webkit-details-marker{display:none}
+#sb-page .faq summary::after{content:"+";font-family:var(--f-mono);color:var(--teal-deep);font-size:1.1rem;flex:none}
+#sb-page .faq details[open] summary::after{content:"–"}
+#sb-page .faq .ans{padding:0 22px 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:70ch}
+#sb-page /* "qui la leggi,#sb-page in demo la senti" */
+.hear{
+  margin-top:24px;border:1px solid var(--teal);background:var(--night-2);
+  padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;align-items:center;border-radius:3px
+}
+#sb-page .hear-t{display:grid;gap:9px;max-width:62ch}
+#sb-page .hear-t p{font-size:.97rem;line-height:1.55;color:var(--night-muted)}
+#sb-page .hear-t p strong{color:var(--night-ink)}
+#sb-page .hear .btn{white-space:nowrap}
+@media (max-width:760px){#sb-page .hear{grid-template-columns:1fr;justify-items:start}}
+#sb-page /* closing */
+.close{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+#sb-page .close-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);
+  gap:clamp(30px,5vw,60px);padding-block:clamp(50px,7vw,84px);align-items:start
+}
+@media (max-width:900px){#sb-page .close-grid{grid-template-columns:1fr}}
+#sb-page .close-in{display:grid;gap:20px;justify-items:start;max-width:56ch}
+#sb-page .close h2{color:var(--night-ink)}
+#sb-page .close p{color:var(--night-muted)}
+#sb-page .close .kick{color:var(--teal)}
+#sb-page .close-list{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+#sb-page .close-list li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:.95rem;color:var(--night-muted);line-height:1.45}
+#sb-page .close-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+#sb-page /* booking form */
+.bookform{
+  background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;
+  padding:24px;display:grid;gap:14px;width:100%
+}
+#sb-page .bf-h{
+  font-family:var(--f-disp);font-size:1.25rem;font-weight:700;color:var(--night-ink)!important;
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:2px
+}
+#sb-page .bf-row{display:grid;gap:6px}
+#sb-page .bf-row label{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--night-muted)
+}
+#sb-page .bf-row input,#sb-page .bf-row select{
+  font-family:var(--f-ui);font-size:.94rem;padding:11px 12px;width:100%;
+  background:var(--night);border:1px solid var(--night-line);border-radius:2px;
+  color:var(--night-ink);appearance:none
+}
+#sb-page .bf-row input::placeholder{color:#5C716D}
+#sb-page .bf-row select{background-image:none}
+#sb-page .bf-row input:focus,#sb-page .bf-row select:focus{border-color:var(--teal);outline:none}
+#sb-page .bf-go{width:100%;text-align:center;border:0;margin-top:4px;font-size:.95rem}
+#sb-page .bf-note{font-size:.82rem!important;line-height:1.5;color:var(--night-muted)!important}
+#sb-page .bf-prev{
+  font-family:var(--f-mono);font-size:.6rem!important;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--teal)!important;border-top:1px solid var(--night-line);padding-top:12px
+}
+#sb-page footer{background:var(--night);border-top:1px solid var(--night-line);padding-block:26px 44px;color:var(--night-muted)}
+#sb-page .foot-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center}
+#sb-page .foot-in .logo{color:var(--night-ink)}
+#sb-page .foot-in .logo span{color:var(--night-muted)}
+#sb-page :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+#sb-page .res3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--teal)}
+#sb-page .res3 > div{display:grid;gap:7px;align-content:start;background:var(--teal-wash);padding:24px 22px}
+#sb-page .res3 .big{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+#sb-page .res3 .sub b{color:var(--ink);font-weight:600}
+@media (max-width:860px){#sb-page .res3{grid-template-columns:1fr}}
+#sb-page .cmp{background:var(--teal-wash);border-top:1px solid var(--teal);padding:22px;display:grid;gap:7px}
+#sb-page .cmp-l{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#sb-page .cmp-v{font-family:var(--f-disp);font-weight:800;font-size:1.5rem;letter-spacing:-.025em;color:var(--ink)}
+#sb-page .cmp-n{font-size:.86rem;line-height:1.55;color:var(--ink-2);max-width:82ch}
+#sb-page /* ===== marchio Segreteria Brave ===== */
+.sbmark{display:block;flex:none;color:var(--teal)}
+#sb-page .lockup{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+#sb-page .lockup .sbmark{width:26px;height:26px}
+#sb-page .lockup .lw{display:grid;gap:2px;line-height:1}
+#sb-page .lockup .lw b{font-family:var(--f-disp);font-weight:800;font-size:1.02rem;letter-spacing:-.025em;color:var(--ink)}
+#sb-page .lockup .lw span{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+#sb-page .lockup--hero{gap:13px}
+#sb-page .lockup--hero .sbmark{width:32px;height:32px}
+#sb-page .lockup--hero .lw{gap:4px}
+#sb-page .lockup--hero .lw b{font-size:1.2rem}
+#sb-page .lockup--dark .lw b{color:var(--night-ink)}
+#sb-page .lockup--dark .lw span{color:var(--night-muted)}
+#sb-page .lockup--dark .sbmark{color:var(--teal)}
+#sb-page .navmark{display:flex;align-items:center;gap:8px;padding-left:13px;margin-left:3px;border-left:1px solid var(--line)}
+#sb-page .navmark .sbmark{width:19px;height:19px}
+#sb-page .navmark b{font-family:var(--f-disp);font-weight:700;font-size:.82rem;letter-spacing:-.018em}
+@media (max-width:900px){#sb-page .navmark{display:none}}
+#sb-page .call-h .av--mark{background:transparent;display:grid;place-items:center}
+#sb-page .call-h .av--mark .sbmark{width:26px;height:26px;color:var(--teal)}
+</style>
+<div id="sb-page">
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="sb-mark" viewBox="0 0 120 120">
+    <rect x="23" y="72" width="64" height="40" rx="20" fill="currentColor"/>
+    <rect x="13" y="40" width="15" height="22" rx="7.5" fill="currentColor"/>
+    <rect x="36" y="22" width="15" height="40" rx="7.5" fill="currentColor"/>
+    <rect x="59" y="18" width="15" height="44" rx="7.5" fill="currentColor"/>
+    <rect x="82" y="36" width="15" height="26" rx="7.5" fill="currentColor"/>
+  </symbol>
+</svg>
+
+
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <div class="lockup lockup--hero lockup--dark" style="margin-bottom:6px">
+        <svg class="sbmark" viewBox="0 0 120 120" role="img" aria-label="Segreteria Brave"><use href="#sb-mark"/></svg>
+        <span class="lw"><b>Segreteria Brave</b><span>powered by Icarus</span></span>
+      </div>
+      <h1>Risponde sempre.<br>Non perde niente.</h1>
+      <p class="lede">La prima segreteria virtuale costruita solo per la clinica veterinaria. Risponde quando voi non potete, capisce che cosa serve a chi chiama, fissa l'appuntamento secondo le vostre regole e vi lascia ogni richiesta scritta e ordinata. Anche alle 23. Anche di domenica. Anche quando arrivano quattro chiamate insieme.</p>
+      <div class="btns">
+        <a class="btn btn--p" href="#demo">Prenota una demo</a>
+      </div>
+    </div>
+
+    <div class="call" aria-label="Esempio di richiesta registrata a portale">
+      <div class="call-h">
+        <span class="av av--mark"><svg class="sbmark" viewBox="0 0 120 120" aria-hidden="true"><use href="#sb-mark"/></svg></span>
+        <span class="who"><b>Richieste di oggi</b><span>una richiesta, aperta</span></span>
+        <span class="tm">18:04</span>
+      </div>
+      <dl>
+        <dt>Chiama</dt><dd>+39 340 118 27 64</dd>
+        <dt>Cliente</dt><dd>Mario Rossi</dd>
+        <dt>Paziente</dt><dd>Luna</dd>
+        <dt>Categoria</dt><dd>Controllo · da anticipare</dd>
+        <dt>In sintesi</dt><dd>Prurito non migliorato dopo la visita. Chiede un appuntamento prima del 18.</dd>
+        <dt>Stato</dt><dd>Fissato giovedì 15:40 · nota al medico</dd>
+      </dl>
+      <div class="call-f">Esempio dimostrativo · dati non reali</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- PROBLEMA -->
+  <section style="border-top:0">
+    <div class="sec-head">
+      <div class="kick">Il problema</div>
+      <h2>Il telefono squilla sempre nel momento sbagliato.</h2>
+      <p class="lede">E chi non trova risposta non richiama: chiama il numero successivo su Google. Chi invece resta in coda venti minuti vi risponde con una recensione.</p>
+    </div>
+    <div class="probs">
+      <div>
+        <span class="n">01</span>
+        <h3>Squilla mentre sei in visita</h3>
+        <p class="small">Ogni interruzione ti costa concentrazione nel momento in cui serve di più. Il telefono non ruba solo tempo: ruba qualità clinica.</p>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <h3>Squilla quando avete chiuso</h3>
+        <p class="small">Le sere, i sabati, i festivi. Sono le ore in cui il proprietario si accorge che il cane non sta bene — ed è esattamente quando nessuno può rispondere.</p>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <h3>Squilla mentre c'è già qualcuno davanti</h3>
+        <p class="small">Il front office deve scegliere tra chi è entrato dalla porta e chi sta al telefono. Qualunque cosa scelga, perde l'altro.</p>
+      </div>
+      <div>
+        <span class="n">04</span>
+        <h3>E chi non perdete, lo mettete in coda</h3>
+        <p class="small">La chiamata in attesa risulta «risposta» in qualunque statistica. Ma chi è quarto in fila riaggancia dopo venti minuti — e quella non la conta nessuno.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCOLATORE -->
+  <section id="conto">
+    <div class="sec-head">
+      <div class="kick">Fai il conto in dieci secondi</div>
+      <h2>Il telefono ti costa tre cose.<br>Solo una è in euro.</h2>
+      <p class="lede">Non servono i dati del centralino: bastano due numeri che sai a memoria. Le medie le mettiamo noi, e sono dichiarate qui sotto. Poi guarda quale delle tre cifre ti fa più male — è quella che dice di che cosa hai bisogno.</p>
+    </div>
+    <div class="calc-grid">
+      <div class="inputs">
+        <div class="field">
+          <label for="c-chiamate">Quante chiamate ricevete in un giorno, più o meno</label>
+          <input id="c-chiamate" type="number" min="0" max="2000" step="5" value="40" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="c-giorni">Quanti giorni all'anno siete aperti</label>
+          <input id="c-giorni" type="number" min="1" max="366" step="1" value="300" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="c-ticket">Valore medio di una prestazione <span class="mono" style="text-transform:none">(€)</span></label>
+          <input id="c-ticket" type="number" min="0" max="2000" step="5" value="110" inputmode="numeric">
+        </div>
+        <p class="assump small" style="color:var(--muted);line-height:1.6">Cosa mettiamo noi, sui dati di chi già usa il servizio: <strong>20%</strong> di chiamate che restano senza risposta o in coda, <strong>30%</strong> di quelle che erano una prenotazione, <strong>2 minuti e mezzo</strong> di durata media.</p>
+      </div>
+
+      <div class="result">
+        <div class="res3">
+          <div>
+            <span class="rl">Il tempo · ore all'anno</span>
+            <span class="big" id="out-ore">500 ore</span>
+            <p class="sub">È quanto il telefono prende al vostro staff in dodici mesi: <b id="out-gg">63</b> giornate piene di una persona. <b id="out-ore-rec">100</b> di quelle ore sono chiamate che oggi non riuscite nemmeno a prendere.</p>
+          </div>
+          <div>
+            <span class="rl">Le persone · in un anno</span>
+            <span class="big" id="out-pers">2.400</span>
+            <p class="sub">Quanti se ne vanno senza risposta, o dopo venti minuti di attesa. Qualcuno richiama. Qualcuno vi scrive su WhatsApp. Qualcuno chiama il numero dopo su Google e non lo sapete.</p>
+          </div>
+          <div>
+            <span class="rl">Il fatturato · anno</span>
+            <span class="big" id="out-anno">€ 79.200</span>
+            <p class="sub">Quanto vale in dodici mesi il telefono a cui non risponde nessuno. Non include chi, dopo una chiamata a vuoto, non torna più.</p>
+          </div>
+        </div>
+        <div class="cmp">
+          <span class="cmp-l">E quanto costa togliersele di dosso</span>
+          <span class="cmp-v" id="out-costo">circa € 180 al mese</span>
+          <span class="cmp-n">Ordine di grandezza sul traffico che ci girate, non un preventivo: quello arriva dopo i dati del vostro centralino. Qui serve solo il rapporto tra questa cifra e le tre qui sopra. Sopra i 3.000 minuti al mese il costo al minuto scende e l'offerta si costruisce sul caso.</span>
+        </div>
+      </div>
+    </div>
+    <p class="small" style="margin-top:18px;color:var(--muted);max-width:76ch">Una stima, non una promessa: la verifica puntuale e la personalizzazione della soluzione arrivano dopo la call con noi. Le chiamate lasciate in attesa risultano «risposte» in qualunque statistica di centralino: sono contate qui perché nella realtà si comportano come quelle perse.</p>
+  </section>
+</div>
+
+<!-- CHIAMATA -->
+<section class="demo" id="chiamata" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">Novanta secondi</div>
+      <h2>Una chiamata normale.<br>E quello che resta scritto dopo.</h2>
+      <p class="lede">Nessuna emergenza, nessun caso raro: la telefonata più frequente che una clinica riceve. Guardate dove finisce.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="turns">
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx">«Clinica Veterinaria Le Betulle, buongiorno. Sono <em>l'assistente virtuale</em> della clinica. Come posso aiutarla?»</span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Buongiorno. Sono il signor Rossi, per Luna. Si gratta ancora tantissimo, l'avete vista la settimana scorsa…»</span></div>
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx">«Ho qui il controllo di Luna fissato per il diciotto. Vuole che verifichi se c'è un posto prima?»</span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Sì, magari sì, perché così non va.»</span></div>
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx">«Ho giovedì alle 15:40 e venerdì alle 9:20, entrambi con il dottor Ferraris. Quale le va meglio?»</span></div>
+        <div class="turn"><span class="sp">Cliente</span><span class="tx">«Facciamo giovedì.»</span></div>
+        <div class="turn turn--g"><span class="sp">Segreteria</span><span class="tx"><em>«Fissato: giovedì 15:40, controllo per Luna. Le mando il promemoria su questo numero. Scrivo al dottor Ferraris che il prurito non è migliorato, così quando la vede sa già di che si tratta.»</em></span></div>
+      </div>
+
+      <div class="knows">
+        <h3>Cosa resta a voi, chiamata per chiamata</h3>
+        <ul>
+          <li><span><b>Chi ha chiamato e per che cosa</b> — numero, cliente, paziente, richiesta in due righe</span></li>
+          <li><span><b>La categoria</b> — ricetta, appuntamento, informazione, urgenza: filtrabile, contabile</span></li>
+          <li><span><b>Che cosa è stato fatto</b> — appuntamento fissato, messaggio preso, chiamata passata</span></li>
+          <li><span><b>La nota per il medico</b> — così chi visita sa già prima di entrare in sala</span></li>
+          <li><span><b>Audio e trascrizione integrali</b> — se volete verificare parola per parola</span></li>
+        </ul>
+        <p class="small" style="color:var(--night-muted);border-top:1px solid var(--night-line);padding-top:13px">Questo è quello che il servizio fa oggi, in ogni configurazione. <strong>Il riconoscimento del chiamante dal gestionale — nome, storico, terapie — è l'integrazione su cui stiamo lavorando adesso</strong>, e sarà il passo successivo.</p>
+      </div>
+    </div>
+
+    <div class="hear">
+      <div class="hear-t">
+        <span class="kick">Qui la leggi. In demo la senti.</span>
+        <p>Il testo qui sopra è la ricostruzione di una telefonata tipo. La <strong>voce</strong> non la mettiamo online: te la facciamo sentire in diretta durante la demo, insieme al portale dove ogni chiamata finisce scritta. Trenta minuti, senza impegno.</p>
+      </div>
+      <a class="btn btn--p" href="#demo">Prenota la demo</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <!-- ESPERIENZA -->
+  <section id="esperienza" style="border-top:0">
+    <div class="sec-head">
+      <div class="kick">L'esperienza di chi chiama</div>
+      <h2>Nessuno resta più<br>con il telefono in mano.</h2>
+      <p class="lede">Il telefono è il primo punto di contatto con la vostra struttura, e spesso è quello su cui vi giudicano prima ancora di conoscere la vostra medicina. È anche l'unico su cui oggi non potete fare niente: se squilla mentre siete in visita, squilla e basta.</p>
+    </div>
+
+    <div class="xp">
+      <div>
+        <span class="q">01</span>
+        <h3>Al primo squillo, non al quarto posto in coda</h3>
+        <p class="small">Nessuna attesa, nessun «la sua chiamata è importante per noi». Chi è quarto in fila riaggancia dopo venti minuti — e quella chiamata risulta «risposta» in qualunque statistica di centralino.</p>
+      </div>
+      <div>
+        <span class="q">02</span>
+        <h3>Anche quando ne arrivano quattro insieme</h3>
+        <p class="small">Il lunedì mattina, dopo un ponte, quando c'è già qualcuno davanti al front office. Le chiamate in contemporanea vengono prese tutte: è la cosa che una persona sola non può fare, per quanto brava sia.</p>
+      </div>
+      <div>
+        <span class="q">03</span>
+        <h3>Alle 23 e di domenica</h3>
+        <p class="small">Le ore in cui il proprietario si accorge che l'animale non sta bene sono le stesse in cui la clinica è chiusa. Trovare una risposta a quell'ora cambia il ricordo che quella persona avrà di voi.</p>
+      </div>
+    </div>
+
+    <div class="claim">
+      <p class="big">Mai più una telefonata senza risposta.</p>
+      <p class="sub">Chi non vi trova non ve lo dice: vi scrive su WhatsApp la sera, oppure chiama il numero successivo su Google e voi non lo saprete mai. Una parte di quelle persone lascia una recensione, e parla del telefono — non della visita. <strong>Questo è il punto di contatto su cui si può intervenire subito</strong>, e l'unico in cui il miglioramento si vede dal primo giorno.</p>
+    </div>
+  </section>
+
+  <!-- MODALITÀ -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Come si attiva</div>
+      <h2>Il mestiere lo sa già.<br>Quello che impara<br>è la vostra clinica.</h2>
+      <p class="lede">L'addestramento sul mondo veterinario è già stato fatto: il linguaggio, le richieste che arrivano davvero, i nomi dei farmaci come li pronunciano i proprietari. Quello che resta da fare è la parte che riguarda solo voi — com'è organizzata la vostra struttura — e il collegamento a quello che usate già.</p>
+    </div>
+    <div class="modes">
+      <div>
+        <span class="tag">Primo · la personalizzazione</span>
+        <h3>Impara com'è fatta la vostra clinica</h3>
+        <p class="small">La base veterinaria c'è già. Quello che aggiungiamo è il vostro caso: orari, sedi, servizi, come si prenota da voi, chi fa cosa, che cosa è urgenza e che cosa non deve mai dire. Sono le informazioni che oggi stanno nella testa di chi risponde al telefono: le mettiamo per iscritto una volta, e da lì in avanti ci sono.</p>
+        <ul>
+          <li>Risponde, filtra e informa secondo le vostre regole</li>
+          <li>Prende la richiesta strutturata e ve la lascia a portale</li>
+          <li>Prenota secondo i criteri che le avete dato</li>
+          <li>Riconosce i farmaci anche quando il nome viene storpiato</li>
+          <li>Le regole si cambiano quando volete, senza rifare tutto</li>
+        </ul>
+        <p class="foot">Si fa insieme, in configurazione, con chi le telefonate le conosce a memoria.</p>
+      </div>
+      <div>
+        <span class="tag">Secondo · il collegamento</span>
+        <h3>Si aggancia a quello che avete già</h3>
+        <p class="small">Il centralino deve poterle girare le chiamate, e l'agenda deve poter essere letta. Sono i due collegamenti che decidono i tempi di attivazione, e dipendono da che cosa i vostri sistemi consentono: in demo lo verifichiamo prima di partire, non dopo.</p>
+        <ul>
+          <li>Inoltro delle chiamate dal vostro centralino</li>
+          <li>Lettura dell'agenda per rispondere sugli appuntamenti</li>
+          <li>Collegamento al gestionale, dove le sue interfacce lo permettono</li>
+          <li>Se un pezzo non c'è, si parte lo stesso e si aggiunge dopo</li>
+        </ul>
+        <p class="foot">Nessuno dei due collegamenti lo fate voi: li seguiamo noi con chi vi gestisce i sistemi.</p>
+      </div>
+      <div>
+        <span class="tag">Terzo · la formazione, compresa</span>
+        <h3>Insegniamo a usarla a chi la userà</h3>
+        <p class="small">Un servizio che nessuno sa governare è un servizio che dopo tre mesi non usa più nessuno. Per questo <strong>l'attivazione comprende la formazione di chi se ne prende carico in clinica</strong>: non un manuale da leggere, una sessione con noi sul vostro caso, con la vostra configurazione davanti.</p>
+        <ul>
+          <li>Come si legge il portale e come si chiude una richiesta</li>
+          <li>Quando intervenire e quando lasciar fare</li>
+          <li>Come si cambia una regola senza chiamare nessuno</li>
+          <li>Che cosa dire a un cliente che chiede di parlare con una persona</li>
+        </ul>
+        <p class="foot">È compresa nell'attivazione, non è un costo a parte.</p>
+      </div>
+    </div>
+
+    <div class="note" style="border-left:3px solid var(--teal);padding:6px 0 6px 18px;margin-top:28px;max-width:74ch">
+      <p class="small"><strong>Se usate Snoots, la strada è più corta.</strong> Molte delle informazioni che servono a istruirla sono già nel gestionale, e <strong>Segreteria Brave è presente nel marketplace Snoots</strong>: la configurazione si accorcia e il collegamento è già previsto. Con gli altri gestionali si valuta caso per caso che cosa le loro interfacce permettono — e quello che non si può collegare, glielo insegniamo.</p>
+    </div>
+  </section>
+
+  <!-- LIMITI -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Il perimetro, scritto</div>
+      <h2>Cosa non fa mai.</h2>
+      <p class="lede">Il confine si decide insieme in configurazione, e resta scritto. Perché la fiducia si costruisce sui limiti dichiarati, non sulle promesse. Su un punto in particolare non c'è margine: <strong>la parte clinica non la tocca</strong>.</p>
+    </div>
+    <div class="limits">
+      <div><b>Non fa diagnosi</b><span>Non interpreta sintomi e non ipotizza patologie. Se la domanda è clinica, la domanda passa al veterinario.</span></div>
+      <div><b>Non prescrive e non modifica terapie</b><span>Può leggere ciò che è in cartella. Non può cambiarlo, aggiungerlo o sospenderlo.</span></div>
+      <div><b>Non decide da sola un'urgenza</b><span>Applica i criteri che le hai dato. Nel dubbio, escalation immediata al numero che indichi tu.</span></div>
+      <div><b>Non finge di essere una persona</b><span>Lo dichiara da sola, in apertura di chiamata, a chiunque: è quello che il regolamento europeo sull'intelligenza artificiale richiede dal 2 agosto 2026. E non le serve fingere per fare bene il suo lavoro.</span></div>
+      <div><b>Non fa niente con i dati che non sia stato concordato</b><span>Che cosa viene registrato, per quanto si conserva e chi vi accede si stabilisce per iscritto prima dell'attivazione. La clinica resta titolare del trattamento.</span></div>
+      <div><b>Non sostituisce il tuo front office</b><span>Prende le chiamate che oggi si perdono, così chi c'è può occuparsi di chi è entrato dalla porta. Cambia che cosa fa la segreteria, non quante persone servono.</span></div>
+    </div>
+  </section>
+
+  <!-- SEGRETERIA -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">A chi gestisce il front office</div>
+      <h2>Questa pagina parla al titolare.<br>Ma il servizio lo userete voi.</h2>
+      <p class="lede">Se siete voi a rispondere al telefono tutto il giorno, la domanda vera è una sola, e non è se funziona.</p>
+    </div>
+    <div class="limits">
+      <div><b>Non vi toglie il posto: vi toglie la parte peggiore</b><span>Gli orari, il «siete aperti sabato», il farmaco da ripetere, il numero da dare. Quelle chiamate le prende lei. Quelle in cui serve una persona restano vostre — e finalmente avete il tempo di farle bene.</span></div>
+      <div><b>Non dovete imparare un programma nuovo</b><span>Una pagina sola, sempre aperta di fianco al gestionale, con l'elenco di quello che è arrivato. Si legge, si segna fatto, si archivia. E non ve lo lasciamo scoprire da soli: <strong>la formazione di chi la gestisce è compresa nell'attivazione</strong>, e si fa con voi, non sopra di voi.</span></div>
+      <div><b>Smettete di dire «scusi, un attimo» a chi avete davanti</b><span>Chi è entrato dalla porta non viene più interrotto ogni novanta secondi. È la cosa che cambia di più, e non si vede in nessun numero.</span></div>
+      <div><b>Decidete voi che cosa le fate fare</b><span>Le regole si scrivono in configurazione, e la configurazione la facciamo con voi, non sopra di voi. Nessuno conosce le telefonate di quella clinica meglio di chi le risponde.</span></div>
+    </div>
+  </section>
+
+  <!-- IN FUNZIONE -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Non è un annuncio</div>
+      <h2>È già al telefono,<br>in cliniche veterinarie italiane.</h2>
+      <p class="lede">Clienti veri che chiamano, agende vere che si riempiono, richieste che ogni sera sono scritte e ordinate. Non stiamo presentando un progetto: stiamo aprendo a nuove strutture un servizio che è già in funzione.</p>
+    </div>
+    <div class="limits">
+      <div><b>Risponde tutti i giorni</b><span>Comprese le sere, i sabati e i festivi, cioè le ore in cui il proprietario si accorge che l'animale non sta bene ed è esattamente quando nessuno può rispondere.</span></div>
+      <div><b>Impara dalle strutture che la usano</b><span>Ogni configurazione nuova aggiunge casistiche veterinarie al modo in cui il servizio gestisce le richieste. Chi entra adesso contribuisce a come funzionerà.</span></div>
+      <div><b>Si parte in piccolo</b><span>Si comincia recuperando le chiamate che oggi si perdono, si guardano i risultati nel portale, e solo dopo si decide se farle prendere più traffico.</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="sec-head">
+      <div class="kick">Le domande che ci fate</div>
+      <h2>Quelle vere, con risposte vere.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>I miei clienti capiranno che non è una persona?</summary>
+        <p class="ans">Sì, e glielo dice lei: si presenta come assistente virtuale all'inizio di ogni chiamata. Non è una scelta nostra, è un obbligo del regolamento europeo sull'intelligenza artificiale in vigore dal 2 agosto 2026 — e ci mettiamo il nome sopra volentieri. Il fastidio, al telefono, non nasce dal fatto che dall'altra parte ci sia una macchina: nasce da una macchina che non capisce e fa perdere tempo. La reazione più frequente che raccogliamo non è «ho parlato con un robot», è «finalmente qualcuno che risponde».</p>
+      </details>
+      <details>
+        <summary>Sostituisce la mia segretaria?</summary>
+        <p class="ans">No: cambia che cosa fa. Oggi il tuo front office interrompe ogni novanta secondi la persona che ha davanti per dire un orario al telefono. La segreteria prende quelle chiamate — soprattutto quelle che oggi si perdono, la sera, nei weekend, quando ne arrivano quattro insieme — e restituisce al tuo staff le ore per il lavoro che vale davvero. Nelle strutture in cui è attiva il telefono ha smesso di squillare, e le persone sono le stesse.</p>
+      </details>
+      <details>
+        <summary>E se dà un'informazione sbagliata? La responsabilità è mia.</summary>
+        <p class="ans">Prima dell'attivazione si stabilisce per iscritto che cosa può dire, che cosa non deve dire mai e come si comporta nei casi che non sa gestire — e quel perimetro lo decidi tu (vedi «Cosa non fa mai»). Fuori dal perimetro c'è un solo comportamento possibile: passare al veterinario, o far richiamare. Sulla parte clinica non c'è configurazione che tenga: non la tocca, punto. Il quadro completo di responsabilità e obblighi è parte del contratto, non una rassicurazione a voce.</p>
+      </details>
+      <details>
+        <summary>Dove finiscono i dati dei miei clienti e dei pazienti?</summary>
+        <p class="ans">La clinica resta titolare del trattamento. Registrazioni, trascrizioni e richieste sono trattate per erogare il servizio, con tempi di conservazione concordati con voi e messi per iscritto prima di attivare qualunque cosa. Ricevete l'informativa da esporre in struttura e l'avviso che viene dato in apertura di chiamata. Se volete leggere tutto prima di firmare, è esattamente quello che ci aspettiamo.</p>
+      </details>
+      <details>
+        <summary>Devo cambiare gestionale per usarla?</summary>
+        <p class="ans">No. Quello che usi oggi continui a usarlo: la segreteria si istruisce sulla tua clinica e <strong>si collega ai sistemi che hai già</strong>, nella misura in cui questi lo consentono — alcuni gestionali si aprono facilmente, altri meno, e lo verifichiamo prima di partire. Con <strong>Snoots la configurazione è la più rapida</strong>: molte informazioni sono già lì e Segreteria Brave è presente nel suo marketplace.</p>
+      </details>
+      <details>
+        <summary>Quanto tempo serve per attivarla?</summary>
+        <p class="ans">La configurazione è una conversazione, non un progetto: si raccolgono orari, servizi, regole di prenotazione, criteri di urgenza e il perimetro di cosa non deve fare. Il passaggio che decide i tempi è un altro, e conviene saperlo subito: <strong>l'inoltro delle chiamate lo imposta chi vi gestisce il centralino</strong>. Se non ne avete uno, se ne parla in demo: ci sono soluzioni semplici. Nel percorso di attivazione è compresa anche la formazione di chi in clinica la userà ogni giorno: è l'ultimo passo prima di accenderla.</p>
+      </details>
+    </div>
+  </section>
+</div>
+
+<!-- CLOSING -->
+<section class="close" id="demo">
+  <div class="wrap close-grid">
+    <div class="close-in">
+      <div class="kick">Il prossimo passo</div>
+      <h2>Trenta minuti,<br>e la senti rispondere.</h2>
+      <p class="lede">In demo ti facciamo ascoltare una chiamata vera, ti mostriamo il portale dove finisce scritta e facciamo insieme il conto di quanto ti costa oggi il telefono. Prezzo e condizioni te li diciamo lì, senza giri.</p>
+      <ul class="close-list">
+        <li>Ascolti la segreteria rispondere a una chiamata vera</li>
+        <li>Vedi il portale dove ogni richiesta resta scritta</li>
+        <li>Facciamo il conto con i numeri della tua clinica</li>
+        <li>Prezzo, tempi di attivazione e formazione compresa, detti in call</li>
+      </ul>
+      <p class="small" style="color:var(--night-muted)">Se puoi, porta in call anche chi risponde al telefono: è la mezz'ora che vale di più.</p>
+      <div class="lockup lockup--dark" style="margin-top:6px">
+        <svg class="sbmark" viewBox="0 0 120 120" aria-hidden="true"><use href="#sb-mark"/></svg>
+        <span class="lw"><b>Segreteria Brave</b><span>powered by Icarus</span></span>
+      </div>
+      <p class="small" style="color:var(--night-muted);border-top:1px solid var(--night-line);padding-top:14px">All'inizio di ogni telefonata la voce dichiara di essere un'assistente virtuale, come previsto dal regolamento europeo sull'intelligenza artificiale. Registrazioni e trascrizioni sono trattate secondo l'<a href="/privacy-policy/">informativa privacy</a>, con tempi di conservazione concordati con la clinica.</p>
+    </div>
+
+    <form class="bookform" id="form-demo" novalidate>
+      <p class="bf-h">Prenota la demo</p>
+      <div class="bf-row">
+        <label for="bf-nome">Nome e cognome</label>
+        <input id="bf-nome" name="nome" type="text" autocomplete="name" placeholder="Andrea Ferraris">
+      </div>
+      <div class="bf-row">
+        <label for="bf-struttura">Struttura</label>
+        <input id="bf-struttura" name="struttura" type="text" autocomplete="organization" placeholder="Clinica Veterinaria…">
+      </div>
+      <div class="bf-row">
+        <label for="bf-email">Email</label>
+        <input id="bf-email" name="email" type="email" autocomplete="email" placeholder="nome@clinica.it">
+      </div>
+      <div class="bf-row">
+        <label for="bf-tel">Telefono</label>
+        <input id="bf-tel" name="telefono" type="tel" autocomplete="tel" placeholder="+39 …">
+      </div>
+      <div class="bf-row">
+        <label for="bf-gest">Gestionale in uso</label>
+        <select id="bf-gest" name="gestionale">
+          <option value="snoots">Snoots</option>
+          <option value="altro">Un altro gestionale</option>
+          <option value="altro-api">Un altro gestionale, ma non lo gestisco io</option>
+          <option value="nessuno">Nessuno / carta e agenda</option>
+        </select>
+      </div>
+      <button class="btn btn--p bf-go" type="submit">Richiedi la demo</button>
+      <p class="bf-note">Ti richiamiamo entro un giorno lavorativo per fissare l'orario. Nessun impegno, nessun preventivo automatico. Inviando la richiesta accetti l'<a href="/privacy-policy/" target="_blank" rel="noopener">informativa privacy</a>.</p>
+      <p class="bf-note bf-prev" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+
+
+<script>
+(function(){
+  // Medie nostre, dichiarate in pagina: l'utente inserisce solo cio che sa a memoria.
+  var PERSE = 0.20, PREN = 0.30, MIN_CHIAMATA = 2.5, EURO_MIN = 0.36, ORE_GIORNATA = 8;
+
+  var ids = ['c-chiamate','c-giorni','c-ticket'];
+  var els = {};
+  ids.forEach(function(i){ els[i] = document.getElementById(i); });
+  var out = {};
+  ['out-ore','out-gg','out-ore-rec','out-pers','out-anno','out-costo'].forEach(function(i){
+    out[i] = document.getElementById(i);
+  });
+
+  var eur = new Intl.NumberFormat('it-IT',{maximumFractionDigits:0});
+
+  function num(el, fallback){
+    var v = parseFloat(el.value);
+    if (isNaN(v) || v < 0) return fallback;
+    return v;
+  }
+
+  function calc(){
+    var chiamate = num(els['c-chiamate'], 0);
+    var giorni   = num(els['c-giorni'], 0);
+    var ticket   = num(els['c-ticket'], 0);
+
+    var perseGG  = chiamate * PERSE;
+
+    // 1. Il tempo: ore che il telefono assorbe, e quota che oggi non riuscite a prendere.
+    var oreAnno  = (chiamate * giorni * MIN_CHIAMATA) / 60;
+    var oreRec   = (perseGG  * giorni * MIN_CHIAMATA) / 60;
+    var giornate = oreAnno / ORE_GIORNATA;
+
+    // 2. Le persone rimaste senza risposta.
+    var persone  = perseGG * giorni;
+
+    // 3. Il fatturato mancato.
+    var anno     = perseGG * PREN * ticket * giorni;
+
+    // Costo: solo i minuti che girate al servizio.
+    var minutiMese = (oreRec * 60) / 12;
+    var costoMese  = minutiMese * EURO_MIN;
+
+    out['out-ore'].textContent     = eur.format(Math.round(oreAnno)) + ' ore';
+    out['out-gg'].textContent      = eur.format(Math.round(giornate));
+    out['out-ore-rec'].textContent = eur.format(Math.round(oreRec));
+    out['out-pers'].textContent    = eur.format(Math.round(persone));
+    out['out-anno'].textContent    = '\u20AC ' + eur.format(Math.round(anno));
+    out['out-costo'].textContent   = minutiMese > 3000
+      ? 'offerta dedicata'
+      : 'circa \u20AC ' + eur.format(Math.round(costoMese/10)*10) + ' al mese';
+  }
+
+  ids.forEach(function(i){
+    els[i].addEventListener('input', calc);
+    els[i].addEventListener('change', calc);
+  });
+  calc();
+
+  // Anteprima: il form non è ancora collegato a un endpoint.
+  var form = document.getElementById('form-demo');
+  var prev = form ? form.querySelector('.bf-prev') : null;
+  if (form && prev) {
+    // Indirizzo a cui arriva la richiesta di demo. Finche' resta vuoto il
+    // modulo NON invia niente: in quel caso non diciamo a chi compila che lo
+    // richiameremo, perche' non sarebbe vero e perderemmo il contatto.
+    var ENDPOINT = '';
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!ENDPOINT){
+        prev.textContent = 'Anteprima · il modulo non è ancora collegato: la richiesta non parte';
+        return;
+      }
+      var dati = {};
+      new FormData(form).forEach(function(v,k){ dati[k] = v; });
+      prev.textContent = 'Invio in corso\u2026';
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(dati)
+      }).then(function(r){
+        if (!r.ok) throw new Error(r.status);
+        form.reset();
+        prev.textContent = 'Grazie: ti richiamiamo entro un giorno lavorativo.';
+      }).catch(function(){
+        prev.textContent = 'Non siamo riusciti a inviare la richiesta. Riprova, oppure scrivici.';
+      });
+    });
+  }
+})();
+</script>
+</div>
+]]></content:encoded>
+    <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+    <wp:post_id>9102</wp:post_id>
+    <wp:post_date>2026-09-19 07:11:59</wp:post_date>
+    <wp:post_date_gmt>2026-09-19 07:11:59</wp:post_date_gmt>
+    <wp:comment_status>closed</wp:comment_status>
+    <wp:ping_status>closed</wp:ping_status>
+    <wp:post_name>segreteria-brave</wp:post_name>
+    <wp:status>draft</wp:status>
+    <wp:post_parent>9101</wp:post_parent>
+    <wp:menu_order>1</wp:menu_order>
+    <wp:post_type>page</wp:post_type>
+    <wp:post_password></wp:post_password>
+    <wp:is_sticky>0</wp:is_sticky>
+  </item>
+</channel>
+</rss>

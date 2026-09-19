@@ -1,0 +1,365 @@
+<!-- Tools · generata da build/build-wordpress.py, non modificare a mano -->
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=Archivo:wdth,wght@75..125,400;75..125,500;75..125,600;75..125,700&family=Space+Mono:wght@400;700&display=swap");
+#tools-page{color-scheme:light}
+
+/* Corazza contro il tema del sito.
+   Il tema colpisce gli elementi per nome (h2, a, p) e una regola
+   diretta batte sempre un valore ereditato: senza questo blocco i titoli di
+   sezione prenderebbero il colore del tema invece del nostro. Sta PRIMA del
+   CSS della pagina, quindi tutte le nostre regole continuano a vincere su
+   di esso. Non tocca font-weight ne' sfondi: quelli la pagina se li imposta
+   da sola, e sovrascriverli qui sarebbe rischioso senza guadagno. */
+#tools-page h1,#tools-page h2,#tools-page h3,#tools-page h4,#tools-page h5,#tools-page h6,#tools-page p,#tools-page a,#tools-page li,#tools-page dt,#tools-page dd,
+#tools-page span,#tools-page small,#tools-page label,#tools-page th,#tools-page td,#tools-page blockquote,#tools-page figcaption,
+#tools-page strong,#tools-page b,#tools-page em,#tools-page i,#tools-page code{color:inherit;font-family:inherit}
+#tools-page input,#tools-page select,#tools-page textarea,#tools-page button{color:inherit;font-family:inherit;font-size:inherit;line-height:inherit}
+#tools-page h1,#tools-page h2,#tools-page h3,#tools-page h4,#tools-page h5,#tools-page h6,#tools-page p,#tools-page ul,#tools-page ol,#tools-page li,
+#tools-page figure,#tools-page blockquote{margin:0;padding:0}
+#tools-page ul,#tools-page ol{list-style:none}
+#tools-page a{text-decoration:none}
+
+#tools-page{
+  --paper:#F2F5F4;
+  --raise:#FFFFFF;
+  --field:#E7EDEB;
+  --ink:#0B1715;
+  --ink-2:#3D504D;
+  --muted:#5E716F;
+  --line:#CCD8D5;
+  --line-soft:#DEE7E5;
+  --teal:#76B6B5;
+  --teal-deep:#26706E;
+  --teal-wash:#DEEDEC;
+  --live:#1FA463;
+  --night:#07120F;
+  --night-2:#0E1D1A;
+  --night-line:#1E322E;
+  --night-ink:#E7EFED;
+  --night-muted:#8FA5A1;
+
+  --f-disp:'Fraunces',Georgia,'Times New Roman',serif;
+  --f-ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-mono:'Space Mono',ui-monospace,Menlo,monospace;
+  --maxw:1160px;
+}
+#tools-page,#tools-page *{box-sizing:border-box}
+#tools-page{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+#tools-page img{max-width:100%}
+#tools-page .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:24px}
+#tools-page h1,#tools-page h2,#tools-page h3{font-family:var(--f-disp);margin:0;line-height:1.06;letter-spacing:-.018em;text-wrap:balance;font-variation-settings:'SOFT' 20,'WONK' 1}
+#tools-page h1{font-size:clamp(2.6rem,6.6vw,4.6rem);font-weight:700}
+#tools-page h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:700}
+#tools-page h3{font-size:1.32rem;font-weight:600;letter-spacing:-.01em}
+#tools-page p{margin:0}
+#tools-page .lede{font-size:clamp(1.05rem,1.85vw,1.24rem);line-height:1.58;color:var(--ink-2);max-width:60ch}
+#tools-page .kick{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);display:flex;align-items:center;gap:.65em}
+#tools-page .kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none}
+#tools-page .mono{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+#tools-page .small{font-size:.93rem;line-height:1.55;color:var(--ink-2)}
+#tools-page strong{font-weight:600;color:var(--ink)}
+#tools-page /* ---------- nav (chrome BVB) ---------- */
+.nav{border-bottom:1px solid var(--line);background:var(--paper);position:sticky;top:0;z-index:40}
+#tools-page /* La barra e appiccicata: gli ancoraggi non devono finirci sotto. */
+[id]{scroll-margin-top:84px}
+@media (prefers-reduced-motion:no-preference){}
+#tools-page .nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+#tools-page .logo{display:flex;align-items:center;gap:9px;font-family:var(--f-ui);font-weight:700;font-size:.88rem;letter-spacing:.01em;line-height:1.05}
+#tools-page .logo .pep{width:11px;height:11px;border-radius:50% 50% 50% 2px;background:var(--teal);transform:rotate(35deg);flex:none}
+#tools-page .logo span{display:block;font-weight:400;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+#tools-page .nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+#tools-page .nav a{color:var(--ink-2);text-decoration:none;font-size:.85rem;font-weight:500}
+#tools-page .nav a.on{color:var(--ink);border-bottom:2px solid var(--teal);padding-bottom:2px}
+#tools-page .nav .cta{background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:2px;font-size:.8rem;font-weight:600;text-decoration:none;white-space:nowrap}
+@media (max-width:860px){#tools-page .nav ul{display:none}}
+#tools-page /* ---------- hero ---------- */
+.hero{background:var(--night);color:var(--night-ink);border-bottom:1px solid var(--night-line)}
+#tools-page /* Sui fondi scuri: link leggibili,#tools-page ma i pulsanti tengono il proprio colore. */
+.hero a:not(.btn):not(.cta),#tools-page .demo a:not(.btn),#tools-page .close a:not(.btn){color:var(--teal)}
+#tools-page .hero .small,#tools-page .demo .small,#tools-page .close .small{color:var(--night-muted)}
+#tools-page /* Il grassetto eredita --ink,#tools-page che sul nero e' nero: va riportato in chiaro. */
+.hero strong,#tools-page .demo strong,#tools-page .close strong,#tools-page .call strong{color:var(--night-ink)}
+#tools-page .hero-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(30px,5vw,60px);padding-block:clamp(48px,7vw,86px);align-items:center}
+@media (max-width:900px){#tools-page .hero-in{grid-template-columns:1fr}}
+#tools-page .hero h1{color:var(--night-ink)}
+#tools-page .hero .lede{color:var(--night-muted);max-width:52ch}
+#tools-page .hero-copy{display:grid;gap:22px}
+#tools-page .hero .kick{color:var(--teal)}
+#tools-page .badge-row{display:flex;flex-wrap:wrap;gap:9px}
+#tools-page .badge{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;border:1px solid var(--night-line);color:var(--night-muted);padding:5px 9px;border-radius:2px}
+#tools-page .badge--live{border-color:var(--live);color:var(--live);display:flex;align-items:center;gap:6px}
+#tools-page .badge--live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live);animation:blink 2.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@media (prefers-reduced-motion:reduce){#tools-page .badge--live::before{animation:none}}
+#tools-page .btns{display:flex;flex-wrap:wrap;gap:11px;align-items:center}
+#tools-page .btn{font-family:var(--f-ui);font-weight:600;font-size:.92rem;padding:13px 22px;border-radius:2px;text-decoration:none;border:1px solid transparent;cursor:pointer;display:inline-block}
+#tools-page .btn--p{background:var(--teal);color:#06201F}
+#tools-page .btn--s{border-color:var(--night-line);color:var(--night-ink)}
+#tools-page /* live call card */
+.call{background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+#tools-page .call-h{display:flex;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+#tools-page .call-h .av{width:42px;height:42px;border-radius:50%;background:var(--teal);color:var(--night);display:grid;place-items:center;flex:none;font-family:var(--f-disp);font-weight:900;font-size:1.2rem;line-height:1}
+#tools-page .call-h .who{display:grid;gap:2px;min-width:0}
+#tools-page .call-h .who b{font-size:.94rem;font-weight:600;color:var(--night-ink)}
+#tools-page .call-h .who span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--live)}
+#tools-page .call-h .tm{margin-left:auto;font-family:var(--f-mono);font-size:.74rem;color:var(--night-muted);font-variant-numeric:tabular-nums}
+#tools-page .call dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr)}
+#tools-page .call dt{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase;color:var(--night-muted);padding:11px 12px 11px 18px;border-bottom:1px solid var(--night-line);white-space:nowrap}
+#tools-page .call dd{margin:0;padding:11px 18px 11px 0;border-bottom:1px solid var(--night-line);font-size:.9rem;color:var(--night-ink);font-variant-numeric:tabular-nums}
+#tools-page .call dl > :nth-last-child(-n+2){border-bottom:0}
+#tools-page .call-f{padding:12px 18px;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;color:var(--night-muted);border-top:1px solid var(--night-line)}
+#tools-page /* ---------- sections ---------- */
+section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
+#tools-page .sec-head{display:grid;gap:14px;margin-bottom:38px;max-width:68ch}
+#tools-page /* problem */
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .probs > div{background:var(--paper);padding:26px 24px;display:grid;gap:11px;align-content:start}
+#tools-page .probs .n{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.16em;color:var(--teal-deep)}
+#tools-page .probs h3{font-size:1.18rem}
+@media (max-width:800px){#tools-page .probs{grid-template-columns:1fr}}
+#tools-page /* dialogo */
+.demo{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+#tools-page .demo h2,#tools-page .demo h3{color:var(--night-ink)}
+#tools-page .demo .lede{color:var(--night-muted)}
+#tools-page .demo .kick{color:var(--teal)}
+#tools-page .demo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:clamp(24px,4vw,44px);align-items:start}
+@media (max-width:900px){#tools-page .demo-grid{grid-template-columns:1fr}}
+#tools-page .turns{display:grid;border:1px solid var(--night-line);border-radius:3px;overflow:hidden}
+#tools-page .turn{display:grid;grid-template-columns:78px minmax(0,1fr);gap:14px;padding:15px 18px;border-bottom:1px solid var(--night-line)}
+#tools-page .turn:last-child{border-bottom:0}
+#tools-page .turn .sp{font-family:var(--f-mono);font-size:.59rem;letter-spacing:.12em;text-transform:uppercase;color:var(--night-muted);padding-top:.3em}
+#tools-page .turn--g{background:var(--night-2)}
+#tools-page .turn--g .sp{color:var(--teal)}
+#tools-page .turn .tx{font-size:1rem;line-height:1.5}
+#tools-page .turn em{font-style:normal;color:var(--teal);font-weight:500}
+@media (max-width:520px){#tools-page .turn{grid-template-columns:1fr;gap:5px}
+#tools-page .turn .sp{padding-top:0}}
+#tools-page .knows{border:1px solid var(--night-line);border-radius:3px;padding:20px;display:grid;gap:13px;background:var(--night-2)}
+#tools-page .knows h3{font-size:1.05rem;font-family:var(--f-ui);font-weight:600;letter-spacing:0}
+#tools-page .knows ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+#tools-page .knows li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.92rem;color:var(--night-muted);line-height:1.45}
+#tools-page .knows li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.48em}
+#tools-page .knows li b{color:var(--night-ink);font-weight:600}
+#tools-page /* calcolatore */
+.calc-grid{display:grid;gap:clamp(20px,3vw,30px)}
+@media (max-width:880px){#tools-page .calc-grid{grid-template-columns:1fr}}
+#tools-page .inputs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .inputs > .field{background:var(--raise)}
+#tools-page .inputs > .assump{grid-column:1/-1;background:var(--raise);padding:14px 18px;border-top:1px solid var(--line-soft)}
+@media (max-width:760px){#tools-page .inputs{grid-template-columns:1fr}}
+#tools-page .field{display:grid;grid-template-rows:1fr auto;gap:12px;align-items:start;padding:16px 18px}
+#tools-page .field input{width:100%}
+#tools-page .field label{font-size:.94rem;color:var(--ink-2);line-height:1.35}
+#tools-page .field input{
+  font-family:var(--f-mono);font-size:.95rem;text-align:right;padding:8px 10px;
+  border:1px solid var(--line);border-radius:2px;background:var(--paper);color:var(--ink);width:100%;
+  font-variant-numeric:tabular-nums
+}
+#tools-page .result{display:grid;gap:0;border:1px solid var(--teal)}
+#tools-page .result .rl{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#tools-page .result .big{font-family:var(--f-disp);font-weight:900;font-size:clamp(2.4rem,7vw,3.4rem);line-height:1;letter-spacing:-.035em;color:var(--ink);font-variant-numeric:tabular-nums;font-variation-settings:'SOFT' 0,'WONK' 0}
+#tools-page .result .sub{font-size:.92rem;color:var(--ink-2);line-height:1.5}
+#tools-page .result .brk{font-family:var(--f-mono);font-size:.72rem;color:var(--teal-deep);border-top:1px solid var(--teal);padding-top:12px;line-height:1.6;font-variant-numeric:tabular-nums}
+#tools-page /* modalità */
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .modes > div{background:var(--paper);padding:28px 26px;display:grid;gap:15px;align-content:start}
+#tools-page .modes .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+#tools-page .modes--hi{background:var(--raise)!important;border-left:3px solid var(--teal)}
+#tools-page .modes--hi .tag{color:var(--teal-deep)}
+#tools-page .modes ul{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+#tools-page .modes li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:.94rem;color:var(--ink-2);line-height:1.45}
+#tools-page .modes li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+#tools-page .modes .foot{font-size:.88rem;color:var(--muted);border-top:1px solid var(--line-soft);padding-top:14px;line-height:1.5}
+@media (max-width:760px){#tools-page .modes{grid-template-columns:1fr}}
+#tools-page /* limiti */
+.limits{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .limits > div{background:var(--paper);padding:20px 22px;display:grid;gap:7px;align-content:start}
+#tools-page .limits b{font-family:var(--f-ui);font-weight:600;font-size:1rem;display:flex;gap:10px;align-items:baseline}
+#tools-page .limits b::before{content:"—";color:var(--teal-deep)}
+#tools-page .limits span{font-size:.92rem;color:var(--ink-2);line-height:1.5;padding-left:22px}
+@media (max-width:700px){#tools-page .limits{grid-template-columns:1fr}}
+#tools-page /* faq */
+.faq{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+#tools-page .faq details{background:var(--paper)}
+#tools-page .faq summary{cursor:pointer;padding:19px 22px;font-family:var(--f-ui);font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+#tools-page .faq summary::-webkit-details-marker{display:none}
+#tools-page .faq summary::after{content:"+";font-family:var(--f-mono);color:var(--teal-deep);font-size:1.1rem;flex:none}
+#tools-page .faq details[open] summary::after{content:"–"}
+#tools-page .faq .ans{padding:0 22px 20px;font-size:.96rem;color:var(--ink-2);line-height:1.6;max-width:70ch}
+#tools-page /* "qui la leggi,#tools-page in demo la senti" */
+.hear{
+  margin-top:24px;border:1px solid var(--teal);background:var(--night-2);
+  padding:22px 24px;display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:22px;align-items:center;border-radius:3px
+}
+#tools-page .hear-t{display:grid;gap:9px;max-width:62ch}
+#tools-page .hear-t p{font-size:.97rem;line-height:1.55;color:var(--night-muted)}
+#tools-page .hear-t p strong{color:var(--night-ink)}
+#tools-page .hear .btn{white-space:nowrap}
+@media (max-width:760px){#tools-page .hear{grid-template-columns:1fr;justify-items:start}}
+#tools-page /* closing */
+.close{background:var(--night);color:var(--night-ink);border-top:1px solid var(--line)}
+#tools-page .close-grid{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);
+  gap:clamp(30px,5vw,60px);padding-block:clamp(50px,7vw,84px);align-items:start
+}
+@media (max-width:900px){#tools-page .close-grid{grid-template-columns:1fr}}
+#tools-page .close-in{display:grid;gap:20px;justify-items:start;max-width:56ch}
+#tools-page .close h2{color:var(--night-ink)}
+#tools-page .close p{color:var(--night-muted)}
+#tools-page .close .kick{color:var(--teal)}
+#tools-page .close-list{margin:0;padding:0;list-style:none;display:grid;gap:9px}
+#tools-page .close-list li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:.95rem;color:var(--night-muted);line-height:1.45}
+#tools-page .close-list li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:.46em}
+#tools-page /* booking form */
+.bookform{
+  background:var(--night-2);border:1px solid var(--night-line);border-radius:3px;
+  padding:24px;display:grid;gap:14px;width:100%
+}
+#tools-page .bf-h{
+  font-family:var(--f-disp);font-size:1.25rem;font-weight:700;color:var(--night-ink)!important;
+  letter-spacing:-.02em;line-height:1.1;margin-bottom:2px
+}
+#tools-page .bf-row{display:grid;gap:6px}
+#tools-page .bf-row label{
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:var(--night-muted)
+}
+#tools-page .bf-row input,#tools-page .bf-row select{
+  font-family:var(--f-ui);font-size:.94rem;padding:11px 12px;width:100%;
+  background:var(--night);border:1px solid var(--night-line);border-radius:2px;
+  color:var(--night-ink);appearance:none
+}
+#tools-page .bf-row input::placeholder{color:#5C716D}
+#tools-page .bf-row select{background-image:none}
+#tools-page .bf-row input:focus,#tools-page .bf-row select:focus{border-color:var(--teal);outline:none}
+#tools-page .bf-go{width:100%;text-align:center;border:0;margin-top:4px;font-size:.95rem}
+#tools-page .bf-note{font-size:.82rem!important;line-height:1.5;color:var(--night-muted)!important}
+#tools-page .bf-prev{
+  font-family:var(--f-mono);font-size:.6rem!important;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--teal)!important;border-top:1px solid var(--night-line);padding-top:12px
+}
+#tools-page footer{background:var(--night);border-top:1px solid var(--night-line);padding-block:26px 44px;color:var(--night-muted)}
+#tools-page .foot-in{display:flex;flex-wrap:wrap;gap:14px 26px;justify-content:space-between;align-items:center}
+#tools-page .foot-in .logo{color:var(--night-ink)}
+#tools-page .foot-in .logo span{color:var(--night-muted)}
+#tools-page .editnote{background:var(--teal-wash);border-top:1px solid var(--teal);border-bottom:1px solid var(--teal)}
+#tools-page .editnote-in{padding-block:14px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline}
+#tools-page .editnote b{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#tools-page .editnote span{font-size:.88rem;color:var(--ink-2)}
+#tools-page :focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+#tools-page .res3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--teal)}
+#tools-page .res3 > div{display:grid;gap:7px;align-content:start;background:var(--teal-wash);padding:24px 22px}
+#tools-page .res3 .big{font-size:clamp(1.8rem,3.4vw,2.5rem)}
+#tools-page .res3 .sub b{color:var(--ink);font-weight:600}
+@media (max-width:860px){#tools-page .res3{grid-template-columns:1fr}}
+#tools-page .cmp{background:var(--teal-wash);border-top:1px solid var(--teal);padding:22px;display:grid;gap:7px}
+#tools-page .cmp-l{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-deep)}
+#tools-page .cmp-v{font-family:var(--f-disp);font-weight:800;font-size:1.5rem;letter-spacing:-.025em;color:var(--ink)}
+#tools-page .cmp-n{font-size:.86rem;line-height:1.55;color:var(--ink-2);max-width:82ch}
+#tools-page /* ===== marchio Segreteria Brave ===== */
+.sbmark{display:block;flex:none;color:var(--teal)}
+#tools-page .lockup{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:inherit}
+#tools-page .lockup .sbmark{width:26px;height:26px}
+#tools-page .lockup .lw{display:grid;gap:2px;line-height:1}
+#tools-page .lockup .lw b{font-family:var(--f-disp);font-weight:800;font-size:1.02rem;letter-spacing:-.025em;color:var(--ink)}
+#tools-page .lockup .lw span{font-family:var(--f-mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+#tools-page .lockup--hero{gap:13px}
+#tools-page .lockup--hero .sbmark{width:32px;height:32px}
+#tools-page .lockup--hero .lw{gap:4px}
+#tools-page .lockup--hero .lw b{font-size:1.2rem}
+#tools-page .lockup--dark .lw b{color:var(--night-ink)}
+#tools-page .lockup--dark .lw span{color:var(--night-muted)}
+#tools-page .lockup--dark .sbmark{color:var(--teal)}
+#tools-page .navmark{display:flex;align-items:center;gap:8px;padding-left:13px;margin-left:3px;border-left:1px solid var(--line)}
+#tools-page .navmark .sbmark{width:19px;height:19px}
+#tools-page .navmark b{font-family:var(--f-disp);font-weight:700;font-size:.82rem;letter-spacing:-.018em}
+@media (max-width:900px){#tools-page .navmark{display:none}}
+#tools-page .call-h .av--mark{background:transparent;display:grid;place-items:center}
+#tools-page .call-h .av--mark .sbmark{width:26px;height:26px;color:var(--teal)}
+#tools-page /* ---- indice Tools ---- */
+.tools{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px}
+#tools-page .tools > article{background:var(--paper);padding:clamp(26px,3.6vw,40px);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(18px,3vw,34px);align-items:center}
+#tools-page .tools .tmark{width:52px;height:52px;color:var(--teal);flex:none}
+#tools-page .tools .tbody{display:grid;gap:9px}
+#tools-page .tools .tstate{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:#14703F;display:flex;align-items:center;gap:7px}
+#tools-page .tools .tstate::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--live)}
+#tools-page .tools .tstate--soon{color:var(--muted)}
+#tools-page .tools .tstate--soon::before{background:var(--muted)}
+#tools-page .tools h3{font-size:clamp(1.3rem,2.4vw,1.7rem);font-family:var(--f-disp);font-weight:700;letter-spacing:-.02em}
+#tools-page .tools p{font-size:.98rem;line-height:1.55;color:var(--ink-2);max-width:56ch}
+#tools-page .tools .tgo{white-space:nowrap}
+#tools-page .tools > article.soon{opacity:.62}
+@media (max-width:860px){#tools-page .tools > article{grid-template-columns:1fr;gap:16px}
+#tools-page .tools .tgo{justify-self:start}}
+#tools-page .foot-in .mono{color:var(--night-muted)}
+#tools-page .tin{padding-block:clamp(44px,6vw,74px) clamp(30px,4vw,44px);display:grid;gap:20px;max-width:62ch}
+</style>
+<div id="tools-page">
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <symbol id="sb-mark" viewBox="0 0 120 120">
+    <rect x="23" y="72" width="64" height="40" rx="20" fill="currentColor"/>
+    <rect x="13" y="40" width="15" height="22" rx="7.5" fill="currentColor"/>
+    <rect x="36" y="22" width="15" height="40" rx="7.5" fill="currentColor"/>
+    <rect x="59" y="18" width="15" height="44" rx="7.5" fill="currentColor"/>
+    <rect x="82" y="36" width="15" height="26" rx="7.5" fill="currentColor"/>
+  </symbol>
+</svg>
+
+
+
+<div class="wrap">
+  <header class="tin">
+    <div class="kick">Tools</div>
+    <h1>Gli strumenti<br>che entrano in clinica.</h1>
+    <p class="lede">Non recensiamo software. Scegliamo quello che nel nostro settore non esiste ancora, lo facciamo costruire per la clinica veterinaria e lo mettiamo in funzione — con la configurazione, la formazione di chi lo userà e il presidio dei primi mesi.</p>
+    <p class="small">Un veterinario non ha bisogno di una lista di strumenti. Ha bisogno che qualcuno abbia già fatto la fatica di capire quale funziona nel suo mestiere, e sia lì il giorno in cui va acceso.</p>
+  </header>
+
+  <div class="tools">
+    <article>
+      <svg class="tmark" viewBox="0 0 120 120" role="img" aria-label="Segreteria Brave"><use href="#sb-mark"/></svg>
+      <div class="tbody">
+        <span class="tstate">In funzione</span>
+        <h3>Segreteria Brave</h3>
+        <p>La segreteria virtuale costruita solo per la clinica veterinaria. Risponde quando voi non potete, fissa gli appuntamenti secondo le vostre regole e vi lascia ogni richiesta scritta e ordinata. Anche alle 23, anche di domenica, anche quando arrivano quattro chiamate insieme.</p>
+      </div>
+      <a class="btn btn--p tgo" href="/tools/segreteria-brave/">Scopri di più</a>
+    </article>
+
+    <article class="soon">
+      <svg class="tmark" viewBox="0 0 120 120" aria-hidden="true" style="color:var(--muted)"><use href="#sb-mark"/></svg>
+      <div class="tbody">
+        <span class="tstate tstate--soon">In lavorazione</span>
+        <h3>Gli strumenti che arrivano</h3>
+        <p>Stiamo lavorando ad altri strumenti nati dagli stessi problemi che ci raccontate: la gestione delle richieste urgenti fuori orario, e l'analisi dei dati del gestionale. Chi è nella community li vede per primo.</p>
+      </div>
+      <a class="btn tgo" style="border-color:var(--line);color:var(--ink)" href="#">Resta aggiornato</a>
+    </article>
+  </div>
+
+  <section style="border-top:1px solid var(--line);margin-top:clamp(40px,6vw,70px)">
+    <div class="sec-head">
+      <div class="kick">Come lavoriamo</div>
+      <h2>Prima lo proviamo noi.</h2>
+      <p class="lede">Ogni strumento che trovate qui è passato per la stessa strada: un problema raccontato da un veterinario, una tecnologia che esisteva per altri settori, mesi di lavoro per adattarla al nostro, e una clinica che l'ha messa al telefono prima di tutti.</p>
+    </div>
+    <div class="probs">
+      <div>
+        <span class="n">01</span>
+        <h3>Lo chiedete voi</h3>
+        <p class="small">Nessuno di questi strumenti nasce da un'idea nostra. Nascono da una frase detta in una call, ripetuta da più persone, su un problema che nessun software affrontava.</p>
+      </div>
+      <div>
+        <span class="n">02</span>
+        <h3>Lo veterinarizziamo</h3>
+        <p class="small">La tecnologia spesso c'è già, ma parla un'altra lingua. Il lavoro sta nel farla funzionare con le richieste, i tempi e il vocabolario di una clinica veterinaria.</p>
+      </div>
+      <div>
+        <span class="n">03</span>
+        <h3>Restiamo quando parte</h3>
+        <p class="small">Configurazione, formazione di chi lo userà ogni giorno, e i primi mesi seguiti. Uno strumento consegnato e abbandonato è uno strumento che nessuno usa.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
