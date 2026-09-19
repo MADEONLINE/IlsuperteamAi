@@ -744,10 +744,11 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
   var form = document.getElementById('form-demo');
   var prev = form ? form.querySelector('.bf-prev') : null;
   if (form && prev) {
-    // Indirizzo a cui arriva la richiesta di demo. Finche' resta vuoto il
-    // modulo NON invia niente: in quel caso non diciamo a chi compila che lo
-    // richiameremo, perche' non sarebbe vero e perderemmo il contatto.
-    var ENDPOINT = '';
+    // Dove arriva la richiesta di demo: un flusso n8n che scrive la riga nel
+    // foglio Drive "Segreteria Brave - richieste demo". Se questo indirizzo
+    // resta vuoto il modulo NON invia niente, e in quel caso non diciamo a chi
+    // compila che lo richiameremo: non sarebbe vero, e perderemmo il contatto.
+    var ENDPOINT = 'https://bravevetbusiness.app.n8n.cloud/webhook/segreteria-brave-demo';
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -757,6 +758,12 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
       }
       var dati = {};
       new FormData(form).forEach(function(v,k){ dati[k] = v; });
+      // Da dove arriva chi compila: i parametri che i contenuti social
+      // aggiungono al link. Senza questi non sapremmo quale canale porta
+      // davvero le demo, che e' l'unico numero che conta.
+      var q = new URLSearchParams(location.search);
+      dati.origine  = q.get('utm_source')   || document.referrer || 'diretto';
+      dati.campagna = q.get('utm_campaign') || '';
       prev.textContent = 'Invio in corso\u2026';
       fetch(ENDPOINT, {
         method: 'POST',

@@ -46,18 +46,31 @@ potete pubblicare e controllare le pagine prima che compaiano nel menu.
 
 ## Da sistemare prima di pubblicare
 
-1. **Il modulo di richiesta demo non invia ancora nulla.** Oggi chi lo
-   compila legge «il modulo non è ancora collegato: la richiesta non parte».
-   È scritto così di proposito: finché non c'è una destinazione, è meglio
-   dirlo che far credere a un prospect di essere stato preso in carico.
-   Per attivarlo basta scrivere l'indirizzo di destinazione nella riga
-   `var ENDPOINT = '';` dentro la pagina. In alternativa il modulo si
-   sostituisce con quello del plugin che già usate.
-2. **L'immagine di anteprima social** va caricata in `wp-content/uploads/`
+1. **L'immagine di anteprima social** va caricata in `wp-content/uploads/`
    con il nome `og-segreteria-brave.png`: il codice della pagina la cerca
    già lì.
-3. **Il collegamento all'informativa privacy** punta a `/privacy-policy/`.
-   Se l'indirizzo reale è diverso, va corretto.
+2. **Alla prima richiesta vera, controllate che la riga arrivi.** Il
+   percorso è collaudato fino al foglio, ma una cosa sola non si può
+   provare da qui: il controllo che il browser fa prima di inviare a un
+   altro dominio. Se la riga non arriva, si risolve in n8n aggiungendo
+   l'indirizzo del sito fra le origini consentite del nodo Webhook.
+
+## Dove arrivano le richieste demo
+
+Il modulo invia a un flusso n8n — *Segreteria Brave · richieste demo dal
+sito* — che scrive una riga nel foglio Drive **Segreteria Brave — richieste
+demo**, di proprietà di `info@bravemedia.biz`.
+
+Nove colonne: data e ora, nome, struttura, email, telefono, gestionale,
+**origine**, **campagna**, note. Le ultime due si riempiono da sole con i
+parametri di tracciamento dei link social: così si vede quale canale porta
+davvero le demo, che è l'unico numero che conta.
+
+Due dettagli già risolti in fase di collaudo: le celle sono scritte in
+formato grezzo, altrimenti un telefono che inizia per `+` veniva letto da
+Google come formula e diventava `#ERROR!`; e la scheda del foglio è
+indirizzata per identificativo e non per nome, così potete rinominarla
+senza rompere il flusso.
 
 ## Se il calcolatore non reagisce
 

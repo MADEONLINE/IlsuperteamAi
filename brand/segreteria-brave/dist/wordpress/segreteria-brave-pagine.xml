@@ -20,7 +20,7 @@
   <item>
     <title>Tools</title>
     <link>https://www.bravevetbusiness.it/tools/</link>
-    <pubDate>Sat, 19 Sep 2026 07:11:59 +0000</pubDate>
+    <pubDate>Sat, 19 Sep 2026 07:24:32 +0000</pubDate>
     <dc:creator><![CDATA[admin]]></dc:creator>
     <guid isPermaLink="false">https://www.bravevetbusiness.it/?page_id=9101</guid>
     <description></description>
@@ -392,8 +392,8 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
 ]]></content:encoded>
     <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     <wp:post_id>9101</wp:post_id>
-    <wp:post_date>2026-09-19 07:11:59</wp:post_date>
-    <wp:post_date_gmt>2026-09-19 07:11:59</wp:post_date_gmt>
+    <wp:post_date>2026-09-19 07:24:32</wp:post_date>
+    <wp:post_date_gmt>2026-09-19 07:24:32</wp:post_date_gmt>
     <wp:comment_status>closed</wp:comment_status>
     <wp:ping_status>closed</wp:ping_status>
     <wp:post_name>tools</wp:post_name>
@@ -407,7 +407,7 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
   <item>
     <title>Segreteria Brave</title>
     <link>https://www.bravevetbusiness.it/segreteria-brave/</link>
-    <pubDate>Sat, 19 Sep 2026 07:11:59 +0000</pubDate>
+    <pubDate>Sat, 19 Sep 2026 07:24:32 +0000</pubDate>
     <dc:creator><![CDATA[admin]]></dc:creator>
     <guid isPermaLink="false">https://www.bravevetbusiness.it/?page_id=9102</guid>
     <description></description>
@@ -1157,10 +1157,11 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
   var form = document.getElementById('form-demo');
   var prev = form ? form.querySelector('.bf-prev') : null;
   if (form && prev) {
-    // Indirizzo a cui arriva la richiesta di demo. Finche' resta vuoto il
-    // modulo NON invia niente: in quel caso non diciamo a chi compila che lo
-    // richiameremo, perche' non sarebbe vero e perderemmo il contatto.
-    var ENDPOINT = '';
+    // Dove arriva la richiesta di demo: un flusso n8n che scrive la riga nel
+    // foglio Drive "Segreteria Brave - richieste demo". Se questo indirizzo
+    // resta vuoto il modulo NON invia niente, e in quel caso non diciamo a chi
+    // compila che lo richiameremo: non sarebbe vero, e perderemmo il contatto.
+    var ENDPOINT = 'https://bravevetbusiness.app.n8n.cloud/webhook/segreteria-brave-demo';
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -1170,6 +1171,12 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
       }
       var dati = {};
       new FormData(form).forEach(function(v,k){ dati[k] = v; });
+      // Da dove arriva chi compila: i parametri che i contenuti social
+      // aggiungono al link. Senza questi non sapremmo quale canale porta
+      // davvero le demo, che e' l'unico numero che conta.
+      var q = new URLSearchParams(location.search);
+      dati.origine  = q.get('utm_source')   || document.referrer || 'diretto';
+      dati.campagna = q.get('utm_campaign') || '';
       prev.textContent = 'Invio in corso\u2026';
       fetch(ENDPOINT, {
         method: 'POST',
@@ -1190,8 +1197,8 @@ section{padding-block:clamp(50px,7vw,86px);border-top:1px solid var(--line)}
 ]]></content:encoded>
     <excerpt:encoded><![CDATA[]]></excerpt:encoded>
     <wp:post_id>9102</wp:post_id>
-    <wp:post_date>2026-09-19 07:11:59</wp:post_date>
-    <wp:post_date_gmt>2026-09-19 07:11:59</wp:post_date_gmt>
+    <wp:post_date>2026-09-19 07:24:32</wp:post_date>
+    <wp:post_date_gmt>2026-09-19 07:24:32</wp:post_date_gmt>
     <wp:comment_status>closed</wp:comment_status>
     <wp:ping_status>closed</wp:ping_status>
     <wp:post_name>segreteria-brave</wp:post_name>
