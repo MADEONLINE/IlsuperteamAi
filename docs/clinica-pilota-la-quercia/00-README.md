@@ -17,6 +17,11 @@ Caratteristiche del modello: cani e gatti, nessun servizio H24 né reperibilità
 | [07-marketing-e-competitor.md](07-marketing-e-competitor.md) | Attività e budget attuali, storico campagne, 5 competitor, obiettivi e KPI a 12 mesi, vincoli | Strategia e piani |
 | [08-istruzioni-assistente-cowork.md](08-istruzioni-assistente-cowork.md) | Setup del progetto, prompt di sistema del coordinatore, 7 agenti specializzati, formati di output, guardrail, prompt di test | Configurazione Cowork |
 | [09-domande-aperte.md](09-domande-aperte.md) | 34 domande per sostituire i dati fittizi con quelli della clinica reale | Passaggio al progetto reale |
+| [sito/](sito/) | Sito di esempio della clinica (7 pagine HTML statiche + foglio di stile), costruito secondo le brand guidelines: home, servizi e prezzi, per i gatti, chi siamo, urgenze, consigli, contatti | Riferimento per pagine, testi, struttura e tono; base per il sito reale |
+
+## Il sito di esempio
+
+La cartella `sito/` contiene la versione **rinnovata** del sito, cioè quello che il team marketing dovrebbe produrre partendo dalla situazione descritta nel file 06 (sito datato, senza pagina urgenze, senza prezzi, senza pagine servizio). Si apre direttamente dal file `sito/index.html` in qualsiasi browser, senza server. Le foto sono segnaposto etichettati: le brand guidelines vietano foto stock e immagini AI di pazienti o staff, quindi vanno scattate in clinica.
 
 ## Come usarlo
 

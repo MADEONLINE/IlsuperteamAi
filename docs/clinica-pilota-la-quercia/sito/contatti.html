@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contatti · La Quercia</title>
+<meta name="description" content="Telefono, WhatsApp, indirizzo, orari e modulo di richiesta appuntamento della Clinica Veterinaria La Quercia.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="demo-badge">Sito di esempio · Clinica fittizia a scopo dimostrativo · Dati, persone e recapiti inventati</div>
+<header class="header"><div class="wrap">
+<a class="logo" href="index.html"><svg width="44" height="44" viewBox="0 0 64 64" aria-hidden="true">
+<circle cx="32" cy="27" r="20" fill="#2F5D3A"/><circle cx="18" cy="33" r="12" fill="#2F5D3A"/><circle cx="46" cy="33" r="12" fill="#2F5D3A"/>
+<rect x="29" y="44" width="6" height="14" rx="2" fill="#2F5D3A"/>
+<circle cx="24" cy="30" r="6" fill="#F4EDE1"/><path d="M19 26l1-6 4 3zM29 26l-1-6-4 3z" fill="#F4EDE1"/>
+<circle cx="41" cy="30" r="6" fill="#F4EDE1"/><path d="M35 28c-2 0-3 4-1 6s3 0 3-2zM47 28c2 0 3 4 1 6s-3 0-3-2z" fill="#F4EDE1"/>
+</svg><span><strong>La Quercia</strong><small>Clinica Veterinaria · Pieve San Martino</small></span></a>
+<nav class="nav" aria-label="Navigazione principale"><a href="index.html">Home</a><a href="servizi.html">Servizi e prezzi</a><a href="gatti.html">Per i gatti</a><a href="team.html">Chi siamo</a><a href="blog.html">Consigli</a><a href="urgenze.html">Urgenze</a><a href="contatti.html" aria-current="page">Contatti</a></nav>
+<a class="btn btn--terra" href="contatti.html">Prenota una visita</a>
+</div></header>
+<main>
+
+<section class="section"><div class="wrap grid grid--2">
+<div>
+<p class="eyebrow">Contatti</p>
+<h1>Prenota una visita o scrivici</h1>
+<p>Il modo più rapido è WhatsApp: in orario di apertura rispondiamo entro un'ora. Al telefono, nelle prime ore del mattino la linea è spesso occupata: se non ti rispondiamo, lasciaci un messaggio e ti richiamiamo.</p>
+<div class="hours-card">
+<div class="copy-row"><span>Telefono <strong>0423 555 210</strong></span><button type="button" data-copy="0423 555 210">Copia</button></div>
+<div class="copy-row"><span>WhatsApp <strong>345 555 0180</strong></span><button type="button" data-copy="345 555 0180">Copia</button></div>
+<div class="copy-row"><span>Email <strong>info@clinicalaquercia.it</strong></span><button type="button" data-copy="info@clinicalaquercia.it">Copia</button></div>
+<h3 style="margin-top:16px">Dove siamo</h3>
+<p>Via Feltrina 118, 31040 Pieve San Martino (TV).<br>Parcheggio riservato con 14 posti, uno per persone con disabilità. Accesso senza gradini.</p>
+<p><a href="https://www.google.com/maps/search/?api=1&query=Via+Feltrina+118+Pieve+San+Martino" target="_blank" rel="noopener">Apri le indicazioni stradali</a></p>
+<h3>Orari</h3>
+<table class="hours"><tr><td>Lunedì – Venerdì</td><td>8:30 – 12:30<br>15:00 – 19:30</td></tr><tr><td>Sabato</td><td>8:30 – 12:30</td></tr><tr><td>Domenica e festivi</td><td>chiuso</td></tr></table>
+<div class="urgent"><strong>Fuori orario</strong>: Ospedale Veterinario Sile H24, Treviso, 0422 555 900. <a href="urgenze.html">Tutte le indicazioni</a></div>
+</div>
+</div>
+<div>
+<h2>Richiedi un appuntamento</h2>
+<p class="note">Ti ricontattiamo in orario di apertura per confermare giorno e ora. Per le urgenze non usare il modulo: chiamaci.</p>
+<form class="form" id="form-richiesta" novalidate>
+<div class="fields" style="display:grid;gap:14px">
+<label for="f-nome">Il tuo nome<input id="f-nome" name="nome" type="text" required autocomplete="name"></label>
+<label for="f-tel">Telefono o WhatsApp<input id="f-tel" name="telefono" type="tel" required autocomplete="tel"></label>
+<label for="f-animale">Nome e specie dell'animale<input id="f-animale" name="animale" type="text" placeholder="Es. Nala, cane" required></label>
+<label for="f-motivo">Motivo della visita<select id="f-motivo" name="motivo"><option>Visita o controllo</option><option>Vaccinazione</option><option>Sterilizzazione</option><option>Visita senior</option><option>Problema di pelle</option><option>Altro</option></select></label>
+<label for="f-msg">Messaggio<textarea id="f-msg" name="messaggio" rows="4" placeholder="Giorni e fasce orarie preferite, o due righe su cosa succede"></textarea></label>
+<label class="check" for="f-priv"><input id="f-priv" type="checkbox" required><span>Ho letto l'informativa privacy e acconsento al trattamento dei dati per essere ricontattato (obbligatorio).</span></label>
+<label class="check" for="f-mkt"><input id="f-mkt" type="checkbox"><span>Voglio ricevere i consigli mensili via email (facoltativo, puoi cancellarti quando vuoi).</span></label>
+<div><button class="btn btn--terra" type="submit">Invia la richiesta</button></div>
+</div>
+<div class="ok"><strong>Richiesta ricevuta.</strong> Ti ricontattiamo in orario di apertura. Se nel frattempo il tuo animale peggiora, chiamaci allo 0423 555 210 o, fuori orario, l'H24 allo 0422 555 900.</div>
+</form>
+<h2 id="newsletter" style="margin-top:36px">Consigli mensili via email</h2>
+<p class="note">Una sola email al mese: prevenzione stagionale e un articolo. Inviata solo a chi ha dato il consenso.</p>
+</div>
+</div></section>
+
+</main>
+<footer class="footer"><div class="wrap">
+<div class="grid grid--4">
+<div><h4>Clinica Veterinaria La Quercia</h4><p>Via Feltrina 118<br>31040 Pieve San Martino (TV)</p><p>Tel. 0423 555 210<br>WhatsApp 345 555 0180<br>info@clinicalaquercia.it</p></div>
+<div><h4>Orari</h4><p>Lunedì – Venerdì<br>8:30 – 12:30 · 15:00 – 19:30</p><p>Sabato 8:30 – 12:30<br>Domenica e festivi chiuso</p><p>Visite su appuntamento.</p></div>
+<div><h4>Fuori orario</h4><p>Per le emergenze notturne e festive: Ospedale Veterinario Sile H24, Treviso.<br>Tel. 0422 555 900</p><p><a href="urgenze.html">Cosa fare in caso di urgenza</a></p></div>
+<div><h4>Informazioni</h4><p><a href="servizi.html">Servizi e listino</a></p><p><a href="team.html">Il team</a></p><p><a href="contatti.html">Privacy e consensi</a></p><p>Direttore sanitario: Dott.ssa Elena Marchetti</p></div>
+</div>
+<div class="legal"><p>La Quercia Veterinaria S.r.l. · P. IVA fittizia · Comunicazione di tipo informativo ai sensi del Codice Deontologico FNOVI. I prezzi indicati sono IVA inclusa e possono variare in base al preventivo scritto. Nessuna informazione di questo sito sostituisce la visita veterinaria.</p><p>Sito dimostrativo generato come esempio per un progetto di marketing. Nomi, luoghi e recapiti sono inventati.</p></div>
+</div></footer>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-copy');function done(){b.textContent='Copiato';setTimeout(function(){b.textContent='Copia';},1500);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(function(){window.getSelection().selectAllChildren(b.previousElementSibling);});}else{window.getSelection().selectAllChildren(b.previousElementSibling);}});});
+var f=document.getElementById('form-richiesta');if(f){f.addEventListener('submit',function(e){e.preventDefault();f.classList.add('sent');});}
+</script>
+</body>
+</html>

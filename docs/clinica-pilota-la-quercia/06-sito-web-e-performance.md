@@ -165,3 +165,9 @@ Contenuti che non hanno funzionato: grafiche Canva con solo testo, auguri generi
 2. **Base (mesi 2-3)**: compressione immagini e rimozione slider (PageSpeed sopra 70), 8 pagine servizio con prezzi indicativi ("sterilizzazione gatta", "detartrasi cane", "visita senior gatto", "ecografia", "dermatologia", "cardiologia", "cucciolo", "microchip"), foto del team aggiornate, form con consenso marketing separato.
 3. **Conversione (mesi 3-6)**: prenotazione online collegata a Snoots o modulo di richiesta appuntamento con conferma WhatsApp; messaggio automatico fuori orario su WhatsApp con rimando all'H24; eventi GA4 su chiamate, WhatsApp, form.
 4. **Contenuti (dal mese 2, continuativo)**: 1 articolo/mese sul blog legato al calendario della prevenzione; ripresa della newsletter mensile ai 1.450 consensi; piano social settimanale.
+
+---
+
+## 10. Sito di esempio rinnovato
+
+Nella cartella [sito/](sito/) c'è la versione rinnovata del sito, che applica gli interventi delle sezioni 9.1 e 9.2: orari e recapiti in evidenza con pulsante di copia, pagina Urgenze con rimando all'H24, listino pubblico IVA inclusa, pagina dedicata ai gatti, team completo, consigli con calendario della prevenzione, modulo con consenso marketing separato. Serve come riferimento di struttura, testi e tono per l'assistente e come base per il sito reale.
