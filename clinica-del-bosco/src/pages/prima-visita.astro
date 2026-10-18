@@ -10,13 +10,24 @@ import Sezione from '@ui/Sezione.astro';
 import TabellaDati from '@ui/TabellaDati.astro';
 import { clinica, daConfermare, indicazioniHref, indirizzoRiga, telHref } from '@lib/clinica';
 import { faqPage, medicalWebPage } from '@lib/schema';
+import tariffe from '@dati/tariffe.json';
+
+/** Onorario della visita dalla stessa fonte della pagina Tariffe (mai un numero scritto a mano). */
+const voce = (nome: string) =>
+  tariffe.sezioni.flatMap((x) => x.voci).find((v) => v.prestazione === nome);
+const visita = voce('Visita clinica generale');
+const visitaEsotici = voce('Visita animali esotici e conigli');
+const avvisoTariffe = tariffe.confermato ? '' : ' (importi in fase di aggiornamento)';
+const costoVisita = visita
+  ? `Una visita clinica costa indicativamente tra ${visita.da} e ${visita.a} euro${visitaEsotici ? `; per conigli e animali esotici tra ${visitaEsotici.da} e ${visitaEsotici.a} euro` : ''}${avvisoTariffe}.`
+  : 'La visita ha un onorario indicativo che trovi nella pagina Tariffe.';
 
 const descrizione =
-  'Come funziona la prima visita alla Clinica Veterinaria del Bosco di Portici: cosa portare, quanto dura, cosa succede, costi e pagamento, come arrivare. Per cani, gatti, conigli ed esotici.';
+  'Come funziona la prima visita alla Clinica Veterinaria del Bosco di Portici: cosa portare, quanto dura (30-40 minuti), quanto costa e come prenotare.';
 const passi = [
   [
     'Prenoti',
-    'Online in un minuto o al telefono. Ti richiamiamo entro 24 ore per confermare giorno e ora e ti diciamo se serve il digiuno.',
+    'Online, in un minuto, o al telefono. Ti richiamiamo entro 24 ore per confermare giorno e ora e per dirti se deve essere a digiuno.',
   ],
   [
     'Arrivi',
@@ -24,18 +35,18 @@ const passi = [
   ],
   [
     'La visita',
-    "Il medico ascolta la storia, visita l'animale da capo a coda, spiega cosa ha trovato e propone il piano. Nessun esame parte senza il tuo consenso e un preventivo scritto.",
+    "Il medico ascolta la storia e visita l'animale. Se servono esami, prima ti dà un preventivo scritto: nessun esame parte senza il tuo consenso.",
   ],
   [
     'Esci con un piano',
-    'Referto scritto, terapie, prossimo controllo e i recapiti per i dubbi. Se serve, il calendario di prevenzione dei Piani Salute.',
+    'Ricevi un referto scritto, le terapie, la data del prossimo controllo e i recapiti per i dubbi. Se ti interessa, ti spieghiamo anche i Piani Salute.',
   ],
 ];
 const faq = [
   {
     domanda: 'Quanto dura la prima visita?',
     risposta:
-      "Di solito 30–40 minuti: più di un controllo di routine, perché raccogliamo la storia completa dell'animale e delle sue abitudini. Se sono previsti esami del sangue o radiografie, il tempo può allungarsi e te lo diciamo prima.",
+      'Di solito 30-40 minuti, più di un controllo normale, perché raccogliamo tutta la storia del tuo animale. Se servono esami del sangue o radiografie, il tempo si allunga e te lo diciamo prima.',
   },
   {
     domanda: 'Devo portare il libretto e i referti precedenti?',
@@ -45,32 +56,31 @@ const faq = [
   {
     domanda: 'Il mio animale deve essere a digiuno?',
     risposta:
-      "Per una visita semplice no. Se sono previsti esami del sangue, ecografia addominale o sedazione, sì: te lo comunichiamo al momento della conferma, con le ore esatte. L'acqua resta sempre disponibile.",
+      "Per una visita semplice no. Se sono previsti esami del sangue, ecografia dell'addome o sedazione, sì: te lo diciamo quando confermiamo l'appuntamento, con le ore esatte. L'acqua resta sempre a disposizione.",
   },
   {
     domanda: 'Quanto costa e come si paga?',
-    risposta:
-      'La visita ha un onorario indicativo che ti comunichiamo al telefono. Ogni esame o intervento aggiuntivo viene preventivato per iscritto prima di procedere. Si paga al termine, con carta o contanti; nessun anticipo.',
+    risposta: `${costoVisita} Per ogni esame o intervento in più ricevi prima un preventivo scritto. Paghi alla fine, con carta o contanti.`,
   },
   {
     domanda: 'Posso venire senza appuntamento?',
     risposta:
-      "Per le urgenze sì, sempre, 24 ore su 24. Per le visite programmate preferiamo l'appuntamento, così non aspetti e il medico ha il tempo giusto per te.",
+      'Per le urgenze sì, a qualsiasi ora. Per le visite programmate ti chiediamo di prenotare: così non aspetti e il medico ha il tempo giusto per te.',
   },
   {
     domanda: 'Visitate anche conigli, rettili e uccelli?',
     risposta:
-      'Sì: gli animali esotici hanno un percorso dedicato con medici che si occupano specificamente di conigli, piccoli mammiferi, rettili e uccelli. Segnalalo al momento della prenotazione così scegliamo la fascia giusta.',
+      "Sì. Gli animali esotici sono seguiti dalla Dott.ssa Isabella Rosapane. Dillo quando prenoti, così scegliamo l'orario giusto.",
   },
 ];
 ---
 
 <PaginaLayout
-  titolo="La prima visita: cosa aspettarsi"
+  titolo="Prima visita dal veterinario a Portici"
   descrizione={descrizione}
   percorso="/prima-visita"
-  h1="La prima visita"
-  sottotitolo="Cosa portare, quanto dura, cosa succede e quanto costa. Così arrivi tranquillo."
+  h1="La prima visita: come funziona"
+  sottotitolo={`La prima visita alla ${clinica.nome} dura di solito 30-40 minuti. Il medico raccoglie la storia del tuo animale, lo visita dalla testa alla coda e ti spiega cosa ha trovato. ${visita ? `Costa indicativamente tra ${visita.da} e ${visita.a} euro.` : ''} Prenoti online o al ${clinica.contatti.telefono.visualizzato}.`}
   etichetta="Nuovi pazienti"
   briciole={[{ nome: 'La prima visita', href: '/prima-visita' }]}
   jsonLd={[
@@ -124,14 +134,14 @@ const faq = [
                 'Una foto delle confezioni basta',
               ],
               [
-                "Nome e dose dell'alimento",
+                'Nome e quantità del cibo',
                 'Valutare peso e nutrizione',
                 'Descrivi cosa mangia e quanto',
               ],
               [
                 'Campione di feci fresche (cuccioli)',
-                'Esame parassitologico',
-                'Lo raccogli alla visita successiva',
+                'Serve a cercare i parassiti',
+                'Lo porti alla visita dopo',
               ],
               [
                 'Trasportino coperto (gatto, coniglio)',

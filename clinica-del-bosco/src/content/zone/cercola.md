@@ -36,7 +36,7 @@ dataRevisione: 2026-09-10
 
 ## Per chi vive a Cercola, cosa offre una clinica h24 a Portici?
 
-Offre quello che sulle pendici del Vesuvio manca dopo l'orario di chiusura: un medico in struttura a qualsiasi ora, esami del sangue con risposta immediata, radiologia, ecografia e TAC nella stessa sede, due sale chirurgiche e una terapia intensiva. Cercola è servita da ambulatori diurni di buon livello; il problema si pone la sera, la notte e nei festivi, quando l'alternativa più vicina è spesso dall'altra parte di Napoli. La Clinica Veterinaria del Bosco, sul Corso Umberto I di Portici, è a 10–20 minuti di auto.
+Offre un medico in struttura a qualsiasi ora, esami del sangue con il laboratorio interno, radiologia, ecografia e TAC nella stessa sede, due sale chirurgiche e una terapia intensiva. Conta soprattutto la sera, la notte e nei festivi, quando un'urgenza non può aspettare il mattino. La Clinica Veterinaria del Bosco, sul Corso Umberto I di Portici, è a 10–20 minuti di auto.
 
 Per un comune come Cercola, con molte case dotate di giardino o cortile, la copertura notturna conta anche perché gli incidenti domestici avvengono spesso di sera: il cane che ingerisce un prodotto per il giardino, il gatto che torna a casa ferito, il coniglio che smette di mangiare.
 
@@ -48,14 +48,14 @@ Di notte le strade ordinarie sono libere e il tragitto sta nella parte bassa del
 
 ## Cosa fare mentre arrivi
 
-Chiama il 081 7763859. Le istruzioni della pagina [/pronto-soccorso](/pronto-soccorso) valgono anche per i venti minuti di strada da Cercola: niente farmaci umani, niente rimedi per far vomitare, niente cibo o acqua se potrebbe servire un intervento. Se il sospetto è un avvelenamento da prodotti per il giardino o da esche, porta la confezione o fotografala. Se il tuo coniglio non mangia da alcune ore, tienilo al caldo e in un trasportino chiuso, senza forzarlo.
+Chiama il 081 7763859. Le istruzioni della pagina [del pronto soccorso](/pronto-soccorso) valgono anche per i venti minuti di strada da Cercola: niente farmaci umani, niente rimedi per far vomitare, niente cibo o acqua se potrebbe servire un intervento. Se il sospetto è un avvelenamento da prodotti per il giardino o da esche, porta la confezione o fotografala. Se il tuo coniglio non mangia da alcune ore, tienilo al caldo e in un trasportino chiuso, senza forzarlo.
 
 ## Cosa chiedono più spesso i proprietari di Cercola?
 
-Le case con giardino portano con sé una prevenzione diversa da quella di città: zecche, pulci, filaria e leishmaniosi sono rischi concreti sulle pendici del Vesuvio. La [medicina preventiva e le vaccinazioni](/servizi/medicina-preventiva-vaccinazioni) e la [dermatologia](/servizi/dermatologia), per le dermatiti stagionali e le allergie, sono tra i servizi più richiesti. Frequenti anche le urgenze per ingestione di sostanze tossiche e i traumi da caduta o da lite tra animali, gestiti dal [pronto soccorso](/servizi/pronto-soccorso-h24) e dall'[ortopedia](/servizi/ortopedia).
+Le case con giardino portano con sé una prevenzione diversa da quella di città: zecche, pulci, filaria e leishmaniosi sono rischi concreti sulle pendici del Vesuvio. La [medicina preventiva e le vaccinazioni](/servizi/medicina-preventiva-vaccinazioni) e la [dermatologia](/servizi/dermatologia), per le dermatiti stagionali e le allergie, sono tra i servizi più richiesti. Frequenti anche le urgenze per ingestione di sostanze tossiche e i traumi da caduta o da lite tra animali, gestiti dal [pronto soccorso](/pronto-soccorso) e dall'[ortopedia](/servizi/ortopedia).
 
 Conigli, galline e roditori tenuti in cortile trovano nel servizio per [animali esotici e conigli](/servizi/animali-esotici-e-conigli) un riferimento raro nel bacino. Per i casi che richiedono approfondimento, la [TAC](/servizi/tac-diagnostica-avanzata) e il [laboratorio analisi](/servizi/laboratorio-analisi) interno permettono di concludere l'inquadramento in un unico accesso, un vantaggio per chi deve fare strada.
 
 ## Prenotare da Cercola
 
-Per le urgenze vieni direttamente. Per visite, vaccini e controlli prenota dalla pagina [/prenota](/prenota) o per telefono, indicando da dove parti: se possibile raggruppiamo più prestazioni nello stesso appuntamento. Il referto va anche al tuo veterinario di fiducia, se ne hai uno a Cercola.
+Per le urgenze vieni direttamente. Per visite, vaccini e controlli prenota dalla pagina [prenotazione online](/prenota) o per telefono, indicando da dove parti: se possibile raggruppiamo più prestazioni nello stesso appuntamento. Il referto va anche al tuo veterinario di fiducia, se ne hai uno a Cercola.

@@ -25,7 +25,7 @@ faq:
   - domanda: 'Quali razze sono più a rischio?'
     risposta: "Le razze brachicefale, cioè con il muso schiacciato: Bulldog inglese e francese, Carlino, Boston Terrier, Boxer, Cavalier King, Shih Tzu, Pechinese e, tra i gatti, Persiano ed Exotic. Le vie respiratorie strette rendono inefficace l'ansimare, che è il principale sistema di raffreddamento. Sono a rischio anche cani obesi, anziani, con problemi cardiaci o a pelo folto e scuro."
   - domanda: 'Cosa fa la clinica quando arriva un animale con colpo di calore?'
-    risposta: "Misuriamo la temperatura, proseguiamo il raffreddamento controllato fino a 39,5 gradi e somministriamo ossigeno e fluidi in vena per sostenere la pressione e proteggere i reni. Gli esami del sangue con risposta immediata guidano la terapia. Nei casi gravi l'animale resta ricoverato in terapia intensiva con monitoraggio continuo per almeno 24-48 ore."
+    risposta: "Misuriamo la temperatura, proseguiamo il raffreddamento controllato fino a 39,5 gradi e somministriamo ossigeno e fluidi in vena per sostenere la pressione e proteggere i reni. Gli esami del sangue del laboratorio interno guidano la terapia. Nei casi gravi l'animale resta ricoverato in terapia intensiva con monitoraggio continuo per almeno 24-48 ore."
 tabella:
   titolo: 'Gravità del colpo di calore e cosa aspettarsi'
   intestazioni: ['Temperatura rettale', 'Segni tipici', 'Cosa fare']
@@ -108,7 +108,7 @@ Ogni sospetto di colpo di calore è un'urgenza. Chiama il 081 7763859 mentre sei
 
 ## Cosa succede in clinica?
 
-All'arrivo misuriamo la temperatura e proseguiamo il raffreddamento in modo controllato, con fluidi in vena a temperatura ambiente e ossigeno. Gli esami del sangue del laboratorio interno, con risposta immediata, ci dicono se reni, fegato, elettroliti e coagulazione sono già compromessi: sono questi valori, più che la temperatura, a guidare la terapia e a stabilire quanto durerà il ricovero.
+All'arrivo misuriamo la temperatura e proseguiamo il raffreddamento in modo controllato, con fluidi in vena a temperatura ambiente e ossigeno. Gli esami del sangue del laboratorio interno ci dicono se reni, fegato, elettroliti e coagulazione sono già compromessi: sono questi valori, più che la temperatura, a guidare la terapia e a stabilire quanto durerà il ricovero.
 
 Nei casi moderati e gravi l'animale resta nella [degenza con terapia intensiva](/servizi/degenza-terapia-intensiva) per 24-48 ore con monitoraggio continuo di pressione, produzione di urina e parametri della coagulazione. Le complicanze più temute, insufficienza renale acuta, coagulazione intravascolare disseminata ed edema cerebrale, possono comparire anche il giorno dopo in un animale che sembrava ripreso: per questo consigliamo sempre una visita con esami, anche quando il raffreddamento a casa ha funzionato.
 

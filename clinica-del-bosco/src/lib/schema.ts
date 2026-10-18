@@ -18,6 +18,7 @@ import type { Briciola } from '@lib/seo';
 export type JsonLd = Record<string, unknown> & { '@context'?: string; '@type': string | string[] };
 
 const ID_ORGANIZZAZIONE = `${clinica.dominio.canonico}/#organizzazione`;
+const ID_PRONTO_SOCCORSO = `${clinica.dominio.canonico}/pronto-soccorso#servizio`;
 const ID_SITO = `${clinica.dominio.canonico}/#sito`;
 
 /** Indirizzo postale condiviso da tutte le entità. */
@@ -39,7 +40,7 @@ export function postalAddress(): JsonLd {
 export function veterinaryCare(estensioni: Record<string, unknown> = {}): JsonLd {
   const base: JsonLd = {
     '@context': 'https://schema.org',
-    '@type': ['VeterinaryCare', 'MedicalOrganization', 'LocalBusiness', 'EmergencyService'],
+    '@type': ['VeterinaryCare', 'MedicalOrganization', 'LocalBusiness'],
     '@id': ID_ORGANIZZAZIONE,
     name: clinica.nome,
     legalName: clinica.ragioneSociale,
@@ -56,11 +57,8 @@ export function veterinaryCare(estensioni: Record<string, unknown> = {}): JsonLd
     currenciesAccepted: 'EUR',
     paymentAccepted: 'Cash, Credit Card, Debit Card',
     isAccessibleForFree: false,
-    openingHours: 'Mo-Su 00:00-23:59',
-    openingHoursSpecification: openingHoursSpecification({
-      ambulatorioConfermato: clinica.orari.ambulatorio.confermato,
-      settimana: clinica.orari.ambulatorio.settimana,
-    }),
+    // Orari dell'ambulatorio sulla clinica; il pronto soccorso 24/7 è un reparto a parte.
+    department: { '@id': ID_PRONTO_SOCCORSO },
     areaServed: clinica.areaServita.map((z) => ({
       '@type': z.tipo === 'comune' ? 'City' : 'Place',
       name: z.nome,
@@ -75,6 +73,11 @@ export function veterinaryCare(estensioni: Record<string, unknown> = {}): JsonLd
       longitude: Number(clinica.geo.lng),
     };
   }
+  const orariAmbulatorio = openingHoursSpecification({
+    ambulatorioConfermato: clinica.orari.ambulatorio.confermato,
+    settimana: clinica.orari.ambulatorio.settimana,
+  });
+  if (orariAmbulatorio.length > 0) base['openingHoursSpecification'] = orariAmbulatorio;
   if (!daConfermare(clinica.annoFondazione)) base['foundingDate'] = clinica.annoFondazione;
   return base;
 }
@@ -166,7 +169,7 @@ export function emergencyService(): JsonLd {
   return {
     '@context': 'https://schema.org',
     '@type': 'EmergencyService',
-    '@id': `${clinica.dominio.canonico}/pronto-soccorso#servizio`,
+    '@id': ID_PRONTO_SOCCORSO,
     name: `Pronto soccorso veterinario 24h — ${clinica.nome}`,
     url: urlAssoluto('/pronto-soccorso'),
     telephone: clinica.contatti.telefono.e164,

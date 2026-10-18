@@ -1,3 +1,4 @@
+import { hrefServizio } from '@lib/servizi';
 /**
  * /assistente.json — la base di conoscenza dell'assistente del sito.
  *
@@ -75,7 +76,7 @@ export const GET: APIRoute = async () => {
   for (const s of servizi) {
     voci.push({
       t: s.data.titoloBreve,
-      u: `/servizi/${s.id}`,
+      u: hrefServizio(s.id),
       e: s.data.sottotitolo,
       k: [s.data.categoria],
       c: 'Servizio',
@@ -111,7 +112,7 @@ export const GET: APIRoute = async () => {
     [
       'La struttura',
       '/la-struttura',
-      `Ospedale veterinario a ${clinica.indirizzo.comune}: sale chirurgiche, TAC in sede, terapia intensiva e laboratorio interno.`,
+      `Clinica veterinaria a ${clinica.indirizzo.comune}: sale chirurgiche, TAC in sede, terapia intensiva e laboratorio interno.`,
       SINONIMI['struttura'] ?? [],
     ],
     [

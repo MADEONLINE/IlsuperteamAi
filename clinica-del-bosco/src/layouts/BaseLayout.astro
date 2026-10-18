@@ -15,7 +15,7 @@ import BarraSticky from '@sezioni/BarraSticky.astro';
 import Assistente from '@sezioni/Assistente.astro';
 import CookieBanner from '@sezioni/CookieBanner.astro';
 import { clinica } from '@lib/clinica';
-import { veterinaryCare, webSite, type JsonLd as TipoJsonLd } from '@lib/schema';
+import { emergencyService, veterinaryCare, webSite, type JsonLd as TipoJsonLd } from '@lib/schema';
 import '@/styles/global.css';
 
 interface Props extends PropsSeo {
@@ -68,7 +68,7 @@ const plausibleAttivo = Boolean(clinica.misurazione.plausibleDomain) && import.m
       })();
     </script>
     <ClientRouter />
-    <JsonLd dati={[veterinaryCare(), webSite(), ...jsonLd]} />
+    <JsonLd dati={[veterinaryCare(), emergencyService(), webSite(), ...jsonLd]} />
     {plausibleAttivo && (
       <script
         is:inline

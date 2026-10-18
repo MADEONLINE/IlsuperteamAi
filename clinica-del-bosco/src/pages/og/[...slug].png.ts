@@ -66,7 +66,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       'TAC, endoscopia e chirurgia in service',
       'Il paziente torna sempre al collega',
     ],
-    ['la-struttura', 'La struttura', 'Ospedale veterinario h24 a Portici'],
+    ['la-struttura', 'La struttura', 'Clinica veterinaria h24 a Portici'],
     ['equipe', 'Équipe medica', 'Medici presenti, non reperibili'],
     ['servizi', 'Tutti i servizi', 'Dalla visita alla terapia intensiva'],
     ['magazine', 'Magazine', 'Guide scritte dai nostri medici'],

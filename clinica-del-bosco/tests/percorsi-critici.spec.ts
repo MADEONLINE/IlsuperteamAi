@@ -347,7 +347,7 @@ test.describe('Assistente del sito', () => {
 
     // Una domanda che sembra urgente porta al telefono, non a una valutazione clinica.
     await page.fill('[data-assistente-input]', 'il mio cane sanguina');
-    await expect(page.getByText(/chiama, risponde un medico a qualsiasi ora/i)).toBeVisible();
+    await expect(page.getByText(/chiama, il telefono risponde a qualsiasi ora/i)).toBeVisible();
 
     await page.keyboard.press('Escape');
     await expect(pannello).toBeHidden();

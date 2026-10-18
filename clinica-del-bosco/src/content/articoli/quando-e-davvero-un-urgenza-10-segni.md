@@ -80,7 +80,7 @@ tabella:
         'Cane, gatto, coniglio',
         'Impedisci che si gratti, non applicare colliri senza indicazione',
       ]
-  nota: "Valori indicativi: l'elenco non è esaustivo. In caso di dubbio chiama il 081 7763859, un medico risponde 24 ore su 24."
+  nota: "Valori indicativi: l'elenco non è esaustivo. In caso di dubbio chiama il 081 7763859, attivo 24 ore su 24."
 fonti:
   - titolo: 'RECOVER Initiative - linee guida sulla rianimazione cardiopolmonare veterinaria'
     url: 'https://recoverinitiative.org/'

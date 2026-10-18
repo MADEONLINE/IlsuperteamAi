@@ -85,14 +85,14 @@ dataRevisione: 2026-09-10
 
 La neurologia veterinaria si occupa delle malattie del cervello, del midollo spinale, dei nervi e dei muscoli. I motivi di visita più frequenti sono le crisi convulsive, la debolezza o paralisi delle zampe, il dolore alla schiena o al collo, la testa inclinata con perdita di equilibrio, i tremori e i cambiamenti improvvisi di comportamento. Visitiamo cani e gatti di ogni età, in ambulatorio e in urgenza.
 
-Il punto di partenza è sempre la visita neurologica, che permette di capire in quale parte del sistema nervoso si trova il problema. Solo dopo scegliamo gli esami: la clinica dispone in sede di [TAC](/servizi/tac-diagnostica-avanzata), [laboratorio](/servizi/laboratorio-analisi) con risposta in giornata, radiologia digitale e la possibilità di prelevare e analizzare il liquido cerebrospinale. Le urgenze neurologiche, come una crisi convulsiva prolungata o una paralisi improvvisa, sono gestite dal [pronto soccorso](/servizi/pronto-soccorso-h24) 24 ore su 24.
+Il punto di partenza è sempre la visita neurologica, che permette di capire in quale parte del sistema nervoso si trova il problema. Solo dopo scegliamo gli esami: la clinica dispone in sede di [TAC](/servizi/tac-diagnostica-avanzata), [laboratorio](/servizi/laboratorio-analisi) con risposta in giornata, radiologia digitale e la possibilità di prelevare e analizzare il liquido cerebrospinale. Le urgenze neurologiche, come una crisi convulsiva prolungata o una paralisi improvvisa, sono gestite dal [pronto soccorso](/pronto-soccorso) 24 ore su 24.
 
 ## Come si svolge la visita neurologica
 
 1. **Storia clinica dettagliata.** Quando è iniziato il problema, se è comparso di colpo o gradualmente, se peggiora, se ci sono stati traumi o contatti con sostanze tossiche, cosa fa esattamente l'animale durante gli episodi. Un video girato a casa vale più di molte descrizioni.
 2. **Osservazione.** Guardiamo come cammina, come tiene la testa, se trascina le zampe, se gira in tondo, come reagisce all'ambiente.
 3. **Esame dei nervi cranici.** Vista, pupille, sensibilità del muso, movimento degli occhi, deglutizione: ci dicono se il problema coinvolge il tronco encefalico.
-4. **Reazioni posturali e riflessi.** Test semplici e indolori che rivelano dove il segnale nervoso si interrompe: cervello, un tratto preciso del midollo o i nervi periferici.
+4. **Reazioni posturali e riflessi.** Test semplici e ben tollerati che rivelano dove il segnale nervoso si interrompe: cervello, un tratto preciso del midollo o i nervi periferici.
 5. **Valutazione del dolore e della sensibilità.** Fondamentale nelle paralisi: la presenza della sensibilità profonda alle dita cambia prognosi e urgenza.
 6. **Localizzazione e ipotesi.** Alla fine della visita sappiamo dove si trova la lesione e quali malattie sono più probabili in base a età, razza e decorso.
 7. **Esami mirati.** Esami del sangue per escludere cause metaboliche, TAC di cranio o colonna, analisi del liquido cerebrospinale, radiografie, elettrodiagnostica per i muscoli e i nervi periferici. Quando serve la risonanza magnetica, ti indirizziamo a un centro che la esegue e seguiamo poi il percorso.

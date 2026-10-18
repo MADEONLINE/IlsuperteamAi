@@ -77,7 +77,7 @@ dataRevisione: 2026-09-10
 
 Il servizio di riproduzione assistita accompagna la cagna e la gatta in tutte le fasi della riproduzione: valutazione preventiva dei riproduttori, monitoraggio del calore per individuare il giorno dell'ovulazione, inseminazione artificiale canina, diagnosi e controllo della gravidanza, preparazione e assistenza al parto, taglio cesareo programmato o d'urgenza, controllo della madre e dei neonati. Si occupa anche dei problemi che riguardano l'apparato riproduttivo al di fuori della gravidanza: infertilità, malattie dell'utero e delle ovaie, patologie della prostata e dei testicoli nel maschio.
 
-Il vantaggio di seguire l'intero percorso nella stessa sede è la continuità: gli esami del progesterone si eseguono nel [laboratorio interno](/servizi/laboratorio-analisi) con risposta in giornata, l'ecografia e la radiografia sono disponibili in [diagnostica per immagini](/servizi/diagnostica-per-immagini), e il [pronto soccorso](/servizi/pronto-soccorso-h24) attivo 24 ore su 24 copre le urgenze ostetriche, che per loro natura arrivano di notte.
+Il vantaggio di seguire l'intero percorso nella stessa sede è la continuità: gli esami del progesterone si eseguono nel [laboratorio interno](/servizi/laboratorio-analisi) con risposta in giornata, l'ecografia e la radiografia sono disponibili in [diagnostica per immagini](/servizi/diagnostica-per-immagini), e il [pronto soccorso](/pronto-soccorso) attivo 24 ore su 24 copre le urgenze ostetriche, che per loro natura arrivano di notte.
 
 ## Come si svolge il monitoraggio del calore
 

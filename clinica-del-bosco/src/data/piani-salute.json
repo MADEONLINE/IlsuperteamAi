@@ -213,13 +213,13 @@
       "da": 1,
       "a": 7,
       "piano": "adulto",
-      "testo": "Anni di pieno benessere: due controlli l'anno, vaccini, antiparassitari continui e uno screening del sangue per intercettare in anticipo."
+      "testo": "Due controlli l'anno, vaccini, antiparassitari tutto l'anno ed esami del sangue una volta all'anno, per scoprire prima quello che ancora non si vede."
     },
     {
       "da": 8,
       "a": 30,
       "piano": "senior",
-      "testo": "Dopo i 7 anni reni, cuore, tiroide e articolazioni vanno controllati più spesso: pannello semestrale e pressione a ogni visita."
+      "testo": "Con l'età reni, cuore, tiroide e articolazioni vanno controllati più spesso: esami ogni 6 mesi e pressione a ogni visita."
     }
   ]
 }

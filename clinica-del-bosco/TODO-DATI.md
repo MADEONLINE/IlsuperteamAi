@@ -7,6 +7,46 @@ si blocca** finché un segnaposto compare in una pagina pubblica.
 Come compilare: aprire `src/data/clinica.json`, sostituire il segnaposto con il valore reale,
 salvare, eseguire `npm run build`. Nessun altro file va toccato.
 
+## Revisione testi del 18 ottobre 2026: punti da confermare
+
+La revisione dei testi (chiarezza, claim, SEO locale, GEO) ha riscritto home, pronto
+soccorso, équipe, la struttura, contatti, prima visita, Piani Salute, chirurgia e la pagina
+di Portici, e ha corretto in tutto il sito le affermazioni non dimostrate. Dove un dato non
+era confermato è stata scelta la formulazione prudente; queste domande restano aperte:
+
+1. 🟠 **Telefono di notte.** Risponde sempre un medico, anche quando quello di turno è
+   impegnato con un paziente? Se sì: `orari.prontoSoccorso.rispondeUnMedico: true` in
+   `clinica.json` (oggi `null`, la frase non compare) e si può tornare a scrivere "risponde un
+   medico" nei testi.
+2. 🟠 **Chirurgo di notte**: in clinica o reperibile? I testi non dicono più "chirurghi in
+   struttura 24 ore su 24".
+3. 🟠 **Tipologia autorizzata** della struttura (clinica o ospedale veterinario): il sito ora
+   dice ovunque "clinica veterinaria".
+4. 🟠 **Titoli dei collaboratori** (diploma di specializzazione o Diplomate). Senza titolo il
+   sito scrive "collabora con la clinica" e la disciplina, non "specialista" né "dermatologo",
+   "neurologa", "oculista".
+5. 🟡 **Ragione sociale**: il footer dice PAN S.r.l.; l'elenco convenzioni di tirocinio della
+   Federico II riporta "PAN s.a.s. Clinica del Bosco di Antonella Sergio e Dario Ferrari & Co.".
+6. 🟡 **Età del piano Senior**: 8 anni nei Piani Salute, 7 nella campagna "Senior: il
+   check-up dai 7 anni". Il prezzo mensile ora è mostrato con i centesimi (es. 340 € / 12 =
+   28,33 €), così 12 rate fanno il prezzo annuo.
+7. 🟡 **Piani Salute**: il piano parte dalla data di attivazione o dalla prima prestazione?
+   Le FAQ dicono entrambe le cose. Le riduzioni vanno elencate piano per piano.
+8. 🟡 **Firma della pagina Chirurgia**: ora è del Dott. Alessandro Sica (prima Dott. Ferrari).
+   Va confermata da lui.
+9. 🟡 **Tempi degli esami urgenti**: il sito scriveva "in tempo reale", ora "in tempi brevi".
+   Se c'è un tempo preciso (es. 20 minuti), scriverlo.
+10. 🟡 **"Ti richiamiamo entro 24 ore"**: vale anche nel fine settimana e nei festivi?
+11. 🟡 **Minuti a piedi** dalle fermate Portici Via Libertà e Portici Bellavista, e un
+    riferimento unico per trovare l'ingresso (piazza San Ciro o direzione Ercolano).
+
+Cambi tecnici collegati: una sola pagina per le urgenze (`/servizi/pronto-soccorso-h24` →
+`/pronto-soccorso` con redirect 301); sul progetto di anteprima (`ANTEPRIMA=1`) tutte le
+pagine sono `noindex`; le schede équipe ancora da validare sono `noindex` e non mostrano più
+l'avviso giallo; i segnaposto foto non mostrano più "Foto in arrivo" né il numero di scatto;
+title entro 60 caratteri e meta description senza "…"; negli orari dei dati strutturati
+l'ambulatorio e il pronto soccorso 24/7 sono separati.
+
 ## Stato al 17 settembre 2026
 
 Applicate le risposte di Dario Ferrari (documento _info sito clinica.docx_ del

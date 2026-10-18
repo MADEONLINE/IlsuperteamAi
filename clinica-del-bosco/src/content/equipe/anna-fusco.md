@@ -1,7 +1,7 @@
 ---
 nome: 'Anna Fusco'
 titolo: 'Dott.ssa'
-ruolo: 'Endoscopista · specialista in collaborazione'
+ruolo: 'Medico veterinario · endoscopia e apparato digerente · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

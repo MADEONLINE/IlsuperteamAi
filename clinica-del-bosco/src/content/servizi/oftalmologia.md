@@ -77,7 +77,7 @@ dataRevisione: 2026-09-10
 
 Il servizio di oftalmologia si occupa di diagnosi e cura delle malattie dell'occhio e delle strutture che lo circondano: palpebre, congiuntiva, cornea, cristallino, retina e nervo ottico. Visitiamo cani, gatti e conigli, sia per problemi acuti (occhio rosso, chiuso, dolente) sia per controlli programmati nelle razze predisposte e negli animali anziani.
 
-L'occhio è un organo che perdona poco i ritardi. Molte malattie oculari sono dolorose e alcune, come il glaucoma o l'ulcera profonda, possono portare alla perdita della vista o dell'occhio stesso nel giro di pochi giorni. Per questo la visita oculistica è disponibile anche in urgenza attraverso il [pronto soccorso 24 ore su 24](/servizi/pronto-soccorso-h24), e la chirurgia oculare viene eseguita nelle sale operatorie della clinica senza trasferimenti.
+L'occhio è un organo che perdona poco i ritardi. Molte malattie oculari sono dolorose e alcune, come il glaucoma o l'ulcera profonda, possono portare alla perdita della vista o dell'occhio stesso nel giro di pochi giorni. Per questo la visita oculistica è disponibile anche in urgenza attraverso il [pronto soccorso 24 ore su 24](/pronto-soccorso), e la chirurgia oculare viene eseguita nelle sale operatorie della clinica senza trasferimenti.
 
 ## Quali problemi trattiamo più spesso
 
@@ -91,7 +91,7 @@ Alcune malattie dell'occhio sono in realtà la spia di una malattia generale: un
 2. **Esame in luce ambiente.** Osserviamo simmetria, posizione delle palpebre, riflessi, comportamento visivo e reazione alla minaccia.
 3. **Test del film lacrimale.** Il test di Schirmer misura in un minuto quante lacrime produce ciascun occhio: serve per diagnosticare l'occhio secco.
 4. **Colorazione con fluoresceina.** Una goccia di colorante rende visibili le ulcere della cornea, anche quelle piccole, e permette di verificare se il canale lacrimale è pervio.
-5. **Misurazione della pressione oculare.** Con uno strumento a contatto rapido e indolore: essenziale per diagnosticare glaucoma e uveite.
+5. **Misurazione della pressione oculare.** Con uno strumento a contatto rapido e di solito ben tollerato: essenziale per diagnosticare glaucoma e uveite.
 6. **Esame con lampada a fessura e del fondo.** Dopo aver dilatato le pupille valutiamo cristallino, vitreo, retina e nervo ottico.
 7. **Esami aggiuntivi se necessari.** Ecografia oculare quando la cornea è opaca, esami del sangue, misurazione della pressione arteriosa nel gatto anziano.
 8. **Spiegazione e piano.** Ti mostriamo cosa abbiamo trovato, la terapia proposta e i tempi del controllo. Per gli interventi ricevi un preventivo scritto.

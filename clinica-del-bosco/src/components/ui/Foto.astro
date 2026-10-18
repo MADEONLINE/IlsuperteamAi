@@ -1,8 +1,8 @@
 ---
 /**
  * Slot fotografico con art direction: ratio fisso, object-fit, didascalia opzionale.
- * Finché non arrivano le foto reali (vedi BRIEF-FOTO.md) mostra un segnaposto
- * chiaramente identificato dal numero di scatto del brief.
+ * Finché non arrivano le foto reali (vedi BRIEF-FOTO.md) mostra un riquadro neutro con il
+ * marchio: il numero di scatto del brief resta solo nell'attributo data-scatto, non nel testo visibile.
  *
  * Quando la foto è disponibile, passare `src` (ImageMetadata da src/assets/img) e `alt`.
  */
@@ -80,18 +80,12 @@ const posizioni: Record<string, string> = {
       />
     ) : (
       <div
-        class="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-bordo-forte p-4 text-center text-testo-secondario"
+        class="absolute inset-0 flex items-center justify-center bg-sfondo-tinta text-testo-secondario"
         role="img"
-        aria-label={`Segnaposto: ${descrizioneSegnaposto}`}
+        aria-label={descrizioneSegnaposto}
+        data-scatto={scattoBrief}
       >
-        <Icona nome="foglia" class="size-8 opacity-50" />
-        <span class="text-sm font-semibold">Foto in arrivo</span>
-        <span class="text-xs">{descrizioneSegnaposto}</span>
-        {scattoBrief && (
-          <span class="rounded-pill bg-sfondo-rialzato px-2 py-0.5 text-xs">
-            BRIEF-FOTO scatto {scattoBrief}
-          </span>
-        )}
+        <Icona nome="foglia" class="size-10 opacity-40" />
       </div>
     )}
   </div>

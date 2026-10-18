@@ -17,21 +17,37 @@ import {
   telHref,
 } from '@lib/clinica';
 import { orariLeggibili } from '@lib/orari';
-import { webPage } from '@lib/schema';
+import { faqPage, webPage } from '@lib/schema';
+import Faq from '@ui/Faq.astro';
 
 const zone = (await getCollection('zone')).sort((a, b) => a.data.ordine - b.data.ordine);
 const orari = clinica.orari.ambulatorio.confermato
   ? orariLeggibili(clinica.orari.ambulatorio.settimana)
   : null;
-const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco: ${indirizzoRiga}. Telefono ${clinica.contatti.telefono.visualizzato} attivo 24 ore su 24. Indicazioni da Portici, Ercolano, San Giorgio, Torre del Greco, Napoli.`;
+const descrizione = `${clinica.nome}, Corso Umberto I 12, Portici (NA). Telefono ${clinica.contatti.telefono.visualizzato}, attivo 24 ore su 24. Orari delle visite, parcheggio e treni.`;
+const faq = [
+  {
+    domanda: 'Il telefono risponde anche di notte?',
+    risposta: `Sì. Il numero ${clinica.contatti.telefono.visualizzato} è attivo 24 ore su 24, tutti i giorni. È lo stesso numero per le urgenze e per prenotare.`,
+  },
+  {
+    domanda: 'Posso prenotare una visita per email?',
+    risposta: `Per prenotare usa il modulo online o il telefono: ti richiamiamo entro ${clinica.impegni.richiamoEntroOre} ore per confermare. Per un'urgenza non scrivere un'email, chiama.`,
+  },
+  {
+    domanda: "Dove parcheggio se arrivo per un'urgenza?",
+    risposta:
+      "Davanti alla clinica c'è un posto riservato alle soste brevi delle urgenze. Se è occupato, ci sono parcheggi a strisce blu e un garage privato nelle vicinanze.",
+  },
+];
 ---
 
 <PaginaLayout
-  titolo="Contatti e come arrivare"
+  titolo="Contatti e orari"
   descrizione={descrizione}
   percorso="/contatti"
-  h1="Contatti e come arrivare"
-  sottotitolo="Un solo numero, attivo 24 ore su 24, per urgenze e prenotazioni."
+  h1="Contatti, orari e come arrivare"
+  sottotitolo={`La ${clinica.nome} è in ${indirizzoRiga}, vicino a piazza San Ciro. Il telefono ${clinica.contatti.telefono.visualizzato} risponde 24 ore su 24, per le urgenze e per prenotare.`}
   etichetta="Contatti"
   briciole={[{ nome: 'Contatti', href: '/contatti' }]}
   jsonLd={[
@@ -41,6 +57,7 @@ const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco
       descrizione,
       tipo: 'ContactPage',
     }),
+    faqPage(faq),
   ]}
 >
   <Sezione>
@@ -66,7 +83,7 @@ const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco
             </div>
             <div>
               <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
-                Email
+                Email (non per le urgenze)
               </dt>
               <dd class="mt-1">
                 <a href={`mailto:${emailPrincipale}`} class="text-lg">
@@ -127,7 +144,7 @@ const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco
         </p>
         {orari ? (
           <table class="mt-3 text-sm">
-            <caption class="sr-only">Orari dell'ambulatorio</caption>
+            <caption class="pb-2 text-left font-semibold">Visite su appuntamento</caption>
             <tbody>
               {orari.map((r) => (
                 <tr>
@@ -145,6 +162,20 @@ const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco
             disponibilità nella fascia che preferisci.
           </p>
         )}
+        <h2 class="mt-10 text-2xl">Come arrivare</h2>
+        <h3 class="mt-4 font-sans text-lg font-bold">In auto</h3>
+        <p class="mt-1">
+          Autostrada A3 Napoli-Salerno, uscita Portici-Ercolano, poi indicazioni per il centro di
+          Portici. La clinica è in Corso Umberto I, a pochi minuti dallo svincolo.
+        </p>
+        <h3 class="mt-4 font-sans text-lg font-bold">In treno</h3>
+        <ul class="mt-1 list-disc pl-5">
+          <li>
+            Circumvesuviana, linea Napoli-Sorrento: fermate Portici Via Libertà e Portici
+            Bellavista.
+          </li>
+          <li>Ferrovie dello Stato: stazione Portici-Ercolano.</li>
+        </ul>
       </div>
       <div class="lg:col-span-6">
         <a
@@ -169,9 +200,10 @@ const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco
     </div>
   </Sezione>
   <Sezione tono="tinta" id="zone" compatta>
-    <h2 class="text-2xl md:text-3xl">Da dove arrivano i nostri pazienti</h2>
+    <h2 class="text-2xl md:text-3xl">Tempi indicativi in auto</h2>
     <p class="mt-2 max-w-prose text-testo-secondario">
-      Indicazioni specifiche, tempi indicativi e mezzi pubblici per ogni comune del bacino.
+      Di notte, con poco traffico, i tempi sono vicini al valore più basso. Per ogni comune trovi
+      indicazioni dettagliate nella pagina dedicata.
     </p>
     <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {zone.map((z) => (
@@ -188,5 +220,8 @@ const descrizione = `Contatti e come arrivare alla Clinica Veterinaria del Bosco
         </li>
       ))}
     </ul>
+  </Sezione>
+  <Sezione compatta>
+    <Faq voci={faq} />
   </Sezione>
 </PaginaLayout>

@@ -4,6 +4,7 @@
  * ("È un'urgenza" in corallo · "Prenota una visita" in verde), menu mobile accessibile.
  * Senza JS: il pulsante menu diventa un link alla navigazione completa nel footer.
  */
+import { hrefServizio } from '@lib/servizi';
 import { getCollection } from 'astro:content';
 import Bottone from '@ui/Bottone.astro';
 import Icona from '@ui/Icona.astro';
@@ -119,7 +120,7 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
                             {g.lista.map((sv) => (
                               <li>
                                 <a
-                                  href={`/servizi/${sv.id}`}
+                                  href={hrefServizio(sv.id)}
                                   class="block rounded-md px-2 py-1 text-[0.92rem] no-underline hover:bg-primario-tenue hover:text-primario-link"
                                 >
                                   {sv.data.titoloBreve}
@@ -223,7 +224,7 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
                         {g.lista.map((sv) => (
                           <li>
                             <a
-                              href={`/servizi/${sv.id}`}
+                              href={hrefServizio(sv.id)}
                               class="block min-h-10 py-1.5 no-underline"
                             >
                               {sv.data.titoloBreve}

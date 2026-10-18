@@ -53,14 +53,14 @@ I tempi, 10–25 minuti, dipendono quasi solo dal traffico. Di notte l'A3 è lib
 
 ## Cosa fare mentre arrivi
 
-Chiama il 081 7763859 e descrivi cosa vedi. Le indicazioni della pagina [/pronto-soccorso](/pronto-soccorso) valgono anche durante un tragitto in autostrada: non somministrare farmaci umani, non indurre il vomito, non dare cibo o acqua se potrebbe servire un'anestesia. Se hai raccolto un cane investito in strada, tienilo su una superficie rigida e coperto, e fatti aiutare da una seconda persona per non farlo muovere in auto.
+Chiama il 081 7763859 e descrivi cosa vedi. Le indicazioni della pagina [del pronto soccorso](/pronto-soccorso) valgono anche durante un tragitto in autostrada: non somministrare farmaci umani, non indurre il vomito, non dare cibo o acqua se potrebbe servire un'anestesia. Se hai raccolto un cane investito in strada, tienilo su una superficie rigida e coperto, e fatti aiutare da una seconda persona per non farlo muovere in auto.
 
 ## Quali servizi usano di più Barra, San Giovanni e Ponticelli?
 
-In quartieri con molto traffico e molti cani che vivono in strada o in cortile, gli accessi più frequenti sono per traumi da investimento, morsi tra cani e sospetti avvelenamenti da esche. Il [pronto soccorso](/servizi/pronto-soccorso-h24), la [degenza con terapia intensiva](/servizi/degenza-terapia-intensiva) e l'[ortopedia](/servizi/ortopedia) per le fratture sono i servizi che questi quartieri utilizzano di più. La [chirurgia](/servizi/chirurgia) d'urgenza, con due sale operatorie, permette di intervenire senza trasferimenti.
+In quartieri con molto traffico e molti cani che vivono in strada o in cortile, gli accessi più frequenti sono per traumi da investimento, morsi tra cani e sospetti avvelenamenti da esche. Il [pronto soccorso](/pronto-soccorso), la [degenza con terapia intensiva](/servizi/degenza-terapia-intensiva) e l'[ortopedia](/servizi/ortopedia) per le fratture sono i servizi che questi quartieri utilizzano di più. La [chirurgia](/servizi/chirurgia) d'urgenza, con due sale operatorie, permette di intervenire senza trasferimenti.
 
-Per le famiglie con gatti e conigli in appartamento, molto diffusi nei rioni residenziali, ci sono il percorso [cat friendly](/servizi/gatto-cat-friendly) e il servizio per [animali esotici e conigli](/servizi/animali-esotici-e-conigli). La [TAC](/servizi/tac-diagnostica-avanzata) in sede completa il quadro nei traumi complessi, nelle lesioni della colonna e nei sospetti oncologici.
+Per le famiglie con gatti e conigli in appartamento ci sono il percorso [cat friendly](/servizi/gatto-cat-friendly) e il servizio per [animali esotici e conigli](/servizi/animali-esotici-e-conigli). La [TAC](/servizi/tac-diagnostica-avanzata) in sede completa il quadro nei traumi complessi, nelle lesioni della colonna e nei sospetti oncologici.
 
 ## Prenotare da Napoli sud-est
 
-Per le urgenze non serve prenotare. Per visite, vaccinazioni ed esami programmati usa la pagina [/prenota](/prenota) o il telefono; se il tuo animale è già seguito da un veterinario del quartiere, riceve da noi il referto e continua a seguirlo.
+Per le urgenze non serve prenotare. Per visite, vaccinazioni ed esami programmati usa la pagina [prenotazione online](/prenota) o il telefono; se il tuo animale è già seguito da un veterinario del quartiere, riceve da noi il referto e continua a seguirlo.

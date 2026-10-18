@@ -2,7 +2,12 @@
 /** "Quale piano per la sua età?" — piccolo selettore senza framework: età → piano consigliato. Senza JS mostra i tre intervalli. */
 import piani from '@dati/piani-salute.json';
 const euro = (n: number) =>
-  n.toLocaleString('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  n.toLocaleString('it-IT', {
+    style: 'currency',
+    currency: 'EUR',
+    minimumFractionDigits: Number.isInteger(n) ? 0 : 2,
+    maximumFractionDigits: 2,
+  });
 const fasce = piani.selettoreEta.map((f) => ({
   ...f,
   nome: piani.piani.find((p) => p.id === f.piano)?.nome ?? f.piano,
@@ -65,7 +70,7 @@ const fasce = piani.selettoreEta.map((f) => ({
               : `Da ${f.da} a ${f.a} anni`}
         </p>
         <p class="mt-1 font-sans text-lg font-bold">
-          Piano {f.nome} <span class="font-normal text-testo-secondario">· da {f.rata}/mese</span>
+          Piano {f.nome} <span class="font-normal text-testo-secondario">· {f.rata} al mese</span>
         </p>
         <p class="mt-1 text-sm text-testo-secondario">{f.testo}</p>
         <a href={`#${f.piano}`} class="mt-2 inline-block text-sm font-semibold text-primario-link">

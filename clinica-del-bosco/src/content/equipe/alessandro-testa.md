@@ -1,7 +1,7 @@
 ---
 nome: 'Alessandro Testa'
 titolo: 'Dott.'
-ruolo: 'Ortopedico e neurologo veterinario · specialista in collaborazione'
+ruolo: 'Medico veterinario · ortopedia e neurologia · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

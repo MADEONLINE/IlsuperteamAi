@@ -77,7 +77,7 @@ In Campania leishmaniosi e filariosi non sono malattie rare: sono presenti ogni 
 
 Tutte e due le malattie arrivano con la puntura di un insetto: il flebotomo per la leishmaniosi, la zanzara per la filariosi. Nessuna delle due si trasmette per contatto diretto tra cani, né si prende accarezzando un cane malato.
 
-### Il flebotomo, cioè il pappataccio
+### Il flebotomo, cioè il pappatacio
 
 Il flebotomo è un insetto lungo due o tre millimetri, silenzioso, di colore sabbia, che vola a bassa quota e punge tra il tramonto e l'alba. Si riproduce in terreni umidi e ricchi di materia organica: crepe dei muri, cantine, cumuli di foglie, orti. Quando punge un cane infetto ingerisce il parassita, la Leishmania infantum, e lo trasmette al cane successivo. Il periodo tra la puntura e la comparsa dei sintomi va da tre mesi a diversi anni: per questo un cane può ammalarsi in inverno di una puntura ricevuta l'estate precedente.
 
@@ -106,7 +106,7 @@ Attenzione: la permetrina è tossica per il gatto. Se in casa vivono cani e gatt
 
 ### Vaccino e immunomodulazione: quando hanno senso?
 
-Il vaccino contro la leishmaniosi riduce la probabilità che un cane infettato sviluppi la malattia, ma non evita la puntura né l'infezione: per questo si usa in aggiunta al repellente, non al suo posto. È indicato nei cani che vivono all'aperto, in giardino, in campagna o in zone con molti casi. Prima della vaccinazione è obbligatorio un test negativo. Esistono anche immunomodulatori orali, cioè sostanze che stimolano la risposta immunitaria, usati in alcuni cani a rischio o nella gestione dei cani già positivi; la loro indicazione va discussa caso per caso.
+Il vaccino contro la leishmaniosi riduce la probabilità che un cane infettato sviluppi la malattia, ma non evita la puntura né l'infezione: per questo si usa in aggiunta al repellente, non al suo posto. È indicato nei cani che vivono all'aperto, in giardino, in campagna o in zone con molti casi. Prima del vaccino serve un test negativo. Esistono anche immunomodulatori orali, cioè sostanze che stimolano la risposta immunitaria, usati in alcuni cani a rischio o nella gestione dei cani già positivi; la loro indicazione va discussa caso per caso.
 
 ### La profilassi mensile della filariosi
 

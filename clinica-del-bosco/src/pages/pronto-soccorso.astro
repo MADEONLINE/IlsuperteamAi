@@ -13,7 +13,9 @@ import Sezione from '@ui/Sezione.astro';
 import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
 import TriageRapido from '@sezioni/TriageRapido.astro';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntries, getEntry } from 'astro:content';
+import Referenti from '@ui/Referenti.astro';
+import Fonti from '@ui/Fonti.astro';
 import {
   clinica,
   daConfermare,
@@ -22,14 +24,16 @@ import {
   indirizzoRiga,
   telHref,
 } from '@lib/clinica';
-import { emergencyService, faqPage, medicalWebPage } from '@lib/schema';
+import { faqPage, medicalWebPage } from '@lib/schema';
 
 const servizio = await getEntry('servizi', 'pronto-soccorso-h24');
 if (!servizio) throw new Error('Contenuto servizi/pronto-soccorso-h24 mancante');
+/** Medici del turno di notte: prima stavano nella pagina servizio, ora accorpata qui. */
+const turnoNotte = (await getEntries(servizio.data.referenti)).filter(Boolean);
 
-const titolo = 'Pronto soccorso veterinario 24h a Portici (Napoli) · aperto ora';
+const titolo = 'Pronto soccorso veterinario 24h, Portici';
 const descrizione =
-  'Pronto soccorso veterinario aperto adesso, 24 ore su 24, 7 giorni su 7 a Portici. Medici in struttura, terapia intensiva, TAC. Chiama il 081 7763859 mentre arrivi.';
+  'Pronto soccorso veterinario a Portici aperto 24 ore su 24, festivi inclusi, con un medico in clinica anche di notte. Chiama mentre arrivi: 081 7763859.';
 
 const zone = (await getCollection('zone'))
   .sort((a, b) => a.data.ordine - b.data.ordine)
@@ -38,31 +42,31 @@ const zone = (await getCollection('zone'))
 const istruzioni = [
   {
     titolo: 'Chiama mentre parti',
-    testo: `Al ${clinica.contatti.telefono.visualizzato} risponde un medico. Dicci cosa vedi: prepariamo ossigeno, sala e chirurgo prima che tu arrivi.`,
+    testo: `Al ${clinica.contatti.telefono.visualizzato} descrivi cosa vedi. Intanto prepariamo l'ossigeno e la sala.`,
     icona: 'telefono',
   },
   {
-    titolo: 'Trasporta in sicurezza',
+    titolo: 'Trasportalo in sicurezza',
     testo:
-      'Gatto e coniglio nel trasportino. Cane traumatizzato su una superficie rigida o una coperta tesa in due. Non tenerlo in braccio se puoi evitarlo.',
+      'Gatti e conigli vanno nel trasportino. Un cane che ha subito un trauma va spostato su una superficie rigida o su una coperta tenuta tesa da due persone.',
     icona: 'auto',
   },
   {
-    titolo: 'Non dare nulla per bocca',
+    titolo: 'Non dargli niente',
     testo:
-      'Niente cibo, acqua o farmaci umani: paracetamolo e ibuprofene sono tossici per cani e gatti. Non indurre il vomito con rimedi casalinghi.',
+      'Niente cibo, acqua o farmaci per persone: paracetamolo e ibuprofene sono tossici per cani e gatti. Non provare a farlo vomitare.',
     icona: 'allerta',
   },
   {
-    titolo: 'Porta ciò che serve',
+    titolo: 'Porta quello che trovi',
     testo:
-      'Libretto o referti recenti, farmaci in uso, confezione o foto della sostanza in caso di avvelenamento. Se non li trovi subito, parti comunque.',
+      'Libretto, referti recenti, farmaci che prende. Se ha mangiato una sostanza, la confezione o una foto. Se non li trovi subito, parti lo stesso.',
     icona: 'calendario',
   },
   {
     titolo: 'Tienilo calmo e al fresco',
     testo:
-      'Aria condizionata in auto, luci basse, voce tranquilla. Se respira male, lascialo nella posizione che sceglie lui: non forzarlo a sdraiarsi.',
+      'Aria condizionata in auto, luci basse, voce tranquilla. Se respira male, lascialo nella posizione che sceglie lui.',
     icona: 'cuore-pulsante',
   },
 ] as const;
@@ -72,61 +76,61 @@ const triage = [
     id: 'dispnea',
     titolo: 'Difficoltà a respirare',
     testo:
-      "Respiro affannoso a riposo, gatto che respira a bocca aperta, gengive bluastre o grigie, collo esteso. È sempre un'urgenza.",
+      "Respira con fatica anche da fermo, il gatto respira a bocca aperta, le gengive sono bluastre o grigie, tiene il collo teso. È sempre un'urgenza.",
   },
   {
     id: 'convulsioni',
     titolo: 'Convulsioni',
     testo:
-      "Crisi che dura più di 3 minuti, crisi ripetute o un animale che non si riprende tra una crisi e l'altra. Cronometra e allontana gli oggetti.",
+      "La crisi dura più di 3 minuti, le crisi si ripetono o l'animale non si riprende tra una e l'altra. Guarda quanto dura e allontana gli oggetti vicini.",
   },
   {
     id: 'torsione-gastrica',
-    titolo: 'Torsione gastrica',
+    titolo: 'Torsione dello stomaco',
     testo:
-      'Cane di taglia grande con addome gonfio e teso, tentativi di vomito a vuoto, irrequietezza. Ogni minuto conta: parti subito.',
+      'Un cane di taglia grande ha la pancia gonfia e tesa, prova a vomitare senza riuscirci, è agitato. Ogni minuto conta: parti subito.',
   },
   {
     id: 'avvelenamento',
     titolo: 'Avvelenamento',
     testo:
-      'Ingestione di veleno per topi o lumache, cioccolato, uva, xilitolo, farmaci umani, piante tossiche, antigelo. Porta la confezione.',
+      'Ha mangiato veleno per topi o lumache, cioccolato, uva, xilitolo, farmaci per persone, piante tossiche o antigelo. Porta la confezione.',
   },
   {
     id: 'trauma',
     titolo: 'Trauma',
     testo:
-      "Investimento, caduta dall'alto, morso profondo, ferita che sanguina senza fermarsi. Le lesioni interne possono non essere visibili.",
+      "Investimento, caduta dall'alto, morso profondo, ferita che continua a sanguinare. Le lesioni interne possono non vedersi.",
   },
   {
     id: 'parto-distocico',
-    titolo: 'Parto che non procede',
+    titolo: 'Parto che non va avanti',
     testo:
-      "Spinte forti da oltre 30 minuti senza nascita, più di 2 ore tra un cucciolo e l'altro, perdite verdastre senza nascita, madre spossata.",
+      "Spinge forte da più di 30 minuti e non nasce nessun cucciolo, oppure passano più di 2 ore tra un cucciolo e l'altro. Anche perdite verdastre senza nascite o una madre sfinita sono un'urgenza.",
   },
   {
     id: 'blocco-urinario',
     titolo: 'Gatto maschio che non urina',
     testo:
-      'Va e viene dalla lettiera senza produrre urina, si lamenta, si lecca il basso ventre, vomita. Il blocco urinario è mortale in 24–48 ore.',
+      'Va e viene dalla lettiera senza urinare, si lamenta, si lecca la parte bassa della pancia, vomita. Il blocco urinario può essere mortale in 24-48 ore.',
   },
   {
     id: 'colpo-di-calore',
     titolo: 'Colpo di calore',
     testo:
-      'Dopo esercizio o auto al sole: ansimo intenso, gengive rosso scuro, barcollamento, collasso. Bagna con acqua fresca, non gelata, e parti.',
+      "Dopo uno sforzo o in un'auto al sole: ansima forte, gengive rosso scuro, barcolla, crolla. Bagnalo con acqua fresca, non gelata, e parti.",
   },
   {
     id: 'collasso',
-    titolo: 'Collasso o non riesce ad alzarsi',
+    titolo: 'Crolla o non riesce ad alzarsi',
     testo:
-      "Debolezza improvvisa, gengive pallide, addome gonfio: può indicare un'emorragia interna o un problema cardiaco.",
+      "Debolezza improvvisa, gengive pallide, pancia gonfia: può essere un'emorragia interna o un problema al cuore.",
   },
   {
     id: 'occhio',
     titolo: 'Occhio chiuso, gonfio o sporgente',
     testo:
-      "Dolore oculare acuto, pupilla diversa dall'altra, bulbo fuoriuscito: la vista si può perdere in poche ore.",
+      "Dolore forte all'occhio, una pupilla diversa dall'altra, occhio uscito dall'orbita: la vista si può perdere in poche ore.",
   },
 ];
 
@@ -138,7 +142,6 @@ const faqJson = servizio.data.faq;
   titolo={titolo}
   descrizione={descrizione}
   percorso="/pronto-soccorso"
-  senzaBrand
   jsonLd={[
     medicalWebPage({
       url: '/pronto-soccorso',
@@ -147,7 +150,6 @@ const faqJson = servizio.data.faq;
       briciole,
       specialita: 'Emergency',
     }),
-    emergencyService(),
     faqPage(faqJson),
   ]}
 >
@@ -158,11 +160,13 @@ const faqJson = servizio.data.faq;
         <div class="lg:col-span-7">
           <BadgeApertoOra inverso class="mb-4" />
           <h1 id="ps-titolo" class="text-4xl text-testo-inverso sm:text-5xl md:text-6xl">
-            Siamo aperti <em class="not-italic text-accento-inverso">adesso.</em>
+            Pronto soccorso veterinario a Portici,{' '}
+            <em class="not-italic text-accento-inverso">aperto 24 ore su 24.</em>
           </h1>
           <p class="mt-3 text-lg text-testo-inverso/85 md:text-xl">
-            Pronto soccorso veterinario con medici in struttura 24 ore su 24, tutti i giorni. Chiama
-            mentre arrivi.
+            Siamo aperti adesso. Il pronto soccorso della {clinica.nome} è aperto tutti i giorni
+            dell'anno, festivi compresi. Di notte c'è sempre un medico veterinario in clinica. Non
+            serve l'appuntamento: chiama mentre parti.
           </p>
 
           <div class="mt-6 space-y-3">
@@ -217,8 +221,8 @@ const faqJson = servizio.data.faq;
             <li class="flex items-start gap-2">
               <Icona nome="check" class="mt-0.5 size-4 shrink-0 text-accento-inverso" />
               <span>
-                <strong>Triage all'arrivo:</strong> i casi critici passano avanti, prima della
-                registrazione.
+                <strong>Chi è in pericolo di vita passa per primo</strong>, anche se arriva dopo. Lo
+                valutiamo all'arrivo, prima della registrazione.
               </span>
             </li>
             {clinica.orari.prontoSoccorso.aiutoAllArrivo && (
@@ -291,11 +295,11 @@ const faqJson = servizio.data.faq;
             <ul class="mt-4 space-y-3 text-testo-inverso/90">
               <li class="flex gap-3">
                 <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Medico
-                veterinario e assistente presenti in struttura, non reperibilità
+                veterinario e tecnico in clinica anche di notte, non solo reperibilità
               </li>
               <li class="flex gap-3">
                 <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Terapia
-                intensiva con ossigeno e monitoraggio continuo
+                intensiva con ossigeno e controllo continuo
               </li>
               <li class="flex gap-3">
                 <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" />{' '}
@@ -354,12 +358,10 @@ const faqJson = servizio.data.faq;
     etichettaAria="Segni che richiedono di venire subito"
   >
     <div class="prosa">
-      <Etichetta class="mb-3">Triage informativo</Etichetta>
+      <Etichetta class="mb-3">Segni di urgenza</Etichetta>
       <h2 class="text-3xl md:text-4xl">Quando venire subito, senza aspettare il mattino</h2>
       <p class="mt-4 text-lg text-testo-secondario">
-        Questi segni richiedono una valutazione immediata. Se ne riconosci uno, chiama e parti:
-        descrivere al telefono quello che vedi ci aiuta a prepararci. Se non sei sicuro, chiama
-        comunque.
+        Se riconosci uno di questi segni, chiama e parti. Se non sei sicuro, chiama comunque.
       </p>
     </div>
     <ul class="mt-8 grid gap-3 md:grid-cols-2">
@@ -439,31 +441,33 @@ const faqJson = servizio.data.faq;
         <p class="mt-4 text-lg">{servizio.data.risposta}</p>
         <ol class="mt-6 space-y-4">
           <li>
-            <strong>Accoglienza e triage.</strong> Un membro dell'équipe valuta la gravità entro
-            pochi minuti. I casi critici passano avanti, indipendentemente dall'ordine di arrivo.
+            <strong>Valutazione all'arrivo.</strong> Entro pochi minuti un membro dell'équipe valuta
+            quanto è grave. Si chiama triage: chi è in pericolo di vita passa per primo.
           </li>
           <li>
-            <strong>Stabilizzazione.</strong> Ossigeno, accesso venoso, controllo del dolore e
-            dell'emorragia vengono prima di qualsiasi esame.
+            <strong>Stabilizzazione.</strong> Prima degli esami diamo ossigeno, mettiamo una flebo e
+            controlliamo il dolore e le emorragie.
           </li>
           <li>
-            <strong>Diagnosi.</strong> Esami del sangue in tempo reale, radiografie, ecografia e, se
-            serve, TAC senza spostare l'animale.
+            <strong>Esami.</strong> Esami del sangue con il laboratorio interno, radiografie,
+            ecografia e, se serve, TAC, senza spostare l'animale.
           </li>
           <li>
-            <strong>Decisione condivisa.</strong> Ti spieghiamo cosa abbiamo trovato, le opzioni e i
-            costi indicativi. Nessun intervento non urgente parte senza il tuo consenso scritto.
+            <strong>Decisione insieme a te.</strong> Ti spieghiamo cosa abbiamo trovato, le
+            possibilità di cura e i costi. Gli interventi non urgenti partono solo con il tuo
+            consenso scritto.
           </li>
           <li>
-            <strong>Trattamento o ricovero.</strong> Chirurgia d'urgenza, terapia intensiva o
-            dimissione con istruzioni chiare e un controllo programmato.
+            <strong>Cura, ricovero o rientro a casa.</strong> Intervento d'urgenza, terapia
+            intensiva, oppure dimissione con istruzioni scritte e un controllo fissato.
           </li>
         </ol>
-        <p class="mt-6">
-          <a href="/servizi/pronto-soccorso-h24" class="font-semibold text-primario-link">
-            Tutti i dettagli sul servizio di pronto soccorso →
-          </a>
+        <h2 class="mt-10 text-2xl md:text-3xl">Chi c'è di notte</h2>
+        <p class="mt-3">
+          Di notte, dalle 20 alle 9, in clinica ci sono un medico veterinario e un tecnico, oppure
+          due medici.
         </p>
+        <Referenti medici={turnoNotte} titolo="Il turno di notte" class="mt-6" />
       </div>
       <aside class="lg:col-span-5">
         <h2 class="font-sans text-xl font-bold">Domande frequenti sulle urgenze</h2>
@@ -487,8 +491,8 @@ const faqJson = servizio.data.faq;
         </h2>
         <ul class="mt-3 space-y-2 text-testo-secondario">
           <li>
-            La visita di pronto soccorso ha un onorario indicativo che ti comunichiamo al telefono o
-            all'accoglienza; di notte e nei festivi può prevedere una maggiorazione.
+            La visita di pronto soccorso ha un onorario indicativo, più alto di notte e nei festivi:
+            lo trovi nella pagina degli onorari e te lo confermiamo al telefono.
           </li>
           <li>
             Per esami, ricovero e interventi ricevi un{' '}
@@ -497,9 +501,8 @@ const faqJson = servizio.data.faq;
             appena possibile.
           </li>
           <li>
-            Si paga al termine, con carta o contanti.{' '}
-            <strong class="text-testo">Nessun anticipo</strong> per la visita; per i ricoveri lunghi
-            concordiamo acconti trasparenti.
+            Paghi alla fine, con carta o contanti. Per i ricoveri lunghi concordiamo con te un
+            acconto.
           </li>
         </ul>
         <a
@@ -534,7 +537,8 @@ const faqJson = servizio.data.faq;
         </a>
       </section>
     </div>
-    <p class="mt-10 text-sm text-testo-secondario">
+    <Fonti fonti={servizio.data.fonti} class="mt-10" />
+    <p class="mt-6 text-sm text-testo-secondario">
       Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
     </p>
   </Sezione>

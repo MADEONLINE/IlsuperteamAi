@@ -1,7 +1,7 @@
 ---
 nome: 'Donatella De Simone'
 titolo: 'Dott.ssa'
-ruolo: 'Neurologa veterinaria · specialista in collaborazione'
+ruolo: 'Medico veterinario · neurologia · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

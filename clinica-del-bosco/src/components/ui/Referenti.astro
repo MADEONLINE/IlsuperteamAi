@@ -23,7 +23,7 @@ const iniziali = (nome: string) =>
 const tipoEtichetta: Record<string, string> = {
   socio: 'Socio fondatore',
   interno: 'Équipe della clinica',
-  freelance: 'Specialista in collaborazione',
+  freelance: 'Collabora con la clinica',
 };
 ---
 
@@ -31,8 +31,8 @@ const tipoEtichetta: Record<string, string> = {
   <section class:list={['rounded-card border border-bordo bg-sfondo-rialzato p-5 md:p-6', classe]}>
     <h2 class="font-sans text-xl font-bold">{titolo}</h2>
     <p class="mt-1 text-sm text-testo-secondario">
-      Medici che seguono questo servizio. Per gli specialisti in collaborazione la reception fissa
-      l'appuntamento nelle giornate di presenza.
+      Medici che seguono questo servizio. Per i veterinari che collaborano con la clinica la
+      reception fissa l'appuntamento nei giorni in cui sono presenti.
     </p>
     <ul class="mt-4 grid gap-3 sm:grid-cols-2">
       {medici.map((m) => (

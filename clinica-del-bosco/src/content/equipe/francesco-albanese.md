@@ -1,7 +1,7 @@
 ---
 nome: 'Francesco Albanese'
 titolo: 'Dott.'
-ruolo: 'Dermatologo veterinario · specialista in collaborazione'
+ruolo: 'Medico veterinario · dermatologia · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

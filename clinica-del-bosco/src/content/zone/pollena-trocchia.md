@@ -48,14 +48,14 @@ Di notte le strade ordinarie sono libere e il tragitto sta nella parte bassa del
 
 ## Cosa fare durante il tragitto
 
-Chiama il 081 7763859. Nella pagina [/pronto-soccorso](/pronto-soccorso) trovi i segni che richiedono di partire subito e le regole del viaggio: non dare farmaci per uso umano, non offrire cibo o acqua, non provare a farlo vomitare. Per un cane che ha subito un trauma in campagna, la cosa più utile è una coperta tesa o una superficie rigida e un secondo passeggero che lo tenga fermo. Se il sospetto è un'esca o un prodotto agricolo, porta la confezione o una foto.
+Chiama il 081 7763859. Nella pagina [del pronto soccorso](/pronto-soccorso) trovi i segni che richiedono di partire subito e le regole del viaggio: non dare farmaci per uso umano, non offrire cibo o acqua, non provare a farlo vomitare. Per un cane che ha subito un trauma in campagna, la cosa più utile è una coperta tesa o una superficie rigida e un secondo passeggero che lo tenga fermo. Se il sospetto è un'esca o un prodotto agricolo, porta la confezione o una foto.
 
 ## Quali servizi servono di più a Pollena Trocchia?
 
-Il territorio porta in clinica soprattutto cani attivi: cani da caccia e da compagnia che corrono su terreni lavici e sterrati, con distorsioni, fratture, ferite ai polpastrelli e forasacchi. L'[ortopedia](/servizi/ortopedia), il [pronto soccorso](/servizi/pronto-soccorso-h24) e la [diagnostica per immagini](/servizi/diagnostica-per-immagini) sono i servizi più usati. Molto richiesta la [medicina preventiva e le vaccinazioni](/servizi/medicina-preventiva-vaccinazioni), con la profilassi per leishmaniosi, filaria e zecche, e la [nutrizione clinica](/servizi/nutrizione-clinica) per i cani da lavoro e per i soggetti anziani.
+Il territorio porta in clinica soprattutto cani attivi: cani da caccia e da compagnia che corrono su terreni lavici e sterrati, con distorsioni, fratture, ferite ai polpastrelli e forasacchi. L'[ortopedia](/servizi/ortopedia), il [pronto soccorso](/pronto-soccorso) e la [diagnostica per immagini](/servizi/diagnostica-per-immagini) sono i servizi più usati. Molto richiesta la [medicina preventiva e le vaccinazioni](/servizi/medicina-preventiva-vaccinazioni), con la profilassi per leishmaniosi, filaria e zecche, e la [nutrizione clinica](/servizi/nutrizione-clinica) per i cani da lavoro e per i soggetti anziani.
 
 Quando serve un approfondimento, la [TAC](/servizi/tac-diagnostica-avanzata) in sede chiarisce lesioni articolari, della colonna e del cranio in un unico accesso; la [degenza con terapia intensiva](/servizi/degenza-terapia-intensiva) accoglie i casi che devono restare sotto monitoraggio, evitando un secondo viaggio.
 
 ## Prenotare da Pollena Trocchia
 
-Per le urgenze vieni o chiama. Per visite, vaccini, TAC e interventi programmati prenota dalla pagina [/prenota](/prenota) o per telefono, indicando da dove parti: organizziamo l'appuntamento in modo che un solo viaggio basti e inviamo il referto al tuo veterinario, se ne hai uno in zona.
+Per le urgenze vieni o chiama. Per visite, vaccini, TAC e interventi programmati prenota dalla pagina [prenotazione online](/prenota) o per telefono, indicando da dove parti: organizziamo l'appuntamento in modo che un solo viaggio basti e inviamo il referto al tuo veterinario, se ne hai uno in zona.

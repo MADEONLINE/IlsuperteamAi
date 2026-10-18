@@ -29,7 +29,7 @@ faq:
   - domanda: 'Quanto ci vuole da Torre del Greco di notte?'
     risposta: "Di notte, con l'A3 libera, dal centro si arriva in 10–12 minuti; dalle zone più a sud, come Santa Maria La Bruna, in 15–20. La litoranea è un'alternativa valida quando il traffico è scarso. Chiama il 081 7763859 prima di partire: ti diciamo quale percorso conviene."
   - domanda: 'Vale la pena fare 15 minuti di strada invece di aspettare il mattino?'
-    risposta: 'Per i segni elencati nella pagina del pronto soccorso sì: difficoltà respiratoria, addome gonfio, gatto che non urina, convulsioni, avvelenamento, trauma. In questi casi le ore contano più dei chilometri. Se hai un dubbio, la telefonata è gratuita e ti risponde un medico.'
+    risposta: 'Per i segni elencati nella pagina del pronto soccorso sì: difficoltà respiratoria, addome gonfio, gatto che non urina, convulsioni, avvelenamento, trauma. In questi casi le ore contano più dei chilometri. Se hai un dubbio, chiama: ti diciamo se venire subito.'
   - domanda: 'Posso venire senza appuntamento?'
     risposta: 'Per le urgenze sì. Per visite specialistiche, TAC e interventi programmati ti chiediamo di prenotare, così organizziamo la giornata tenendo conto del tuo tragitto da Torre del Greco e, se serve, concentriamo più esami in un unico accesso.'
   - domanda: 'Il mio cane ha ingerito un amo o una lenza al porto: cosa faccio?'
@@ -52,14 +52,14 @@ Chi scende dalla zona collinare di Camaldoli raggiunge prima il centro e poi sce
 
 ## Cosa fare nei 15 minuti di viaggio
 
-Chiama il 081 7763859 e fai parlare al telefono chi non sta guidando. Le istruzioni della pagina [/pronto-soccorso](/pronto-soccorso) valgono per tutto il tragitto: niente farmaci umani, niente cibo o acqua, niente vomito indotto. Se il tuo cane ha avuto un colpo di calore dopo una corsa sul lungomare, bagnalo con acqua fresca, non gelata, e tieni l'aria condizionata accesa in auto. Se ha ingerito acqua di mare in quantità e vomita, non dargli altro da bere finché non è stato visitato.
+Chiama il 081 7763859 e fai parlare al telefono chi non sta guidando. Le istruzioni della pagina [del pronto soccorso](/pronto-soccorso) valgono per tutto il tragitto: niente farmaci umani, niente cibo o acqua, niente vomito indotto. Se il tuo cane ha avuto un colpo di calore dopo una corsa sul lungomare, bagnalo con acqua fresca, non gelata, e tieni l'aria condizionata accesa in auto. Se ha ingerito acqua di mare in quantità e vomita, non dargli altro da bere finché non è stato visitato.
 
 ## Per quali servizi si viene da Torre del Greco?
 
-Una città sul mare con un porto attivo porta in clinica situazioni specifiche: ami e lenze ingeriti, ferite da scogli, colpi di calore estivi, ingestione di acqua salata. Il [pronto soccorso](/servizi/pronto-soccorso-h24) e la [diagnostica per immagini](/servizi/diagnostica-per-immagini), con radiologia ed endoscopia, sono i servizi più usati per queste urgenze. Molte richieste riguardano poi la [chirurgia](/servizi/chirurgia) specialistica e l'[oncologia](/servizi/oncologia), spesso su invio del veterinario di fiducia dopo una prima diagnosi.
+Una città sul mare con un porto attivo porta in clinica situazioni specifiche: ami e lenze ingeriti, ferite da scogli, colpi di calore estivi, ingestione di acqua salata. Il [pronto soccorso](/pronto-soccorso) e la [diagnostica per immagini](/servizi/diagnostica-per-immagini), con radiologia ed endoscopia, sono i servizi più usati per queste urgenze. Molte richieste riguardano poi la [chirurgia](/servizi/chirurgia) specialistica e l'[oncologia](/servizi/oncologia), spesso su invio del veterinario di fiducia dopo una prima diagnosi.
 
 La [TAC](/servizi/tac-diagnostica-avanzata) è il motivo principale per cui i colleghi di Torre del Greco indirizzano i loro pazienti a Portici: stadiazione oncologica, studio di colonna e articolazioni, pianificazione degli interventi. Per i gatti, numerosi nei quartieri del centro, c'è il percorso [cat friendly](/servizi/gatto-cat-friendly).
 
 ## Prenotare da Torre del Greco
 
-Le urgenze non hanno bisogno di prenotazione. Per TAC, visite specialistiche e interventi, prenota dalla pagina [/prenota](/prenota) o per telefono: concentriamo gli esami in un solo accesso e inviamo il referto al tuo veterinario.
+Le urgenze non hanno bisogno di prenotazione. Per TAC, visite specialistiche e interventi, prenota dalla pagina [prenotazione online](/prenota) o per telefono: concentriamo gli esami in un solo accesso e inviamo il referto al tuo veterinario.

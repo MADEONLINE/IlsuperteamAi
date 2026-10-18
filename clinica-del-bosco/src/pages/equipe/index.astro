@@ -1,5 +1,5 @@
 ---
-/** Équipe: soci, medici della clinica e specialisti in collaborazione, con aree seguite e giorni di presenza. */
+/** Équipe: soci, medici della clinica e veterinari che collaborano in giorni fissi, con aree seguite e giorni di presenza. */
 import { getCollection } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Badge from '@ui/Badge.astro';
@@ -8,8 +8,9 @@ import Foto from '@ui/Foto.astro';
 import Icona from '@ui/Icona.astro';
 import Sezione from '@ui/Sezione.astro';
 import CtaDoppia from '@ui/CtaDoppia.astro';
+import Faq from '@ui/Faq.astro';
 import { clinica, direttoreSanitarioRiga } from '@lib/clinica';
-import { webPage } from '@lib/schema';
+import { faqPage, webPage } from '@lib/schema';
 
 const medici = (await getCollection('equipe')).sort((a, b) => a.data.ordine - b.data.ordine);
 const servizi = await getCollection('servizi');
@@ -20,34 +21,54 @@ const gruppi: Array<{ tipo: 'socio' | 'interno' | 'freelance'; titolo: string; t
     tipo: 'socio',
     titolo: 'I soci fondatori',
     testo:
-      'Quattro medici veterinari che hanno fondato la clinica e la dirigono, ciascuno con la propria area clinica.',
+      'Hanno aperto la clinica nel 2010 e la dirigono ancora oggi. Visitano e operano ogni giorno.',
   },
   {
     tipo: 'interno',
     titolo: 'I medici della clinica',
     testo:
-      "L'équipe interna che copre i turni diurni, la sala operatoria, la degenza e il pronto soccorso notturno.",
+      'Coprono le visite di giorno, la sala operatoria, il ricovero e il pronto soccorso di notte.',
   },
   {
     tipo: 'freelance',
-    titolo: 'Gli specialisti in collaborazione',
+    titolo: 'I veterinari che collaborano con la clinica',
     testo:
-      'Specialisti che lavorano in clinica con giornate di presenza programmate: la reception fissa la visita nel giorno giusto.',
+      'Vengono in clinica in giorni fissi. Quando prenoti, la reception ti fissa la visita nel giorno in cui sono presenti.',
   },
 ];
-const descrizione =
-  'I medici veterinari della Clinica Veterinaria del Bosco di Portici: soci fondatori, équipe interna e specialisti in collaborazione con giorni di presenza fissi. Aree seguite e iscrizione all’Ordine.';
+const nInterni = medici.filter((m) => m.data.tipo !== 'freelance').length;
+const nCollaboratori = medici.filter((m) => m.data.tipo === 'freelance').length;
+const descrizione = `I ${nInterni} medici veterinari della Clinica Veterinaria del Bosco di Portici e gli ${nCollaboratori} colleghi che collaborano in giorni fissi: chi sono e di cosa si occupano.`;
+const faq = [
+  {
+    domanda: 'Chi è il direttore sanitario della clinica?',
+    risposta: `Il direttore sanitario della ${clinica.nome} è il ${clinica.direttoreSanitario.titolo} ${clinica.direttoreSanitario.nome}, iscritto all'Ordine dei Medici Veterinari di ${clinica.direttoreSanitario.provinciaOrdine} con il n. ${clinica.direttoreSanitario.numeroOrdine}.`,
+  },
+  {
+    domanda: 'Come prenoto una visita con un veterinario che collabora con la clinica?',
+    risposta:
+      "Prenota online o al telefono e indica di quale visita hai bisogno, per esempio dermatologia o neurologia. La reception ti fissa l'appuntamento nel giorno in cui il collega è in clinica.",
+  },
+  {
+    domanda: 'Di notte c’è un medico in clinica?',
+    risposta:
+      'Sì. Dalle 20 alle 9 in clinica ci sono un medico veterinario e un tecnico, oppure due medici.',
+  },
+];
 ---
 
 <PaginaLayout
-  titolo="Équipe medica"
+  titolo="L'équipe: i veterinari della Clinica del Bosco, Portici"
   descrizione={descrizione}
   percorso="/equipe"
-  h1="L'équipe"
-  sottotitolo="Medici veterinari presenti in struttura giorno e notte, più gli specialisti che ricevono in giornate programmate. Ogni scheda riporta ruolo, aree seguite e numero di iscrizione all'Ordine."
+  h1={`L'équipe della ${clinica.nome}`}
+  sottotitolo={`Nella clinica lavorano ${nInterni} medici veterinari, presenti anche di notte. Altri ${nCollaboratori} veterinari collaborano con la clinica in giorni fissi per dermatologia, oculistica, neurologia, ortopedia, endoscopia, ecografia e chirurgia. Per ogni medico trovi di cosa si occupa e, dove disponibile, il numero di iscrizione all'Ordine.`}
   etichetta="Chi si prende cura del tuo animale"
   briciole={[{ nome: 'Équipe', href: '/equipe' }]}
-  jsonLd={[webPage({ url: '/equipe', titolo: 'Équipe medica', descrizione, tipo: 'AboutPage' })]}
+  jsonLd={[
+    webPage({ url: '/equipe', titolo: 'Équipe medica', descrizione, tipo: 'AboutPage' }),
+    faqPage(faq),
+  ]}
 >
   <Sezione>
     <p class="mb-8 rounded-card border border-bordo bg-sfondo-rialzato p-4 text-sm">
@@ -126,9 +147,9 @@ const descrizione =
       );
     })}
     <p class="mt-10 max-w-prose text-testo-secondario">
-      L'équipe della {clinica.nome} comprende anche personale di assistenza tecnica e reception. Le
-      schede vengono aggiornate a ogni nuovo ingresso e validate dai singoli medici.
+      Oltre ai medici, in clinica lavorano tecnici veterinari e personale di reception.
     </p>
+    <Faq voci={faq} class="mt-12" />
   </Sezione>
   <Sezione compatta>
     <CtaDoppia posizione="equipe" />

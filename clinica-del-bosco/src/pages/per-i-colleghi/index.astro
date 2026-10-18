@@ -1,5 +1,6 @@
 ---
 /** /per-i-colleghi — area referral B2B. Registro tecnico. Indicizzabile per "TAC veterinaria Napoli", "service diagnostico veterinario Campania". */
+import { hrefServizio } from '@lib/servizi';
 import { getCollection } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Bottone from '@ui/Bottone.astro';
@@ -114,7 +115,7 @@ const percorso = [
 const limiti = [
   'Nessuna risonanza magnetica in sede: per i casi che la richiedono indichiamo un centro attrezzato e teniamo il coordinamento con te.',
   "Le sedute di endoscopia programmata seguono un calendario: i corpi estranei e le urgenze passano dal pronto soccorso h24 e dall'équipe chirurgica.",
-  'Gli specialisti in collaborazione hanno giornate fisse (vedi sotto): per una visita specialistica non urgente conta la prima data utile, non il giorno dopo.',
+  'I veterinari che collaborano con la clinica hanno giornate fisse (vedi sotto): per una visita specialistica non urgente conta la prima data utile, non il giorno dopo.',
   'Di notte sono in struttura un medico e un tecnico, o due medici: per i trasferimenti notturni chiama prima, così prepariamo la degenza.',
 ];
 const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
@@ -322,8 +323,8 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
     <Etichetta class="mb-3">Referenti</Etichetta>
     <h2 class="text-3xl md:text-4xl">Chi riceve il caso, disciplina per disciplina</h2>
     <p class="mt-3 max-w-prose text-testo-secondario">
-      Per ogni specialistica il medico che segue il caso e, per gli specialisti in collaborazione,
-      la cadenza di presenza in struttura: utile per concordare tempi realistici con il
+      Per ogni specialistica il medico che segue il caso e, per i veterinari che collaborano con la
+      clinica, la cadenza di presenza in struttura: utile per concordare tempi realistici con il
       proprietario.
     </p>
     <ul class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -331,7 +332,7 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
         <li class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
           <h3 class="font-sans text-lg font-bold">
             <a
-              href={`/servizi/${servizio.id}`}
+              href={hrefServizio(servizio.id)}
               class="text-testo no-underline hover:text-primario-link"
             >
               {servizio.data.titoloBreve}

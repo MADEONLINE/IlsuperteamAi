@@ -3,7 +3,7 @@ titolo: 'Laboratorio analisi veterinario a Portici: esami del sangue con rispost
 titoloBreve: 'Laboratorio analisi'
 descrizioneMeta: 'Laboratorio analisi veterinario interno a Portici: emocromo, biochimico, coagulazione, elettroliti, emogas, urine e test infettivi con risposta in giornata.'
 sottotitolo: 'Un laboratorio dentro la clinica significa esami preoperatori, controlli e diagnosi in urgenza senza attendere un corriere: la risposta arriva mentre sei ancora qui.'
-risposta: "Il laboratorio analisi interno della Clinica Veterinaria del Bosco a Portici esegue emocromo, profilo biochimico, coagulazione, elettroliti, emogasanalisi, esame delle urine e test rapidi per malattie infettive e metaboliche, con risposta in giornata e in tempo reale per le urgenze. Serve per la prevenzione, la preparazione all'anestesia, il monitoraggio delle malattie croniche e la diagnosi nei pazienti ricoverati."
+risposta: "Il laboratorio analisi interno della Clinica Veterinaria del Bosco a Portici esegue emocromo, profilo biochimico, coagulazione, elettroliti, emogasanalisi, esame delle urine e test rapidi per malattie infettive e metaboliche, con risposta in giornata e in tempi brevi per le urgenze. Serve per la prevenzione, la preparazione all'anestesia, il monitoraggio delle malattie croniche e la diagnosi nei pazienti ricoverati."
 icona: 'provetta'
 categoria: 'diagnostica'
 ordine: 6
@@ -99,7 +99,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa fa il laboratorio interno della clinica
 
-Il laboratorio analisi della Clinica del Bosco è dentro la struttura e lavora tutti i giorni, in continuità con il [pronto soccorso](/servizi/pronto-soccorso-h24) e la [degenza](/servizi/degenza-terapia-intensiva). Il vantaggio per te è concreto: un esame del sangue richiesto durante la visita viene processato mentre aspetti, e le decisioni sulla terapia si prendono nella stessa seduta. Per un animale ricoverato o in urgenza la risposta arriva in pochi minuti.
+Il laboratorio analisi della Clinica del Bosco è dentro la struttura e lavora tutti i giorni, in continuità con il [pronto soccorso](/pronto-soccorso) e la [degenza](/servizi/degenza-terapia-intensiva). Il vantaggio per te è concreto: un esame del sangue richiesto durante la visita viene processato mentre aspetti, e le decisioni sulla terapia si prendono nella stessa seduta. Per un animale ricoverato o in urgenza la risposta arriva in pochi minuti.
 
 Gli esami disponibili in sede comprendono:
 

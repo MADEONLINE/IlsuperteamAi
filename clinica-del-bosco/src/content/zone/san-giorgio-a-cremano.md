@@ -51,7 +51,7 @@ La notte i tempi sono nella parte bassa dell'intervallo. Di giorno, il centro di
 
 ## Cosa fare mentre arrivi
 
-Chiama il 081 7763859 e descrivi cosa vedi: ti diciamo se venire subito o se puoi attendere una visita programmata. Nella pagina [/pronto-soccorso](/pronto-soccorso) trovi la tabella dei segni che non possono aspettare e le cose da non fare durante il viaggio. Per un gatto di casa che deve uscire in urgenza, il trasportino coperto da un asciugamano è il modo più rapido per caricarlo senza lotta; se rifiuta di entrare, non inseguirlo per casa, avvolgilo in un telo.
+Chiama il 081 7763859 e descrivi cosa vedi: ti diciamo se venire subito o se puoi attendere una visita programmata. Nella pagina [del pronto soccorso](/pronto-soccorso) trovi la tabella dei segni che non possono aspettare e le cose da non fare durante il viaggio. Per un gatto di casa che deve uscire in urgenza, il trasportino coperto da un asciugamano è il modo più rapido per caricarlo senza lotta; se rifiuta di entrare, non inseguirlo per casa, avvolgilo in un telo.
 
 ## Di quali servizi ha più bisogno chi vive a San Giorgio a Cremano?
 
@@ -61,4 +61,4 @@ Quando la visita non basta, la [TAC](/servizi/tac-diagnostica-avanzata) in sede 
 
 ## Prenotare da San Giorgio a Cremano
 
-Per le urgenze vieni direttamente. Per visite, vaccinazioni e controlli puoi prenotare dalla pagina [/prenota](/prenota) o per telefono; se il tuo animale è seguito da un collega di San Giorgio, lavoriamo in collaborazione e gli inviamo i referti.
+Per le urgenze vieni direttamente. Per visite, vaccinazioni e controlli puoi prenotare dalla pagina [prenotazione online](/prenota) o per telefono; se il tuo animale è seguito da un collega di San Giorgio, lavoriamo in collaborazione e gli inviamo i referti.

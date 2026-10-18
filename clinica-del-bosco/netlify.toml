@@ -60,6 +60,10 @@
   to = "/"
   status = 301
 [[redirects]]
+  from = "/servizi/pronto-soccorso-h24"
+  to = "/pronto-soccorso"
+  status = 301
+[[redirects]]
   from = "/pronto-soccorso-veterinario"
   to = "/pronto-soccorso"
   status = 301

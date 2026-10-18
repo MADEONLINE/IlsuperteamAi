@@ -1,3 +1,4 @@
+import { hrefServizio } from '@lib/servizi';
 /**
  * /llms.txt — sintesi in Markdown dell'identità della clinica per i sistemi AI
  * (specifica llmstxt.org). Generato a build time dai dati e dai contenuti reali.
@@ -41,7 +42,7 @@ export const GET: APIRoute = async () => {
     '',
     '## Servizi',
     ...servizi.map(
-      (s) => `- [${s.data.titoloBreve}](${urlAssoluto(`/servizi/${s.id}`)}): ${s.data.sottotitolo}`,
+      (s) => `- [${s.data.titoloBreve}](${urlAssoluto(hrefServizio(s.id))}): ${s.data.sottotitolo}`,
     ),
     '',
     '## Guide del magazine',

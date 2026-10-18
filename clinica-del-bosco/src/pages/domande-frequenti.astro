@@ -1,5 +1,6 @@
 ---
 /** FAQ hub: tutte le domande dalla collection `faq`, raggruppate per categoria, testo sempre nell'HTML. */
+import { hrefServizio } from '@lib/servizi';
 import { getCollection, render } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import CtaDoppia from '@ui/CtaDoppia.astro';
@@ -78,7 +79,7 @@ const descrizione =
                       <p class="mt-2 text-sm">
                         <a
                           href={
-                            v.data.paginaCorrelata ?? `/servizi/${v.data.servizioCorrelato?.id}`
+                            v.data.paginaCorrelata ?? hrefServizio(v.data.servizioCorrelato?.id)
                           }
                           class="font-semibold text-primario-link"
                         >
@@ -98,7 +99,7 @@ const descrizione =
           <CtaDoppia
             posizione="faq"
             titolo="Non hai trovato la risposta?"
-            testo="Chiama: un medico risponde 24 ore su 24. Oppure prenota una visita e ne parliamo di persona."
+            testo="Chiama: il telefono risponde 24 ore su 24. Oppure prenota una visita e ne parliamo di persona."
           />
         </div>
       </aside>

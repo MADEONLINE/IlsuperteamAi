@@ -1,3 +1,4 @@
+import { hrefServizio } from '@lib/servizi';
 /** /llms-full.txt — contenuti principali concatenati (Markdown grezzo dei file sorgente + FAQ). */
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
@@ -31,7 +32,7 @@ export const GET: APIRoute = async () => {
     `# ${clinica.nome} — contenuti completi`,
     `Sede: ${indirizzoRiga}. Telefono h24: ${clinica.contatti.telefono.visualizzato}. ${clinica.orari.prontoSoccorso.etichetta}.`,
     ...servizi.map((s) =>
-      blocco(s.data.titolo, urlAssoluto(`/servizi/${s.id}`), s.data.risposta, s.body, s.data.faq),
+      blocco(s.data.titolo, urlAssoluto(hrefServizio(s.id)), s.data.risposta, s.body, s.data.faq),
     ),
     ...articoli.map((a) =>
       blocco(a.data.titolo, urlAssoluto(`/magazine/${a.id}`), a.data.riassunto, a.body, a.data.faq),

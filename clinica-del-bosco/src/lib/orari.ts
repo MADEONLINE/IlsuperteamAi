@@ -142,14 +142,9 @@ export function openingHoursSpecification(input: OrariInput) {
     sabato: 'Saturday',
     domenica: 'Sunday',
   };
-  // Il pronto soccorso è sempre aperto: questa è la specifica dell'attività nel suo complesso.
-  const h24 = {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: Object.values(giorniSchema),
-    opens: '00:00',
-    closes: '23:59',
-  };
-  if (!input.ambulatorioConfermato) return [h24];
+  // Solo gli orari dell'ambulatorio: il pronto soccorso 24/7 è descritto nell'EmergencyService
+  // collegato come reparto (department), così le due fasce non si contraddicono.
+  if (!input.ambulatorioConfermato) return [];
   const ambulatorio = (Object.keys(giorniSchema) as Array<keyof Settimana>).flatMap((g) =>
     (input.settimana[g] ?? []).map(([opens, closes]) => ({
       '@type': 'OpeningHoursSpecification',
@@ -158,7 +153,7 @@ export function openingHoursSpecification(input: OrariInput) {
       closes,
     })),
   );
-  return [h24, ...ambulatorio];
+  return ambulatorio;
 }
 
 /** Riga leggibile per il footer: "Lun–Ven 09:00–13:00, 16:00–20:00". */

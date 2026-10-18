@@ -1,7 +1,7 @@
 ---
 nome: 'Stefano Nicoli'
 titolo: 'Dott.'
-ruolo: 'Chirurgo veterinario · specialista in collaborazione'
+ruolo: 'Medico veterinario · chirurgia · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

@@ -87,7 +87,7 @@ dataRevisione: 2026-09-10
 
 ## Cos'è la degenza e quando serve
 
-La degenza è il ricovero in clinica di un animale che ha bisogno di terapie, controlli o assistenza che a casa non sarebbero possibili. Alla Clinica del Bosco la degenza è nella stessa sede del [pronto soccorso](/servizi/pronto-soccorso-h24), del [laboratorio](/servizi/laboratorio-analisi), della diagnostica e delle sale chirurgiche, con personale in struttura 24 ore su 24: se durante la notte servono un esame, un'ecografia o un intervento, avvengono senza spostare l'animale.
+La degenza è il ricovero in clinica di un animale che ha bisogno di terapie, controlli o assistenza che a casa non sarebbero possibili. Alla Clinica del Bosco la degenza è nella stessa sede del [pronto soccorso](/pronto-soccorso), del [laboratorio](/servizi/laboratorio-analisi), della diagnostica e delle sale chirurgiche, con personale in struttura 24 ore su 24: se durante la notte servono un esame, un'ecografia o un intervento, avvengono senza spostare l'animale.
 
 Il ricovero è indicato in tre situazioni principali:
 

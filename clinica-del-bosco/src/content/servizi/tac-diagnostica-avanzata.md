@@ -103,7 +103,7 @@ Alla Clinica del Bosco la TAC è in sede e viene usata soprattutto per quattro s
 - **Traumi complessi**: fratture del bacino, della colonna, del cranio, lesioni toraciche o addominali dopo investimento o caduta.
 - **Malattie di naso, orecchie, colonna e articolazioni**: scolo nasale cronico, otiti che non guariscono, ernie del disco, displasia del gomito.
 
-Perché la TAC è nella stessa struttura del [pronto soccorso](/servizi/pronto-soccorso-h24), della [chirurgia](/servizi/chirurgia) e della [degenza](/servizi/degenza-terapia-intensiva), un animale traumatizzato o un paziente oncologico non deve essere trasportato altrove per completare la diagnosi.
+Perché la TAC è nella stessa struttura del [pronto soccorso](/pronto-soccorso), della [chirurgia](/servizi/chirurgia) e della [degenza](/servizi/degenza-terapia-intensiva), un animale traumatizzato o un paziente oncologico non deve essere trasportato altrove per completare la diagnosi.
 
 ## Come si svolge l'esame
 

@@ -129,7 +129,7 @@ Distinguere le due origini cambia la terapia. Radiografie del torace, ecocardiog
 
 ## Come si svolge la visita cardiologica?
 
-La visita dura in media 45-60 minuti e nella quasi totalità dei casi non richiede sedazione: gli esami sono indolori e l'animale sta sdraiato su un lettino morbido, con una persona di famiglia accanto quando questo lo tranquillizza.
+La visita dura in media 45-60 minuti e nella quasi totalità dei casi non richiede sedazione: gli esami di solito sono ben tollerati e l'animale sta sdraiato su un lettino morbido, con una persona di famiglia accanto quando questo lo tranquillizza.
 
 1. **Storia e motivo della visita.** Sintomi, razza, dieta, farmaci in corso, referti precedenti.
 2. **Esame clinico.** Auscultazione di cuore e polmoni, polso, mucose, vene del collo.

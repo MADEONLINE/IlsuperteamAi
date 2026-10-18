@@ -26,7 +26,11 @@ const altreZone = (await getCollection('zone'))
   .filter((z) => z.id !== zona.id)
   .sort((a, b) => a.data.ordine - b.data.ordine);
 const url = `/veterinario-a/${zona.id}`;
-const titolo = `Veterinario a ${zona.data.nome} aperto 24 ore: pronto soccorso, TAC e chirurgia a pochi minuti`;
+/** La clinica è nel comune della pagina? Allora "a Portici"; altrimenti "vicino a" (non si promette una sede che non c'è). */
+const stessoComune = zona.data.nome === clinica.indirizzo.comune;
+const titolo = stessoComune
+  ? `Veterinario a ${zona.data.nome} aperto di notte`
+  : `Veterinario 24h vicino a ${zona.data.nome}`;
 const briciole = [
   { nome: 'Zone servite', href: '/contatti#zone' },
   { nome: zona.data.nome, href: url },
@@ -52,8 +56,8 @@ const [minMin, maxMin] = zona.data.tempoAutoMinuti;
         Veterinario per {zona.data.nomeCompleto}
       </Etichetta>
       <h1 class="prosa text-4xl text-testo-inverso md:text-5xl">
-        Veterinario a {zona.data.nome}, aperto{' '}
-        <em class="not-italic text-accento-inverso">adesso</em>
+        Veterinario {stessoComune ? 'a' : 'vicino a'} {zona.data.nome},{' '}
+        <em class="not-italic text-accento-inverso">aperto anche di notte</em>
       </h1>
       <p class="prosa mt-4 text-lg text-testo-inverso/85">{zona.data.risposta}</p>
       <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:max-w-2xl">
@@ -88,7 +92,7 @@ const [minMin, maxMin] = zona.data.tempoAutoMinuti;
   <Sezione>
     <div class="grid gap-10 lg:grid-cols-12">
       <div class="lg:col-span-8">
-        <dl class="grid gap-4 sm:grid-cols-3">
+        <dl class:list={['grid gap-4', stessoComune ? 'sm:grid-cols-2' : 'sm:grid-cols-3']}>
           <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
             <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
               In auto, indicativo
@@ -97,12 +101,14 @@ const [minMin, maxMin] = zona.data.tempoAutoMinuti;
               {minMin}–{maxMin} min
             </dd>
           </div>
-          <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
-            <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
-              Distanza
-            </dt>
-            <dd class="mt-1 font-display text-2xl font-bold">≈ {zona.data.distanzaKm} km</dd>
-          </div>
+          {!stessoComune && (
+            <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
+              <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                Distanza dalla clinica
+              </dt>
+              <dd class="mt-1 font-display text-2xl font-bold">≈ {zona.data.distanzaKm} km</dd>
+            </div>
+          )}
           <div class="rounded-card border border-bordo bg-sfondo-rialzato p-4">
             <dt class="text-xs font-bold uppercase tracking-wider text-testo-secondario">Dove</dt>
             <dd class="mt-1 font-semibold">{indirizzoRiga}</dd>

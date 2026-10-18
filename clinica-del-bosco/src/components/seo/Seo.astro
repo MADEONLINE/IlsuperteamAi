@@ -32,6 +32,8 @@ const {
   dataModifica,
 } = Astro.props;
 
+// Sul progetto di anteprima (ANTEPRIMA=1) nessuna pagina va indicizzata: il sito vero sarà sul dominio definitivo.
+const anteprima = process.env.ANTEPRIMA === '1';
 const titoloFinale = titoloCompleto(titolo, !senzaBrand);
 const descrizioneFinale = descrizioneMeta(descrizione);
 const canonical = urlAssoluto(percorso === '/' ? '/' : percorso.replace(/\/$/, ''));
@@ -44,7 +46,7 @@ const ogImage = immagine.startsWith('http') ? immagine : urlAssoluto(immagine);
 <meta
   name="robots"
   content={
-    noindex
+    noindex || anteprima
       ? 'noindex, nofollow'
       : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
   }

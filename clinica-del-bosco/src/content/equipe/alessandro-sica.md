@@ -1,7 +1,7 @@
 ---
 nome: 'Alessandro Sica'
 titolo: 'Dott.'
-ruolo: 'Medico veterinario chirurgo, socio fondatore e direttore sanitario'
+ruolo: 'Medico veterinario, socio fondatore e direttore sanitario · chirurgia'
 tipo: 'socio'
 socio: true
 direttoreSanitario: true

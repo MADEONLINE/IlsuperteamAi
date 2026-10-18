@@ -67,10 +67,10 @@
       "festiviInclusi": true,
       "etichetta": "Pronto soccorso attivo 24 ore su 24, 7 giorni su 7, festivi inclusi",
       "accessoDiretto": true,
-      "rispondeUnMedico": true,
+      "rispondeUnMedico": null,
       "aiutoAllArrivo": null,
       "proprietarioAccanto": null,
-      "_notaPromesse": "aiutoAllArrivo: true se, chiamando prima, il personale può venire incontro in auto. proprietarioAccanto: true se il proprietario può restare accanto all'animale durante il triage. null = non confermato: la promessa non viene mostrata."
+      "_notaPromesse": "rispondeUnMedico: true solo quando la clinica conferma che al telefono risponde sempre un medico, anche quando il medico di turno è impegnato con un paziente (revisione testi 18/10/2026). aiutoAllArrivo: true se, chiamando prima, il personale può venire incontro in auto. proprietarioAccanto: true se il proprietario può restare accanto all'animale durante il triage. null = non confermato: la promessa non viene mostrata."
     },
     "ambulatorio": {
       "confermato": true,

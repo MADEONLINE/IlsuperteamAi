@@ -98,11 +98,11 @@ Un risultato citologico dubbio non è un fallimento: serve a decidere il passo s
 
 ## A cosa serve la citologia in dermatologia?
 
-Serve a vedere cosa c'è sulla pelle prima di trattarla. Con un tampone, un nastro adesivo trasparente premuto sulla lesione o una leggera raschiatura si raccolgono cellule e microrganismi che, al microscopio, rivelano batteri, lieviti come la Malassezia, acari della rogna, cellule infiammatorie o cellule tumorali. È un esame indolore, si esegue durante la visita e cambia la terapia: un'otite da lieviti e una da batteri si trattano in modo diverso, e senza citologia si va per tentativi. Per questo il servizio di [dermatologia](/servizi/dermatologia) la esegue a quasi ogni visita.
+Serve a vedere cosa c'è sulla pelle prima di trattarla. Con un tampone, un nastro adesivo trasparente premuto sulla lesione o una leggera raschiatura si raccolgono cellule e microrganismi che, al microscopio, rivelano batteri, lieviti come la Malassezia, acari della rogna, cellule infiammatorie o cellule tumorali. Di solito è ben tollerato, si fa durante la visita e cambia la terapia: un'otite da lieviti e una da batteri si trattano in modo diverso, e senza citologia si va per tentativi. Per questo il servizio di [dermatologia](/servizi/dermatologia) la esegue a quasi ogni visita.
 
 ## Perché prelevare un versamento?
 
-Perché il liquido che si accumula nell'addome, nel torace o attorno al cuore ha una causa, e la citologia insieme all'analisi delle proteine la identifica in gran parte dei casi: insufficienza cardiaca, malattie del fegato o dei reni, infezioni come la peritonite infettiva felina, emorragie, tumori, rottura della vescica o dell'intestino. Alcune di queste sono urgenze chirurgiche, altre si trattano con farmaci. Il prelievo, guidato dall'ecografia, è rapido e in [pronto soccorso](/servizi/pronto-soccorso-h24) è spesso il primo esame che orienta tutte le decisioni successive.
+Perché il liquido che si accumula nell'addome, nel torace o attorno al cuore ha una causa, e la citologia insieme all'analisi delle proteine la identifica in gran parte dei casi: insufficienza cardiaca, malattie del fegato o dei reni, infezioni come la peritonite infettiva felina, emorragie, tumori, rottura della vescica o dell'intestino. Alcune di queste sono urgenze chirurgiche, altre si trattano con farmaci. Il prelievo, guidato dall'ecografia, è rapido e in [pronto soccorso](/pronto-soccorso) è spesso il primo esame che orienta tutte le decisioni successive.
 
 ## Citologia negli organi interni: quando e come
 

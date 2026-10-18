@@ -1,4 +1,5 @@
 ---
+import { hrefServizio } from '@lib/servizi';
 import { getCollection, render } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Badge from '@ui/Badge.astro';
@@ -26,6 +27,7 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
   titolo={`${nome} — medico veterinario a Portici`}
   descrizione={descrizione}
   percorso={url}
+  noindex={medico.data.daValidare}
   h1={nome}
   sottotitolo={medico.data.ruolo}
   etichetta="Équipe"
@@ -86,7 +88,7 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
             <div>
               <dt class="sr-only">Rapporto con la clinica</dt>
               <dd>
-                <Badge tono="neutro">Specialista in collaborazione</Badge>
+                <Badge tono="neutro">Collabora con la clinica</Badge>
               </dd>
             </div>
           )}
@@ -105,12 +107,6 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
         </dl>
       </div>
       <div class="lg:col-span-8">
-        {medico.data.daValidare && (
-          <p class="mb-6 rounded-card bg-avviso-tenue p-4 text-sm text-avviso">
-            Scheda in attesa di validazione da parte del medico: biografia, specializzazioni e
-            numero di iscrizione verranno completati prima della pubblicazione.
-          </p>
-        )}
         <h2 class="text-2xl">Aree di attività</h2>
         <ul class="mt-3 flex flex-wrap gap-2">
           {medico.data.specializzazioni.map((s) => (
@@ -137,7 +133,7 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
               {aree.map((s) => (
                 <li>
                   <a
-                    href={`/servizi/${s.id}`}
+                    href={hrefServizio(s.id)}
                     class="inline-flex min-h-10 items-center rounded-pill border border-bordo px-4 text-sm font-semibold no-underline hover:border-primario hover:text-primario-link"
                   >
                     {s.data.titoloBreve}

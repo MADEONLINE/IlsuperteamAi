@@ -19,7 +19,7 @@ const {
 
 const testi: Record<NonNullable<Props['voci']>[number], string | null> = {
   richiamo: `Ti richiamiamo entro ${clinica.impegni.richiamoEntroOre} ore`,
-  pagamento: clinica.impegni.nessunPagamentoAnticipato ? 'Nessun pagamento anticipato' : null,
+  pagamento: clinica.impegni.nessunPagamentoAnticipato ? 'Paghi alla fine della visita' : null,
   preventivo: clinica.impegni.preventivoScritto
     ? 'Preventivo scritto prima di ogni intervento'
     : null,

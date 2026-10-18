@@ -1,5 +1,6 @@
 ---
 /** Card di un servizio (griglia servizi in home e hub). */
+import { hrefServizio } from '@lib/servizi';
 import type { CollectionEntry } from 'astro:content';
 import Icona, { type NomeIcona } from '@ui/Icona.astro';
 interface Props {
@@ -11,7 +12,7 @@ const icona = servizio.data.icona as NomeIcona;
 ---
 
 <a
-  href={`/servizi/${servizio.id}`}
+  href={hrefServizio(servizio.id)}
   class:list={[
     'group flex h-full flex-col gap-3 rounded-card border border-bordo bg-sfondo-rialzato no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario',
     compatta ? 'p-4' : 'p-6',
@@ -25,7 +26,7 @@ const icona = servizio.data.icona as NomeIcona;
   </span>
   {!compatta && <span class="text-sm text-testo-secondario">{servizio.data.sottotitolo}</span>}
   <span class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primario-link">
-    Scopri di più{' '}
+    Leggi: {servizio.data.titoloBreve.toLowerCase()}{' '}
     <Icona nome="freccia-destra" class="size-4 transition group-hover:translate-x-0.5" />
   </span>
 </a>

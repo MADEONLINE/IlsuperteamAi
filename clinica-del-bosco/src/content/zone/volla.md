@@ -48,14 +48,14 @@ Di giorno, il tratto tra Volla e Ponticelli può essere lento nelle ore di punta
 
 ## Cosa fare in venti minuti di auto
 
-Chiama il 081 7763859 appena parti, con una seconda persona al telefono se possibile. Le regole della pagina [/pronto-soccorso](/pronto-soccorso) restano le stesse per tutto il viaggio: nessun farmaco umano, nessun alimento o bevanda, nessun tentativo di indurre il vomito. Con un tragitto di questa durata è utile portare il libretto sanitario e l'elenco dei farmaci in uso, ma senza perdere tempo a cercarli. Un gatto viaggia nel trasportino coperto; un coniglio in un trasportino chiuso, con un panno, al riparo dal caldo dell'abitacolo.
+Chiama il 081 7763859 appena parti, con una seconda persona al telefono se possibile. Le regole della pagina [del pronto soccorso](/pronto-soccorso) restano le stesse per tutto il viaggio: nessun farmaco umano, nessun alimento o bevanda, nessun tentativo di indurre il vomito. Con un tragitto di questa durata è utile portare il libretto sanitario e l'elenco dei farmaci in uso, ma senza perdere tempo a cercarli. Un gatto viaggia nel trasportino coperto; un coniglio in un trasportino chiuso, con un panno, al riparo dal caldo dell'abitacolo.
 
 ## Per cosa vengono a Portici le famiglie di Volla?
 
 Dalle famiglie di Volla arrivano soprattutto richieste per conigli e piccoli mammiferi, seguiti dal servizio per [animali esotici e conigli](/servizi/animali-esotici-e-conigli), per i gatti d'appartamento nel percorso [cat friendly](/servizi/gatto-cat-friendly) e per la [medicina preventiva e le vaccinazioni](/servizi/medicina-preventiva-vaccinazioni) dei cuccioli. Su invio dei colleghi, i servizi più utilizzati sono la [TAC](/servizi/tac-diagnostica-avanzata), la [chirurgia](/servizi/chirurgia) specialistica e la [neurologia](/servizi/neurologia), per i casi che richiedono immagini avanzate della colonna o del cranio.
 
-Nelle urgenze, il [pronto soccorso](/servizi/pronto-soccorso-h24) e la [degenza con terapia intensiva](/servizi/degenza-terapia-intensiva) permettono di stabilizzare, diagnosticare e ricoverare senza ulteriori spostamenti, che per chi viene da Volla sarebbero un costo di tempo non trascurabile.
+Nelle urgenze, il [pronto soccorso](/pronto-soccorso) e la [degenza con terapia intensiva](/servizi/degenza-terapia-intensiva) permettono di stabilizzare, diagnosticare e ricoverare senza ulteriori spostamenti, che per chi viene da Volla sarebbero un costo di tempo non trascurabile.
 
 ## Prenotare da Volla
 
-Le urgenze non si prenotano: chiama o vieni. Per visite, TAC e interventi programmati usa la pagina [/prenota](/prenota) o il telefono, segnalando che arrivi da Volla: organizziamo l'accesso in modo che un solo viaggio basti.
+Le urgenze non si prenotano: chiama o vieni. Per visite, TAC e interventi programmati usa la pagina [prenotazione online](/prenota) o il telefono, segnalando che arrivi da Volla: organizziamo l'accesso in modo che un solo viaggio basti.

@@ -1,7 +1,7 @@
 ---
 nome: 'Andrea Campanile'
 titolo: 'Dott.'
-ruolo: 'Endoscopista e gastroenterologo · specialista in collaborazione'
+ruolo: 'Medico veterinario · endoscopia e apparato digerente · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

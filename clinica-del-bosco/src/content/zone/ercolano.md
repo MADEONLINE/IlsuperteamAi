@@ -52,14 +52,14 @@ Con il traffico notturno il tragitto richiede in genere 5–12 minuti. Nelle ore
 
 ## Cosa fare durante il tragitto
 
-Telefona al 081 7763859 mentre qualcuno guida. La pagina [/pronto-soccorso](/pronto-soccorso) elenca i segni che non possono aspettare e cosa evitare: niente farmaci umani, niente cibo o acqua se il tuo animale potrebbe essere operato, niente tentativi di far vomitare. Un gatto viaggia nel trasportino coperto; un cane di taglia grande con l'addome gonfio viaggia sdraiato, senza essere sollevato per la pancia.
+Telefona al 081 7763859 mentre qualcuno guida. La pagina [del pronto soccorso](/pronto-soccorso) elenca i segni che non possono aspettare e cosa evitare: niente farmaci umani, niente cibo o acqua se il tuo animale potrebbe essere operato, niente tentativi di far vomitare. Un gatto viaggia nel trasportino coperto; un cane di taglia grande con l'addome gonfio viaggia sdraiato, senza essere sollevato per la pancia.
 
 ## Quali servizi chiedono più spesso i proprietari di Ercolano?
 
-Ercolano ha un rapporto quotidiano con il Parco Nazionale del Vesuvio: molti cani percorrono sentieri e strade sterrate, e questo porta con sé forasacchi nelle orecchie e tra le dita in estate, zecche, ferite ai polpastrelli sulla pietra lavica e, in primavera, il contatto con la processionaria. Per questo il [pronto soccorso](/servizi/pronto-soccorso-h24), la [dermatologia](/servizi/dermatologia) e l'[ortopedia](/servizi/ortopedia) sono tra i servizi più utilizzati da chi arriva da qui.
+Ercolano ha un rapporto quotidiano con il Parco Nazionale del Vesuvio: molti cani percorrono sentieri e strade sterrate, e questo porta con sé forasacchi nelle orecchie e tra le dita in estate, zecche, ferite ai polpastrelli sulla pietra lavica e, in primavera, il contatto con la processionaria. Per questo il [pronto soccorso](/pronto-soccorso), la [dermatologia](/servizi/dermatologia) e l'[ortopedia](/servizi/ortopedia) sono tra i servizi più utilizzati da chi arriva da qui.
 
 Per la prevenzione, la [medicina preventiva e le vaccinazioni](/servizi/medicina-preventiva-vaccinazioni) includono la profilassi contro parassiti e leishmaniosi, particolarmente importante in un territorio con molte aree verdi. Quando serve un approfondimento, la [TAC](/servizi/tac-diagnostica-avanzata) in sede consente di studiare traumi, colonna vertebrale e masse senza spostare l'animale. Non mancano i conigli e i rettili da compagnia: il servizio per [animali esotici e conigli](/servizi/animali-esotici-e-conigli) li accoglie sia in urgenza sia per i controlli.
 
 ## Prenotare dalla zona di Ercolano
 
-Per le urgenze non serve prenotare. Per tutto il resto puoi usare la pagina [/prenota](/prenota) o chiamare: ti proponiamo un orario compatibile con il tragitto e, se il tuo animale è già seguito da un collega di Ercolano, condividiamo con lui i referti.
+Per le urgenze non serve prenotare. Per tutto il resto puoi usare la pagina [prenotazione online](/prenota) o chiamare: ti proponiamo un orario compatibile con il tragitto e, se il tuo animale è già seguito da un collega di Ercolano, condividiamo con lui i referti.

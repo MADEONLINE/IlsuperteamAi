@@ -104,7 +104,7 @@ Una seduta dura tra quindici e trenta minuti, si svolge in una stanza tranquilla
 
 ## Laser terapia e impianti d'oro: quando li proponiamo?
 
-La laser terapia utilizza luce a bassa intensità e specifiche lunghezze d'onda applicata sulla cute sopra i tessuti da trattare. È indolore, dura pochi minuti e viene impiegata per contribuire a ridurre l'infiammazione locale e favorire i processi di riparazione: ferite chirurgiche e traumatiche, articolazioni dolenti, tendini, la pododermatite del coniglio. È spesso la prima scelta complementare nei pazienti che non tollerano gli aghi.
+La laser terapia utilizza luce a bassa intensità e specifiche lunghezze d'onda applicata sulla cute sopra i tessuti da trattare. Di solito è ben tollerata, dura pochi minuti e viene impiegata per contribuire a ridurre l'infiammazione locale e favorire i processi di riparazione: ferite chirurgiche e traumatiche, articolazioni dolenti, tendini, la pododermatite del coniglio. È spesso la prima scelta complementare nei pazienti che non tollerano gli aghi.
 
 Gli impianti d'oro sono piccoli frammenti di oro puro posizionati in modo permanente, con una procedura in sedazione, nei tessuti attorno a un'articolazione artrosica in corrispondenza dei punti di agopuntura. L'idea è ottenere una stimolazione continua senza sedute ripetute. Li proponiamo a pazienti selezionati con artrosi cronica di anca, gomito o ginocchio, dopo aver verificato la risposta all'agopuntura. Anche in questo caso il linguaggio è quello della prudenza: in alcuni animali può contribuire a ridurre il dolore nel lungo periodo, e la valutiamo con le stesse scale usate all'inizio.
 

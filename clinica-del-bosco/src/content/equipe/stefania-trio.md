@@ -1,7 +1,7 @@
 ---
 nome: 'Stefania Trio'
 titolo: 'Dott.ssa'
-ruolo: 'Oculista veterinaria · specialista in collaborazione'
+ruolo: 'Medico veterinario · oculistica · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

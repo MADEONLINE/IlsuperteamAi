@@ -82,7 +82,7 @@ const schemaClinica = z.object({
       festiviInclusi: z.boolean(),
       etichetta: z.string(),
       accessoDiretto: z.boolean().default(true),
-      rispondeUnMedico: z.boolean().default(true),
+      rispondeUnMedico: z.boolean().nullable().default(null),
       aiutoAllArrivo: z.boolean().nullable().default(null),
       proprietarioAccanto: z.boolean().nullable().default(null),
     }),

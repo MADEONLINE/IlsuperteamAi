@@ -1,7 +1,7 @@
 ---
 nome: 'Marianna Lanni'
 titolo: 'Dott.ssa'
-ruolo: 'Ecografista veterinaria · specialista in collaborazione'
+ruolo: 'Medico veterinario · ecografia, anche del cuore · collabora con la clinica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false

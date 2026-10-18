@@ -1,10 +1,14 @@
 ---
+import { SERVIZI_CON_PAGINA_DEDICATA } from '@lib/servizi';
 import { getCollection } from 'astro:content';
 import ServizioLayout from '@layouts/ServizioLayout.astro';
 
 export async function getStaticPaths() {
   const servizi = await getCollection('servizi');
-  return servizi.map((s) => ({ params: { slug: s.id }, props: { servizio: s } }));
+  // Il pronto soccorso ha la sua pagina (/pronto-soccorso): nessun doppione in /servizi.
+  return servizi
+    .filter((s) => !(s.id in SERVIZI_CON_PAGINA_DEDICATA))
+    .map((s) => ({ params: { slug: s.id }, props: { servizio: s } }));
 }
 const { servizio } = Astro.props;
 ---
