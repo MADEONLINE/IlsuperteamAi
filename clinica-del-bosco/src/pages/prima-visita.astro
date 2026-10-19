@@ -12,22 +12,22 @@ import { clinica, daConfermare, indicazioniHref, indirizzoRiga, telHref } from '
 import { faqPage, medicalWebPage } from '@lib/schema';
 import tariffe from '@dati/tariffe.json';
 
-/** Onorario della visita dalla stessa fonte della pagina Tariffe (mai un numero scritto a mano). */
+/** Onorario della visita da tariffe.json (mai un numero scritto a mano). */
 const voce = (nome: string) =>
   tariffe.sezioni.flatMap((x) => x.voci).find((v) => v.prestazione === nome);
 const visita = voce('Visita clinica generale');
-const visitaEsotici = voce('Visita animali esotici e conigli');
+const visitaEsotici = voce('Visita animali esotici');
 const avvisoTariffe = tariffe.confermato ? '' : ' (importi in fase di aggiornamento)';
 const costoVisita = visita
-  ? `Una visita clinica costa indicativamente tra ${visita.da} e ${visita.a} euro${visitaEsotici ? `; per conigli e animali esotici tra ${visitaEsotici.da} e ${visitaEsotici.a} euro` : ''}${avvisoTariffe}.`
-  : 'La visita ha un onorario indicativo che trovi nella pagina Tariffe.';
+  ? `Una visita clinica costa indicativamente tra ${visita.da} e ${visita.a} euro${visitaEsotici ? `; per gli animali esotici, conigli compresi, tra ${visitaEsotici.da} e ${visitaEsotici.a} euro` : ''}${avvisoTariffe}.`
+  : 'La visita ha un onorario indicativo che ti comunichiamo al momento della prenotazione.';
 
 const descrizione =
-  'Come funziona la prima visita alla Clinica Veterinaria del Bosco di Portici: cosa portare, quanto dura (30-40 minuti), quanto costa e come prenotare.';
+  'Come funziona la prima visita alla Clinica Veterinaria del bosco di Portici: cosa portare, quanto dura (30-40 minuti), quanto costa e come prenotare.';
 const passi = [
   [
     'Prenoti',
-    'Online, in un minuto, o al telefono. Ti richiamiamo entro 24 ore per confermare giorno e ora e per dirti se deve essere a digiuno.',
+    'Online, in un minuto, o al telefono. Ti contattiamo per confermare giorno e ora e per dirti se deve essere a digiuno.',
   ],
   [
     'Arrivi',
@@ -160,9 +160,7 @@ const faq = [
       <aside class="space-y-5 lg:col-span-4">
         <div class="rounded-card bg-sfondo-inverso p-5 text-testo-inverso">
           <p class="font-sans text-lg font-bold">Prenota la prima visita</p>
-          <p class="mt-1 text-sm text-testo-inverso/80">
-            Quattro domande, un minuto. Ti richiamiamo entro {clinica.impegni.richiamoEntroOre} ore.
-          </p>
+          <p class="mt-1 text-sm text-testo-inverso/80">Quattro domande, un minuto.</p>
           <Bottone href="/prenota" variante="inverso" pieno class="mt-4" icona="calendario">
             Prenota online
           </Bottone>

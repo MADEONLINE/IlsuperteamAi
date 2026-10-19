@@ -2,7 +2,7 @@
 domanda: "Il mio coniglio non mangia e non fa feci: è un'urgenza?"
 categoria: 'esotici'
 ordine: 3
-servizioCorrelato: 'animali-esotici-e-conigli'
+servizioCorrelato: 'animali-esotici'
 paginaCorrelata: '/pronto-soccorso'
 ---
 

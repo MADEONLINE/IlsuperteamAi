@@ -16,7 +16,7 @@ const campagne = (await getCollection('campagne')).sort(
   (a, b) => a.data.meseInizio - b.data.meseInizio,
 );
 const descrizione =
-  'Guide pratiche scritte dai medici della Clinica Veterinaria del Bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania. Con fonti e data di revisione.';
+  'Guide pratiche scritte dai medici della Clinica Veterinaria del bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania. Con fonti e data di revisione.';
 const data = (d: Date) =>
   d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
 ---

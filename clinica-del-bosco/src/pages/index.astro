@@ -1,6 +1,6 @@
 ---
 /**
- * Home — sequenza: hero con doppia CTA e badge "aperto ora" → 4 pilastri → griglia servizi →
+ * Home — sequenza: hero con nome della clinica e tagline sui valori → 4 pilastri → griglia servizi →
  * la struttura (foto grande) → Piani Salute (blocco di conversione) → équipe → recensioni reali
  * (solo se importate) → campagna stagionale in corso + magazine → mappa e contatti.
  */
@@ -12,17 +12,13 @@ import CardServizio from '@ui/CardServizio.astro';
 import Icona from '@ui/Icona.astro';
 import Etichetta from '@ui/Etichetta.astro';
 import Foto from '@ui/Foto.astro';
-import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import Sezione from '@ui/Sezione.astro';
 import Dato from '@ui/Dato.astro';
-import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
 import BarraFiducia from '@sezioni/BarraFiducia.astro';
-import TriageRapido from '@sezioni/TriageRapido.astro';
 import {
   clinica,
   daConfermare,
   indicazioniHref,
-  indirizzoBreve,
   indirizzoRiga,
   telHref,
   emailPrincipale,
@@ -52,32 +48,33 @@ const campagnaInCorso =
       : mese >= c.data.meseInizio || mese <= c.data.meseFine,
   ) ?? campagne[0];
 
+/** Tagline della home: i valori della clinica, prima di qualsiasi servizio. */
+const tagline = 'Cura, attenzione e rispetto per ogni animale.';
+
 const pilastri = [
-  {
-    icona: 'ambulanza',
-    titolo: 'Pronto soccorso 24/7',
-    testo:
-      "Di notte e nei festivi c'è un medico veterinario in clinica, non solo un numero di reperibilità.",
-    href: '/pronto-soccorso',
-  },
   {
     icona: 'scansione',
     titolo: 'TAC in sede',
-    testo: "L'esame si fa senza spostare l'animale, anche in urgenza.",
+    testo: "L'esame si fa senza spostare l'animale in un'altra struttura.",
     href: '/servizi/tac-diagnostica-avanzata',
   },
   {
     icona: 'bisturi',
     titolo: 'Due sale chirurgiche',
-    testo:
-      "Interventi programmati e d'urgenza, con ricovero e terapia intensiva dopo l'operazione.",
+    testo: "Interventi programmati, con ricovero e terapia intensiva dopo l'operazione.",
     href: '/servizi/chirurgia',
   },
   {
     icona: 'provetta',
     titolo: 'Laboratorio interno',
-    testo: 'Gli esami del sangue hanno la risposta in giornata, anche di notte per le urgenze.',
+    testo: 'Gli esami del sangue hanno la risposta in giornata.',
     href: '/servizi/laboratorio-analisi',
+  },
+  {
+    icona: 'coniglio',
+    titolo: 'Animali esotici',
+    testo: 'Un servizio dedicato a conigli, piccoli mammiferi, rettili e uccelli.',
+    href: '/servizi/animali-esotici',
   },
 ] as const;
 
@@ -90,9 +87,9 @@ const porte = [
     icona: 'cane' as const,
   },
   {
-    titolo: 'Coniglio ed esotici',
+    titolo: 'Animali esotici',
     testo: 'Conigli, piccoli mammiferi, rettili, uccelli',
-    href: '/servizi/animali-esotici-e-conigli',
+    href: '/servizi/animali-esotici',
     icona: 'coniglio' as const,
   },
   {
@@ -111,10 +108,6 @@ const numeri = clinica.numeri.confermato
       {
         valore: `${clinica.numeri.animaliSeguiti.toLocaleString('it-IT')}+`,
         etichetta: 'animali seguiti negli anni',
-      },
-      {
-        valore: clinica.numeri.accessiProntoSoccorsoUltimoAnno.toLocaleString('it-IT'),
-        etichetta: "accessi di pronto soccorso nell'ultimo anno",
       },
     ]
   : [];
@@ -136,64 +129,50 @@ const euroMese = (n: number) =>
 ---
 
 <BaseLayout
-  titolo="Clinica Veterinaria del Bosco, Portici · Pronto soccorso 24h"
-  descrizione="Clinica veterinaria a Portici (NA) per cani, gatti, conigli ed esotici. Pronto soccorso 24 ore su 24, TAC, due sale chirurgiche e ricovero. Tel. 081 7763859."
+  titolo="Clinica Veterinaria del bosco, Portici · Cura per ogni animale"
+  descrizione="Clinica veterinaria a Portici (NA) per cani, gatti e animali esotici: visite specialistiche, TAC, due sale chirurgiche, laboratorio e degenza. Tel. 081 7763859."
   percorso="/"
   senzaBrand
   jsonLd={[webPage({ url: '/', titolo: clinica.nome, descrizione: clinica.descrizioneBreve })]}
 >
-  <!-- HERO -->
+  <!-- HERO: il nome della clinica e i suoi valori -->
   <section
     class="relative overflow-hidden bg-sfondo-inverso text-testo-inverso"
     aria-labelledby="hero-titolo"
   >
-    <div class="contenitore grid items-center gap-10 py-8 md:py-20 lg:grid-cols-12 lg:py-24">
+    <div class="contenitore grid items-center gap-10 py-10 md:py-20 lg:grid-cols-12 lg:py-24">
       <div class="lg:col-span-7">
-        <BadgeApertoOra inverso class="mb-5" />
         <Etichetta tono="inverso" class="mb-3">
-          Portici · Napoli sud · Vesuviano
+          Clinica veterinaria a Portici
         </Etichetta>
         <h1 id="hero-titolo" class="text-4xl text-testo-inverso sm:text-5xl md:text-6xl">
-          Clinica veterinaria a Portici,{' '}
-          <em class="not-italic text-accento-inverso">con pronto soccorso 24 ore su 24.</em>
+          {clinica.nome}
         </h1>
+        <p class="mt-4 font-display text-2xl text-accento-inverso md:text-3xl">{tagline}</p>
         <p class="prosa mt-5 text-lg text-testo-inverso/85 md:text-xl">
-          La {clinica.nome} è in {indirizzoBreve}. Cura cani, gatti, conigli e animali esotici. Il
-          pronto soccorso è aperto 24 ore su 24, anche nei festivi, con un medico veterinario
-          presente in clinica. Nella stessa sede ci sono TAC, due sale chirurgiche, laboratorio
-          analisi e terapia intensiva.
+          Accogliamo cani, gatti e animali esotici con lo stesso impegno: ascoltiamo chi li ama,
+          capiamo di cosa hanno bisogno e li curiamo con competenza e delicatezza. Nella stessa sede
+          ci sono visite specialistiche, TAC, due sale chirurgiche, laboratorio analisi e degenza.
         </p>
-        <div class="mt-7 grid gap-3 sm:grid-cols-2 sm:gap-4">
-          <div class="rounded-card bg-sfondo/10 p-1 ring-1 ring-sfondo/15">
-            <Bottone href="/prenota" variante="inverso" dimensione="lg" icona="calendario" pieno>
-              Prenota una visita
-            </Bottone>
-            <p class="px-3 py-2 text-center text-sm text-testo-inverso/80">
-              Visite, vaccini, controlli e interventi programmati ·{' '}
-              <a href="/prima-visita" class="text-testo-inverso">
-                è la prima volta da noi?
-              </a>
-            </p>
-          </div>
-          <div class="p-1">
-            <Bottone
-              href={telHref}
-              variante="secondario-inverso"
-              dimensione="lg"
-              icona="telefono"
-              pieno
-              evento="click_chiama"
-              eventoPosizione="hero"
-              aria-label={`È un'urgenza: chiama ora il ${clinica.contatti.telefono.visualizzato}`}
-            >
-              È un'urgenza · chiama ora
-            </Bottone>
-            <p class="px-3 py-2 text-center text-sm text-testo-inverso/80">
-              {clinica.contatti.telefono.visualizzato} · attivo 24 ore su 24
-            </p>
-          </div>
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+          <Bottone href="/prenota" variante="inverso" dimensione="lg" icona="calendario">
+            Prenota una visita
+          </Bottone>
+          <Bottone
+            href="/servizi"
+            variante="secondario-inverso"
+            dimensione="lg"
+            iconaDopo="freccia-destra"
+          >
+            Scopri i servizi
+          </Bottone>
         </div>
-        <Rassicurazioni inverso voci={['richiamo', 'preventivo', 'pagamento']} class="mt-6" />
+        <p class="mt-4 text-sm text-testo-inverso/80">
+          È la prima volta da noi?{' '}
+          <a href="/prima-visita" class="text-testo-inverso">
+            Ecco come funziona la prima visita
+          </a>
+        </p>
       </div>
       <div class="lg:col-span-5">
         <Foto
@@ -215,10 +194,10 @@ const euroMese = (n: number) =>
   <Sezione tono="base" etichettaAria="Ciò che rende la clinica un punto di riferimento">
     <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
       <div class="lg:col-span-4">
-        <Etichetta class="mb-3">Perché Del Bosco</Etichetta>
+        <Etichetta class="mb-3">Perché sceglierci</Etichetta>
         <h2 class="text-3xl md:text-4xl">Cosa trovi nella stessa sede</h2>
         <p class="mt-4 text-testo-secondario">
-          Alla {clinica.nome} urgenza, esami, chirurgia e ricovero sono nello stesso edificio. Se il
+          Alla {clinica.nome} visite, esami, chirurgia e ricovero sono nello stesso edificio. Se il
           tuo animale ha bisogno di una TAC o di un intervento, non lo devi portare in un'altra
           struttura.
         </p>
@@ -287,11 +266,6 @@ const euroMese = (n: number) =>
     </ul>
   </Sezione>
 
-  <!-- TRIAGE RAPIDO -->
-  <Sezione tono="tinta" etichettaAria="È un'urgenza o può aspettare?">
-    <TriageRapido />
-  </Sezione>
-
   <!-- SERVIZI -->
   <Sezione tono="tinta" id="servizi" etichettaAria="I servizi della clinica">
     <div class="flex flex-wrap items-end justify-between gap-4">
@@ -342,14 +316,14 @@ const euroMese = (n: number) =>
       <div class="flex flex-col justify-center px-gutter py-12 lg:col-span-5 lg:pl-12 lg:pr-gutter">
         <Etichetta class="mb-3">La struttura</Etichetta>
         <h2 id="struttura-titolo" class="text-3xl md:text-4xl">
-          Due sale chirurgiche, terapia intensiva e TAC. E qualcuno sveglio, tutta la notte.
+          Due sale chirurgiche, terapia intensiva e TAC, nella stessa sede.
         </h2>
         <ul class="mt-6 space-y-3">
           {[
             'Terapia intensiva con ossigeno e controllo continuo di cuore e respiro',
             'TAC, endoscopia, radiografie ed ecografia nella stessa sede',
             'Laboratorio analisi interno con risposta in giornata',
-            'Zona separata per conigli e animali esotici',
+            'Zona separata per gli animali esotici',
           ].map((t) => (
             <li class="flex items-start gap-3">
               <Icona nome="check" class="mt-1 size-5 shrink-0 text-successo" />
@@ -486,7 +460,7 @@ const euroMese = (n: number) =>
       <div class="flex flex-col justify-center px-gutter py-12 lg:col-span-5 lg:pl-gutter lg:pr-12">
         <Etichetta class="mb-3">Percorso gatto</Etichetta>
         <h2 id="gatto-titolo" class="text-3xl md:text-4xl">
-          Il gatto non è un cane piccolo. Nemmeno in sala d'attesa.
+          Per il gatto, una visita pensata su misura.
         </h2>
         <p class="mt-4 text-testo-secondario">
           Teniamo il trasportino coperto e l'attesa breve. Visitiamo il gatto in un ambulatorio
@@ -619,8 +593,7 @@ const euroMese = (n: number) =>
         <h2 class="text-3xl md:text-4xl">{indirizzoRiga}</h2>
         <p class="mt-4 text-testo-secondario">
           Sei a pochi minuti dall'uscita Portici-Ercolano dell'autostrada A3 e dalle stazioni di
-          Portici. Ci raggiungono da Portici, Ercolano, San Giorgio a Cremano, Torre del Greco,
-          Napoli sud-est, Cercola, Volla e Pollena Trocchia.
+          Portici.
         </p>
         <ul class="mt-6 space-y-3">
           <li class="flex items-center gap-3">
@@ -632,8 +605,7 @@ const euroMese = (n: number) =>
               data-evento-posizione="home-contatti"
             >
               {clinica.contatti.telefono.visualizzato}
-            </a>{' '}
-            <span class="text-sm text-testo-secondario">24 ore su 24</span>
+            </a>
           </li>
           <li class="flex items-center gap-3">
             <Icona nome="mail" class="size-5 text-primario-link" />
@@ -641,7 +613,7 @@ const euroMese = (n: number) =>
           </li>
           <li class="flex items-center gap-3">
             <Icona nome="orologio" class="size-5 text-primario-link" />
-            <span>{clinica.orari.prontoSoccorso.etichetta}</span>
+            <span>Visite su appuntamento</span>
           </li>
         </ul>
         <div class="mt-6 flex flex-col gap-3 sm:flex-row">

@@ -15,7 +15,6 @@ import Faq from '@ui/Faq.astro';
 import Fonti from '@ui/Fonti.astro';
 import Foto from '@ui/Foto.astro';
 import Icona from '@ui/Icona.astro';
-import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import Referenti from '@ui/Referenti.astro';
 import SchedaAutore from '@ui/SchedaAutore.astro';
 import Sezione from '@ui/Sezione.astro';
@@ -43,7 +42,7 @@ const briciole = [
   { nome: servizio.data.titoloBreve, href: url },
 ];
 const categorie: Record<string, string> = {
-  urgenza: 'Urgenza e degenza',
+  urgenza: 'Degenza e pronto soccorso',
   diagnostica: 'Diagnostica',
   chirurgia: 'Chirurgia',
   specialistica: 'Medicina specialistica',
@@ -119,16 +118,15 @@ const tipoSchema =
           </Bottone>
           <Bottone
             href={telHref}
-            variante="urgenza"
+            variante="secondario"
             dimensione="lg"
             icona="telefono"
             evento="click_chiama"
             eventoPosizione="servizio-header"
           >
-            È un'urgenza · {clinica.contatti.telefono.visualizzato}
+            Chiama · {clinica.contatti.telefono.visualizzato}
           </Bottone>
         </div>
-        <Rassicurazioni class="mt-4" />
       </div>
       <div class="lg:col-span-5">
         <Foto
@@ -169,32 +167,6 @@ const tipoSchema =
       </article>
 
       <aside class="space-y-6 lg:col-span-4">
-        <div class="rounded-card border border-urgenza/40 bg-urgenza-tenue p-5">
-          <h2 class="flex items-center gap-2 font-sans text-lg font-bold text-urgenza-testo-su-chiaro">
-            <Icona nome="ambulanza" class="size-5" /> È un'urgenza?
-          </h2>
-          <p class="mt-2 text-sm">
-            Il pronto soccorso è attivo 24 ore su 24 con medici in struttura. Chiama mentre arrivi.
-          </p>
-          <Bottone
-            href={telHref}
-            variante="urgenza"
-            dimensione="md"
-            icona="telefono"
-            pieno
-            class="mt-3"
-            evento="click_chiama"
-            eventoPosizione="servizio-aside"
-          >
-            {clinica.contatti.telefono.visualizzato}
-          </Bottone>
-          <a
-            href="/pronto-soccorso"
-            class="mt-2 block text-sm font-semibold text-urgenza-testo-su-chiaro"
-          >
-            Cosa fare mentre arrivi →
-          </a>
-        </div>
         <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
           <h2 class="font-sans text-lg font-bold">Prevenzione programmata</h2>
           <p class="mt-2 text-sm text-testo-secondario">

@@ -3,12 +3,12 @@ titolo: 'Odontostomatologia veterinaria a Portici: denti e bocca di cane, gatto 
 titoloBreve: 'Odontostomatologia'
 descrizioneMeta: 'Odontostomatologia veterinaria a Portici: visita della bocca, detartrasi in anestesia, radiografie dentali ed estrazioni per cane, gatto e coniglio.'
 sottotitolo: 'Alito cattivo, gengive rosse, difficoltà a masticare: la malattia parodontale è tra le più diffuse negli animali adulti e si può trattare prima che faccia danni.'
-risposta: 'Il servizio di odontostomatologia della Clinica Veterinaria del Bosco a Portici cura denti e bocca di cane, gatto e coniglio: malattia parodontale, gengivite e stomatite, fratture dentali, riassorbimenti del gatto, malocclusioni del coniglio e masse orali. La visita è completata da radiografie dentali e pulizia in anestesia generale monitorata, con estrazioni e chirurgia orale quando necessarie.'
+risposta: 'Il servizio di odontostomatologia della Clinica Veterinaria del bosco a Portici cura denti e bocca di cane, gatto e coniglio: malattia parodontale, gengivite e stomatite, fratture dentali, riassorbimenti del gatto, malocclusioni del coniglio e masse orali. La visita è completata da radiografie dentali e pulizia in anestesia generale monitorata, con estrazioni e chirurgia orale quando necessarie.'
 icona: 'dente'
 categoria: 'specialistica'
 ordine: 16
 specie: ['cane', 'gatto', 'coniglio']
-correlati: ['chirurgia', 'animali-esotici-e-conigli', 'medicina-preventiva-vaccinazioni']
+correlati: ['chirurgia', 'animali-esotici', 'medicina-preventiva-vaccinazioni']
 medicalSpecialty: 'Dentistry'
 inEvidenza: false
 scattoBrief: '14'
@@ -74,7 +74,7 @@ dataRevisione: 2026-09-10
 
 L'odontostomatologia si occupa della salute di denti, gengive e cavità orale. È una delle aree più trascurate della medicina veterinaria, eppure la malattia parodontale interessa la maggior parte dei cani e dei gatti adulti oltre i tre anni, spesso senza che il proprietario se ne accorga: gli animali continuano a mangiare anche con denti mobili e ascessi, perché il dolore cronico non li ferma.
 
-Alla Clinica Veterinaria del Bosco visitiamo la bocca di cani, gatti e conigli, eseguiamo detartrasi professionali in anestesia generale monitorata, radiografie dentali, estrazioni semplici e chirurgiche, trattamento delle fratture dentali, cura della gengivostomatite del gatto, correzione delle malocclusioni del coniglio e biopsia o rimozione delle masse orali. Le procedure si svolgono nelle sale operatorie della clinica con [laboratorio](/servizi/laboratorio-analisi) interno per gli esami preoperatori.
+Alla Clinica Veterinaria del bosco visitiamo la bocca di cani, gatti e conigli, eseguiamo detartrasi professionali in anestesia generale monitorata, radiografie dentali, estrazioni semplici e chirurgiche, trattamento delle fratture dentali, cura della gengivostomatite del gatto, correzione delle malocclusioni del coniglio e biopsia o rimozione delle masse orali. Le procedure si svolgono nelle sale operatorie della clinica con [laboratorio](/servizi/laboratorio-analisi) interno per gli esami preoperatori.
 
 ## Come faccio a capire se il mio animale ha problemi ai denti?
 
@@ -100,7 +100,7 @@ La terapia medica da sola raramente basta. Il trattamento con risultati più cos
 
 ## Il coniglio e i denti che crescono sempre
 
-Nel coniglio incisivi e molari crescono per tutta la vita e si consumano masticando fibra lunga. Una dieta povera di fieno, con troppi pellet o semi, porta alla malocclusione: punte affilate che feriscono lingua e guance, radici che si allungano dentro l'osso e comprimono il canale lacrimale, ascessi della mandibola. La correzione si fa in anestesia con strumenti dedicati e va ripetuta periodicamente, mentre la prevenzione è quasi solo alimentare: fieno a volontà. Il coniglio è seguito insieme al servizio di [animali esotici e conigli](/servizi/animali-esotici-e-conigli).
+Nel coniglio incisivi e molari crescono per tutta la vita e si consumano masticando fibra lunga. Una dieta povera di fieno, con troppi pellet o semi, porta alla malocclusione: punte affilate che feriscono lingua e guance, radici che si allungano dentro l'osso e comprimono il canale lacrimale, ascessi della mandibola. La correzione si fa in anestesia con strumenti dedicati e va ripetuta periodicamente, mentre la prevenzione è quasi solo alimentare: fieno a volontà. Il coniglio è seguito insieme al servizio di [animali esotici](/servizi/animali-esotici).
 
 ## Ogni quanto va fatta la pulizia professionale?
 

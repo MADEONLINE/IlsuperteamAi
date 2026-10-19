@@ -15,7 +15,7 @@
         },
         { "prestazione": "Visita di pronto soccorso (diurna)", "da": 60, "a": 80 },
         { "prestazione": "Visita di pronto soccorso (notturna e festiva)", "da": 90, "a": 130 },
-        { "prestazione": "Visita animali esotici e conigli", "da": 55, "a": 80 }
+        { "prestazione": "Visita animali esotici", "da": 55, "a": 80 }
       ]
     },
     {

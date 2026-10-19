@@ -14,4 +14,4 @@ ordine: 24
 daValidare: true
 ---
 
-Dott.ssa Donatella De Simone collabora con la Clinica Veterinaria del Bosco per la neurologia ed è presente in struttura ogni lunedì. Segue crisi convulsive, paralisi, dolore cervicale e lombare, alterazioni dell’equilibrio, con l’appoggio della TAC in sede per la diagnosi.
+Dott.ssa Donatella De Simone collabora con la Clinica Veterinaria del bosco per la neurologia ed è presente in struttura ogni lunedì. Segue crisi convulsive, paralisi, dolore cervicale e lombare, alterazioni dell’equilibrio, con l’appoggio della TAC in sede per la diagnosi.

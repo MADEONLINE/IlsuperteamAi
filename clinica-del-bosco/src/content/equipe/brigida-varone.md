@@ -13,4 +13,4 @@ ordine: 17
 daValidare: true
 ---
 
-Dott.ssa Brigida Varone fa parte dell’équipe di pronto soccorso notturno della Clinica Veterinaria del Bosco da circa sei anni. Segue le urgenze notturne e i pazienti in degenza, con passaggio di consegne al turno diurno ogni mattina.
+Dott.ssa Brigida Varone fa parte dell’équipe di pronto soccorso notturno della Clinica Veterinaria del bosco da circa sei anni. Segue le urgenze notturne e i pazienti in degenza, con passaggio di consegne al turno diurno ogni mattina.

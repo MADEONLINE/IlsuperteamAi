@@ -3,7 +3,7 @@ titolo: 'Medicina interna ed endocrinologia veterinaria a Portici: diabete, tiro
 titoloBreve: 'Medicina interna ed endocrinologia'
 descrizioneMeta: 'Medicina interna ed endocrinologia veterinaria a Portici: diagnosi e gestione nel tempo di diabete, tiroide, Cushing, Addison e reni di cane e gatto.'
 sottotitolo: "Beve tanto, dimagrisce pur mangiando, è sempre stanco: dietro i sintomi vaghi c'è spesso una malattia interna o ormonale che si diagnostica con gli esami giusti e si gestisce per anni."
-risposta: 'Il servizio di medicina interna ed endocrinologia della Clinica Veterinaria del Bosco a Portici diagnostica e segue nel tempo le malattie croniche di cane e gatto: diabete mellito, ipertiroidismo del gatto, ipotiroidismo del cane, sindrome di Cushing, morbo di Addison e malattia renale cronica. Esami in giornata, ecografia in sede, degenza h24 per gli scompensi e controlli programmati.'
+risposta: 'Il servizio di medicina interna ed endocrinologia della Clinica Veterinaria del bosco a Portici diagnostica e segue nel tempo le malattie croniche di cane e gatto: diabete mellito, ipertiroidismo del gatto, ipotiroidismo del cane, sindrome di Cushing, morbo di Addison e malattia renale cronica. Esami in giornata, ecografia in sede, degenza h24 per gli scompensi e controlli programmati.'
 icona: 'stetoscopio'
 categoria: 'specialistica'
 ordine: 9
@@ -97,7 +97,7 @@ dataRevisione: 2026-09-10
 
 L'internista si occupa delle malattie degli organi interni e delle ghiandole che producono ormoni: fegato, reni, pancreas, tiroide, surrenali, sangue. Sono malattie che non si vedono dall'esterno e si presentano con segnali vaghi: bere di più, dimagrire, essere stanchi. Il lavoro dell'internista è mettere in ordine questi segnali, scegliere gli esami che li spiegano e impostare una terapia che regga per anni.
 
-Alla Clinica del Bosco il servizio è seguito da medici con formazione post-laurea in medicina interna ed endocrinologia e si appoggia al [laboratorio interno](/servizi/laboratorio-analisi), all'[ecografia in sede](/servizi/diagnostica-per-immagini) e alla [degenza h24](/servizi/degenza-terapia-intensiva) per i casi che si scompensano. È rivolto a cani e gatti.
+Alla Clinica del bosco il servizio è seguito da medici con formazione post-laurea in medicina interna ed endocrinologia e si appoggia al [laboratorio interno](/servizi/laboratorio-analisi), all'[ecografia in sede](/servizi/diagnostica-per-immagini) e alla [degenza h24](/servizi/degenza-terapia-intensiva) per i casi che si scompensano. È rivolto a cani e gatti.
 
 ## Il mio cane beve e urina tanto: cosa può essere?
 

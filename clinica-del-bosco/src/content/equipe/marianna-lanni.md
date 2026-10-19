@@ -14,4 +14,4 @@ ordine: 26
 daValidare: true
 ---
 
-Dott.ssa Marianna Lanni collabora con la Clinica Veterinaria del Bosco per l’ecografia specialistica, addominale e cardiologica, con giornate di presenza programmate ogni settimana. Lavora insieme al servizio di cardiologia e alla medicina interna.
+Dott.ssa Marianna Lanni collabora con la Clinica Veterinaria del bosco per l’ecografia specialistica, addominale e cardiologica, con giornate di presenza programmate ogni settimana. Lavora insieme al servizio di cardiologia e alla medicina interna.

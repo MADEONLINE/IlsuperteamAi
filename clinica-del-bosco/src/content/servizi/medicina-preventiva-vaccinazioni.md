@@ -3,12 +3,12 @@ titolo: 'Medicina preventiva e vaccinazioni a Portici: visite, vaccini e antipar
 titoloBreve: 'Medicina preventiva e vaccini'
 descrizioneMeta: 'Medicina preventiva e vaccinazioni a Portici: calendario vaccinale cane e gatto secondo WSAVA, antiparassitari ESCCAP, visite annuali e controlli programmati.'
 sottotitolo: 'Vaccini, antiparassitari, esami di controllo e visita annuale: la prevenzione programmata è la parte della medicina che evita le urgenze.'
-risposta: 'La Clinica Veterinaria del Bosco a Portici offre un servizio di medicina preventiva per cani, gatti e conigli: visita annuale, vaccinazioni secondo le linee guida WSAVA, protocolli antiparassitari secondo ESCCAP con attenzione alla leishmaniosi, sverminazioni, esami del sangue di controllo e consulenza su alimentazione e sterilizzazione. Tutto può essere organizzato in un Piano Salute con scadenze programmate.'
+risposta: 'La Clinica Veterinaria del bosco a Portici offre un servizio di medicina preventiva per cani, gatti e conigli: visita annuale, vaccinazioni secondo le linee guida WSAVA, protocolli antiparassitari secondo ESCCAP con attenzione alla leishmaniosi, sverminazioni, esami del sangue di controllo e consulenza su alimentazione e sterilizzazione. Tutto può essere organizzato in un Piano Salute con scadenze programmate.'
 icona: 'scudo'
 categoria: 'prevenzione'
 ordine: 10
 specie: ['cane', 'gatto', 'coniglio']
-correlati: ['laboratorio-analisi', 'gatto-cat-friendly', 'pronto-soccorso-h24']
+correlati: ['laboratorio-analisi', 'gatto-cat-friendly']
 medicalSpecialty: 'PrimaryCare'
 inEvidenza: false
 scattoBrief: '08'
@@ -94,7 +94,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa comprende la medicina preventiva
 
-La medicina preventiva è l'insieme delle visite, dei vaccini, dei trattamenti antiparassitari e degli esami di controllo che servono a evitare le malattie o a scoprirle quando sono ancora curabili con poco. Alla Clinica del Bosco il servizio è rivolto a cani, gatti e conigli e comprende:
+La medicina preventiva è l'insieme delle visite, dei vaccini, dei trattamenti antiparassitari e degli esami di controllo che servono a evitare le malattie o a scoprirle quando sono ancora curabili con poco. Alla Clinica del bosco il servizio è rivolto a cani, gatti e conigli e comprende:
 
 - **Visita annuale** completa, con controllo di peso, denti, cuore, pelle, articolazioni e comportamento; semestrale negli animali anziani.
 - **Vaccinazioni** secondo le linee guida WSAVA, con calendari personalizzati e non standard.
@@ -138,7 +138,7 @@ Per i vermi intestinali, il cucciolo e il gattino vanno sverminati a 2, 4, 6 e 8
 
 ## Il coniglio: mixomatosi e malattia emorragica
 
-Anche il coniglio da compagnia ha bisogno di prevenzione. I due vaccini disponibili proteggono da mixomatosi e da malattia emorragica virale nelle due varianti (RHDV1 e RHDV2), trasmesse da insetti e per contatto, quindi pericolose anche per un coniglio che vive in casa. La prima dose si fa dalle 5-7 settimane secondo il vaccino, con richiamo annuale. Alla visita controlliamo inoltre denti, peso e alimentazione. Il servizio dedicato è descritto nella pagina [animali esotici e conigli](/servizi/animali-esotici-e-conigli).
+Anche il coniglio da compagnia ha bisogno di prevenzione. I due vaccini disponibili proteggono da mixomatosi e da malattia emorragica virale nelle due varianti (RHDV1 e RHDV2), trasmesse da insetti e per contatto, quindi pericolose anche per un coniglio che vive in casa. La prima dose si fa dalle 5-7 settimane secondo il vaccino, con richiamo annuale. Alla visita controlliamo inoltre denti, peso e alimentazione. Il servizio dedicato è descritto nella pagina [animali esotici](/servizi/animali-esotici).
 
 ## Quando venire subito
 

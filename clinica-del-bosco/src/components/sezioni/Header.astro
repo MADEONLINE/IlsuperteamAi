@@ -9,11 +9,9 @@ import { getCollection } from 'astro:content';
 import Bottone from '@ui/Bottone.astro';
 import Icona from '@ui/Icona.astro';
 import Logo from '@ui/Logo.astro';
-import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
 import { clinica, indirizzoBreve, telHref } from '@lib/clinica';
 
 const voci = [
-  { nome: 'Pronto soccorso', href: '/pronto-soccorso', urgenza: true },
   { nome: 'Servizi', href: '/servizi', servizi: true },
   { nome: 'Piani Salute', href: '/piani-salute' },
   { nome: 'La struttura', href: '/la-struttura' },
@@ -27,12 +25,12 @@ const voci = [
 /** Il menu servizi elenca tutte le voci raggruppate per area: chi cerca una specialistica la trova subito. */
 const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
 const areeServizi: Array<{ chiave: string; titolo: string }> = [
-  { chiave: 'urgenza', titolo: 'Urgenza e degenza' },
   { chiave: 'diagnostica', titolo: 'Diagnostica' },
   { chiave: 'chirurgia', titolo: 'Chirurgia' },
   { chiave: 'specialistica', titolo: 'Medicina specialistica' },
   { chiave: 'prevenzione', titolo: 'Prevenzione' },
   { chiave: 'esotici', titolo: 'Animali esotici' },
+  { chiave: 'urgenza', titolo: 'Degenza e pronto soccorso' },
 ];
 const gruppiServizi = areeServizi
   .map((a) => ({ ...a, lista: servizi.filter((s) => s.data.categoria === a.chiave) }))
@@ -47,13 +45,12 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
 
 <header class="sticky top-0 z-50 border-b border-bordo bg-sfondo/92 backdrop-blur supports-[backdrop-filter]:bg-sfondo/85 print:static">
   <!-- Striscia di servizio (solo desktop: su mobile c'è la barra sticky).
-       L'informazione sul pronto soccorso resta, senza il pallino pulsante:
-       la home non è più costruita attorno all'urgenza. -->
+       Il pronto soccorso resta raggiungibile solo dal pulsante "È un'urgenza". -->
   <div class="hidden bg-sfondo-inverso text-testo-inverso md:block">
     <div class="contenitore flex min-h-9 items-center justify-between gap-4 text-sm">
       <p class="flex items-center gap-2">
-        <Icona nome="orologio" class="size-4 shrink-0 text-accento-inverso" />
-        <span>Pronto soccorso attivo 24 ore su 24, festivi inclusi</span>
+        <Icona nome="mappa" class="size-4 shrink-0 text-accento-inverso" />
+        <span>{indirizzoBreve}</span>
       </p>
       <div class="flex items-center gap-4">
         <a href="/lavora-con-noi" class="text-testo-inverso no-underline hover:underline">
@@ -63,8 +60,7 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
           href="/contatti"
           class="hidden items-center gap-1.5 text-testo-inverso no-underline hover:underline lg:flex"
         >
-          <Icona nome="mappa" class="size-4" />
-          <span>{indirizzoBreve}</span>
+          Contatti
         </a>
         {social.map((s) => (
           <a
@@ -83,7 +79,7 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
           class="flex items-center gap-1.5 font-semibold text-testo-inverso no-underline hover:underline"
         >
           <Icona nome="telefono" class="size-4" />
-          <span>Urgenze: {clinica.contatti.telefono.visualizzato}</span>
+          <span>{clinica.contatti.telefono.visualizzato}</span>
         </a>
       </div>
     </div>
@@ -162,7 +158,7 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
     </nav>
 
     <div class="flex items-center gap-2">
-      <div class="hidden md:block">
+      <div>
         <Bottone
           href={telHref}
           variante="urgenza"
@@ -258,17 +254,16 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
         )}
       </ul>
       <div class="mt-4 flex flex-col gap-3">
-        <BadgeApertoOra class="self-start" />
         <Bottone
           href={telHref}
-          variante="urgenza"
+          variante="secondario"
           dimensione="lg"
           icona="telefono"
           pieno
           evento="click_chiama"
           eventoPosizione="menu-mobile"
         >
-          Chiama ora · {clinica.contatti.telefono.visualizzato}
+          Chiama la clinica · {clinica.contatti.telefono.visualizzato}
         </Bottone>
         <Bottone href="/prenota" variante="primario" dimensione="lg" icona="calendario" pieno>
           Prenota una visita

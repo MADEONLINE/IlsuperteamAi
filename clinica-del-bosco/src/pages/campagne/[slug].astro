@@ -9,7 +9,6 @@ import Fonti from '@ui/Fonti.astro';
 import Foto from '@ui/Foto.astro';
 import Icona from '@ui/Icona.astro';
 import Etichetta from '@ui/Etichetta.astro';
-import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import SchedaAutore from '@ui/SchedaAutore.astro';
 import Sezione from '@ui/Sezione.astro';
 import { faqPage, medicalWebPage } from '@lib/schema';
@@ -65,7 +64,6 @@ const hrefPrenota = `/prenota?motivo=${encodeURIComponent(campagna.data.motivoVi
             {campagna.data.ctaTesto}
           </Bottone>
         </div>
-        <Rassicurazioni class="mt-4" />
       </div>
       <div class="lg:col-span-5">
         <Foto

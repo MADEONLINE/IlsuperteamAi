@@ -1,7 +1,7 @@
 ---
 titolo: 'Leishmaniosi e filariosi in Campania: come proteggere il tuo cane da marzo a novembre'
 descrizioneMeta: "Leishmaniosi e filariosi del cane in Campania: trasmissione, mesi a rischio nell'area vesuviana, prevenzione ESCCAP, test annuale e segni precoci."
-riassunto: "In Campania leishmaniosi e filariosi sono presenti ogni anno, con rischio esteso da marzo a novembre nell'area vesuviana e costiera. La prevenzione si basa su repellenti contro flebotomi e zanzare, profilassi mensile della filariosi, vaccino nei cani a rischio e un test annuale. La Clinica Veterinaria del Bosco di Portici costruisce con te un piano antiparassitario su misura."
+riassunto: "In Campania leishmaniosi e filariosi sono presenti ogni anno, con rischio esteso da marzo a novembre nell'area vesuviana e costiera. La prevenzione si basa su repellenti contro flebotomi e zanzare, profilassi mensile della filariosi, vaccino nei cani a rischio e un test annuale. La Clinica Veterinaria del bosco di Portici costruisce con te un piano antiparassitario su misura."
 autore: 'dario-ferrari'
 revisore: 'isabella-rosapane'
 dataPubblicazione: 2026-09-10

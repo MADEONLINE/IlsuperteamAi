@@ -1,7 +1,7 @@
 ---
 titolo: 'Il gatto anziano e i reni: come riconoscere presto la malattia renale cronica'
 descrizioneMeta: 'Malattia renale cronica del gatto anziano: segni precoci, stadiazione IRIS spiegata in modo semplice, screening dai 7 anni, dieta renale e pressione.'
-riassunto: 'La malattia renale cronica colpisce circa un gatto su tre dopo i dieci anni e resta a lungo silenziosa. Bere e urinare di più e perdere peso sono i primi segni. Uno screening annuale dai 7 anni, con sangue, urine e pressione, permette alla Clinica Veterinaria del Bosco di Portici di intervenire quando dieta e idratazione fanno ancora la differenza.'
+riassunto: 'La malattia renale cronica colpisce circa un gatto su tre dopo i dieci anni e resta a lungo silenziosa. Bere e urinare di più e perdere peso sono i primi segni. Uno screening annuale dai 7 anni, con sangue, urine e pressione, permette alla Clinica Veterinaria del bosco di Portici di intervenire quando dieta e idratazione fanno ancora la differenza.'
 autore: 'antonella-sergio'
 revisore: 'isabella-rosapane'
 dataPubblicazione: 2026-09-10

@@ -3,12 +3,12 @@ titolo: 'Oncologia veterinaria a Portici: diagnosi, stadiazione, chirurgia e che
 titoloBreve: 'Oncologia'
 descrizioneMeta: 'Oncologia veterinaria a Portici: citologia e biopsia, stadiazione con TAC in sede, chirurgia oncologica e chemioterapia per cani e gatti, con cure di supporto.'
 sottotitolo: "Un nodulo, una massa, un linfonodo ingrossato: il percorso oncologico serve a capire cos'è, quanto è esteso e quali opzioni esistono, senza fretta e senza promesse."
-risposta: 'Il servizio di oncologia della Clinica Veterinaria del Bosco a Portici segue cani, gatti e conigli con tumori: dalla prima citologia alla stadiazione con esami del sangue, ecografia e TAC in sede, fino a chirurgia oncologica, chemioterapia e cure di supporto. Ogni passaggio è discusso con il proprietario, con un piano scritto e obiettivi realistici sulla qualità di vita.'
+risposta: 'Il servizio di oncologia della Clinica Veterinaria del bosco a Portici segue cani, gatti e conigli con tumori: dalla prima citologia alla stadiazione con esami del sangue, ecografia e TAC in sede, fino a chirurgia oncologica, chemioterapia e cure di supporto. Ogni passaggio è discusso con il proprietario, con un piano scritto e obiettivi realistici sulla qualità di vita.'
 icona: 'cellula'
 categoria: 'specialistica'
 ordine: 12
 specie: ['cane', 'gatto', 'coniglio']
-correlati: ['chirurgia', 'tac-diagnostica-avanzata', 'pronto-soccorso-h24']
+correlati: ['chirurgia', 'tac-diagnostica-avanzata']
 medicalSpecialty: 'Oncologic'
 inEvidenza: false
 scattoBrief: '10'
@@ -93,7 +93,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa fa il servizio di oncologia
 
-L'oncologia veterinaria si occupa della diagnosi e del trattamento dei tumori in cani, gatti e conigli. Alla Clinica del Bosco il servizio copre l'intero percorso nella stessa sede: citologia e biopsia, esami del [laboratorio interno](/servizi/laboratorio-analisi), stadiazione con ecografia e [TAC](/servizi/tac-diagnostica-avanzata), [chirurgia oncologica](/servizi/chirurgia), chemioterapia e cure di supporto. Per i trattamenti non disponibili in clinica, come la radioterapia, indirizziamo verso centri di riferimento e manteniamo la regia del caso.
+L'oncologia veterinaria si occupa della diagnosi e del trattamento dei tumori in cani, gatti e conigli. Alla Clinica del bosco il servizio copre l'intero percorso nella stessa sede: citologia e biopsia, esami del [laboratorio interno](/servizi/laboratorio-analisi), stadiazione con ecografia e [TAC](/servizi/tac-diagnostica-avanzata), [chirurgia oncologica](/servizi/chirurgia), chemioterapia e cure di supporto. Per i trattamenti non disponibili in clinica, come la radioterapia, indirizziamo verso centri di riferimento e manteniamo la regia del caso.
 
 Il principio che guida ogni decisione è la qualità di vita dell'animale. In oncologia veterinaria l'obiettivo non è sempre la guarigione: spesso è il controllo della malattia per il tempo più lungo possibile, senza sofferenza. Te lo diciamo dall'inizio, con i dati disponibili per quel tipo di tumore, e decidiamo insieme fin dove spingere le cure.
 

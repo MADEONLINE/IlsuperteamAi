@@ -38,7 +38,7 @@ const gruppi: Array<{ tipo: 'socio' | 'interno' | 'freelance'; titolo: string; t
 ];
 const nInterni = medici.filter((m) => m.data.tipo !== 'freelance').length;
 const nCollaboratori = medici.filter((m) => m.data.tipo === 'freelance').length;
-const descrizione = `I ${nInterni} medici veterinari della Clinica Veterinaria del Bosco di Portici e gli ${nCollaboratori} colleghi che collaborano in giorni fissi: chi sono e di cosa si occupano.`;
+const descrizione = `I ${nInterni} medici veterinari della Clinica Veterinaria del bosco di Portici e gli ${nCollaboratori} colleghi che collaborano in giorni fissi: chi sono e di cosa si occupano.`;
 const faq = [
   {
     domanda: 'Chi è il direttore sanitario della clinica?',
@@ -58,7 +58,7 @@ const faq = [
 ---
 
 <PaginaLayout
-  titolo="L'équipe: i veterinari della Clinica del Bosco, Portici"
+  titolo="L'équipe: i veterinari della Clinica del bosco, Portici"
   descrizione={descrizione}
   percorso="/equipe"
   h1={`L'équipe della ${clinica.nome}`}

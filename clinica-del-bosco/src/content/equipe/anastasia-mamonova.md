@@ -13,4 +13,4 @@ ordine: 16
 daValidare: true
 ---
 
-Dott.ssa Anastasia Mamonova fa parte dell’équipe di pronto soccorso notturno della Clinica Veterinaria del Bosco da circa dieci anni. Gestisce le urgenze in arrivo durante la notte e la degenza dei pazienti ricoverati, in collegamento con i colleghi del turno diurno.
+Dott.ssa Anastasia Mamonova fa parte dell’équipe di pronto soccorso notturno della Clinica Veterinaria del bosco da circa dieci anni. Gestisce le urgenze in arrivo durante la notte e la degenza dei pazienti ricoverati, in collegamento con i colleghi del turno diurno.

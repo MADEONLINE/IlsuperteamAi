@@ -3,12 +3,12 @@ titolo: 'Neurologia veterinaria a Portici: convulsioni, paralisi e malattie del 
 titoloBreve: 'Neurologia'
 descrizioneMeta: 'Neurologia veterinaria a Portici: visita neurologica per cane e gatto con convulsioni, paralisi, ernia del disco, testa inclinata e tremori. TAC in sede.'
 sottotitolo: 'Crisi convulsive, zampe posteriori che cedono, testa inclinata: la visita neurologica localizza il problema e indica gli esami che servono davvero.'
-risposta: 'Il servizio di neurologia della Clinica Veterinaria del Bosco a Portici cura le malattie di cervello, midollo spinale e nervi di cane e gatto: epilessia, ernia del disco, sindrome vestibolare, paralisi e tremori. La visita neurologica localizza la lesione ed è completata in sede con TAC, liquido cerebrospinale e laboratorio. Pronto soccorso 24 ore su 24 per le crisi.'
+risposta: 'Il servizio di neurologia della Clinica Veterinaria del bosco a Portici cura le malattie di cervello, midollo spinale e nervi di cane e gatto: epilessia, ernia del disco, sindrome vestibolare, paralisi e tremori. La visita neurologica localizza la lesione ed è completata in sede con TAC, liquido cerebrospinale e laboratorio. Pronto soccorso 24 ore su 24 per le crisi.'
 icona: 'cervello'
 categoria: 'specialistica'
 ordine: 15
 specie: ['cane', 'gatto']
-correlati: ['tac-diagnostica-avanzata', 'pronto-soccorso-h24', 'ortopedia']
+correlati: ['tac-diagnostica-avanzata', 'ortopedia']
 medicalSpecialty: 'Neurologic'
 inEvidenza: false
 scattoBrief: '13'

@@ -11,7 +11,6 @@
  */
 import Bottone from '@ui/Bottone.astro';
 import Icona from '@ui/Icona.astro';
-import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import { clinica, telHref } from '@lib/clinica';
 
 interface Props {
@@ -386,7 +385,6 @@ const oggi = new Date().toISOString().slice(0, 10);
     </div>
   </div>
   <p class="stato mt-3 text-sm" aria-live="polite"></p>
-  <Rassicurazioni class="mt-4" voci={['richiamo', 'pagamento', 'preventivo']} />
 </form>
 
 <style>
@@ -477,7 +475,7 @@ const oggi = new Date().toISOString().slice(0, 10);
       oncologia: 'oncologia',
       dermatologia: 'dermatologia',
       odontostomatologia: 'odontostomatologia',
-      'animali-esotici-e-conigli': 'esotici',
+      'animali-esotici': 'esotici',
       'gatto-cat-friendly': 'visita',
       'piano-salute': 'piano-salute',
       'prevenzione-parassiti': 'vaccino',

@@ -80,7 +80,7 @@ const fasce = piani.selettoreEta.map((f) => ({
     ))}
   </ul>
   <p class="mt-3 text-xs text-testo-secondario">
-    Per conigli e animali esotici proponiamo un calendario personalizzato alla prima visita.
+    Per gli animali esotici proponiamo un calendario personalizzato alla prima visita.
   </p>
 </section>
 
@@ -99,7 +99,7 @@ const fasce = piani.selettoreEta.map((f) => ({
       if (specie.value === 'coniglio') {
         fasce.forEach((f) => f.classList.remove('border-primario', 'bg-primario-tenue'));
         esito.innerHTML =
-          'Per conigli ed esotici prepariamo un calendario su misura: <a href="/prenota?motivo=esotici" class="font-semibold text-primario-link">prenota la prima visita</a>.';
+          'Per gli animali esotici prepariamo un calendario su misura: <a href="/prenota?motivo=esotici" class="font-semibold text-primario-link">prenota la prima visita</a>.';
         return;
       }
       let scelta: HTMLElement | undefined;

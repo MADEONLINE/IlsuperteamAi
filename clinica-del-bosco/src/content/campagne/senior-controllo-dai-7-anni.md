@@ -2,7 +2,7 @@
 titolo: 'Senior: il check-up dai 7 anni per cane e gatto'
 descrizioneMeta: 'Check-up senior da ottobre a dicembre per cani e gatti dai 7 anni: esami del sangue e urine, pressione, peso e articolazioni per scoprire presto reni e cuore.'
 sottotitolo: "Dai 7 anni il corpo cambia prima che si veda. Un controllo annuale con esami del sangue, urine e pressione intercetta reni, tiroide, cuore e articolazioni quando c'è ancora molto da fare."
-risposta: 'Il check-up senior della Clinica Veterinaria del Bosco di Portici è una visita programmata, da ottobre a dicembre, per cani e gatti dai 7 anni: esame clinico completo, esami del sangue e delle urine con risposta in giornata dal laboratorio interno, pressione, pesata e valutazione di articolazioni e denti. Serve a scoprire presto malattie renali, tiroidee, cardiache e articolari.'
+risposta: 'Il check-up senior della Clinica Veterinaria del bosco di Portici è una visita programmata, da ottobre a dicembre, per cani e gatti dai 7 anni: esame clinico completo, esami del sangue e delle urine con risposta in giornata dal laboratorio interno, pressione, pesata e valutazione di articolazioni e denti. Serve a scoprire presto malattie renali, tiroidee, cardiache e articolari.'
 periodo: 'Ottobre – Dicembre'
 meseInizio: 10
 meseFine: 12

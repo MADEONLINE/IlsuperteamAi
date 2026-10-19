@@ -9,4 +9,4 @@ Sì, per le visite programmate ti chiediamo di prenotare, online dalla pagina Pr
 
 La prenotazione riduce l'attesa e ci permette di preparare la cartella clinica del tuo animale, di riservare il tempo necessario e, se lo sappiamo in anticipo, di concentrare nello stesso accesso visita, prelievo ed eventuali esami di immagine. È utile soprattutto per chi arriva da comuni più lontani del bacino, come Torre del Greco, Volla o Pollena Trocchia.
 
-Quando prenoti, indica specie, età e motivo della visita: per i gatti abbiamo un percorso a ridotto stress e per conigli e animali esotici orari dedicati con i medici che se ne occupano.
+Quando prenoti, indica specie, età e motivo della visita: per i gatti abbiamo un percorso a ridotto stress e per gli animali esotici orari dedicati con i medici che se ne occupano.

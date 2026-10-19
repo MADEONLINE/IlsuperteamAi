@@ -2,7 +2,7 @@
 titolo: 'Estate sicura: caldo, viaggi e vacanze con cane, gatto e coniglio'
 descrizioneMeta: 'Il check-up estivo prima delle vacanze: controllo di cuore e vie respiratorie, documenti per viaggiare, antiparassitari e consigli contro il colpo di calore.'
 sottotitolo: 'Un controllo prima di partire per verificare che il tuo animale tolleri il caldo e il viaggio, con i documenti e le protezioni in regola.'
-risposta: 'Il check-up estivo della Clinica Veterinaria del Bosco di Portici è una visita programmata, da giugno a settembre, che verifica cuore, vie respiratorie e peso del tuo cane, gatto o coniglio prima delle vacanze, controlla vaccini, microchip e passaporto per viaggiare e aggiorna la protezione antiparassitaria. Comprende indicazioni pratiche per prevenire il colpo di calore.'
+risposta: 'Il check-up estivo della Clinica Veterinaria del bosco di Portici è una visita programmata, da giugno a settembre, che verifica cuore, vie respiratorie e peso del tuo cane, gatto o coniglio prima delle vacanze, controlla vaccini, microchip e passaporto per viaggiare e aggiorna la protezione antiparassitaria. Comprende indicazioni pratiche per prevenire il colpo di calore.'
 periodo: 'Giugno – Settembre'
 meseInizio: 6
 meseFine: 9

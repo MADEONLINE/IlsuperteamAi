@@ -58,7 +58,7 @@
     { "source": "/tac", "destination": "/servizi/tac-diagnostica-avanzata", "permanent": true },
     {
       "source": "/esotici",
-      "destination": "/servizi/animali-esotici-e-conigli",
+      "destination": "/servizi/animali-esotici",
       "permanent": true
     },
     { "source": "/colleghi", "destination": "/per-i-colleghi", "permanent": true },

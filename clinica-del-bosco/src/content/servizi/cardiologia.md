@@ -3,12 +3,12 @@ titolo: 'Cardiologia veterinaria a Portici: soffio al cuore, tosse e affanno in 
 titoloBreve: 'Cardiologia'
 descrizioneMeta: 'Cardiologia veterinaria a Portici: visita, ecocardiografia Doppler, ECG e pressione per soffio al cuore, tosse, affanno e malattie del cuore di cane e gatto.'
 sottotitolo: "Un soffio scoperto per caso, una tosse che arriva di notte, il fiato corto dopo pochi passi: la cardiologia dà un nome al problema e imposta una terapia che accompagna l'animale nel tempo."
-risposta: 'Il servizio di cardiologia della Clinica Veterinaria del Bosco a Portici diagnostica e segue le malattie del cuore di cani e gatti: soffi scoperti alla visita, malattia della valvola mitrale, cardiomiopatie, aritmie e ipertensione. In sede si eseguono visita cardiologica, ecocardiografia con Doppler, elettrocardiogramma, radiografie del torace e misurazione della pressione, quasi sempre senza sedazione.'
+risposta: 'Il servizio di cardiologia della Clinica Veterinaria del bosco a Portici diagnostica e segue le malattie del cuore di cani e gatti: soffi scoperti alla visita, malattia della valvola mitrale, cardiomiopatie, aritmie e ipertensione. In sede si eseguono visita cardiologica, ecocardiografia con Doppler, elettrocardiogramma, radiografie del torace e misurazione della pressione, quasi sempre senza sedazione.'
 icona: 'cuore'
 categoria: 'specialistica'
 ordine: 8
 specie: ['cane', 'gatto']
-correlati: ['diagnostica-per-immagini', 'chirurgia', 'pronto-soccorso-h24']
+correlati: ['diagnostica-per-immagini', 'chirurgia']
 medicalSpecialty: 'Cardiovascular'
 inEvidenza: true
 scattoBrief: '41'
@@ -95,7 +95,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa fa il cardiologo veterinario
 
-Il cardiologo veterinario diagnostica e segue nel tempo le malattie del cuore e dei grandi vasi: valvole che perdono, muscolo cardiaco che si indebolisce o si ispessisce, aritmie, ipertensione, difetti congeniti, versamenti attorno al cuore. Alla Clinica del Bosco il servizio è seguito da medici della clinica con formazione post-laurea in cardiologia ed ecocardiografia, in collaborazione con la [diagnostica per immagini](/servizi/diagnostica-per-immagini), il pronto soccorso e la degenza.
+Il cardiologo veterinario diagnostica e segue nel tempo le malattie del cuore e dei grandi vasi: valvole che perdono, muscolo cardiaco che si indebolisce o si ispessisce, aritmie, ipertensione, difetti congeniti, versamenti attorno al cuore. Alla Clinica del bosco il servizio è seguito da medici della clinica con formazione post-laurea in cardiologia ed ecocardiografia, in collaborazione con la [diagnostica per immagini](/servizi/diagnostica-per-immagini), il pronto soccorso e la degenza.
 
 In sede si eseguono visita cardiologica, ecocardiografia con Doppler, elettrocardiogramma, radiografie del torace, misurazione della pressione arteriosa ed esami del sangue con laboratorio interno; alcuni marcatori, come l'NT-proBNP, cioè una proteina che il cuore rilascia quando è sotto sforzo, vengono inviati a un laboratorio esterno.
 

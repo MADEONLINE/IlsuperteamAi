@@ -3,7 +3,7 @@ titolo: 'Endoscopia e gastroenterologia veterinaria a Portici: vomito cronico, d
 titoloBreve: 'Endoscopia e gastroenterologia'
 descrizioneMeta: 'Endoscopia veterinaria a Portici: gastroscopia, colonscopia, rinoscopia e biopsie per vomito cronico, diarrea e corpi estranei in cani e gatti. Urgenze h24.'
 sottotitolo: "Guardare dentro senza aprire: l'endoscopia permette di vedere esofago, stomaco, intestino e naso, prelevare biopsie e rimuovere molti corpi estranei con una sola anestesia."
-risposta: "Il servizio di endoscopia e gastroenterologia della Clinica Veterinaria del Bosco a Portici indaga vomito cronico, diarrea persistente, dimagrimento e sangue nelle feci di cani e gatti con gastroscopia, colonscopia e biopsie mirate, e rimuove per via endoscopica molti corpi estranei senza aprire l'addome. Le sedute con gli specialisti sono programmate; i casi urgenti passano dal pronto soccorso h24."
+risposta: "Il servizio di endoscopia e gastroenterologia della Clinica Veterinaria del bosco a Portici indaga vomito cronico, diarrea persistente, dimagrimento e sangue nelle feci di cani e gatti con gastroscopia, colonscopia e biopsie mirate, e rimuove per via endoscopica molti corpi estranei senza aprire l'addome. Le sedute con gli specialisti sono programmate; i casi urgenti passano dal pronto soccorso h24."
 icona: 'cellula'
 categoria: 'diagnostica'
 ordine: 5
@@ -95,7 +95,7 @@ dataRevisione: 2026-09-10
 
 L'endoscopia permette di guardare dall'interno esofago, stomaco, intestino, naso e vie respiratorie superiori con una sonda flessibile dotata di telecamera, senza incisioni. Nella stessa seduta si prelevano biopsie, cioè piccoli frammenti di tessuto da esaminare al microscopio, e si rimuovono molti corpi estranei. Per questo è lo strumento centrale della gastroenterologia, la branca che si occupa delle malattie dell'apparato digerente.
 
-Alla Clinica del Bosco l'endoscopia è eseguita da specialisti in gastroenterologia che collaborano con la clinica con un calendario programmato: le sedute vengono organizzate raggruppando i casi, così ogni animale arriva già studiato con esami del sangue, ecografia e, quando serve, [TAC](/servizi/tac-diagnostica-avanzata). I casi urgenti, come i corpi estranei, sono gestiti dal [pronto soccorso](/pronto-soccorso) 24 ore su 24. In sede si eseguono gastroscopia, colonscopia, rinoscopia, endoscopia delle vie respiratorie superiori, video-otoscopia, biopsie endoscopiche e rimozione di corpi estranei.
+Alla Clinica del bosco l'endoscopia è eseguita da specialisti in gastroenterologia che collaborano con la clinica con un calendario programmato: le sedute vengono organizzate raggruppando i casi, così ogni animale arriva già studiato con esami del sangue, ecografia e, quando serve, [TAC](/servizi/tac-diagnostica-avanzata). I casi urgenti, come i corpi estranei, sono gestiti dal [pronto soccorso](/pronto-soccorso) 24 ore su 24. In sede si eseguono gastroscopia, colonscopia, rinoscopia, endoscopia delle vie respiratorie superiori, video-otoscopia, biopsie endoscopiche e rimozione di corpi estranei.
 
 ## Quando serve una gastroscopia?
 
@@ -130,7 +130,7 @@ Il giorno dell'esame l'animale viene visitato, si controllano gli esami pre-anes
 
 ## L'anestesia è rischiosa?
 
-Ogni anestesia comporta un rischio, che nell'animale valutato prima e monitorato durante è basso. L'endoscopia si fa sempre in anestesia generale, perché la sonda passa attraverso la bocca e l'esofago e l'animale deve restare fermo e senza fastidio. Alla Clinica del Bosco l'anestesia è gestita da medici dedicati, con protocolli scelti in base a età, razza, esami del sangue e malattie concomitanti, e con monitoraggio continuo di respiro, cuore, pressione e ossigenazione. Un cane brachicefalo, un gatto con malattia renale o un animale disidratato dal vomito richiedono una preparazione specifica, che può includere fluidi prima della seduta.
+Ogni anestesia comporta un rischio, che nell'animale valutato prima e monitorato durante è basso. L'endoscopia si fa sempre in anestesia generale, perché la sonda passa attraverso la bocca e l'esofago e l'animale deve restare fermo e senza fastidio. Alla Clinica del bosco l'anestesia è gestita da medici dedicati, con protocolli scelti in base a età, razza, esami del sangue e malattie concomitanti, e con monitoraggio continuo di respiro, cuore, pressione e ossigenazione. Un cane brachicefalo, un gatto con malattia renale o un animale disidratato dal vomito richiedono una preparazione specifica, che può includere fluidi prima della seduta.
 
 I rischi propri dell'esame sono rari: un sanguinamento nel punto della biopsia, che di norma si arresta da solo, e, in casi eccezionali, una perforazione della parete, più probabile se il tessuto è già gravemente malato o durante la rimozione di oggetti appuntiti. Ti vengono spiegati prima della firma del consenso.
 

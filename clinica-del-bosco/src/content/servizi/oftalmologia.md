@@ -3,12 +3,12 @@ titolo: 'Oftalmologia veterinaria a Portici: visita oculistica per cane, gatto e
 titoloBreve: 'Oftalmologia'
 descrizioneMeta: 'Oftalmologia veterinaria a Portici: visita oculistica per cane, gatto e coniglio, diagnosi di ulcere corneali, glaucoma, cataratta e uveite, chirurgia oculare.'
 sottotitolo: "Un occhio rosso, chiuso o velato può peggiorare in poche ore: la visita oculistica serve a capire subito se si tratta di un'irritazione o di una malattia che minaccia la vista."
-risposta: "Il servizio di oftalmologia della Clinica Veterinaria del Bosco a Portici cura le malattie dell'occhio di cane, gatto e coniglio: ulcere corneali, congiuntiviti, glaucoma, cataratta, uveite, occhio secco e palpebre. La visita comprende test lacrimale, fluoresceina, pressione oculare ed esame del fondo. Chirurgia oculare e pronto soccorso 24 ore su 24 sono nella stessa sede."
+risposta: "Il servizio di oftalmologia della Clinica Veterinaria del bosco a Portici cura le malattie dell'occhio di cane, gatto e coniglio: ulcere corneali, congiuntiviti, glaucoma, cataratta, uveite, occhio secco e palpebre. La visita comprende test lacrimale, fluoresceina, pressione oculare ed esame del fondo. Chirurgia oculare e pronto soccorso 24 ore su 24 sono nella stessa sede."
 icona: 'occhio'
 categoria: 'specialistica'
 ordine: 14
 specie: ['cane', 'gatto', 'coniglio']
-correlati: ['pronto-soccorso-h24', 'chirurgia', 'neurologia']
+correlati: ['chirurgia', 'neurologia']
 medicalSpecialty: 'Optometric'
 inEvidenza: false
 scattoBrief: '12'

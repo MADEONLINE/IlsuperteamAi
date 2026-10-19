@@ -3,12 +3,12 @@ titolo: 'TAC veterinaria a Portici: immagini tridimensionali per diagnosi e pian
 titoloBreve: 'TAC'
 descrizioneMeta: 'TAC veterinaria in sede a Portici: total body, stadiazione oncologica, traumi, naso, orecchie, colonna e pianificazione chirurgica per cani, gatti e conigli.'
 sottotitolo: "La tomografia computerizzata è nella stessa sede di pronto soccorso, chirurgia e degenza: l'esame si fa senza spostare l'animale, anche in urgenza."
-risposta: 'La Clinica Veterinaria del Bosco a Portici dispone di TAC in sede: un esame che produce immagini tridimensionali di ossa, torace, addome, testa e colonna in pochi minuti, in sedazione o anestesia breve. Serve per stadiare i tumori, studiare traumi complessi, naso, orecchie e articolazioni e per pianificare gli interventi chirurgici, anche per i pazienti in urgenza, senza trasferimenti.'
+risposta: 'La Clinica Veterinaria del bosco a Portici dispone di TAC in sede: un esame che produce immagini tridimensionali di ossa, torace, addome, testa e colonna in pochi minuti, in sedazione o anestesia breve. Serve per stadiare i tumori, studiare traumi complessi, naso, orecchie e articolazioni e per pianificare gli interventi chirurgici, anche per i pazienti in urgenza, senza trasferimenti.'
 icona: 'scansione'
 categoria: 'diagnostica'
 ordine: 3
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
-correlati: ['pronto-soccorso-h24', 'oncologia', 'chirurgia']
+correlati: ['oncologia', 'chirurgia']
 medicalSpecialty: 'Radiography'
 inEvidenza: true
 scattoBrief: '04'
@@ -71,7 +71,7 @@ tabella:
         '10-15 minuti',
       ]
     - [
-        'Conigli ed esotici',
+        'Animali esotici',
         'Ascessi dentali, otiti, masse addominali',
         'Anestesia specifica per specie',
         '3-5 minuti',
@@ -96,7 +96,7 @@ dataRevisione: 2026-09-10
 
 La TAC, o tomografia computerizzata, è un esame radiologico che acquisisce centinaia di sezioni sottili del corpo e le ricostruisce in immagini tridimensionali. Rispetto alla radiografia tradizionale elimina le sovrapposizioni tra organi e ossa e permette di vedere lesioni di pochi millimetri; rispetto all'ecografia esplora anche distretti che gli ultrasuoni non attraversano, come il cranio, il torace e la colonna vertebrale.
 
-Alla Clinica del Bosco la TAC è in sede e viene usata soprattutto per quattro scopi:
+Alla Clinica del bosco la TAC è in sede e viene usata soprattutto per quattro scopi:
 
 - **Oncologia**: misurare un tumore, capire quali strutture invade, cercare metastasi in torace e addome, cioè eseguire la stadiazione che guida la scelta tra chirurgia, chemioterapia o cure di supporto.
 - **Pianificazione chirurgica**: studiare in anticipo l'anatomia della lesione, così il chirurgo sa dove e quanto asportare prima di aprire.

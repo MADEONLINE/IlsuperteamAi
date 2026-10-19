@@ -43,13 +43,13 @@ const esamiTac = [
   'Reni, ureteri e vescica (uro-TAC)',
   'Tutto il corpo, per capire quanto è esteso un tumore o dopo un grave trauma',
   'Ricostruzioni in 3D',
-  'Animali piccoli, conigli ed esotici',
+  'Animali di piccola taglia e animali esotici',
 ];
 const descrizione =
-  'Clinica veterinaria a Portici dal 2010: pronto soccorso 24 ore su 24, TAC, due sale chirurgiche, terapia intensiva e laboratorio in 500 m² su un piano.';
+  'Clinica veterinaria a Portici dal 2010: TAC, due sale chirurgiche, terapia intensiva e laboratorio in 500 m² su un piano, per cani, gatti e animali esotici.';
 const aree = [
   {
-    titolo: 'Pronto soccorso e accettazione',
+    titolo: 'Accettazione',
     testo:
       "Si entra direttamente, a qualsiasi ora. All'arrivo valutiamo subito quanto è urgente il caso. C'è una zona con ossigeno per stabilizzare l'animale.",
     scatto: '34',
@@ -57,7 +57,7 @@ const aree = [
   {
     titolo: 'Ricovero e terapia intensiva',
     testo:
-      'Gabbie con ossigeno e controllo continuo di cuore, respiro e pressione. Cani e gatti stanno in zone separate. Conigli ed esotici hanno una zona silenziosa.',
+      'Gabbie con ossigeno e controllo continuo di cuore, respiro e pressione. Cani e gatti stanno in zone separate. Gli animali esotici hanno una zona silenziosa.',
     scatto: '35',
   },
   {
@@ -87,11 +87,11 @@ const aree = [
 ---
 
 <PaginaLayout
-  titolo="Chi siamo: la Clinica Veterinaria del Bosco a Portici"
+  titolo="Chi siamo: la Clinica Veterinaria del bosco a Portici"
   descrizione={descrizione}
   percorso="/la-struttura"
   h1={`La ${clinica.nome} a ${clinica.indirizzo.comune}`}
-  sottotitolo={`La ${clinica.nome} è una clinica veterinaria di ${clinica.indirizzo.comune} (Napoli)${daConfermare(anno) ? '' : `, aperta nel ${anno}`}. Cura cani, gatti, conigli e animali esotici, con un pronto soccorso aperto 24 ore su 24. Urgenza, esami, chirurgia e ricovero sono nello stesso edificio, su un unico piano di ${clinica.struttura.metriQuadri} m².`}
+  sottotitolo={`La ${clinica.nome} è una clinica veterinaria di ${clinica.indirizzo.comune} (Napoli)${daConfermare(anno) ? '' : `, aperta nel ${anno}`}. Cura cani, gatti e animali esotici. Visite, esami, chirurgia e ricovero sono nello stesso edificio, su un unico piano di ${clinica.struttura.metriQuadri} m².`}
   etichetta="Chi siamo"
   briciole={[{ nome: 'La struttura', href: '/la-struttura' }]}
   jsonLd={[

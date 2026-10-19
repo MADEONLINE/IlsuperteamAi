@@ -157,25 +157,6 @@ const faq = defineCollection({
   }),
 });
 
-const zone = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/zone' }),
-  schema: z.object({
-    nome: z.string(),
-    nomeCompleto: z.string(),
-    descrizioneMeta: z.string().min(80).max(160),
-    risposta: z.string().min(150).max(520),
-    tempoAutoMinuti: z.tuple([z.number().int(), z.number().int()]),
-    distanzaKm: z.number(),
-    comeArrivare: z.array(z.string()).min(2),
-    mezziPubblici: z.array(z.string()).default([]),
-    quartieri: z.array(z.string()).default([]),
-    riferimenti: z.array(z.string()).default([]),
-    faq: z.array(faqItem).min(3).max(6),
-    ordine: z.number().int().default(99),
-    dataRevisione: z.coerce.date(),
-  }),
-});
-
 const casi = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/casi' }),
   schema: z.object({
@@ -189,4 +170,4 @@ const casi = defineCollection({
   }),
 });
 
-export const collections = { servizi, equipe, articoli, campagne, faq, zone, casi };
+export const collections = { servizi, equipe, articoli, campagne, faq, casi };

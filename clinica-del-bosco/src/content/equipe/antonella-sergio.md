@@ -22,4 +22,4 @@ ordine: 4
 daValidare: true
 ---
 
-Dott.ssa Antonella Sergio è socia fondatrice della Clinica Veterinaria del Bosco e segue il servizio di cardiologia e l’ecografia specialistica: ecocardiografia con Doppler, elettrocardiogramma, misurazione della pressione, ecografia addominale. Coordina anche gli screening cardiologici pre-anestesia e i controlli programmati dei pazienti cardiopatici.
+Dott.ssa Antonella Sergio è socia fondatrice della Clinica Veterinaria del bosco e segue il servizio di cardiologia e l’ecografia specialistica: ecocardiografia con Doppler, elettrocardiogramma, misurazione della pressione, ecografia addominale. Coordina anche gli screening cardiologici pre-anestesia e i controlli programmati dei pazienti cardiopatici.

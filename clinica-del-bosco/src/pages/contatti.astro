@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Bottone from '@ui/Bottone.astro';
 import Dato from '@ui/Dato.astro';
@@ -20,11 +19,10 @@ import { orariLeggibili } from '@lib/orari';
 import { faqPage, webPage } from '@lib/schema';
 import Faq from '@ui/Faq.astro';
 
-const zone = (await getCollection('zone')).sort((a, b) => a.data.ordine - b.data.ordine);
 const orari = clinica.orari.ambulatorio.confermato
   ? orariLeggibili(clinica.orari.ambulatorio.settimana)
   : null;
-const descrizione = `${clinica.nome}, Corso Umberto I 12, Portici (NA). Telefono ${clinica.contatti.telefono.visualizzato}, attivo 24 ore su 24. Orari delle visite, parcheggio e treni.`;
+const descrizione = `${clinica.nome}, Corso Umberto I 12, Portici (NA). Telefono ${clinica.contatti.telefono.visualizzato}. Orari delle visite, parcheggio e treni.`;
 const faq = [
   {
     domanda: 'Il telefono risponde anche di notte?',
@@ -32,7 +30,7 @@ const faq = [
   },
   {
     domanda: 'Posso prenotare una visita per email?',
-    risposta: `Per prenotare usa il modulo online o il telefono: ti richiamiamo entro ${clinica.impegni.richiamoEntroOre} ore per confermare. Per un'urgenza non scrivere un'email, chiama.`,
+    risposta: `Per prenotare usa il modulo online o il telefono: ti contattiamo per confermare giorno e ora. Per un'urgenza non scrivere un'email, chiama.`,
   },
   {
     domanda: "Dove parcheggio se arrivo per un'urgenza?",
@@ -47,7 +45,7 @@ const faq = [
   descrizione={descrizione}
   percorso="/contatti"
   h1="Contatti, orari e come arrivare"
-  sottotitolo={`La ${clinica.nome} è in ${indirizzoRiga}, vicino a piazza San Ciro. Il telefono ${clinica.contatti.telefono.visualizzato} risponde 24 ore su 24, per le urgenze e per prenotare.`}
+  sottotitolo={`La ${clinica.nome} è in ${indirizzoRiga}, vicino a piazza San Ciro. Telefono ${clinica.contatti.telefono.visualizzato}.`}
   etichetta="Contatti"
   briciole={[{ nome: 'Contatti', href: '/contatti' }]}
   jsonLd={[
@@ -198,28 +196,6 @@ const faq = [
         />
       </div>
     </div>
-  </Sezione>
-  <Sezione tono="tinta" id="zone" compatta>
-    <h2 class="text-2xl md:text-3xl">Tempi indicativi in auto</h2>
-    <p class="mt-2 max-w-prose text-testo-secondario">
-      Di notte, con poco traffico, i tempi sono vicini al valore più basso. Per ogni comune trovi
-      indicazioni dettagliate nella pagina dedicata.
-    </p>
-    <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      {zone.map((z) => (
-        <li>
-          <a
-            href={`/veterinario-a/${z.id}`}
-            class="flex min-h-14 items-center justify-between rounded-card border border-bordo bg-sfondo-rialzato px-4 font-semibold no-underline hover:border-primario hover:text-primario-link"
-          >
-            {z.data.nome}
-            <span class="text-sm font-normal text-testo-secondario">
-              {z.data.tempoAutoMinuti[0]}–{z.data.tempoAutoMinuti[1]} min
-            </span>
-          </a>
-        </li>
-      ))}
-    </ul>
   </Sezione>
   <Sezione compatta>
     <Faq voci={faq} />

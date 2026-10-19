@@ -3,7 +3,7 @@ titolo: 'Nutrizione clinica veterinaria a Portici: diete su misura per cane e ga
 titoloBreve: 'Nutrizione clinica'
 descrizioneMeta: 'Nutrizione clinica veterinaria a Portici: visita nutrizionale e piani alimentari per cane e gatto in sovrappeso, con malattie renali, intestinali o allergie.'
 sottotitolo: "Un piano alimentare costruito sull'animale, non sull'etichetta: peso, età, malattie in corso e abitudini di casa contano più di qualsiasi moda."
-risposta: "Il servizio di nutrizione clinica della Clinica Veterinaria del Bosco a Portici costruisce piani alimentari personalizzati per cane e gatto: gestione del sovrappeso, diete per malattie renali, epatiche, intestinali e urinarie, allergie alimentari, alimentazione del cucciolo, dell'anziano e dell'animale in convalescenza. La visita parte dalla valutazione corporea e dagli esami del laboratorio interno e prevede controlli programmati del peso."
+risposta: "Il servizio di nutrizione clinica della Clinica Veterinaria del bosco a Portici costruisce piani alimentari personalizzati per cane e gatto: gestione del sovrappeso, diete per malattie renali, epatiche, intestinali e urinarie, allergie alimentari, alimentazione del cucciolo, dell'anziano e dell'animale in convalescenza. La visita parte dalla valutazione corporea e dagli esami del laboratorio interno e prevede controlli programmati del peso."
 icona: 'ciotola'
 categoria: 'specialistica'
 ordine: 17
@@ -91,7 +91,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa fa il servizio di nutrizione clinica
 
-La nutrizione clinica usa l'alimentazione come parte della terapia. Non si tratta di consigliare una marca, ma di calcolare il fabbisogno del singolo animale e di costruire un piano che tenga conto del peso, dell'età, delle malattie in corso, dei farmaci e delle abitudini della famiglia. Alla Clinica Veterinaria del Bosco la visita nutrizionale è disponibile per cani, gatti e conigli, e lavora in stretto collegamento con il [laboratorio interno](/servizi/laboratorio-analisi), che fornisce in giornata gli esami su cui il piano si basa.
+La nutrizione clinica usa l'alimentazione come parte della terapia. Non si tratta di consigliare una marca, ma di calcolare il fabbisogno del singolo animale e di costruire un piano che tenga conto del peso, dell'età, delle malattie in corso, dei farmaci e delle abitudini della famiglia. Alla Clinica Veterinaria del bosco la visita nutrizionale è disponibile per cani, gatti e conigli, e lavora in stretto collegamento con il [laboratorio interno](/servizi/laboratorio-analisi), che fornisce in giornata gli esami su cui il piano si basa.
 
 Le richieste più frequenti sono la gestione del sovrappeso, le diete per malattie renali, epatiche, intestinali e urinarie, la diagnosi delle allergie alimentari insieme al servizio di [dermatologia](/servizi/dermatologia), l'alimentazione del cucciolo e del gattino, dell'animale anziano e di quello ricoverato o in convalescenza dopo un intervento chirurgico.
 
@@ -117,7 +117,7 @@ Sì, in molti casi. Nel gatto i cristalli e i calcoli urinari, e la cistite senz
 
 ## Cosa deve mangiare un coniglio?
 
-Fieno di qualità a volontà, che deve costituire la maggior parte della dieta, verdure fresche a foglia ogni giorno e una quantità limitata di pellet, senza semi, cereali né miscele colorate. La fibra lunga del fieno consuma i denti, che crescono per tutta la vita, e mantiene attivo l'intestino. Una dieta sbagliata è all'origine della maggior parte dei problemi dentali e digestivi del coniglio. Per le patologie specifiche il coniglio è seguito dal servizio di [animali esotici e conigli](/servizi/animali-esotici-e-conigli).
+Fieno di qualità a volontà, che deve costituire la maggior parte della dieta, verdure fresche a foglia ogni giorno e una quantità limitata di pellet, senza semi, cereali né miscele colorate. La fibra lunga del fieno consuma i denti, che crescono per tutta la vita, e mantiene attivo l'intestino. Una dieta sbagliata è all'origine della maggior parte dei problemi dentali e digestivi del coniglio. Per le patologie specifiche il coniglio è seguito dal servizio di [animali esotici](/servizi/animali-esotici).
 
 ## L'animale ricoverato: perché lo alimentiamo presto
 

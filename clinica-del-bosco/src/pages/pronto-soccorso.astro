@@ -13,7 +13,7 @@ import Sezione from '@ui/Sezione.astro';
 import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
 import TriageRapido from '@sezioni/TriageRapido.astro';
-import { getCollection, getEntries, getEntry } from 'astro:content';
+import { getEntries, getEntry } from 'astro:content';
 import Referenti from '@ui/Referenti.astro';
 import Fonti from '@ui/Fonti.astro';
 import {
@@ -34,10 +34,6 @@ const turnoNotte = (await getEntries(servizio.data.referenti)).filter(Boolean);
 const titolo = 'Pronto soccorso veterinario 24h, Portici';
 const descrizione =
   'Pronto soccorso veterinario a Portici aperto 24 ore su 24, festivi inclusi, con un medico in clinica anche di notte. Chiama mentre arrivi: 081 7763859.';
-
-const zone = (await getCollection('zone'))
-  .sort((a, b) => a.data.ordine - b.data.ordine)
-  .slice(0, 6);
 
 const istruzioni = [
   {
@@ -266,25 +262,6 @@ const faqJson = servizio.data.faq;
               </span>
             </p>
           </address>
-
-          <p class="mt-5 text-xs font-bold uppercase tracking-wider text-accento-inverso">
-            Tempo di percorrenza indicativo in auto
-          </p>
-          <ul class="mt-2 flex flex-wrap gap-2 text-sm">
-            {zone.map((z) => (
-              <li>
-                <a
-                  href={`/veterinario-a/${z.id}`}
-                  class="inline-flex min-h-9 items-center gap-1.5 rounded-pill bg-sfondo/10 px-3 text-testo-inverso no-underline ring-1 ring-sfondo/20 hover:bg-sfondo/20"
-                >
-                  <span>{z.data.nome}</span>
-                  <span class="font-semibold tabular-nums">
-                    {z.data.tempoAutoMinuti[0]}–{z.data.tempoAutoMinuti[1]} min
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div class="hidden lg:col-span-5 lg:block">
@@ -310,11 +287,11 @@ const faqJson = servizio.data.faq;
                 chirurgiche pronte per l'urgenza
               </li>
               <li class="flex gap-3">
-                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Cani,
-                gatti, conigli e animali esotici
+                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Cani, gatti
+                e animali esotici
               </li>
             </ul>
-            <Rassicurazioni inverso voci={['preventivo', 'h24']} class="mt-5" />
+            <Rassicurazioni inverso voci={['h24']} class="mt-5" />
           </div>
         </div>
       </div>
@@ -491,8 +468,8 @@ const faqJson = servizio.data.faq;
         </h2>
         <ul class="mt-3 space-y-2 text-testo-secondario">
           <li>
-            La visita di pronto soccorso ha un onorario indicativo, più alto di notte e nei festivi:
-            lo trovi nella pagina degli onorari e te lo confermiamo al telefono.
+            La visita di pronto soccorso ha un onorario indicativo, più alto di notte e nei festivi,
+            che ti confermiamo al telefono.
           </li>
           <li>
             Per esami, ricovero e interventi ricevi un{' '}
@@ -505,12 +482,6 @@ const faqJson = servizio.data.faq;
             acconto.
           </li>
         </ul>
-        <a
-          href="/tariffe"
-          class="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primario-link"
-        >
-          Onorari indicativi <Icona nome="freccia-destra" class="size-4" />
-        </a>
       </section>
       <section
         class="rounded-card border border-bordo bg-sfondo-rialzato p-6"

@@ -2,15 +2,15 @@
 titolo: 'Veterinario per gatti a Portici: percorso cat friendly a basso stress'
 titoloBreve: 'Gatto: percorso cat friendly'
 descrizioneMeta: 'Veterinario per gatti a Portici con percorso cat friendly: visite a basso stress, prevenzione, controlli per il gatto anziano e urgenze feline 24 ore su 24.'
-sottotitolo: 'Il gatto non è un piccolo cane: si stressa in modo diverso, nasconde i sintomi e ha bisogno di una visita pensata per lui, dal trasportino alla dimissione.'
-risposta: 'La Clinica Veterinaria del Bosco a Portici segue il gatto con un percorso cat friendly: accorgimenti per ridurre lo stress in attesa e in visita, manipolazione delicata e attenzione ai segni che il gatto nasconde. Comprende prevenzione, controlli per il gatto anziano, malattie croniche e pronto soccorso 24 ore su 24 per le urgenze feline, come il blocco urinario.'
+sottotitolo: 'Il gatto si stressa in modo particolare, nasconde i sintomi e ha bisogno di una visita pensata per lui, dal trasportino alla dimissione.'
+risposta: 'La Clinica Veterinaria del bosco a Portici segue il gatto con un percorso cat friendly: accorgimenti per ridurre lo stress in attesa e in visita, manipolazione delicata e attenzione ai segni che il gatto nasconde. Comprende prevenzione, controlli per il gatto anziano, malattie croniche e pronto soccorso 24 ore su 24 per le urgenze feline, come il blocco urinario.'
 icona: 'gatto'
 categoria: 'prevenzione'
 ordine: 22
 specie: ['gatto']
-correlati: ['medicina-preventiva-vaccinazioni', 'pronto-soccorso-h24', 'nutrizione-clinica']
+correlati: ['medicina-preventiva-vaccinazioni', 'nutrizione-clinica']
 medicalSpecialty: 'PrimaryCare'
-inEvidenza: false
+inEvidenza: true
 scattoBrief: '20'
 faq:
   - domanda: 'Il mio gatto si nasconde appena vede il trasportino: come faccio a portarlo in clinica?'

@@ -30,7 +30,7 @@ http://clinicaveterinariadelbosco.it/*         https://clinicaveterinariadelbosc
 /piani                            /piani-salute                              301
 /abbonamenti                      /piani-salute                              301
 /tac                              /servizi/tac-diagnostica-avanzata          301
-/esotici                          /servizi/animali-esotici-e-conigli         301
+/esotici                          /servizi/animali-esotici                   301
 /colleghi                         /per-i-colleghi                            301
 /referral                         /per-i-colleghi                            301
 /blog                             /magazine                                  301

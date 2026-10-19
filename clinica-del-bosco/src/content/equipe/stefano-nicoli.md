@@ -14,4 +14,4 @@ ordine: 27
 daValidare: true
 ---
 
-Dott. Stefano Nicoli collabora con la Clinica Veterinaria del Bosco da circa due anni per interventi chirurgici programmati, affiancando l’équipe chirurgica interna nei casi che richiedono una seconda mano esperta.
+Dott. Stefano Nicoli collabora con la Clinica Veterinaria del bosco da circa due anni per interventi chirurgici programmati, affiancando l’équipe chirurgica interna nei casi che richiedono una seconda mano esperta.

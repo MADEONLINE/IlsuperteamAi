@@ -22,4 +22,4 @@ ordine: 2
 daValidare: true
 ---
 
-Dott. Alessandro Sica è socio fondatore e direttore sanitario della Clinica Veterinaria del Bosco. Coordina l’attività delle due sale operatorie e l’équipe chirurgica interna, che lavora insieme agli anestesisti dedicati della clinica. Il direttore sanitario è responsabile dell’organizzazione clinica, della corretta tenuta delle cartelle e del rispetto delle norme sanitarie della struttura.
+Dott. Alessandro Sica è socio fondatore e direttore sanitario della Clinica Veterinaria del bosco. Coordina l’attività delle due sale operatorie e l’équipe chirurgica interna, che lavora insieme agli anestesisti dedicati della clinica. Il direttore sanitario è responsabile dell’organizzazione clinica, della corretta tenuta delle cartelle e del rispetto delle norme sanitarie della struttura.

@@ -1,7 +1,7 @@
 ---
 titolo: "Quando è davvero un'urgenza veterinaria? I 10 segni per cui non aspettare il mattino"
 descrizioneMeta: "I 10 segni che indicano un'urgenza veterinaria nel cane, nel gatto e nel coniglio: cosa osservare, cosa fare mentre arrivi e quando chiamare il pronto soccorso."
-riassunto: 'Difficoltà a respirare, convulsioni, addome gonfio, gatto maschio che non urina, avvelenamento, trauma, parto che non procede, colpo di calore, collasso con gengive pallide e occhio chiuso o sporgente: sono i dieci segni per cui non si aspetta il mattino. La Clinica Veterinaria del Bosco di Portici ha il pronto soccorso attivo 24 ore su 24 con medici in struttura.'
+riassunto: 'Difficoltà a respirare, convulsioni, addome gonfio, gatto maschio che non urina, avvelenamento, trauma, parto che non procede, colpo di calore, collasso con gengive pallide e occhio chiuso o sporgente: sono i dieci segni per cui non si aspetta il mattino. La Clinica Veterinaria del bosco di Portici ha il pronto soccorso attivo 24 ore su 24 con medici in struttura.'
 autore: 'alessandro-sica'
 revisore: 'dario-ferrari'
 dataPubblicazione: 2026-09-10
@@ -157,7 +157,7 @@ L'occhio non aspetta: un occhio improvvisamente chiuso e dolente, un bulbo che s
 
 Cosa fare: impedisci che si gratti, tieni l'occhio umido con soluzione fisiologica se sporge, non applicare colliri umani, non toccare.
 
-## E per conigli e animali esotici?
+## E per gli animali esotici?
 
 Per i conigli e i piccoli erbivori vale una regola in più: un coniglio che non mangia e non produce feci da 12 ore è già un'urgenza, perché il suo intestino non può fermarsi. Per uccelli e rettili, piume arruffate con occhi chiusi, respiro a becco aperto, incapacità di stare sul posatoio, sangue dalla cloaca sono segni da non rimandare. La clinica ha competenze dedicate per queste specie e le accoglie in pronto soccorso.
 

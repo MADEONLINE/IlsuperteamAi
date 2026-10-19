@@ -1,14 +1,14 @@
 ---
-titolo: 'Veterinario per animali esotici e conigli a Portici (Napoli)'
-titoloBreve: 'Animali esotici e conigli'
-descrizioneMeta: 'Veterinario per animali esotici e conigli a Portici: visite, chirurgia, laser terapia e urgenze 24 ore su 24 per conigli, roditori, furetti, rettili e uccelli.'
-sottotitolo: 'Conigli, cavie, cincillà, furetti, tartarughe, pappagalli: specie che si ammalano in modo diverso dal cane e dal gatto e che hanno bisogno di chi le conosce.'
-risposta: 'La Clinica Veterinaria del Bosco a Portici ha un servizio dedicato agli animali esotici e ai conigli: conigli, cavie, cincillà, criceti, furetti, rettili, uccelli e pesci. Offre medicina interna, chirurgia, laser terapia, diagnostica per immagini e laboratorio in sede, con pronto soccorso 24 ore su 24 per le urgenze tipiche di queste specie, come la stasi gastrointestinale del coniglio.'
+titolo: 'Veterinario per animali esotici a Portici (Napoli)'
+titoloBreve: 'Animali esotici'
+descrizioneMeta: 'Veterinario per animali esotici a Portici: visite, chirurgia, laser terapia e diagnostica per conigli, roditori, furetti, rettili e uccelli.'
+sottotitolo: 'Conigli, cavie, cincillà, furetti, tartarughe, pappagalli e tutte le altre specie esotiche: animali che hanno bisogno di chi le conosce.'
+risposta: 'La Clinica Veterinaria del bosco a Portici ha un servizio dedicato agli animali esotici: conigli, cavie, cincillà, criceti, furetti, rettili, uccelli e pesci. Offre medicina interna, chirurgia, laser terapia, diagnostica per immagini e laboratorio in sede, e segue anche le urgenze tipiche di queste specie, come la stasi gastrointestinale del coniglio.'
 icona: 'coniglio'
 categoria: 'esotici'
 ordine: 18
-specie: ['coniglio', 'esotici']
-correlati: ['pronto-soccorso-h24', 'odontostomatologia', 'chirurgia']
+specie: ['esotici']
+correlati: ['odontostomatologia', 'chirurgia']
 medicalSpecialty: 'PrimaryCare'
 inEvidenza: true
 scattoBrief: '16'
@@ -81,11 +81,11 @@ dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---
 
-## Cosa fa il servizio per animali esotici e conigli
+## Cosa fa il servizio per gli animali esotici
 
-Il servizio per animali esotici si occupa di tutte le specie da compagnia diverse dal cane e dal gatto: conigli, cavie, cincillà, criceti, ratti, gerbilli, degu, furetti e altri piccoli mammiferi; tartarughe, gechi, pogone, iguane e serpenti; pappagalli, canarini, cocorite e altri uccelli da compagnia; pesci ornamentali. Offriamo visite di medicina interna, chirurgia, laser terapia, diagnostica per immagini e laboratorio nella stessa sede, con il [pronto soccorso](/pronto-soccorso) attivo 24 ore su 24 anche per queste specie.
+Il servizio per gli animali esotici si occupa di tutte le specie da compagnia diverse dal cane e dal gatto: conigli, cavie, cincillà, criceti, ratti, gerbilli, degu, furetti e altri piccoli mammiferi; tartarughe, gechi, pogone, iguane e serpenti; pappagalli, canarini, cocorite e altri uccelli da compagnia; pesci ornamentali. Offriamo visite di medicina interna, chirurgia, laser terapia, diagnostica per immagini e laboratorio nella stessa sede.
 
-Il motivo per cui esiste un servizio dedicato è semplice: un coniglio non è un piccolo cane. Ha un apparato digerente che non può fermarsi, denti che crescono per tutta la vita, un metabolismo dei farmaci diverso e un modo di nascondere la malattia che rende i sintomi tardivi. Lo stesso vale, in modi diversi, per rettili e uccelli, che dipendono da temperatura, luce e alimentazione più che da qualsiasi farmaco. Conoscere queste differenze è ciò che cambia l'esito.
+Ogni specie ha esigenze proprie. Il coniglio, per esempio, ha un apparato digerente che non può fermarsi, denti che crescono per tutta la vita, un metabolismo dei farmaci diverso e un modo di nascondere la malattia che rende i sintomi tardivi. Lo stesso vale, in modi diversi, per rettili e uccelli, che dipendono da temperatura, luce e alimentazione più che da qualsiasi farmaco. Conoscere queste differenze è ciò che cambia l'esito.
 
 ## Perché nel coniglio non mangiare è un'urgenza?
 

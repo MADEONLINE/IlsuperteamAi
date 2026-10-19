@@ -51,7 +51,6 @@ function impagina(titolo: string): { righe: string[]; dim: number } {
 export const getStaticPaths: GetStaticPaths = async () => {
   const servizi = await getCollection('servizi');
   const articoli = await getCollection('articoli');
-  const zone = await getCollection('zone');
   const campagne = await getCollection('campagne');
   const statiche: Array<[string, string, string]> = [
     [
@@ -59,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       'Pronto soccorso veterinario 24 ore su 24',
       'Siamo aperti adesso · Portici',
     ],
-    ['prenota', 'Prenota una visita', 'Ti richiamiamo entro 24 ore'],
+    ['prenota', 'Prenota una visita', 'Visite, vaccini e controlli su appuntamento'],
     ['piani-salute', 'Piani Salute', 'Prevenzione programmata per cani e gatti'],
     [
       'per-i-colleghi',
@@ -86,10 +85,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     ...campagne.map((c) => ({
       params: { slug: `campagne/${c.id}` },
       props: { titolo: c.data.titolo, sotto: `Campagna · ${c.data.periodo}` },
-    })),
-    ...zone.map((z) => ({
-      params: { slug: `veterinario-a/${z.id}` },
-      props: { titolo: `Veterinario a ${z.data.nome}`, sotto: 'Aperto 24 ore su 24' },
     })),
   ];
 };

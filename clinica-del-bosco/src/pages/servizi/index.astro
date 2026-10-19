@@ -10,11 +10,6 @@ import { webPage } from '@lib/schema';
 const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
 const gruppi: Array<{ chiave: string; titolo: string; testo: string }> = [
   {
-    chiave: 'urgenza',
-    titolo: 'Urgenza e degenza',
-    testo: 'Pronto soccorso 24 ore su 24 e terapia intensiva con personale in struttura.',
-  },
-  {
     chiave: 'diagnostica',
     titolo: 'Diagnostica',
     testo:
@@ -38,16 +33,22 @@ const gruppi: Array<{ chiave: string; titolo: string; testo: string }> = [
   },
   {
     chiave: 'esotici',
-    titolo: 'Animali esotici e conigli',
-    testo: 'Competenza dedicata a conigli, piccoli mammiferi, rettili e uccelli.',
+    titolo: 'Animali esotici',
+    testo:
+      'Competenza dedicata a tutte le specie esotiche: conigli, cavie, cincillà, criceti, furetti e altri piccoli mammiferi, rettili, uccelli e pesci ornamentali.',
+  },
+  {
+    chiave: 'urgenza',
+    titolo: 'Degenza e pronto soccorso',
+    testo: 'Ricovero e terapia intensiva nella stessa sede, e un servizio di pronto soccorso.',
   },
 ];
 const descrizione =
-  'I servizi della Clinica Veterinaria del Bosco a Portici: pronto soccorso 24h, TAC, chirurgia, laboratorio, terapia intensiva, visite specialistiche, esotici.';
+  'I servizi della Clinica Veterinaria del bosco a Portici: visite specialistiche, TAC, chirurgia, laboratorio, animali esotici, degenza e pronto soccorso.';
 ---
 
 <PaginaLayout
-  titolo="Servizi veterinari a Portici: urgenza, diagnostica, chirurgia, specialistiche"
+  titolo="Servizi veterinari a Portici: diagnostica, chirurgia, specialistiche"
   descrizione={descrizione}
   percorso="/servizi"
   h1="Tutti i servizi, in un'unica sede"

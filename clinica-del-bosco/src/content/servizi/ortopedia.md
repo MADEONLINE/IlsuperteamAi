@@ -3,12 +3,12 @@ titolo: 'Ortopedia veterinaria a Portici: zoppia, fratture, displasia e legament
 titoloBreve: 'Ortopedia'
 descrizioneMeta: 'Ortopedia veterinaria a Portici: diagnosi e chirurgia di zoppie, fratture, legamento crociato, lussazione della rotula, displasia e artrosi in cani e gatti.'
 sottotitolo: 'Dalla zoppia che dura da due giorni alla frattura dopo un incidente: diagnosi con radiografia e TAC in sede, chirurgia ortopedica e riabilitazione.'
-risposta: "Il servizio di ortopedia della Clinica Veterinaria del Bosco a Portici si occupa di zoppie, fratture, legamento crociato, lussazione della rotula, displasia dell'anca e del gomito e artrosi in cani, gatti e conigli. La diagnosi si avvale di radiologia digitale e TAC in sede; la chirurgia viene eseguita nelle due sale operatorie della clinica, con piano di recupero scritto."
+risposta: "Il servizio di ortopedia della Clinica Veterinaria del bosco a Portici si occupa di zoppie, fratture, legamento crociato, lussazione della rotula, displasia dell'anca e del gomito e artrosi in cani, gatti e conigli. La diagnosi si avvale di radiologia digitale e TAC in sede; la chirurgia viene eseguita nelle due sale operatorie della clinica, con piano di recupero scritto."
 icona: 'osso'
 categoria: 'specialistica'
 ordine: 11
 specie: ['cane', 'gatto', 'coniglio']
-correlati: ['pronto-soccorso-h24', 'tac-diagnostica-avanzata', 'terapia-del-dolore-agopuntura']
+correlati: ['tac-diagnostica-avanzata', 'terapia-del-dolore-agopuntura']
 medicalSpecialty: 'Musculoskeletal'
 inEvidenza: false
 scattoBrief: '09'
@@ -95,7 +95,7 @@ dataRevisione: 2026-09-10
 
 ## Di cosa si occupa l'ortopedia veterinaria
 
-L'ortopedia si occupa di ossa, articolazioni, legamenti, tendini e muscoli: dalla zoppia che compare senza motivo apparente alla frattura dopo un incidente, dalle malattie dello sviluppo del cane giovane, come le displasie, all'artrosi dell'anziano. Alla Clinica del Bosco il servizio è rivolto a cani, gatti e conigli e comprende la visita ortopedica, la diagnostica con [radiologia digitale](/servizi/diagnostica-per-immagini) e [TAC in sede](/servizi/tac-diagnostica-avanzata), la chirurgia ortopedica nelle due sale operatorie e la gestione medica delle malattie articolari croniche, in collaborazione con il servizio di [terapia del dolore](/servizi/terapia-del-dolore-agopuntura).
+L'ortopedia si occupa di ossa, articolazioni, legamenti, tendini e muscoli: dalla zoppia che compare senza motivo apparente alla frattura dopo un incidente, dalle malattie dello sviluppo del cane giovane, come le displasie, all'artrosi dell'anziano. Alla Clinica del bosco il servizio è rivolto a cani, gatti e conigli e comprende la visita ortopedica, la diagnostica con [radiologia digitale](/servizi/diagnostica-per-immagini) e [TAC in sede](/servizi/tac-diagnostica-avanzata), la chirurgia ortopedica nelle due sale operatorie e la gestione medica delle malattie articolari croniche, in collaborazione con il servizio di [terapia del dolore](/servizi/terapia-del-dolore-agopuntura).
 
 Le condizioni trattate più spesso sono:
 

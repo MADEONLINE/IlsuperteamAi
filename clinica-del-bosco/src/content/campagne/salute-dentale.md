@@ -2,7 +2,7 @@
 titolo: 'Salute dentale: il controllo del cavo orale di cane, gatto e coniglio'
 descrizioneMeta: 'Controllo del cavo orale a febbraio e marzo per cane, gatto e coniglio: perché la malattia parodontale è frequente, cosa comprende la visita, cosa succede dopo.'
 sottotitolo: 'Alito cattivo, tartaro e gengive arrossate non sono normali: un controllo programmato ogni anno intercetta la malattia parodontale prima che faccia male.'
-risposta: 'Il controllo del cavo orale della Clinica Veterinaria del Bosco di Portici è una visita programmata, a febbraio e marzo, in cui il servizio di odontostomatologia valuta denti, gengive e occlusione di cane, gatto e coniglio, stima il grado di tartaro e di malattia parodontale e stabilisce se serve una pulizia in anestesia con radiografie dentali.'
+risposta: 'Il controllo del cavo orale della Clinica Veterinaria del bosco di Portici è una visita programmata, a febbraio e marzo, in cui il servizio di odontostomatologia valuta denti, gengive e occlusione di cane, gatto e coniglio, stima il grado di tartaro e di malattia parodontale e stabilisce se serve una pulizia in anestesia con radiografie dentali.'
 periodo: 'Febbraio – Marzo'
 meseInizio: 2
 meseFine: 3

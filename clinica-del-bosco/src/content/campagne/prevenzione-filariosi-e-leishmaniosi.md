@@ -2,7 +2,7 @@
 titolo: 'Prevenzione di filariosi e leishmaniosi: il controllo antiparassitario di primavera'
 descrizioneMeta: 'Da marzo a ottobre in Campania flebotomi e zanzare trasmettono leishmaniosi e filariosi. Test annuale, repellenti e profilassi: cosa comprende il controllo.'
 sottotitolo: "Un test, un repellente scelto in base al tuo cane e un calendario di profilassi che copre tutta la stagione a rischio nell'area vesuviana."
-risposta: "Il controllo antiparassitario di primavera della Clinica Veterinaria del Bosco di Portici comprende il test annuale per leishmaniosi e filariosi, la scelta del repellente contro flebotomi e zanzare, l'avvio della profilassi mensile della filariosi e, nei cani più esposti, la vaccinazione contro la leishmaniosi. È prevenzione programmata per cani e gatti, da marzo a ottobre."
+risposta: "Il controllo antiparassitario di primavera della Clinica Veterinaria del bosco di Portici comprende il test annuale per leishmaniosi e filariosi, la scelta del repellente contro flebotomi e zanzare, l'avvio della profilassi mensile della filariosi e, nei cani più esposti, la vaccinazione contro la leishmaniosi. È prevenzione programmata per cani e gatti, da marzo a ottobre."
 periodo: 'Marzo – Ottobre'
 meseInizio: 3
 meseFine: 10

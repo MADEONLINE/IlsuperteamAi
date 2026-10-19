@@ -1,4 +1,4 @@
-# Clinica Veterinaria del Bosco — robots.txt
+# Clinica Veterinaria del bosco — robots.txt
 # Vogliamo essere trovati e citati: i crawler dei motori e dei sistemi AI sono benvenuti.
 
 User-agent: *

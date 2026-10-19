@@ -1,12 +1,12 @@
 import { clinica } from '@lib/clinica';
 
 /** Forma breve del nome usata in coda al title (il nome completo resta in testo, footer e dati strutturati). */
-const BRAND_TITLE = 'Clinica del Bosco';
+const BRAND_TITLE = 'Clinica del bosco';
 const MAX_TITLE = 60;
 
 /**
  * Titolo per il tag <title>, entro 60 caratteri quando possibile:
- * "Pagina | Clinica del Bosco"; se è troppo lungo usa la parte prima dei due punti,
+ * "Pagina | Clinica del bosco"; se è troppo lungo usa la parte prima dei due punti,
  * e se serve toglie il nome della clinica.
  */
 export function titoloCompleto(titolo: string, conBrand = true): string {

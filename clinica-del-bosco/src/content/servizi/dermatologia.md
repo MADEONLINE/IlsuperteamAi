@@ -3,12 +3,12 @@ titolo: 'Dermatologia veterinaria a Portici: prurito, otiti, allergie e malattie
 titoloBreve: 'Dermatologia'
 descrizioneMeta: 'Dermatologia veterinaria a Portici: diagnosi e cura di prurito, allergie, otiti ricorrenti, dermatiti, micosi e parassiti della pelle in cani, gatti e conigli.'
 sottotitolo: "Il prurito che non passa, l'otite che torna ogni estate, le chiazze senza pelo: la dermatologia lavora per tappe, dalla causa alla terapia che regge nel tempo."
-risposta: "Il servizio di dermatologia della Clinica Veterinaria del Bosco a Portici diagnostica e cura le malattie della pelle e dell'orecchio di cani, gatti, conigli e animali esotici: prurito, allergie alimentari e ambientali, dermatite da pulci, otiti ricorrenti, infezioni batteriche e da lieviti, micosi e acari. Citologie, raschiati e colture sono eseguiti in sede, con un percorso spiegato passo per passo."
+risposta: "Il servizio di dermatologia della Clinica Veterinaria del bosco a Portici diagnostica e cura le malattie della pelle e dell'orecchio di cani, gatti e animali esotici: prurito, allergie alimentari e ambientali, dermatite da pulci, otiti ricorrenti, infezioni batteriche e da lieviti, micosi e acari. Citologie, raschiati e colture sono eseguiti in sede, con un percorso spiegato passo per passo."
 icona: 'zampa'
 categoria: 'specialistica'
 ordine: 13
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
-correlati: ['laboratorio-analisi', 'nutrizione-clinica', 'pronto-soccorso-h24']
+correlati: ['laboratorio-analisi', 'nutrizione-clinica']
 medicalSpecialty: 'Dermatology'
 inEvidenza: false
 scattoBrief: '11'
@@ -90,7 +90,7 @@ dataRevisione: 2026-09-10
 
 ## Di cosa si occupa la dermatologia veterinaria
 
-La dermatologia cura le malattie della pelle, del pelo, delle unghie e dell'orecchio esterno. Sono tra i motivi di visita più frequenti in un ambulatorio veterinario, perché il prurito, le lesioni e l'odore sono visibili ogni giorno e incidono sulla qualità di vita dell'animale e della famiglia. Alla Clinica del Bosco il servizio è rivolto a cani, gatti, conigli e animali esotici e si occupa di:
+La dermatologia cura le malattie della pelle, del pelo, delle unghie e dell'orecchio esterno. Sono tra i motivi di visita più frequenti in un ambulatorio veterinario, perché il prurito, le lesioni e l'odore sono visibili ogni giorno e incidono sulla qualità di vita dell'animale e della famiglia. Alla Clinica del bosco il servizio è rivolto a cani, gatti e animali esotici e si occupa di:
 
 - **prurito** e sue cause: pulci, acari, infezioni, allergie;
 - **allergie**: dermatite atopica, cioè l'allergia ad allergeni ambientali come acari della polvere e pollini, allergia alimentare, dermatite allergica da pulci;
@@ -128,9 +128,9 @@ Perché l'otite è quasi sempre il sintomo di qualcos'altro. Nel cane con otiti 
 
 La visita cerca la causa con otoscopia e citologia del cerume, che distingue batteri e lieviti e guida la scelta del prodotto. Nelle otiti croniche con canale ristretto o timpano non visibile si ricorre a lavaggi in sedazione, endoscopia dell'orecchio e, quando serve, [TAC](/servizi/tac-diagnostica-avanzata) per valutare l'orecchio medio. Trattare la causa è l'unico modo per interrompere le ricadute.
 
-## Conigli ed esotici: la pelle come segnale
+## Animali esotici: la pelle come segnale
 
-Nel coniglio le malattie della pelle spesso segnalano un problema generale: la dermatite umida sotto il mento indica un problema dentale con scialorrea, quella del perineo un'obesità o un'artrosi che impedisce la pulizia, le croste sulle orecchie l'acaro Psoroptes. Nelle cavie gli acari causano prurito intenso fino alle convulsioni, nei rettili le ritenzioni di muta e gli ascessi cutanei dipendono da temperatura e umidità sbagliate. Il servizio dedicato è descritto nella pagina [animali esotici e conigli](/servizi/animali-esotici-e-conigli).
+Nel coniglio le malattie della pelle spesso segnalano un problema generale: la dermatite umida sotto il mento indica un problema dentale con scialorrea, quella del perineo un'obesità o un'artrosi che impedisce la pulizia, le croste sulle orecchie l'acaro Psoroptes. Nelle cavie gli acari causano prurito intenso fino alle convulsioni, nei rettili le ritenzioni di muta e gli ascessi cutanei dipendono da temperatura e umidità sbagliate. Il servizio dedicato è descritto nella pagina [animali esotici](/servizi/animali-esotici).
 
 ## Quando venire subito
 

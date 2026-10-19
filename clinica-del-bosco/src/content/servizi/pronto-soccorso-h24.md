@@ -3,21 +3,21 @@ titolo: 'Pronto soccorso veterinario 24 ore su 24'
 titoloBreve: 'Pronto soccorso H24'
 descrizioneMeta: 'Pronto soccorso veterinario a Portici aperto 24 ore su 24, festivi inclusi, con un medico in clinica anche di notte. Chiama mentre arrivi: 081 7763859.'
 sottotitolo: "Medici e tecnici veterinari in struttura giorno e notte, non reperibilità telefonica. Chiama mentre arrivi: ti prepariamo l'accoglienza."
-risposta: "Il pronto soccorso della Clinica Veterinaria del Bosco a Portici è aperto 24 ore su 24, tutti i giorni dell'anno, festivi compresi. Di notte c'è sempre un medico veterinario in clinica. Curiamo in urgenza cani, gatti, conigli e animali esotici: traumi, difficoltà a respirare, avvelenamenti, blocco urinario, convulsioni, torsione dello stomaco. Esami, chirurgia e terapia intensiva sono nella stessa sede."
+risposta: "Il pronto soccorso della Clinica Veterinaria del bosco a Portici è aperto 24 ore su 24, tutti i giorni dell'anno, festivi compresi. Di notte c'è sempre un medico veterinario in clinica. Curiamo in urgenza cani, gatti e animali esotici: traumi, difficoltà a respirare, avvelenamenti, blocco urinario, convulsioni, torsione dello stomaco. Esami, chirurgia e terapia intensiva sono nella stessa sede."
 icona: 'ambulanza'
 categoria: 'urgenza'
-ordine: 1
+ordine: 99
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
 correlati: ['degenza-terapia-intensiva', 'tac-diagnostica-avanzata', 'chirurgia']
 medicalSpecialty: 'Emergency'
-inEvidenza: true
+inEvidenza: false
 scattoBrief: '02'
 faq:
   - domanda: 'Il pronto soccorso è aperto di notte e nei festivi?'
-    risposta: "Sì. Il pronto soccorso della Clinica Veterinaria del Bosco è aperto 24 ore su 24, tutti i giorni dell'anno. Di notte in clinica ci sono un medico veterinario e un tecnico, oppure due medici: non lavoriamo con la sola reperibilità telefonica."
+    risposta: "Sì. Il pronto soccorso della Clinica Veterinaria del bosco è aperto 24 ore su 24, tutti i giorni dell'anno. Di notte in clinica ci sono un medico veterinario e un tecnico, oppure due medici: non lavoriamo con la sola reperibilità telefonica."
   - domanda: 'Devo chiamare prima di venire?'
     risposta: "Se puoi, sì. Una telefonata al 081 7763859 mentre arrivi ci permette di preparare l'ossigeno o la sala. Se non riesci a chiamare, vieni direttamente."
-  - domanda: 'Visitate in urgenza anche conigli ed esotici?'
+  - domanda: 'Visitate in urgenza anche gli animali esotici?'
     risposta: 'Sì: conigli, piccoli mammiferi, rettili e uccelli. Gli animali esotici sono seguiti dalla Dott.ssa Isabella Rosapane. Se hai un dubbio sulla specie, chiama e ti diciamo come fare.'
   - domanda: 'Posso venire se il mio animale non è vostro paziente?'
     risposta: "Sì, il pronto soccorso è aperto a tutti. Alla fine dell'urgenza mandiamo il referto al tuo veterinario, così può continuare a curarlo."
@@ -28,7 +28,7 @@ faq:
   - domanda: "Come funziona la valutazione all'arrivo?"
     risposta: "All'arrivo un membro dell'équipe valuta subito quanto è grave il caso. Si chiama triage: chi è in pericolo di vita passa per primo, anche se è arrivato dopo. Un animale che respira male passa avanti a un problema che può aspettare qualche minuto. Ti diciamo sempre i tempi previsti."
   - domanda: 'Quanto costa una visita di pronto soccorso?'
-    risposta: 'La visita di pronto soccorso ha un onorario indicativo, più alto di notte e nei festivi, che trovi nella pagina degli onorari e ti confermiamo al telefono. Per esami e interventi ricevi prima un preventivo scritto. Se ogni minuto conta, ti chiediamo di autorizzare subito le cure per stabilizzarlo.'
+    risposta: 'La visita di pronto soccorso ha un onorario indicativo, più alto di notte e nei festivi, che ti confermiamo al telefono. Per esami e interventi ricevi prima un preventivo scritto. Se ogni minuto conta, ti chiediamo di autorizzare subito le cure per stabilizzarlo.'
 tabella:
   titolo: 'Segni che richiedono di venire subito, senza attendere'
   intestazioni: ['Segno', 'Cosa può indicare', 'Cosa fare mentre arrivi']

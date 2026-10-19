@@ -2,7 +2,7 @@
 domanda: 'Quali animali esotici visitate?'
 categoria: 'esotici'
 ordine: 2
-servizioCorrelato: 'animali-esotici-e-conigli'
+servizioCorrelato: 'animali-esotici'
 ---
 
 Piccoli e grandi mammiferi (conigli, cavie, cincillà, furetti, criceti, ratti), rettili (tartarughe di terra e d'acqua, gechi, pogone, serpenti), uccelli (pappagalli, canarini, cocorite, galline ornamentali) e pesci. Per queste specie la clinica offre medicina interna, chirurgia e laser terapia, e in urgenza li accoglie come cani e gatti.

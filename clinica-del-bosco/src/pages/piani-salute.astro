@@ -7,7 +7,6 @@ import SelettorePiano from '@/components/form/SelettorePiano.astro';
 import Faq from '@ui/Faq.astro';
 import Icona from '@ui/Icona.astro';
 import Etichetta from '@ui/Etichetta.astro';
-import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import Sezione from '@ui/Sezione.astro';
 import piani from '@dati/piani-salute.json';
 import { faqPage, pianoSaluteOffer, webPage } from '@lib/schema';
@@ -23,7 +22,7 @@ const euroMese = (n: number) =>
     maximumFractionDigits: 2,
   });
 const descrizione =
-  'Piani Salute per cani e gatti: visite, vaccini, antiparassitari ed esami in un calendario di 12 mesi, a rata mensile fissa. Clinica Veterinaria del Bosco, Portici.';
+  'Piani Salute per cani e gatti: visite, vaccini, antiparassitari ed esami in un calendario di 12 mesi, a rata mensile fissa. Clinica Veterinaria del bosco, Portici.';
 const tutteLeVoci = [...new Set(piani.piani.flatMap((p) => p.include.map((v) => v.voce)))];
 ---
 
@@ -178,7 +177,6 @@ const tutteLeVoci = [...new Set(piani.piani.flatMap((p) => p.include.map((v) => 
     <p class="mt-4 text-sm text-testo-secondario">
       {piani.notaRata} {!piani.prezziConfermati && 'Importi indicativi in fase di conferma.'}
     </p>
-    <Rassicurazioni class="mt-3" voci={['richiamo', 'pagamento', 'preventivo']} />
   </Sezione>
 
   <Sezione tono="tinta" compatta>

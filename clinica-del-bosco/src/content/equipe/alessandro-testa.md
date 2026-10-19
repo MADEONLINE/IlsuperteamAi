@@ -15,4 +15,4 @@ ordine: 25
 daValidare: true
 ---
 
-Dott. Alessandro Testa collabora con la Clinica Veterinaria del Bosco da circa cinque anni ed è presente in struttura ogni mercoledì per l’ortopedia e la neurologia: zoppie, displasie, rottura del legamento crociato, ernie del disco, con la pianificazione degli interventi insieme all’équipe chirurgica.
+Dott. Alessandro Testa collabora con la Clinica Veterinaria del bosco da circa cinque anni ed è presente in struttura ogni mercoledì per l’ortopedia e la neurologia: zoppie, displasie, rottura del legamento crociato, ernie del disco, con la pianificazione degli interventi insieme all’équipe chirurgica.

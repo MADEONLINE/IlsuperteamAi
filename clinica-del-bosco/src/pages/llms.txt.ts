@@ -10,7 +10,6 @@ import { clinica, daConfermare, emailPrincipale, indirizzoRiga, urlAssoluto } fr
 export const GET: APIRoute = async () => {
   const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
   const articoli = await getCollection('articoli');
-  const zone = (await getCollection('zone')).sort((a, b) => a.data.ordine - b.data.ordine);
   const righe = [
     `# ${clinica.nome}`,
     '',
@@ -22,7 +21,6 @@ export const GET: APIRoute = async () => {
     `- Pronto soccorso: ${clinica.orari.prontoSoccorso.etichetta}, con personale in struttura`,
     `- Visite programmate: su appuntamento (${urlAssoluto('/prenota')})`,
     `- Specie: cani, gatti, conigli, piccoli mammiferi, rettili, uccelli`,
-    `- Area servita: ${clinica.areaServita.map((z) => z.nome).join(', ')}`,
     `- Ragione sociale: ${clinica.ragioneSociale}, P. IVA ${clinica.partitaIva}`,
     ...(daConfermare(clinica.direttoreSanitario.nome)
       ? []
@@ -48,12 +46,6 @@ export const GET: APIRoute = async () => {
     '## Guide del magazine',
     ...articoli.map(
       (a) => `- [${a.data.titolo}](${urlAssoluto(`/magazine/${a.id}`)}): ${a.data.descrizioneMeta}`,
-    ),
-    '',
-    '## Zone servite',
-    ...zone.map(
-      (z) =>
-        `- [Veterinario a ${z.data.nome}](${urlAssoluto(`/veterinario-a/${z.id}`)}): ${z.data.tempoAutoMinuti[0]}–${z.data.tempoAutoMinuti[1]} minuti in auto`,
     ),
     '',
     '## Contenuto completo',

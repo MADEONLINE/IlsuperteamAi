@@ -15,4 +15,4 @@ ordine: 11
 daValidare: true
 ---
 
-Dott.ssa Francesca Cavazzino è anestesista dell’équipe interna della Clinica Veterinaria del Bosco, con cui collabora da circa cinque anni. Segue l’anestesia e il controllo del dolore nelle procedure chirurgiche, endoscopiche e diagnostiche, compresi i pazienti anziani o con malattie concomitanti che richiedono protocolli dedicati.
+Dott.ssa Francesca Cavazzino è anestesista dell’équipe interna della Clinica Veterinaria del bosco, con cui collabora da circa cinque anni. Segue l’anestesia e il controllo del dolore nelle procedure chirurgiche, endoscopiche e diagnostiche, compresi i pazienti anziani o con malattie concomitanti che richiedono protocolli dedicati.

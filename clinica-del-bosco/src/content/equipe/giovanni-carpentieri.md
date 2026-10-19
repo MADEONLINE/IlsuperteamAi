@@ -15,4 +15,4 @@ ordine: 15
 daValidare: true
 ---
 
-Dott. Giovanni Carpentieri fa parte dell’équipe interna della Clinica Veterinaria del Bosco. Affianca l’attività clinica ambulatoriale al lavoro in sala operatoria, dove collabora con i chirurghi e con gli anestesisti della clinica.
+Dott. Giovanni Carpentieri fa parte dell’équipe interna della Clinica Veterinaria del bosco. Affianca l’attività clinica ambulatoriale al lavoro in sala operatoria, dove collabora con i chirurghi e con gli anestesisti della clinica.

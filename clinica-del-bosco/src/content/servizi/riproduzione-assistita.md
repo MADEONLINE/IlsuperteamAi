@@ -3,12 +3,12 @@ titolo: 'Riproduzione assistita e inseminazione artificiale canina a Portici'
 titoloBreve: 'Riproduzione assistita'
 descrizioneMeta: 'Riproduzione assistita a Portici: monitoraggio del calore, inseminazione artificiale canina, diagnosi di gravidanza, parto e taglio cesareo per cane e gatto.'
 sottotitolo: "Dal momento giusto per l'accoppiamento al parto: un percorso seguito passo per passo, con esami in sede e pronto soccorso ostetrico 24 ore su 24."
-risposta: "Il servizio di riproduzione assistita della Clinica Veterinaria del Bosco a Portici segue la cagna e la gatta dal calore al parto: monitoraggio dell'ovulazione con progesterone, inseminazione artificiale canina, diagnosi ecografica di gravidanza, assistenza al parto e taglio cesareo. Si occupa anche di infertilità, malattie dell'utero come la piometra e patologie della prostata. Urgenze ostetriche 24 ore su 24."
+risposta: "Il servizio di riproduzione assistita della Clinica Veterinaria del bosco a Portici segue la cagna e la gatta dal calore al parto: monitoraggio dell'ovulazione con progesterone, inseminazione artificiale canina, diagnosi ecografica di gravidanza, assistenza al parto e taglio cesareo. Si occupa anche di infertilità, malattie dell'utero come la piometra e patologie della prostata. Urgenze ostetriche 24 ore su 24."
 icona: 'cuore'
 categoria: 'specialistica'
 ordine: 20
 specie: ['cane', 'gatto']
-correlati: ['diagnostica-per-immagini', 'chirurgia', 'pronto-soccorso-h24']
+correlati: ['diagnostica-per-immagini', 'chirurgia']
 medicalSpecialty: 'Obstetric'
 inEvidenza: false
 scattoBrief: '18'

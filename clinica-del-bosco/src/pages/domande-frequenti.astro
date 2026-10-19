@@ -16,7 +16,7 @@ const categorie: Array<{ chiave: string; titolo: string }> = [
   { chiave: 'diagnostica', titolo: 'Esami e diagnostica' },
   { chiave: 'piani-salute', titolo: 'Piani Salute' },
   { chiave: 'struttura', titolo: 'La struttura' },
-  { chiave: 'esotici', titolo: 'Conigli e animali esotici' },
+  { chiave: 'esotici', titolo: 'Animali esotici' },
 ];
 const voci = await Promise.all(
   faq.map(async (f) => ({
@@ -26,7 +26,7 @@ const voci = await Promise.all(
   })),
 );
 const descrizione =
-  'Risposte alle domande più frequenti sulla Clinica Veterinaria del Bosco di Portici: urgenze, visite, costi, chirurgia, esami, Piani Salute, animali esotici.';
+  'Risposte alle domande più frequenti sulla Clinica Veterinaria del bosco di Portici: urgenze, visite, costi, chirurgia, esami, Piani Salute, animali esotici.';
 ---
 
 <PaginaLayout
@@ -99,7 +99,7 @@ const descrizione =
           <CtaDoppia
             posizione="faq"
             titolo="Non hai trovato la risposta?"
-            testo="Chiama: il telefono risponde 24 ore su 24. Oppure prenota una visita e ne parliamo di persona."
+            testo="Chiama la clinica oppure prenota una visita e ne parliamo di persona."
           />
         </div>
       </aside>

@@ -1,13 +1,13 @@
 {
   "_nota": "UNICA fonte dei dati anagrafici della clinica. Usata da header, footer, schema.org, sitemap e pagine locali. I valori {{DA_CONFERMARE}} sono elencati in TODO-DATI.md e bloccano il deploy di produzione (npm run check:data).",
-  "nome": "Clinica Veterinaria del Bosco",
-  "nomeBreve": "Del Bosco",
+  "nome": "Clinica Veterinaria del bosco",
+  "nomeBreve": "Clinica del bosco",
   "ragioneSociale": "PAN S.r.l.",
   "partitaIva": "04669140651",
   "partitaIvaDaVerificare": false,
   "annoFondazione": "2010",
-  "slogan": "Pronto soccorso veterinario 24 ore su 24 a Portici",
-  "descrizioneBreve": "Clinica veterinaria a Portici (Napoli) con pronto soccorso attivo 24 ore su 24, 7 giorni su 7, terapia intensiva, due sale chirurgiche, TAC in sede, endoscopia e laboratorio analisi interno. Cani, gatti, conigli e animali esotici.",
+  "slogan": "Cura, attenzione e rispetto per ogni animale",
+  "descrizioneBreve": "Clinica veterinaria a Portici (Napoli) per cani, gatti e animali esotici: visite specialistiche, TAC in sede, due sale chirurgiche, endoscopia, laboratorio analisi interno, degenza e terapia intensiva.",
   "dominio": {
     "canonico": "https://clinicaveterinariadelbosco.it",
     "alternativi": [

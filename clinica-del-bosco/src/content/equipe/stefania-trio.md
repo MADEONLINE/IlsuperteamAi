@@ -14,4 +14,4 @@ ordine: 23
 daValidare: true
 ---
 
-Dott.ssa Stefania Trio collabora con la Clinica Veterinaria del Bosco da circa cinque anni come oculista. Segue le visite oftalmologiche di cani, gatti e conigli: occhio rosso, ulcere corneali, cataratta, glaucoma, e la valutazione degli occhi nelle razze predisposte.
+Dott.ssa Stefania Trio collabora con la Clinica Veterinaria del bosco da circa cinque anni come oculista. Segue le visite oftalmologiche di cani, gatti e conigli: occhio rosso, ulcere corneali, cataratta, glaucoma, e la valutazione degli occhi nelle razze predisposte.

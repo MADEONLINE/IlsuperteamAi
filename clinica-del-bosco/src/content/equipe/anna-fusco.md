@@ -14,4 +14,4 @@ ordine: 22
 daValidare: true
 ---
 
-Dott.ssa Anna Fusco collabora con la Clinica Veterinaria del Bosco da circa quattro anni per le procedure endoscopiche: gastroscopia, colonscopia, rinoscopia e biopsie endoscopiche, in sedute programmate.
+Dott.ssa Anna Fusco collabora con la Clinica Veterinaria del bosco da circa quattro anni per le procedure endoscopiche: gastroscopia, colonscopia, rinoscopia e biopsie endoscopiche, in sedute programmate.

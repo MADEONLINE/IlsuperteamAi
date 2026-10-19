@@ -3,7 +3,7 @@ titolo: 'Terapia del dolore e agopuntura veterinaria a Portici'
 titoloBreve: 'Terapia del dolore e agopuntura'
 descrizioneMeta: "Terapia del dolore veterinaria a Portici: farmaci, agopuntura, elettroagopuntura, laser e impianti d'oro per il dolore cronico di cane, gatto e coniglio."
 sottotitolo: 'Il dolore cronico spesso non si vede: si nasconde in un cane che non salta più in auto o in un gatto che ha smesso di pulirsi. Riconoscerlo è il primo passo per trattarlo.'
-risposta: "Il servizio di terapia del dolore della Clinica Veterinaria del Bosco a Portici tratta il dolore di cane, gatto e coniglio integrando i farmaci con agopuntura, elettroagopuntura, laser terapia e impianti d'oro. È rivolto ad animali con artrosi, dolore alla colonna, esiti chirurgici, tumori e anziani che tollerano male i farmaci. Il piano è personalizzato e rivalutato nel tempo."
+risposta: "Il servizio di terapia del dolore della Clinica Veterinaria del bosco a Portici tratta il dolore di cane, gatto e coniglio integrando i farmaci con agopuntura, elettroagopuntura, laser terapia e impianti d'oro. È rivolto ad animali con artrosi, dolore alla colonna, esiti chirurgici, tumori e anziani che tollerano male i farmaci. Il piano è personalizzato e rivalutato nel tempo."
 icona: 'ago'
 categoria: 'specialistica'
 ordine: 19
@@ -82,7 +82,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa fa il servizio di terapia del dolore
 
-Il servizio di terapia del dolore ha un solo obiettivo: riconoscere il dolore, misurarlo e ridurlo con il piano più adatto a ciascun animale. Alla Clinica Veterinaria del Bosco integriamo la terapia farmacologica, che resta la base di ogni trattamento, con opzioni complementari: agopuntura, elettroagopuntura, laser terapia e impianti d'oro. Ci rivolgiamo a cani, gatti e conigli con dolore acuto, per esempio dopo un intervento, e soprattutto con dolore cronico: artrosi, malattie della colonna, dolore oncologico, esiti di traumi.
+Il servizio di terapia del dolore ha un solo obiettivo: riconoscere il dolore, misurarlo e ridurlo con il piano più adatto a ciascun animale. Alla Clinica Veterinaria del bosco integriamo la terapia farmacologica, che resta la base di ogni trattamento, con opzioni complementari: agopuntura, elettroagopuntura, laser terapia e impianti d'oro. Ci rivolgiamo a cani, gatti e conigli con dolore acuto, per esempio dopo un intervento, e soprattutto con dolore cronico: artrosi, malattie della colonna, dolore oncologico, esiti di traumi.
 
 Il dolore negli animali è sottodiagnosticato perché non si esprime come nell'uomo. Un cane con artrosi non guaisce: dorme di più, evita le scale, non corre incontro alla porta. Un gatto smette di saltare sul divano e di pulirsi la schiena. Le linee guida internazionali sul dolore, come quelle del WSAVA Global Pain Council, insistono su questo punto: il dolore va cercato attivamente, perché il paziente non lo dichiara.
 

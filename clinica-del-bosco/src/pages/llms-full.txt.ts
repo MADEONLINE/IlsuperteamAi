@@ -8,7 +8,6 @@ export const GET: APIRoute = async () => {
   const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
   const articoli = await getCollection('articoli');
   const faq = await getCollection('faq');
-  const zone = (await getCollection('zone')).sort((a, b) => a.data.ordine - b.data.ordine);
   const blocco = (
     titolo: string,
     url: string,
@@ -36,15 +35,6 @@ export const GET: APIRoute = async () => {
     ),
     ...articoli.map((a) =>
       blocco(a.data.titolo, urlAssoluto(`/magazine/${a.id}`), a.data.riassunto, a.body, a.data.faq),
-    ),
-    ...zone.map((z) =>
-      blocco(
-        `Veterinario a ${z.data.nome}`,
-        urlAssoluto(`/veterinario-a/${z.id}`),
-        z.data.risposta,
-        z.body,
-        z.data.faq,
-      ),
     ),
     '\n\n---\n\n# Domande frequenti generali',
     ...faq.map((f) => `\n### ${f.data.domanda}\n${(f.body ?? '').trim()}`),

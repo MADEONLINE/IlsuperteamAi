@@ -21,7 +21,7 @@ for (const [percorso, immagine] of Object.entries(moduli)) {
 
 /** Testi alternativi: descrittivi, non decorativi (requisito WCAG e segnale per i motori). */
 const alternativi: Record<string, string> = {
-  '1': "Ingresso della Clinica Veterinaria del Bosco di notte: facciata verde scuro, luce calda dalla porta a vetri, panca accanto all'entrata",
+  '1': "Ingresso della Clinica Veterinaria del bosco di notte: facciata verde scuro, luce calda dalla porta a vetri, panca accanto all'entrata",
   '2': 'Ingresso del pronto soccorso di notte con barella per animali accanto alla porta automatica illuminata',
   '3': 'Intervento chirurgico in corso: mani guantate e strumenti sopra un telo sterile verde',
   '4': 'Sala TAC della clinica: tomografo computerizzato con lettino imbottito e finestra sulla console',

@@ -2,7 +2,7 @@
 titolo: 'Il coniglio che smette di mangiare: una stasi gastrointestinale'
 specie: 'coniglio'
 eta: '4 anni'
-servizio: 'animali-esotici-e-conigli'
+servizio: 'animali-esotici'
 riassunto: "Una coniglia nana di 4 anni viene portata in serata perché da molte ore non mangia e non produce feci. La visita e la radiografia indicano una stasi gastrointestinale senza ostruzione; con fluidi, controllo del dolore e alimentazione assistita riprende a mangiare in due giorni. All'origine, un problema dentale."
 validato: false
 dataPubblicazione: 2026-09-10

@@ -3,12 +3,12 @@ titolo: 'Diagnostica per immagini veterinaria a Portici: radiologia digitale, ec
 titoloBreve: 'Diagnostica per immagini'
 descrizioneMeta: 'Diagnostica per immagini veterinaria a Portici: radiografie digitali, ecografia addominale, ecocardiografia ed endoscopia in sede per cani, gatti e conigli.'
 sottotitolo: 'Radiografie, ecografia addominale e cardiologica, endoscopia: gli esami che permettono di vedere dentro il tuo animale, spesso nella stessa giornata della visita.'
-risposta: 'Alla Clinica Veterinaria del Bosco di Portici la diagnostica per immagini comprende radiologia digitale, ecografia addominale e cardiologica (ecocardiografia) ed endoscopia, tutte eseguite in sede per cani, gatti, conigli e animali esotici. Gli esami sono disponibili anche in urgenza e si integrano con TAC e laboratorio interno, così la diagnosi arriva spesso nella stessa giornata della visita.'
+risposta: 'Alla Clinica Veterinaria del bosco di Portici la diagnostica per immagini comprende radiologia digitale, ecografia addominale e cardiologica (ecocardiografia) ed endoscopia, tutte eseguite in sede per cani, gatti e animali esotici. Gli esami sono disponibili anche in urgenza e si integrano con TAC e laboratorio interno, così la diagnosi arriva spesso nella stessa giornata della visita.'
 icona: 'radiografia'
 categoria: 'diagnostica'
 ordine: 4
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
-correlati: ['pronto-soccorso-h24', 'tac-diagnostica-avanzata', 'laboratorio-analisi']
+correlati: ['tac-diagnostica-avanzata', 'laboratorio-analisi']
 medicalSpecialty: 'Radiography'
 inEvidenza: false
 scattoBrief: '05'
@@ -94,7 +94,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa comprende la diagnostica per immagini
 
-La diagnostica per immagini raggruppa gli esami che permettono di osservare organi, ossa e cavità del corpo senza aprirlo. Alla Clinica del Bosco sono tutti disponibili in sede, per cani, gatti, conigli e animali esotici, e vengono eseguiti sia in modo programmato sia in urgenza:
+La diagnostica per immagini raggruppa gli esami che permettono di osservare organi, ossa e cavità del corpo senza aprirlo. Alla Clinica del bosco sono tutti disponibili in sede, per cani, gatti e animali esotici, e vengono eseguiti sia in modo programmato sia in urgenza:
 
 - **Radiologia digitale**: immagini di ossa, articolazioni, torace e addome in pochi secondi, leggibili subito sullo schermo e condivisibili in formato digitale.
 - **Ecografia addominale**: studio di fegato, milza, reni, vescica, apparato riproduttivo, intestino e linfonodi, con possibilità di prelievi guidati (citologia con ago sottile, cistocentesi, cioè il prelievo di urina direttamente dalla vescica).

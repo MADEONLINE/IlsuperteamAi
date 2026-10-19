@@ -3,7 +3,7 @@ titolo: 'Citologia veterinaria a Portici: esame di noduli, masse e versamenti in
 titoloBreve: 'Citologia'
 descrizioneMeta: 'Citologia veterinaria a Portici: esame al microscopio di noduli, linfonodi, versamenti, orecchie e pelle di cane, gatto ed esotici, con risposta in giornata.'
 sottotitolo: 'Un ago sottile, poche cellule e un microscopio: spesso bastano per sapere se un nodulo è da togliere subito o da tenere sotto controllo.'
-risposta: 'Il servizio di citologia della Clinica Veterinaria del Bosco a Portici esamina al microscopio le cellule prelevate con un ago sottile da noduli, linfonodi, organi interni, versamenti, orecchie e lesioni della pelle di cane, gatto, coniglio ed esotici. Il prelievo è rapido, di solito senza sedazione, e la lettura nel laboratorio interno consente una risposta in giornata.'
+risposta: 'Il servizio di citologia della Clinica Veterinaria del bosco a Portici esamina al microscopio le cellule prelevate con un ago sottile da noduli, linfonodi, organi interni, versamenti, orecchie e lesioni della pelle di cane, gatto e animali esotici. Il prelievo è rapido, di solito senza sedazione, e la lettura nel laboratorio interno consente una risposta in giornata.'
 icona: 'microscopio'
 categoria: 'diagnostica'
 ordine: 21
@@ -27,7 +27,7 @@ faq:
     risposta: "Perché il liquido racconta la causa. Analizzando cellule, proteine e aspetto del versamento distinguiamo un liquido da insufficienza cardiaca o da poche proteine nel sangue, uno infiammatorio o infetto, un'emorragia, un versamento di origine tumorale o una rottura di vescica o intestino. La differenza cambia radicalmente la terapia, e alcune di queste condizioni sono urgenze chirurgiche. Il prelievo è rapido e guidato dall'ecografia."
   - domanda: "Cosa cerca la citologia dell'orecchio o della pelle?"
     risposta: "Nella dermatologia la citologia serve a vedere cosa vive sulla pelle o nel condotto uditivo: batteri, lieviti come la Malassezia, acari, cellule infiammatorie o tumorali. Si esegue con un tampone, un nastro adesivo o una leggera raschiatura, senza dolore, e si legge in pochi minuti. È l'esame che permette di scegliere il trattamento giusto per un'otite o una dermatite invece di andare per tentativi."
-  - domanda: 'Fate la citologia anche a conigli e animali esotici?'
+  - domanda: 'Fate la citologia anche agli animali esotici?'
     risposta: 'Sì. Nel coniglio e nella cavia la citologia è usata per ascessi, masse cutanee e mammarie, versamenti e lesioni della pelle; nei rettili e negli uccelli per masse, lesioni cutanee, tamponi e liquidi. Il prelievo con ago sottile è particolarmente adatto a queste specie, perché è rapido e richiede poco contenimento. Il campione viene letto nello stesso laboratorio interno.'
 tabella:
   titolo: 'Tipi di prelievo citologico e tempi indicativi di risposta'
@@ -77,7 +77,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa fa il servizio di citologia
 
-La citologia è l'esame al microscopio delle cellule prelevate da una lesione, da un organo o da un liquido. È uno degli strumenti diagnostici più rapidi e meno invasivi della medicina veterinaria: un ago sottile, un vetrino, una colorazione e in molti casi una risposta nella stessa giornata. Alla Clinica Veterinaria del Bosco la citologia fa parte del [laboratorio interno](/servizi/laboratorio-analisi) ed è utilizzata ogni giorno in dermatologia, oncologia, medicina interna e pronto soccorso, per cani, gatti, conigli e animali esotici.
+La citologia è l'esame al microscopio delle cellule prelevate da una lesione, da un organo o da un liquido. È uno degli strumenti diagnostici più rapidi e meno invasivi della medicina veterinaria: un ago sottile, un vetrino, una colorazione e in molti casi una risposta nella stessa giornata. Alla Clinica Veterinaria del bosco la citologia fa parte del [laboratorio interno](/servizi/laboratorio-analisi) ed è utilizzata ogni giorno in dermatologia, oncologia, medicina interna e pronto soccorso, per cani, gatti e animali esotici.
 
 Il caso più comune è il nodulo: un proprietario nota una pallina sotto la pelle, il medico la esamina con l'ago e sa entro poche ore se si tratta di un lipoma da tenere sotto controllo o di un tumore da rimuovere. Ma la citologia risponde anche ad altre domande: perché un linfonodo è ingrossato, cosa contiene un versamento, quali microrganismi causano un'otite, in che fase del ciclo si trova una cagna.
 

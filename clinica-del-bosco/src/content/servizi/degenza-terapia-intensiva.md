@@ -3,12 +3,12 @@ titolo: 'Degenza e terapia intensiva veterinaria a Portici: ricovero con monitor
 titoloBreve: 'Degenza e terapia intensiva'
 descrizioneMeta: 'Degenza e terapia intensiva veterinaria a Portici: ricovero con ossigenoterapia, fluidoterapia e monitoraggio continuo, personale in struttura 24 ore su 24.'
 sottotitolo: "Quando il tuo animale ha bisogno di restare in clinica, sai chi c'è con lui giorno e notte e come vieni aggiornato."
-risposta: 'La degenza della Clinica Veterinaria del Bosco a Portici accoglie cani, gatti, conigli e animali esotici che hanno bisogno di ricovero: terapia intensiva con ossigenoterapia, fluidoterapia, monitoraggio continuo dei parametri vitali e personale presente in struttura 24 ore su 24. Il ricovero avviene nella stessa sede di pronto soccorso, laboratorio, diagnostica e chirurgia, senza trasferimenti, con aggiornamenti concordati con te.'
+risposta: 'La degenza della Clinica Veterinaria del bosco a Portici accoglie cani, gatti e animali esotici che hanno bisogno di ricovero: terapia intensiva con ossigenoterapia, fluidoterapia, monitoraggio continuo dei parametri vitali e personale presente in struttura 24 ore su 24. Il ricovero avviene nella stessa sede di pronto soccorso, laboratorio, diagnostica e chirurgia, senza trasferimenti, con aggiornamenti concordati con te.'
 icona: 'letto'
 categoria: 'urgenza'
 ordine: 7
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
-correlati: ['pronto-soccorso-h24', 'chirurgia', 'laboratorio-analisi']
+correlati: ['chirurgia', 'laboratorio-analisi']
 medicalSpecialty: 'Emergency'
 inEvidenza: true
 scattoBrief: '07'
@@ -64,7 +64,7 @@ tabella:
         'Ogni 2-4 ore',
       ]
     - [
-        'Degenza conigli ed esotici',
+        'Degenza animali esotici',
         'Piccoli mammiferi, rettili, uccelli',
         'Ambiente a temperatura controllata, alimentazione assistita, farmaci per specie',
         'Ogni 2-4 ore',
@@ -87,7 +87,7 @@ dataRevisione: 2026-09-10
 
 ## Cos'è la degenza e quando serve
 
-La degenza è il ricovero in clinica di un animale che ha bisogno di terapie, controlli o assistenza che a casa non sarebbero possibili. Alla Clinica del Bosco la degenza è nella stessa sede del [pronto soccorso](/pronto-soccorso), del [laboratorio](/servizi/laboratorio-analisi), della diagnostica e delle sale chirurgiche, con personale in struttura 24 ore su 24: se durante la notte servono un esame, un'ecografia o un intervento, avvengono senza spostare l'animale.
+La degenza è il ricovero in clinica di un animale che ha bisogno di terapie, controlli o assistenza che a casa non sarebbero possibili. Alla Clinica del bosco la degenza è nella stessa sede del [pronto soccorso](/pronto-soccorso), del [laboratorio](/servizi/laboratorio-analisi), della diagnostica e delle sale chirurgiche, con personale in struttura 24 ore su 24: se durante la notte servono un esame, un'ecografia o un intervento, avvengono senza spostare l'animale.
 
 Il ricovero è indicato in tre situazioni principali:
 
@@ -125,7 +125,7 @@ La durata non è mai decisa a priori: ogni giorno il medico rivaluta se l'animal
 
 ## Conigli, piccoli mammiferi ed esotici in degenza
 
-Conigli, cavie, furetti, rettili e uccelli hanno esigenze diverse da cani e gatti: temperatura controllata, alimentazione assistita frequente, farmaci con dosaggi specifici per specie. Il coniglio, in particolare, non deve mai restare senza cibo perché il suo intestino rallenta rapidamente; nella stasi gastrointestinale l'alimentazione forzata con siringa e la fluidoterapia sono parte della terapia. Questi pazienti sono ospitati in un'area separata dai predatori, lontano da cani e gatti. La pagina [animali esotici e conigli](/servizi/animali-esotici-e-conigli) descrive il servizio dedicato.
+Conigli, cavie, furetti, rettili e uccelli hanno esigenze diverse da cani e gatti: temperatura controllata, alimentazione assistita frequente, farmaci con dosaggi specifici per specie. Il coniglio, in particolare, non deve mai restare senza cibo perché il suo intestino rallenta rapidamente; nella stasi gastrointestinale l'alimentazione forzata con siringa e la fluidoterapia sono parte della terapia. Questi pazienti sono ospitati in un'area separata dai predatori, lontano da cani e gatti. La pagina [animali esotici](/servizi/animali-esotici) descrive il servizio dedicato.
 
 ## Quando venire subito
 

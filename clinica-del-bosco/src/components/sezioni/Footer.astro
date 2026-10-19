@@ -21,13 +21,13 @@ const colonne = [
   {
     titolo: 'Per i proprietari',
     voci: [
-      { nome: 'Pronto soccorso 24/7', href: '/pronto-soccorso' },
       { nome: 'Prenota una visita', href: '/prenota' },
       { nome: 'La prima visita', href: '/prima-visita' },
       { nome: 'Tutti i servizi', href: '/servizi' },
       { nome: 'Piani Salute', href: '/piani-salute' },
       { nome: 'Domande frequenti', href: '/domande-frequenti' },
       { nome: 'Magazine', href: '/magazine' },
+      { nome: 'Pronto soccorso', href: '/pronto-soccorso' },
     ],
   },
   {
@@ -36,16 +36,8 @@ const colonne = [
       { nome: 'La struttura', href: '/la-struttura' },
       { nome: 'Équipe medica', href: '/equipe' },
       { nome: 'Per i colleghi veterinari', href: '/per-i-colleghi' },
-      { nome: 'Tariffe indicative', href: '/tariffe' },
       { nome: 'Contatti e come arrivare', href: '/contatti' },
     ],
-  },
-  {
-    titolo: 'Zone servite',
-    voci: clinica.areaServita.map((z) => ({
-      nome: `Veterinario a ${z.nome}`,
-      href: `/veterinario-a/${z.slug}`,
-    })),
   },
 ];
 const orari = clinica.orari.ambulatorio.confermato
@@ -54,7 +46,7 @@ const orari = clinica.orari.ambulatorio.confermato
 ---
 
 <footer class="mt-auto border-t border-bordo bg-sfondo-tinta pb-[calc(var(--spacing-sticky)+1rem)] text-testo lg:pb-0 print:hidden">
-  <div class="contenitore grid gap-10 py-14 md:grid-cols-2 xl:grid-cols-[1.4fr_1fr_1fr_1fr]">
+  <div class="contenitore grid gap-10 py-14 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr]">
     <div class="space-y-5">
       <a href="/" class="inline-block no-underline" aria-label={`${clinica.nome} — home`}>
         <Logo />
@@ -88,7 +80,6 @@ const orari = clinica.orari.ambulatorio.confermato
             >
               {clinica.contatti.telefono.visualizzato}
             </a>
-            <span class="text-sm text-testo-secondario">(anche per urgenze, 24/7)</span>
           </li>
           <li class="flex items-center gap-2.5">
             <Icona nome="mail" class="size-4 shrink-0 text-primario-link" />
@@ -100,10 +91,6 @@ const orari = clinica.orari.ambulatorio.confermato
         <h2 class="mb-2 font-sans text-sm font-bold uppercase tracking-wider text-testo-secondario">
           Orari
         </h2>
-        <p class="flex items-start gap-2 font-semibold">
-          <Icona nome="ambulanza" class="mt-1.5 size-4 shrink-0 text-successo" />
-          {clinica.orari.prontoSoccorso.etichetta}
-        </p>
         {orari ? (
           <table class="mt-2 text-sm">
             <caption class="sr-only">Orari dell'ambulatorio per le visite programmate</caption>
@@ -123,6 +110,9 @@ const orari = clinica.orari.ambulatorio.confermato
             Visite programmate su appuntamento: chiama o <a href="/prenota">prenota online</a>.
           </p>
         )}
+        <p class="mt-2 text-sm text-testo-secondario">
+          Servizio di pronto soccorso attivo 24 ore su 24.
+        </p>
       </div>
       <ul class="flex gap-3" aria-label="Profili social">
         <li>

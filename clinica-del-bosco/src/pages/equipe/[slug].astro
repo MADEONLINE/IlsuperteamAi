@@ -20,7 +20,7 @@ const servizi = await getCollection('servizi');
 const aree = servizi.filter((s) => medico.data.aree.includes(s.id));
 const nome = `${medico.data.titolo} ${medico.data.nome}`;
 const url = `/equipe/${medico.id}`;
-const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del Bosco di Portici. Aree di attività, formazione e numero di iscrizione all'Ordine dei Medici Veterinari.`;
+const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del bosco di Portici. Aree di attività, formazione e numero di iscrizione all'Ordine dei Medici Veterinari.`;
 ---
 
 <PaginaLayout
