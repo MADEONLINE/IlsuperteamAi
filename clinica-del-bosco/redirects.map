@@ -15,8 +15,8 @@ http://clinicaveterinariadelbosco.it/*         https://clinicaveterinariadelbosc
 /chi-siamo                        /la-struttura                              301
 /chi-siamo/                       /la-struttura                              301
 /servizi/                         /servizi                                   301
-/centro-tac-e-animali-esotici     /servizi/tac-diagnostica-avanzata          301
-/centro-tac-e-animali-esotici/    /servizi/tac-diagnostica-avanzata          301
+/centro-tac-e-animali-esotici     /servizi/tc-diagnostica-avanzata          301
+/centro-tac-e-animali-esotici/    /servizi/tc-diagnostica-avanzata          301
 /contatti/                        /contatti                                  301
 /index.html                       /                                          301
 /index.php                        /                                          301
@@ -27,9 +27,9 @@ http://clinicaveterinariadelbosco.it/*         https://clinicaveterinariadelbosc
 /emergenze                        /pronto-soccorso                           301
 /prenotazione                     /prenota                                   301
 /prenotazioni                     /prenota                                   301
-/piani                            /piani-salute                              301
-/abbonamenti                      /piani-salute                              301
-/tac                              /servizi/tac-diagnostica-avanzata          301
+/piani                            /servizi/medicina-preventiva-vaccinazioni  301
+/abbonamenti                      /servizi/medicina-preventiva-vaccinazioni  301
+/tac                              /servizi/tc-diagnostica-avanzata          301
 /esotici                          /servizi/animali-esotici                   301
 /colleghi                         /per-i-colleghi                            301
 /referral                         /per-i-colleghi                            301

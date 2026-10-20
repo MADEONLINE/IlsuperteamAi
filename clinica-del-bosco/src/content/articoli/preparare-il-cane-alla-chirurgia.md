@@ -93,7 +93,7 @@ Servono esami del sangue in tutti i cani e, dopo i 7 anni o in presenza di un so
 - **Cane giovane e sano**: emocromo e profilo biochimico di base.
 - **Cane oltre i 7 anni o con malattie note**: profilo biochimico completo, elettroliti, esame delle urine, elettrocardiogramma; se c'è un soffio, ecocardiografia.
 - **Razze predisposte** (Dobermann, Pastore Scozzese, Levriero) o interventi con rischio di sanguinamento: test della coagulazione.
-- **Chirurgia oncologica**: radiografie del torace o TAC per la stadiazione, cioè per capire l'estensione del tumore prima di operare.
+- **Chirurgia oncologica**: radiografie del torace o TC per la stadiazione, cioè per capire l'estensione del tumore prima di operare.
 
 Il [laboratorio interno](/servizi/laboratorio-analisi) restituisce i risultati in giornata: gli esami si possono fare alla visita pre-operatoria o la mattina stessa dell'intervento.
 
@@ -117,7 +117,7 @@ Alla mattina dell'intervento i farmaci abituali per cuore, tiroide ed epilessia 
 
 Il dolore viene prevenuto prima dell'incisione e controllato per tutta la durata dell'intervento e nei giorni successivi. Seguiamo le linee guida internazionali sull'analgesia multimodale, cioè l'uso combinato di più farmaci a basso dosaggio: analgesici prima dell'anestesia, anestesia locale della zona operata, infusione continua in sala quando serve, antinfiammatori e analgesici orali a casa per 3-7 giorni.
 
-Durante l'anestesia un membro dell'équipe monitora in modo continuo frequenza cardiaca, pressione, ossigenazione, anidride carbonica espirata e temperatura, e il cane è riscaldato attivamente: l'ipotermia è la complicanza più frequente e più facile da prevenire. Per gli interventi di [chirurgia](/servizi/chirurgia) oncologica, ortopedica o laparoscopica, la clinica dispone di due sale operatorie e di TAC in sede per la pianificazione.
+Durante l'anestesia un membro dell'équipe monitora in modo continuo frequenza cardiaca, pressione, ossigenazione, anidride carbonica espirata e temperatura, e il cane è riscaldato attivamente: l'ipotermia è la complicanza più frequente e più facile da prevenire. Per gli interventi di [chirurgia](/servizi/chirurgia) oncologica, ortopedica o laparoscopica, la clinica dispone di due sale operatorie e di TC in sede per la pianificazione.
 
 ## Cosa succede dopo l'intervento?
 

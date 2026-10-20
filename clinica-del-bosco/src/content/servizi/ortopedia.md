@@ -2,13 +2,13 @@
 titolo: 'Ortopedia veterinaria a Portici: zoppia, fratture, displasia e legamento crociato'
 titoloBreve: 'Ortopedia'
 descrizioneMeta: 'Ortopedia veterinaria a Portici: diagnosi e chirurgia di zoppie, fratture, legamento crociato, lussazione della rotula, displasia e artrosi in cani e gatti.'
-sottotitolo: 'Dalla zoppia che dura da due giorni alla frattura dopo un incidente: diagnosi con radiografia e TAC in sede, chirurgia ortopedica e riabilitazione.'
-risposta: "Il servizio di ortopedia della Clinica Veterinaria del bosco a Portici si occupa di zoppie, fratture, legamento crociato, lussazione della rotula, displasia dell'anca e del gomito e artrosi in cani, gatti e conigli. La diagnosi si avvale di radiologia digitale e TAC in sede; la chirurgia viene eseguita nelle due sale operatorie della clinica, con piano di recupero scritto."
+sottotitolo: 'Dalla zoppia che dura da due giorni alla frattura dopo un incidente: diagnosi con radiografia e TC in sede, chirurgia ortopedica e riabilitazione.'
+risposta: "Il servizio di ortopedia della Clinica Veterinaria del bosco a Portici si occupa di zoppie, fratture, legamento crociato, lussazione della rotula, displasia dell'anca e del gomito e artrosi in cani, gatti e conigli. La diagnosi si avvale di radiologia digitale e TC in sede; la chirurgia viene eseguita nelle due sale operatorie della clinica, con piano di recupero scritto."
 icona: 'osso'
 categoria: 'specialistica'
 ordine: 11
 specie: ['cane', 'gatto', 'coniglio']
-correlati: ['tac-diagnostica-avanzata', 'terapia-del-dolore-agopuntura']
+correlati: ['tc-diagnostica-avanzata', 'terapia-del-dolore-agopuntura']
 medicalSpecialty: 'Musculoskeletal'
 inEvidenza: false
 scattoBrief: '09'
@@ -55,7 +55,7 @@ tabella:
     - [
         'Displasia del gomito',
         'Cani giovani di taglia grande, 5-12 mesi',
-        'Diagnosi con TAC; artroscopia o chirurgia; gestione medica',
+        'Diagnosi con TC; artroscopia o chirurgia; gestione medica',
         '6-10 settimane dopo chirurgia',
       ]
     - [
@@ -95,7 +95,7 @@ dataRevisione: 2026-09-10
 
 ## Di cosa si occupa l'ortopedia veterinaria
 
-L'ortopedia si occupa di ossa, articolazioni, legamenti, tendini e muscoli: dalla zoppia che compare senza motivo apparente alla frattura dopo un incidente, dalle malattie dello sviluppo del cane giovane, come le displasie, all'artrosi dell'anziano. Alla Clinica del bosco il servizio è rivolto a cani, gatti e conigli e comprende la visita ortopedica, la diagnostica con [radiologia digitale](/servizi/diagnostica-per-immagini) e [TAC in sede](/servizi/tac-diagnostica-avanzata), la chirurgia ortopedica nelle due sale operatorie e la gestione medica delle malattie articolari croniche, in collaborazione con il servizio di [terapia del dolore](/servizi/terapia-del-dolore-agopuntura).
+L'ortopedia si occupa di ossa, articolazioni, legamenti, tendini e muscoli: dalla zoppia che compare senza motivo apparente alla frattura dopo un incidente, dalle malattie dello sviluppo del cane giovane, come le displasie, all'artrosi dell'anziano. Alla Clinica del bosco il servizio è rivolto a cani, gatti e conigli e comprende la visita ortopedica, la diagnostica con [radiologia digitale](/servizi/diagnostica-per-immagini) e [TC in sede](/servizi/tc-diagnostica-avanzata), la chirurgia ortopedica nelle due sale operatorie e la gestione medica delle malattie articolari croniche, in collaborazione con il servizio di [terapia del dolore](/servizi/terapia-del-dolore-agopuntura).
 
 Le condizioni trattate più spesso sono:
 
@@ -110,7 +110,7 @@ Le condizioni trattate più spesso sono:
 1. **Anamnesi.** Da quanto zoppica, se è successo qualcosa, se peggiora dopo il riposo o dopo l'esercizio, se ha già preso farmaci. Puoi [prenotare](/prenota) online o al telefono.
 2. **Osservazione del movimento.** Guardiamo l'animale camminare e trottare: il tipo di zoppia dice molto sull'arto e sull'articolazione coinvolti.
 3. **Esame ortopedico.** Palpazione e manipolazione di ogni articolazione, test specifici come il cassetto del ginocchio per il legamento crociato o l'Ortolani per la lassità dell'anca. Se necessario, con una sedazione leggera per rilassare i muscoli.
-4. **Diagnostica per immagini.** Radiografie nella maggior parte dei casi; TAC per gomito, fratture articolari complesse e bacino; ecografia per tendini e muscoli.
+4. **Diagnostica per immagini.** Radiografie nella maggior parte dei casi; TC per gomito, fratture articolari complesse e bacino; ecografia per tendini e muscoli.
 5. **Piano e preventivo.** Ti spieghiamo la diagnosi, le opzioni conservative e chirurgiche, i tempi di recupero, e ti consegniamo un preventivo scritto. La decisione è tua, con tutte le informazioni.
 
 ## Il mio cane zoppica: devo operarlo per forza?
@@ -149,7 +149,7 @@ Un arto fratturato non va manipolato né steccato in casa: trasporta l'animale s
 
 ## Prima e dopo: cosa aspettarsi
 
-**Prima dell'intervento.** Visita ortopedica, radiografie o TAC, esami del sangue preanestesiologici nel [laboratorio interno](/servizi/laboratorio-analisi) e preventivo scritto. Digiuno da cibo solido dalla sera precedente per cani e gatti; nessun digiuno per il coniglio.
+**Prima dell'intervento.** Visita ortopedica, radiografie o TC, esami del sangue preanestesiologici nel [laboratorio interno](/servizi/laboratorio-analisi) e preventivo scritto. Digiuno da cibo solido dalla sera precedente per cani e gatti; nessun digiuno per il coniglio.
 
 **Dopo l'intervento.** Una o più notti in [degenza](/servizi/degenza-terapia-intensiva) per il controllo del dolore. Alla dimissione ricevi farmaci, istruzioni sulla ferita, il collare e il piano di riposo e fisioterapia scritto settimana per settimana. Servono uno spazio ristretto senza pavimenti scivolosi, passeggiate brevi al guinzaglio e tanta pazienza.
 

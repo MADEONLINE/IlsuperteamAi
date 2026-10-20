@@ -54,9 +54,9 @@ const tagline = 'Cura, attenzione e rispetto per ogni animale.';
 const pilastri = [
   {
     icona: 'scansione',
-    titolo: 'TAC in sede',
+    titolo: 'TC in sede',
     testo: "L'esame si fa senza spostare l'animale in un'altra struttura.",
-    href: '/servizi/tac-diagnostica-avanzata',
+    href: '/servizi/tc-diagnostica-avanzata',
   },
   {
     icona: 'bisturi',
@@ -94,7 +94,7 @@ const porte = [
   },
   {
     titolo: 'Sei un veterinario?',
-    testo: 'TAC, endoscopia, chirurgia e ricovero per i tuoi pazienti',
+    testo: 'TC, endoscopia, chirurgia e ricovero per i tuoi pazienti',
     href: '/per-i-colleghi',
     icona: 'stetoscopio' as const,
   },
@@ -130,7 +130,7 @@ const euroMese = (n: number) =>
 
 <BaseLayout
   titolo="Clinica Veterinaria del bosco, Portici · Cura per ogni animale"
-  descrizione="Clinica veterinaria a Portici (NA) per cani, gatti e animali esotici: visite specialistiche, TAC, due sale chirurgiche, laboratorio e degenza. Tel. 081 7763859."
+  descrizione="Clinica veterinaria a Portici (NA) per cani, gatti e animali esotici: visite specialistiche, TC, due sale chirurgiche, laboratorio e degenza. Tel. 081 7763859."
   percorso="/"
   senzaBrand
   jsonLd={[webPage({ url: '/', titolo: clinica.nome, descrizione: clinica.descrizioneBreve })]}
@@ -197,7 +197,7 @@ const euroMese = (n: number) =>
         <h2 class="text-3xl md:text-4xl">Cosa trovi nella stessa sede</h2>
         <p class="mt-4 text-testo-secondario">
           Alla {clinica.nome} visite, esami, chirurgia e ricovero sono nello stesso edificio. Se il
-          tuo animale ha bisogno di una TAC o di un intervento, non lo devi portare in un'altra
+          tuo animale ha bisogno di una TC o di un intervento, non lo devi portare in un'altra
           struttura.
         </p>
         {numeri.length > 0 && (
@@ -315,12 +315,12 @@ const euroMese = (n: number) =>
       <div class="flex flex-col justify-center px-gutter py-12 lg:col-span-5 lg:pl-12 lg:pr-gutter">
         <Etichetta class="mb-3">La struttura</Etichetta>
         <h2 id="struttura-titolo" class="text-3xl md:text-4xl">
-          Due sale chirurgiche, terapia intensiva e TAC, nella stessa sede.
+          Due sale chirurgiche, terapia intensiva e TC, nella stessa sede.
         </h2>
         <ul class="mt-6 space-y-3">
           {[
             'Terapia intensiva con ossigeno e controllo continuo di cuore e respiro',
-            'TAC, endoscopia, radiografie ed ecografia nella stessa sede',
+            'TC, endoscopia, radiografie ed ecografia nella stessa sede',
             'Laboratorio analisi interno con risposta in giornata',
             'Zona separata per gli animali esotici',
           ].map((t) => (

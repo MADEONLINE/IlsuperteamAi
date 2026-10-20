@@ -8,7 +8,7 @@ icona: 'ambulanza'
 categoria: 'urgenza'
 ordine: 99
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
-correlati: ['degenza-terapia-intensiva', 'tac-diagnostica-avanzata', 'chirurgia']
+correlati: ['degenza-terapia-intensiva', 'tc-diagnostica-avanzata', 'chirurgia']
 medicalSpecialty: 'Emergency'
 inEvidenza: false
 scattoBrief: '02'
@@ -89,13 +89,13 @@ dataRevisione: 2026-09-10
 
 ## Come funziona il pronto soccorso della clinica
 
-Il pronto soccorso ha personale in clinica 24 ore su 24: quando arrivi trovi un medico veterinario già presente, non un servizio di sola reperibilità. La clinica ha due sale chirurgiche, terapia intensiva con ossigenoterapia e monitoraggio continuo, laboratorio interno, radiologia digitale, ecografia e TAC: l'intero percorso dell'urgenza, dalla diagnosi al ricovero, avviene nello stesso edificio.
+Il pronto soccorso ha personale in clinica 24 ore su 24: quando arrivi trovi un medico veterinario già presente, non un servizio di sola reperibilità. La clinica ha due sale chirurgiche, terapia intensiva con ossigenoterapia e monitoraggio continuo, laboratorio interno, radiologia digitale, ecografia e TC: l'intero percorso dell'urgenza, dalla diagnosi al ricovero, avviene nello stesso edificio.
 
 ## Cosa succede quando arrivi
 
 1. **Accoglienza e triage.** Un membro dell'équipe valuta la gravità entro pochi minuti. I casi critici passano avanti.
 2. **Stabilizzazione.** Ossigeno, accesso venoso, controllo del dolore e dell'emorragia vengono prima di qualunque esame.
-3. **Diagnosi.** Esami del sangue con il laboratorio interno, radiografie, ecografia e, se serve, TAC senza spostare l'animale.
+3. **Diagnosi.** Esami del sangue con il laboratorio interno, radiografie, ecografia e, se serve, TC senza spostare l'animale.
 4. **Decisione condivisa.** Ti spieghiamo cosa abbiamo trovato, le opzioni e i costi indicativi. Nessun intervento non urgente parte senza il tuo consenso scritto.
 5. **Trattamento o ricovero.** Chirurgia d'urgenza, terapia intensiva o dimissione con istruzioni chiare e un controllo programmato.
 

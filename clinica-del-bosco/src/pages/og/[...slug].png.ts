@@ -62,7 +62,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     ['piani-salute', 'Piani Salute', 'Prevenzione programmata per cani e gatti'],
     [
       'per-i-colleghi',
-      'TAC, endoscopia e chirurgia in service',
+      'TC, endoscopia e chirurgia in service',
       'Il paziente torna sempre al collega',
     ],
     ['la-struttura', 'La struttura', 'Clinica veterinaria h24 a Portici'],

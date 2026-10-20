@@ -88,11 +88,11 @@ dataRevisione: 2026-09-10
 
 ## Quali interventi facciamo
 
-La clinica opera cani, gatti e animali esotici in due sale chirurgiche. Laboratorio, diagnostica per immagini, TAC e ricovero sono nella stessa sede: esami, intervento, risveglio e ricovero avvengono senza trasferimenti.
+La clinica opera cani, gatti e animali esotici in due sale chirurgiche. Laboratorio, diagnostica per immagini, TC e ricovero sono nella stessa sede: esami, intervento, risveglio e ricovero avvengono senza trasferimenti.
 
 - **Sterilizzazione e castrazione** di cane, gatto e coniglio, con tecnica tradizionale o in laparoscopia.
 - **Tessuti molli:** noduli della pelle, ernie, oggetti ingeriti, infezione grave dell'utero (piometra), vescica e vie urinarie, asportazione della milza.
-- **Tumori:** insieme al servizio di [oncologia](/servizi/oncologia), decidiamo con la TAC quanto tessuto togliere intorno alla massa.
+- **Tumori:** insieme al servizio di [oncologia](/servizi/oncologia), decidiamo con la TC quanto tessuto togliere intorno alla massa.
 - **Chirurgia ricostruttiva** dopo traumi o asportazioni ampie.
 - **Chirurgia laser**, utile sui tessuti che sanguinano molto e in alcuni interventi sugli animali esotici.
 - **Ortopedia:** la trovi nella pagina [ortopedia](/servizi/ortopedia).
@@ -126,7 +126,7 @@ Il laser aiuta negli interventi su tessuti che sanguinano molto, in bocca e sugl
 
 ## Tumori e chirurgia ricostruttiva
 
-Prima di togliere un nodulo di solito esaminiamo le sue cellule (citologia) o un piccolo pezzo di tessuto (biopsia). Se serve, una [TAC](/servizi/tac-diagnostica-avanzata) ci mostra quanto è esteso. Il tessuto tolto va sempre al laboratorio per l'esame istologico: ci dice se l'asportazione è completa e se servono altre cure.
+Prima di togliere un nodulo di solito esaminiamo le sue cellule (citologia) o un piccolo pezzo di tessuto (biopsia). Se serve, una [TC](/servizi/tc-diagnostica-avanzata) ci mostra quanto è esteso. Il tessuto tolto va sempre al laboratorio per l'esame istologico: ci dice se l'asportazione è completa e se servono altre cure.
 
 A volte l'asportazione è ampia, per esempio su una zampa. In questi casi chiudiamo la ferita con la chirurgia ricostruttiva: lembi di pelle, innesti o chiusure in più tempi.
 

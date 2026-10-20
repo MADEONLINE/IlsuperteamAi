@@ -91,7 +91,7 @@ Il dolore negli animali è sottodiagnosticato perché non si esprime come nell'u
 1. **Ascolto.** Ti chiediamo cosa è cambiato nelle abitudini dell'animale: sonno, movimento, gioco, appetito, umore, cura del pelo. Un video fatto a casa, dove l'animale si muove senza lo stress della clinica, è molto utile.
 2. **Valutazione del dolore.** Usiamo scale validate per specie, che assegnano un punteggio ai comportamenti e alle posture, e le ripetiamo nel tempo per misurare i risultati.
 3. **Visita ortopedica e neurologica.** Palpazione di articolazioni, muscoli e colonna per individuare le sedi dolorose e distinguere dolore articolare, muscolare e nervoso.
-4. **Diagnosi della causa.** Radiografie, ecografia o, se necessario, [TAC](/servizi/tac-diagnostica-avanzata) per capire da dove nasce il dolore: trattare il sintomo senza conoscere la causa non è corretto.
+4. **Diagnosi della causa.** Radiografie, ecografia o, se necessario, [TC](/servizi/tc-diagnostica-avanzata) per capire da dove nasce il dolore: trattare il sintomo senza conoscere la causa non è corretto.
 5. **Esami del sangue.** Per scegliere farmaci compatibili con reni e fegato, soprattutto negli anziani.
 6. **Piano multimodale.** Combiniamo farmaci, tecniche complementari, controllo del peso e adattamenti dell'ambiente domestico. Ricevi un piano scritto e un preventivo per le sedute.
 7. **Rivalutazione.** Dopo quattro-sei settimane ripetiamo il punteggio del dolore e decidiamo insieme se proseguire, modificare o sospendere.

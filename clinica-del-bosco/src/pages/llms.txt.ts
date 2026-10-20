@@ -34,7 +34,7 @@ export const GET: APIRoute = async () => {
     `- [Piani Salute (prevenzione programmata)](${urlAssoluto('/piani-salute')})`,
     `- [La struttura: attrezzature e dati anagrafici](${urlAssoluto('/la-struttura')})`,
     `- [Équipe medica](${urlAssoluto('/equipe')})`,
-    `- [Area colleghi veterinari: TAC, endoscopia, chirurgia in service](${urlAssoluto('/per-i-colleghi')})`,
+    `- [Area colleghi veterinari: TC, endoscopia, chirurgia in service](${urlAssoluto('/per-i-colleghi')})`,
     `- [Contatti e come arrivare](${urlAssoluto('/contatti')})`,
     `- [Domande frequenti](${urlAssoluto('/domande-frequenti')})`,
     '',

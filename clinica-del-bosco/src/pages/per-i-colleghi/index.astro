@@ -1,5 +1,5 @@
 ---
-/** /per-i-colleghi — area referral B2B. Registro tecnico. Indicizzabile per "TAC veterinaria Napoli", "service diagnostico veterinario Campania". */
+/** /per-i-colleghi — area referral B2B. Registro tecnico. Indicizzabile per "TC veterinaria Napoli", "service diagnostico veterinario Campania". */
 import { hrefServizio } from '@lib/servizi';
 import { getCollection } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
@@ -27,10 +27,10 @@ const specialistiche = servizi
   }));
 
 const descrizione =
-  'Service diagnostico e chirurgico per veterinari in Campania: TAC, endoscopia, chirurgia e degenza h24 a Portici. Referto rapido, contatto diretto col referente, il paziente torna sempre al collega inviante.';
+  'Service diagnostico e chirurgico per veterinari in Campania: TC, endoscopia, chirurgia e degenza h24 a Portici. Referto rapido, contatto diretto col referente, il paziente torna sempre al collega inviante.';
 const protocolli = [
   {
-    titolo: 'TAC',
+    titolo: 'TC',
     prep: 'Digiuno 8–12 ore (acqua libera fino a 2 ore prima). Esami pre-anestesia recenti (emocromo, biochimico, ECG nei soggetti a rischio) o eseguibili in sede. Terapie in corso e allergie note.',
     tempi:
       'Esame in giornata su prenotazione; referto scritto entro 24–48 ore lavorative, immagini DICOM condivise.',
@@ -75,7 +75,7 @@ const faq = [
       'Sì. Ogni caso inviato ha un medico referente che puoi contattare al numero della clinica chiedendo del referente del caso, oppure rispondendo alla mail di presa in carico. Il confronto pre e post esame è parte del servizio.',
   },
   {
-    domanda: 'Quali sono i tempi per una TAC?',
+    domanda: 'Quali sono i tempi per una TC?',
     risposta:
       "Nella maggior parte dei casi l'esame si esegue entro pochi giorni dalla richiesta, in giornata per le urgenze concordate. Il referto scritto arriva entro 24–48 ore lavorative; un'anticipazione verbale è disponibile al termine dell'esame.",
   },
@@ -122,11 +122,11 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
 ---
 
 <PaginaLayout
-  titolo="Per i colleghi veterinari: TAC, endoscopia, chirurgia e degenza in service a Portici (Napoli)"
+  titolo="Per i colleghi veterinari: TC, endoscopia, chirurgia e degenza in service a Portici (Napoli)"
   descrizione={descrizione}
   percorso="/per-i-colleghi"
   h1="Diagnostica avanzata e chirurgia in service per i colleghi del territorio"
-  sottotitolo="TAC, endoscopia, chirurgia e degenza h24 a Portici. Referto rapido, contatto diretto con il medico referente."
+  sottotitolo="TC, endoscopia, chirurgia e degenza h24 a Portici. Referto rapido, contatto diretto con il medico referente."
   etichetta="Area colleghi veterinari"
   tonoIntestazione="inverso"
   briciole={briciole}
@@ -150,7 +150,7 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
         </p>
         <p class="mt-6 text-lg text-testo-secondario">
           La Clinica Veterinaria del bosco mette a disposizione degli ambulatori dell'area vesuviana
-          e napoletana ciò che raramente è sostenibile in una struttura diurna: TAC in sede,
+          e napoletana ciò che raramente è sostenibile in una struttura diurna: TC in sede,
           endoscopia, due sale chirurgiche, degenza con terapia intensiva e personale presente 24
           ore su 24. Eroghiamo la prestazione richiesta, refertiamo e restituiamo il caso. Il
           rapporto con il proprietario resta tuo.
@@ -278,7 +278,7 @@ const briciole = [{ nome: 'Per i colleghi', href: '/per-i-colleghi' }];
         intestazioni: ['Area', 'Dotazione', 'Indicazioni principali', 'Disponibilità'],
         righe: [
           [
-            'TAC',
+            'TC',
             'Tomografia computerizzata multistrato con ricostruzioni 3D, studio con e senza mezzo di contrasto',
             'Oncologia (lesioni anche millimetriche), neurologia, ortopedia, pianificazione chirurgica, total body, torace, cavità nasali e orecchio',
             'Su prenotazione, urgenze concordate in giornata',

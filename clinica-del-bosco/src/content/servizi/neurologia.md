@@ -1,14 +1,14 @@
 ---
 titolo: 'Neurologia veterinaria a Portici: convulsioni, paralisi e malattie del sistema nervoso'
 titoloBreve: 'Neurologia'
-descrizioneMeta: 'Neurologia veterinaria a Portici: visita neurologica per cane e gatto con convulsioni, paralisi, ernia del disco, testa inclinata e tremori. TAC in sede.'
+descrizioneMeta: 'Neurologia veterinaria a Portici: visita neurologica per cane e gatto con convulsioni, paralisi, ernia del disco, testa inclinata e tremori. TC in sede.'
 sottotitolo: 'Crisi convulsive, zampe posteriori che cedono, testa inclinata: la visita neurologica localizza il problema e indica gli esami che servono davvero.'
-risposta: 'Il servizio di neurologia della Clinica Veterinaria del bosco a Portici cura le malattie di cervello, midollo spinale e nervi di cane e gatto: epilessia, ernia del disco, sindrome vestibolare, paralisi e tremori. La visita neurologica localizza la lesione ed è completata in sede con TAC, liquido cerebrospinale e laboratorio. Pronto soccorso 24 ore su 24 per le crisi.'
+risposta: 'Il servizio di neurologia della Clinica Veterinaria del bosco a Portici cura le malattie di cervello, midollo spinale e nervi di cane e gatto: epilessia, ernia del disco, sindrome vestibolare, paralisi e tremori. La visita neurologica localizza la lesione ed è completata in sede con TC, liquido cerebrospinale e laboratorio. Pronto soccorso 24 ore su 24 per le crisi.'
 icona: 'cervello'
 categoria: 'specialistica'
 ordine: 15
 specie: ['cane', 'gatto']
-correlati: ['tac-diagnostica-avanzata', 'ortopedia']
+correlati: ['tc-diagnostica-avanzata', 'ortopedia']
 medicalSpecialty: 'Neurologic'
 inEvidenza: false
 scattoBrief: '13'
@@ -22,9 +22,9 @@ faq:
   - domanda: 'Il mio cane anziano ha la testa inclinata e gira in tondo: è un ictus?'
     risposta: "Nella maggior parte dei casi si tratta di sindrome vestibolare, un disturbo dell'equilibrio che nel cane anziano compare all'improvviso con testa inclinata, occhi che oscillano, nausea e incapacità di stare in piedi. Spaventa molto ma spesso migliora in pochi giorni con terapia di supporto. La visita serve a distinguere la forma benigna da un'otite profonda o da una lesione cerebrale."
   - domanda: 'La visita neurologica fa male o richiede la sedazione?'
-    risposta: "No, la visita neurologica non è dolorosa e si esegue con l'animale sveglio: osserviamo come cammina, testiamo i riflessi, la sensibilità e i nervi della testa. La sedazione o l'anestesia servono solo per gli esami successivi, come la TAC o il prelievo del liquido cerebrospinale, che richiedono immobilità assoluta. Ti spieghiamo prima quali esami proponiamo e perché."
-  - domanda: 'Cosa vede la TAC che la radiografia non vede?'
-    risposta: "La radiografia mostra bene le ossa ma non il midollo, il disco intervertebrale né il cervello. La TAC produce immagini tridimensionali della colonna e del cranio e permette di localizzare con precisione un'ernia del disco, una frattura vertebrale, una massa o un'emorragia. Per alcune malattie del cervello e del midollo la risonanza magnetica resta l'esame di riferimento: in quel caso ti indirizziamo."
+    risposta: "No, la visita neurologica non è dolorosa e si esegue con l'animale sveglio: osserviamo come cammina, testiamo i riflessi, la sensibilità e i nervi della testa. La sedazione o l'anestesia servono solo per gli esami successivi, come la TC o il prelievo del liquido cerebrospinale, che richiedono immobilità assoluta. Ti spieghiamo prima quali esami proponiamo e perché."
+  - domanda: 'Cosa vede la TC che la radiografia non vede?'
+    risposta: "La radiografia mostra bene le ossa ma non il midollo, il disco intervertebrale né il cervello. La TC produce immagini tridimensionali della colonna e del cranio e permette di localizzare con precisione un'ernia del disco, una frattura vertebrale, una massa o un'emorragia. Per alcune malattie del cervello e del midollo la risonanza magnetica resta l'esame di riferimento: in quel caso ti indirizziamo."
   - domanda: "L'epilessia del cane si cura?"
     risposta: "L'epilessia idiopatica, cioè senza causa identificabile, non guarisce ma nella maggior parte dei cani si controlla con farmaci quotidiani che riducono frequenza e intensità delle crisi. La terapia va calibrata con controlli del sangue periodici e un diario delle crisi che tieni tu. L'obiettivo realistico è una buona qualità di vita con crisi rare, non l'assenza totale di episodi in ogni paziente."
   - domanda: 'Il gatto ha iniziato a tremare e a camminare come ubriaco: cosa può essere?'
@@ -85,7 +85,7 @@ dataRevisione: 2026-09-10
 
 La neurologia veterinaria si occupa delle malattie del cervello, del midollo spinale, dei nervi e dei muscoli. I motivi di visita più frequenti sono le crisi convulsive, la debolezza o paralisi delle zampe, il dolore alla schiena o al collo, la testa inclinata con perdita di equilibrio, i tremori e i cambiamenti improvvisi di comportamento. Visitiamo cani e gatti di ogni età, in ambulatorio e in urgenza.
 
-Il punto di partenza è sempre la visita neurologica, che permette di capire in quale parte del sistema nervoso si trova il problema. Solo dopo scegliamo gli esami: la clinica dispone in sede di [TAC](/servizi/tac-diagnostica-avanzata), [laboratorio](/servizi/laboratorio-analisi) con risposta in giornata, radiologia digitale e la possibilità di prelevare e analizzare il liquido cerebrospinale. Le urgenze neurologiche, come una crisi convulsiva prolungata o una paralisi improvvisa, sono gestite dal [pronto soccorso](/pronto-soccorso) 24 ore su 24.
+Il punto di partenza è sempre la visita neurologica, che permette di capire in quale parte del sistema nervoso si trova il problema. Solo dopo scegliamo gli esami: la clinica dispone in sede di [TC](/servizi/tc-diagnostica-avanzata), [laboratorio](/servizi/laboratorio-analisi) con risposta in giornata, radiologia digitale e la possibilità di prelevare e analizzare il liquido cerebrospinale. Le urgenze neurologiche, come una crisi convulsiva prolungata o una paralisi improvvisa, sono gestite dal [pronto soccorso](/pronto-soccorso) 24 ore su 24.
 
 ## Come si svolge la visita neurologica
 
@@ -95,12 +95,12 @@ Il punto di partenza è sempre la visita neurologica, che permette di capire in 
 4. **Reazioni posturali e riflessi.** Test semplici e ben tollerati che rivelano dove il segnale nervoso si interrompe: cervello, un tratto preciso del midollo o i nervi periferici.
 5. **Valutazione del dolore e della sensibilità.** Fondamentale nelle paralisi: la presenza della sensibilità profonda alle dita cambia prognosi e urgenza.
 6. **Localizzazione e ipotesi.** Alla fine della visita sappiamo dove si trova la lesione e quali malattie sono più probabili in base a età, razza e decorso.
-7. **Esami mirati.** Esami del sangue per escludere cause metaboliche, TAC di cranio o colonna, analisi del liquido cerebrospinale, radiografie, elettrodiagnostica per i muscoli e i nervi periferici. Quando serve la risonanza magnetica, ti indirizziamo a un centro che la esegue e seguiamo poi il percorso.
+7. **Esami mirati.** Esami del sangue per escludere cause metaboliche, TC di cranio o colonna, analisi del liquido cerebrospinale, radiografie, elettrodiagnostica per i muscoli e i nervi periferici. Quando serve la risonanza magnetica, ti indirizziamo a un centro che la esegue e seguiamo poi il percorso.
 8. **Piano di cura.** Terapia medica, chirurgia della colonna, riabilitazione o combinazione di queste. Sempre con preventivo scritto prima di procedere.
 
 ## Il mio cane ha le convulsioni: che cosa le causa?
 
-Le cause si dividono in tre gruppi. Le cause fuori dal cervello: ipoglicemia, malattie del fegato, intossicazioni, squilibri degli elettroliti, tutte identificabili con gli esami del sangue. Le cause dentro il cervello: malformazioni, encefaliti, tumori, esiti di traumi, che richiedono TAC o risonanza e talvolta l'analisi del liquido cerebrospinale. E infine l'epilessia idiopatica, cioè senza una causa dimostrabile, che è la diagnosi più comune nei cani tra uno e cinque anni e si pone escludendo le altre.
+Le cause si dividono in tre gruppi. Le cause fuori dal cervello: ipoglicemia, malattie del fegato, intossicazioni, squilibri degli elettroliti, tutte identificabili con gli esami del sangue. Le cause dentro il cervello: malformazioni, encefaliti, tumori, esiti di traumi, che richiedono TC o risonanza e talvolta l'analisi del liquido cerebrospinale. E infine l'epilessia idiopatica, cioè senza una causa dimostrabile, che è la diagnosi più comune nei cani tra uno e cinque anni e si pone escludendo le altre.
 
 La distinzione conta perché la terapia è diversa: un'ipoglicemia si corregge, un'encefalite si tratta con farmaci specifici, l'epilessia idiopatica si controlla con antiepilettici quotidiani. Ti chiediamo di tenere un diario delle crisi con data, durata e descrizione: è lo strumento più utile per regolare la terapia nel tempo.
 
@@ -108,7 +108,7 @@ La distinzione conta perché la terapia è diversa: un'ipoglicemia si corregge, 
 
 Serve operare quando la compressione del midollo è tale che la terapia conservativa, cioè riposo assoluto in gabbia per alcune settimane e farmaci, non è sufficiente o è troppo rischiosa. In pratica: cane che non cammina, che peggiora nonostante il riposo, che ha dolore non controllabile o che ha perso la sensibilità profonda alle dita. In quest'ultimo caso la chirurgia va eseguita nel minor tempo possibile, idealmente entro 24-48 ore, perché le probabilità di recupero diminuiscono con il passare delle ore.
 
-La TAC in sede consente di localizzare l'ernia e di pianificare l'intervento nella stessa giornata. Dopo la chirurgia della colonna il recupero richiede settimane di riposo controllato e fisioterapia; il dolore viene gestito con il servizio di [terapia del dolore](/servizi/terapia-del-dolore-agopuntura). Per i problemi dell'andatura di origine ortopedica, che a volte imitano quelli neurologici, lavoriamo insieme al servizio di [ortopedia](/servizi/ortopedia).
+La TC in sede consente di localizzare l'ernia e di pianificare l'intervento nella stessa giornata. Dopo la chirurgia della colonna il recupero richiede settimane di riposo controllato e fisioterapia; il dolore viene gestito con il servizio di [terapia del dolore](/servizi/terapia-del-dolore-agopuntura). Per i problemi dell'andatura di origine ortopedica, che a volte imitano quelli neurologici, lavoriamo insieme al servizio di [ortopedia](/servizi/ortopedia).
 
 ## Il gatto anziano che cammina male: è sempre un problema neurologico?
 

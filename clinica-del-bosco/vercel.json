@@ -39,7 +39,7 @@
     { "source": "/chi-siamo", "destination": "/la-struttura", "permanent": true },
     {
       "source": "/centro-tac-e-animali-esotici",
-      "destination": "/servizi/tac-diagnostica-avanzata",
+      "destination": "/servizi/tc-diagnostica-avanzata",
       "permanent": true
     },
     { "source": "/index.html", "destination": "/", "permanent": true },
@@ -53,9 +53,9 @@
     { "source": "/emergenze", "destination": "/pronto-soccorso", "permanent": true },
     { "source": "/prenotazione", "destination": "/prenota", "permanent": true },
     { "source": "/prenotazioni", "destination": "/prenota", "permanent": true },
-    { "source": "/piani", "destination": "/piani-salute", "permanent": true },
-    { "source": "/abbonamenti", "destination": "/piani-salute", "permanent": true },
-    { "source": "/tac", "destination": "/servizi/tac-diagnostica-avanzata", "permanent": true },
+    { "source": "/piani", "destination": "/servizi/medicina-preventiva-vaccinazioni", "permanent": true },
+    { "source": "/abbonamenti", "destination": "/servizi/medicina-preventiva-vaccinazioni", "permanent": true },
+    { "source": "/tac", "destination": "/servizi/tc-diagnostica-avanzata", "permanent": true },
     {
       "source": "/esotici",
       "destination": "/servizi/animali-esotici",

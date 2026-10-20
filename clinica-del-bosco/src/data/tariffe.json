@@ -33,7 +33,7 @@
         { "prestazione": "Radiografia digitale (per proiezione)", "da": 40, "a": 70 },
         { "prestazione": "Ecografia addominale completa", "da": 80, "a": 140 },
         { "prestazione": "Ecocardiografia", "da": 120, "a": 180 },
-        { "prestazione": "TAC (anestesia e referto inclusi, per distretto)", "da": 450, "a": 900 },
+        { "prestazione": "TC (anestesia e referto inclusi, per distretto)", "da": 450, "a": 900 },
         { "prestazione": "Endoscopia", "da": 350, "a": 700 }
       ]
     },

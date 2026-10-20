@@ -34,7 +34,7 @@ const SINONIMI: Record<string, string[]> = {
   visite: ['visita', 'appuntamento', 'prenotare', 'prenotazione', 'controllo'],
   costi: ['costo', 'prezzo', 'prezzi', 'tariffa', 'tariffe', 'quanto', 'pagare', 'preventivo'],
   chirurgia: ['operazione', 'intervento', 'operare', 'sterilizzazione'],
-  diagnostica: ['tac', 'radiografia', 'lastra', 'ecografia', 'analisi', 'esami', 'endoscopia'],
+  diagnostica: ['tac', 'tc', 'radiografia', 'lastra', 'ecografia', 'analisi', 'esami', 'endoscopia'],
   'piani-salute': ['abbonamento', 'piano', 'prevenzione', 'vaccini', 'vaccinazione'],
   struttura: ['dove', 'indirizzo', 'parcheggio', 'parcheggiare', 'arrivare', 'orari', 'aperto'],
   esotici: ['coniglio', 'furetto', 'criceto', 'tartaruga', 'pappagallo', 'rettile', 'uccello'],
@@ -112,7 +112,7 @@ export const GET: APIRoute = async () => {
     [
       'La struttura',
       '/la-struttura',
-      `Clinica veterinaria a ${clinica.indirizzo.comune}: sale chirurgiche, TAC in sede, terapia intensiva e laboratorio interno.`,
+      `Clinica veterinaria a ${clinica.indirizzo.comune}: sale chirurgiche, TC in sede, terapia intensiva e laboratorio interno.`,
       SINONIMI['struttura'] ?? [],
     ],
     [
@@ -136,7 +136,7 @@ export const GET: APIRoute = async () => {
     [
       'Per i colleghi veterinari',
       '/per-i-colleghi',
-      'Invio di casi in seconda opinione, TAC, endoscopia e chirurgia in service. Il paziente torna sempre al collega.',
+      'Invio di casi in seconda opinione, TC, endoscopia e chirurgia in service. Il paziente torna sempre al collega.',
       ['collega', 'referente', 'secondo parere', 'service', 'invio'],
     ],
     [

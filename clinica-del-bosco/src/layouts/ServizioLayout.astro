@@ -58,7 +58,7 @@ const specieEtichetta: Record<string, string> = {
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 const tipoSchema =
   servizio.data.categoria === 'diagnostica'
-    ? servizio.id.includes('tac') || servizio.id.includes('immagini')
+    ? servizio.id.includes('tc-') || servizio.id.includes('immagini')
       ? 'ImagingTest'
       : 'MedicalTest'
     : 'MedicalProcedure';
@@ -183,7 +183,7 @@ const tipoSchema =
         <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
           <h2 class="font-sans text-lg font-bold">Sei un collega veterinario?</h2>
           <p class="mt-2 text-sm text-testo-secondario">
-            TAC, endoscopia, chirurgia e degenza in service. Il paziente torna sempre a te.
+            TC, endoscopia, chirurgia e degenza in service. Il paziente torna sempre a te.
           </p>
           <a
             href="/per-i-colleghi"

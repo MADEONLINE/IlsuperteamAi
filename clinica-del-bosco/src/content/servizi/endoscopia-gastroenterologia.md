@@ -8,7 +8,7 @@ icona: 'cellula'
 categoria: 'diagnostica'
 ordine: 5
 specie: ['cane', 'gatto']
-correlati: ['laboratorio-analisi', 'chirurgia', 'tac-diagnostica-avanzata']
+correlati: ['laboratorio-analisi', 'chirurgia', 'tc-diagnostica-avanzata']
 medicalSpecialty: 'Gastroenterologic'
 inEvidenza: false
 scattoBrief: '42'
@@ -54,7 +54,7 @@ tabella:
         'Rinoscopia',
         'Cavità nasali e rinofaringe',
         'Starnuti persistenti, scolo nasale da una sola narice, sangue dal naso, sospetta spiga o polipo',
-        'Digiuno 12 ore; spesso abbinata alla TAC nella stessa anestesia',
+        'Digiuno 12 ore; spesso abbinata alla TC nella stessa anestesia',
       ]
     - [
         'Endoscopia delle vie respiratorie superiori',
@@ -95,7 +95,7 @@ dataRevisione: 2026-09-10
 
 L'endoscopia permette di guardare dall'interno esofago, stomaco, intestino, naso e vie respiratorie superiori con una sonda flessibile dotata di telecamera, senza incisioni. Nella stessa seduta si prelevano biopsie, cioè piccoli frammenti di tessuto da esaminare al microscopio, e si rimuovono molti corpi estranei. Per questo è lo strumento centrale della gastroenterologia, la branca che si occupa delle malattie dell'apparato digerente.
 
-Alla Clinica del bosco l'endoscopia è eseguita da specialisti in gastroenterologia che collaborano con la clinica con un calendario programmato: le sedute vengono organizzate raggruppando i casi, così ogni animale arriva già studiato con esami del sangue, ecografia e, quando serve, [TAC](/servizi/tac-diagnostica-avanzata). I casi urgenti, come i corpi estranei, sono gestiti dal [pronto soccorso](/pronto-soccorso) 24 ore su 24. In sede si eseguono gastroscopia, colonscopia, rinoscopia, endoscopia delle vie respiratorie superiori, video-otoscopia, biopsie endoscopiche e rimozione di corpi estranei.
+Alla Clinica del bosco l'endoscopia è eseguita da specialisti in gastroenterologia che collaborano con la clinica con un calendario programmato: le sedute vengono organizzate raggruppando i casi, così ogni animale arriva già studiato con esami del sangue, ecografia e, quando serve, [TC](/servizi/tc-diagnostica-avanzata). I casi urgenti, come i corpi estranei, sono gestiti dal [pronto soccorso](/pronto-soccorso) 24 ore su 24. In sede si eseguono gastroscopia, colonscopia, rinoscopia, endoscopia delle vie respiratorie superiori, video-otoscopia, biopsie endoscopiche e rimozione di corpi estranei.
 
 ## Quando serve una gastroscopia?
 
@@ -108,7 +108,7 @@ Serve quando i sintomi digestivi durano da più di tre settimane o tornano a cic
 - **ingestione di un corpo estraneo**, certa o sospetta;
 - perdita di appetito, salivazione o difficoltà a deglutire nel gatto.
 
-Prima dell'endoscopia si eseguono esami del sangue nel [laboratorio interno](/servizi/laboratorio-analisi), esami delle feci e, di solito, un'ecografia addominale: escludono cause che l'endoscopio non vede, come pancreatite o malattie renali, epatiche e ormonali, e indicano quale tratto esplorare. L'endoscopio vede la mucosa, cioè lo strato più interno; l'ecografia e la TAC vedono lo spessore della parete e gli organi vicini.
+Prima dell'endoscopia si eseguono esami del sangue nel [laboratorio interno](/servizi/laboratorio-analisi), esami delle feci e, di solito, un'ecografia addominale: escludono cause che l'endoscopio non vede, come pancreatite o malattie renali, epatiche e ormonali, e indicano quale tratto esplorare. L'endoscopio vede la mucosa, cioè lo strato più interno; l'ecografia e la TC vedono lo spessore della parete e gli organi vicini.
 
 ## Corpo estraneo: endoscopia o chirurgia?
 

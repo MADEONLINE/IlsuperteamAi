@@ -13,7 +13,7 @@ const gruppi: Array<{ chiave: string; titolo: string; testo: string }> = [
     chiave: 'diagnostica',
     titolo: 'Diagnostica',
     testo:
-      'TAC, radiologia, ecografia specialistica, endoscopia, laboratorio e citologia nella stessa sede.',
+      'TC, radiologia, ecografia specialistica, endoscopia, laboratorio e citologia nella stessa sede.',
   },
   {
     chiave: 'chirurgia',
@@ -44,7 +44,7 @@ const gruppi: Array<{ chiave: string; titolo: string; testo: string }> = [
   },
 ];
 const descrizione =
-  'I servizi della Clinica Veterinaria del bosco a Portici: visite specialistiche, TAC, chirurgia, laboratorio, animali esotici, degenza e pronto soccorso.';
+  'I servizi della Clinica Veterinaria del bosco a Portici: visite specialistiche, TC, chirurgia, laboratorio, animali esotici, degenza e pronto soccorso.';
 ---
 
 <PaginaLayout
@@ -52,7 +52,7 @@ const descrizione =
   descrizione={descrizione}
   percorso="/servizi"
   h1="Tutti i servizi, in un'unica sede"
-  sottotitolo="Dalla visita di routine alla TAC, dalla chirurgia alla terapia intensiva: il tuo animale non deve cambiare struttura per essere curato."
+  sottotitolo="Dalla visita di routine alla TC, dalla chirurgia alla terapia intensiva: il tuo animale non deve cambiare struttura per essere curato."
   etichetta="Servizi"
   briciole={[{ nome: 'Servizi', href: '/servizi' }]}
   jsonLd={[

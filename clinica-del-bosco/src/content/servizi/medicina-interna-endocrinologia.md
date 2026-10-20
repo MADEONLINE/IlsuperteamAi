@@ -32,7 +32,7 @@ faq:
   - domanda: 'Ogni quanto vanno ripetuti gli esami in una malattia cronica?'
     risposta: "Dipende dalla malattia e dalla fase: nelle prime settimane di terapia i controlli sono ravvicinati, ogni una-quattro settimane, per trovare la dose giusta; una volta stabile, ogni tre-sei mesi. Diabete, tiroide, Cushing e reni cambiano con l'età e con altre malattie che si aggiungono, quindi un valore buono oggi non vale per sempre. I controlli programmati rientrano nei Piani Salute Senior."
   - domanda: 'Le malattie ormonali si possono operare?'
-    risposta: "In alcuni casi sì: un tumore del surrene che produce cortisolo, un nodulo tiroideo nel gatto o un tumore del pancreas che produce insulina possono essere rimossi chirurgicamente dopo una stadiazione con ecografia e TAC. Nella maggior parte delle situazioni, però, la terapia è medica e continua nel tempo. La scelta viene discussa con te in base a rischi, benefici ed età dell'animale."
+    risposta: "In alcuni casi sì: un tumore del surrene che produce cortisolo, un nodulo tiroideo nel gatto o un tumore del pancreas che produce insulina possono essere rimossi chirurgicamente dopo una stadiazione con ecografia e TC. Nella maggior parte delle situazioni, però, la terapia è medica e continua nel tempo. La scelta viene discussa con te in base a rischi, benefici ed età dell'animale."
 tabella:
   titolo: 'Le principali malattie interne ed endocrine: segnali, conferma e controlli'
   intestazioni: ['Malattia', 'Segnali tipici a casa', 'Esami di conferma', 'Controlli nel tempo']

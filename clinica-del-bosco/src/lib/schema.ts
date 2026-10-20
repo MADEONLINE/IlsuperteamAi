@@ -190,7 +190,7 @@ export function emergencyService(): JsonLd {
       { '@type': 'MedicalProcedure', name: 'Terapia intensiva e ossigenoterapia' },
       { '@type': 'MedicalProcedure', name: "Chirurgia d'urgenza" },
       { '@type': 'MedicalTest', name: 'Esami di laboratorio in sede' },
-      { '@type': 'ImagingTest', name: 'Radiologia digitale, ecografia, TAC' },
+      { '@type': 'ImagingTest', name: 'Radiologia digitale, ecografia, TC' },
     ],
   };
 }

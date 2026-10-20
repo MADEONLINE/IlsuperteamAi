@@ -23,4 +23,4 @@ ordine: 3
 daValidare: true
 ---
 
-Dott.ssa Isabella Rosapane è socia fondatrice della Clinica Veterinaria del bosco e segue il servizio dedicato agli animali esotici e non convenzionali: conigli, cavie, furetti, piccoli roditori, rettili e uccelli. Il percorso comprende visita, diagnostica (radiologia, ecografia e TAC anche per i pazienti di piccola taglia), chirurgia e degenza in ambienti separati dai cani e dai gatti.
+Dott.ssa Isabella Rosapane è socia fondatrice della Clinica Veterinaria del bosco e segue il servizio dedicato agli animali esotici e non convenzionali: conigli, cavie, furetti, piccoli roditori, rettili e uccelli. Il percorso comprende visita, diagnostica (radiologia, ecografia e TC anche per i pazienti di piccola taglia), chirurgia e degenza in ambienti separati dai cani e dai gatti.

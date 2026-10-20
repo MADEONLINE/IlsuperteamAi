@@ -106,7 +106,7 @@ Perché il liquido che si accumula nell'addome, nel torace o attorno al cuore ha
 
 ## Citologia negli organi interni: quando e come
 
-Quando l'ecografia mostra un'alterazione del fegato, della milza, dei reni o una massa addominale, la citologia ecoguidata permette in molti casi di capirne la natura senza chirurgia. Il prelievo si esegue con una sedazione leggera, dopo aver controllato la coagulazione con gli esami del sangue, e comporta un rischio di sanguinamento basso ma non nullo, di cui ti informiamo. Le indicazioni e i limiti dipendono dall'organo e dal tipo di lesione: alcune masse vanno direttamente alla biopsia o alla chirurgia. Le immagini della [diagnostica per immagini](/servizi/diagnostica-per-immagini) e della TAC vengono integrate nella scelta.
+Quando l'ecografia mostra un'alterazione del fegato, della milza, dei reni o una massa addominale, la citologia ecoguidata permette in molti casi di capirne la natura senza chirurgia. Il prelievo si esegue con una sedazione leggera, dopo aver controllato la coagulazione con gli esami del sangue, e comporta un rischio di sanguinamento basso ma non nullo, di cui ti informiamo. Le indicazioni e i limiti dipendono dall'organo e dal tipo di lesione: alcune masse vanno direttamente alla biopsia o alla chirurgia. Le immagini della [diagnostica per immagini](/servizi/diagnostica-per-immagini) e della TC vengono integrate nella scelta.
 
 ## Quando venire subito
 

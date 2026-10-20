@@ -1,14 +1,14 @@
 ---
 titolo: 'Oncologia veterinaria a Portici: diagnosi, stadiazione, chirurgia e chemioterapia'
 titoloBreve: 'Oncologia'
-descrizioneMeta: 'Oncologia veterinaria a Portici: citologia e biopsia, stadiazione con TAC in sede, chirurgia oncologica e chemioterapia per cani e gatti, con cure di supporto.'
+descrizioneMeta: 'Oncologia veterinaria a Portici: citologia e biopsia, stadiazione con TC in sede, chirurgia oncologica e chemioterapia per cani e gatti, con cure di supporto.'
 sottotitolo: "Un nodulo, una massa, un linfonodo ingrossato: il percorso oncologico serve a capire cos'è, quanto è esteso e quali opzioni esistono, senza fretta e senza promesse."
-risposta: 'Il servizio di oncologia della Clinica Veterinaria del bosco a Portici segue cani, gatti e conigli con tumori: dalla prima citologia alla stadiazione con esami del sangue, ecografia e TAC in sede, fino a chirurgia oncologica, chemioterapia e cure di supporto. Ogni passaggio è discusso con il proprietario, con un piano scritto e obiettivi realistici sulla qualità di vita.'
+risposta: 'Il servizio di oncologia della Clinica Veterinaria del bosco a Portici segue cani, gatti e conigli con tumori: dalla prima citologia alla stadiazione con esami del sangue, ecografia e TC in sede, fino a chirurgia oncologica, chemioterapia e cure di supporto. Ogni passaggio è discusso con il proprietario, con un piano scritto e obiettivi realistici sulla qualità di vita.'
 icona: 'cellula'
 categoria: 'specialistica'
 ordine: 12
 specie: ['cane', 'gatto', 'coniglio']
-correlati: ['chirurgia', 'tac-diagnostica-avanzata']
+correlati: ['chirurgia', 'tc-diagnostica-avanzata']
 medicalSpecialty: 'Oncologic'
 inEvidenza: false
 scattoBrief: '10'
@@ -22,13 +22,13 @@ faq:
   - domanda: 'Quanto vive un cane o un gatto con un tumore?'
     risposta: 'Dipende dal tipo di tumore, dal grado, dallo stadio al momento della diagnosi e dalla risposta alle terapie: alcuni tumori si risolvono con la sola chirurgia, altri si controllano per mesi o anni, altri hanno un decorso rapido. Non facciamo previsioni generiche: dopo citologia, istologia e stadiazione ti presentiamo i dati disponibili per quel tumore specifico, in modo onesto.'
   - domanda: 'Cosa significa stadiazione?'
-    risposta: "La stadiazione è l'insieme di esami che dicono quanto è esteso un tumore: esami del sangue e delle urine, radiografie del torace, ecografia dell'addome, esame dei linfonodi e, quando indicato, TAC. Serve a scegliere la terapia giusta e a evitare interventi che non porterebbero beneficio. Si completa in genere in pochi giorni, con gli esami eseguiti in sede."
+    risposta: "La stadiazione è l'insieme di esami che dicono quanto è esteso un tumore: esami del sangue e delle urine, radiografie del torace, ecografia dell'addome, esame dei linfonodi e, quando indicato, TC. Serve a scegliere la terapia giusta e a evitare interventi che non porterebbero beneficio. Si completa in genere in pochi giorni, con gli esami eseguiti in sede."
   - domanda: 'Devo prendere precauzioni a casa durante la chemioterapia?'
     risposta: 'Sì, semplici e per pochi giorni. I farmaci vengono eliminati con urine e feci per circa 48-72 ore dopo ogni seduta: in quel periodo usa guanti per pulire lettiera o feci, lava separatamente le coperte sporche ed evita il contatto con donne in gravidanza e bambini piccoli. Le compresse chemioterapiche vanno maneggiate con guanti e mai spezzate. Ti consegniamo le istruzioni scritte.'
   - domanda: 'Si può curare un tumore senza chirurgia?'
     risposta: "In alcuni casi sì. Il linfoma, ad esempio, si tratta con la chemioterapia; alcuni tumori cutanei e delle mucose rispondono a terapie locali o farmaci mirati; per i tumori non operabili esistono terapie che rallentano la crescita e controllano il dolore. Quando la chirurgia è l'opzione con maggiore probabilità di controllo, te lo diciamo; quando non lo è, discutiamo le alternative con te."
   - domanda: 'Il tumore del mio gatto è un sarcoma da iniezione: cosa fare?'
-    risposta: "Il sarcoma felino nel sito di iniezione è un tumore aggressivo localmente, che richiede una stadiazione con TAC per definire l'estensione reale, spesso maggiore di quella visibile, e una chirurgia con margini ampi pianificata sulle immagini. La prognosi migliora quando il primo intervento è quello definitivo. In alcuni casi si associano radioterapia, presso centri di riferimento, o chemioterapia."
+    risposta: "Il sarcoma felino nel sito di iniezione è un tumore aggressivo localmente, che richiede una stadiazione con TC per definire l'estensione reale, spesso maggiore di quella visibile, e una chirurgia con margini ampi pianificata sulle immagini. La prognosi migliora quando il primo intervento è quello definitivo. In alcuni casi si associano radioterapia, presso centri di riferimento, o chemioterapia."
 tabella:
   titolo: 'Il percorso oncologico: tappe e tempi indicativi'
   intestazioni: ['Tappa', 'Cosa si fa', 'Tempi indicativi', 'Sedazione']
@@ -47,9 +47,9 @@ tabella:
       ]
     - [
         'Stadiazione',
-        "Radiografie del torace, ecografia dell'addome, TAC quando indicata",
+        "Radiografie del torace, ecografia dell'addome, TC quando indicata",
         '1-5 giorni',
-        'Per la TAC sì',
+        'Per la TC sì',
       ]
     - [
         'Biopsia e istologia',
@@ -93,7 +93,7 @@ dataRevisione: 2026-09-10
 
 ## Cosa fa il servizio di oncologia
 
-L'oncologia veterinaria si occupa della diagnosi e del trattamento dei tumori in cani, gatti e conigli. Alla Clinica del bosco il servizio copre l'intero percorso nella stessa sede: citologia e biopsia, esami del [laboratorio interno](/servizi/laboratorio-analisi), stadiazione con ecografia e [TAC](/servizi/tac-diagnostica-avanzata), [chirurgia oncologica](/servizi/chirurgia), chemioterapia e cure di supporto. Per i trattamenti non disponibili in clinica, come la radioterapia, indirizziamo verso centri di riferimento e manteniamo la regia del caso.
+L'oncologia veterinaria si occupa della diagnosi e del trattamento dei tumori in cani, gatti e conigli. Alla Clinica del bosco il servizio copre l'intero percorso nella stessa sede: citologia e biopsia, esami del [laboratorio interno](/servizi/laboratorio-analisi), stadiazione con ecografia e [TC](/servizi/tc-diagnostica-avanzata), [chirurgia oncologica](/servizi/chirurgia), chemioterapia e cure di supporto. Per i trattamenti non disponibili in clinica, come la radioterapia, indirizziamo verso centri di riferimento e manteniamo la regia del caso.
 
 Il principio che guida ogni decisione è la qualità di vita dell'animale. In oncologia veterinaria l'obiettivo non è sempre la guarigione: spesso è il controllo della malattia per il tempo più lungo possibile, senza sofferenza. Te lo diciamo dall'inizio, con i dati disponibili per quel tipo di tumore, e decidiamo insieme fin dove spingere le cure.
 
@@ -101,7 +101,7 @@ Il principio che guida ogni decisione è la qualità di vita dell'animale. In on
 
 1. **Prima visita.** Esame clinico completo, palpazione dei linfonodi, raccolta della storia. Puoi [prenotare](/prenota) online o al telefono, portando referti e immagini precedenti.
 2. **Citologia.** Prelievo con ago sottile dal nodulo o dal linfonodo, senza sedazione nella maggior parte dei casi; lettura in sede o invio al laboratorio. Il servizio è descritto nella pagina [citologia](/servizi/citologia).
-3. **Stadiazione.** Esami del sangue e delle urine, radiografie del torace, ecografia dell'addome e, quando indicato, TAC. Serve a sapere se il tumore è localizzato o diffuso.
+3. **Stadiazione.** Esami del sangue e delle urine, radiografie del torace, ecografia dell'addome e, quando indicato, TC. Serve a sapere se il tumore è localizzato o diffuso.
 4. **Istologia.** Biopsia, o esame del pezzo asportato, per definire tipo e grado del tumore e la completezza dei margini.
 5. **Piano terapeutico e preventivo.** Chirurgia, chemioterapia, terapie locali, cure di supporto o un'associazione di queste. Ricevi un piano scritto con obiettivi, tempi ed effetti attesi.
 6. **Trattamento e controlli.** Sedute, esami e visite a scadenze concordate; il piano viene rivisto a ogni tappa in base alla risposta e al benessere dell'animale.
@@ -116,7 +116,7 @@ La citologia con ago sottile risolve il dubbio nella maggior parte dei casi in p
 
 Stadiare significa misurare l'estensione della malattia: quanto è grande il tumore, se ha invaso i linfonodi, se ci sono metastasi in polmoni, fegato, milza o ossa. Le risposte cambiano le decisioni. Un tumore localizzato può essere asportato con intento curativo; un tumore già diffuso richiede terapie sistemiche o cure di supporto, e una chirurgia ampia non porterebbe beneficio.
 
-La stadiazione si completa in genere in pochi giorni con esami eseguiti in sede. La TAC è indicata per i tumori del naso, della bocca, del torace, per le masse addominali e per i sarcomi degli arti e del tronco, perché mostra l'estensione reale, spesso maggiore di quella visibile, e permette di pianificare i margini chirurgici.
+La stadiazione si completa in genere in pochi giorni con esami eseguiti in sede. La TC è indicata per i tumori del naso, della bocca, del torace, per le masse addominali e per i sarcomi degli arti e del tronco, perché mostra l'estensione reale, spesso maggiore di quella visibile, e permette di pianificare i margini chirurgici.
 
 ## Come funziona la chemioterapia negli animali?
 
@@ -126,7 +126,7 @@ Le sedute avvengono in clinica, in vena, di norma senza sedazione, con un esame 
 
 ## Chirurgia oncologica: perché il primo intervento conta
 
-Nei tumori solidi la chirurgia è spesso la terapia con maggiore probabilità di controllo, e la qualità del primo intervento incide sull'esito: asportare un tumore con margini insufficienti significa spesso una recidiva più difficile da trattare. Per questo, prima di operare, eseguiamo citologia o biopsia e, quando serve, la TAC, e pianifichiamo l'asportazione e l'eventuale ricostruzione. Il pezzo viene sempre inviato all'istologia, che conferma la diagnosi, il grado e la completezza dei margini e orienta le terapie successive.
+Nei tumori solidi la chirurgia è spesso la terapia con maggiore probabilità di controllo, e la qualità del primo intervento incide sull'esito: asportare un tumore con margini insufficienti significa spesso una recidiva più difficile da trattare. Per questo, prima di operare, eseguiamo citologia o biopsia e, quando serve, la TC, e pianifichiamo l'asportazione e l'eventuale ricostruzione. Il pezzo viene sempre inviato all'istologia, che conferma la diagnosi, il grado e la completezza dei margini e orienta le terapie successive.
 
 ## Cure di supporto e fine vita
 

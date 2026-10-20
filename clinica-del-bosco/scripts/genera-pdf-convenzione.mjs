@@ -48,7 +48,7 @@ const html = `<!doctype html><html lang="it"><head><meta charset="utf-8"><style>
 <div class="campi">${campo('Denominazione ambulatorio / clinica', '62%')}${campo('Partita IVA', '34%')}${campo('Indirizzo', '62%')}${campo('Comune e CAP', '34%')}${campo('Medico veterinario referente', '48%')}${campo('N. iscrizione Ordine e provincia', '48%')}${campo('Telefono diretto', '30%')}${campo('Email per referti', '34%')}${campo('PEC', '32%')}</div>
 
 <h2>2. Prestazioni di interesse</h2>
-<div><span class="check"></span>TAC &nbsp; <span class="check"></span>Endoscopia &nbsp; <span class="check"></span>Chirurgia in service &nbsp; <span class="check"></span>Degenza / terapia intensiva &nbsp; <span class="check"></span>Ecocardiografia &nbsp; <span class="check"></span>Consulenze specialistiche</div>
+<div><span class="check"></span>TC &nbsp; <span class="check"></span>Endoscopia &nbsp; <span class="check"></span>Chirurgia in service &nbsp; <span class="check"></span>Degenza / terapia intensiva &nbsp; <span class="check"></span>Ecocardiografia &nbsp; <span class="check"></span>Consulenze specialistiche</div>
 <div class="campi" style="margin-top:3mm">${campo('Volume indicativo di casi al mese', '48%')}${campo('Software gestionale / PACS in uso', '48%')}</div>
 
 <h2>3. Impegni della ${clinica.nome}</h2>
@@ -111,7 +111,7 @@ const scheda = html
 <h2>2. Paziente</h2>
 <div class="campi">${campo('Nome', '30%')}${campo('Specie e razza', '34%')}${campo('Età · sesso · peso', '32%')}${campo('Proprietario (nome e telefono)', '62%')}${campo('Microchip', '34%')}</div>
 <h2>3. Prestazione richiesta</h2>
-<div><span class="check"></span>TAC &nbsp; <span class="check"></span>Endoscopia &nbsp; <span class="check"></span>Chirurgia &nbsp; <span class="check"></span>Degenza / terapia intensiva &nbsp; <span class="check"></span>Ecocardiografia &nbsp; <span class="check"></span>Consulenza</div>
+<div><span class="check"></span>TC &nbsp; <span class="check"></span>Endoscopia &nbsp; <span class="check"></span>Chirurgia &nbsp; <span class="check"></span>Degenza / terapia intensiva &nbsp; <span class="check"></span>Ecocardiografia &nbsp; <span class="check"></span>Consulenza</div>
 <div class="campi" style="margin-top:3mm">${campo('Urgenza: programmabile (7 gg) · prioritaria (48 h) · urgente (oggi: chiamare)', '100%')}</div>
 <h2>4. Quesito clinico e anamnesi essenziale</h2>
 <div class="box" style="height:40mm"></div>

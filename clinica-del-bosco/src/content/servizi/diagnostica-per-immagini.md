@@ -3,12 +3,12 @@ titolo: 'Diagnostica per immagini veterinaria a Portici: radiologia digitale, ec
 titoloBreve: 'Diagnostica per immagini'
 descrizioneMeta: 'Diagnostica per immagini veterinaria a Portici: radiografie digitali, ecografia addominale, ecocardiografia ed endoscopia in sede per cani, gatti e conigli.'
 sottotitolo: 'Radiografie, ecografia addominale e cardiologica, endoscopia: gli esami che permettono di vedere dentro il tuo animale, spesso nella stessa giornata della visita.'
-risposta: 'Alla Clinica Veterinaria del bosco di Portici la diagnostica per immagini comprende radiologia digitale, ecografia addominale e cardiologica (ecocardiografia) ed endoscopia, tutte eseguite in sede per cani, gatti e animali esotici. Gli esami sono disponibili anche in urgenza e si integrano con TAC e laboratorio interno, così la diagnosi arriva spesso nella stessa giornata della visita.'
+risposta: 'Alla Clinica Veterinaria del bosco di Portici la diagnostica per immagini comprende radiologia digitale, ecografia addominale e cardiologica (ecocardiografia) ed endoscopia, tutte eseguite in sede per cani, gatti e animali esotici. Gli esami sono disponibili anche in urgenza e si integrano con TC e laboratorio interno, così la diagnosi arriva spesso nella stessa giornata della visita.'
 icona: 'radiografia'
 categoria: 'diagnostica'
 ordine: 4
 specie: ['cane', 'gatto', 'coniglio', 'esotici']
-correlati: ['tac-diagnostica-avanzata', 'laboratorio-analisi']
+correlati: ['tc-diagnostica-avanzata', 'laboratorio-analisi']
 medicalSpecialty: 'Radiography'
 inEvidenza: false
 scattoBrief: '05'
@@ -101,7 +101,7 @@ La diagnostica per immagini raggruppa gli esami che permettono di osservare orga
 - **Ecocardiografia**: l'ecografia del cuore, con misurazione delle camere e studio delle valvole e dei flussi.
 - **Endoscopia**: esplorazione di apparato digerente, cavità nasali e vie respiratorie con telecamera, per biopsie e rimozione di corpi estranei.
 
-Quando il quesito richiede immagini tridimensionali, il percorso prosegue con la [TAC in sede](/servizi/tac-diagnostica-avanzata). I risultati si integrano con quelli del [laboratorio interno](/servizi/laboratorio-analisi): nella maggior parte dei casi la diagnosi si completa nella stessa giornata.
+Quando il quesito richiede immagini tridimensionali, il percorso prosegue con la [TC in sede](/servizi/tc-diagnostica-avanzata). I risultati si integrano con quelli del [laboratorio interno](/servizi/laboratorio-analisi): nella maggior parte dei casi la diagnosi si completa nella stessa giornata.
 
 ## Come si svolge l'esame
 

@@ -24,7 +24,7 @@ faq:
   - domanda: 'Il mio gatto ha chiazze senza pelo: è tigna? È contagiosa?'
     risposta: "Può essere dermatofitosi, cioè la tigna, un'infezione da funghi frequente nei gattini e nei gatti provenienti da colonie, ma anche alopecia da leccamento, acari o allergia. La diagnosi si fa con lampada di Wood, tricogramma e coltura fungina, con risposta in una-tre settimane. La tigna è contagiosa per persone e altri animali: fino alla diagnosi limita i contatti e lava le mani dopo averlo toccato."
   - domanda: 'Le otiti ricorrenti da cosa dipendono?'
-    risposta: "Un'otite che torna ogni volta che si sospende la terapia ha quasi sempre una causa di fondo: un'allergia, una conformazione del canale auricolare che trattiene umidità, acari, un corpo estraneo, un polipo o una massa. Trattare solo l'infezione non basta. La visita dermatologica cerca la causa con otoscopia, citologia del cerume e, nei casi cronici, endoscopia dell'orecchio o TAC."
+    risposta: "Un'otite che torna ogni volta che si sospende la terapia ha quasi sempre una causa di fondo: un'allergia, una conformazione del canale auricolare che trattiene umidità, acari, un corpo estraneo, un polipo o una massa. Trattare solo l'infezione non basta. La visita dermatologica cerca la causa con otoscopia, citologia del cerume e, nei casi cronici, endoscopia dell'orecchio o TC."
   - domanda: 'Quanto tempo serve per avere una diagnosi?'
     risposta: 'Per parassiti e infezioni la risposta arriva spesso in visita, con raschiato e citologia letti al microscopio. Le colture fungine richiedono una-tre settimane, le biopsie una-due. Le allergie richiedono più tempo: la dieta a eliminazione dura almeno otto settimane e la diagnosi di dermatite atopica si fa escludendo le altre cause. Ti spieghiamo i tempi prima di iniziare ogni tappa.'
   - domanda: "Le malattie della pelle del cane si trasmettono all'uomo?"
@@ -126,7 +126,7 @@ L'allergia alimentare si diagnostica solo con la dieta a eliminazione di almeno 
 
 Perché l'otite è quasi sempre il sintomo di qualcos'altro. Nel cane con otiti che si ripresentano ogni volta che finisce la terapia, la causa di fondo è spesso un'allergia; nel gatto, più spesso acari, polipi o masse. Contribuiscono la conformazione dell'orecchio, l'umidità dopo i bagni, i corpi estranei come le spighe in estate.
 
-La visita cerca la causa con otoscopia e citologia del cerume, che distingue batteri e lieviti e guida la scelta del prodotto. Nelle otiti croniche con canale ristretto o timpano non visibile si ricorre a lavaggi in sedazione, endoscopia dell'orecchio e, quando serve, [TAC](/servizi/tac-diagnostica-avanzata) per valutare l'orecchio medio. Trattare la causa è l'unico modo per interrompere le ricadute.
+La visita cerca la causa con otoscopia e citologia del cerume, che distingue batteri e lieviti e guida la scelta del prodotto. Nelle otiti croniche con canale ristretto o timpano non visibile si ricorre a lavaggi in sedazione, endoscopia dell'orecchio e, quando serve, [TC](/servizi/tc-diagnostica-avanzata) per valutare l'orecchio medio. Trattare la causa è l'unico modo per interrompere le ricadute.
 
 ## Animali esotici: la pelle come segnale
 
