@@ -2,8 +2,8 @@
 titolo: 'Chirurgia veterinaria a Portici'
 titoloBreve: 'Chirurgia'
 descrizioneMeta: 'Chirurgia per cani, gatti e animali esotici a Portici: sterilizzazioni, tessuti molli, tumori, ortopedia. Due sale operatorie e ricovero in sede.'
-sottotitolo: 'Due sale chirurgiche con attrezzature avanzate e monitoraggio anestesiologico, laser chirurgico e ricovero nella stessa sede.'
-risposta: 'La Clinica Veterinaria del bosco opera cani, gatti e animali esotici in due sale chirurgiche, a Portici. Facciamo sterilizzazioni, interventi sui tessuti molli, chirurgia dei tumori, chirurgia ricostruttiva e ortopedia, anche con il laser chirurgico. Prima di ogni intervento ricevi un preventivo scritto. Dopo, il tuo animale resta in osservazione nella stessa sede.'
+sottotitolo: 'Due sale chirurgiche con attrezzature avanzate e monitoraggio anestesiologico e ricovero nella stessa sede.'
+risposta: 'La Clinica Veterinaria del bosco opera cani, gatti e animali esotici in due sale chirurgiche, a Portici. Facciamo sterilizzazioni, interventi sui tessuti molli, chirurgia dei tumori, chirurgia ricostruttiva e ortopedia. Prima di ogni intervento ricevi un preventivo scritto. Dopo, il tuo animale resta in osservazione nella stessa sede.'
 icona: 'bisturi'
 categoria: 'chirurgia'
 ordine: 2
