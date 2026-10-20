@@ -43,5 +43,14 @@ h = re.sub(
     lambda m: '<script type="module">' + js(m.group(1)) + '</script>',
     h,
 )
+# Chi ospita il file (anteprima Claude, import su Netlify) può avvolgerlo in un proprio <body>
+# con font e sfondo fissi: questa regola fuori dai layer di Tailwind ripristina quelli della clinica.
+h = h.replace(
+    '</head>',
+    '<style>html body{margin:0;background-color:var(--sfondo);color:var(--testo);'
+    'font-family:var(--font-sans);font-size:var(--text-base);'
+    'line-height:var(--text-base--line-height)}</style></head>',
+    1,
+)
 assert not re.search(r'(?:href|src)="/', h), 'restano riferimenti a file esterni'
 open(uscita, 'w').write(h)
