@@ -53,8 +53,16 @@
     { "source": "/emergenze", "destination": "/pronto-soccorso", "permanent": true },
     { "source": "/prenotazione", "destination": "/prenota", "permanent": true },
     { "source": "/prenotazioni", "destination": "/prenota", "permanent": true },
-    { "source": "/piani", "destination": "/servizi/medicina-preventiva-vaccinazioni", "permanent": true },
-    { "source": "/abbonamenti", "destination": "/servizi/medicina-preventiva-vaccinazioni", "permanent": true },
+    {
+      "source": "/piani",
+      "destination": "/servizi/medicina-preventiva-vaccinazioni",
+      "permanent": true
+    },
+    {
+      "source": "/abbonamenti",
+      "destination": "/servizi/medicina-preventiva-vaccinazioni",
+      "permanent": true
+    },
     { "source": "/tac", "destination": "/servizi/tc-diagnostica-avanzata", "permanent": true },
     {
       "source": "/esotici",
