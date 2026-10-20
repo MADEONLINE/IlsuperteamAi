@@ -1,0 +1,114 @@
+---
+/**
+ * Layout della bozza indipendente dei Piani Salute: pubblicata su un progetto Netlify separato,
+ * senza collegamenti al sito della clinica e mai indicizzata (noindex + robots.txt con Disallow).
+ * Niente canonical, Open Graph, JSON-LD, analytics o navigazione del sito principale.
+ */
+import Marchio from '@ui/Marchio.astro';
+import Logo from '@ui/Logo.astro';
+import Etichetta from '@ui/Etichetta.astro';
+import { clinica, emailPrincipale, indirizzoRiga, telHref } from '@lib/clinica';
+import '@/styles/global.css';
+
+interface Props {
+  titolo: string;
+  descrizione: string;
+  h1: string;
+  sottotitolo?: string;
+  etichetta?: string;
+}
+const { titolo, descrizione, h1, sottotitolo, etichetta } = Astro.props;
+---
+
+<!doctype html>
+<html lang="it" class="js-pending">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{titolo}</title>
+    <meta name="description" content={descrizione} />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#0c4e58" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1714" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link
+      rel="preload"
+      href="/fonts/fraunces-latin-wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/inter-latin-wght.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script is:inline>
+      (function () {
+        const r = document.documentElement;
+        r.classList.replace('js-pending', 'js');
+        try {
+          const t = localStorage.getItem('tema');
+          if (t === 'dark' || t === 'light') r.dataset.theme = t;
+        } catch {
+          /* storage non disponibile */
+        }
+      })();
+    </script>
+  </head>
+  <body class="antialiased">
+    <Marchio />
+    <a href="#contenuto" class="skip-link">Vai al contenuto</a>
+    <div class="border-b border-bordo bg-sfondo">
+      <div class="contenitore flex items-center justify-between gap-4 py-4">
+        <span role="img" aria-label={clinica.nome}><Logo class="h-10" /></span>
+        <Etichetta>Bozza di progetto</Etichetta>
+      </div>
+    </div>
+    <main id="contenuto" tabindex="-1" class="flex-1 outline-none">
+      <header class="trama-bosco relative overflow-hidden bg-sfondo-tinta py-12 md:py-20">
+        <svg
+          class="pointer-events-none absolute -right-16 -top-10 hidden h-[130%] w-auto opacity-[0.07] md:block"
+          viewBox="0 0 200 240"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.2"
+          aria-hidden="true"
+        >
+          <path d="M100 236V40" />
+          {[0, 1, 2, 3, 4, 5, 6].map((k) => (
+            <>
+              <path d={`M100 ${60 + k * 26}c-26-4-52-20-66-46`} />
+              <path d={`M100 ${60 + k * 26}c26-4 52-20 66-46`} />
+            </>
+          ))}
+        </svg>
+        <div class="contenitore relative">
+          {etichetta && <Etichetta tono="primario" class="mb-2">{etichetta}</Etichetta>}
+          <h1 class="entra max-w-4xl text-4xl tracking-tight md:text-6xl" style="--i:1">{h1}</h1>
+          {sottotitolo && (
+            <p style="--i:2" class="entra prosa mt-5 text-lg text-testo-secondario md:text-xl">
+              {sottotitolo}
+            </p>
+          )}
+        </div>
+      </header>
+      <slot />
+    </main>
+    <footer class="zona-scura bg-sfondo py-10 text-sm">
+      <div class="contenitore flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+        <p class="font-semibold">{clinica.nome}</p>
+        <p>{indirizzoRiga}</p>
+        <p>
+          <a href={telHref} class="font-semibold underline">{clinica.contatti.telefono.visualizzato}</a>
+          {' · '}
+          <a href={`mailto:${emailPrincipale}`} class="underline">{emailPrincipale}</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

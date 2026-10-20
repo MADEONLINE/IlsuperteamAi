@@ -1,0 +1,177 @@
+---
+/**
+ * Calcolatore "quanto risparmi in un anno": confronta il prezzo del piano con la somma dei
+ * valori indicativi delle prestazioni incluse. Isola leggera, vanilla TS, dati da piani-salute.json.
+ * Nota metodologica onesta sotto al risultato. Senza JS mostra la tabella statica.
+ */
+import piani from '@dati/piani-salute.json';
+const dati = piani.piani.map((p) => ({
+  id: p.id,
+  nome: p.nome,
+  prezzo: p.prezzoAnnuo,
+  voci: p.include.map((v) => ({ voce: v.voce, valore: v.valoreIndicativo })),
+}));
+const euro = (n: number) =>
+  n.toLocaleString('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+---
+
+<section
+  class="calcolatore rounded-card border border-bordo bg-sfondo-rialzato p-6 md:p-8"
+  aria-labelledby="calc-titolo"
+  data-piani={JSON.stringify(dati)}
+>
+  <h2 id="calc-titolo" class="text-2xl md:text-3xl">
+    Quanto vale davvero un piano?
+  </h2>
+  <p class="mt-2 text-testo-secondario">
+    Seleziona un piano e togli le prestazioni che non ti servono: il confronto si aggiorna.
+  </p>
+
+  <div class="mt-6 grid gap-6 lg:grid-cols-12">
+    <div class="lg:col-span-7">
+      <label for="calc-piano" class="block font-semibold">
+        Piano
+      </label>
+      <select
+        id="calc-piano"
+        class="mt-1 block w-full rounded-xl border-2 border-bordo-forte bg-sfondo-rialzato px-3 py-2"
+      >
+        {dati.map((p) => (
+          <option value={p.id} selected={p.id === 'adulto'}>
+            {p.nome}
+          </option>
+        ))}
+      </select>
+      <fieldset class="mt-4">
+        <legend class="font-semibold">Prestazioni che useresti comunque</legend>
+        <ul class="calc-voci mt-2 space-y-2 text-sm"></ul>
+      </fieldset>
+    </div>
+    <div class="lg:col-span-5">
+      <dl class="space-y-3 rounded-card bg-sfondo-tinta p-5 tabular-nums">
+        <div class="flex justify-between gap-4">
+          <dt>Valore indicativo delle prestazioni selezionate</dt>
+          <dd class="calc-valore font-semibold">—</dd>
+        </div>
+        <div class="flex justify-between gap-4">
+          <dt>Prezzo del piano</dt>
+          <dd class="calc-prezzo font-semibold">—</dd>
+        </div>
+        <div class="flex justify-between gap-4 border-t border-bordo pt-3 text-lg">
+          <dt class="font-bold">Differenza in un anno</dt>
+          <dd class="calc-differenza font-display text-2xl font-bold">—</dd>
+        </div>
+      </dl>
+      <p class="calc-commento mt-3 text-sm text-testo-secondario"></p>
+    </div>
+  </div>
+
+  <noscript>
+    <div
+      class="mt-6 overflow-x-auto"
+      tabindex="0"
+      role="region"
+      aria-label="Valore indicativo per piano (tabella scorrevole)"
+    >
+      <table class="text-sm">
+        <caption class="text-left font-semibold">
+          Valore indicativo delle prestazioni incluse, per piano
+        </caption>
+        <thead>
+          <tr>
+            <th>Piano</th>
+            <th>Prezzo annuo</th>
+            <th>Valore indicativo prestazioni</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dati.map((p) => (
+            <tr>
+              <th scope="row">{p.nome}</th>
+              <td>{euro(p.prezzo)}</td>
+              <td>{euro(p.voci.reduce((s, v) => s + v.valore, 0))}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </noscript>
+
+  <details class="mt-6 text-sm text-testo-secondario">
+    <summary class="cursor-pointer font-semibold text-testo">
+      Come calcoliamo questo confronto
+    </summary>
+    <p class="mt-2">
+      I "valori indicativi" sono gli onorari medi che la clinica applica alle stesse prestazioni
+      acquistate singolarmente, arrotondati. Non includono le riduzioni percentuali su prestazioni
+      extra, che dipendono da quanto le userai. Il confronto non è una promessa di risparmio: il
+      valore del piano sta nel calendario che non si dimentica, non nello sconto.
+    </p>
+  </details>
+</section>
+
+<script>
+  import { traccia } from '@lib/analytics';
+  type Piano = {
+    id: string;
+    nome: string;
+    prezzo: number;
+    voci: { voce: string; valore: number }[];
+  };
+  const euro = (n: number) =>
+    n.toLocaleString('it-IT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+
+  function inizializza() {
+    const radice = document.querySelector<HTMLElement>('.calcolatore');
+    if (!radice || radice.dataset['pronto']) return;
+    radice.dataset['pronto'] = '1';
+    const piani = JSON.parse(radice.dataset['piani'] ?? '[]') as Piano[];
+    const select = radice.querySelector<HTMLSelectElement>('#calc-piano')!;
+    const lista = radice.querySelector<HTMLUListElement>('.calc-voci')!;
+    const out = {
+      valore: radice.querySelector<HTMLElement>('.calc-valore')!,
+      prezzo: radice.querySelector<HTMLElement>('.calc-prezzo')!,
+      differenza: radice.querySelector<HTMLElement>('.calc-differenza')!,
+      commento: radice.querySelector<HTMLElement>('.calc-commento')!,
+    };
+
+    const calcola = () => {
+      const piano = piani.find((p) => p.id === select.value);
+      if (!piano) return;
+      const selezionate = [...lista.querySelectorAll<HTMLInputElement>('input:checked')].map((i) =>
+        Number(i.value),
+      );
+      const valore = selezionate.reduce((s, v) => s + v, 0);
+      const diff = valore - piano.prezzo;
+      out.valore.textContent = euro(valore);
+      out.prezzo.textContent = euro(piano.prezzo);
+      out.differenza.textContent = (diff >= 0 ? '−' : '+') + euro(Math.abs(diff)).replace('-', '');
+      out.differenza.classList.toggle('text-successo', diff >= 0);
+      out.commento.textContent =
+        diff >= 0
+          ? `Con il piano ${piano.nome} spendi ${euro(Math.abs(diff))} in meno rispetto alle stesse prestazioni prese una per una, e hai un calendario che ti ricorda ogni scadenza.`
+          : `Se userai davvero solo queste prestazioni, il piano ${piano.nome} costa ${euro(Math.abs(diff))} in più: in quel caso ha senso sceglierlo solo per la comodità del calendario e delle riduzioni sugli extra.`;
+    };
+
+    const disegna = () => {
+      const piano = piani.find((p) => p.id === select.value);
+      if (!piano) return;
+      lista.innerHTML = '';
+      piano.voci
+        .filter((v) => v.valore > 0)
+        .forEach((v, i) => {
+          const li = document.createElement('li');
+          const id = `calc-voce-${i}`;
+          li.innerHTML = `<label class="flex items-start gap-2"><input type="checkbox" id="${id}" value="${v.valore}" checked class="mt-1 size-4 accent-[var(--primario)]"><span class="flex-1">${v.voce}</span><span class="tabular-nums text-testo-secondario">${euro(v.valore)}</span></label>`;
+          lista.appendChild(li);
+        });
+      calcola();
+      traccia('piano_salute_scelto', { piano: piano.id, contesto: 'calcolatore' });
+    };
+    select.addEventListener('change', disegna);
+    lista.addEventListener('change', calcola);
+    disegna();
+  }
+  inizializza();
+  document.addEventListener('astro:page-load', inizializza);
+</script>
