@@ -24,8 +24,13 @@ const icona = servizio.data.icona as NomeIcona;
     <span class="badge-icona size-11 shrink-0">
       <Icona nome={icona} duo class="size-6" />
     </span>
-    <span class="font-sans text-base font-bold text-testo group-hover:text-primario-link">
-      {servizio.data.titoloBreve}
+    <span class="min-w-0">
+      <span class="block font-sans text-base font-bold text-testo group-hover:text-primario-link">
+        {servizio.data.titoloBreve}
+      </span>
+      <span class="block text-xs font-semibold text-primario-link">
+        Leggi: {servizio.data.titoloBreve.toLowerCase()}
+      </span>
     </span>
     <Icona
       nome="freccia-destra"

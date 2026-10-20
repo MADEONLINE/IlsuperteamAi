@@ -1,5 +1,6 @@
 ---
 import { hrefServizio } from '@lib/servizi';
+import { iniziali } from '@lib/iniziali';
 import { getCollection, render } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Badge from '@ui/Badge.astro';
@@ -55,6 +56,8 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
           ratio="4/5"
           scattoBrief={medico.data.scattoBrief}
           descrizioneSegnaposto={`Ritratto di ${nome}`}
+          monogramma={iniziali(medico.data.nome)}
+          class="rounded-[1.75rem] ombra-morbida"
         />
         <dl class="mt-6 space-y-3 text-sm">
           {medico.data.numeroOrdine && medico.data.provinciaOrdine && (

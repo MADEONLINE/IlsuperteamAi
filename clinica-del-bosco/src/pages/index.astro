@@ -9,7 +9,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Bottone from '@ui/Bottone.astro';
 import CardServizio from '@ui/CardServizio.astro';
-import Icona from '@ui/Icona.astro';
+import Icona, { type NomeIcona } from '@ui/Icona.astro';
 import Etichetta from '@ui/Etichetta.astro';
 import Foto from '@ui/Foto.astro';
 import Sezione from '@ui/Sezione.astro';
@@ -372,7 +372,7 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
                   class="inline-flex min-h-12 items-center gap-2 whitespace-nowrap rounded-pill border border-bordo bg-sfondo-rialzato py-1.5 pl-1.5 pr-5 text-sm font-semibold no-underline transition hover:border-primario hover:text-primario-link"
                 >
                   <span class="badge-icona size-9 rounded-full">
-                    <Icona nome={s.data.icona as any} duo class="size-5" />
+                    <Icona nome={s.data.icona as NomeIcona} duo class="size-5" />
                   </span>
                   {s.data.titoloBreve}
                 </a>
@@ -415,7 +415,7 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
           ].map(([icona, t]) => (
             <li class="flex items-start gap-3">
               <span class="badge-icona size-9 shrink-0 rounded-xl">
-                <Icona nome={icona as any} duo class="size-5" />
+                <Icona nome={icona as NomeIcona} duo class="size-5" />
               </span>
               <span class="pt-1.5">{t}</span>
             </li>

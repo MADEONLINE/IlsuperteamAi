@@ -1,6 +1,7 @@
 ---
 /** I nostri medici: soci, medici della clinica e collaboratori esterni, con aree seguite e presenza. */
 import { getCollection } from 'astro:content';
+import { iniziali } from '@lib/iniziali';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Badge from '@ui/Badge.astro';
 import Dato from '@ui/Dato.astro';
@@ -72,13 +73,14 @@ const descrizione =
               <li>
                 <a
                   href={`/equipe/${m.id}`}
-                  class="group flex h-full flex-col rounded-card border border-bordo bg-sfondo-rialzato p-4 no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario"
+                  class="zoom-foto group flex h-full flex-col rounded-[1.4rem] border border-bordo bg-sfondo-rialzato p-4 no-underline ombra-morbida transition duration-500 ease-morbido hover:-translate-y-1 hover:border-primario/60"
                 >
                   {g.tipo === 'socio' && (
                     <Foto
                       ratio="4/5"
                       scattoBrief={m.data.scattoBrief}
                       descrizioneSegnaposto={`Ritratto di ${m.data.titolo} ${m.data.nome}`}
+                      monogramma={iniziali(m.data.nome)}
                     />
                   )}
                   <h3 class="mt-4 font-sans text-lg font-bold text-testo">

@@ -13,7 +13,7 @@ import CtaDoppia from '@ui/CtaDoppia.astro';
 import Etichetta from '@ui/Etichetta.astro';
 import Fonti from '@ui/Fonti.astro';
 import Foto from '@ui/Foto.astro';
-import Icona from '@ui/Icona.astro';
+import Icona, { type NomeIcona } from '@ui/Icona.astro';
 import Referenti from '@ui/Referenti.astro';
 import SchedaAutore from '@ui/SchedaAutore.astro';
 import Sezione from '@ui/Sezione.astro';
@@ -94,7 +94,7 @@ const tipoSchema =
         <Briciole briciole={briciole} class="entra mb-6" />
         <div class="entra mb-4 flex items-center gap-3" style="--i:1">
           <span class="badge-icona size-12 rounded-2xl">
-            <Icona nome={servizio.data.icona as any} duo class="size-7" />
+            <Icona nome={servizio.data.icona as NomeIcona} duo class="size-7" />
           </span>
           <Etichetta>{categorie[servizio.data.categoria]}</Etichetta>
         </div>
