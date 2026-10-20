@@ -5,7 +5,7 @@
  *   riceve l'invio e reindirizza alla pagina di ringraziamento (attributo action).
  * - Con JavaScript: un passo alla volta, barra di avanzamento, validazione inline gentile,
  *   stato salvato in sessionStorage, deviazione "è un'urgenza" verso la chiamata,
- *   precompilazione da query string (?motivo=…&piano=…&specie=…).
+ *   precompilazione da query string (?motivo=…&specie=…).
  * - Anti-spam: honeypot Netlify ("indirizzo-web") + filtro Akismet lato Netlify + campo tempo.
  * - Privacy: informativa specifica e doppio consenso (gestione richiesta ≠ marketing, mai preselezionato).
  */
@@ -27,7 +27,7 @@ const specie = [
 
 const motivi = [
   { valore: 'visita', etichetta: 'Visita generale o controllo' },
-  { valore: 'vaccino', etichetta: 'Vaccinazione o antiparassitari' },
+  { valore: 'vaccino', etichetta: 'Vaccinazione o profilassi antiparassitaria' },
   { valore: 'check-up', etichetta: 'Check-up con esami del sangue' },
   { valore: 'chirurgia', etichetta: 'Chirurgia o sterilizzazione' },
   { valore: 'tc-diagnostica', etichetta: 'TC, ecografia o radiografia' },
@@ -36,7 +36,6 @@ const motivi = [
   { valore: 'odontostomatologia', etichetta: 'Denti e bocca' },
   { valore: 'oncologia', etichetta: 'Oncologia' },
   { valore: 'esotici', etichetta: 'Coniglio o animale esotico' },
-  { valore: 'piano-salute', etichetta: 'Attivare un Piano Salute' },
   { valore: 'altro', etichetta: 'Altro (lo scrivo nelle note)' },
   { valore: 'urgenza', etichetta: "È un'urgenza", urgenza: true },
 ] as const;
@@ -346,8 +345,8 @@ const oggi = new Date().toISOString().slice(0, 10);
           class="mt-1 size-5 shrink-0 accent-[var(--primario)]"
         />
         <span>
-          Acconsento a ricevere promemoria di prevenzione (vaccini, antiparassitari, campagne
-          stagionali) via email.{' '}
+          Acconsento a ricevere promemoria di prevenzione (vaccini, profilassi antiparassitaria,
+          campagne stagionali) via email.{' '}
           <span class="text-testo-secondario">(facoltativo, revocabile in qualsiasi momento)</span>
         </span>
       </label>
@@ -461,7 +460,7 @@ const oggi = new Date().toISOString().slice(0, 10);
     if (avvio) avvio.value = String(Date.now());
     let corrente = 1;
 
-    // Precompilazione da query string (?motivo=…&specie=…&piano=…)
+    // Precompilazione da query string (?motivo=…&specie=…)
     const params = new URLSearchParams(location.search);
     const motivoParam = params.get('motivo');
     const mappaMotivi: Record<string, string> = {
@@ -476,8 +475,6 @@ const oggi = new Date().toISOString().slice(0, 10);
       dermatologia: 'dermatologia',
       odontostomatologia: 'odontostomatologia',
       'animali-esotici': 'esotici',
-      'gatto-cat-friendly': 'visita',
-      'piano-salute': 'piano-salute',
       'prevenzione-parassiti': 'vaccino',
       'check-up-estivo': 'check-up',
       'controllo-dentale': 'odontostomatologia',
@@ -493,9 +490,6 @@ const oggi = new Date().toISOString().slice(0, 10);
         `input[name="motivo"][value="${CSS.escape(valore)}"]`,
       );
       if (radio) radio.checked = true;
-      const dettagli = form.querySelector<HTMLTextAreaElement>('#dettagli');
-      if (dettagli && params.get('piano'))
-        dettagli.value = `Vorrei attivare il Piano Salute ${params.get('piano')}.`;
     }
     const specieParam = params.get('specie');
     if (specieParam) {

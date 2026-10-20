@@ -1,7 +1,7 @@
 ---
 titolo: 'Come preparare il cane alla chirurgia: digiuno, esami, cosa portare e il giorno dopo'
 descrizioneMeta: 'Come preparare il cane a un intervento chirurgico: digiuno, esami pre-anestesia, cosa portare, gestione del dolore, collare elisabettiano e quando chiamare.'
-riassunto: "Preparare bene il cane a un intervento riduce i rischi dell'anestesia e rende più semplice il recupero: digiuno corretto, esami del sangue prima dell'anestesia, farmaci abituali concordati, cuccia pulita e collare elisabettiano pronto a casa. La Clinica Veterinaria del bosco di Portici ti consegna istruzioni scritte e un numero attivo 24 ore su 24 per ogni dubbio dopo la dimissione."
+riassunto: "Preparare bene il cane a un intervento riduce i rischi dell'anestesia e rende più semplice il recupero: digiuno corretto, esami del sangue prima dell'anestesia, farmaci abituali concordati, cuccia pulita e collare elisabettiano pronto a casa. La Clinica Veterinaria del bosco a Portici ti consegna istruzioni scritte e un numero di riferimento per ogni dubbio dopo la dimissione."
 autore: 'dario-ferrari'
 revisore: 'antonella-sergio'
 dataPubblicazione: 2026-09-10
@@ -95,7 +95,7 @@ Servono esami del sangue in tutti i cani e, dopo i 7 anni o in presenza di un so
 - **Razze predisposte** (Dobermann, Pastore Scozzese, Levriero) o interventi con rischio di sanguinamento: test della coagulazione.
 - **Chirurgia oncologica**: radiografie del torace o TC per la stadiazione, cioè per capire l'estensione del tumore prima di operare.
 
-Il [laboratorio interno](/servizi/laboratorio-analisi) restituisce i risultati in giornata: gli esami si possono fare alla visita pre-operatoria o la mattina stessa dell'intervento.
+Il [laboratorio interno](/servizi/laboratorio-analisi) esegue gli esami di base: gli esami si possono fare alla visita pre-operatoria o la mattina stessa dell'intervento.
 
 ## Quanto deve stare a digiuno?
 
@@ -109,7 +109,7 @@ Porta il libretto sanitario, le confezioni dei farmaci che prende, i referti di 
 
 - comunica eventuali cambiamenti dell'ultima settimana (vomito, diarrea, tosse, calore in corso);
 - lascia un numero di telefono a cui rispondi durante l'intervento;
-- non applicare antiparassitari spot-on nei tre giorni precedenti, perché la zona va tosata e disinfettata.
+- non applicare prodotti spot-on per la profilassi antiparassitaria nei tre giorni precedenti, perché la zona va tosata e disinfettata.
 
 Alla mattina dell'intervento i farmaci abituali per cuore, tiroide ed epilessia vanno dati con pochissima acqua, salvo diversa indicazione; gli antinfiammatori vanno sospesi qualche giorno prima se lo abbiamo concordato.
 
@@ -117,7 +117,7 @@ Alla mattina dell'intervento i farmaci abituali per cuore, tiroide ed epilessia 
 
 Il dolore viene prevenuto prima dell'incisione e controllato per tutta la durata dell'intervento e nei giorni successivi. Seguiamo le linee guida internazionali sull'analgesia multimodale, cioè l'uso combinato di più farmaci a basso dosaggio: analgesici prima dell'anestesia, anestesia locale della zona operata, infusione continua in sala quando serve, antinfiammatori e analgesici orali a casa per 3-7 giorni.
 
-Durante l'anestesia un membro dell'équipe monitora in modo continuo frequenza cardiaca, pressione, ossigenazione, anidride carbonica espirata e temperatura, e il cane è riscaldato attivamente: l'ipotermia è la complicanza più frequente e più facile da prevenire. Per gli interventi di [chirurgia](/servizi/chirurgia) oncologica, ortopedica o laparoscopica, la clinica dispone di due sale operatorie e di TC in sede per la pianificazione.
+Durante l'anestesia un membro dell'équipe monitora in modo continuo frequenza cardiaca, pressione, ossigenazione, anidride carbonica espirata e temperatura, e il cane è riscaldato attivamente: l'ipotermia è la complicanza più frequente e più facile da prevenire. Per gli interventi di [chirurgia](/servizi/chirurgia) oncologica o ortopedica, la clinica dispone di due sale operatorie e di TC in sede per la pianificazione.
 
 ## Cosa succede dopo l'intervento?
 

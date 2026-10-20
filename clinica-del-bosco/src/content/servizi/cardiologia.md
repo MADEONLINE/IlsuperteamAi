@@ -12,71 +12,6 @@ correlati: ['diagnostica-per-immagini', 'chirurgia']
 medicalSpecialty: 'Cardiovascular'
 inEvidenza: true
 scattoBrief: '41'
-faq:
-  - domanda: 'Il veterinario ha sentito un soffio al cuore del mio cane: devo preoccuparmi?'
-    risposta: "Non subito, ma va chiarito. Il soffio è un rumore prodotto dal sangue che scorre in modo turbolento: può dipendere da una valvola che perde, da un difetto congenito o, nel cucciolo, da un flusso innocente che scompare crescendo. Solo l'ecocardiografia dice quale delle tre cose è. Un soffio nuovo in un cane adulto merita un'ecocardiografia entro poche settimane, prima se ci sono tosse o affanno."
-  - domanda: 'Cosa si fa durante una visita cardiologica e serve la sedazione?'
-    risposta: "La visita comprende la raccolta della storia, l'auscultazione, la misurazione della pressione, l'elettrocardiogramma e l'ecocardiografia con Doppler, che mostra le dimensioni delle camere, il funzionamento delle valvole e la direzione dei flussi. Nella quasi totalità dei casi non serve alcuna sedazione: l'animale sta sdraiato su un lettino morbido, con una persona di famiglia accanto quando lo tranquillizza."
-  - domanda: 'Quanto dura una visita cardiologica?'
-    risposta: 'In media tra 45 e 60 minuti, comprese le spiegazioni finali. Se sono previste anche le radiografie del torace o gli esami del sangue nel laboratorio interno, il tempo si allunga un poco ma i referti principali vengono discussi nella stessa giornata. Puoi prenotare online o al telefono e portare con te eventuali referti precedenti e la lista dei farmaci in uso.'
-  - domanda: 'Il mio cane anziano tossisce di notte: è il cuore?'
-    risposta: "Può esserlo, ma non è l'unica spiegazione. Nel cane anziano di piccola taglia la tosse notturna può dipendere dal cuore ingrossato che comprime le vie aeree o da un accumulo di liquido nei polmoni, ma anche dal collasso tracheale o da una bronchite cronica. Radiografie del torace ed ecocardiografia distinguono le due situazioni e cambiano completamente la terapia, per questo vanno fatte prima di iniziare qualsiasi farmaco."
-  - domanda: 'La malattia della valvola mitrale del cane si cura?'
-    risposta: "Non guarisce, ma si controlla. È la cardiopatia più frequente del cane e progredisce lentamente: molti cani convivono con il soffio per anni senza sintomi. Quando l'ecocardiografia mostra che il cuore ha iniziato a ingrandirsi, avviare la terapia ritarda la comparsa dello scompenso. Nelle fasi successive si aggiungono diuretici e altri farmaci, con controlli regolari per adattare le dosi."
-  - domanda: "Cos'è la cardiomiopatia ipertrofica del gatto e come si scopre?"
-    risposta: "È un ispessimento del muscolo cardiaco che riduce lo spazio per il sangue e favorisce la formazione di coaguli. È la malattia del cuore più comune nel gatto e spesso non dà segni fino a un episodio grave. Si sospetta per un soffio, un ritmo di galoppo o un'aritmia all'auscultazione, oppure per la razza, e si conferma con l'ecocardiografia, che nel gatto si esegue senza sedazione in un ambiente tranquillo."
-  - domanda: 'Il mio gatto non muove più le zampe posteriori e si lamenta: cosa faccio?'
-    risposta: "Vieni subito al pronto soccorso, a qualsiasi ora, chiamando il 081 7763859 mentre sei in viaggio. La paralisi improvvisa delle zampe posteriori con dolore intenso e cuscinetti freddi è quasi sempre un tromboembolismo aortico, cioè un coagulo partito dal cuore che blocca la circolazione alle gambe. È un'emergenza che richiede analgesia e trattamento immediati: ogni ora conta."
-  - domanda: "Il mio cane deve essere sterilizzato: serve un controllo del cuore prima dell'anestesia?"
-    risposta: "Se alla visita pre-anestesia si sente un soffio o un ritmo irregolare, sì, sempre. Lo consigliamo anche senza soffio nelle razze predisposte, come Cavalier King Charles, Dobermann, Boxer e Alano tra i cani, Maine Coon, Ragdoll, Sphynx e British tra i gatti. Un'ecocardiografia prima dell'intervento permette di scegliere il protocollo anestesiologico più adatto e di programmare i controlli futuri."
-  - domanda: 'Ogni quanto vanno ripetuti i controlli in un animale cardiopatico?'
-    risposta: 'Dipende dallo stadio. Un cane con soffio e cuore di dimensioni normali si ricontrolla in genere ogni 6-12 mesi; con il cuore ingrandito e in terapia ogni 3-6 mesi; dopo un episodio di scompenso i controlli sono ravvicinati, con esami del sangue per verificare reni ed elettroliti sotto diuretico. A casa il conteggio degli atti respiratori nel sonno è il segnale più utile per anticipare i problemi.'
-tabella:
-  titolo: 'Segni da osservare a casa: cosa possono indicare e quanto è urgente la visita'
-  intestazioni: ['Segno', 'Cosa può indicare', 'Quando venire']
-  righe:
-    - [
-        'Soffio scoperto alla visita, animale senza sintomi',
-        'Malattia valvolare, cardiomiopatia, difetto congenito o soffio innocente nel cucciolo',
-        'Ecocardiografia entro poche settimane',
-      ]
-    - [
-        'Più di 30 respiri al minuto nel sonno, contati più volte',
-        'Inizio di accumulo di liquido nei polmoni (scompenso)',
-        'Entro 24 ore; subito se in aumento',
-      ]
-    - [
-        'Tosse notturna o dopo lo sforzo nel cane anziano',
-        'Cuore ingrandito, edema polmonare, collasso tracheale, bronchite',
-        'Visita entro pochi giorni',
-      ]
-    - [
-        'Si stanca prima del solito, rallenta nelle passeggiate',
-        'Ridotta capacità di pompa del cuore, aritmia',
-        'Visita entro pochi giorni',
-      ]
-    - [
-        'Respiro affannoso a riposo, bocca aperta nel gatto',
-        'Edema polmonare, versamento toracico',
-        'Pronto soccorso, subito',
-      ]
-    - ['Lingua o gengive bluastre', 'Grave carenza di ossigeno', 'Pronto soccorso, subito']
-    - [
-        'Svenimento o collasso di pochi secondi',
-        'Aritmia grave, ostruzione al flusso, versamento attorno al cuore',
-        'Pronto soccorso, subito',
-      ]
-    - [
-        'Gatto con paralisi improvvisa delle zampe posteriori e dolore',
-        'Tromboembolismo aortico da cardiomiopatia',
-        'Pronto soccorso, subito',
-      ]
-    - [
-        'Addome gonfio in poche settimane, nel cane',
-        'Versamento per scompenso del cuore destro, malattia del pericardio',
-        'Visita entro 24-48 ore',
-      ]
-  nota: "Indicazioni orientative: il conteggio degli atti respiratori nel sonno va fatto quando l'animale dorme profondamente, contando i movimenti del torace per un minuto. Il medico può indicare soglie diverse per il singolo animale."
 fonti:
   - titolo: 'ACVIM consensus guidelines for the diagnosis and treatment of myxomatous mitral valve disease in dogs (2019)'
     url: 'https://onlinelibrary.wiley.com/doi/10.1111/jvim.15488'
@@ -126,18 +61,6 @@ Il tromboembolismo aortico è la complicazione più temuta: un coagulo lascia il
 Tosse e respiro corto sono i motivi più comuni di una visita cardiologica, ma spesso il cuore non c'entra. Nel cane la tosse cardiaca compare con un cuore già molto ingrandito o con edema polmonare; una tosse secca da anni in un cane con cuore normale è più spesso un collasso tracheale o una bronchite cronica. Nel gatto la tosse è raramente cardiaca e fa pensare all'asma felina, mentre il cuore si manifesta con respiro rapido, a volte a bocca aperta.
 
 Distinguere le due origini cambia la terapia. Radiografie del torace, ecocardiografia e, nei casi dubbi, il dosaggio dell'NT-proBNP permettono in genere di orientarsi nella stessa giornata.
-
-## Come si svolge la visita cardiologica?
-
-La visita dura in media 45-60 minuti e nella quasi totalità dei casi non richiede sedazione: gli esami di solito sono ben tollerati e l'animale sta sdraiato su un lettino morbido, con una persona di famiglia accanto quando questo lo tranquillizza.
-
-1. **Storia e motivo della visita.** Sintomi, razza, dieta, farmaci in corso, referti precedenti.
-2. **Esame clinico.** Auscultazione di cuore e polmoni, polso, mucose, vene del collo.
-3. **Pressione arteriosa.** Con un piccolo bracciale su una zampa o sulla coda.
-4. **Elettrocardiogramma.** Registra il ritmo e rivela le aritmie; per quelle intermittenti si programma una registrazione di 24 ore.
-5. **Ecocardiografia con Doppler.** Mostra dimensioni delle camere, spessore delle pareti, funzionamento delle valvole, direzione e velocità dei flussi.
-6. **Radiografie ed esami del sangue,** se servono, nella stessa giornata.
-7. **Spiegazione e piano scritto.** Diagnosi, stadio, terapia se indicata, cosa osservare a casa e data del controllo.
 
 ## Serve un controllo del cuore prima dell'anestesia o della sterilizzazione?
 

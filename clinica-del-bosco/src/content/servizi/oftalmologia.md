@@ -12,51 +12,6 @@ correlati: ['chirurgia', 'neurologia']
 medicalSpecialty: 'Optometric'
 inEvidenza: false
 scattoBrief: '12'
-faq:
-  - domanda: "Il mio cane tiene l'occhio chiuso e lacrima: posso aspettare qualche giorno?"
-    risposta: "No, meglio non aspettare. Un occhio chiuso e lacrimante indica dolore, e la causa più frequente è un'ulcera della cornea, cioè una ferita sulla superficie trasparente dell'occhio. Un'ulcera trascurata può approfondirsi in uno o due giorni fino a perforare l'occhio. Nel frattempo impedisci al cane di grattarsi con un collare elisabettiano e non usare colliri umani senza indicazione."
-  - domanda: 'Cosa comprende la visita oculistica?'
-    risposta: "La visita comprende l'esame delle palpebre e della superficie oculare con luce e ingrandimento, il test di Schirmer per misurare la produzione di lacrime, la colorazione con fluoresceina che evidenzia le ulcere, la misurazione della pressione interna dell'occhio e l'esame del fondo con le pupille dilatate. In base ai risultati possiamo aggiungere l'ecografia oculare. Dura in genere tra trenta e quarantacinque minuti."
-  - domanda: "Il gatto ha un occhio più grande dell'altro: cosa può essere?"
-    risposta: "Un occhio che appare più grande o sporgente può indicare glaucoma, cioè un aumento della pressione interna, oppure una massa dietro il bulbo o un'uveite avanzata. Nel gatto l'aumento di volume è spesso lento e passa inosservato per settimane. Va misurata la pressione oculare il prima possibile, perché la pressione alta danneggia il nervo ottico in modo irreversibile."
-  - domanda: 'La cataratta del cane si può operare?'
-    risposta: "In molti casi sì. La cataratta, cioè l'opacizzazione del cristallino, si tratta con un intervento chirurgico che rimuove la lente opaca, di solito con impianto di una lente artificiale. Prima dell'intervento valutiamo la retina con esami specifici, perché operare un occhio con retina non funzionante non restituisce la vista. Non tutti i cani sono candidati: lo stabiliamo insieme dopo la visita."
-  - domanda: "L'occhio azzurro o velato del mio cane anziano è cataratta?"
-    risposta: "Non sempre. Nei cani anziani è molto comune la sclerosi nucleare, un indurimento del cristallino che dà un riflesso bluastro ma non compromette la vista in modo significativo. La cataratta vera è bianca e opaca e riduce la visione. Distinguere le due condizioni richiede l'esame con lo strumento adatto: è una delle visite più frequenti e più rassicuranti che facciamo."
-  - domanda: "Il coniglio ha l'occhio che cola sempre: è normale?"
-    risposta: "No. Nel coniglio la lacrimazione persistente dipende spesso dalle radici dei denti superiori, che crescono in continuazione e possono ostruire il canale che scarica le lacrime nel naso. La visita oculistica va quindi abbinata al controllo dei denti e spesso a una radiografia del cranio. Trattare solo l'occhio senza indagare i denti dà sollievo temporaneo."
-  - domanda: 'Il mio cane sbatte contro i mobili la sera: sta diventando cieco?'
-    risposta: "La difficoltà a orientarsi in penombra è un segno tipico delle malattie della retina, in particolare dell'atrofia progressiva della retina, ereditaria in molte razze. È un problema che avanza lentamente e non è doloroso. Una visita del fondo dell'occhio permette di confermarlo e di distinguerlo da altre cause trattabili, come la cataratta o un'ipertensione arteriosa."
-  - domanda: 'Devo preparare in qualche modo il mio animale alla visita?'
-    risposta: "Non serve il digiuno per la visita, salvo che sia programmata una sedazione o un intervento, nel qual caso ti diamo istruzioni precise. Porta i colliri già usati e i referti precedenti. Se possibile non pulire l'occhio nelle ore prima della visita: il tipo di secrezione ci dà informazioni utili. Le pupille dilatate per l'esame del fondo tornano normali entro poche ore."
-tabella:
-  titolo: 'Segni oculari più comuni e livello di urgenza'
-  intestazioni: ['Segno', 'Cause frequenti', 'Quando farlo vedere']
-  righe:
-    - ['Occhio chiuso, lacrimazione, dolore', 'Ulcera corneale, corpo estraneo', 'Entro le 24 ore']
-    - [
-        'Occhio rosso e velato, pupilla stretta',
-        'Uveite, cioè infiammazione interna',
-        'Entro le 24 ore',
-      ]
-    - ['Occhio sporgente, cornea opaca, pupilla dilatata', 'Glaucoma', 'Subito']
-    - ['Bulbo fuoriuscito dopo trauma (razze brachicefale)', 'Proptosi', 'Subito, pronto soccorso']
-    - [
-        'Perdita improvvisa della vista',
-        'Distacco di retina, ipertensione, neurite ottica',
-        'Subito',
-      ]
-    - [
-        'Secrezione densa ricorrente, occhio opaco',
-        'Occhio secco (cheratocongiuntivite secca)',
-        'Visita programmata a breve',
-      ]
-    - [
-        'Riflesso bluastro nel cane anziano, vista conservata',
-        'Sclerosi nucleare o cataratta iniziale',
-        'Visita programmata',
-      ]
-  nota: 'Valori indicativi: il tempo utile dipende dalla causa, che spesso si capisce solo alla visita. In caso di dubbio chiama.'
 fonti:
   - titolo: 'American College of Veterinary Ophthalmologists — informazioni per i proprietari'
     url: 'https://www.acvo.org/'
@@ -85,17 +40,6 @@ Le richieste più frequenti riguardano congiuntiviti e ulcere corneali nel cane 
 
 Alcune malattie dell'occhio sono in realtà la spia di una malattia generale: un'uveite può dipendere da leishmaniosi, da un'infezione virale del gatto o da un tumore. Quando il quadro lo suggerisce, la visita oculistica si integra con gli esami del [laboratorio interno](/servizi/laboratorio-analisi) e con la [diagnostica per immagini](/servizi/diagnostica-per-immagini).
 
-## Come si svolge la visita oculistica
-
-1. **Colloquio.** Da quanto tempo dura il problema, se l'animale si gratta, se ci sono stati traumi, quali colliri hai già usato, se ha altre malattie o farmaci in corso.
-2. **Esame in luce ambiente.** Osserviamo simmetria, posizione delle palpebre, riflessi, comportamento visivo e reazione alla minaccia.
-3. **Test del film lacrimale.** Il test di Schirmer misura in un minuto quante lacrime produce ciascun occhio: serve per diagnosticare l'occhio secco.
-4. **Colorazione con fluoresceina.** Una goccia di colorante rende visibili le ulcere della cornea, anche quelle piccole, e permette di verificare se il canale lacrimale è pervio.
-5. **Misurazione della pressione oculare.** Con uno strumento a contatto rapido e di solito ben tollerato: essenziale per diagnosticare glaucoma e uveite.
-6. **Esame con lampada a fessura e del fondo.** Dopo aver dilatato le pupille valutiamo cristallino, vitreo, retina e nervo ottico.
-7. **Esami aggiuntivi se necessari.** Ecografia oculare quando la cornea è opaca, esami del sangue, misurazione della pressione arteriosa nel gatto anziano.
-8. **Spiegazione e piano.** Ti mostriamo cosa abbiamo trovato, la terapia proposta e i tempi del controllo. Per gli interventi ricevi un preventivo scritto.
-
 ## Il mio gatto ha un occhio rosso: è congiuntivite?
 
 Spesso sì, ma non sempre. Nel gatto la congiuntivite è molto comune e in gran parte dei casi è legata all'herpesvirus felino, che tende a riattivarsi nei periodi di stress. Un occhio rosso può però nascondere un'ulcera, un'uveite o un glaucoma, condizioni che richiedono terapie molto diverse e in alcuni casi opposte: il cortisone che aiuta in un'uveite peggiora un'ulcera. Per questo non usiamo mai un collirio "per l'occhio rosso" senza aver prima fatto la colorazione con fluoresceina e misurato la pressione.
@@ -110,7 +54,7 @@ Gli interventi si svolgono in [chirurgia](/servizi/chirurgia) con anestesia gene
 
 Le razze brachicefale (carlino, bulldog francese, shih tzu, persiano) hanno occhi sporgenti ed esposti: ulcere e traumi sono più frequenti e la chiusura incompleta delle palpebre favorisce l'occhio secco. Cocker, west highland e bulldog inglese sono predisposti all'occhio secco; barboncino, labrador, cocker e schnauzer alla cataratta; molte razze all'atrofia progressiva della retina. Nel gatto oltre i dieci anni consigliamo la misurazione della pressione arteriosa, perché l'ipertensione può causare distacco di retina e cecità improvvisa che, se trattata subito, in alcuni casi regredisce.
 
-Nei cuccioli di razze predisposte una visita oculistica entro il primo anno permette di identificare per tempo le anomalie delle palpebre. Un controllo annuale dell'occhio può essere inserito nei [piani salute](/piani-salute) di prevenzione programmata.
+Nei cuccioli di razze predisposte una visita oculistica entro il primo anno permette di identificare per tempo le anomalie delle palpebre.
 
 ## Quando venire subito
 

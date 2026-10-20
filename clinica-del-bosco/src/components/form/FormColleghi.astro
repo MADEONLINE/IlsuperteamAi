@@ -167,9 +167,7 @@ const prestazioni = [
     <legend class="mb-2 font-sans text-lg font-bold">Allegati</legend>
     <label for="c-allegati" class="block font-semibold">
       Esami, referti, immagini{' '}
-      <span class="font-normal text-testo-secondario">
-        (PDF, JPG, PNG, DICOM zippato · max 8 MB per file, fino a 3 file)
-      </span>
+      <span class="font-normal text-testo-secondario">(max 8 MB per file, fino a 3 file)</span>
     </label>
     <input
       id="c-allegati"
@@ -180,8 +178,7 @@ const prestazioni = [
       class="campo mt-1 py-2"
     />
     <p class="errore mt-1 hidden text-sm text-errore" data-per="allegati" role="alert">
-      Ogni file deve pesare meno di 8 MB. Per studi DICOM completi usa il link di condivisione del
-      tuo PACS nel campo quesito.
+      Ogni file deve pesare meno di 8 MB.
     </p>
   </fieldset>
 
@@ -223,7 +220,7 @@ const prestazioni = [
       Invia il caso
     </Bottone>
     <p class="stato text-sm text-testo-secondario" aria-live="polite">
-      Risposta con presa in carico entro il giorno lavorativo successivo.
+      Ti ricontattiamo con la data proposta e il nome del referente.
     </p>
   </div>
 </form>

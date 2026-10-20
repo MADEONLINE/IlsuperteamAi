@@ -6,7 +6,7 @@ servizioCorrelato: 'degenza-terapia-intensiva'
 paginaCorrelata: '/la-struttura'
 ---
 
-Sì, in fasce orarie dedicate che concordiamo con te al momento del ricovero. Le visite sono organizzate in modo da non interferire con le terapie e con il riposo degli altri animali ricoverati; per i pazienti in terapia intensiva possono essere più brevi o rinviate se le condizioni lo richiedono, e in quel caso te lo spieghiamo.
+Sì, in orari prestabiliti, comunicati dalla struttura. Le visite sono organizzate in modo da non interferire con le terapie e con il riposo degli altri animali ricoverati; per i pazienti in terapia intensiva possono essere più brevi o rinviate se le condizioni lo richiedono, e in quel caso te lo spieghiamo.
 
 Indipendentemente dalle visite, ricevi aggiornamenti dal medico a orari stabiliti, con l'andamento della giornata, gli esami eseguiti e le decisioni da prendere. Puoi lasciare un oggetto con il tuo odore, una maglietta o una copertina: per molti animali è un aiuto.
 

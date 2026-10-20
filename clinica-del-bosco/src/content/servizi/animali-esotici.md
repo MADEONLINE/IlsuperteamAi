@@ -12,59 +12,6 @@ correlati: ['odontostomatologia', 'chirurgia']
 medicalSpecialty: 'PrimaryCare'
 inEvidenza: true
 scattoBrief: '16'
-faq:
-  - domanda: 'Il mio coniglio non mangia da stamattina: è grave?'
-    risposta: "Sì, è un'urgenza. Nel coniglio l'intestino deve muoversi in continuazione: quando smette di mangiare, la motilità rallenta fino a fermarsi, i batteri intestinali producono gas e tossine e in poche ore il quadro può diventare pericoloso per la vita. Un coniglio che non mangia e non produce feci da più di sei-otto ore va visitato subito, anche di notte. Non aspettare il giorno dopo."
-  - domanda: 'Quali animali esotici visitate?'
-    risposta: "Conigli, cavie, cincillà, criceti, gerbilli, ratti, degu, furetti e altri piccoli mammiferi; rettili come tartarughe di terra e d'acqua, gechi, pogone, iguane e serpenti; uccelli da compagnia come pappagalli, canarini e cocorite; pesci ornamentali. Se hai una specie non elencata, chiama: ti diciamo subito se possiamo occuparcene o a chi indirizzarti."
-  - domanda: 'Il coniglio va vaccinato?'
-    risposta: 'Sì. Esistono vaccini contro la mixomatosi e la malattia emorragica virale, entrambe trasmesse anche da insetti e quindi pericolose pure per i conigli che vivono in casa. La malattia emorragica virale nella sua variante più recente è spesso mortale e senza sintomi premonitori. Il calendario prevede una prima vaccinazione da cucciolo e richiami regolari, che stabiliamo alla visita in base al prodotto usato.'
-  - domanda: 'Come trasporto un coniglio o una cavia in clinica?'
-    risposta: 'In un trasportino rigido con il fondo coperto da un asciugamano, del fieno e, se il viaggio è lungo, un pezzo di verdura. Copri il trasportino con un telo per ridurre gli stimoli visivi. Non trasportarli in braccio né in scatole di cartone aperte. Se il coniglio vive con un compagno, portalo insieme: la separazione è un ulteriore stress e il compagno lo tranquillizza.'
-  - domanda: 'La tartaruga non mangia da settimane: è in letargo o sta male?'
-    risposta: 'Dipende dalla stagione, dalla temperatura e dalla specie, ma un digiuno prolungato fuori dal periodo di letargo, o accompagnato da occhi gonfi, respiro a bocca aperta, gonfiore o guscio molle, indica una malattia. Molti problemi delle tartarughe dipendono da temperatura, luce ultravioletta e alimentazione non adeguate. Porta alla visita foto della teca o del recinto e le informazioni su lampade e temperature.'
-  - domanda: 'Il pappagallo ha le piume arruffate e sta fermo sul fondo della gabbia: cosa faccio?'
-    risposta: "Portalo subito. Gli uccelli nascondono la malattia finché possono: quando mostrano piume gonfie, immobilità, occhi chiusi o respiro con la coda che oscilla, di solito sono già in condizioni serie. Durante il trasporto tienilo al caldo, coprendo la gabbia o il trasportino, ed evita correnti d'aria. Non forzarlo a mangiare o bere."
-  - domanda: 'Sterilizzare la coniglia serve davvero?'
-    risposta: "Sì, per un motivo medico preciso: una parte molto alta delle coniglie non sterilizzate sviluppa dopo i tre-quattro anni un tumore dell'utero. La sterilizzazione, eseguita in genere dopo i cinque-sei mesi, elimina questo rischio e riduce i comportamenti territoriali. Nel maschio la castrazione previene le marcature e l'aggressività. L'anestesia nel coniglio richiede protocolli specifici, che applichiamo di routine."
-  - domanda: 'Il furetto è molto abbattuto e trema: può essere ipoglicemia?'
-    risposta: "Nel furetto adulto è una possibilità concreta: l'insulinoma, un tumore del pancreas che produce troppa insulina, causa debolezza, sguardo assente, salivazione e tremori per calo della glicemia. In attesa della visita puoi strofinare un po' di miele sulle gengive se è cosciente, poi vieni subito. La diagnosi si fa con una glicemia in laboratorio e la gestione può essere medica o chirurgica."
-tabella:
-  titolo: 'Specie trattate e segni che richiedono una visita rapida'
-  intestazioni: ['Specie', 'Segni da non trascurare', 'Tempo utile']
-  righe:
-    - [
-        'Coniglio',
-        'Non mangia, feci assenti o piccole, addome gonfio, digrigna i denti',
-        'Entro poche ore, anche di notte',
-      ]
-    - ['Cavia e cincillà', 'Non mangia, salivazione, diarrea, perdita di peso', 'Entro poche ore']
-    - [
-        'Criceto, ratto, gerbillo',
-        'Respiro rumoroso, masse, occhi chiusi, immobilità',
-        'In giornata',
-      ]
-    - [
-        'Furetto',
-        'Debolezza, tremori, vomito, perdita di pelo simmetrica',
-        'In giornata, subito se collassa',
-      ]
-    - [
-        'Tartaruga e rettili',
-        'Digiuno fuori stagione, occhi gonfi, respiro a bocca aperta, guscio molle',
-        'Entro pochi giorni, subito se dispnea',
-      ]
-    - [
-        'Pappagalli e uccelli',
-        'Piume gonfie, sul fondo della gabbia, coda che oscilla nel respiro',
-        'Subito',
-      ]
-    - [
-        'Pesci ornamentali',
-        'Galleggiamento anomalo, macchie, respiro accelerato',
-        "Entro pochi giorni, con dati sull'acqua",
-      ]
-  nota: 'Valori indicativi. In tutte queste specie i segni di malattia compaiono tardi: in caso di dubbio chiama e descrivi cosa vedi.'
 fonti:
   - titolo: 'Association of Exotic Mammal Veterinarians'
     url: 'https://www.aemv.org/'
@@ -93,15 +40,6 @@ Perché l'intestino del coniglio funziona solo se riceve fibra in continuazione.
 
 La stasi è una conseguenza, non una diagnosi: il nostro lavoro è trattarla subito con fluidi, controllo del dolore, farmaci che stimolano la motilità e alimentazione assistita, e contemporaneamente cercare la causa, che spesso sta nei denti o in un dolore nascosto. Il servizio di [odontostomatologia](/servizi/odontostomatologia) lavora insieme a noi sui problemi dentali del coniglio.
 
-## Come si svolge la visita
-
-1. **Colloquio sulla gestione.** Alimentazione, alloggio, temperatura, illuminazione, compagni di specie, cambiamenti recenti. Per rettili e uccelli chiediamo foto della teca o della gabbia: molte malattie nascono lì.
-2. **Osservazione a distanza.** Prima di toccarlo guardiamo come respira, come si muove e come si posiziona: informazioni che il contenimento cancella.
-3. **Visita con manipolazione a basso stress.** Contenimento breve, delicato, in ambiente silenzioso. Nel coniglio e negli uccelli lo stress è di per sé un rischio, quindi ci fermiamo se serve.
-4. **Esami.** Radiografie per denti, addome e scheletro; ecografia; esami del sangue con volumi minimi adatti alla taglia; esame delle feci e, negli uccelli, dei tamponi. Il [laboratorio interno](/servizi/laboratorio-analisi) risponde in giornata.
-5. **Piano e preventivo.** Ti spieghiamo la diagnosi o le ipotesi, la terapia e come somministrarla a casa, con un preventivo scritto prima di ogni procedura non urgente.
-6. **Ricovero se necessario.** Degenza in aree separate dai predatori, con riscaldamento, ossigeno e alimentazione assistita.
-
 ## Chirurgia e anestesia negli animali esotici
 
 Gli interventi più frequenti sono la sterilizzazione di conigli e furetti, la rimozione di masse cutanee e mammarie nel ratto e nella cavia, la correzione dei problemi dentali del coniglio e della cavia, il trattamento degli ascessi, la chirurgia addominale e la risoluzione dei calcoli vescicali nel coniglio e nella cavia. Le tartarughe possono richiedere interventi per ritenzione delle uova o traumi del guscio.
@@ -114,7 +52,7 @@ La laser terapia è una tecnica non invasiva che utilizza luce a specifiche lung
 
 ## Il coniglio in casa: cosa controllare ogni giorno?
 
-Che mangi fieno, che produca feci di dimensione normale e regolare, che beva, che si muova come sempre e che il pelo intorno al posteriore sia pulito. Una volta a settimana pesalo con una bilancia da cucina: la perdita di peso è il primo segno di molte malattie. Ogni anno serve una visita con controllo dei denti e vaccinazione contro mixomatosi e malattia emorragica virale; i conigli anziani, oltre i sei anni, beneficiano di controlli semestrali. La prevenzione programmata per il coniglio può rientrare nei [piani salute](/piani-salute).
+Che mangi fieno, che produca feci di dimensione normale e regolare, che beva, che si muova come sempre e che il pelo intorno al posteriore sia pulito. Una volta a settimana pesalo con una bilancia da cucina: la perdita di peso è il primo segno di molte malattie. Ogni anno serve una visita con controllo dei denti e vaccinazione contro mixomatosi e malattia emorragica virale; i conigli anziani, oltre i sei anni, beneficiano di controlli semestrali.
 
 ## Quando venire subito
 

@@ -11,7 +11,6 @@ import { hrefServizio } from '@lib/servizi';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { clinica, indirizzoRiga } from '@lib/clinica';
-import { orariLeggibili } from '@lib/orari';
 
 /** Testo pulito dal Markdown, ridotto a un estratto leggibile. */
 function estratto(markdown: string, caratteri = 260): string {
@@ -34,18 +33,23 @@ const SINONIMI: Record<string, string[]> = {
   visite: ['visita', 'appuntamento', 'prenotare', 'prenotazione', 'controllo'],
   costi: ['costo', 'prezzo', 'prezzi', 'tariffa', 'tariffe', 'quanto', 'pagare', 'preventivo'],
   chirurgia: ['operazione', 'intervento', 'operare', 'sterilizzazione'],
-  diagnostica: ['tac', 'tc', 'radiografia', 'lastra', 'ecografia', 'analisi', 'esami', 'endoscopia'],
-  'piani-salute': ['abbonamento', 'piano', 'prevenzione', 'vaccini', 'vaccinazione'],
+  diagnostica: [
+    'tac',
+    'tc',
+    'radiografia',
+    'lastra',
+    'ecografia',
+    'analisi',
+    'esami',
+    'endoscopia',
+  ],
   struttura: ['dove', 'indirizzo', 'parcheggio', 'parcheggiare', 'arrivare', 'orari', 'aperto'],
   esotici: ['coniglio', 'furetto', 'criceto', 'tartaruga', 'pappagallo', 'rettile', 'uccello'],
 };
 
-/** Orari dell'ambulatorio in una riga: se i giorni coincidono non li elenca uno per uno. */
+/** Orario degli appuntamenti in una riga. */
 function orariAmbulatorio(): string {
-  const righe = orariLeggibili(clinica.orari.ambulatorio.settimana);
-  const distinti = new Set(righe.map((r) => r.fasce));
-  if (distinti.size === 1) return `tutti i giorni, ${righe[0]?.fasce}`;
-  return righe.map((r) => `${r.giorno} ${r.fasce}`).join(' · ');
+  return clinica.orari.ambulatorio.etichetta;
 }
 
 interface Voce {
@@ -88,7 +92,7 @@ export const GET: APIRoute = async () => {
     [
       'Pronto soccorso 24 ore su 24',
       '/pronto-soccorso',
-      `${clinica.orari.prontoSoccorso.etichetta}. Si arriva direttamente, senza appuntamento: al telefono risponde sempre un medico.`,
+      `${clinica.orari.prontoSoccorso.etichetta}. Si arriva direttamente, senza appuntamento.`,
       SINONIMI['urgenze'] ?? [],
     ],
     [
@@ -96,12 +100,6 @@ export const GET: APIRoute = async () => {
       '/prenota',
       'Il modulo raccoglie i dati dell’animale e le tue preferenze di giorno e orario. Ti richiamiamo per confermare.',
       SINONIMI['visite'] ?? [],
-    ],
-    [
-      'Piani Salute',
-      '/piani-salute',
-      'Un calendario annuale di visite, vaccini, antiparassitari ed esami, con una rata mensile fissa.',
-      SINONIMI['piani-salute'] ?? [],
     ],
     [
       'La prima visita',
@@ -124,13 +122,13 @@ export const GET: APIRoute = async () => {
     [
       'Orari',
       '/contatti',
-      `Visite su appuntamento: ${orariAmbulatorio()}. Il pronto soccorso è invece attivo 24 ore su 24, festivi inclusi.`,
+      `${orariAmbulatorio()}. ${clinica.orari.prontoSoccorso.rigaOrari}.`,
       ['orari', 'aperto', 'chiuso', 'quando', 'apertura'],
     ],
     [
-      'L’équipe medica',
+      'I nostri medici',
       '/equipe',
-      'I medici della clinica, le loro aree cliniche e i giorni in cui ricevono gli specialisti.',
+      'I medici della clinica, le loro aree cliniche e gli specialisti che collaborano con noi.',
       ['medico', 'medici', 'veterinario', 'chi', 'dottore', 'specialista'],
     ],
     [
@@ -154,7 +152,7 @@ export const GET: APIRoute = async () => {
     [
       'Domande frequenti',
       '/domande-frequenti',
-      'Tutte le risposte su urgenze, visite, costi, esami e Piani Salute.',
+      'Tutte le risposte su urgenze, visite, costi ed esami.',
       ['faq', 'domande', 'dubbi'],
     ],
   ];

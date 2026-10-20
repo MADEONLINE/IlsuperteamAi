@@ -1,7 +1,7 @@
 ---
 titolo: 'Colpo di calore nel cane e nel gatto: come riconoscerlo e cosa fare nei primi minuti'
 descrizioneMeta: 'Colpo di calore nel cane e nel gatto: segni da riconoscere, razze a rischio, primo soccorso con raffreddamento graduale e quando correre in pronto soccorso.'
-riassunto: "Il colpo di calore è un'urgenza: la temperatura del cane o del gatto supera i 40 gradi e gli organi iniziano a soffrire nel giro di minuti. Riconoscerlo presto, raffreddare in modo graduale con acqua fresca e partire subito verso una clinica cambiano l'esito. Il pronto soccorso della Clinica Veterinaria del bosco di Portici è attivo 24 ore su 24."
+riassunto: "Il colpo di calore è un'urgenza: la temperatura del cane o del gatto supera i 40 gradi e gli organi iniziano a soffrire nel giro di minuti. Riconoscerlo presto, raffreddare in modo graduale con acqua fresca e partire subito verso una clinica cambiano l'esito. Il pronto soccorso della Clinica Veterinaria del bosco a Portici è attivo 24 ore su 24."
 autore: 'isabella-rosapane'
 revisore: 'alessandro-sica'
 dataPubblicazione: 2026-09-10

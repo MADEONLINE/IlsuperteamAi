@@ -1,7 +1,7 @@
 ---
 nome: 'Andrea Campanile'
 titolo: 'Dott.'
-ruolo: 'Medico veterinario · endoscopia e apparato digerente · collabora con la clinica'
+ruolo: 'Medico veterinario · endoscopia e apparato digerente'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
@@ -9,7 +9,7 @@ specializzazioni: ['Endoscopia', 'Gastroenterologia']
 aree: ['endoscopia-gastroenterologia']
 formazione: ['Master in gastroenterologia veterinaria']
 lingue: ['italiano']
-presenza: 'Sedute programmate, di norma ogni due-quattro settimane'
+presenza: 'Su appuntamento'
 ordine: 21
 daValidare: true
 ---

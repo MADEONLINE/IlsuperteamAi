@@ -12,49 +12,6 @@ correlati: ['chirurgia', 'animali-esotici', 'medicina-preventiva-vaccinazioni']
 medicalSpecialty: 'Dentistry'
 inEvidenza: false
 scattoBrief: '14'
-faq:
-  - domanda: "L'alito cattivo del mio cane è normale?"
-    risposta: "No. L'alito cattivo persistente è il segno più comune della malattia parodontale, cioè l'infezione di gengive e tessuti che sostengono il dente, causata dalla placca batterica che si trasforma in tartaro. Non è un problema estetico: provoca dolore, perdita dei denti e, nel tempo, può coinvolgere cuore, fegato e reni. Una visita della bocca permette di stabilire a che stadio è e cosa fare."
-  - domanda: 'La pulizia dei denti si può fare senza anestesia?'
-    risposta: 'No, non in modo corretto. La pulizia senza anestesia rimuove solo il tartaro visibile, lascia intatta la placca sotto la gengiva che causa la malattia e non permette né le radiografie né la valutazione di ogni dente. Inoltre è stressante e può ferire gengive e bocca. La detartrasi in anestesia generale, con monitoraggio continuo e controllo del dolore, è la procedura raccomandata dalle linee guida internazionali.'
-  - domanda: "L'anestesia è pericolosa per un cane anziano?"
-    risposta: "Il rischio esiste ma nella maggior parte dei cani anziani è basso e gestibile. Prima della procedura eseguiamo esami del sangue e, se serve, ecografia cardiaca e radiografie del torace per adattare il protocollo. Durante l'anestesia un membro dell'équipe monitora in continuo cuore, respiro, pressione e temperatura. L'età da sola non è una controindicazione: spesso è proprio il cane anziano ad avere più bisogno di una bocca sana."
-  - domanda: 'Il gatto mangia con difficoltà e si tocca la bocca: cosa può avere?'
-    risposta: "Nel gatto le cause più frequenti sono i riassorbimenti dentali, lesioni dolorose che erodono il dente a partire dalla radice e non si vedono senza radiografia, e la gengivostomatite cronica, un'infiammazione intensa di tutta la bocca. Entrambe richiedono una valutazione in anestesia con radiografie dentali. Il gatto tende a nascondere il dolore: mangiare solo da un lato o rifiutare le crocchette sono già segni significativi."
-  - domanda: 'Perché servono le radiografie dentali?'
-    risposta: "Perché più della metà di ogni dente è sotto la gengiva, invisibile all'esame diretto. Le radiografie dentali mostrano le radici, l'osso che le circonda, gli ascessi, le fratture radicolari e i riassorbimenti. Senza radiografie si rischia di lasciare in bocca denti malati che sembrano sani o di estrarre denti che si potevano conservare. Si eseguono durante la stessa anestesia della pulizia."
-  - domanda: 'Il coniglio sbava e ha smesso di mangiare il fieno: sono i denti?'
-    risposta: "Molto probabilmente sì. I denti del coniglio crescono per tutta la vita e, se non si consumano con il fieno, sviluppano punte che feriscono lingua e guance: è la malocclusione. Salivazione, perdita di peso, occhio che lacrima e ascessi della mandibola sono segni tipici. Un coniglio che non mangia va visto in giornata, perché l'intestino può fermarsi in poche ore: è un'urgenza."
-  - domanda: 'Il mio cane ha rotto un dente giocando: cosa fare?'
-    risposta: "Portalo a visita entro pochi giorni, anche se sembra non soffrire. Se la frattura espone la polpa, cioè la parte interna con nervo e vasi, il dente è doloroso e si infetta nel tempo, formando un ascesso. Le opzioni sono l'estrazione o, in casi selezionati e se recente, il trattamento canalare. Evita ossa, corna, sassi e giochi troppo duri: sono la causa principale delle fratture."
-  - domanda: 'Come pulisco i denti a casa dopo il trattamento?'
-    risposta: "Lo spazzolamento quotidiano con spazzolino morbido e dentifricio per animali, mai quello umano, è il metodo più efficace per rallentare la formazione di placca. Si introduce gradualmente, iniziando dopo la guarigione delle gengive. In alternativa o in aggiunta esistono diete e prodotti a efficacia documentata: ti indichiamo quali. Una bocca curata a casa allunga l'intervallo tra una pulizia professionale e l'altra."
-tabella:
-  titolo: 'Stadi della malattia parodontale e cosa comportano'
-  intestazioni: ['Stadio', 'Cosa si vede', 'Cosa serve']
-  righe:
-    - ['Stadio 0', 'Bocca sana, gengive rosa, poca placca', 'Igiene domestica, controllo annuale']
-    - [
-        'Stadio 1 (gengivite)',
-        'Gengive rosse e gonfie lungo il dente, alito lievemente cattivo',
-        'Detartrasi in anestesia, igiene quotidiana a casa',
-      ]
-    - [
-        'Stadio 2 (parodontite iniziale)',
-        'Tartaro evidente, gengive che sanguinano, lieve retrazione',
-        'Detartrasi, radiografie, pulizia sotto la gengiva',
-      ]
-    - [
-        'Stadio 3 (parodontite moderata)',
-        'Perdita di osso visibile in radiografia, tasche gengivali, alito forte',
-        'Radiografie, estrazioni selettive, terapia parodontale',
-      ]
-    - [
-        'Stadio 4 (parodontite avanzata)',
-        'Denti mobili, radici esposte, ascessi, dolore',
-        'Estrazioni multiple, terapia antibiotica se indicata, controllo del dolore',
-      ]
-  nota: "Valori indicativi secondo la classificazione dell'American Veterinary Dental College. Lo stadio si definisce con precisione solo con radiografie dentali in anestesia."
 fonti:
   - titolo: 'American Veterinary Dental College — Periodontal Disease Stages'
     url: 'https://avdc.org/'
@@ -82,16 +39,6 @@ I segni più comuni sono alito cattivo, gengive rosse o sanguinanti, tartaro gia
 
 Se riconosci uno o più di questi segni, prenota una visita: guardare la bocca è veloce e già l'esame con l'animale sveglio ci dà un'idea della gravità.
 
-## Come si svolge il trattamento dentale
-
-1. **Visita orale.** Esame della bocca con l'animale sveglio, per quanto possibile: stato delle gengive, quantità di tartaro, denti evidentemente compromessi, masse o ulcere. Si definisce un piano preliminare e un preventivo scritto.
-2. **Esami preanestetici.** Esami del sangue in giornata e, negli animali anziani o con malattie note, valutazione cardiaca. Ti chiediamo il digiuno dalla sera precedente.
-3. **Anestesia generale monitorata.** Intubazione per proteggere le vie aeree dall'acqua e dai detriti, controllo del dolore multimodale, monitoraggio continuo dei parametri vitali.
-4. **Esame dettagliato e radiografie dentali.** Con l'animale addormentato sondiamo ogni dente per misurare le tasche gengivali e radiografiamo l'intera bocca. Questa è la fase in cui il piano può cambiare: ti telefoniamo prima di procedere a estrazioni non previste.
-5. **Detartrasi ed estrazioni.** Rimozione del tartaro sopra e sotto la gengiva con ablatore a ultrasuoni, lucidatura dello smalto, estrazione dei denti non recuperabili con tecniche chirurgiche e sutura delle gengive.
-6. **Risveglio e dimissione.** Nella maggior parte dei casi l'animale torna a casa lo stesso giorno, con analgesici per i giorni successivi e istruzioni sull'alimentazione morbida.
-7. **Controllo.** Dopo circa dieci-quattordici giorni verifichiamo la guarigione delle gengive e impostiamo l'igiene domestica.
-
 ## Il gatto con la bocca infiammata: cos'è la gengivostomatite?
 
 La gengivostomatite cronica felina è un'infiammazione grave e dolorosa di gengive, guance e fondo della bocca, legata a una risposta immunitaria eccessiva alla placca e, in alcuni gatti, a infezioni virali. Il gatto sbava, ha alito molto cattivo, fatica a mangiare, dimagrisce e può diventare aggressivo quando gli si tocca il muso.
@@ -104,7 +51,7 @@ Nel coniglio incisivi e molari crescono per tutta la vita e si consumano mastica
 
 ## Ogni quanto va fatta la pulizia professionale?
 
-Dipende dalla razza, dall'età e dall'igiene domestica. Le razze piccole e brachicefale (yorkshire, barboncino toy, chihuahua, carlino) accumulano tartaro più rapidamente e possono aver bisogno di una pulizia ogni anno; i cani di taglia grande con buona igiene a casa possono aspettare di più. Nel gatto un controllo annuale della bocca è consigliabile dopo i tre anni. Il controllo della bocca è parte della visita di [medicina preventiva](/servizi/medicina-preventiva-vaccinazioni) e può essere programmato nei [piani salute](/piani-salute).
+Dipende dalla razza, dall'età e dall'igiene domestica. Le razze piccole e brachicefale (yorkshire, barboncino toy, chihuahua, carlino) accumulano tartaro più rapidamente e possono aver bisogno di una pulizia ogni anno; i cani di taglia grande con buona igiene a casa possono aspettare di più. Nel gatto un controllo annuale della bocca è consigliabile dopo i tre anni. Il controllo della bocca è parte della visita di [medicina preventiva](/servizi/medicina-preventiva-vaccinazioni).
 
 ## Quando venire subito
 

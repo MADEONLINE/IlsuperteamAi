@@ -23,7 +23,6 @@ const scorciatoie = [
   { testo: 'Prenotare una visita', domanda: 'prenotare una visita' },
   { testo: 'Dove siete e orari', domanda: 'dove siete orari' },
   { testo: 'Quanto costa', domanda: 'costi e preventivo' },
-  { testo: 'Piani Salute', domanda: 'piani salute' },
   { testo: 'Animali esotici', domanda: 'coniglio esotici' },
   { testo: 'Sono un veterinario', domanda: 'colleghi invio caso' },
 ];
@@ -72,8 +71,8 @@ const scorciatoie = [
       <span>
         <strong>È un’emergenza? Chiama {clinica.contatti.telefono.visualizzato}</strong>
         <span class="assistente-urgenza-nota">
-          Il telefono risponde 24 ore su 24. Usa questo numero solo per le vere urgenze: lasciarlo
-          libero aiuta chi ne ha bisogno adesso.
+          Usa questo numero solo per le vere urgenze: lasciarlo libero aiuta chi ne ha bisogno
+          adesso.
         </span>
       </span>
     </a>
@@ -550,7 +549,7 @@ const scorciatoie = [
       const pezzi: string[] = [];
       if (sembraUrgente) {
         pezzi.push(
-          '<p class="assistente-vuoto">Se hai un dubbio sulle condizioni del tuo animale non aspettare e non cercare qui: <strong>chiama, il telefono risponde a qualsiasi ora</strong>. Al pronto soccorso si arriva anche senza appuntamento.</p>',
+          '<p class="assistente-vuoto">Se hai un dubbio sulle condizioni del tuo animale non aspettare e non cercare qui: <strong>chiama la clinica</strong>. Al pronto soccorso si arriva anche senza appuntamento.</p>',
         );
       }
       if (!punteggiate.length) {

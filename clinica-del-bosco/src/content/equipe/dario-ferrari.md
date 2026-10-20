@@ -23,4 +23,4 @@ ordine: 1
 daValidare: true
 ---
 
-Dott. Dario Ferrari è tra i soci fondatori della Clinica Veterinaria del bosco di Portici. Si occupa di anestesia e analgesia a supporto dell’attività chirurgica e segue il servizio di terapia del dolore, che integra la terapia farmacologica con l’agopuntura e l’elettroagopuntura. È il referente della clinica per i rapporti con i colleghi e con i proprietari nei percorsi più lunghi.
+Dott. Dario Ferrari è tra i soci fondatori della Clinica Veterinaria del bosco a Portici. Si occupa di anestesia e analgesia a supporto dell’attività chirurgica e segue il servizio di terapia del dolore, che integra la terapia farmacologica con l’agopuntura e l’elettroagopuntura. È il referente della clinica per i rapporti con i colleghi e con i proprietari nei percorsi più lunghi.

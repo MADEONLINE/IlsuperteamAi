@@ -15,19 +15,11 @@ import {
   indirizzoRiga,
   telHref,
 } from '@lib/clinica';
-import { orariLeggibili } from '@lib/orari';
 import { faqPage, webPage } from '@lib/schema';
 import Faq from '@ui/Faq.astro';
 
-const orari = clinica.orari.ambulatorio.confermato
-  ? orariLeggibili(clinica.orari.ambulatorio.settimana)
-  : null;
 const descrizione = `${clinica.nome}, Corso Umberto I 12, Portici (NA). Telefono ${clinica.contatti.telefono.visualizzato}. Orari delle visite, parcheggio e treni.`;
 const faq = [
-  {
-    domanda: 'Il telefono risponde anche di notte?',
-    risposta: `Sì. Il numero ${clinica.contatti.telefono.visualizzato} è attivo 24 ore su 24, tutti i giorni. È lo stesso numero per le urgenze e per prenotare.`,
-  },
   {
     domanda: 'Posso prenotare una visita per email?',
     risposta: `Per prenotare usa il modulo online o il telefono: ti contattiamo per confermare giorno e ora. Per un'urgenza non scrivere un'email, chiama.`,
@@ -137,29 +129,10 @@ const faq = [
         </div>
         <h2 class="mt-10 text-2xl">Orari</h2>
         <p class="mt-2 flex items-center gap-2 font-semibold">
-          <Icona nome="ambulanza" class="size-5 text-successo" />
-          {clinica.orari.prontoSoccorso.etichetta}
+          <Icona nome="calendario" class="size-5 text-primario-link" />
+          {clinica.orari.ambulatorio.etichetta}
         </p>
-        {orari ? (
-          <table class="mt-3 text-sm">
-            <caption class="pb-2 text-left font-semibold">Visite su appuntamento</caption>
-            <tbody>
-              {orari.map((r) => (
-                <tr>
-                  <th scope="row" class="pr-6 font-medium capitalize">
-                    {r.giorno}
-                  </th>
-                  <td>{r.fasce}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p class="mt-2 text-testo-secondario">
-            Visite programmate su appuntamento: chiama o prenota online, ti proponiamo la prima
-            disponibilità nella fascia che preferisci.
-          </p>
-        )}
+        <p class="mt-2 text-testo-secondario">{clinica.orari.prontoSoccorso.rigaOrari}</p>
         <h2 class="mt-10 text-2xl">Come arrivare</h2>
         <h3 class="mt-4 font-sans text-lg font-bold">In auto</h3>
         <p class="mt-1">

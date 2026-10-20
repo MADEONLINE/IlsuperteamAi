@@ -256,52 +256,6 @@ export function physician(medico: {
   return persona;
 }
 
-/** Service + Offer per i Piani Salute. */
-export function pianoSaluteOffer(piano: {
-  id: string;
-  nome: string;
-  descrizione: string;
-  prezzoAnnuo: number;
-  valuta: string;
-  include: string[];
-}): JsonLd {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${urlAssoluto('/piani-salute')}#${piano.id}`,
-    name: `Piano Salute ${piano.nome}`,
-    serviceType: 'Programma di prevenzione veterinaria programmata',
-    description: piano.descrizione,
-    provider: { '@id': ID_ORGANIZZAZIONE },
-    areaServed: clinica.areaServita.map((z) => ({ '@type': 'City', name: z.nome })),
-    audience: { '@type': 'PeopleAudience', audienceType: 'Proprietari di cani e gatti' },
-    offers: {
-      '@type': 'Offer',
-      url: urlAssoluto(`/piani-salute#${piano.id}`),
-      price: piano.prezzoAnnuo,
-      priceCurrency: piano.valuta,
-      priceSpecification: {
-        '@type': 'UnitPriceSpecification',
-        price: piano.prezzoAnnuo,
-        priceCurrency: piano.valuta,
-        unitText: 'anno',
-        billingIncrement: 1,
-      },
-      availability: 'https://schema.org/InStock',
-      itemOffered: { '@type': 'Service', name: `Piano Salute ${piano.nome}` },
-      seller: { '@id': ID_ORGANIZZAZIONE },
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: `Prestazioni incluse nel Piano ${piano.nome}`,
-      itemListElement: piano.include.map((voce) => ({
-        '@type': 'Offer',
-        itemOffered: { '@type': 'Service', name: voce },
-      })),
-    },
-  };
-}
-
 /** Article (MedicalScholarlyArticle no: è divulgativo) con autore, revisore e date. */
 export function article(opzioni: {
   url: string;

@@ -2,7 +2,7 @@
 titolo: 'Senior: il check-up dai 7 anni per cane e gatto'
 descrizioneMeta: 'Check-up senior da ottobre a dicembre per cani e gatti dai 7 anni: esami del sangue e urine, pressione, peso e articolazioni per scoprire presto reni e cuore.'
 sottotitolo: "Dai 7 anni il corpo cambia prima che si veda. Un controllo annuale con esami del sangue, urine e pressione intercetta reni, tiroide, cuore e articolazioni quando c'è ancora molto da fare."
-risposta: 'Il check-up senior della Clinica Veterinaria del bosco di Portici è una visita programmata, da ottobre a dicembre, per cani e gatti dai 7 anni: esame clinico completo, esami del sangue e delle urine con risposta in giornata dal laboratorio interno, pressione, pesata e valutazione di articolazioni e denti. Serve a scoprire presto malattie renali, tiroidee, cardiache e articolari.'
+risposta: 'Il check-up senior della Clinica Veterinaria del bosco a Portici è una visita programmata, da ottobre a dicembre, per cani e gatti dai 7 anni: esame clinico completo, esami del sangue e delle urine nel laboratorio interno, pressione, pesata e valutazione di articolazioni e denti. Serve a scoprire presto malattie renali, tiroidee, cardiache e articolari.'
 periodo: 'Ottobre – Dicembre'
 meseInizio: 10
 meseFine: 12
@@ -25,7 +25,7 @@ faq:
   - domanda: 'Cosa cercano gli esami del sangue e delle urine?'
     risposta: "Funzione renale (creatinina, urea, SDMA, fosforo), fegato, glicemia, proteine, elettroliti, emocromo per anemia e infiammazione e, nel gatto sopra i 10 anni, la tiroide. L'esame delle urine misura quanto sono concentrate e se contengono proteine, glucosio o segni di infezione: è spesso il primo dato che cambia nella malattia renale, prima del sangue."
   - domanda: 'Il check-up senior sostituisce la visita annuale?'
-    risposta: 'La comprende e la amplia. La visita annuale con vaccinazioni e antiparassitari resta la base; il check-up senior aggiunge esami del sangue e delle urine, misurazione della pressione, valutazione ortopedica e del dolore, controllo del cavo orale e, su indicazione, ecografia addominale ed elettrocardiogramma. Possono essere fatti nello stesso appuntamento.'
+    risposta: 'La comprende e la amplia. La visita annuale con vaccinazioni e profilassi antiparassitaria resta la base; il check-up senior aggiunge esami del sangue e delle urine, misurazione della pressione, valutazione ortopedica e del dolore, controllo del cavo orale e, su indicazione, ecografia addominale ed elettrocardiogramma. Possono essere fatti nello stesso appuntamento.'
   - domanda: 'Cosa succede se i valori sono alterati?'
     risposta: 'Ti spieghiamo cosa significa il dato, se va confermato con una seconda misurazione e quali approfondimenti servono, per esempio ecografia dei reni o ecocardiografia, eseguibili nella stessa sede. Molte alterazioni iniziali si gestiscono con dieta, idratazione e controlli più frequenti; in altri casi si inizia una terapia. In ogni caso hai un piano scritto e le date dei controlli successivi.'
   - domanda: 'Ogni quanto va ripetuto?'
@@ -54,13 +54,11 @@ Dai 7 anni un cane di taglia media e un gatto entrano nell'età matura; i cani d
 ## Cosa comprende il check-up senior?
 
 1. **Visita clinica completa**: pesata confrontata con le precedenti, valutazione della massa muscolare, auscultazione di cuore e polmoni, palpazione dell'addome e dei linfonodi, controllo di occhi, orecchie e cavo orale.
-2. **Esami del sangue** nel [laboratorio interno](/servizi/laboratorio-analisi), con risposta in giornata: emocromo, creatinina, urea, SDMA, fosforo, fegato, glicemia, proteine, elettroliti e, nel gatto sopra i 10 anni, tiroide.
+2. **Esami del sangue** nel [laboratorio interno](/servizi/laboratorio-analisi): emocromo, creatinina, urea, SDMA, fosforo, fegato, glicemia, proteine, elettroliti e, nel gatto sopra i 10 anni, tiroide.
 3. **Esame delle urine**: peso specifico, proteine, glucosio, sedimento; è spesso il primo dato ad alterarsi nella malattia renale.
 4. **Misurazione della pressione arteriosa**, in un ambiente tranquillo, con bracciale sulla zampa o sulla coda.
 5. **Valutazione ortopedica e del dolore cronico**: andatura, articolazioni, difficoltà a salire le scale o a saltare, con indicazioni su peso, movimento e terapia del dolore.
 6. **Su indicazione**: ecografia addominale, elettrocardiogramma o ecocardiografia, radiografie, eseguibili nella stessa sede.
-
-Il check-up senior fa parte della prevenzione programmata dei [Piani Salute](/piani-salute), che prevedono la visita annuale e gli esami di screening per fasce di età.
 
 ## Per chi è indicato?
 

@@ -1,13 +1,13 @@
 ---
 titolo: 'Il gatto anziano e i reni: come riconoscere presto la malattia renale cronica'
 descrizioneMeta: 'Malattia renale cronica del gatto anziano: segni precoci, stadiazione IRIS spiegata in modo semplice, screening dai 7 anni, dieta renale e pressione.'
-riassunto: 'La malattia renale cronica colpisce circa un gatto su tre dopo i dieci anni e resta a lungo silenziosa. Bere e urinare di più e perdere peso sono i primi segni. Uno screening annuale dai 7 anni, con sangue, urine e pressione, permette alla Clinica Veterinaria del bosco di Portici di intervenire quando dieta e idratazione fanno ancora la differenza.'
+riassunto: 'La malattia renale cronica colpisce circa un gatto su tre dopo i dieci anni e resta a lungo silenziosa. Bere e urinare di più e perdere peso sono i primi segni. Uno screening annuale dai 7 anni, con sangue, urine e pressione, permette alla Clinica Veterinaria del bosco a Portici di intervenire quando dieta e idratazione fanno ancora la differenza.'
 autore: 'antonella-sergio'
 revisore: 'isabella-rosapane'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 servizioCorrelato: 'laboratorio-analisi'
-serviziCorrelati: ['nutrizione-clinica', 'gatto-cat-friendly']
+serviziCorrelati: ['nutrizione-clinica']
 tag: ['senior', 'gatto', 'reni']
 specie: ['gatto']
 tempoLettura: 6
@@ -15,7 +15,7 @@ scattoBrief: '24'
 inEvidenza: false
 faq:
   - domanda: 'Il mio gatto ha 12 anni e beve molto: è per forza un problema ai reni?'
-    risposta: 'Non per forza, ma è il primo sospetto da verificare. Nel gatto anziano bere e urinare di più possono dipendere anche da diabete, ipertiroidismo, cioè un eccesso di ormoni della tiroide, o da infezioni. Un prelievo di sangue e un esame delle urine, con risposta in giornata dal laboratorio interno, distinguono queste condizioni e permettono di iniziare la terapia giusta.'
+    risposta: 'Non per forza, ma è il primo sospetto da verificare. Nel gatto anziano bere e urinare di più possono dipendere anche da diabete, ipertiroidismo, cioè un eccesso di ormoni della tiroide, o da infezioni. Un prelievo di sangue e un esame delle urine, eseguiti nel laboratorio interno, distinguono queste condizioni e permettono di iniziare la terapia giusta.'
   - domanda: "Cos'è la SDMA e perché la chiedete insieme alla creatinina?"
     risposta: 'La SDMA è una sostanza prodotta dal metabolismo delle cellule ed eliminata dai reni: sale nel sangue quando la funzione renale è ridotta anche solo del 25-40 per cento, mentre la creatinina, il marcatore classico, aumenta solo quando è perso circa il 75 per cento della funzione. Misurarle insieme permette di scoprire la malattia in stadio 1 o 2, quando si può fare di più.'
   - domanda: 'La dieta renale è davvero necessaria o basta ridurre le proteine?'
@@ -101,7 +101,7 @@ Lo screening renale comprende:
 3. **Misurazione della pressione arteriosa**, con un bracciale sulla zampa o sulla coda, in ambiente tranquillo.
 4. **Pesata e valutazione della massa muscolare**, confrontate con le visite precedenti.
 
-Il [laboratorio interno](/servizi/laboratorio-analisi) della clinica esegue tutti questi esami con risposta in giornata; se qualcosa non torna, l'ecografia addominale valuta forma e struttura dei reni nella stessa visita. Lo screening senior fa parte della prevenzione programmata dei [Piani Salute](/piani-salute).
+Il [laboratorio interno](/servizi/laboratorio-analisi) della clinica esegue questi esami; se qualcosa non torna, l'ecografia addominale valuta forma e struttura dei reni nella stessa visita.
 
 ## Cos'è la stadiazione IRIS, spiegata semplice?
 
@@ -128,7 +128,7 @@ L'acqua è la seconda terapia. Un gatto con reni che non concentrano l'urina per
 
 ## Perché controllare la pressione?
 
-Circa un gatto su cinque con malattia renale ha la pressione alta, e l'ipertensione danneggia a sua volta i reni, la retina (con cecità improvvisa), il cuore e il cervello. Si misura in pochi minuti con un bracciale, in un ambiente tranquillo: la clinica segue un approccio [cat friendly](/servizi/gatto-cat-friendly), con tempi di attesa ridotti e spazi separati dai cani, proprio perché lo stress altera il valore. Se la pressione è alta, esistono farmaci efficaci in una compressa al giorno.
+Circa un gatto su cinque con malattia renale ha la pressione alta, e l'ipertensione danneggia a sua volta i reni, la retina (con cecità improvvisa), il cuore e il cervello. Si misura in pochi minuti con un bracciale, in un ambiente tranquillo: la clinica segue un approccio cat friendly, con tempi di attesa ridotti e spazi separati dai cani, proprio perché lo stress altera il valore. Se la pressione è alta, esistono farmaci efficaci in una compressa al giorno.
 
 ## Quali altri farmaci possono servire?
 
@@ -140,4 +140,4 @@ Vieni al [pronto soccorso](/pronto-soccorso) o chiama il 081 7763859, attivo 24 
 
 ## Come iniziare
 
-Se il tuo gatto ha 7 anni o più e non ha mai fatto uno screening, oppure se hai notato che beve e urina più di prima, [prenota una visita senior](/prenota): esami del sangue e delle urine, pressione e pesata in un'unica seduta, con i risultati in giornata e un piano di controlli adatto al suo stadio.
+Se il tuo gatto ha 7 anni o più e non ha mai fatto uno screening, oppure se hai notato che beve e urina più di prima, [prenota una visita senior](/prenota): esami del sangue e delle urine, pressione e pesata in un'unica seduta e un piano di controlli adatto al suo stadio.

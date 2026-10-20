@@ -40,10 +40,10 @@
     "telefono": {
       "visualizzato": "081 7763859",
       "e164": "+390817763859",
-      "nota": "Numero unico, attivo 24 ore su 24 anche per il pronto soccorso."
+      "nota": "Numero unico, anche per il pronto soccorso."
     },
     "email": {
-      "principale": "clinicadelbosco@alice.it",
+      "principale": "clinicadelbosco10@gmail.com",
       "proposta": {
         "info": "info@clinicaveterinariadelbosco.it",
         "urgenze": "urgenze@clinicaveterinariadelbosco.it",
@@ -66,6 +66,7 @@
       "personaleInStruttura": true,
       "festiviInclusi": true,
       "etichetta": "Pronto soccorso attivo 24 ore su 24, 7 giorni su 7, festivi inclusi",
+      "rigaOrari": "Servizio di pronto soccorso attivo H24, anche sabato e domenica",
       "accessoDiretto": true,
       "rispondeUnMedico": null,
       "aiutoAllArrivo": null,
@@ -74,36 +75,16 @@
     },
     "ambulatorio": {
       "confermato": true,
-      "_nota": "Orari delle visite programmate, giorno per giorno. Formato: [\"09:00\",\"13:00\"] per ogni fascia. Lasciare [] per il giorno di chiusura. Confermati da Dario Ferrari: fasce 09:00-13:30 e 15:00-19:30, dal lunedì alla domenica (17/09/2026). Il pronto soccorso resta comunque h24.",
+      "etichetta": "Orario appuntamenti: dal lunedì al venerdì, 9:00-19:30",
+      "_nota": "Orario degli appuntamenti, giorno per giorno. Formato: [\"09:00\",\"19:30\"] per ogni fascia. Lasciare [] per i giorni senza appuntamenti. Deciso nella call del 19/10/2026: dal lunedì al venerdì 9:00-19:30, orario continuato; sabato e domenica solo pronto soccorso, attivo H24.",
       "settimana": {
-        "lunedi": [
-          ["09:00", "13:30"],
-          ["15:00", "19:30"]
-        ],
-        "martedi": [
-          ["09:00", "13:30"],
-          ["15:00", "19:30"]
-        ],
-        "mercoledi": [
-          ["09:00", "13:30"],
-          ["15:00", "19:30"]
-        ],
-        "giovedi": [
-          ["09:00", "13:30"],
-          ["15:00", "19:30"]
-        ],
-        "venerdi": [
-          ["09:00", "13:30"],
-          ["15:00", "19:30"]
-        ],
-        "sabato": [
-          ["09:00", "13:30"],
-          ["15:00", "19:30"]
-        ],
-        "domenica": [
-          ["09:00", "13:30"],
-          ["15:00", "19:30"]
-        ]
+        "lunedi": [["09:00", "19:30"]],
+        "martedi": [["09:00", "19:30"]],
+        "mercoledi": [["09:00", "19:30"]],
+        "giovedi": [["09:00", "19:30"]],
+        "venerdi": [["09:00", "19:30"]],
+        "sabato": [],
+        "domenica": []
       }
     }
   },

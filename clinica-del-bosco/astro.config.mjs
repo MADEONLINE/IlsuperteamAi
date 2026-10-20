@@ -67,7 +67,7 @@ export default defineConfig({
       serialize(item) {
         // Priorità più alta per le pagine commercialmente critiche.
         if (
-          /\/(pronto-soccorso|prenota|piani-salute)$/.test(item.url) ||
+          /\/(pronto-soccorso|prenota)$/.test(item.url) ||
           item.url === `${clinica.dominio.canonico}/`
         ) {
           item.priority = 1.0;

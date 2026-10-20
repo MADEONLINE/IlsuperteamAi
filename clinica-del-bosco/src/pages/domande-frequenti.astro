@@ -14,7 +14,6 @@ const categorie: Array<{ chiave: string; titolo: string }> = [
   { chiave: 'costi', titolo: 'Costi e pagamenti' },
   { chiave: 'chirurgia', titolo: 'Chirurgia e ricovero' },
   { chiave: 'diagnostica', titolo: 'Esami e diagnostica' },
-  { chiave: 'piani-salute', titolo: 'Piani Salute' },
   { chiave: 'struttura', titolo: 'La struttura' },
   { chiave: 'esotici', titolo: 'Animali esotici' },
 ];
@@ -26,7 +25,7 @@ const voci = await Promise.all(
   })),
 );
 const descrizione =
-  'Risposte alle domande più frequenti sulla Clinica Veterinaria del bosco di Portici: urgenze, visite, costi, chirurgia, esami, Piani Salute, animali esotici.';
+  'Risposte alle domande più frequenti sulla Clinica Veterinaria del bosco a Portici: urgenze, visite, costi, chirurgia, esami, animali esotici.';
 ---
 
 <PaginaLayout
@@ -34,7 +33,7 @@ const descrizione =
   descrizione={descrizione}
   percorso="/domande-frequenti"
   h1="Domande frequenti"
-  sottotitolo="Le risposte che diamo più spesso al telefono e in reception. Se non trovi la tua, chiamaci: risponde sempre una persona."
+  sottotitolo="Le risposte che diamo più spesso al telefono e in reception. Se non trovi la tua, chiamaci."
   etichetta="FAQ"
   briciole={[{ nome: 'Domande frequenti', href: '/domande-frequenti' }]}
   jsonLd={[

@@ -12,71 +12,6 @@ correlati: ['tc-diagnostica-avanzata', 'terapia-del-dolore-agopuntura']
 medicalSpecialty: 'Musculoskeletal'
 inEvidenza: false
 scattoBrief: '09'
-faq:
-  - domanda: 'Il mio cane zoppica da due giorni: devo preoccuparmi?'
-    risposta: "Una zoppia lieve che migliora con il riposo in 24-48 ore può dipendere da una distorsione o da una contusione. Se dopo due giorni persiste, peggiora, l'arto è gonfio o caldo, il cane non appoggia affatto la zampa o ha dolore quando lo tocchi, prenota una visita ortopedica. Nel frattempo evita corse, salti e scale e non somministrare antinfiammatori umani."
-  - domanda: 'Quanto costa un intervento al legamento crociato?'
-    risposta: 'Il costo dipende dalla tecnica scelta (TPLO, TTA o tecniche extracapsulari), dal peso del cane, dagli esami preoperatori, dalle radiografie di controllo e dai giorni di degenza. Dopo la visita ortopedica e le radiografie ricevi un preventivo scritto e dettagliato, con le alternative, prima di decidere. Nessuna cifra viene stabilita a intervento concluso.'
-  - domanda: 'Quanto dura il recupero dopo un intervento ortopedico?'
-    risposta: "Per la maggior parte degli interventi su legamenti e ossa servono 8-12 settimane di riposo controllato, con passeggiate brevi al guinzaglio, niente salti né scale, e controlli radiografici a 6-8 settimane. La ripresa completa dell'attività arriva di norma tra i tre e i quattro mesi. Nei gatti e nei cani giovani i tempi sono spesso più brevi; negli anziani più lunghi."
-  - domanda: "Come faccio a sapere se il mio cane ha la displasia dell'anca?"
-    risposta: "I segni tipici nel cane giovane sono difficoltà ad alzarsi, andatura a coniglio con le zampe posteriori unite in corsa, riluttanza a salire le scale e dolore alla manipolazione delle anche. La diagnosi si fa con radiografie in sedazione, che valutano la forma dell'articolazione e l'eventuale lassità. Nelle razze predisposte consigliamo un controllo precoce tra i 4 e i 6 mesi."
-  - domanda: "La radiografia ufficiale per la displasia richiede l'anestesia?"
-    risposta: 'Sì. Le radiografie ufficiali per la valutazione di anca e gomito, richieste dalle centrali di lettura per i cani da riproduzione, vanno eseguite in sedazione profonda o anestesia: il posizionamento con gli arti estesi e simmetrici è possibile solo con i muscoli rilassati. Si fanno dopo i 12 o i 18 mesi secondo la razza, con microchip verificato.'
-  - domanda: 'Il mio gatto è caduto dal balcone: cosa faccio?'
-    risposta: "Vieni subito al pronto soccorso, anche se il gatto cammina: le cadute dall'alto causano spesso lesioni interne, fratture del bacino, della mandibola e del palato che non si vedono a occhio nudo. Trasportalo nel trasportino con una coperta, senza manipolarlo. Chiama il 081 7763859 mentre arrivi, così prepariamo radiologia ed ecografia."
-  - domanda: "L'artrosi si può curare?"
-    risposta: "L'artrosi non guarisce, ma si gestisce bene per anni con un piano che unisce controllo del peso, esercizio regolare e moderato, farmaci antinfiammatori o analgesici prescritti dal veterinario, integratori con evidenza, fisioterapia e, quando indicato, agopuntura o laserterapia del servizio di terapia del dolore. L'obiettivo è la qualità della vita: l'animale che si muove senza dolore mantiene muscoli e articolazioni più a lungo."
-  - domanda: "Serve la fisioterapia dopo l'intervento?"
-    risposta: "Nella maggior parte dei casi sì, almeno nella forma di esercizi semplici da fare a casa: passeggiate al guinzaglio progressive, flessioni ed estensioni passive, impacchi freddi nei primi giorni. Per interventi complessi o pazienti che stentano a caricare l'arto, un programma riabilitativo strutturato accelera il recupero della funzione. Ti consegniamo il piano scritto alla dimissione."
-tabella:
-  titolo: 'Condizioni ortopediche frequenti e recupero indicativo'
-  intestazioni:
-    ['Condizione', 'Chi colpisce più spesso', 'Trattamento abituale', 'Recupero indicativo']
-  righe:
-    - [
-        'Rottura del legamento crociato craniale',
-        'Cani adulti di taglia media e grande, spesso in sovrappeso',
-        'Chirurgia (TPLO, TTA o extracapsulare) e riabilitazione',
-        '8-12 settimane di riposo controllato; ripresa completa in 3-4 mesi',
-      ]
-    - [
-        'Lussazione della rotula',
-        'Cani di piccola taglia, gatti',
-        'Conservativo nei gradi lievi; chirurgia nei gradi 2-4 sintomatici',
-        '6-8 settimane',
-      ]
-    - [
-        "Displasia dell'anca",
-        'Cani giovani di taglia grande',
-        'Gestione medica, fisioterapia; chirurgia nei casi selezionati',
-        'Gestione per tutta la vita; 8-12 settimane dopo chirurgia',
-      ]
-    - [
-        'Displasia del gomito',
-        'Cani giovani di taglia grande, 5-12 mesi',
-        'Diagnosi con TC; artroscopia o chirurgia; gestione medica',
-        '6-10 settimane dopo chirurgia',
-      ]
-    - [
-        'Fratture degli arti',
-        'Cani e gatti dopo traumi; conigli',
-        'Riduzione e fissazione con placche, chiodi o fissatori esterni',
-        '6-12 settimane fino alla consolidazione radiografica',
-      ]
-    - [
-        'Fratture del bacino',
-        "Gatti caduti dall'alto, cani investiti",
-        'Riposo in gabbia o chirurgia secondo la sede',
-        '6-8 settimane',
-      ]
-    - [
-        'Artrosi',
-        'Cani e gatti anziani; conseguenza di displasie e traumi',
-        'Controllo del peso, esercizio, farmaci, fisioterapia, terapia del dolore',
-        'Gestione cronica con controlli ogni 3-6 mesi',
-      ]
-  nota: 'Valori indicativi: i tempi dipendono da età, peso, sede della lesione e rispetto del riposo. Il piano di recupero del tuo animale è quello scritto alla dimissione.'
 fonti:
   - titolo: 'European Society of Veterinary Orthopaedics and Traumatology'
     url: 'https://www.esvot.org/'
@@ -104,14 +39,6 @@ Le condizioni trattate più spesso sono:
 - **displasia dell'anca e del gomito** nei cani giovani di taglia grande;
 - **fratture** di arti, bacino e mandibola dopo traumi, anche nel coniglio;
 - **artrosi**, lesioni dei tendini, osteocondrite, malattie ossee dell'accrescimento.
-
-## Come si svolge la visita ortopedica
-
-1. **Anamnesi.** Da quanto zoppica, se è successo qualcosa, se peggiora dopo il riposo o dopo l'esercizio, se ha già preso farmaci. Puoi [prenotare](/prenota) online o al telefono.
-2. **Osservazione del movimento.** Guardiamo l'animale camminare e trottare: il tipo di zoppia dice molto sull'arto e sull'articolazione coinvolti.
-3. **Esame ortopedico.** Palpazione e manipolazione di ogni articolazione, test specifici come il cassetto del ginocchio per il legamento crociato o l'Ortolani per la lassità dell'anca. Se necessario, con una sedazione leggera per rilassare i muscoli.
-4. **Diagnostica per immagini.** Radiografie nella maggior parte dei casi; TC per gomito, fratture articolari complesse e bacino; ecografia per tendini e muscoli.
-5. **Piano e preventivo.** Ti spieghiamo la diagnosi, le opzioni conservative e chirurgiche, i tempi di recupero, e ti consegniamo un preventivo scritto. La decisione è tua, con tutte le informazioni.
 
 ## Il mio cane zoppica: devo operarlo per forza?
 
@@ -153,4 +80,4 @@ Un arto fratturato non va manipolato né steccato in casa: trasporta l'animale s
 
 **Dopo l'intervento.** Una o più notti in [degenza](/servizi/degenza-terapia-intensiva) per il controllo del dolore. Alla dimissione ricevi farmaci, istruzioni sulla ferita, il collare e il piano di riposo e fisioterapia scritto settimana per settimana. Servono uno spazio ristretto senza pavimenti scivolosi, passeggiate brevi al guinzaglio e tanta pazienza.
 
-**I controlli.** A 10-14 giorni per la ferita, a 6-8 settimane per la radiografia di consolidazione, poi secondo il decorso. Per l'artrosi e le displasie, i controlli periodici possono rientrare nella prevenzione programmata dei [Piani Salute](/piani-salute).
+**I controlli.** A 10-14 giorni per la ferita, a 6-8 settimane per la radiografia di consolidazione, poi secondo il decorso.

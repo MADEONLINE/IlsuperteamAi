@@ -2,7 +2,6 @@
 /** Pagina di ringraziamento: cosa succede adesso, tempi dichiarati. noindex. */
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import Bottone from '@ui/Bottone.astro';
-import Icona from '@ui/Icona.astro';
 import Sezione from '@ui/Sezione.astro';
 import { clinica, telHref } from '@lib/clinica';
 ---
@@ -77,23 +76,6 @@ import { clinica, telHref } from '@lib/clinica';
           </Bottone>
         </div>
       </div>
-      <aside class="lg:col-span-5">
-        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
-          <h2 class="flex items-center gap-2 font-sans text-lg font-bold">
-            <Icona nome="scudo" class="size-5 text-primario-link" /> Prevenzione programmata
-          </h2>
-          <p class="mt-2 text-sm text-testo-secondario">
-            Se vuoi che vaccini, antiparassitari e controlli non vengano più dimenticati, dai
-            un'occhiata ai Piani Salute: te ne parliamo anche al telefono, senza impegno.
-          </p>
-          <a
-            href="/piani-salute"
-            class="mt-3 inline-flex items-center gap-1 font-semibold text-primario-link"
-          >
-            Scopri i Piani Salute <Icona nome="freccia-destra" class="size-4" />
-          </a>
-        </div>
-      </aside>
     </div>
   </Sezione>
 </PaginaLayout>

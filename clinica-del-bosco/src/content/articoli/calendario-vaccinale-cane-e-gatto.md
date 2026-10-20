@@ -1,13 +1,13 @@
 ---
 titolo: 'Calendario vaccinale del cane e del gatto: quali vaccini servono davvero e quando'
 descrizioneMeta: 'Calendario vaccinale di cane e gatto secondo WSAVA: vaccini core e non-core, protocollo per cucciolo e gattino, richiami, titoli anticorpali e antirabbica.'
-riassunto: 'I vaccini core proteggono ogni cane da cimurro, epatite infettiva e parvovirosi e ogni gatto da panleucopenia, herpesvirus e calicivirus. Cuccioli e gattini iniziano a 6-8 settimane e completano il ciclo dopo le 16; poi i richiami sono triennali o annuali secondo il vaccino. La Clinica Veterinaria del bosco di Portici costruisce con te il calendario del tuo animale.'
+riassunto: 'I vaccini core proteggono ogni cane da cimurro, epatite infettiva e parvovirosi e ogni gatto da panleucopenia, herpesvirus e calicivirus. Cuccioli e gattini iniziano a 6-8 settimane e completano il ciclo dopo le 16; poi i richiami sono triennali o annuali secondo il vaccino. La Clinica Veterinaria del bosco a Portici costruisce con te il calendario del tuo animale.'
 autore: 'isabella-rosapane'
 revisore: 'alessandro-sica'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 servizioCorrelato: 'medicina-preventiva-vaccinazioni'
-serviziCorrelati: ['gatto-cat-friendly']
+serviziCorrelati: []
 tag: ['prevenzione', 'vaccini', 'cucciolo']
 specie: ['cane', 'gatto']
 tempoLettura: 6
@@ -143,7 +143,7 @@ Fino a una settimana dopo l'ultima dose il cucciolo non è pienamente protetto: 
 
 Per i vaccini core del cane ogni tre anni; per la panleucopenia del gatto ogni tre anni; per herpesvirus e calicivirus da uno a tre anni in base al rischio. Le vaccinazioni annuali "con tutto" non sono più indicate: la protezione dei vaccini core dura a lungo e ripetere dosi inutili espone a reazioni senza beneficio. Restano annuali leptospirosi, tosse dei canili, leishmaniosi e, quando indicata, la clamidiosi del gatto.
 
-La visita annuale resta però il momento più importante della prevenzione: pesata, controllo di cuore, denti, pelle e articolazioni, esame delle feci, aggiornamento degli antiparassitari. Il [servizio di medicina preventiva](/servizi/medicina-preventiva-vaccinazioni) tiene il calendario del tuo animale e ti avvisa alle scadenze; il calendario è incluso nei [Piani Salute](/piani-salute).
+La visita annuale resta però il momento più importante della prevenzione: pesata, controllo di cuore, denti, pelle e articolazioni, esame delle feci, aggiornamento della profilassi antiparassitaria. Il [servizio di medicina preventiva](/servizi/medicina-preventiva-vaccinazioni) tiene il calendario del tuo animale e ti avvisa alle scadenze.
 
 ## Cosa sono i titoli anticorpali e quando conviene misurarli?
 
@@ -155,7 +155,7 @@ In Italia no: il Paese è indenne da rabbia e la vaccinazione non è richiesta p
 
 ## Come si vaccina un gatto senza stress?
 
-Il gatto ricorda le visite spiacevoli e il rischio è che il proprietario rinunci ai richiami. La clinica applica un approccio [cat friendly](/servizi/gatto-cat-friendly): tempi di attesa ridotti, spazi separati dai cani, manipolazione delicata e, quando serve, un supporto farmacologico da dare a casa prima della visita. Nel gatto l'iniezione viene fatta in una zona precisa della zampa, secondo le indicazioni internazionali, per poter gestire al meglio le rare reazioni locali.
+Il gatto ricorda le visite spiacevoli e il rischio è che il proprietario rinunci ai richiami. La clinica applica un approccio cat friendly: tempi di attesa ridotti, spazi separati dai cani, manipolazione delicata e, quando serve, un supporto farmacologico da dare a casa prima della visita. Nel gatto l'iniezione viene fatta in una zona precisa della zampa, secondo le indicazioni internazionali, per poter gestire al meglio le rare reazioni locali.
 
 ## Quando venire subito
 
@@ -163,4 +163,4 @@ Vieni al [pronto soccorso](/pronto-soccorso) o chiama il 081 7763859, attivo 24 
 
 ## Come costruire il calendario del tuo animale
 
-Porta il libretto sanitario alla prima visita, anche se le date sono incomplete: ricostruiamo la storia vaccinale, valutiamo lo stile di vita e definiamo insieme cosa serve e quando. Puoi [prenotare la visita online](/prenota) o per telefono; per i cuccioli e i gattini appena adottati consigliamo di venire entro la prima settimana, in modo da programmare subito il ciclo e gli antiparassitari.
+Porta il libretto sanitario alla prima visita, anche se le date sono incomplete: ricostruiamo la storia vaccinale, valutiamo lo stile di vita e definiamo insieme cosa serve e quando. Puoi [prenotare la visita online](/prenota) o per telefono; per i cuccioli e i gattini appena adottati consigliamo di venire entro la prima settimana, in modo da programmare subito il ciclo vaccinale e la profilassi antiparassitaria.

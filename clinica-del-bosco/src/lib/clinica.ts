@@ -81,6 +81,8 @@ const schemaClinica = z.object({
       personaleInStruttura: z.boolean(),
       festiviInclusi: z.boolean(),
       etichetta: z.string(),
+      /** Riga accanto all'orario degli appuntamenti (contatti, footer). */
+      rigaOrari: z.string(),
       accessoDiretto: z.boolean().default(true),
       rispondeUnMedico: z.boolean().nullable().default(null),
       aiutoAllArrivo: z.boolean().nullable().default(null),
@@ -88,6 +90,8 @@ const schemaClinica = z.object({
     }),
     ambulatorio: z.object({
       confermato: z.boolean(),
+      /** Etichetta mostrata al pubblico, es. "Orario appuntamenti: dal lunedì al venerdì, 9:00-19:30". */
+      etichetta: z.string(),
       settimana: z.object(
         Object.fromEntries(giorniSettimana.map((g) => [g, z.array(fascia)])) as Record<
           GiornoSettimana,

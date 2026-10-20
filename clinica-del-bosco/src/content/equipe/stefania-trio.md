@@ -1,7 +1,7 @@
 ---
 nome: 'Stefania Trio'
 titolo: 'Dott.ssa'
-ruolo: 'Medico veterinario · oculistica · collabora con la clinica'
+ruolo: 'Medico veterinario · oculistica'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
@@ -9,7 +9,7 @@ specializzazioni: ['Oftalmologia']
 aree: ['oftalmologia']
 formazione: ['Dottorato di ricerca (PhD)', 'Executive master in oftalmologia veterinaria']
 lingue: ['italiano']
-presenza: 'Su appuntamento, in giornate programmate'
+presenza: 'Su appuntamento'
 ordine: 23
 daValidare: true
 ---

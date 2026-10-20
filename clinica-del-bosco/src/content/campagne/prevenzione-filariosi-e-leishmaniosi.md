@@ -1,15 +1,15 @@
 ---
-titolo: 'Prevenzione di filariosi e leishmaniosi: il controllo antiparassitario di primavera'
+titolo: 'Prevenzione di filariosi e leishmaniosi: la profilassi antiparassitaria di primavera'
 descrizioneMeta: 'Da marzo a ottobre in Campania flebotomi e zanzare trasmettono leishmaniosi e filariosi. Test annuale, repellenti e profilassi: cosa comprende il controllo.'
 sottotitolo: "Un test, un repellente scelto in base al tuo cane e un calendario di profilassi che copre tutta la stagione a rischio nell'area vesuviana."
-risposta: "Il controllo antiparassitario di primavera della Clinica Veterinaria del bosco di Portici comprende il test annuale per leishmaniosi e filariosi, la scelta del repellente contro flebotomi e zanzare, l'avvio della profilassi mensile della filariosi e, nei cani più esposti, la vaccinazione contro la leishmaniosi. È prevenzione programmata per cani e gatti, da marzo a ottobre."
+risposta: "La profilassi antiparassitaria di primavera della Clinica Veterinaria del bosco a Portici comprende il test annuale per leishmaniosi e filariosi, la scelta del repellente contro flebotomi e zanzare, l'avvio della profilassi mensile della filariosi e, nei cani più esposti, la vaccinazione contro la leishmaniosi. È prevenzione programmata per cani e gatti, da marzo a ottobre."
 periodo: 'Marzo – Ottobre'
 meseInizio: 3
 meseFine: 10
 servizioCorrelato: 'medicina-preventiva-vaccinazioni'
 articoloCorrelato: 'leishmaniosi-e-filariosi-in-campania'
 motivoVisita: 'prevenzione-parassiti'
-ctaTesto: 'Prenota il controllo antiparassitario'
+ctaTesto: 'Prenota la profilassi antiparassitaria'
 specie: ['cane', 'gatto']
 scattoBrief: '27'
 checklist:
@@ -25,7 +25,7 @@ faq:
   - domanda: 'Il controllo è indicato anche per il gatto?'
     risposta: "Sì, per il gatto che esce o vive sul balcone. Il gatto è meno colpito del cane, ma può contrarre la filariosi, con una forma respiratoria simile all'asma, e più raramente la leishmaniosi. Per il gatto scegliamo un repellente specifico, perché la permetrina contenuta in molti prodotti per cane è tossica per i felini."
   - domanda: 'Cosa succede se il test risulta positivo?'
-    risposta: 'Completiamo il quadro con esami di conferma, emocromo, profilo biochimico, proteine e analisi delle urine, tutti eseguiti nel laboratorio interno con risposta in giornata. Poi impostiamo la terapia e un calendario di controlli. Un cane positivo può vivere a lungo con una gestione corretta, e la diagnosi precoce è proprio lo scopo del test.'
+    risposta: 'Completiamo il quadro con esami di conferma, emocromo, profilo biochimico, proteine e analisi delle urine, eseguiti nel laboratorio interno o, per alcuni esami specifici, in laboratori esterni con cui collaboriamo. Poi impostiamo la terapia e un calendario di controlli. Un cane positivo può vivere a lungo con una gestione corretta, e la diagnosi precoce è proprio lo scopo del test.'
   - domanda: 'Il vaccino contro la leishmaniosi è incluso nel controllo?'
     risposta: 'Viene proposto ai cani con rischio elevato: chi vive in giardino, in campagna, in zone con molti casi o chi esce spesso al tramonto. Richiede un test negativo e si affianca sempre al repellente, che resta la misura principale. Nel controllo valutiamo insieme se è indicato per il tuo cane.'
   - domanda: 'La profilassi della filariosi va fatta ogni mese anche se uso il collare?'
@@ -48,18 +48,18 @@ Perché è la stagione in cui i flebotomi e le zanzare sono attivi nel bacino ve
 
 La Campania è tra le regioni italiane con maggiore presenza di leishmaniosi canina e la filariosi è ormai stabile anche al Sud. I cani di Portici, Ercolano, San Giorgio a Cremano e Torre del Greco sono esposti anche se vivono in appartamento: il flebotomo entra in casa e punge sul balcone.
 
-## Cosa comprende il controllo antiparassitario?
+## Cosa comprende la profilassi antiparassitaria di primavera?
 
 Il controllo è una visita programmata che riunisce in un'unica seduta tutto ciò che serve per la stagione:
 
 1. **Visita clinica** con pesata, esame della pelle e dei linfonodi, auscultazione del cuore e dei polmoni.
-2. **Test annuale** per leishmaniosi e filariosi su un piccolo prelievo di sangue, con risposta in giornata dal laboratorio interno. Per la filariosi il test è anche una condizione di sicurezza: iniziare la profilassi in un cane già infetto senza saperlo può causare reazioni.
+2. **Test annuale** per leishmaniosi e filariosi su un piccolo prelievo di sangue, eseguito nel laboratorio interno. Per la filariosi il test è anche una condizione di sicurezza: iniziare la profilassi in un cane già infetto senza saperlo può causare reazioni.
 3. **Scelta del repellente** contro flebotomi e zanzare, collare o spot-on, in base a peso, abitudini e presenza di gatti in casa.
 4. **Avvio della profilassi mensile** della filariosi, con un calendario scritto delle somministrazioni fino a novembre-dicembre.
 5. **Valutazione del vaccino** contro la leishmaniosi per i cani a rischio elevato, con richiamo annuale nei cani già vaccinati.
 6. **Controllo delle altre parassitosi**: esame delle feci, pulci e zecche, che trasmettono a loro volta altre malattie.
 
-Il controllo è coordinato dal [servizio di medicina preventiva e vaccinazioni](/servizi/medicina-preventiva-vaccinazioni) e fa parte della prevenzione programmata dei [Piani Salute](/piani-salute), che includono il test annuale e la copertura antiparassitaria.
+Il controllo è coordinato dal [servizio di medicina preventiva e vaccinazioni](/servizi/medicina-preventiva-vaccinazioni).
 
 ## Per chi è indicato?
 
@@ -77,4 +77,4 @@ Per capire come funzionano le due malattie, i segni precoci da riconoscere e cos
 
 Se il tuo cane ha sangue dal naso che non si ferma, difficoltà a respirare, svenimento, addome improvvisamente gonfio o non urina, vieni al [pronto soccorso](/pronto-soccorso), attivo 24 ore su 24, e chiama il 081 7763859 mentre arrivi.
 
-Per tutto il resto, [prenota il controllo antiparassitario](/prenota) tra febbraio e aprile: bastano una visita e un prelievo per coprire tutta la stagione.
+Per tutto il resto, [prenota la profilassi antiparassitaria](/prenota) tra febbraio e aprile: bastano una visita e un prelievo per coprire tutta la stagione.

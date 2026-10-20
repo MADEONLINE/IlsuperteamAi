@@ -20,7 +20,7 @@ const servizi = await getCollection('servizi');
 const aree = servizi.filter((s) => medico.data.aree.includes(s.id));
 const nome = `${medico.data.titolo} ${medico.data.nome}`;
 const url = `/equipe/${medico.id}`;
-const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del bosco di Portici. Aree di attività, formazione e numero di iscrizione all'Ordine dei Medici Veterinari.`;
+const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del bosco a Portici. Aree di attività, formazione e numero di iscrizione all'Ordine dei Medici Veterinari.`;
 ---
 
 <PaginaLayout
@@ -30,9 +30,9 @@ const descrizione = `${nome}, ${medico.data.ruolo} della Clinica Veterinaria del
   noindex={medico.data.daValidare}
   h1={nome}
   sottotitolo={medico.data.ruolo}
-  etichetta="Équipe"
+  etichetta="I nostri medici"
   briciole={[
-    { nome: 'Équipe', href: '/equipe' },
+    { nome: 'I nostri medici', href: '/equipe' },
     { nome: nome, href: url },
   ]}
   jsonLd={[

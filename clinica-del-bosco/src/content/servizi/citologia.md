@@ -1,9 +1,9 @@
 ---
-titolo: 'Citologia veterinaria a Portici: esame di noduli, masse e versamenti in giornata'
+titolo: 'Citologia veterinaria a Portici: esame di noduli, masse e versamenti'
 titoloBreve: 'Citologia'
-descrizioneMeta: 'Citologia veterinaria a Portici: esame al microscopio di noduli, linfonodi, versamenti, orecchie e pelle di cane, gatto ed esotici, con risposta in giornata.'
+descrizioneMeta: 'Citologia veterinaria a Portici: esame al microscopio di noduli, linfonodi, versamenti, orecchie e pelle di cane, gatto ed esotici, nel laboratorio interno.'
 sottotitolo: 'Un ago sottile, poche cellule e un microscopio: spesso bastano per sapere se un nodulo è da togliere subito o da tenere sotto controllo.'
-risposta: 'Il servizio di citologia della Clinica Veterinaria del bosco a Portici esamina al microscopio le cellule prelevate con un ago sottile da noduli, linfonodi, organi interni, versamenti, orecchie e lesioni della pelle di cane, gatto e animali esotici. Il prelievo è rapido, di solito senza sedazione, e la lettura nel laboratorio interno consente una risposta in giornata.'
+risposta: 'Il servizio di citologia della Clinica Veterinaria del bosco a Portici esamina al microscopio le cellule prelevate con un ago sottile da noduli, linfonodi, organi interni, versamenti, orecchie e lesioni della pelle di cane, gatto e animali esotici. Il prelievo è rapido, di solito senza sedazione, e la lettura si fa nel laboratorio interno.'
 icona: 'microscopio'
 categoria: 'diagnostica'
 ordine: 21
@@ -12,54 +12,6 @@ correlati: ['laboratorio-analisi', 'oncologia', 'dermatologia']
 medicalSpecialty: 'Pathology'
 inEvidenza: false
 scattoBrief: '19'
-faq:
-  - domanda: 'Ho trovato una pallina sotto la pelle del mio cane: devo preoccuparmi?'
-    risposta: "Non necessariamente, ma va esaminata. Molti noduli sottocutanei del cane sono lipomi, cioè accumuli di grasso benigni, ma altri sono tumori che richiedono un intervento, e a occhio non si distinguono. L'esame citologico con ago sottile dura pochi minuti e nella maggior parte dei casi risponde alla domanda. Segnalaci sempre un nodulo nuovo, che cresce o che cambia aspetto, anche se è piccolo."
-  - domanda: "Il prelievo con l'ago fa male? Serve la sedazione?"
-    risposta: 'Il prelievo si esegue con un ago molto sottile, simile a quello di una siringa da insulina, e dura pochi secondi: la maggior parte degli animali lo tollera senza sedazione, con una leggera contenzione. La sedazione serve solo per sedi delicate, come gli organi interni sotto guida ecografica o le lesioni in bocca, oppure per animali molto agitati o dolenti. Ti diciamo prima cosa prevediamo.'
-  - domanda: 'Quanto tempo ci vuole per il risultato?'
-    risposta: 'Il vetrino viene colorato e letto nel laboratorio della clinica, spesso durante la visita stessa o entro la giornata. In alcuni casi, quando le cellule sono di difficile interpretazione o serve una seconda lettura, il preparato viene inviato a un patologo esterno e la risposta richiede alcuni giorni. Ti spieghiamo subito se il risultato è definitivo o se aspettiamo un parere aggiuntivo.'
-  - domanda: 'La citologia è sempre sufficiente o serve la biopsia?'
-    risposta: 'La citologia osserva cellule isolate, la biopsia un frammento di tessuto con la sua struttura. Per molte lesioni la citologia basta: lipomi, mastocitomi, linfomi, alcune infezioni. Per altre, come i tumori dei tessuti molli o le lesioni con molte cellule infiammatorie, occorre la biopsia con esame istologico per una diagnosi certa e per valutare i margini. La citologia è comunque il primo passo, perché orienta la scelta.'
-  - domanda: 'Il gatto ha i linfonodi ingrossati: cosa significa?'
-    risposta: "I linfonodi si ingrossano per infezioni, infiammazioni o tumori, in particolare il linfoma, che nel gatto è frequente. Un linfonodo ingrossato va esaminato con la citologia, che distingue in molti casi una reazione a un'infezione da una proliferazione tumorale. Nel gatto è utile abbinare gli esami del sangue e i test per i virus della leucemia e dell'immunodeficienza felina."
-  - domanda: "Il mio cane ha un versamento nell'addome: perché lo prelevate?"
-    risposta: "Perché il liquido racconta la causa. Analizzando cellule, proteine e aspetto del versamento distinguiamo un liquido da insufficienza cardiaca o da poche proteine nel sangue, uno infiammatorio o infetto, un'emorragia, un versamento di origine tumorale o una rottura di vescica o intestino. La differenza cambia radicalmente la terapia, e alcune di queste condizioni sono urgenze chirurgiche. Il prelievo è rapido e guidato dall'ecografia."
-  - domanda: "Cosa cerca la citologia dell'orecchio o della pelle?"
-    risposta: "Nella dermatologia la citologia serve a vedere cosa vive sulla pelle o nel condotto uditivo: batteri, lieviti come la Malassezia, acari, cellule infiammatorie o tumorali. Si esegue con un tampone, un nastro adesivo o una leggera raschiatura, senza dolore, e si legge in pochi minuti. È l'esame che permette di scegliere il trattamento giusto per un'otite o una dermatite invece di andare per tentativi."
-  - domanda: 'Fate la citologia anche agli animali esotici?'
-    risposta: 'Sì. Nel coniglio e nella cavia la citologia è usata per ascessi, masse cutanee e mammarie, versamenti e lesioni della pelle; nei rettili e negli uccelli per masse, lesioni cutanee, tamponi e liquidi. Il prelievo con ago sottile è particolarmente adatto a queste specie, perché è rapido e richiede poco contenimento. Il campione viene letto nello stesso laboratorio interno.'
-tabella:
-  titolo: 'Tipi di prelievo citologico e tempi indicativi di risposta'
-  intestazioni: ['Prelievo', 'Cosa si esamina', 'Sedazione', 'Risposta']
-  righe:
-    - [
-        'Ago sottile su nodulo cutaneo o sottocutaneo',
-        'Lipomi, mastocitomi, cisti, tumori della pelle',
-        'Di solito no',
-        'Spesso in giornata',
-      ]
-    - [
-        'Ago sottile su linfonodo',
-        'Reazione infiammatoria, linfoma, metastasi',
-        'Di solito no',
-        'Spesso in giornata',
-      ]
-    - [
-        'Ago sottile ecoguidato su organo interno',
-        'Fegato, milza, reni, masse addominali',
-        'Sedazione leggera',
-        '1-3 giorni, talvolta parere esterno',
-      ]
-    - [
-        'Prelievo di versamento',
-        'Liquido addominale, toracico o pericardico',
-        'Di solito no',
-        'In giornata',
-      ]
-    - ['Tampone o nastro adesivo', 'Orecchio, pelle, lesioni umide', 'No', 'Durante la visita']
-    - ['Citologia vaginale', 'Fase del ciclo nella cagna', 'No', 'Durante la visita']
-  nota: "Valori indicativi. I tempi dipendono dalla complessità del campione e dall'eventuale invio a un patologo esterno per una seconda lettura."
 fonti:
   - titolo: 'European Society of Veterinary Clinical Pathology'
     url: 'https://www.esvcp.org/'
@@ -80,15 +32,6 @@ dataRevisione: 2026-09-10
 La citologia è l'esame al microscopio delle cellule prelevate da una lesione, da un organo o da un liquido. È uno degli strumenti diagnostici più rapidi e meno invasivi della medicina veterinaria: un ago sottile, un vetrino, una colorazione e in molti casi una risposta nella stessa giornata. Alla Clinica Veterinaria del bosco la citologia fa parte del [laboratorio interno](/servizi/laboratorio-analisi) ed è utilizzata ogni giorno in dermatologia, oncologia, medicina interna e pronto soccorso, per cani, gatti e animali esotici.
 
 Il caso più comune è il nodulo: un proprietario nota una pallina sotto la pelle, il medico la esamina con l'ago e sa entro poche ore se si tratta di un lipoma da tenere sotto controllo o di un tumore da rimuovere. Ma la citologia risponde anche ad altre domande: perché un linfonodo è ingrossato, cosa contiene un versamento, quali microrganismi causano un'otite, in che fase del ciclo si trova una cagna.
-
-## Come si svolge il prelievo citologico
-
-1. **Individuazione della lesione.** Visita e, per gli organi interni, ecografia per scegliere il punto di prelievo più informativo ed evitare vasi e strutture delicate.
-2. **Preparazione.** Tricotomia minima e disinfezione della cute. Per i noduli superficiali e i linfonodi non serve sedazione; per gli organi interni si usa una sedazione leggera.
-3. **Prelievo.** Un ago sottile viene inserito nella lesione e mosso per raccogliere cellule, con o senza aspirazione. Dura pochi secondi e si ripete due o tre volte per avere materiale sufficiente.
-4. **Allestimento del vetrino.** Le cellule vengono distese su un vetrino, fatte asciugare e colorate.
-5. **Lettura al microscopio.** Il medico valuta il tipo di cellule, la loro organizzazione, i segni di malignità, la presenza di batteri, lieviti o parassiti.
-6. **Referto e decisione.** Ti spieghiamo il risultato: diagnosi, sospetto da approfondire con biopsia o esami del sangue, oppure campione non diagnostico da ripetere. Quando serve, il vetrino viene inviato a un patologo clinico esterno per una seconda lettura.
 
 ## Il nodulo è benigno o maligno: la citologia lo dice sempre?
 
@@ -114,4 +57,4 @@ La citologia è di solito un esame programmato, ma le situazioni che la richiedo
 
 ## Cosa aspettarsi
 
-Ricevi un referto scritto con la descrizione del campione, l'interpretazione e le indicazioni successive: controllo nel tempo, rimozione chirurgica, biopsia, esami aggiuntivi. Se il risultato è definitivo lo spieghiamo con chiarezza; se resta un margine di incertezza lo diciamo altrettanto chiaramente, perché una diagnosi incompleta è più utile di una diagnosi apparentemente sicura. Il controllo periodico dei noduli negli animali anziani può essere inserito nella prevenzione programmata dei [piani salute](/piani-salute). Per prenotare un esame citologico usa la pagina [prenota](/prenota) o chiama la clinica.
+Ricevi un referto scritto con la descrizione del campione, l'interpretazione e le indicazioni successive: controllo nel tempo, rimozione chirurgica, biopsia, esami aggiuntivi. Se il risultato è definitivo lo spieghiamo con chiarezza; se resta un margine di incertezza lo diciamo altrettanto chiaramente, perché una diagnosi incompleta è più utile di una diagnosi apparentemente sicura. Per prenotare un esame citologico usa la pagina [prenota](/prenota) o chiama la clinica.

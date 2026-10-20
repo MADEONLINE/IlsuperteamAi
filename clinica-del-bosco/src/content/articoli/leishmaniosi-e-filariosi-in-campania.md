@@ -1,7 +1,7 @@
 ---
 titolo: 'Leishmaniosi e filariosi in Campania: come proteggere il tuo cane da marzo a novembre'
 descrizioneMeta: "Leishmaniosi e filariosi del cane in Campania: trasmissione, mesi a rischio nell'area vesuviana, prevenzione ESCCAP, test annuale e segni precoci."
-riassunto: "In Campania leishmaniosi e filariosi sono presenti ogni anno, con rischio esteso da marzo a novembre nell'area vesuviana e costiera. La prevenzione si basa su repellenti contro flebotomi e zanzare, profilassi mensile della filariosi, vaccino nei cani a rischio e un test annuale. La Clinica Veterinaria del bosco di Portici costruisce con te un piano antiparassitario su misura."
+riassunto: "In Campania leishmaniosi e filariosi sono presenti ogni anno, con rischio esteso da marzo a novembre nell'area vesuviana e costiera. La prevenzione si basa su repellenti contro flebotomi e zanzare, profilassi mensile della filariosi, vaccino nei cani a rischio e un test annuale. La Clinica Veterinaria del bosco a Portici costruisce con te un piano di profilassi antiparassitaria su misura."
 autore: 'dario-ferrari'
 revisore: 'isabella-rosapane'
 dataPubblicazione: 2026-09-10
@@ -21,13 +21,13 @@ faq:
   - domanda: 'Il vaccino contro la leishmaniosi sostituisce il repellente?'
     risposta: "No. Il vaccino riduce la probabilità che l'infezione evolva in malattia, ma non impedisce la puntura del flebotomo. Le linee guida ESCCAP e LeishVet lo considerano un'aggiunta al repellente nei cani a rischio, non un sostituto. Prima di vaccinare serve un test negativo."
   - domanda: 'Quando si fa il test per leishmaniosi e filariosi?'
-    risposta: "Il momento migliore è tra febbraio e aprile, prima dell'inizio della stagione dei vettori: il test cerca gli anticorpi o gli antigeni dell'infezione contratta nella stagione precedente, che hanno bisogno di mesi per diventare rilevabili. Il laboratorio interno della clinica dà la risposta in giornata e, se il risultato è dubbio, esegue esami di conferma."
+    risposta: "Il momento migliore è tra febbraio e aprile, prima dell'inizio della stagione dei vettori: il test cerca gli anticorpi o gli antigeni dell'infezione contratta nella stagione precedente, che hanno bisogno di mesi per diventare rilevabili. Il test si esegue nel laboratorio interno della clinica e, se il risultato è dubbio, si completa con esami di conferma."
   - domanda: 'La profilassi della filariosi va fatta anche in inverno?'
     risposta: "In Campania la stagione delle zanzare è lunga e gli inverni sono miti, quindi molti veterinari consigliano la copertura per tutto l'anno. Se preferisci la profilassi stagionale, deve iniziare entro un mese dalle prime zanzare e proseguire fino a un mese dopo le ultime: in pratica da marzo-aprile a novembre-dicembre."
   - domanda: 'Il mio cane è risultato positivo: è una condanna?'
     risposta: 'No. Un cane positivo alla leishmaniosi può vivere a lungo con una terapia ben impostata e controlli regolari degli esami del sangue e delle urine. Anche la filariosi si cura, con un protocollo che richiede riposo assoluto per alcune settimane. In entrambi i casi la prognosi è migliore quanto prima si arriva alla diagnosi.'
 tabella:
-  titolo: 'Calendario della prevenzione antiparassitaria in Campania'
+  titolo: 'Calendario della profilassi antiparassitaria in Campania'
   intestazioni: ['Periodo', 'Rischio', 'Cosa fare']
   righe:
     - [
@@ -116,7 +116,7 @@ Contro la filariosi la prevenzione funziona in modo diverso: un farmaco somminis
 
 Perché entrambe le malattie hanno una lunga fase silenziosa e la diagnosi precoce cambia la prognosi. Il test annuale, eseguito idealmente tra febbraio e aprile, cerca gli anticorpi contro la Leishmania e gli antigeni della filaria adulta. Per la filariosi il test è anche una condizione di sicurezza: iniziare la profilassi in un cane già infetto senza saperlo può causare reazioni gravi.
 
-Il [laboratorio analisi interno](/servizi/laboratorio-analisi) della clinica esegue i test rapidi con risposta in giornata e, quando il risultato è positivo o dubbio, completa il quadro con esami di conferma, emocromo, profilo biochimico, elettroforesi delle proteine e analisi delle urine. Il test annuale è incluso nella prevenzione programmata dei [Piani Salute](/piani-salute).
+Il [laboratorio analisi interno](/servizi/laboratorio-analisi) della clinica esegue i test rapidi e, quando il risultato è positivo o dubbio, completa il quadro con esami di conferma, emocromo, profilo biochimico, elettroforesi delle proteine e analisi delle urine.
 
 ## Quali sono i segni precoci da riconoscere?
 

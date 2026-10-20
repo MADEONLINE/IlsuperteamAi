@@ -12,71 +12,6 @@ correlati: ['oncologia', 'chirurgia']
 medicalSpecialty: 'Radiography'
 inEvidenza: true
 scattoBrief: '04'
-faq:
-  - domanda: 'Quanto costa una TC al cane o al gatto?'
-    risposta: "Il costo dipende dal distretto da esaminare (un solo segmento o total body), dall'uso del mezzo di contrasto, dal tipo di sedazione o anestesia necessaria e dagli esami del sangue preliminari. Dopo la visita, o sulla base della richiesta del tuo veterinario, ricevi un preventivo scritto prima di fissare l'esame: nessuna cifra viene decisa a esame concluso."
-  - domanda: "La TC richiede l'anestesia?"
-    risposta: "Sì, quasi sempre una sedazione profonda o un'anestesia generale breve: l'animale deve restare immobile per qualche minuto e la sedazione evita stress e movimenti che renderebbero le immagini inutilizzabili. Il protocollo è scelto sul singolo paziente dopo una visita e gli esami del sangue; durante l'esame respiro, cuore e ossigenazione sono monitorati in continuo."
-  - domanda: "Quanto dura l'esame?"
-    risposta: "L'acquisizione delle immagini dura pochi minuti. L'intera procedura, tra accoglienza, sedazione, esame, eventuale contrasto e risveglio, richiede in genere da una a tre ore. Se la TC è programmata, l'animale entra al mattino e torna a casa nel pomeriggio, salvo che non sia già ricoverato o non serva un intervento subito dopo."
-  - domanda: 'Il mio animale deve essere a digiuno prima della TC?'
-    risposta: "Sì, per cani e gatti serve il digiuno da cibo solido dalla sera precedente, in genere 8-12 ore, perché l'esame si svolge in sedazione o anestesia; l'acqua resta disponibile fino a poche ore prima. Conigli e roditori non vanno messi a digiuno. Se il tuo animale assume farmaci, chiedi al momento della prenotazione se somministrarli o meno."
-  - domanda: "Che differenza c'è tra TC, radiografia ed ecografia?"
-    risposta: "La radiografia è un'immagine bidimensionale: rapida e utile per ossa, torace e addome, ma con strutture sovrapposte. L'ecografia mostra bene gli organi addominali e il cuore, senza sedazione. La TC acquisisce sezioni sottili e le ricostruisce in tre dimensioni: distingue strutture che nella radiografia si confondono ed è insostituibile per testa, colonna, torace in oncologia e fratture complesse."
-  - domanda: 'Il mezzo di contrasto è pericoloso?'
-    risposta: "Il mezzo di contrasto iodato viene iniettato in vena per evidenziare vasi, tumori e infiammazioni. Le reazioni sono rare; il rischio principale riguarda i reni, per questo prima di usarlo controlliamo creatinina e urea con gli esami del sangue e assicuriamo una buona idratazione. Se i valori renali sono alterati, valutiamo con te se eseguire l'esame senza contrasto."
-  - domanda: 'Quando ricevo il referto?'
-    risposta: "Un primo esito verbale ti viene comunicato subito dopo l'esame, quando le immagini sono state visionate. Il referto scritto completo, che richiede la ricostruzione e la lettura di tutte le sezioni, viene consegnato di norma entro pochi giorni lavorativi; nei casi urgenti la lettura è immediata. Le immagini vengono fornite in formato digitale."
-  - domanda: "Posso fare la TC se me l'ha prescritta il mio veterinario?"
-    risposta: 'Sì. La clinica esegue la TC anche su richiesta di colleghi esterni: porta la richiesta, i referti precedenti e gli esami del sangue recenti, oppure li facciamo in sede il giorno stesso. Al termine inviamo al tuo veterinario le immagini e il referto, così prosegue le cure con tutte le informazioni.'
-tabella:
-  titolo: 'Cosa può mostrare la TC: indicazioni principali per distretto'
-  intestazioni:
-    ['Distretto', 'Indicazioni frequenti', 'Sedazione', "Durata indicativa dell'acquisizione"]
-  righe:
-    - [
-        'Testa (naso, orecchie, denti, orbita)',
-        'Scolo nasale cronico, otiti croniche, masse, traumi facciali',
-        'Anestesia generale',
-        '5-10 minuti',
-      ]
-    - [
-        'Torace',
-        'Ricerca di metastasi, masse polmonari o mediastiniche, traumi',
-        'Sedazione profonda o anestesia',
-        '3-5 minuti',
-      ]
-    - [
-        'Addome',
-        'Masse epatiche, spleniche, surrenaliche; anomalie vascolari (shunt)',
-        'Anestesia con contrasto',
-        '5-10 minuti',
-      ]
-    - [
-        'Colonna vertebrale',
-        'Fratture, ernie del disco, malformazioni, dolore cervicale o lombare',
-        'Anestesia generale',
-        '5-10 minuti',
-      ]
-    - [
-        'Articolazioni e arti',
-        'Displasia del gomito, fratture complesse, tumori ossei',
-        'Sedazione profonda',
-        '3-5 minuti',
-      ]
-    - [
-        'Total body oncologico',
-        'Stadiazione completa prima di chirurgia o chemioterapia',
-        'Anestesia con contrasto',
-        '10-15 minuti',
-      ]
-    - [
-        'Animali esotici',
-        'Ascessi dentali, otiti, masse addominali',
-        'Anestesia specifica per specie',
-        '3-5 minuti',
-      ]
-  nota: "Valori indicativi: la durata complessiva della procedura, tra preparazione e risveglio, è di una-tre ore. L'indicazione all'esame viene stabilita dal medico dopo la visita."
 fonti:
   - titolo: 'European College of Veterinary Diagnostic Imaging'
     url: 'https://www.ecvdi.org/'
@@ -87,6 +22,7 @@ fonti:
   - titolo: 'MSD Veterinary Manual — Diagnostic imaging in small animals'
     url: 'https://www.msdvetmanual.com/'
     ente: 'MSD Veterinary Manual'
+referenti: ['isabella-rosapane']
 autore: 'isabella-rosapane'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
@@ -104,16 +40,6 @@ Alla Clinica del bosco la TC è in sede e viene usata soprattutto per quattro sc
 - **Malattie di naso, orecchie, colonna e articolazioni**: scolo nasale cronico, otiti che non guariscono, ernie del disco, displasia del gomito.
 
 Perché la TC è nella stessa struttura del [pronto soccorso](/pronto-soccorso), della [chirurgia](/servizi/chirurgia) e della [degenza](/servizi/degenza-terapia-intensiva), un animale traumatizzato o un paziente oncologico non deve essere trasportato altrove per completare la diagnosi.
-
-## Come si svolge l'esame
-
-1. **Indicazione e preventivo.** La TC è proposta dal medico dopo la visita, o richiesta dal tuo veterinario. Ricevi un preventivo scritto e le istruzioni per il digiuno. Puoi [prenotare](/prenota) online o al telefono.
-2. **Esami preliminari.** Emocromo e biochimico, in particolare i valori renali se è previsto il contrasto, eseguiti nel [laboratorio interno](/servizi/laboratorio-analisi) il giorno stesso o nei giorni precedenti; nei pazienti seguiti con un [Piano Salute](/piani-salute) sono spesso già disponibili.
-3. **Accoglienza e consenso.** Firma del consenso all'anestesia, ultime domande, posizionamento dell'accesso venoso.
-4. **Sedazione o anestesia.** Scelta sul singolo animale, con monitoraggio continuo dei parametri vitali per tutta la durata.
-5. **Acquisizione.** L'animale viene posizionato sul lettino; le immagini si acquisiscono in pochi minuti, con o senza contrasto.
-6. **Risveglio.** In un ambiente tranquillo e riscaldato, sotto osservazione finché non è vigile e in grado di stare in piedi.
-7. **Referto.** Prima lettura immediata; referto scritto e immagini digitali entro pochi giorni lavorativi, o subito nei casi urgenti.
 
 ## Quando serve la TC e non basta una radiografia?
 

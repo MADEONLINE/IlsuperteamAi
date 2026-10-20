@@ -2,7 +2,7 @@
 titolo: 'Salute dentale: il controllo del cavo orale di cane, gatto e coniglio'
 descrizioneMeta: 'Controllo del cavo orale a febbraio e marzo per cane, gatto e coniglio: perché la malattia parodontale è frequente, cosa comprende la visita, cosa succede dopo.'
 sottotitolo: 'Alito cattivo, tartaro e gengive arrossate non sono normali: un controllo programmato ogni anno intercetta la malattia parodontale prima che faccia male.'
-risposta: 'Il controllo del cavo orale della Clinica Veterinaria del bosco di Portici è una visita programmata, a febbraio e marzo, in cui il servizio di odontostomatologia valuta denti, gengive e occlusione di cane, gatto e coniglio, stima il grado di tartaro e di malattia parodontale e stabilisce se serve una pulizia in anestesia con radiografie dentali.'
+risposta: 'Il controllo del cavo orale della Clinica Veterinaria del bosco a Portici è una visita programmata, a febbraio e marzo, in cui il servizio di odontostomatologia valuta denti, gengive e occlusione di cane, gatto e coniglio, stima il grado di tartaro e di malattia parodontale e stabilisce se serve una pulizia in anestesia con radiografie dentali.'
 periodo: 'Febbraio – Marzo'
 meseInizio: 2
 meseFine: 3
@@ -23,7 +23,7 @@ faq:
   - domanda: 'Perché la pulizia dei denti si fa in anestesia?'
     risposta: "Perché la parte importante della pulizia avviene sotto la gengiva, dove il tartaro danneggia l'osso, e richiede un animale immobile e senza dolore. In anestesia è possibile sondare ogni dente, fare le radiografie dentali, che rivelano problemi invisibili in oltre metà dei casi, ed estrarre i denti compromessi. La pulizia da sveglio rimuove solo il tartaro visibile e lascia la malattia dove è."
   - domanda: "Il mio gatto ha 12 anni: l'anestesia è troppo rischiosa?"
-    risposta: "L'età da sola non è una controindicazione. Prima dell'anestesia facciamo esami del sangue, che nel laboratorio interno hanno risposta in giornata, e se serve un controllo del cuore; durante l'intervento il gatto è monitorato in modo continuo e riscaldato. Nel gatto anziano il dolore dentale non trattato peggiora appetito e qualità di vita più di quanto lo faccia un'anestesia ben condotta."
+    risposta: "L'età da sola non è una controindicazione. Prima dell'anestesia facciamo esami del sangue nel laboratorio interno e, se serve, un controllo del cuore; durante l'intervento il gatto è monitorato in modo continuo e riscaldato. Nel gatto anziano il dolore dentale non trattato peggiora appetito e qualità di vita più di quanto lo faccia un'anestesia ben condotta."
   - domanda: 'Il coniglio ha problemi ai denti?'
     risposta: "Molto spesso. I denti del coniglio crescono per tutta la vita e si consumano masticando fieno; una dieta povera di fibra o una malocclusione, cioè un allineamento scorretto, li fa crescere in modo anomalo, con punte che feriscono lingua e guance e radici che premono sugli occhi. I segni sono calo di peso, salivazione, lacrimazione e feci piccole. Il controllo comprende l'esame dei molari con uno strumento dedicato."
   - domanda: 'Cosa posso fare a casa per prevenire il tartaro?'
@@ -56,8 +56,6 @@ Il controllo è una visita programmata con il [servizio di odontostomatologia](/
 4. **Nel coniglio**, esame degli incisivi e dei molari con uno strumento dedicato, controllo del peso e della produzione di feci.
 5. **Istruzioni pratiche per l'igiene a casa**: spazzolamento, diete e snack con efficacia dimostrata, fieno per il coniglio.
 6. **Se necessario, programmazione della pulizia in anestesia** con esami pre-anestesia, radiografie dentali ed eventuali estrazioni, e un preventivo scritto.
-
-Il controllo annuale del cavo orale è incluso nella prevenzione programmata dei [Piani Salute](/piani-salute), insieme alla visita e agli esami di routine.
 
 ## Per chi è indicato?
 

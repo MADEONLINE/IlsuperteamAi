@@ -14,7 +14,6 @@ import {
   indirizzoRiga,
   telHref,
 } from '@lib/clinica';
-import { orariLeggibili } from '@lib/orari';
 
 const anno = new Date().getFullYear();
 const colonne = [
@@ -24,7 +23,6 @@ const colonne = [
       { nome: 'Prenota una visita', href: '/prenota' },
       { nome: 'La prima visita', href: '/prima-visita' },
       { nome: 'Tutti i servizi', href: '/servizi' },
-      { nome: 'Piani Salute', href: '/piani-salute' },
       { nome: 'Domande frequenti', href: '/domande-frequenti' },
       { nome: 'Magazine', href: '/magazine' },
       { nome: 'Pronto soccorso', href: '/pronto-soccorso' },
@@ -34,15 +32,12 @@ const colonne = [
     titolo: 'La clinica',
     voci: [
       { nome: 'La struttura', href: '/la-struttura' },
-      { nome: 'Équipe medica', href: '/equipe' },
+      { nome: 'I nostri medici', href: '/equipe' },
       { nome: 'Per i colleghi veterinari', href: '/per-i-colleghi' },
       { nome: 'Contatti e come arrivare', href: '/contatti' },
     ],
   },
 ];
-const orari = clinica.orari.ambulatorio.confermato
-  ? orariLeggibili(clinica.orari.ambulatorio.settimana)
-  : null;
 ---
 
 <footer class="mt-auto border-t border-bordo bg-sfondo-tinta pb-[calc(var(--spacing-sticky)+1rem)] text-testo lg:pb-0 print:hidden">
@@ -91,28 +86,8 @@ const orari = clinica.orari.ambulatorio.confermato
         <h2 class="mb-2 font-sans text-sm font-bold uppercase tracking-wider text-testo-secondario">
           Orari
         </h2>
-        {orari ? (
-          <table class="mt-2 text-sm">
-            <caption class="sr-only">Orari dell'ambulatorio per le visite programmate</caption>
-            <tbody>
-              {orari.map((r) => (
-                <tr>
-                  <th scope="row" class="pr-4 font-medium capitalize">
-                    {r.giorno}
-                  </th>
-                  <td>{r.fasce}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p class="mt-1 text-sm text-testo-secondario">
-            Visite programmate su appuntamento: chiama o <a href="/prenota">prenota online</a>.
-          </p>
-        )}
-        <p class="mt-2 text-sm text-testo-secondario">
-          Servizio di pronto soccorso attivo 24 ore su 24.
-        </p>
+        <p class="mt-1 text-sm">{clinica.orari.ambulatorio.etichetta}</p>
+        <p class="mt-2 text-sm text-testo-secondario">{clinica.orari.prontoSoccorso.rigaOrari}</p>
       </div>
       <ul class="flex gap-3" aria-label="Profili social">
         <li>

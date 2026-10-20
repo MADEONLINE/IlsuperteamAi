@@ -1,8 +1,8 @@
 ---
 titolo: 'Estate sicura: caldo, viaggi e vacanze con cane, gatto e coniglio'
-descrizioneMeta: 'Il check-up estivo prima delle vacanze: controllo di cuore e vie respiratorie, documenti per viaggiare, antiparassitari e consigli contro il colpo di calore.'
+descrizioneMeta: 'Check-up estivo prima delle vacanze: cuore e respiro, documenti per viaggiare, profilassi antiparassitaria e consigli contro il colpo di calore.'
 sottotitolo: 'Un controllo prima di partire per verificare che il tuo animale tolleri il caldo e il viaggio, con i documenti e le protezioni in regola.'
-risposta: 'Il check-up estivo della Clinica Veterinaria del bosco di Portici è una visita programmata, da giugno a settembre, che verifica cuore, vie respiratorie e peso del tuo cane, gatto o coniglio prima delle vacanze, controlla vaccini, microchip e passaporto per viaggiare e aggiorna la protezione antiparassitaria. Comprende indicazioni pratiche per prevenire il colpo di calore.'
+risposta: 'Il check-up estivo della Clinica Veterinaria del bosco a Portici è una visita programmata, da giugno a settembre, che verifica cuore, vie respiratorie e peso del tuo cane, gatto o coniglio prima delle vacanze, controlla vaccini, microchip e passaporto per viaggiare e aggiorna la profilassi antiparassitaria. Comprende indicazioni pratiche per prevenire il colpo di calore.'
 periodo: 'Giugno – Settembre'
 meseInizio: 6
 meseFine: 9
@@ -15,7 +15,7 @@ scattoBrief: '28'
 checklist:
   - "Il libretto sanitario e, se viaggi all'estero, il passaporto europeo o la data prevista di partenza"
   - 'La destinazione e il mezzo di trasporto: auto, treno, nave o aereo hanno regole diverse'
-  - "Il nome degli antiparassitari in uso e la data dell'ultima applicazione"
+  - "Il nome dei prodotti per la profilassi antiparassitaria in uso e la data dell'ultima applicazione"
   - 'Farmaci abituali da portare in vacanza, per verificare scorte e conservazione al caldo'
   - 'Osserva prima della visita: respiro rumoroso a riposo, stanchezza nelle passeggiate, tosse'
 faq:
@@ -26,9 +26,9 @@ faq:
   - domanda: 'Il coniglio può viaggiare in auto in estate?'
     risposta: "Sì, ma il coniglio soffre il caldo più del cane: sopra i 28 gradi rischia il colpo di calore. Viaggia con l'aria condizionata, nel trasportino con fieno e una bottiglia di acqua congelata avvolta in un panno all'esterno, mai al sole e mai nel bagagliaio. Nel check-up controlliamo denti, peso e intestino, perché lo stress del viaggio può fermare la digestione."
   - domanda: 'Il check-up è utile anche se non partiamo?'
-    risposta: "Sì. L'estate espone a colpo di calore, parassiti, forasacchi, cioè le spighe secche che si infilano in orecchie, zampe e naso, punture di insetti e meduse. Il check-up verifica che il tuo animale tolleri il caldo, aggiorna gli antiparassitari e ti lascia indicazioni scritte su cosa fare nelle giornate più calde, anche per chi resta a Portici."
+    risposta: "Sì. L'estate espone a colpo di calore, parassiti, forasacchi, cioè le spighe secche che si infilano in orecchie, zampe e naso, punture di insetti e meduse. Il check-up verifica che il tuo animale tolleri il caldo, aggiorna la profilassi antiparassitaria e ti lascia indicazioni scritte su cosa fare nelle giornate più calde, anche per chi resta a Portici."
   - domanda: 'Come organizzo la pensione o il dog sitter con sicurezza?'
-    risposta: 'Le pensioni chiedono in genere vaccinazioni in regola, compresa la tosse dei canili per il cane, e un antiparassitario recente. Nel check-up controlliamo che tutto sia aggiornato e ti consegniamo un foglio con terapie in corso, dosaggi e il numero della clinica, attivo 24 ore su 24, da lasciare a chi si prende cura del tuo animale.'
+    risposta: 'Le pensioni chiedono in genere vaccinazioni in regola, compresa la tosse dei canili per il cane, e una profilassi antiparassitaria recente. Nel check-up controlliamo che tutto sia aggiornato e ti consegniamo un foglio con terapie in corso, dosaggi e il numero della clinica da lasciare a chi si prende cura del tuo animale.'
 fonti:
   - titolo: 'Ministero della Salute - viaggiare con animali da compagnia'
     url: 'https://www.salute.gov.it/'
@@ -54,16 +54,16 @@ Nel bacino vesuviano le temperature superano spesso i 30 gradi da giugno a sette
 
 1. **Visita clinica completa** con pesata, auscultazione di cuore e polmoni, valutazione del respiro a riposo e dopo un breve sforzo, controllo di orecchie, zampe e pelle.
 2. **Controllo dei documenti**: libretto, microchip, vaccinazioni in scadenza e, per chi viaggia all'estero, passaporto europeo e antirabbica con i tempi corretti.
-3. **Aggiornamento antiparassitario**: repellente contro flebotomi e zanzare, profilassi della filariosi, protezione da pulci e zecche adatta alla destinazione.
+3. **Aggiornamento della profilassi antiparassitaria**: repellente contro flebotomi e zanzare, profilassi della filariosi, protezione da pulci e zecche adatta alla destinazione.
 4. **Indicazioni scritte** per il viaggio e per le giornate calde: orari delle uscite, gestione dell'auto, acqua, segni del colpo di calore e cosa fare nei primi minuti.
 5. **Esami del sangue** su indicazione, nei cani anziani o con malattie note, per verificare reni e cuore prima di un periodo di stress.
 6. **Per il coniglio**: controllo dei denti, del peso e dell'intestino, con consigli per il trasporto e la gestione del caldo.
 
-Il check-up rientra nella prevenzione programmata dei [Piani Salute](/piani-salute) e si affianca alla [medicina preventiva](/servizi/medicina-preventiva-vaccinazioni): l'obiettivo è arrivare all'estate con vaccini, antiparassitari e controlli già fatti.
+Il check-up si affianca alla [medicina preventiva](/servizi/medicina-preventiva-vaccinazioni): l'obiettivo è arrivare all'estate con vaccini, profilassi antiparassitaria e controlli già fatti.
 
 ## Per chi è indicato?
 
-Per tutti gli animali che passeranno l'estate fuori casa, in vacanza, in pensione o con un dog sitter, e per quelli che restano a Portici ma rientrano nelle categorie a rischio: cani con il muso schiacciato, cani e gatti sopra i 7 anni, animali in sovrappeso, con problemi cardiaci o respiratori, conigli e piccoli mammiferi, che tollerano il caldo peggio di tutti. È indicato anche per i cuccioli e i gattini alla prima estate, per verificare che il ciclo vaccinale e gli antiparassitari siano completi prima di frequentare spiagge, campagne e aree cani.
+Per tutti gli animali che passeranno l'estate fuori casa, in vacanza, in pensione o con un dog sitter, e per quelli che restano a Portici ma rientrano nelle categorie a rischio: cani con il muso schiacciato, cani e gatti sopra i 7 anni, animali in sovrappeso, con problemi cardiaci o respiratori, conigli e piccoli mammiferi, che tollerano il caldo peggio di tutti. È indicato anche per i cuccioli e i gattini alla prima estate, per verificare che il ciclo vaccinale e la profilassi antiparassitaria siano completi prima di frequentare spiagge, campagne e aree cani.
 
 ## Cosa succede dopo?
 

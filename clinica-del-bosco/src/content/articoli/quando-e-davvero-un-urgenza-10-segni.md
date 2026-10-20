@@ -1,7 +1,7 @@
 ---
 titolo: "Quando è davvero un'urgenza veterinaria? I 10 segni per cui non aspettare il mattino"
 descrizioneMeta: "I 10 segni che indicano un'urgenza veterinaria nel cane, nel gatto e nel coniglio: cosa osservare, cosa fare mentre arrivi e quando chiamare il pronto soccorso."
-riassunto: 'Difficoltà a respirare, convulsioni, addome gonfio, gatto maschio che non urina, avvelenamento, trauma, parto che non procede, colpo di calore, collasso con gengive pallide e occhio chiuso o sporgente: sono i dieci segni per cui non si aspetta il mattino. La Clinica Veterinaria del bosco di Portici ha il pronto soccorso attivo 24 ore su 24 con medici in struttura.'
+riassunto: 'Difficoltà a respirare, convulsioni, addome gonfio, gatto maschio che non urina, avvelenamento, trauma, parto che non procede, colpo di calore, collasso con gengive pallide e occhio chiuso o sporgente: sono i dieci segni per cui non si aspetta il mattino. La Clinica Veterinaria del bosco a Portici ha il pronto soccorso attivo 24 ore su 24 con medici in struttura.'
 autore: 'alessandro-sica'
 revisore: 'dario-ferrari'
 dataPubblicazione: 2026-09-10
@@ -15,7 +15,7 @@ scattoBrief: '23'
 inEvidenza: true
 faq:
   - domanda: 'Come faccio a sapere se posso aspettare fino al mattino?'
-    risposta: 'Chiama e descrivi quello che vedi: al 081 7763859 risponde sempre un medico, anche di notte, che ti dice se venire subito o se puoi attendere una visita programmata. In generale non aspetta chi ha difficoltà a respirare, chi non riesce a stare in piedi, chi vomita ripetutamente, chi non urina e chi ha avuto un trauma. Nessuno ti farà sentire di aver esagerato.'
+    risposta: 'Chiama il 081 7763859 e descrivi quello che vedi: ti diciamo se venire subito o se puoi attendere una visita programmata. In generale non aspetta chi ha difficoltà a respirare, chi non riesce a stare in piedi, chi vomita ripetutamente, chi non urina e chi ha avuto un trauma. Nessuno ti farà sentire di aver esagerato.'
   - domanda: "Il mio cane ha mangiato cioccolato mezz'ora fa e sta bene: devo venire lo stesso?"
     risposta: "Sì, se la quantità è significativa rispetto al peso. Il cioccolato fondente è il più pericoloso: già 50-60 grammi possono intossicare un cane di 10 chili. Nei primi 60-90 minuti dall'ingestione possiamo indurre il vomito in sicurezza e ridurre l'assorbimento; dopo, quando compaiono tremori e tachicardia, la terapia è più lunga. Porta la confezione con te."
   - domanda: 'Il gatto va nella lettiera in continuazione ma fa poche gocce: è grave?'
@@ -80,7 +80,7 @@ tabella:
         'Cane, gatto, coniglio',
         'Impedisci che si gratti, non applicare colliri senza indicazione',
       ]
-  nota: "Valori indicativi: l'elenco non è esaustivo. In caso di dubbio chiama il 081 7763859, attivo 24 ore su 24."
+  nota: "Valori indicativi: l'elenco non è esaustivo. In caso di dubbio chiama il 081 7763859."
 fonti:
   - titolo: 'RECOVER Initiative - linee guida sulla rianimazione cardiopolmonare veterinaria'
     url: 'https://recoverinitiative.org/'
@@ -93,7 +93,7 @@ fonti:
     ente: 'World Small Animal Veterinary Association'
 ---
 
-È un'urgenza ogni situazione in cui aspettare fino al mattino può peggiorare l'esito. Non serve essere certi della diagnosi: basta riconoscere alcuni segni che, per esperienza e per letteratura, indicano un pericolo per la vita nelle ore successive. Questo articolo li elenca uno per uno, con quello che puoi fare durante il tragitto. Se hai un dubbio, la scelta più sicura è chiamare il 081 7763859: un medico è in struttura 24 ore su 24 e ti dice in un minuto se venire subito.
+È un'urgenza ogni situazione in cui aspettare fino al mattino può peggiorare l'esito. Non serve essere certi della diagnosi: basta riconoscere alcuni segni che, per esperienza e per letteratura, indicano un pericolo per la vita nelle ore successive. Questo articolo li elenca uno per uno, con quello che puoi fare durante il tragitto. Se hai un dubbio, la scelta più sicura è chiamare il 081 7763859: ti diciamo subito se venire.
 
 ## Quali sono i 10 segni per cui non si aspetta?
 

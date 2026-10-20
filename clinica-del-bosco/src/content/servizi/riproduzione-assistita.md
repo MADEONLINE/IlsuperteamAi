@@ -12,52 +12,6 @@ correlati: ['diagnostica-per-immagini', 'chirurgia']
 medicalSpecialty: 'Obstetric'
 inEvidenza: false
 scattoBrief: '18'
-faq:
-  - domanda: 'Come capisco qual è il giorno giusto per far accoppiare la mia cagna?'
-    risposta: "Non a occhio: il giorno giusto si stabilisce misurando il progesterone nel sangue a partire da alcuni giorni dopo l'inizio delle perdite, insieme alla citologia vaginale. L'ovulazione avviene quando il progesterone supera una soglia precisa, e le uova sono fecondabili circa due giorni dopo. Sbagliare il momento è la causa più comune di accoppiamenti senza gravidanza, molto più dell'infertilità vera."
-  - domanda: "Cos'è l'inseminazione artificiale e quando serve?"
-    risposta: "È la deposizione del seme del maschio nelle vie genitali della femmina senza accoppiamento naturale. Serve quando il maschio è lontano e il seme viene spedito refrigerato o congelato, quando l'accoppiamento non riesce per motivi anatomici o comportamentali, o per motivi sanitari. Il seme viene esaminato al microscopio prima dell'uso e l'inseminazione è programmata sul progesterone, in genere con due deposizioni a distanza di uno-due giorni."
-  - domanda: "Quando si può vedere la gravidanza con l'ecografia?"
-    risposta: "Nella cagna le vescicole embrionali sono visibili in ecografia a partire da circa 25 giorni dall'ovulazione, e il battito cardiaco dei feti poco dopo. Nella gatta i tempi sono simili. L'ecografia conferma la gravidanza e valuta la vitalità, ma non conta i cuccioli con precisione: per il numero si usa la radiografia dopo il 45esimo giorno, quando gli scheletri sono mineralizzati."
-  - domanda: 'Come faccio a sapere se il parto sta andando male?'
-    risposta: "Sono segni di allarme: spinte forti e continue per più di trenta minuti senza la nascita di un cucciolo, più di due ore tra un cucciolo e l'altro con la madre che spinge, perdite verdi scure prima della nascita del primo cucciolo, cucciolo incastrato nel canale, madre esausta, che trema o che ha superato di oltre due giorni la data prevista. In tutti questi casi chiama subito: è un'urgenza."
-  - domanda: 'La mia cagna non sterilizzata beve tanto e ha perdite: cosa può essere?'
-    risposta: "Se è passato circa un mese dal calore, il sospetto principale è la piometra, cioè un'infezione dell'utero che si riempie di pus. Sete aumentata, abbattimento, vomito, perdite vaginali maleodoranti e addome gonfio sono i segni tipici, ma la forma a collo chiuso non dà perdite ed è più pericolosa. È un'urgenza chirurgica: la cagna va visitata in giornata e di solito operata."
-  - domanda: 'Quante volte posso far partorire la mia cagna?'
-    risposta: "Non esiste un numero uguale per tutte, ma vale una regola di prudenza: non far riprodurre una cagna prima della completa maturità, non a ogni calore e non oltre un'età in cui i rischi per lei e per i cuccioli aumentano. Ogni gravidanza richiede una valutazione preventiva della salute, dei test genetici indicati per la razza e delle condizioni della madre. Ne parliamo insieme prima di programmare."
-  - domanda: 'Il taglio cesareo si può programmare?'
-    risposta: "Sì, e in alcune razze con testa larga e bacino stretto, come bulldog inglese e francese, è spesso la scelta più sicura. La data va calcolata con precisione sul giorno dell'ovulazione, non sull'accoppiamento, perché un cesareo anticipato di due giorni può far nascere cuccioli non ancora pronti. Nei giorni precedenti monitoriamo progesterone ed ecografia per confermare il momento giusto."
-  - domanda: 'Il mio cane maschio anziano fatica a urinare e a defecare: può essere la prostata?'
-    risposta: "Sì, nel cane maschio non castrato oltre i sei-sette anni l'ingrossamento benigno della prostata è molto comune e può comprimere uretra e retto, causando fatica nella minzione, feci appiattite e talvolta sangue nelle urine. Si diagnostica con visita, ecografia e, se necessario, citologia. Nella maggior parte dei casi la castrazione chirurgica o farmacologica risolve il problema; vanno escluse infezioni e tumori."
-tabella:
-  titolo: 'Tappe indicative del percorso riproduttivo nella cagna'
-  intestazioni: ['Fase', 'Quando', 'Cosa si fa']
-  righe:
-    - ['Inizio del calore', 'Giorno 1 delle perdite', 'Visita, primo progesterone dopo 4-6 giorni']
-    - [
-        "Monitoraggio dell'ovulazione",
-        "Ogni 2-3 giorni fino all'ovulazione",
-        'Progesterone e citologia vaginale',
-      ]
-    - [
-        'Accoppiamento o inseminazione',
-        "2-4 giorni dopo l'ovulazione",
-        'Uno o due interventi programmati',
-      ]
-    - ['Diagnosi di gravidanza', "Circa 25-30 giorni dall'ovulazione", 'Ecografia']
-    - ['Conteggio dei cuccioli', 'Dopo il 45esimo giorno', 'Radiografia']
-    - [
-        'Preparazione al parto',
-        'Ultima settimana',
-        'Visita, temperatura, eventuale programmazione del cesareo',
-      ]
-    - [
-        'Parto',
-        "Circa 63 giorni dall'ovulazione",
-        'Assistenza telefonica e pronto soccorso disponibile',
-      ]
-    - ['Controllo post-parto', 'Entro 24-48 ore', 'Visita della madre e dei cuccioli']
-  nota: "Valori indicativi: i tempi variano da soggetto a soggetto e vengono calcolati sul giorno dell'ovulazione, non sull'accoppiamento."
 fonti:
   - titolo: 'European Veterinary Society for Small Animal Reproduction'
     url: 'https://www.evssar.org/'
@@ -77,16 +31,7 @@ dataRevisione: 2026-09-10
 
 Il servizio di riproduzione assistita accompagna la cagna e la gatta in tutte le fasi della riproduzione: valutazione preventiva dei riproduttori, monitoraggio del calore per individuare il giorno dell'ovulazione, inseminazione artificiale canina, diagnosi e controllo della gravidanza, preparazione e assistenza al parto, taglio cesareo programmato o d'urgenza, controllo della madre e dei neonati. Si occupa anche dei problemi che riguardano l'apparato riproduttivo al di fuori della gravidanza: infertilità, malattie dell'utero e delle ovaie, patologie della prostata e dei testicoli nel maschio.
 
-Il vantaggio di seguire l'intero percorso nella stessa sede è la continuità: gli esami del progesterone si eseguono nel [laboratorio interno](/servizi/laboratorio-analisi) con risposta in giornata, l'ecografia e la radiografia sono disponibili in [diagnostica per immagini](/servizi/diagnostica-per-immagini), e il [pronto soccorso](/pronto-soccorso) attivo 24 ore su 24 copre le urgenze ostetriche, che per loro natura arrivano di notte.
-
-## Come si svolge il monitoraggio del calore
-
-1. **Visita all'inizio del calore.** Appena noti le prime perdite, prenota: valutiamo la cagna, raccogliamo la storia dei calori precedenti e programmiamo gli esami.
-2. **Progesterone e citologia vaginale.** Dal quarto-sesto giorno misuriamo il progesterone nel sangue ogni due-tre giorni e osserviamo al microscopio le cellule della mucosa vaginale, che cambiano aspetto avvicinandosi all'ovulazione.
-3. **Individuazione dell'ovulazione.** Il progesterone supera una soglia precisa nel giorno dell'ovulazione. Da lì calcoliamo la finestra fertile, che cade due-quattro giorni dopo, e la data prevista del parto, circa 63 giorni più tardi.
-4. **Accoppiamento o inseminazione.** Programmiamo uno o due accoppiamenti nei giorni indicati, oppure l'inseminazione artificiale con seme fresco, refrigerato o congelato.
-5. **Diagnosi di gravidanza.** Ecografia a circa 25-30 giorni dall'ovulazione, con conteggio radiografico dei cuccioli dopo il 45esimo giorno.
-6. **Preparazione al parto.** Visita nell'ultima settimana, istruzioni per il monitoraggio a casa e, quando indicato, programmazione del cesareo.
+Il vantaggio di seguire l'intero percorso nella stessa sede è la continuità: gli esami del progesterone si eseguono nel [laboratorio interno](/servizi/laboratorio-analisi), l'ecografia e la radiografia sono disponibili in [diagnostica per immagini](/servizi/diagnostica-per-immagini), e il [pronto soccorso](/pronto-soccorso) attivo 24 ore su 24 copre le urgenze ostetriche, che per loro natura arrivano di notte.
 
 ## Perché l'accoppiamento non ha funzionato?
 
@@ -116,4 +61,4 @@ Chiama il 081 7763859 e vieni al [pronto soccorso](/pronto-soccorso), a qualsias
 
 ## Cosa aspettarsi
 
-Il percorso riproduttivo richiede diverse visite ravvicinate nel periodo del calore e poi controlli distanziati durante la gravidanza; ricevi un calendario scritto con le date previste e i recapiti per il parto. Dopo la nascita visitiamo la madre e i cuccioli entro uno-due giorni e impostiamo il piano vaccinale e antiparassitario dei piccoli. Se il tuo cane è seguito da un altro veterinario o da un allevatore, condividiamo referti e valori di progesterone per la continuità. Per prenotare la prima visita usa la pagina [prenota](/prenota) o chiama la clinica appena inizia il calore: i primi giorni contano.
+Il percorso riproduttivo richiede diverse visite ravvicinate nel periodo del calore e poi controlli distanziati durante la gravidanza; ricevi un calendario scritto con le date previste e i recapiti per il parto. Dopo la nascita visitiamo la madre e i cuccioli entro uno-due giorni e impostiamo il piano vaccinale e la profilassi antiparassitaria dei piccoli. Se il tuo cane è seguito da un altro veterinario o da un allevatore, condividiamo referti e valori di progesterone per la continuità. Per prenotare la prima visita usa la pagina [prenota](/prenota) o chiama la clinica appena inizia il calore: i primi giorni contano.

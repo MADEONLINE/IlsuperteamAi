@@ -12,70 +12,6 @@ correlati: ['chirurgia', 'tc-diagnostica-avanzata']
 medicalSpecialty: 'Oncologic'
 inEvidenza: false
 scattoBrief: '10'
-faq:
-  - domanda: 'Ho trovato un nodulo sul mio cane: cosa devo fare?'
-    risposta: 'Prenota una visita e non aspettare di vedere se cresce. Un nodulo cutaneo può essere benigno, come un lipoma, o un tumore che va asportato con margini adeguati, come un mastocitoma; a occhio e al tatto non si distinguono. Il primo passo è la citologia con ago sottile, un prelievo di pochi secondi senza sedazione, con risposta in genere in giornata.'
-  - domanda: 'Quanto costa la chemioterapia per un cane o un gatto?'
-    risposta: "Il costo dipende dal protocollo (numero e tipo di farmaci, frequenza delle sedute, durata complessiva), dal peso dell'animale e dagli esami del sangue necessari prima di ogni somministrazione. Dopo la stadiazione ricevi un preventivo scritto del percorso completo, con le alternative, prima di iniziare. Il piano può essere rivisto insieme in ogni momento."
-  - domanda: "La chemioterapia fa soffrire l'animale?"
-    risposta: 'In veterinaria la chemioterapia ha come obiettivo la qualità di vita, e le dosi sono scelte per limitare gli effetti collaterali. La maggior parte degli animali tollera bene le terapie: una minoranza presenta per uno-tre giorni nausea, diarrea o inappetenza, gestibili con farmaci. La perdita del pelo è rara, tranne in alcune razze. Se gli effetti superano i benefici, il protocollo viene modificato o sospeso.'
-  - domanda: 'Quanto vive un cane o un gatto con un tumore?'
-    risposta: 'Dipende dal tipo di tumore, dal grado, dallo stadio al momento della diagnosi e dalla risposta alle terapie: alcuni tumori si risolvono con la sola chirurgia, altri si controllano per mesi o anni, altri hanno un decorso rapido. Non facciamo previsioni generiche: dopo citologia, istologia e stadiazione ti presentiamo i dati disponibili per quel tumore specifico, in modo onesto.'
-  - domanda: 'Cosa significa stadiazione?'
-    risposta: "La stadiazione è l'insieme di esami che dicono quanto è esteso un tumore: esami del sangue e delle urine, radiografie del torace, ecografia dell'addome, esame dei linfonodi e, quando indicato, TC. Serve a scegliere la terapia giusta e a evitare interventi che non porterebbero beneficio. Si completa in genere in pochi giorni, con gli esami eseguiti in sede."
-  - domanda: 'Devo prendere precauzioni a casa durante la chemioterapia?'
-    risposta: 'Sì, semplici e per pochi giorni. I farmaci vengono eliminati con urine e feci per circa 48-72 ore dopo ogni seduta: in quel periodo usa guanti per pulire lettiera o feci, lava separatamente le coperte sporche ed evita il contatto con donne in gravidanza e bambini piccoli. Le compresse chemioterapiche vanno maneggiate con guanti e mai spezzate. Ti consegniamo le istruzioni scritte.'
-  - domanda: 'Si può curare un tumore senza chirurgia?'
-    risposta: "In alcuni casi sì. Il linfoma, ad esempio, si tratta con la chemioterapia; alcuni tumori cutanei e delle mucose rispondono a terapie locali o farmaci mirati; per i tumori non operabili esistono terapie che rallentano la crescita e controllano il dolore. Quando la chirurgia è l'opzione con maggiore probabilità di controllo, te lo diciamo; quando non lo è, discutiamo le alternative con te."
-  - domanda: 'Il tumore del mio gatto è un sarcoma da iniezione: cosa fare?'
-    risposta: "Il sarcoma felino nel sito di iniezione è un tumore aggressivo localmente, che richiede una stadiazione con TC per definire l'estensione reale, spesso maggiore di quella visibile, e una chirurgia con margini ampi pianificata sulle immagini. La prognosi migliora quando il primo intervento è quello definitivo. In alcuni casi si associano radioterapia, presso centri di riferimento, o chemioterapia."
-tabella:
-  titolo: 'Il percorso oncologico: tappe e tempi indicativi'
-  intestazioni: ['Tappa', 'Cosa si fa', 'Tempi indicativi', 'Sedazione']
-  righe:
-    - [
-        'Prima visita e citologia',
-        'Esame clinico, prelievo con ago sottile dal nodulo o dal linfonodo',
-        'Risposta in giornata o in pochi giorni',
-        'Nessuna nella maggior parte dei casi',
-      ]
-    - [
-        'Esami del sangue e delle urine',
-        'Emocromo, biochimico, funzione renale ed epatica prima di ogni terapia',
-        'In giornata',
-        'Nessuna',
-      ]
-    - [
-        'Stadiazione',
-        "Radiografie del torace, ecografia dell'addome, TC quando indicata",
-        '1-5 giorni',
-        'Per la TC sì',
-      ]
-    - [
-        'Biopsia e istologia',
-        'Prelievo di tessuto per definire tipo e grado del tumore',
-        '7-14 giorni per il referto',
-        'Sedazione o anestesia',
-      ]
-    - [
-        'Chirurgia oncologica',
-        'Asportazione con margini pianificati; istologia sul pezzo',
-        '1-3 giorni di degenza; controllo a 10-14 giorni',
-        'Anestesia generale',
-      ]
-    - [
-        'Chemioterapia',
-        'Sedute in vena o compresse a casa, con esami del sangue prima di ogni dose',
-        'Sedute ogni 1-3 settimane per 4-6 mesi nei protocolli più comuni',
-        'Nessuna di norma',
-      ]
-    - [
-        'Controlli',
-        'Visita, esami, ecografia o radiografie per verificare la risposta',
-        'Ogni 1-3 mesi, poi diradati',
-        'Nessuna',
-      ]
-  nota: 'Valori indicativi: il percorso viene costruito sul singolo tumore e sul singolo animale e rivisto a ogni tappa insieme al proprietario.'
 fonti:
   - titolo: 'AAHA Oncology Guidelines for Dogs and Cats'
     url: 'https://www.aaha.org/'
@@ -86,6 +22,7 @@ fonti:
   - titolo: 'MSD Veterinary Manual — Tumors in small animals'
     url: 'https://www.msdvetmanual.com/'
     ente: 'MSD Veterinary Manual'
+referenti: ['erika-forgione']
 autore: 'alessandro-sica'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
@@ -97,20 +34,11 @@ L'oncologia veterinaria si occupa della diagnosi e del trattamento dei tumori in
 
 Il principio che guida ogni decisione è la qualità di vita dell'animale. In oncologia veterinaria l'obiettivo non è sempre la guarigione: spesso è il controllo della malattia per il tempo più lungo possibile, senza sofferenza. Te lo diciamo dall'inizio, con i dati disponibili per quel tipo di tumore, e decidiamo insieme fin dove spingere le cure.
 
-## Come si svolge il percorso oncologico
-
-1. **Prima visita.** Esame clinico completo, palpazione dei linfonodi, raccolta della storia. Puoi [prenotare](/prenota) online o al telefono, portando referti e immagini precedenti.
-2. **Citologia.** Prelievo con ago sottile dal nodulo o dal linfonodo, senza sedazione nella maggior parte dei casi; lettura in sede o invio al laboratorio. Il servizio è descritto nella pagina [citologia](/servizi/citologia).
-3. **Stadiazione.** Esami del sangue e delle urine, radiografie del torace, ecografia dell'addome e, quando indicato, TC. Serve a sapere se il tumore è localizzato o diffuso.
-4. **Istologia.** Biopsia, o esame del pezzo asportato, per definire tipo e grado del tumore e la completezza dei margini.
-5. **Piano terapeutico e preventivo.** Chirurgia, chemioterapia, terapie locali, cure di supporto o un'associazione di queste. Ricevi un piano scritto con obiettivi, tempi ed effetti attesi.
-6. **Trattamento e controlli.** Sedute, esami e visite a scadenze concordate; il piano viene rivisto a ogni tappa in base alla risposta e al benessere dell'animale.
-
 ## Ho trovato un nodulo: è sempre un tumore?
 
 No, ma va sempre esaminato. Molti noduli cutanei del cane sono lipomi, cioè accumuli di grasso benigni, cisti o piccole infiammazioni; altri sono tumori che, se asportati presto con margini adeguati, non danno più problemi; alcuni sono tumori aggressivi. Al tatto non si distinguono, e neanche il medico può farlo senza un prelievo.
 
-La citologia con ago sottile risolve il dubbio nella maggior parte dei casi in pochi giorni; molti noduli vengono scoperti proprio durante la visita annuale di un [Piano Salute](/piani-salute). Nei gatti l'attenzione è maggiore: le masse cutanee e mammarie feline sono più spesso maligne di quelle del cane, e un nodulo nel punto di una vecchia iniezione che persiste oltre tre mesi o cresce va esaminato subito.
+La citologia con ago sottile risolve il dubbio nella maggior parte dei casi in pochi giorni; molti noduli vengono scoperti proprio durante la visita annuale di prevenzione. Nei gatti l'attenzione è maggiore: le masse cutanee e mammarie feline sono più spesso maligne di quelle del cane, e un nodulo nel punto di una vecchia iniezione che persiste oltre tre mesi o cresce va esaminato subito.
 
 ## Cosa significa stadiare un tumore e perché conta?
 

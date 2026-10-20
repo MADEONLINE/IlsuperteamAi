@@ -13,9 +13,8 @@ import { clinica, indirizzoBreve, telHref } from '@lib/clinica';
 
 const voci = [
   { nome: 'Servizi', href: '/servizi', servizi: true },
-  { nome: 'Piani Salute', href: '/piani-salute' },
   { nome: 'La struttura', href: '/la-struttura' },
-  { nome: 'Équipe', href: '/equipe' },
+  { nome: 'I nostri medici', href: '/equipe' },
   { nome: 'Magazine', href: '/magazine' },
   { nome: 'Per i colleghi', href: '/per-i-colleghi' },
   { nome: 'Lavora con noi', href: '/lavora-con-noi', utility: true },
@@ -26,10 +25,10 @@ const voci = [
 const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
 const areeServizi: Array<{ chiave: string; titolo: string }> = [
   { chiave: 'diagnostica', titolo: 'Diagnostica' },
-  { chiave: 'chirurgia', titolo: 'Chirurgia' },
-  { chiave: 'specialistica', titolo: 'Medicina specialistica' },
   { chiave: 'prevenzione', titolo: 'Prevenzione' },
+  { chiave: 'chirurgia', titolo: 'Chirurgia' },
   { chiave: 'esotici', titolo: 'Animali esotici' },
+  { chiave: 'specialistica', titolo: 'Medicina specialistica' },
   { chiave: 'urgenza', titolo: 'Degenza e pronto soccorso' },
 ];
 const gruppiServizi = areeServizi
@@ -93,7 +92,7 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
     <nav aria-label="Navigazione principale" class="hidden xl:block">
       <ul class="flex items-center gap-1">
         {voci
-          .filter((v) => !v.urgenza && !v.utility)
+          .filter((v) => !v.utility)
           .map((v) =>
             v.servizi ? (
               <li class="menu-servizi">
@@ -238,15 +237,9 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
               <a
                 href={v.href}
                 aria-current={attiva(v.href) ? 'page' : undefined}
-                class:list={[
-                  'flex min-h-12 items-center justify-between gap-3 py-2 text-lg font-medium no-underline',
-                  v.urgenza ? 'text-urgenza-testo-su-chiaro' : 'text-testo',
-                ]}
+                class="flex min-h-12 items-center justify-between gap-3 py-2 text-lg font-medium text-testo no-underline"
               >
-                <span class="flex items-center gap-2">
-                  {v.urgenza && <Icona nome="ambulanza" class="size-5" />}
-                  {v.nome}
-                </span>
+                <span class="flex items-center gap-2">{v.nome}</span>
                 <Icona nome="freccia-destra" class="size-4 opacity-50" />
               </a>
             </li>

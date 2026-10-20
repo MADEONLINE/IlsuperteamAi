@@ -1,7 +1,7 @@
 ---
 nome: 'Stefano Nicoli'
 titolo: 'Dott.'
-ruolo: 'Medico veterinario · chirurgia · collabora con la clinica'
+ruolo: 'Medico veterinario · chirurgia'
 tipo: 'freelance'
 socio: false
 direttoreSanitario: false
@@ -9,7 +9,7 @@ specializzazioni: ['Chirurgia']
 aree: ['chirurgia']
 formazione: ['Master in diagnostica per immagini', 'Perfezionamento in neurologia veterinaria']
 lingue: ['italiano']
-presenza: 'Su chiamata, per interventi programmati'
+presenza: 'Su appuntamento'
 ordine: 27
 daValidare: true
 ---

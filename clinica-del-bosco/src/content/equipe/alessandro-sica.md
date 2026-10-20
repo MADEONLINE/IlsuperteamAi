@@ -14,7 +14,7 @@ formazione:
     'Laurea in Medicina veterinaria, 2001',
     'Specializzazione in fisiopatologia della riproduzione',
     'Dottorato di ricerca in clinica ostetrica',
-    'Percorso GPCert in chirurgia (in completamento)',
+    'Percorso GPCert in chirurgia',
   ]
 lingue: ['italiano']
 scattoBrief: '54'
