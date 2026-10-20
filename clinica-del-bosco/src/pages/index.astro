@@ -24,6 +24,7 @@ import {
   emailPrincipale,
 } from '@lib/clinica';
 import { webPage } from '@lib/schema';
+import { iniziali } from '@lib/iniziali';
 import recensioni from '@dati/recensioni.json';
 
 const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
@@ -54,12 +55,14 @@ const pilastri = [
     titolo: 'TC in sede',
     testo: "L'esame si fa senza spostare l'animale in un'altra struttura.",
     href: '/servizi/tc-diagnostica-avanzata',
+    scatto: '04',
   },
   {
     icona: 'bisturi',
     titolo: 'Due sale chirurgiche',
     testo: "Interventi programmati, con ricovero e terapia intensiva dopo l'operazione.",
     href: '/servizi/chirurgia',
+    scatto: '31',
   },
   {
     icona: 'provetta',
@@ -67,12 +70,14 @@ const pilastri = [
     testo:
       'Gli esami di base e la maggior parte delle analisi si fanno in sede; per alcuni esami specifici collaboriamo con laboratori esterni.',
     href: '/servizi/laboratorio-analisi',
+    scatto: '38',
   },
   {
     icona: 'coniglio',
     titolo: 'Animali esotici',
     testo: 'Un servizio dedicato a conigli, piccoli mammiferi, rettili e uccelli.',
     href: '/servizi/animali-esotici',
+    scatto: '16',
   },
 ] as const;
 
@@ -124,67 +129,121 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   senzaBrand
   jsonLd={[webPage({ url: '/', titolo: clinica.nome, descrizione: clinica.descrizioneBreve })]}
 >
-  <!-- HERO: il nome della clinica e i suoi valori -->
+  <!-- HERO: la clinica a tutto schermo, il nome e i suoi valori in primo piano -->
   <section
-    class="relative overflow-hidden bg-sfondo-inverso text-testo-inverso"
+    class="zona-scura grana relative isolate flex min-h-[calc(100dvh-4.25rem)] items-end overflow-hidden bg-sfondo md:min-h-[calc(100dvh-6.5rem)] md:items-center"
     aria-labelledby="hero-titolo"
   >
-    <div class="contenitore grid items-center gap-10 py-10 md:py-20 lg:grid-cols-12 lg:py-24">
-      <div class="lg:col-span-7">
-        <Etichetta tono="inverso" class="mb-3">
-          Clinica veterinaria a Portici
-        </Etichetta>
-        <h1 id="hero-titolo" class="text-4xl text-testo-inverso sm:text-5xl md:text-6xl">
+    <div class="hero-foto absolute inset-0 -z-10">
+      <Foto
+        ratio="16/9"
+        scattoBrief="44"
+        descrizioneSegnaposto="Facciata della clinica di giorno, ingresso e insegna"
+        larghezze={[640, 960, 1440, 1920, 2400]}
+        sizes="100vw"
+        priorita
+        riempi
+        class="h-full rounded-none [&>div]:h-full"
+      />
+    </div>
+    <div
+      class="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(5_38_43/0.35)_0%,rgb(5_38_43/0.55)_45%,rgb(5_38_43/0.96)_100%)] md:bg-[linear-gradient(90deg,rgb(5_38_43/0.97)_0%,rgb(5_38_43/0.86)_38%,rgb(5_38_43/0.25)_72%,rgb(5_38_43/0.05)_100%)]"
+      aria-hidden="true"
+    ></div>
+
+    <div class="contenitore grid w-full items-end gap-10 pb-12 pt-40 md:py-24 lg:grid-cols-12">
+      <div class="lg:col-span-7 xl:col-span-6">
+        <div class="entra" style="--i:0">
+          <Etichetta tono="inverso" class="mb-4">
+            Clinica veterinaria a Portici
+          </Etichetta>
+        </div>
+        <h1
+          id="hero-titolo"
+          class="entra text-5xl leading-[0.98] tracking-tight sm:text-6xl xl:text-7xl"
+          style="--i:1"
+        >
           {clinica.nome}
         </h1>
-        <p class="mt-4 font-display text-2xl text-accento-inverso md:text-3xl">{tagline}</p>
-        <p class="prosa mt-5 text-lg text-testo-inverso/85 md:text-xl">
+        <p
+          class="entra mt-5 font-display text-2xl italic text-accento-inverso md:text-3xl"
+          style="--i:2"
+        >
+          {tagline}
+        </p>
+        <p class="entra prosa mt-5 text-lg text-testo/85 md:text-xl" style="--i:3">
           Accogliamo cani, gatti e animali esotici con lo stesso impegno: ascoltiamo chi li ama,
           capiamo di cosa hanno bisogno e li curiamo con competenza e dedizione.
         </p>
-        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Bottone href="/prenota" variante="inverso" dimensione="lg" icona="calendario">
+        <div class="entra mt-8 flex flex-col gap-3 sm:flex-row" style="--i:4">
+          <Bottone href="/prenota" variante="primario" dimensione="lg" icona="calendario">
             Prenota una visita
           </Bottone>
           <Bottone
             href="/servizi"
-            variante="secondario-inverso"
+            variante="secondario"
             dimensione="lg"
             iconaDopo="freccia-destra"
+            class="backdrop-blur-sm"
           >
             Scopri i servizi
           </Bottone>
         </div>
-        <p class="mt-4 text-sm text-testo-inverso/80">
+        <p class="entra mt-5 text-sm text-testo/80" style="--i:5">
           È la prima volta da noi?{' '}
-          <a href="/prima-visita" class="text-testo-inverso">
+          <a href="/prima-visita" class="text-testo">
             Ecco come funziona la prima visita
           </a>
         </p>
       </div>
-      <div class="lg:col-span-5">
-        <Foto
-          ratio="4/5"
-          scattoBrief="44"
-          descrizioneSegnaposto="Facciata della clinica di giorno, ingresso e insegna"
-          larghezze={[320, 480, 640, 900]}
-          sizes="(min-width: 1024px) 34vw, 88vw"
-          priorita
-          class="ring-1 ring-sfondo/15"
-        />
+
+      <!-- Riquadro orari e contatti, in vetro sopra la foto (solo schermi larghi) -->
+      <div
+        class="entra hidden lg:col-span-4 lg:col-start-9 lg:block xl:col-span-3 xl:col-start-10"
+        style="--i:6"
+      >
+        <div class="vetro vetro-scuro rounded-[1.75rem] p-6">
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10">
+                <Icona nome="orologio" duo class="size-5 text-accento-inverso" />
+              </span>
+              <span class="pt-0.5">{clinica.orari.ambulatorio.etichetta}</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10">
+                <Icona nome="mappa" duo class="size-5 text-accento-inverso" />
+              </span>
+              <span>{indirizzoRiga}</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10">
+                <Icona nome="telefono" duo class="size-5 text-accento-inverso" />
+              </span>
+              <a
+                href={telHref}
+                class="font-semibold text-testo no-underline hover:underline"
+                data-evento="click_chiama"
+                data-evento-posizione="home-hero"
+              >
+                {clinica.contatti.telefono.visualizzato}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <BarraFiducia />
 
-  <!-- PILASTRI -->
+  <!-- PILASTRI: mosaico fotografico -->
   <Sezione tono="base" etichettaAria="Ciò che rende la clinica un punto di riferimento">
-    <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
-      <div class="lg:col-span-4">
+    <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
+      <div class="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">
         <Etichetta class="mb-3">Perché sceglierci</Etichetta>
-        <h2 class="text-3xl md:text-4xl">Cosa trovi nella stessa sede</h2>
-        <p class="mt-4 text-testo-secondario">
+        <h2 class="filetto text-4xl tracking-tight md:text-5xl">Cosa trovi nella stessa sede</h2>
+        <p class="mt-6 text-lg text-testo-secondario">
           Alla {clinica.nome} visite, esami, chirurgia e ricovero sono nella stessa sede. Se il tuo
           animale ha bisogno di una TC o di un intervento, non lo devi portare in un'altra
           struttura.
@@ -192,33 +251,52 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
         {numeri.length > 0 && (
           <dl class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
             {numeri.map((n) => (
-              <div class="border-l-4 border-primario pl-4">
-                <dd class="font-display text-3xl font-bold tabular-nums">{n.valore}</dd>
+              <div class="border-l-4 border-oro pl-4">
+                <dd class="font-display text-4xl tabular-nums">{n.valore}</dd>
                 <dt class="text-sm text-testo-secondario">{n.etichetta}</dt>
               </div>
             ))}
           </dl>
         )}
       </div>
-      <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-8">
-        {pilastri.map((p) => (
-          <li class="rivela">
+      <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-8 lg:auto-rows-[minmax(20rem,auto)]">
+        {pilastri.map((p, i) => (
+          <li
+            class:list={[
+              'rivela',
+              i === 0 && 'sm:col-span-2 lg:col-span-1 lg:row-span-2',
+              i === 3 && 'sm:col-span-2',
+            ]}
+            style={`--i:${i}`}
+          >
             <a
               href={p.href}
-              class="group flex h-full flex-col gap-3 rounded-card border border-bordo bg-sfondo-rialzato p-6 no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario"
+              class="zoom-foto velo-foto zona-scura group relative isolate flex h-full min-h-[19rem] flex-col justify-end overflow-hidden rounded-[1.75rem] no-underline ombra-morbida"
             >
-              <span class="inline-flex size-12 items-center justify-center rounded-2xl bg-primario-tenue text-primario-link">
-                <Icona nome={p.icona} class="size-6" />
-              </span>
-              <h3 class="font-sans text-xl font-bold">{p.titolo}</h3>
-              <p class="text-testo-secondario">{p.testo}</p>
-              <span class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primario-link">
-                Leggi: {p.titolo.toLowerCase()}{' '}
-                <Icona
-                  nome="freccia-destra"
-                  class="size-4 transition group-hover:translate-x-0.5"
+              <div class="absolute inset-0 -z-10">
+                <Foto
+                  ratio="4/5"
+                  scattoBrief={p.scatto}
+                  descrizioneSegnaposto={p.titolo}
+                  larghezze={[400, 640, 900]}
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 48vw, 92vw"
+                  riempi
+                  class="h-full rounded-none [&>div]:h-full"
                 />
+              </div>
+              <span class="vetro absolute left-5 top-5 z-10 inline-flex size-12 items-center justify-center rounded-2xl">
+                <Icona nome={p.icona} duo class="size-6 text-white" />
               </span>
+              <div class="relative z-10 p-6">
+                <h3 class="font-display text-2xl text-white md:text-3xl">{p.titolo}</h3>
+                <p class="mt-2 max-w-md text-white/85">{p.testo}</p>
+                <span class="mt-4 inline-flex items-center gap-3 text-sm font-semibold text-white">
+                  <span class="freccia-tonda size-9">
+                    <Icona nome="freccia-destra" class="size-4" />
+                  </span>
+                  Leggi: {p.titolo.toLowerCase()}
+                </span>
+              </div>
             </a>
           </li>
         ))}
@@ -227,27 +305,29 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   </Sezione>
 
   <!-- PORTE D'INGRESSO: da chi sei, a dove vuoi andare -->
-  <Sezione tono="base" compatta etichettaAria="Da dove vuoi cominciare">
-    <ul class="grid gap-4 md:grid-cols-3">
-      {porte.map((p) => (
-        <li class="rivela">
+  <Sezione tono="base" compatta class="!pt-0" etichettaAria="Da dove vuoi cominciare">
+    <ul class="grid gap-4 md:grid-cols-[1fr_1fr_1.15fr]">
+      {porte.map((p, i) => (
+        <li class="rivela" style={`--i:${i}`}>
           <a
             href={p.href}
-            class="group flex h-full items-center gap-4 rounded-card border border-bordo bg-sfondo-rialzato p-5 no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario"
+            class:list={[
+              'group relative flex h-full items-center gap-5 overflow-hidden rounded-[1.6rem] border p-6 no-underline transition duration-500 ease-morbido hover:-translate-y-1',
+              i === 2
+                ? 'zona-scura grana border-transparent bg-sfondo'
+                : 'border-bordo bg-sfondo-rialzato ombra-morbida hover:border-primario/60',
+            ]}
           >
-            <span class="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-primario-tenue text-primario-link">
-              <Icona nome={p.icona} class="size-7" />
+            <span class="badge-icona size-16 shrink-0 rounded-[1.25rem]">
+              <Icona nome={p.icona} duo class="size-9" />
             </span>
             <span class="min-w-0">
-              <span class="block font-sans text-lg font-bold text-testo group-hover:text-primario-link">
-                {p.titolo}
-              </span>
-              <span class="block text-sm text-testo-secondario">{p.testo}</span>
+              <span class="block font-display text-xl text-testo md:text-2xl">{p.titolo}</span>
+              <span class="mt-1 block text-sm text-testo-secondario">{p.testo}</span>
             </span>
-            <Icona
-              nome="freccia-destra"
-              class="ml-auto size-5 shrink-0 text-primario-link transition group-hover:translate-x-0.5"
-            />
+            <span class="freccia-tonda ml-auto shrink-0 text-primario-link">
+              <Icona nome="freccia-destra" class="size-4" />
+            </span>
           </a>
         </li>
       ))}
@@ -255,72 +335,94 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   </Sezione>
 
   <!-- SERVIZI -->
-  <Sezione tono="tinta" id="servizi" etichettaAria="I servizi della clinica">
-    <div class="flex flex-wrap items-end justify-between gap-4">
-      <div>
+  <Sezione tono="tinta" id="servizi" class="trama-bosco" etichettaAria="I servizi della clinica">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div class="max-w-2xl">
         <Etichetta class="mb-3">Servizi</Etichetta>
-        <h2 class="text-3xl md:text-4xl">Dalla visita di routine alla terapia intensiva</h2>
+        <h2 class="filetto text-4xl tracking-tight md:text-5xl">
+          Dalla visita di routine alla terapia intensiva
+        </h2>
       </div>
-      <a href="/servizi" class="inline-flex items-center gap-1 font-semibold text-primario-link">
-        Tutti i servizi <Icona nome="freccia-destra" class="size-4" />
+      <a
+        href="/servizi"
+        class="group inline-flex items-center gap-3 font-semibold text-primario-link no-underline"
+      >
+        Tutti i servizi
+        <span class="freccia-tonda">
+          <Icona nome="freccia-destra" class="size-4" />
+        </span>
       </a>
     </div>
-    <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {inEvidenza.map((s) => (
-        <li class="rivela">
+    <ul class="mt-12 grid gap-x-5 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+      {inEvidenza.map((s, i) => (
+        <li class="rivela" style={`--i:${i % 4}`}>
           <CardServizio servizio={s} />
         </li>
       ))}
     </ul>
     {altri.length > 0 && (
-      <ul class="mt-4 flex flex-wrap gap-2" aria-label="Altri servizi">
-        {altri.map((s) => (
-          <li>
-            <a
-              href={hrefServizio(s.id)}
-              class="inline-flex min-h-10 items-center gap-1.5 rounded-pill border border-bordo bg-sfondo-rialzato px-4 text-sm font-semibold no-underline hover:border-primario hover:text-primario-link"
-            >
-              {s.data.titoloBreve}
-            </a>
-          </li>
+      <div class="nastro mt-10" aria-label="Altri servizi">
+        {[0, 1].map((copia) => (
+          <ul class="nastro__traccia" aria-hidden={copia === 1 ? 'true' : undefined}>
+            {altri.map((s) => (
+              <li>
+                <a
+                  href={hrefServizio(s.id)}
+                  tabindex={copia === 1 ? -1 : undefined}
+                  class="inline-flex min-h-12 items-center gap-2 whitespace-nowrap rounded-pill border border-bordo bg-sfondo-rialzato py-1.5 pl-1.5 pr-5 text-sm font-semibold no-underline transition hover:border-primario hover:text-primario-link"
+                >
+                  <span class="badge-icona size-9 rounded-full">
+                    <Icona nome={s.data.icona as any} duo class="size-5" />
+                  </span>
+                  {s.data.titoloBreve}
+                </a>
+              </li>
+            ))}
+          </ul>
         ))}
-      </ul>
+      </div>
     )}
   </Sezione>
 
-  <!-- LA STRUTTURA -->
-  <section class="bg-sfondo" aria-labelledby="struttura-titolo">
-    <div class="grid lg:grid-cols-12">
-      <div class="lg:col-span-7">
-        <Foto
-          ratio="3/2"
-          scattoBrief="31"
-          descrizioneSegnaposto="Sala chirurgica con équipe al lavoro"
-          sizes="(min-width: 1024px) 58vw, 100vw"
-          riempi
-          class="rounded-none lg:min-h-full"
-        />
-      </div>
-      <div class="flex flex-col justify-center px-gutter py-12 lg:col-span-5 lg:pl-12 lg:pr-gutter">
+  <!-- LA STRUTTURA: foto a tutta larghezza con parallasse e pannello sovrapposto -->
+  <section class="relative isolate overflow-hidden" aria-labelledby="struttura-titolo">
+    <div class="parallasse relative h-[22rem] overflow-hidden md:absolute md:inset-0 md:h-auto">
+      <Foto
+        ratio="16/9"
+        scattoBrief="36"
+        descrizioneSegnaposto="Sala chirurgica con équipe al lavoro"
+        larghezze={[640, 960, 1440, 1920]}
+        sizes="100vw"
+        riempi
+        class="h-full rounded-none md:[&>div]:h-full"
+      />
+    </div>
+    <div class="contenitore relative md:py-28 lg:py-36">
+      <div class="vetro-chiaro relative -mt-16 rounded-[2rem] p-7 md:ml-auto md:mt-0 md:max-w-xl md:p-10">
         <Etichetta class="mb-3">La struttura</Etichetta>
-        <h2 id="struttura-titolo" class="text-3xl md:text-4xl">
+        <h2 id="struttura-titolo" class="text-3xl tracking-tight md:text-4xl">
           Due sale chirurgiche, terapia intensiva e TC, nella stessa sede.
         </h2>
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-7 space-y-4">
           {[
-            'Terapia intensiva con ossigeno e monitoraggio continuo cardiorespiratorio',
-            'TC, endoscopia, radiografie ed ecografia nella stessa sede',
-            'Laboratorio analisi interno per gli esami di base',
-            'Ricoveri separati per cani, gatti e animali esotici',
-          ].map((t) => (
+            [
+              'cuore-pulsante',
+              'Terapia intensiva con ossigeno e monitoraggio continuo cardiorespiratorio',
+            ],
+            ['scansione', 'TC, endoscopia, radiografie ed ecografia nella stessa sede'],
+            ['provetta', 'Laboratorio analisi interno per gli esami di base'],
+            ['letto', 'Ricoveri separati per cani, gatti e animali esotici'],
+          ].map(([icona, t]) => (
             <li class="flex items-start gap-3">
-              <Icona nome="check" class="mt-1 size-5 shrink-0 text-successo" />
-              <span>{t}</span>
+              <span class="badge-icona size-9 shrink-0 rounded-xl">
+                <Icona nome={icona as any} duo class="size-5" />
+              </span>
+              <span class="pt-1.5">{t}</span>
             </li>
           ))}
         </ul>
         <div class="mt-8">
-          <Bottone href="/la-struttura" variante="secondario" iconaDopo="freccia-destra">
+          <Bottone href="/la-struttura" variante="primario" iconaDopo="freccia-destra">
             Com'è fatta la clinica
           </Bottone>
         </div>
@@ -330,36 +432,44 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
 
   <!-- STAFF MEDICO -->
   <Sezione etichettaAria="Lo staff medico">
-    <div class="flex flex-wrap items-end justify-between gap-4">
+    <div class="flex flex-wrap items-end justify-between gap-6">
       <div>
-        <h2 class="text-3xl md:text-4xl">Staff medico</h2>
-        <p class="mt-3 max-w-prose text-testo-secondario">
+        <h2 class="filetto text-4xl tracking-tight md:text-5xl">Staff medico</h2>
+        <p class="mt-5 max-w-prose text-lg text-testo-secondario">
           Oltre ai quattro soci fondatori, in clinica lavorano medici veterinari fissi e
           collaboratori esterni con specializzazioni specifiche.
         </p>
       </div>
-      <a href="/equipe" class="inline-flex items-center gap-1 font-semibold text-primario-link">
-        Tutti i nostri medici <Icona nome="freccia-destra" class="size-4" />
+      <a
+        href="/equipe"
+        class="group inline-flex items-center gap-3 font-semibold text-primario-link no-underline"
+      >
+        Tutti i nostri medici
+        <span class="freccia-tonda">
+          <Icona nome="freccia-destra" class="size-4" />
+        </span>
       </a>
     </div>
-    <ul class="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-      {medici.map((m) => (
-        <li class="rivela">
-          <a href={`/equipe/${m.id}`} class="group block no-underline">
+    <ul class="mt-12 grid grid-cols-2 gap-x-4 gap-y-8 lg:grid-cols-4 lg:gap-x-6">
+      {medici.map((m, i) => (
+        <li class:list={['rivela', i % 2 === 1 && 'lg:translate-y-10']} style={`--i:${i}`}>
+          <a href={`/equipe/${m.id}`} class="zoom-foto group block no-underline">
             <Foto
               ratio="4/5"
               scattoBrief={m.data.scattoBrief}
               descrizioneSegnaposto={`Ritratto di ${m.data.titolo} ${m.data.nome}`}
+              monogramma={iniziali(m.data.nome)}
+              class="rounded-[1.6rem] ombra-morbida"
             />
-            <p class="mt-3 font-sans font-bold text-testo group-hover:text-primario-link">
+            <p class="mt-4 font-display text-lg text-testo group-hover:text-primario-link md:text-xl">
               {m.data.titolo} {m.data.nome}
             </p>
-            <p class="text-sm text-testo-secondario">{m.data.ruolo}</p>
+            <p class="mt-0.5 text-sm text-testo-secondario">{m.data.ruolo}</p>
           </a>
         </li>
       ))}
     </ul>
-    <p class="mt-6 text-sm text-testo-secondario">
+    <p class="mt-16 text-sm text-testo-secondario">
       Direttore sanitario:{' '}
       <Dato valore={`${clinica.direttoreSanitario.titolo} ${clinica.direttoreSanitario.nome}`} />
     </p>
@@ -369,17 +479,20 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   {recensioniVisibili.length > 0 && (
     <Sezione tono="tinta" etichettaAria="Recensioni dei clienti">
       <Etichetta class="mb-3">Dicono di noi</Etichetta>
-      <h2 class="text-3xl md:text-4xl">Recensioni pubblicate su Google</h2>
-      <ul class="mt-8 grid gap-4 md:grid-cols-3">
-        {recensioniVisibili.map((r) => (
-          <li class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
-            <p class="flex gap-0.5 text-avviso" aria-label={`${r.stelle} stelle su 5`}>
+      <h2 class="filetto text-4xl tracking-tight md:text-5xl">Recensioni pubblicate su Google</h2>
+      <ul class="mt-10 grid gap-5 md:grid-cols-3">
+        {recensioniVisibili.map((r, i) => (
+          <li
+            class="rivela rounded-[1.6rem] border border-bordo bg-sfondo-rialzato p-7 ombra-morbida"
+            style={`--i:${i}`}
+          >
+            <p class="flex gap-0.5 text-oro" aria-label={`${r.stelle} stelle su 5`}>
               {Array.from({ length: r.stelle }).map(() => (
                 <Icona nome="stella" class="size-4 fill-current" />
               ))}
             </p>
-            <blockquote class="mt-3">{r.testo}</blockquote>
-            <p class="mt-3 text-sm text-testo-secondario">
+            <blockquote class="mt-4 font-display text-lg leading-snug">{r.testo}</blockquote>
+            <p class="mt-4 text-sm text-testo-secondario">
               {r.autore} · {r.data}
             </p>
           </li>
@@ -390,7 +503,7 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
           href={recensioni.fonteUrl}
           target="_blank"
           rel="noopener"
-          class="mt-4 inline-block text-sm font-semibold text-primario-link"
+          class="mt-6 inline-block text-sm font-semibold text-primario-link"
         >
           Tutte le recensioni su Google
         </a>
@@ -399,48 +512,81 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   )}
 
   <!-- CAMPAGNA + MAGAZINE -->
-  <Sezione etichettaAria="Campagna stagionale e magazine">
-    <div class="grid gap-8 lg:grid-cols-12">
+  <Sezione tono="tinta" etichettaAria="Campagna stagionale e magazine">
+    <div class="grid gap-10 lg:grid-cols-12">
       {campagnaInCorso && (
         <a
           href={`/campagne/${campagnaInCorso.id}`}
-          class="group flex flex-col justify-between rounded-card bg-primario-tenue p-6 no-underline lg:col-span-5 md:p-8"
+          class="zoom-foto velo-foto zona-scura group relative isolate flex min-h-[30rem] flex-col justify-end overflow-hidden rounded-[2rem] no-underline ombra-morbida lg:col-span-5"
         >
-          <div>
-            <Etichetta class="mb-3">In questo periodo · {campagnaInCorso.data.periodo}</Etichetta>
-            <h2 class="text-2xl text-testo md:text-3xl">{campagnaInCorso.data.titolo}</h2>
-            <p class="mt-3 text-testo-secondario">{campagnaInCorso.data.sottotitolo}</p>
+          <div class="absolute inset-0 -z-10">
+            <Foto
+              ratio="4/5"
+              scattoBrief={campagnaInCorso.data.scattoBrief}
+              descrizioneSegnaposto={campagnaInCorso.data.titolo}
+              larghezze={[480, 720, 960]}
+              sizes="(min-width: 1024px) 40vw, 92vw"
+              riempi
+              class="h-full rounded-none [&>div]:h-full"
+            />
           </div>
-          <span class="mt-6 inline-flex items-center gap-1 font-semibold text-primario-link">
-            {campagnaInCorso.data.ctaTesto}{' '}
-            <Icona nome="freccia-destra" class="size-4 transition group-hover:translate-x-0.5" />
-          </span>
+          <div class="relative z-10 p-7 md:p-9">
+            <Etichetta tono="inverso" class="mb-3">
+              In questo periodo · {campagnaInCorso.data.periodo}
+            </Etichetta>
+            <h2 class="text-3xl text-white md:text-4xl">{campagnaInCorso.data.titolo}</h2>
+            <p class="mt-3 text-white/85">{campagnaInCorso.data.sottotitolo}</p>
+            <span class="mt-6 inline-flex items-center gap-3 font-semibold text-white">
+              <span class="freccia-tonda">
+                <Icona nome="freccia-destra" class="size-4" />
+              </span>
+              {campagnaInCorso.data.ctaTesto}
+            </span>
+          </div>
         </a>
       )}
       <div class="lg:col-span-7">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
             <Etichetta class="mb-3">Magazine</Etichetta>
-            <h2 class="text-2xl md:text-3xl">Guide scritte dai nostri medici</h2>
+            <h2 class="text-3xl tracking-tight md:text-4xl">Guide scritte dai nostri medici</h2>
           </div>
           <a
             href="/magazine"
-            class="inline-flex items-center gap-1 font-semibold text-primario-link"
+            class="group inline-flex items-center gap-3 font-semibold text-primario-link no-underline"
           >
-            Tutti gli articoli <Icona nome="freccia-destra" class="size-4" />
+            Tutti gli articoli
+            <span class="freccia-tonda">
+              <Icona nome="freccia-destra" class="size-4" />
+            </span>
           </a>
         </div>
-        <ul class="mt-6 divide-y divide-bordo">
-          {articoli.map((a) => (
-            <li class="py-4">
-              <a href={`/magazine/${a.id}`} class="group block no-underline">
-                <p class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
-                  {a.data.tag.slice(0, 2).join(' · ')} · {a.data.tempoLettura} min
-                </p>
-                <h3 class="mt-1 font-sans text-lg font-bold text-testo group-hover:text-primario-link">
-                  {a.data.titolo}
-                </h3>
-                <p class="mt-1 text-sm text-testo-secondario">{a.data.descrizioneMeta}</p>
+        <ul class="mt-8 space-y-4">
+          {articoli.map((a, i) => (
+            <li class="rivela" style={`--i:${i}`}>
+              <a
+                href={`/magazine/${a.id}`}
+                class="zoom-foto group grid grid-cols-[6.5rem_1fr] items-center gap-5 rounded-[1.4rem] border border-bordo bg-sfondo-rialzato p-3 no-underline transition duration-500 ease-morbido hover:-translate-y-0.5 hover:border-primario/60 sm:grid-cols-[9rem_1fr]"
+              >
+                <Foto
+                  ratio="1/1"
+                  scattoBrief={a.data.scattoBrief}
+                  descrizioneSegnaposto={a.data.titolo}
+                  larghezze={[160, 320]}
+                  sizes="9rem"
+                  class="rounded-[1rem]"
+                />
+                <div class="min-w-0 py-1 pr-2">
+                  <p class="text-xs font-bold uppercase tracking-wider text-testo-secondario">
+                    {a.data.tag.slice(0, 2).join(' · ')} · {a.data.tempoLettura} min
+                  </p>
+                  <h3 class="mt-1 font-sans text-lg font-bold leading-snug text-testo group-hover:text-primario-link">
+                    {a.data.titolo}
+                  </h3>
+                  <p class="mt-1 line-clamp-2 text-sm text-testo-secondario">
+                    {a.data.descrizioneMeta}
+                  </p>
+                </div>
               </a>
             </li>
           ))}
@@ -450,21 +596,25 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   </Sezione>
 
   <!-- MAPPA E CONTATTI -->
-  <Sezione tono="tinta" id="contatti" etichettaAria="Dove siamo e contatti">
-    <div class="grid gap-8 lg:grid-cols-12">
-      <div class="lg:col-span-5">
-        <Etichetta class="mb-3">Dove siamo</Etichetta>
-        <h2 class="text-3xl md:text-4xl">{indirizzoRiga}</h2>
+  <Sezione tono="base" id="contatti" etichettaAria="Dove siamo e contatti">
+    <div class="zona-scura grana overflow-hidden rounded-[2rem] bg-sfondo lg:grid lg:grid-cols-12">
+      <div class="p-7 md:p-12 lg:col-span-5">
+        <Etichetta tono="inverso" class="mb-3">
+          Dove siamo
+        </Etichetta>
+        <h2 class="text-3xl tracking-tight md:text-4xl">{indirizzoRiga}</h2>
         <p class="mt-4 text-testo-secondario">
           Sei a pochi minuti dall'uscita Portici-Ercolano dell'autostrada A3 e dalle stazioni di
           Portici.
         </p>
-        <ul class="mt-6 space-y-3">
+        <ul class="mt-8 space-y-4">
           <li class="flex items-center gap-3">
-            <Icona nome="telefono" class="size-5 text-primario-link" />
+            <span class="badge-icona size-10 shrink-0 rounded-full">
+              <Icona nome="telefono" duo class="size-5" />
+            </span>
             <a
               href={telHref}
-              class="font-semibold"
+              class="font-semibold text-testo"
               data-evento="click_chiama"
               data-evento-posizione="home-contatti"
             >
@@ -472,15 +622,21 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
             </a>
           </li>
           <li class="flex items-center gap-3">
-            <Icona nome="mail" class="size-5 text-primario-link" />
-            <a href={`mailto:${emailPrincipale}`}>{emailPrincipale}</a>
+            <span class="badge-icona size-10 shrink-0 rounded-full">
+              <Icona nome="mail" duo class="size-5" />
+            </span>
+            <a href={`mailto:${emailPrincipale}`} class="text-testo">
+              {emailPrincipale}
+            </a>
           </li>
           <li class="flex items-center gap-3">
-            <Icona nome="orologio" class="size-5 text-primario-link" />
+            <span class="badge-icona size-10 shrink-0 rounded-full">
+              <Icona nome="orologio" duo class="size-5" />
+            </span>
             <span>{clinica.orari.ambulatorio.etichetta}</span>
           </li>
         </ul>
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div class="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
           <Bottone
             href={indicazioniHref}
             variante="primario"
@@ -497,18 +653,20 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
           </Bottone>
         </div>
       </div>
-      <div class="lg:col-span-7">
+      <div class="relative lg:col-span-7">
         <a
           href={indicazioniHref}
           target="_blank"
           rel="noopener"
-          class="block"
+          class="zoom-foto block h-full"
           aria-label="Apri la mappa con le indicazioni stradali (si apre in una nuova scheda)"
         >
           <Foto
             ratio="16/9"
             scattoBrief="32"
             descrizioneSegnaposto="Mappa statica dell'area con la posizione della clinica (immagine, nessun JavaScript di terze parti)"
+            riempi
+            class="h-full rounded-none lg:[&>div]:h-full"
           />
         </a>
       </div>

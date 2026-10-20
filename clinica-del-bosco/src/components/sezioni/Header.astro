@@ -42,7 +42,7 @@ const percorsoAttuale = Astro.url.pathname.replace(/\/$/, '') || '/';
 const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.startsWith(`${href}/`);
 ---
 
-<header class="sticky top-0 z-50 border-b border-bordo bg-sfondo/92 backdrop-blur supports-[backdrop-filter]:bg-sfondo/85 print:static">
+<header class="testata sticky top-0 z-50 border-b border-bordo bg-sfondo/92 backdrop-blur-xl transition-shadow duration-300 supports-[backdrop-filter]:bg-sfondo/80 print:static">
   <!-- Striscia di servizio (solo desktop: su mobile c'è la barra sticky).
        Il pronto soccorso resta raggiungibile solo dal pulsante "È un'urgenza". -->
   <div class="hidden bg-sfondo-inverso text-testo-inverso md:block">
@@ -283,6 +283,9 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
       transition: none;
     }
   }
+  .testata.scorsa {
+    box-shadow: 0 14px 34px -22px rgb(9 39 21 / 0.45);
+  }
   .pannello-servizi {
     position: absolute;
     left: 0;
@@ -339,6 +342,28 @@ const attiva = (href: string) => percorsoAttuale === href || percorsoAttuale.sta
       }
     });
   }
+  /** Ombra sotto l'intestazione appena la pagina scorre. */
+  function inizializzaOmbra() {
+    const testata = document.querySelector<HTMLElement>('.testata');
+    if (!testata) return;
+    let attesa = false;
+    const aggiorna = () => {
+      testata.classList.toggle('scorsa', window.scrollY > 8);
+      attesa = false;
+    };
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!attesa) {
+          attesa = true;
+          requestAnimationFrame(aggiorna);
+        }
+      },
+      { passive: true },
+    );
+    aggiorna();
+  }
+  inizializzaOmbra();
   inizializzaPannelloServizi();
   document.addEventListener('astro:after-swap', inizializzaPannelloServizi);
   inizializzaMenu();

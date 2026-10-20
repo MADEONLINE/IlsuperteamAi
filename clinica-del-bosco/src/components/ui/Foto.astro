@@ -26,6 +26,8 @@ interface Props {
   posizione?: string;
   /** Nelle sezioni a tutta altezza l'immagine riempie la colonna invece di fermarsi al suo rapporto. */
   riempi?: boolean;
+  /** Iniziali da mostrare nel segnaposto (ritratti non ancora disponibili). */
+  monogramma?: string;
 }
 const {
   src,
@@ -40,6 +42,7 @@ const {
   class: classe = '',
   posizione = 'center',
   riempi = false,
+  monogramma,
 } = Astro.props;
 /**
  * Quando la pagina indica solo il numero di scatto, l'immagine e il suo testo alternativo
@@ -80,12 +83,21 @@ const posizioni: Record<string, string> = {
       />
     ) : (
       <div
-        class="absolute inset-0 flex items-center justify-center bg-sfondo-tinta text-testo-secondario"
+        class="segnaposto-foto absolute inset-0 flex items-center justify-center text-primario-link"
         role="img"
         aria-label={descrizioneSegnaposto}
         data-scatto={scattoBrief}
       >
-        <Icona nome="foglia" class="size-10 opacity-40" />
+        {monogramma ? (
+          <span
+            class="font-display text-5xl tracking-tight opacity-80 md:text-6xl"
+            aria-hidden="true"
+          >
+            {monogramma}
+          </span>
+        ) : (
+          <Icona nome="foglia" duo class="size-12 opacity-50" />
+        )}
       </div>
     )}
   </div>
@@ -95,6 +107,21 @@ const posizioni: Record<string, string> = {
 </figure>
 
 <style>
+  /* Segnaposto: gradiente del bosco con trama leggera, finché non arriva la foto reale. */
+  .segnaposto-foto {
+    background:
+      radial-gradient(
+        90% 70% at 20% 0%,
+        color-mix(in oklab, var(--primario) 22%, transparent),
+        transparent 70%
+      ),
+      radial-gradient(
+        80% 60% at 100% 100%,
+        color-mix(in oklab, var(--oro) 26%, transparent),
+        transparent 70%
+      ),
+      var(--sfondo-tinta);
+  }
   /*
    * Gli stili delle immagini responsive di Astro (@layer astro.images) impongono
    * height:auto, e una regola dentro un layer batte le utility di Tailwind a

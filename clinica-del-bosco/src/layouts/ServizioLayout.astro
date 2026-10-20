@@ -88,23 +88,30 @@ const tipoSchema =
     }),
   ]}
 >
-  <header class="border-b border-bordo bg-sfondo-tinta">
-    <div class="contenitore grid gap-8 py-10 md:py-14 lg:grid-cols-12 lg:items-center">
-      <div class="lg:col-span-7">
-        <Briciole briciole={briciole} class="mb-5" />
-        <Etichetta class="mb-2">{categorie[servizio.data.categoria]}</Etichetta>
-        <h1 class="text-4xl md:text-5xl">{servizio.data.titolo}</h1>
-        <p class="prosa mt-4 text-lg text-testo-secondario md:text-xl">
+  <header class="trama-bosco relative overflow-hidden bg-sfondo-tinta">
+    <div class="contenitore grid gap-10 py-12 md:py-16 lg:grid-cols-12 lg:items-center lg:py-20">
+      <div class="lg:col-span-6 xl:col-span-7">
+        <Briciole briciole={briciole} class="entra mb-6" />
+        <div class="entra mb-4 flex items-center gap-3" style="--i:1">
+          <span class="badge-icona size-12 rounded-2xl">
+            <Icona nome={servizio.data.icona as any} duo class="size-7" />
+          </span>
+          <Etichetta>{categorie[servizio.data.categoria]}</Etichetta>
+        </div>
+        <h1 class="entra text-4xl tracking-tight md:text-6xl" style="--i:2">
+          {servizio.data.titolo}
+        </h1>
+        <p class="entra prosa mt-5 text-lg text-testo-secondario md:text-xl" style="--i:3">
           {servizio.data.sottotitolo}
         </p>
-        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Specie trattate">
+        <ul class="entra mt-5 flex flex-wrap gap-2" style="--i:4" aria-label="Specie trattate">
           {servizio.data.specie.map((s) => (
-            <li class="rounded-pill bg-sfondo-rialzato px-3 py-1 text-sm font-semibold">
+            <li class="rounded-pill border border-bordo bg-sfondo-rialzato px-3.5 py-1 text-sm font-semibold">
               {specieEtichetta[s]}
             </li>
           ))}
         </ul>
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <div class="entra mt-8 flex flex-col gap-3 sm:flex-row" style="--i:5">
           <Bottone
             href={`/prenota?motivo=${servizio.id}`}
             variante="primario"
@@ -125,12 +132,22 @@ const tipoSchema =
           </Bottone>
         </div>
       </div>
-      <div class="lg:col-span-5">
-        <Foto
-          ratio="4/3"
-          scattoBrief={servizio.data.scattoBrief}
-          descrizioneSegnaposto={`${servizio.data.titoloBreve}: fotografia del servizio`}
-        />
+      <div class="relative lg:col-span-6 xl:col-span-5">
+        <div
+          class="absolute -bottom-4 -right-4 hidden size-full rounded-[2rem] border-2 border-oro/60 md:block"
+          aria-hidden="true"
+        ></div>
+        <div class="hero-foto relative">
+          <Foto
+            ratio="4/5"
+            scattoBrief={servizio.data.scattoBrief}
+            descrizioneSegnaposto={`${servizio.data.titoloBreve}: fotografia del servizio`}
+            larghezze={[480, 720, 960, 1200]}
+            sizes="(min-width: 1024px) 40vw, 92vw"
+            priorita
+            class="rounded-[2rem] ombra-morbida"
+          />
+        </div>
       </div>
     </div>
   </header>
@@ -138,8 +155,12 @@ const tipoSchema =
   <Sezione>
     <div class="grid gap-10 lg:grid-cols-12">
       <article class="lg:col-span-8">
-        <div class="rounded-card border-l-4 border-primario bg-sfondo-rialzato p-5 md:p-6">
-          <p class="text-lg leading-relaxed">{servizio.data.risposta}</p>
+        <div class="relative overflow-hidden rounded-[1.6rem] border border-bordo bg-sfondo-rialzato p-6 ombra-morbida md:p-8">
+          <span
+            class="absolute inset-y-0 left-0 w-1.5 bg-gradient-to-b from-primario to-oro"
+            aria-hidden="true"
+          ></span>
+          <p class="font-display text-lg leading-relaxed md:text-xl">{servizio.data.risposta}</p>
         </div>
         <Referenti medici={referenti} class="mt-8" />
         <div class="prosa-md mt-8">
@@ -158,8 +179,11 @@ const tipoSchema =
       </article>
 
       <aside class="space-y-6 lg:col-span-4">
-        <div class="rounded-card border border-bordo bg-sfondo-rialzato p-5">
-          <h2 class="font-sans text-lg font-bold">Sei un collega veterinario?</h2>
+        <div class="zona-scura grana overflow-hidden rounded-[1.6rem] bg-sfondo p-6 lg:sticky lg:top-32">
+          <span class="badge-icona mb-4 size-12 rounded-2xl">
+            <Icona nome="stetoscopio" duo class="size-7" />
+          </span>
+          <h2 class="font-display text-2xl">Sei un collega veterinario?</h2>
           <p class="mt-2 text-sm text-testo-secondario">
             TC, endoscopia, chirurgia e degenza in service. Il paziente torna sempre a te.
           </p>
@@ -175,11 +199,11 @@ const tipoSchema =
   </Sezione>
 
   {correlati.length > 0 && (
-    <Sezione tono="tinta" compatta>
-      <h2 class="text-2xl md:text-3xl">Servizi collegati</h2>
-      <ul class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {correlati.map((c) => (
-          <li>
+    <Sezione tono="tinta" class="trama-bosco">
+      <h2 class="filetto text-3xl tracking-tight md:text-4xl">Servizi collegati</h2>
+      <ul class="mt-10 grid gap-x-5 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+        {correlati.map((c, i) => (
+          <li class="rivela" style={`--i:${i}`}>
             <CardServizio servizio={c} />
           </li>
         ))}

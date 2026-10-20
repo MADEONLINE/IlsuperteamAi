@@ -1,7 +1,12 @@
 ---
-/** Card di un servizio (griglia servizi in home e hub). */
+/**
+ * Card di un servizio (griglia servizi in home, hub e servizi collegati).
+ * Versione piena: fotografia in alto con l'icona bicolore che la sormonta, titolo e sottotitolo.
+ * Versione compatta: solo icona e titolo, per gli elenchi densi.
+ */
 import { hrefServizio } from '@lib/servizi';
 import type { CollectionEntry } from 'astro:content';
+import Foto from '@ui/Foto.astro';
 import Icona, { type NomeIcona } from '@ui/Icona.astro';
 interface Props {
   servizio: CollectionEntry<'servizi'>;
@@ -11,22 +16,53 @@ const { servizio, compatta = false } = Astro.props;
 const icona = servizio.data.icona as NomeIcona;
 ---
 
-<a
-  href={hrefServizio(servizio.id)}
-  class:list={[
-    'group flex h-full flex-col gap-3 rounded-card border border-bordo bg-sfondo-rialzato no-underline shadow-card transition hover:-translate-y-0.5 hover:border-primario',
-    compatta ? 'p-4' : 'p-6',
-  ]}
->
-  <span class="inline-flex size-11 items-center justify-center rounded-2xl bg-primario-tenue text-primario-link">
-    <Icona nome={icona} class="size-6" />
-  </span>
-  <span class:list={['font-sans font-bold text-testo', compatta ? 'text-base' : 'text-lg']}>
-    {servizio.data.titoloBreve}
-  </span>
-  {!compatta && <span class="text-sm text-testo-secondario">{servizio.data.sottotitolo}</span>}
-  <span class="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-primario-link">
-    Leggi: {servizio.data.titoloBreve.toLowerCase()}{' '}
-    <Icona nome="freccia-destra" class="size-4 transition group-hover:translate-x-0.5" />
-  </span>
-</a>
+{compatta ? (
+  <a
+    href={hrefServizio(servizio.id)}
+    class="group flex h-full items-center gap-3 rounded-card border border-bordo bg-sfondo-rialzato p-4 no-underline ombra-morbida transition duration-300 ease-morbido hover:-translate-y-1 hover:border-primario"
+  >
+    <span class="badge-icona size-11 shrink-0">
+      <Icona nome={icona} duo class="size-6" />
+    </span>
+    <span class="font-sans text-base font-bold text-testo group-hover:text-primario-link">
+      {servizio.data.titoloBreve}
+    </span>
+    <Icona
+      nome="freccia-destra"
+      class="ml-auto size-4 shrink-0 text-primario-link transition group-hover:translate-x-1"
+    />
+  </a>
+) : (
+  <a
+    href={hrefServizio(servizio.id)}
+    class="zoom-foto group flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-bordo bg-sfondo-rialzato no-underline ombra-morbida transition duration-500 ease-morbido hover:-translate-y-1.5 hover:border-primario/60"
+  >
+    <div class="relative">
+      <Foto
+        ratio="4/3"
+        scattoBrief={servizio.data.scattoBrief}
+        descrizioneSegnaposto={`${servizio.data.titoloBreve}: fotografia del servizio`}
+        larghezze={[360, 540, 720]}
+        sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 92vw"
+        class="rounded-none"
+      />
+      <span class="absolute -bottom-7 left-4 rounded-[1.35rem] bg-sfondo-rialzato p-1.5">
+        <span class="badge-icona size-12">
+          <Icona nome={icona} duo class="size-7" />
+        </span>
+      </span>
+    </div>
+    <div class="flex flex-1 flex-col gap-2 p-5 pt-9">
+      <span class="font-sans text-lg font-bold leading-snug text-testo group-hover:text-primario-link">
+        {servizio.data.titoloBreve}
+      </span>
+      <span class="text-sm text-testo-secondario">{servizio.data.sottotitolo}</span>
+      <span class="mt-auto flex items-center justify-between gap-2 pt-3 text-sm font-semibold text-primario-link">
+        Leggi: {servizio.data.titoloBreve.toLowerCase()}
+        <span class="freccia-tonda size-9">
+          <Icona nome="freccia-destra" class="size-4" />
+        </span>
+      </span>
+    </div>
+  </a>
+)}

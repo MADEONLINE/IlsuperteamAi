@@ -15,7 +15,52 @@ interface Props {
   etichetta?: string;
   class?: string;
   spessore?: number;
+  /** Versione bicolore (Phosphor duotone, licenza MIT) per le icone dei servizi e dei pilastri. */
+  duo?: boolean;
 }
+
+/** Corrispondenza con il set bicolore: dove manca, resta l'icona lineare. */
+const duotone = import.meta.glob<string>(
+  '/node_modules/@phosphor-icons/core/assets/duotone/*.svg',
+  {
+    query: '?raw',
+    import: 'default',
+    eager: true,
+  },
+);
+const mappaDuo: Record<string, string> = {
+  scansione: 'scan',
+  provetta: 'test-tube',
+  microscopio: 'microscope',
+  cane: 'dog',
+  gatto: 'cat',
+  coniglio: 'rabbit',
+  stetoscopio: 'stethoscope',
+  letto: 'bed',
+  occhio: 'eye',
+  osso: 'bone',
+  cervello: 'brain',
+  dente: 'tooth',
+  cuore: 'heart',
+  'cuore-pulsante': 'heartbeat',
+  scudo: 'shield-check',
+  zampa: 'paw-print',
+  ciotola: 'bowl-food',
+  ambulanza: 'ambulance',
+  ago: 'needle',
+  calendario: 'calendar-check',
+  foglia: 'leaf',
+  telefono: 'phone',
+  mappa: 'map-pin',
+  orologio: 'clock',
+  mail: 'envelope-simple',
+  cellula: 'dna',
+  radiografia: 'scan',
+  bisturi: 'first-aid-kit',
+  utente: 'user',
+  casa: 'house',
+  auto: 'car',
+};
 
 const icone = {
   telefono:
@@ -100,21 +145,39 @@ const icone = {
     '<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>',
 } as const;
 
-const { nome, etichetta, class: classe = 'size-5', spessore = 2 } = Astro.props;
+const { nome, etichetta, class: classe = 'size-5', spessore = 2, duo = false } = Astro.props;
 const percorso = icone[nome];
+const fileDuo = duo && mappaDuo[nome];
+const svgDuo = fileDuo
+  ? duotone[`/node_modules/@phosphor-icons/core/assets/duotone/${fileDuo}-duotone.svg`]
+  : undefined;
+const internoDuo = svgDuo?.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
 ---
 
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width={spessore}
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  class={classe}
-  aria-hidden={etichetta ? undefined : 'true'}
-  role={etichetta ? 'img' : undefined}
-  focusable="false"
-  set:html={etichetta ? `<title>${etichetta}</title>${percorso}` : percorso}
-/>
+{internoDuo ? (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
+    fill="currentColor"
+    class={classe}
+    aria-hidden={etichetta ? undefined : 'true'}
+    role={etichetta ? 'img' : undefined}
+    focusable="false"
+    set:html={etichetta ? `<title>${etichetta}</title>${internoDuo}` : internoDuo}
+  />
+) : (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width={spessore}
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class={classe}
+    aria-hidden={etichetta ? undefined : 'true'}
+    role={etichetta ? 'img' : undefined}
+    focusable="false"
+    set:html={etichetta ? `<title>${etichetta}</title>${percorso}` : percorso}
+  />
+)}

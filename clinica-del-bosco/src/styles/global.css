@@ -673,3 +673,264 @@
     font-weight: 600;
   }
 }
+
+/* =====================================================================
+   Restyling visivo (ottobre 2026): zone scure, vetro, movimento.
+   Solo aspetto e disposizione: nessun testo dipende da queste regole.
+   ===================================================================== */
+
+/* Zona scura locale: ridefinisce i token semantici, così ogni componente
+   (titoli, bottoni, marchio, link) si adatta da solo a un fondo petrolio. */
+@layer base {
+  .zona-scura {
+    --sfondo: #05262b;
+    --sfondo-rialzato: #0a3238;
+    --sfondo-tinta: #082d33;
+    --sfondo-inverso: var(--color-crema-100);
+    --testo: #eef5f2;
+    --testo-secondario: #b2c8c3;
+    --testo-inverso: var(--color-inchiostro-900);
+    --bordo: rgb(255 255 255 / 0.1);
+    --bordo-forte: rgb(255 255 255 / 0.24);
+    --primario: var(--color-bosco-300);
+    --primario-forte: var(--color-bosco-200);
+    --primario-tenue: rgb(148 205 166 / 0.12);
+    --primario-testo: var(--color-bosco-950);
+    --primario-link: var(--color-bosco-300);
+    --oro: var(--color-oro-400);
+    --accento-inverso: var(--color-bosco-300);
+    --focus: var(--color-bosco-300);
+    --marchio-fronda: var(--color-crema-100);
+    --marchio-petrolio: var(--color-crema-100);
+    --marchio-sabbia: var(--color-crema-100);
+    --marchio-sopra: var(--color-crema-100);
+    --marchio-nome: var(--color-crema-100);
+    color: var(--testo);
+  }
+}
+
+@layer components {
+  /* Vetro: pannello smerigliato con bordo di rifrazione. */
+  .vetro {
+    background: rgb(255 255 255 / 0.08);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgb(255 255 255 / 0.16);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.14),
+      0 24px 48px -24px rgb(2 20 24 / 0.55);
+  }
+  .vetro-scuro {
+    background: rgb(5 38 43 / 0.62);
+  }
+  .vetro-chiaro {
+    background: color-mix(in oklab, var(--sfondo-rialzato) 82%, transparent);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid color-mix(in oklab, var(--bordo) 80%, transparent);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.5),
+      0 30px 60px -30px rgb(9 39 21 / 0.35);
+  }
+
+  /* Ombra morbida tinta di verde, per le schede in rilievo. */
+  .ombra-morbida {
+    box-shadow:
+      0 1px 2px rgb(9 39 21 / 0.05),
+      0 24px 48px -28px rgb(9 39 21 / 0.28);
+  }
+
+  /* Badge icona: tondo tinto con icona bicolore. */
+  .badge-icona {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.1rem;
+    background:
+      radial-gradient(120% 120% at 20% 10%, rgb(255 255 255 / 0.65), transparent 55%),
+      var(--primario-tenue);
+    color: var(--primario-link);
+    box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--primario) 18%, transparent);
+  }
+
+  .zona-scura .badge-icona {
+    background:
+      radial-gradient(120% 120% at 20% 10%, rgb(255 255 255 / 0.14), transparent 60%),
+      rgb(148 205 166 / 0.14);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.1);
+  }
+
+  /* Immagine che si avvicina al passaggio del mouse sulla scheda. */
+  .zoom-foto picture,
+  .zoom-foto img {
+    transition: transform 0.9s var(--ease-morbido);
+  }
+  .zoom-foto:hover picture,
+  .zoom-foto:focus-visible picture {
+    transform: scale(1.06);
+  }
+
+  /* Velo scuro sulle foto, dal basso: il testo resta leggibile su qualsiasi scatto. */
+  .velo-foto::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgb(4 24 28 / 0.1) 0%,
+      rgb(4 24 28 / 0.25) 30%,
+      rgb(4 24 28 / 0.78) 62%,
+      rgb(4 24 28 / 0.95) 100%
+    );
+  }
+
+  /* Grana leggera sulle zone scure: dà materia al colore piatto. */
+  .grana {
+    position: relative;
+    isolation: isolate;
+  }
+  .grana::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Trama a foglie, decorativa, per le intestazioni delle pagine interne. */
+  .trama-bosco {
+    background-image:
+      radial-gradient(
+        60rem 30rem at 100% 0%,
+        color-mix(in oklab, var(--primario) 14%, transparent),
+        transparent 60%
+      ),
+      radial-gradient(
+        40rem 24rem at 0% 100%,
+        color-mix(in oklab, var(--oro) 16%, transparent),
+        transparent 60%
+      );
+  }
+
+  /* Filetto oro corto sotto i titoli di sezione. */
+  .filetto::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 3px;
+    margin-top: 1.1rem;
+    border-radius: 3px;
+    background: linear-gradient(
+      90deg,
+      var(--oro),
+      color-mix(in oklab, var(--oro) 20%, transparent)
+    );
+  }
+
+  /* Freccia nel cerchio che scorre al passaggio del mouse. */
+  .freccia-tonda {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    transition:
+      transform 0.4s var(--ease-morbido),
+      background-color 0.3s;
+  }
+  .group:hover .freccia-tonda {
+    transform: translateX(4px);
+    background: color-mix(in oklab, currentColor 12%, transparent);
+  }
+
+  /* Nastro scorrevole (marquee) con le aree della clinica. */
+  .nastro {
+    display: flex;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .nastro__traccia {
+    display: flex;
+    flex: none;
+    gap: 0.75rem;
+    padding-right: 0.75rem;
+    animation: nastro 60s linear infinite;
+  }
+  .nastro:hover .nastro__traccia {
+    animation-play-state: paused;
+  }
+  @keyframes nastro {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Ingresso dell'hero: la foto si assesta piano, i testi salgono in sequenza. */
+  .hero-foto picture,
+  .hero-foto img {
+    animation: hero-assesta 2.6s var(--ease-morbido) both;
+  }
+  @keyframes hero-assesta {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  .entra {
+    animation: entra 0.9s var(--ease-morbido) both;
+    animation-delay: calc(var(--i, 0) * 110ms + 120ms);
+  }
+  @keyframes entra {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Parallasse legata allo scroll, solo dove il browser la supporta (niente JavaScript). */
+  @supports (animation-timeline: view()) {
+    .parallasse picture {
+      animation: parallasse linear both;
+      animation-timeline: view();
+    }
+    @keyframes parallasse {
+      from {
+        transform: translateY(-7%) scale(1.16);
+      }
+      to {
+        transform: translateY(7%) scale(1.16);
+      }
+    }
+  }
+
+  /* Rivelazione in cascata: ogni elemento aspetta il suo turno (--i). */
+  .rivela--attesa.visibile {
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nastro__traccia,
+    .hero-foto picture,
+    .hero-foto img,
+    .entra,
+    .parallasse picture {
+      animation: none !important;
+    }
+    .zoom-foto:hover picture {
+      transform: none;
+    }
+  }
+}

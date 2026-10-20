@@ -12,16 +12,20 @@ if (!daConfermare(clinica.annoFondazione))
   voci.push({ icona: 'foglia', testo: `A Portici dal ${clinica.annoFondazione}` });
 ---
 
-<div class="border-b border-bordo bg-sfondo-rialzato border-t-2 border-t-oro">
-  <ul
-    class="contenitore flex flex-wrap gap-x-6 gap-y-2 py-3 text-sm font-semibold md:justify-between"
-    aria-label="In sintesi"
-  >
-    {voci.map((v) => (
-      <li class="flex items-center gap-2">
-        <Icona nome={v.icona} class="size-5 text-primario-link" />
-        <span>{v.testo}</span>
-      </li>
-    ))}
-  </ul>
+<div class="relative z-10 -mt-px md:-mt-12">
+  <div class="contenitore">
+    <ul
+      class="vetro-chiaro grid grid-cols-1 gap-x-6 gap-y-3 rounded-b-[1.75rem] px-5 py-5 text-sm font-semibold sm:grid-cols-2 md:rounded-[1.75rem] md:px-8 lg:flex lg:flex-wrap lg:justify-between"
+      aria-label="In sintesi"
+    >
+      {voci.map((v) => (
+        <li class="flex items-center gap-3">
+          <span class="badge-icona size-10 shrink-0 rounded-xl">
+            <Icona nome={v.icona} duo class="size-5" />
+          </span>
+          <span>{v.testo}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
 </div>
