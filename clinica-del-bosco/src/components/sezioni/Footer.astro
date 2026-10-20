@@ -41,14 +41,14 @@ const colonne = [
 ---
 
 <footer class="zona-scura grana mt-auto bg-sfondo pb-[calc(var(--spacing-sticky)+1rem)] text-testo lg:pb-0 print:hidden">
-  <div class="contenitore grid gap-10 py-14 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr]">
-    <div class="space-y-5">
+  <div class="contenitore grid gap-8 py-10 md:grid-cols-2 xl:grid-cols-[1.6fr_1fr_1fr]">
+    <div class="space-y-4">
       <a href="/" class="inline-block no-underline" aria-label={`${clinica.nome} — home`}>
         <Logo />
       </a>
-      <p class="max-w-prose text-testo-secondario">{clinica.descrizioneBreve}</p>
+      <p class="max-w-prose text-sm text-testo-secondario">{clinica.descrizioneBreve}</p>
       <address class="not-italic">
-        <ul class="space-y-2.5">
+        <ul class="space-y-1.5 text-sm">
           <li class="flex items-start gap-2.5">
             <Icona nome="mappa" class="mt-1 size-4 shrink-0 text-primario-link" />
             <span>
@@ -87,7 +87,7 @@ const colonne = [
           Orari
         </h2>
         <p class="mt-1 text-sm">{clinica.orari.ambulatorio.etichetta}</p>
-        <p class="mt-2 text-sm text-testo-secondario">{clinica.orari.prontoSoccorso.rigaOrari}</p>
+        <p class="mt-1 text-sm text-testo-secondario">{clinica.orari.prontoSoccorso.rigaOrari}</p>
       </div>
       <ul class="flex gap-3" aria-label="Profili social">
         <li>
@@ -118,10 +118,10 @@ const colonne = [
     <nav id="navigazione-footer" aria-label="Navigazione completa" class="contents">
       {colonne.map((c) => (
         <div>
-          <h2 class="mb-3 font-sans text-sm font-bold uppercase tracking-wider text-testo-secondario">
+          <h2 class="mb-2 font-sans text-sm font-bold uppercase tracking-wider text-testo-secondario">
             {c.titolo}
           </h2>
-          <ul class="space-y-2">
+          <ul class="space-y-0.5 text-sm">
             {c.voci.map((v) => (
               <li>
                 <a
@@ -139,19 +139,21 @@ const colonne = [
   </div>
 
   <div class="border-t border-bordo">
-    <div class="contenitore space-y-3 py-6 text-sm text-testo-secondario">
-      <p>
-        <strong class="text-testo">{clinica.nome}</strong> — {clinica.ragioneSociale} · P. IVA{' '}
-        {clinica.partitaIva} · {indirizzoRiga}
+    <div class="contenitore space-y-2 py-5 text-xs text-testo-secondario">
+      <p class="flex flex-wrap gap-x-4 gap-y-1">
+        <span>
+          <strong class="text-testo">{clinica.nome}</strong> — {clinica.ragioneSociale} · P. IVA{' '}
+          {clinica.partitaIva} · {indirizzoRiga}
+        </span>
+        <span>
+          <strong class="text-testo">Direttore sanitario:</strong>{' '}
+          <Dato valore={direttoreSanitarioRiga} />
+        </span>
+        <span>
+          <strong class="text-testo">PEC:</strong> <Dato valore={clinica.contatti.pec} />
+        </span>
       </p>
       <p>
-        <strong class="text-testo">Direttore sanitario:</strong>{' '}
-        <Dato valore={direttoreSanitarioRiga} />
-      </p>
-      <p>
-        <strong class="text-testo">PEC:</strong> <Dato valore={clinica.contatti.pec} />
-      </p>
-      <p class="text-xs">
         Alcune immagini del sito sono generate con l'ausilio dell'intelligenza artificiale. I
         contenuti e i servizi sono realizzati da professionisti umani, per il benessere e la salute
         dei nostri animali.
@@ -164,7 +166,7 @@ const colonne = [
         </a>
         .
       </p>
-      <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-1 text-sm">
         <ul class="flex flex-wrap gap-x-4 gap-y-1">
           <li>
             <a href="/privacy-policy" class="no-underline hover:underline">
