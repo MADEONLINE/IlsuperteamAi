@@ -934,3 +934,137 @@
     }
   }
 }
+
+/* =====================================================================
+   Logo storico (albero con i quattro animali) e i suoi quattro colori.
+   Regole fuori dai layer: devono prevalere sugli stili con scope dei
+   componenti (es. il rombo di Etichetta) e sulle utility.
+   ===================================================================== */
+:root {
+  /* Colori del file vettoriale del logo, uno per animale. Solo dettagli
+     decorativi (filetti, rombi, icone): mai testo, il contrasto non basta. */
+  --q-blu: #459fdd; /* cane */
+  --q-magenta: #b42095; /* pappagallo */
+  --q-lime: #9ab521; /* coniglio */
+  --q-verde: #2a7f61; /* gatto */
+  --q-striscia: linear-gradient(
+    90deg,
+    var(--q-blu) 0 25%,
+    var(--q-magenta) 25% 50%,
+    var(--q-lime) 50% 75%,
+    var(--q-verde) 75% 100%
+  );
+}
+
+/* Due immagini, una sola visibile: nome scuro sui fondi chiari, chiaro sui fondi scuri. */
+.logo-sito__inverso,
+.logo-sito--inverso .logo-sito__chiaro {
+  display: none;
+}
+.logo-sito--inverso .logo-sito__inverso,
+.zona-scura .logo-sito__inverso,
+:root[data-theme='dark'] .logo-sito__inverso {
+  display: block;
+}
+.zona-scura .logo-sito__chiaro,
+:root[data-theme='dark'] .logo-sito__chiaro {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .logo-sito__inverso {
+    display: block;
+  }
+  :root:not([data-theme='light']) .logo-sito__chiaro {
+    display: none;
+  }
+}
+
+/* ---------- Home: dettagli nei quattro colori (anteprima, solo la home) ---------- */
+/* Striscia a quattro colori alla base dell'hero. */
+.home-quattro > section:first-child::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  height: 5px;
+  background: var(--q-striscia);
+}
+
+/* Filetto sotto i titoli: i quattro colori in sequenza. */
+.home-quattro .filetto::after {
+  width: 4.75rem;
+  height: 4px;
+  background: var(--q-striscia);
+}
+
+/* Ogni sezione prende un colore, a rotazione: rombo dell'etichetta e accenti. */
+.home-quattro > :nth-child(4n + 1) {
+  --q-sezione: var(--q-blu);
+}
+.home-quattro > :nth-child(4n + 2) {
+  --q-sezione: var(--q-magenta);
+}
+.home-quattro > :nth-child(4n + 3) {
+  --q-sezione: var(--q-lime);
+}
+.home-quattro > :nth-child(4n + 4) {
+  --q-sezione: var(--q-verde);
+}
+.home-quattro .eyebrow .rombo-marchio {
+  background: var(--q-sezione);
+}
+
+/* Elenchi (servizi, percorsi, struttura, recensioni): un colore per voce, a rotazione. */
+.home-quattro li:nth-child(4n + 1) {
+  --q: var(--q-blu);
+}
+.home-quattro li:nth-child(4n + 2) {
+  --q: var(--q-magenta);
+}
+.home-quattro li:nth-child(4n + 3) {
+  --q: var(--q-lime);
+}
+.home-quattro li:nth-child(4n + 4) {
+  --q: var(--q-verde);
+}
+.home-quattro .badge-icona {
+  background:
+    radial-gradient(120% 120% at 20% 10%, rgb(255 255 255 / 0.6), transparent 55%),
+    color-mix(in oklab, var(--q, var(--q-verde)) 15%, var(--sfondo-rialzato));
+  color: color-mix(in oklab, var(--q, var(--q-verde)) 80%, #000);
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--q, var(--q-verde)) 32%, transparent);
+}
+.home-quattro .zona-scura .badge-icona {
+  background:
+    radial-gradient(120% 120% at 20% 10%, rgb(255 255 255 / 0.14), transparent 60%),
+    color-mix(in oklab, var(--q, var(--q-verde)) 24%, transparent);
+  color: color-mix(in oklab, var(--q, var(--q-verde)) 55%, #fff);
+}
+.home-quattro .q-bordo {
+  border-top: 4px solid var(--q);
+}
+
+/* Cifre chiave ("Perché sceglierci"): filetto verticale nei quattro colori. */
+.home-quattro dl > div:nth-child(4n + 1) {
+  border-color: var(--q-blu);
+}
+.home-quattro dl > div:nth-child(4n + 2) {
+  border-color: var(--q-magenta);
+}
+.home-quattro dl > div:nth-child(4n + 3) {
+  border-color: var(--q-lime);
+}
+.home-quattro dl > div:nth-child(4n + 4) {
+  border-color: var(--q-verde);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .home-quattro .badge-icona {
+    background: color-mix(in oklab, var(--q, var(--q-verde)) 22%, var(--sfondo-rialzato));
+    color: color-mix(in oklab, var(--q, var(--q-verde)) 60%, #fff);
+  }
+}
+:root[data-theme='dark'] .home-quattro .badge-icona {
+  background: color-mix(in oklab, var(--q, var(--q-verde)) 22%, var(--sfondo-rialzato));
+  color: color-mix(in oklab, var(--q, var(--q-verde)) 60%, #fff);
+}

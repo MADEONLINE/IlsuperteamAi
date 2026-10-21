@@ -1,16 +1,17 @@
 ---
 /**
- * Marchio della clinica.
+ * Logo della clinica.
  *
- * Disegno ufficiale dal kit di identità visiva: i tracciati vivono una volta
- * sola per pagina in Marchio.astro, qui si richiamano con <use> (nessuna
- * richiesta di rete, nessun font da caricare, colori dai token del brand).
+ * Logo storico (albero con i quattro animali, dal file vettoriale del 2021) con il
+ * nome riscritto in Fraunces, il carattere dei titoli del sito, già convertito in
+ * tracciati. I file vivono in /public/logo e si caricano come immagini: il browser
+ * li tiene in cache tra una pagina e l'altra.
  *
- * - default: lockup orizzontale (marchio + filetto sabbia + nome). Il kit lo
- *   indica come logo di default e non sotto i 140 px di larghezza: alle altezze
- *   usate qui (40/44 px) il lockup misura 149/164 px.
- * - `soloSimbolo`: la sola Radura, dove il nome è già presente.
- * - `inverso`: versione reverse (monocromatica off-white) per i fondi scuri.
+ * - default: logo orizzontale (albero + nome su due righe).
+ * - `soloSimbolo`: il solo albero, dove il nome è già presente.
+ * - `inverso`: forza la versione con il nome chiaro, per i fondi scuri.
+ *   Senza `inverso` la scelta è automatica: dentro `.zona-scura` e nel tema
+ *   scuro si vede la versione chiara (regole `.logo-sito` in global.css).
  *
  * Il testo accessibile sta sull'elemento che avvolge il logo (aria-label del
  * link): qui il disegno è decorativo.
@@ -19,26 +20,47 @@ interface Props {
   class?: string;
   inverso?: boolean;
   soloSimbolo?: boolean;
+  /** Il logo dell'header è sopra la piega: niente caricamento differito. */
+  prioritario?: boolean;
 }
-const { class: classe = '', inverso = false, soloSimbolo = false } = Astro.props;
+const {
+  class: classe = '',
+  inverso = false,
+  soloSimbolo = false,
+  prioritario = false,
+} = Astro.props;
+const caricamento = prioritario ? 'eager' : 'lazy';
 ---
 
 {soloSimbolo ? (
-  <svg
-    viewBox="0 0 1624 1737"
-    class:list={['block h-10 w-auto', inverso && 'marchio--inverso', classe]}
-    aria-hidden="true"
-    focusable="false"
-  >
-    <use href="#marchio-radura" />
-  </svg>
+  <img
+    src="/logo/marchio.svg"
+    alt=""
+    width="258"
+    height="268"
+    loading={caricamento}
+    decoding="async"
+    class:list={['block h-10 w-auto', classe]}
+  />
 ) : (
-  <svg
-    viewBox="0 0 448 120"
-    class:list={['block h-10 w-auto sm:h-11', inverso && 'marchio--inverso', classe]}
-    aria-hidden="true"
-    focusable="false"
-  >
-    <use href="#marchio-lockup" />
-  </svg>
+  <span class:list={['logo-sito block', inverso && 'logo-sito--inverso', classe]}>
+    <img
+      src="/logo/logo-orizzontale.svg"
+      alt=""
+      width="723"
+      height="188"
+      loading={caricamento}
+      decoding="async"
+      class="logo-sito__chiaro block h-[2.4rem] w-auto sm:h-14 lg:h-16"
+    />
+    <img
+      src="/logo/logo-orizzontale-inverso.svg"
+      alt=""
+      width="723"
+      height="188"
+      loading="lazy"
+      decoding="async"
+      class="logo-sito__inverso block h-[2.4rem] w-auto sm:h-14 lg:h-16"
+    />
+  </span>
 )}
