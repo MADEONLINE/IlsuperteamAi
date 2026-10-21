@@ -13,9 +13,9 @@ aree: ['animali-esotici', 'tc-diagnostica-avanzata']
 formazione:
   [
     'Laurea in Medicina veterinaria, 2008',
-    'Master in medicina degli animali non convenzionali',
-    'Dottorato di ricerca in clinica ostetrica',
-    'Specializzazione in patologia aviare',
+    'Dottorato in scienze cliniche e farmaco-tossicologiche veterinarie',
+    'Specializzazione in tecnologia e patologia delle specie avicole, del coniglio e della selvaggina',
+    'Master di II livello in riproduzione, management, patologia e terapia degli animali non convenzionali',
   ]
 lingue: ['italiano']
 scattoBrief: '52'

@@ -13,7 +13,7 @@ formazione:
   [
     'Laurea in Medicina veterinaria, 2001',
     'Specializzazione in fisiopatologia della riproduzione',
-    'Dottorato di ricerca in clinica ostetrica',
+    'Dottorato in scienze cliniche e farmaco-tossicologiche veterinarie',
     'Percorso GPCert in chirurgia',
   ]
 lingue: ['italiano']
