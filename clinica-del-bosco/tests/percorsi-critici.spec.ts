@@ -177,14 +177,17 @@ test.describe('Marchio e stili', () => {
     expect(rifiuti, 'la CSP non deve rifiutare gli stili').toEqual([]);
   });
 
-  test('il marchio ufficiale è quello del kit e rispetta la misura minima', async ({ page }) => {
+  test('il logo è quello storico della clinica e resta leggibile', async ({ page }) => {
     await page.goto('/');
-    // Lo sprite definisce il lockup una volta sola; header e piede lo richiamano.
-    await expect(page.locator('#marchio-lockup')).toHaveCount(1);
-    const logo = page.locator('header a[href="/"] svg').first();
+    // Header e piede caricano lo stesso file: la versione con il nome scuro sui fondi chiari.
+    const logo = page.locator('header a[href="/"] img.logo-sito__chiaro');
+    await expect(logo).toBeVisible();
+    await expect(logo).toHaveAttribute('src', '/logo/logo-orizzontale.svg');
     const box = await logo.boundingBox();
-    // Il kit non ammette il lockup sotto i 140 px di larghezza.
+    // Sotto i 140 px di larghezza il nome su due righe non si legge più.
     expect(box!.width).toBeGreaterThanOrEqual(140);
+    // Nel piede (fondo scuro) si vede la versione con il nome chiaro.
+    await expect(page.locator('footer img.logo-sito__inverso')).toBeVisible();
   });
 });
 
