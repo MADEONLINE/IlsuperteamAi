@@ -979,8 +979,8 @@
   }
 }
 
-/* ---------- Home: dettagli nei quattro colori (anteprima, solo la home) ---------- */
-/* Striscia a quattro colori alla base dell'hero. */
+/* ---------- Dettagli nei quattro colori, su tutte le pagine ---------- */
+/* Striscia a quattro colori alla base dell'hero della home... */
 .home-quattro > section:first-child::after {
   content: '';
   position: absolute;
@@ -989,82 +989,87 @@
   height: 5px;
   background: var(--q-striscia);
 }
+/* ...e alla base dell'intestazione delle altre pagine. */
+.quattro-colori > :first-child:not(.home-quattro) {
+  border-bottom: 4px solid;
+  border-image: var(--q-striscia) 1;
+}
 
 /* Filetto sotto i titoli: i quattro colori in sequenza. */
-.home-quattro .filetto::after {
+.quattro-colori .filetto::after {
   width: 4.75rem;
   height: 4px;
   background: var(--q-striscia);
 }
 
-/* Ogni sezione prende un colore, a rotazione: rombo dell'etichetta e accenti. */
-.home-quattro > :nth-child(4n + 1) {
+/* Ogni sezione prende un colore, a rotazione,: rombo dell'etichetta e accenti. */
+.quattro-colori :is(section, aside):nth-of-type(4n + 1) {
   --q-sezione: var(--q-blu);
 }
-.home-quattro > :nth-child(4n + 2) {
+.quattro-colori :is(section, aside):nth-of-type(4n + 2) {
   --q-sezione: var(--q-magenta);
 }
-.home-quattro > :nth-child(4n + 3) {
+.quattro-colori :is(section, aside):nth-of-type(4n + 3) {
   --q-sezione: var(--q-lime);
 }
-.home-quattro > :nth-child(4n + 4) {
+.quattro-colori :is(section, aside):nth-of-type(4n + 4) {
   --q-sezione: var(--q-verde);
 }
-.home-quattro .eyebrow .rombo-marchio {
-  background: var(--q-sezione);
+.quattro-colori .eyebrow .rombo-marchio {
+  background: var(--q-sezione, var(--q-verde));
 }
 
 /* Elenchi (servizi, percorsi, struttura, recensioni): un colore per voce, a rotazione. */
-.home-quattro li:nth-child(4n + 1) {
+.quattro-colori li:nth-child(4n + 1) {
   --q: var(--q-blu);
 }
-.home-quattro li:nth-child(4n + 2) {
+.quattro-colori li:nth-child(4n + 2) {
   --q: var(--q-magenta);
 }
-.home-quattro li:nth-child(4n + 3) {
+.quattro-colori li:nth-child(4n + 3) {
   --q: var(--q-lime);
 }
-.home-quattro li:nth-child(4n + 4) {
+.quattro-colori li:nth-child(4n + 4) {
   --q: var(--q-verde);
 }
-.home-quattro .badge-icona {
+.quattro-colori .badge-icona {
   background:
     radial-gradient(120% 120% at 20% 10%, rgb(255 255 255 / 0.6), transparent 55%),
     color-mix(in oklab, var(--q, var(--q-verde)) 15%, var(--sfondo-rialzato));
   color: color-mix(in oklab, var(--q, var(--q-verde)) 80%, #000);
   box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--q, var(--q-verde)) 32%, transparent);
 }
-.home-quattro .zona-scura .badge-icona {
+.quattro-colori .zona-scura .badge-icona {
   background:
     radial-gradient(120% 120% at 20% 10%, rgb(255 255 255 / 0.14), transparent 60%),
     color-mix(in oklab, var(--q, var(--q-verde)) 24%, transparent);
   color: color-mix(in oklab, var(--q, var(--q-verde)) 55%, #fff);
 }
-.home-quattro .q-bordo {
+.quattro-colori .q-bordo {
   border-top: 4px solid var(--q);
 }
 
 /* Cifre chiave ("Perché sceglierci"): filetto verticale nei quattro colori. */
-.home-quattro dl > div:nth-child(4n + 1) {
+.quattro-colori dl > div:nth-child(4n + 1) {
   border-color: var(--q-blu);
 }
-.home-quattro dl > div:nth-child(4n + 2) {
+.quattro-colori dl > div:nth-child(4n + 2) {
   border-color: var(--q-magenta);
 }
-.home-quattro dl > div:nth-child(4n + 3) {
+.quattro-colori dl > div:nth-child(4n + 3) {
   border-color: var(--q-lime);
 }
-.home-quattro dl > div:nth-child(4n + 4) {
+.quattro-colori dl > div:nth-child(4n + 4) {
   border-color: var(--q-verde);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) .home-quattro .badge-icona {
+  :root:not([data-theme='light']) .quattro-colori .badge-icona {
     background: color-mix(in oklab, var(--q, var(--q-verde)) 22%, var(--sfondo-rialzato));
     color: color-mix(in oklab, var(--q, var(--q-verde)) 60%, #fff);
   }
 }
-:root[data-theme='dark'] .home-quattro .badge-icona {
+:root[data-theme='dark'] .quattro-colori .badge-icona {
   background: color-mix(in oklab, var(--q, var(--q-verde)) 22%, var(--sfondo-rialzato));
   color: color-mix(in oklab, var(--q, var(--q-verde)) 60%, #fff);
 }
