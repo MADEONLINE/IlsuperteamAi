@@ -22,7 +22,7 @@ fonti:
   - titolo: 'MSD Veterinary Manual — Tumors in small animals'
     url: 'https://www.msdvetmanual.com/'
     ente: 'MSD Veterinary Manual'
-referenti: ['luciana-cozzolino', 'erika-forgione']
+referenti: ['erika-forgione']
 autore: 'alessandro-sica'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
