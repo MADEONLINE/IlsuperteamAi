@@ -7,6 +7,7 @@ import {
   clinica,
   daConfermare,
   emailPrincipale,
+  firmaTeam,
   geoDisponibile,
   indicazioniHref,
   sameAs,
@@ -256,15 +257,13 @@ export function physician(medico: {
   return persona;
 }
 
-/** Article (MedicalScholarlyArticle no: è divulgativo) con autore, revisore e date. */
+/** Article (MedicalScholarlyArticle no: è divulgativo) firmato dal team, con date. */
 export function article(opzioni: {
   url: string;
   titolo: string;
   descrizione: string;
   dataPubblicazione: string;
   dataModifica: string;
-  autore: { nome: string; url: string };
-  revisore?: { nome: string; url: string };
   immagine?: string;
   tag?: string[];
   parole?: number;
@@ -280,17 +279,11 @@ export function article(opzioni: {
     inLanguage: 'it-IT',
     datePublished: opzioni.dataPubblicazione,
     dateModified: opzioni.dataModifica,
-    author: { '@type': 'Person', name: opzioni.autore.nome, url: urlAssoluto(opzioni.autore.url) },
+    author: { '@type': 'Organization', name: firmaTeam, url: urlAssoluto('/equipe') },
     publisher: { '@id': ID_ORGANIZZAZIONE },
     image: urlAssoluto(opzioni.immagine ?? '/og/default.png'),
     isAccessibleForFree: true,
   };
-  if (opzioni.revisore)
-    art['reviewedBy'] = {
-      '@type': 'Person',
-      name: opzioni.revisore.nome,
-      url: urlAssoluto(opzioni.revisore.url),
-    };
   if (opzioni.tag?.length) art['keywords'] = opzioni.tag.join(', ');
   if (opzioni.parole) art['wordCount'] = opzioni.parole;
   return art;

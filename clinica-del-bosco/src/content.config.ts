@@ -89,14 +89,14 @@ const equipe = defineCollection({
   }),
 });
 
+// Gli articoli li firma sempre il team (firmaTeam): strict() ferma il build se in un articolo
+// ricompaiono `autore` o `revisore`.
 const articoli = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/articoli' }),
-  schema: z.object({
+  schema: z.strictObject({
     titolo: z.string().min(10),
     descrizioneMeta: z.string().min(80).max(160),
     riassunto: z.string().min(150).max(520),
-    autore: reference('equipe'),
-    revisore: reference('equipe').optional(),
     dataPubblicazione: z.coerce.date(),
     dataRevisione: z.coerce.date(),
     servizioCorrelato: reference('servizi'),

@@ -2,8 +2,6 @@
 titolo: "Quando è davvero un'urgenza veterinaria? I 10 segni per cui non aspettare il mattino"
 descrizioneMeta: "I 10 segni che indicano un'urgenza veterinaria nel cane, nel gatto e nel coniglio: cosa osservare, cosa fare mentre arrivi e quando chiamare il pronto soccorso."
 riassunto: 'Difficoltà a respirare, convulsioni, addome gonfio, gatto maschio che non urina, avvelenamento, trauma, parto che non procede, colpo di calore, collasso con gengive pallide e occhio chiuso o sporgente: sono i dieci segni per cui non si aspetta il mattino. La Clinica Veterinaria del bosco a Portici ha il pronto soccorso attivo 24 ore su 24 con medici in struttura.'
-autore: 'alessandro-sica'
-revisore: 'dario-ferrari'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 servizioCorrelato: 'pronto-soccorso-h24'

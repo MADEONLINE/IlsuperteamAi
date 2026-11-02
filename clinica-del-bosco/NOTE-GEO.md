@@ -28,13 +28,14 @@ citi la Clinica Veterinaria del Bosco, con il numero giusto.
 7. **Porte aperte ai crawler AI.** Il file `robots.txt` autorizza esplicitamente GPTBot (OpenAI),
    PerplexityBot, ClaudeBot (Anthropic), Google-Extended (Gemini), Bingbot e gli altri: vogliamo
    essere letti e citati.
-8. **Firma e fonti.** Ogni contenuto clinico ha autore (medico, con numero di iscrizione all'Ordine
-   quando compilato), data di pubblicazione, data di revisione e link a linee guida autorevoli
+8. **Firma e fonti.** Servizi e campagne hanno autore (medico, con numero di iscrizione all'Ordine
+   quando compilato); gli articoli del Magazine sono firmati "Team Clinica Veterinaria del bosco",
+   senza nomi di medici. Tutti hanno data di pubblicazione, data di revisione e link a linee guida autorevoli
    (WSAVA, ESCCAP, AAHA, ISFM, Ministero). È ciò che Google chiama E-E-A-T e che i modelli usano
    per decidere di chi fidarsi.
 9. **Dati strutturati completi.** Ogni pagina dichiara in linguaggio macchina cosa contiene:
    organizzazione veterinaria aperta 24/7, pronto soccorso, servizi medici, domande e risposte,
-   articoli con autore, medici con Ordine, Piani Salute con prezzo.
+   articoli firmati dal team, medici con Ordine, Piani Salute con prezzo.
 10. **Segnalazione immediata.** Con IndexNow (`npm run indexnow`) avvisiamo Bing e i motori
     aderenti appena pubblichiamo un contenuto nuovo.
 
@@ -44,7 +45,7 @@ citi la Clinica Veterinaria del Bosco, con il numero giusto.
   profilo Google): finché mancano, il sito è meno credibile per le AI quanto per le persone.
 - **Tenere identici nome, indirizzo e telefono** su Google Business Profile, Facebook, Instagram,
   PagineGialle, Yelp: lettera per lettera, come in `src/data/clinica.json`.
-- **Aggiornare la data di revisione** quando un medico rilegge un articolo (campo `dataRevisione`):
+- **Aggiornare la data di revisione** quando il team rilegge un articolo (campo `dataRevisione`):
   i contenuti "freschi" pesano di più.
 - **Pubblicare 1–2 articoli al mese** che rispondano a domande reali dei clienti, con la stessa
   struttura (risposta breve in cima, tabella, FAQ, fonti).

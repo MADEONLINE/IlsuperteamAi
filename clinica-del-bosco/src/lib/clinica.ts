@@ -156,6 +156,9 @@ if (!risultato.success) {
 
 export const clinica: Clinica = risultato.data;
 
+/** Firma di tutti gli articoli del Magazine: mai il nome di un singolo medico. */
+export const firmaTeam = `Team ${clinica.nome}`;
+
 /* ---------- Helper derivati (una sola definizione per tutto il sito) ---------- */
 
 /** Indirizzo su una riga: "Corso Umberto I 12, 80055 Portici (NA)". */

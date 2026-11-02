@@ -2,8 +2,6 @@
 titolo: 'Come preparare il cane alla chirurgia: digiuno, esami, cosa portare e il giorno dopo'
 descrizioneMeta: 'Come preparare il cane a un intervento chirurgico: digiuno, esami pre-anestesia, cosa portare, gestione del dolore, collare elisabettiano e quando chiamare.'
 riassunto: "Preparare bene il cane a un intervento riduce i rischi dell'anestesia e rende più semplice il recupero: digiuno corretto, esami del sangue prima dell'anestesia, farmaci abituali concordati, cuccia pulita e collare elisabettiano pronto a casa. La Clinica Veterinaria del bosco a Portici ti consegna istruzioni scritte e un numero di riferimento per ogni dubbio dopo la dimissione."
-autore: 'dario-ferrari'
-revisore: 'antonella-sergio'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 servizioCorrelato: 'chirurgia'

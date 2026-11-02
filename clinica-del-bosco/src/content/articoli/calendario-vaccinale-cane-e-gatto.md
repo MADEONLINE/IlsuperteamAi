@@ -2,8 +2,6 @@
 titolo: 'Calendario vaccinale del cane e del gatto: quali vaccini servono davvero e quando'
 descrizioneMeta: 'Calendario vaccinale di cane e gatto secondo WSAVA: vaccini core e non-core, protocollo per cucciolo e gattino, richiami, titoli anticorpali e antirabbica.'
 riassunto: 'I vaccini core proteggono ogni cane da cimurro, epatite infettiva e parvovirosi e ogni gatto da panleucopenia, herpesvirus e calicivirus. Cuccioli e gattini iniziano a 6-8 settimane e completano il ciclo dopo le 16; poi i richiami sono triennali o annuali secondo il vaccino. La Clinica Veterinaria del bosco a Portici costruisce con te il calendario del tuo animale.'
-autore: 'isabella-rosapane'
-revisore: 'alessandro-sica'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 servizioCorrelato: 'medicina-preventiva-vaccinazioni'

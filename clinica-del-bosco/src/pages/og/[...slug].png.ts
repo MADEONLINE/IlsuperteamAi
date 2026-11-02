@@ -67,7 +67,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     ['la-struttura', 'La struttura', 'Clinica veterinaria h24 a Portici'],
     ['equipe', 'I nostri medici', 'Medici veterinari e specialisti'],
     ['servizi', 'Tutti i servizi', 'Dalla visita alla terapia intensiva'],
-    ['magazine', 'Magazine', 'Guide scritte dai nostri medici'],
+    ['magazine', 'Magazine', 'Guide scritte dal nostro team'],
     ['contatti', 'Contatti e come arrivare', clinica.contatti.telefono.visualizzato],
     ['domande-frequenti', 'Domande frequenti', 'Urgenze, visite, costi, esami'],
   ];

@@ -2,12 +2,14 @@
 /**
  * Firma editoriale dei contenuti clinici: autore (con n. Ordine), revisore, date di
  * pubblicazione e ultima revisione. Segnale E-E-A-T per Google e per i sistemi AI.
+ * Senza `autore` firma il team: è il caso di tutti gli articoli del Magazine.
  */
 import type { CollectionEntry } from 'astro:content';
+import { firmaTeam } from '@lib/clinica';
 import Icona from '@ui/Icona.astro';
 
 interface Props {
-  autore: CollectionEntry<'equipe'>;
+  autore?: CollectionEntry<'equipe'> | undefined;
   revisore?: CollectionEntry<'equipe'> | undefined;
   dataPubblicazione: Date;
   dataRevisione: Date;
@@ -33,16 +35,24 @@ const iso = (d: Date) => d.toISOString().slice(0, 10);
     <div class="min-w-0 flex-1 space-y-1">
       <p>
         <span class="text-testo-secondario">Scritto da</span>
-        <a href={`/equipe/${autore.id}`} class="font-semibold text-testo">
-          {autore.data.titolo} {autore.data.nome}
-        </a>
-        ,<span>{autore.data.ruolo}</span>
-        {autore.data.numeroOrdine && autore.data.provinciaOrdine && (
-          <span class="text-testo-secondario">
-            {' '}
-            · Ordine dei Medici Veterinari di {autore.data.provinciaOrdine} n.{' '}
-            {autore.data.numeroOrdine}
-          </span>
+        {autore ? (
+          <>
+            <a href={`/equipe/${autore.id}`} class="font-semibold text-testo">
+              {autore.data.titolo} {autore.data.nome}
+            </a>
+            ,<span>{autore.data.ruolo}</span>
+            {autore.data.numeroOrdine && autore.data.provinciaOrdine && (
+              <span class="text-testo-secondario">
+                {' '}
+                · Ordine dei Medici Veterinari di {autore.data.provinciaOrdine} n.{' '}
+                {autore.data.numeroOrdine}
+              </span>
+            )}
+          </>
+        ) : (
+          <a href="/equipe" class="font-semibold text-testo">
+            {firmaTeam}
+          </a>
         )}
       </p>
       {revisore && (

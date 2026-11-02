@@ -140,7 +140,7 @@ export const GET: APIRoute = async () => {
     [
       'Magazine',
       '/magazine',
-      'Guide scritte dai medici della clinica su prevenzione, urgenze e malattie più comuni.',
+      'Guide scritte dal team della clinica su prevenzione, urgenze e malattie più comuni.',
       ['articoli', 'guide', 'consigli', 'blog'],
     ],
     [

@@ -69,9 +69,10 @@ sbagliato (es. una P. IVA con 10 cifre), il build si ferma con un messaggio che 
    `colpo-di-calore-nel-cane-e-nel-gatto.md`) e rinominalo come vuoi che sia l'indirizzo:
    `nome-articolo.md` diventa `/magazine/nome-articolo`. Solo minuscole e trattini, niente date.
 2. In cima al file compila i campi tra le righe `---`: titolo, `descrizioneMeta` (max 160
-   caratteri), `riassunto` (40–60 parole che rispondono da sole alla domanda), `autore` e
-   `revisore` (nome file di un medico in `src/content/equipe/`), date, `servizioCorrelato`,
-   almeno 3 domande/risposte in `faq`, almeno 2 `fonti` con link.
+   caratteri), `riassunto` (40–60 parole che rispondono da sole alla domanda), date,
+   `servizioCorrelato`, almeno 3 domande/risposte in `faq`, almeno 2 `fonti` con link.
+   **Regola:** ogni articolo è firmato "Team Clinica Veterinaria del bosco", mai da un singolo
+   medico. La firma la mette il sito da solo: i campi `autore` e `revisore` fermano il build.
 3. Scrivi il testo sotto, in Markdown, con titoli `##` in forma di domanda. La frase "Questa
    pagina ha finalità informative…" la aggiunge il sito da solo.
 4. Pubblica. Se manca un campo obbligatorio il build si ferma indicando il file e il campo.

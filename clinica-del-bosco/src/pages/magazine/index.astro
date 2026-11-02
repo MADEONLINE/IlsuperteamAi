@@ -1,5 +1,5 @@
 ---
-/** Hub magazine: articoli firmati dai medici + campagne stagionali. */
+/** Hub magazine: articoli firmati dal team + campagne stagionali. */
 import { getCollection } from 'astro:content';
 import PaginaLayout from '@layouts/PaginaLayout.astro';
 import CtaDoppia from '@ui/CtaDoppia.astro';
@@ -16,17 +16,17 @@ const campagne = (await getCollection('campagne')).sort(
   (a, b) => a.data.meseInizio - b.data.meseInizio,
 );
 const descrizione =
-  'Guide pratiche scritte dai medici della Clinica Veterinaria del bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania. Con fonti e data di revisione.';
+  'Guide pratiche scritte dal team della Clinica Veterinaria del bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania. Con fonti e data di revisione.';
 const data = (d: Date) =>
   d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
 <PaginaLayout
-  titolo="Magazine: guide veterinarie scritte dai nostri medici"
+  titolo="Magazine: guide veterinarie scritte dal nostro team"
   descrizione={descrizione}
   percorso="/magazine"
   h1="Magazine"
-  sottotitolo="Guide pratiche per chi vive con un animale, scritte e revisionate dai medici della clinica. Ogni articolo cita le fonti e la data dell'ultima revisione."
+  sottotitolo="Guide pratiche per chi vive con un animale, scritte e revisionate dal team della clinica. Ogni articolo cita le fonti e la data dell'ultima revisione."
   etichetta="Informazione clinica"
   briciole={[{ nome: 'Magazine', href: '/magazine' }]}
   jsonLd={[webPage({ url: '/magazine', titolo: 'Magazine', descrizione, tipo: 'CollectionPage' })]}

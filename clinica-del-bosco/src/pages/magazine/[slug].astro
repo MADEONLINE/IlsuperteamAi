@@ -19,9 +19,6 @@ export async function getStaticPaths() {
 }
 const { articolo } = Astro.props;
 const { Content } = await render(articolo);
-const autore = await getEntry(articolo.data.autore);
-const revisore = articolo.data.revisore ? await getEntry(articolo.data.revisore) : undefined;
-if (!autore) throw new Error(`Autore mancante per ${articolo.id}`);
 const servizio = await getEntry(articolo.data.servizioCorrelato);
 const altri = (await getEntries(articolo.data.serviziCorrelati)).filter(Boolean);
 const correlati = [servizio, ...altri].filter((s): s is NonNullable<typeof s> => Boolean(s));
@@ -56,15 +53,6 @@ const parole = articolo.body?.split(/\s+/).length ?? 0;
       descrizione: articolo.data.descrizioneMeta,
       dataPubblicazione: iso(articolo.data.dataPubblicazione),
       dataModifica: iso(articolo.data.dataRevisione),
-      autore: { nome: `${autore.data.titolo} ${autore.data.nome}`, url: `/equipe/${autore.id}` },
-      ...(revisore
-        ? {
-            revisore: {
-              nome: `${revisore.data.titolo} ${revisore.data.nome}`,
-              url: `/equipe/${revisore.id}`,
-            },
-          }
-        : {}),
       tag: articolo.data.tag,
       parole,
     }),
@@ -91,8 +79,6 @@ const parole = articolo.body?.split(/\s+/).length ?? 0;
           class="mb-8"
         />
         <SchedaAutore
-          autore={autore}
-          revisore={revisore}
           dataPubblicazione={articolo.data.dataPubblicazione}
           dataRevisione={articolo.data.dataRevisione}
           class="mb-8"
