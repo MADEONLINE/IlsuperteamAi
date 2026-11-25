@@ -146,14 +146,11 @@ const posizioni: Record<string, string> = {
    * Punti di fuoco delle foto reali (vedi `fuochi` in @lib/scatti). Regole fuori dai layer, come
    * sopra, perché vincano su [data-astro-image-pos]; niente style inline perché la CSP lo blocca.
    */
-  figure > div > picture > img[data-fuoco='36-50'] {
-    object-position: 36% 50%;
-  }
   figure > div > picture > img[data-fuoco='38-50'] {
     object-position: 38% 50%;
   }
-  figure > div > picture > img[data-fuoco='42-60'] {
-    object-position: 42% 60%;
+  figure > div > picture > img[data-fuoco='40-45'] {
+    object-position: 40% 45%;
   }
   figure > div > picture > img[data-fuoco='45-50'] {
     object-position: 45% 50%;
@@ -196,5 +193,11 @@ const posizioni: Record<string, string> = {
   }
   figure > div > picture > img[data-fuoco='70-50'] {
     object-position: 70% 50%;
+  }
+  figure > div > picture > img[data-fuoco='50-5'] {
+    object-position: 50% 5%;
+  }
+  figure > div > picture > img[data-fuoco='50-20'] {
+    object-position: 50% 20%;
   }
 </style>

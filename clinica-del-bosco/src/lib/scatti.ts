@@ -55,7 +55,7 @@ const alternativi: Record<string, string> = {
   '32': 'Mappa stilizzata della costa vesuviana con il Vesuvio e il punto della clinica',
   '33': 'L’équipe della Clinica Veterinaria del bosco riunita nel corridoio della clinica',
   '34': 'L’équipe della clinica che accoglie i proprietari: medici veterinari e personale nel corridoio della clinica',
-  '35': 'Gattino ricoverato in terapia intensiva dentro una gabbia a ossigeno, con il medico accanto',
+  '35': 'Un tecnico della clinica tiene in braccio un chihuahua accanto ai box del ricovero',
   '36': 'Sala chirurgica con tavolo operatorio, monitor e apparecchio per l’anestesia',
   '37': 'Sala di radiologia digitale con il tavolo radiografico',
   '38': 'Banco del laboratorio analisi: una collega prepara un campione accanto agli analizzatori',
@@ -66,8 +66,8 @@ const alternativi: Record<string, string> = {
   '43': 'Visita di medicina interna su un gatto rosso sul tavolo in acciaio',
   '44': 'Ingresso della Clinica Veterinaria del bosco in Corso Umberto I 12 a Portici, con l’insegna e il cartello H24',
   '45': 'Sala terapie con tavolo in acciaio, armadio dei farmaci e attrezzatura per le terapie brevi',
-  '46': 'Primo piano di una testuggine sul tavolo da visita, tenuta con delicatezza da mani guantate',
-  '47': 'Coniglio bianco e marrone nel box di ricovero, con fieno e verdure fresche',
+  '46': 'Coniglio bianco e marrone nel box di ricovero, con fieno e verdure fresche',
+  '47': 'Primo piano di una testuggine sul tavolo da visita, tenuta con delicatezza da mani guantate',
   '48': 'La Dott.ssa Antonella Sergio durante un esame su un paziente, insieme a un collega',
 };
 
@@ -78,11 +78,11 @@ const alternativi: Record<string, string> = {
  * (img[data-fuoco="X-Y"]): il tipo Fuoco elenca i valori che hanno una regola.
  */
 export type Fuoco =
-  | '36-50'
   | '38-50'
-  | '42-60'
+  | '40-45'
   | '45-50'
   | '50-0'
+  | '50-5'
   | '50-25'
   | '50-30'
   | '50-35'
@@ -92,6 +92,7 @@ export type Fuoco =
   | '50-62'
   | '50-64'
   | '50-15'
+  | '50-20'
   | '50-55'
   | '50-100'
   | '70-50';
@@ -104,12 +105,12 @@ const fuochi: Record<string, Fuoco> = {
   '8': '45-50',
   '10': '50-45',
   '31': '50-35',
-  '35': '36-50',
+  '35': '50-20',
   '38': '50-25',
   '41': '50-38',
   '43': '50-62',
   '44': '50-0',
-  '46': '42-60',
+  '46': '40-45',
   '51': '50-30',
   '52': '50-30',
   '53': '50-30',
@@ -123,6 +124,8 @@ const fuochi: Record<string, Fuoco> = {
   '10@4/3': '50-35',
   '41@4/3': '50-15',
   '43@4/3': '50-100',
+  // Schede della home in colonna (4:5, forma libera su mobile): volto della collega in alto.
+  '38@4/5': '50-5',
   '48': '70-50',
 };
 
