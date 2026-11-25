@@ -995,6 +995,30 @@
   border-image: var(--q-striscia) 1;
 }
 
+/* Testata delle pagine interne: un colore del logo per area, alone leggero in alto a destra. */
+.testata-colore {
+  --t: var(--q-verde);
+  background:
+    radial-gradient(
+      60rem 26rem at 88% -10%,
+      color-mix(in oklab, var(--t) 22%, transparent),
+      transparent 70%
+    ),
+    color-mix(in oklab, var(--t) 7%, var(--sfondo));
+}
+.testata-colore[data-colore='blu'] {
+  --t: var(--q-blu);
+}
+.testata-colore[data-colore='magenta'] {
+  --t: var(--q-magenta);
+}
+.testata-colore[data-colore='lime'] {
+  --t: var(--q-lime);
+}
+.quattro-colori header.testata-colore .rombo-marchio {
+  background: var(--t);
+}
+
 /* Filetto sotto i titoli: i quattro colori in sequenza. */
 .quattro-colori .filetto::after {
   width: 4.75rem;
