@@ -1,69 +1,85 @@
 #!/usr/bin/env node
 /**
- * Genera le due immagini di condivisione statiche a partire dal marchio ufficiale:
- *   public/og/logo.png    512×512  — logo dell'organizzazione nei dati strutturati
- *   public/og/default.png 1200×630 — immagine Open Graph di riserva
+ * Genera icone e immagini di condivisione dal logo ORIGINALE della clinica
+ * (l'albero con cane, pappagallo, coniglio e gatto: public/logo/marchio.svg e
+ * public/logo/logo-orizzontale-inverso.svg). Il vecchio marchio «Radura» non si usa più.
  *
- * Uso: node scripts/genera-og.mjs
+ *   public/favicon.svg           il marchio vettoriale, per le schede del browser
+ *   public/favicon.ico           16, 32 e 48 px
+ *   public/apple-touch-icon.png  180×180, fondo bianco
+ *   public/icon-192.png          192×192, fondo bianco
+ *   public/icon-512.png          512×512, fondo bianco
+ *   public/icon-maskable-512.png 512×512, marchio dentro l'area sicura
+ *   public/og/logo.png           512×512, logo dei dati strutturati
+ *   public/og/default.png        1200×630, immagine di condivisione di riserva
  *
- * Le favicon NON si generano più da qui: arrivano dal kit ufficiale di identità
- * visiva (cartella favicon/), che per le misure minime usa una variante
- * semplificata del marchio disegnata apposta. Rigenerarle da questo script
- * significherebbe sovrascrivere il disegno approvato.
+ * Uso: node scripts/genera-og.mjs  (il .ico lo scrive questo script, senza dipendenze)
  */
 import sharp from 'sharp';
-import { mkdirSync } from 'node:fs';
-import { radura, lockup, coloriMarchio } from '../src/lib/marchio.js';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { schedaCondivisione } from '../src/lib/scheda-og.mjs';
 
 const pub = new URL('../public/', import.meta.url);
 mkdirSync(new URL('og/', pub), { recursive: true });
+const marchio = readFileSync(new URL('logo/marchio.svg', pub));
 
-const scalaMarchio = lockup.marchio.larghezza / 1624;
+/** Il marchio centrato su un quadrato pieno, con un margine in proporzione al lato. */
+async function icona(lato, margine, sfondo = '#ffffff') {
+  const interno = Math.round(lato - margine * 2);
+  const simbolo = await sharp(marchio, { density: 600 })
+    .resize(interno, interno, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png()
+    .toBuffer();
+  return sharp({ create: { width: lato, height: lato, channels: 4, background: sfondo } })
+    .composite([{ input: simbolo, gravity: 'center' }])
+    .png({ compressionLevel: 9 });
+}
 
-/** Il lockup completo, in un colore solo. */
-const lockupSvg = (colore) => `<g fill="${colore}">
-    <g transform="scale(${scalaMarchio.toFixed(6)})">
-      <path fill-rule="evenodd" d="${radura.fronda}"/>
-      <path fill-rule="evenodd" d="${radura.petrolio}"/>
-      <path fill-rule="evenodd" d="${radura.sabbia}"/>
-    </g>
-    <rect x="${lockup.filetto.x}" y="${lockup.filetto.y}" width="${lockup.filetto.larghezza}" height="${lockup.filetto.altezza}"/>
-    <path d="${lockup.sopra}"/>
-    <path d="${lockup.nome}"/>
-  </g>`;
+/** Il marchio su fondo trasparente, per il .ico. */
+const trasparente = (lato) =>
+  sharp(marchio, { density: 600 })
+    .resize(lato, lato, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+    .png()
+    .toBuffer();
 
-// --- Logo per i dati strutturati: la Radura a colori su fondo chiaro.
-// Google lo mostra su fondo bianco, quindi niente versione reverse.
-const LATO = 512;
-const MARGINE = 64; // area di rispetto attorno al marchio
-const scalaLogo = (LATO - MARGINE * 2) / 1737; // il marchio è più alto che largo
-const logoX = (LATO - 1624 * scalaLogo) / 2;
-const logoY = (LATO - 1737 * scalaLogo) / 2;
-const logo = `<svg xmlns="http://www.w3.org/2000/svg" width="${LATO}" height="${LATO}">
-  <rect width="${LATO}" height="${LATO}" fill="${coloriMarchio.offWhite}"/>
-  <g transform="translate(${logoX.toFixed(2)} ${logoY.toFixed(2)}) scale(${scalaLogo.toFixed(6)})">
-    <path fill="${coloriMarchio.verde}" fill-rule="evenodd" d="${radura.fronda}"/>
-    <path fill="${coloriMarchio.petrolio}" fill-rule="evenodd" d="${radura.petrolio}"/>
-    <path fill="${coloriMarchio.sabbia}" fill-rule="evenodd" d="${radura.sabbia}"/>
-  </g>
-</svg>`;
-await sharp(Buffer.from(logo))
-  .png({ compressionLevel: 9 })
-  .toFile(new URL('og/logo.png', pub).pathname);
+/** Contenitore ICO con le immagini PNG dentro (supportato da tutti i browser attuali). */
+function ico(pngs) {
+  const testa = Buffer.alloc(6);
+  testa.writeUInt16LE(0, 0);
+  testa.writeUInt16LE(1, 2);
+  testa.writeUInt16LE(pngs.length, 4);
+  const voci = [];
+  let offset = 6 + 16 * pngs.length;
+  for (const { lato, dati } of pngs) {
+    const v = Buffer.alloc(16);
+    v.writeUInt8(lato >= 256 ? 0 : lato, 0);
+    v.writeUInt8(lato >= 256 ? 0 : lato, 1);
+    v.writeUInt8(0, 2);
+    v.writeUInt8(0, 3);
+    v.writeUInt16LE(1, 4);
+    v.writeUInt16LE(32, 6);
+    v.writeUInt32LE(dati.length, 8);
+    v.writeUInt32LE(offset, 12);
+    offset += dati.length;
+    voci.push(v);
+  }
+  return Buffer.concat([testa, ...voci, ...pngs.map((p) => p.dati)]);
+}
 
-// --- Open Graph di riserva: lockup reverse su petrolio cupo.
-const og = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
-  <rect width="1200" height="630" fill="${coloriMarchio.petrolioCupo}"/>
-  <circle cx="1040" cy="120" r="300" fill="${coloriMarchio.petrolio}"/>
-  <g transform="translate(80 54) scale(0.62)">${lockupSvg(coloriMarchio.offWhite)}</g>
-  <rect x="80" y="168" width="64" height="3" fill="${coloriMarchio.sabbia}"/>
-  <text x="80" y="266" font-family="Georgia, serif" font-size="66" font-weight="600" fill="${coloriMarchio.offWhite}">Pronto soccorso</text>
-  <text x="80" y="344" font-family="Georgia, serif" font-size="66" font-weight="600" fill="${coloriMarchio.offWhite}">24 ore su 24</text>
-  <text x="80" y="424" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="${coloriMarchio.sabbia}">Ospedale veterinario a Portici (NA)</text>
-  <text x="80" y="580" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="${coloriMarchio.offWhite}" opacity="0.85">081 7763859 · Corso Umberto I 10</text>
-</svg>`;
-await sharp(Buffer.from(og))
-  .png({ compressionLevel: 9 })
-  .toFile(new URL('og/default.png', pub).pathname);
+writeFileSync(new URL('favicon.svg', pub), marchio);
+const pezziIco = [];
+for (const lato of [16, 32, 48]) pezziIco.push({ lato, dati: await trasparente(lato) });
+writeFileSync(new URL('favicon.ico', pub), ico(pezziIco));
+await (await icona(180, 16)).toFile(new URL('apple-touch-icon.png', pub).pathname);
+await (await icona(192, 16)).toFile(new URL('icon-192.png', pub).pathname);
+await (await icona(512, 44)).toFile(new URL('icon-512.png', pub).pathname);
+// Maskable: il sistema può ritagliare fino al 20% per lato, il marchio sta nel 60% centrale.
+await (await icona(512, 102)).toFile(new URL('icon-maskable-512.png', pub).pathname);
+await (await icona(512, 56)).toFile(new URL('og/logo.png', pub).pathname);
 
-console.log('Generati public/og/logo.png e public/og/default.png dal marchio ufficiale.');
+const scheda = await schedaCondivisione({
+  titolo: 'Cura, attenzione e rispetto per ogni animale',
+  sotto: 'Clinica veterinaria a Portici (NA) · Corso Umberto I 12',
+});
+writeFileSync(new URL('og/default.png', pub), scheda);
+console.log('Icone e immagini di condivisione rigenerate dal logo originale.');
