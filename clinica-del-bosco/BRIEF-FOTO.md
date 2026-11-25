@@ -19,7 +19,11 @@ hanno un fuoco dedicato (`N@4/3` in `fuochi`); esotici e cardiologia usano una f
 nella scheda (campo `scattoScheda`): 47 testuggine e 48 Dott.ssa Sergio con il paziente. Nella
 scheda larga della home gli esotici usano il coniglio (46). La scheda «Ricovero e terapia
 intensiva» usa il tecnico con il chihuahua (35): nella foto della gabbia a ossigeno il gattino
-non si vedeva. Ogni foto è verificata a vista su desktop (1440) e mobile (375).
+non si vedeva. La sezione struttura della home e la scheda «Due sale chirurgiche» usano il
+Dott. Ferrari alla stazione di anestesia (36) al posto del tavolo operatorio con i tubi in
+vista; la sala terapie (45) è ritagliata sulla parte ordinata. Criterio: ogni foto deve
+trasmettere ordine, pulizia e professionalità. Ogni foto è verificata a vista su desktop
+(1440) e mobile (375).
 Il punto di fuoco di ogni foto è in `src/lib/scatti.ts` (`fuochi`).
 Le liberatorie delle persone riconoscibili sono state confermate da Marta Dessena il 25/11/2026.
 Gli originali stanno in `~/Desktop/scrivania/da verificare e ulire/foto clinica del bosco/`; il

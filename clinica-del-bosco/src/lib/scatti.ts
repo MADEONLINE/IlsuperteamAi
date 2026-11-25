@@ -56,7 +56,7 @@ const alternativi: Record<string, string> = {
   '33': 'L’équipe della Clinica Veterinaria del bosco riunita nel corridoio della clinica',
   '34': 'L’équipe della clinica che accoglie i proprietari: medici veterinari e personale nel corridoio della clinica',
   '35': 'Un tecnico della clinica tiene in braccio un chihuahua accanto ai box del ricovero',
-  '36': 'Sala chirurgica con tavolo operatorio, monitor e apparecchio per l’anestesia',
+  '36': 'Il Dott. Dario Ferrari alla stazione di anestesia della sala chirurgica',
   '37': 'Sala di radiologia digitale con il tavolo radiografico',
   '38': 'Banco del laboratorio analisi: una collega prepara un campione accanto agli analizzatori',
   '39': 'Ambulatorio della clinica con tavolo da visita in acciaio, lavabo e scrivania',
@@ -65,7 +65,7 @@ const alternativi: Record<string, string> = {
   '42': 'Sala endoscopia con torre endoscopica accesa ed endoscopio flessibile sul telo sterile',
   '43': 'Visita di medicina interna su un gatto rosso sul tavolo in acciaio',
   '44': 'Ingresso della Clinica Veterinaria del bosco in Corso Umberto I 12 a Portici, con l’insegna e il cartello H24',
-  '45': 'Sala terapie con tavolo in acciaio, armadio dei farmaci e attrezzatura per le terapie brevi',
+  '45': 'Sala terapie in ordine: tavolo in acciaio, armadio dei farmaci e porta di accesso',
   '46': 'Coniglio bianco e marrone nel box di ricovero, con fieno e verdure fresche',
   '47': 'Primo piano di una testuggine sul tavolo da visita, tenuta con delicatezza da mani guantate',
   '48': 'La Dott.ssa Antonella Sergio durante un esame su un paziente, insieme a un collega',
@@ -78,6 +78,7 @@ const alternativi: Record<string, string> = {
  * (img[data-fuoco="X-Y"]): il tipo Fuoco elenca i valori che hanno una regola.
  */
 export type Fuoco =
+  | '35-30'
   | '38-50'
   | '40-45'
   | '45-50'
@@ -106,6 +107,7 @@ const fuochi: Record<string, Fuoco> = {
   '10': '50-45',
   '31': '50-35',
   '35': '50-20',
+  '36': '35-30',
   '38': '50-25',
   '41': '50-38',
   '43': '50-62',
