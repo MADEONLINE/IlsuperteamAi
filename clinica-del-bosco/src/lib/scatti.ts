@@ -116,9 +116,13 @@ const fuochi: Record<string, Fuoco> = {
   '51': '50-30',
   '52': '50-30',
   '53': '50-30',
+  // Ritratto da smartphone, inquadratura stretta: si parte dall'alto per non toccare i capelli.
+  '54': '50-0',
   '55': '50-30',
   '56': '50-30',
   // Schede orizzontali 4:3 (elenchi dei servizi) delle foto verticali: il fuoco cambia col formato.
+  // «Dove siamo» in home: l'ingresso intero, dall'insegna al passaggio, in formato verticale.
+  '44@4/5': '50-15',
   '3@4/3': '50-45',
   '5@4/3': '50-55',
   '6@4/3': '50-25',

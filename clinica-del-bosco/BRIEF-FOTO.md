@@ -24,12 +24,17 @@ Dott. Ferrari alla stazione di anestesia (36) al posto del tavolo operatorio con
 vista; la sala terapie (45) è ritagliata sulla parte ordinata. Criterio: ogni foto deve
 trasmettere ordine, pulizia e professionalità. Ogni foto è verificata a vista su desktop
 (1440) e mobile (375).
+Il ritratto del Dott. Alessandro Sica (54) è arrivato a parte via WhatsApp (1066×1600 px, scatto dello
+stesso set): sulla casacca sono state ritoccate alcune macchie scure e il fuoco parte dall'alto
+perché l'inquadratura è stretta. Il riquadro «Dove siamo» della home non usa più la mappa
+disegnata (32): mostra l'ingresso reale (44) in verticale 4:5, con insegna, cartello H24 e civico 12;
+la mappa disegnata resta solo nella pagina Contatti.
 Il punto di fuoco di ogni foto è in `src/lib/scatti.ts` (`fuochi`).
 Le liberatorie delle persone riconoscibili sono state confermate da Marta Dessena il 25/11/2026.
 Gli originali stanno in `~/Desktop/scrivania/da verificare e ulire/foto clinica del bosco/`; il
 confronto con le immagini generate è in `docs/proposta-foto/`.
 
-Restano generati: 01, 02, 09, 11–15, 17–30, 32, 34, 40, 42, e i ritratti 54 e 57–71. Per questo
+Restano generati: 01, 02, 09, 11–15, 17–30, 32, 34, 40, 42, e i ritratti 57–71 (32 solo in Contatti). Per questo
 l'avviso sulle immagini generate con l'AI resta nel piè di pagina.
 
 ## Stato al 11 settembre 2026

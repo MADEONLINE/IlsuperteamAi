@@ -600,7 +600,7 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
     <!-- MAPPA E CONTATTI -->
     <Sezione tono="base" id="contatti" etichettaAria="Dove siamo e contatti">
       <div class="zona-scura grana overflow-hidden rounded-[2rem] bg-sfondo lg:grid lg:grid-cols-12">
-        <div class="p-7 md:p-12 lg:col-span-5">
+        <div class="p-7 md:p-12 lg:col-span-7 lg:self-center">
           <Etichetta tono="inverso" class="mb-3">
             Dove siamo
           </Etichetta>
@@ -655,7 +655,7 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
             </Bottone>
           </div>
         </div>
-        <div class="relative lg:col-span-7">
+        <div class="relative lg:col-span-5">
           <a
             href={indicazioniHref}
             target="_blank"
@@ -664,9 +664,10 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
             aria-label="Apri la mappa con le indicazioni stradali (si apre in una nuova scheda)"
           >
             <Foto
-              ratio="16/9"
-              scattoBrief="32"
-              descrizioneSegnaposto="Mappa statica dell'area con la posizione della clinica (immagine, nessun JavaScript di terze parti)"
+              ratio="4/5"
+              scattoBrief="44"
+              descrizioneSegnaposto="Ingresso della clinica in Corso Umberto I 12 a Portici"
+              sizes="(min-width: 1024px) 40vw, 100vw"
               riempi
               class="h-full rounded-none lg:[&>div]:h-full"
             />
