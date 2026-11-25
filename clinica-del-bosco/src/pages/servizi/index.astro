@@ -5,6 +5,8 @@ import PaginaLayout from '@layouts/PaginaLayout.astro';
 import CardServizio from '@ui/CardServizio.astro';
 import CtaDoppia from '@ui/CtaDoppia.astro';
 import Sezione from '@ui/Sezione.astro';
+import Icona from '@ui/Icona.astro';
+import { clinica, telHref } from '@lib/clinica';
 import { webPage } from '@lib/schema';
 
 const servizi = (await getCollection('servizi')).sort((a, b) => a.data.ordine - b.data.ordine);
@@ -67,7 +69,12 @@ const descrizione =
 >
   {gruppi.map((g) => {
     const lista = servizi.filter((s) => s.data.categoria === g.chiave);
-    if (!lista.length) return null;
+    const [unico] = lista;
+    if (!unico) return null;
+    const n = lista.length;
+    // Riquadro di chiusura: occupa gli spazi rimasti nell'ultima riga (3 colonne su desktop, 2 su tablet).
+    const spazioLg = (3 - (n % 3)) % 3;
+    const urgenza = g.chiave === 'urgenza';
     return (
       <Sezione compatta id={g.chiave}>
         <div class="grid gap-6 lg:grid-cols-12">
@@ -75,13 +82,69 @@ const descrizione =
             <h2 class="text-2xl md:text-3xl">{g.titolo}</h2>
             <p class="mt-2 text-testo-secondario">{g.testo}</p>
           </div>
-          <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
-            {lista.map((s) => (
-              <li>
-                <CardServizio servizio={s} />
-              </li>
-            ))}
-          </ul>
+          {n === 1 ? (
+            <div class="lg:col-span-9">
+              <CardServizio servizio={unico} larga />
+            </div>
+          ) : (
+            <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-9 lg:grid-cols-3">
+              {lista.map((s) => (
+                <li>
+                  <CardServizio servizio={s} />
+                </li>
+              ))}
+              {spazioLg > 0 && (
+                <li
+                  class:list={[
+                    'riquadro-area',
+                    n % 2 === 0 && 'sm:col-span-2',
+                    spazioLg === 2 ? 'lg:col-span-2' : 'lg:col-span-1',
+                  ]}
+                >
+                  <div class="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-[1.6rem] p-6 md:p-7">
+                    <div class="relative">
+                      <span class="riquadro-area__icona grid size-12 place-items-center rounded-2xl">
+                        <Icona nome={urgenza ? 'ambulanza' : 'stetoscopio'} duo class="size-7" />
+                      </span>
+                      <p class="mt-5 font-display text-2xl leading-tight text-testo">
+                        {urgenza ? 'Urgenza adesso?' : 'Non sai quale servizio ti serve?'}
+                      </p>
+                      <p class="mt-2 text-testo-secondario">
+                        {urgenza
+                          ? 'Il pronto soccorso è aperto 24 ore su 24: chiama mentre arrivi.'
+                          : "Chiamaci: ti indichiamo la visita o l'esame adatto al tuo animale."}
+                      </p>
+                    </div>
+                    <div class="relative flex flex-col gap-2">
+                      <a
+                        href={telHref}
+                        class="inline-flex items-center gap-2 font-semibold text-testo no-underline hover:underline"
+                        data-evento="click_chiama"
+                        data-evento-posizione={`servizi-${g.chiave}`}
+                      >
+                        <Icona nome="telefono" class="size-5 text-primario-link" />
+                        {clinica.contatti.telefono.visualizzato}
+                      </a>
+                      {!urgenza && (
+                        <a
+                          href="/prenota"
+                          class="inline-flex items-center gap-2 text-sm font-semibold text-primario-link no-underline hover:underline"
+                        >
+                          Prenota una visita <Icona nome="freccia-destra" class="size-4" />
+                        </a>
+                      )}
+                    </div>
+                    <span
+                      class="riquadro-area__zampa pointer-events-none absolute -bottom-6 -right-6"
+                      aria-hidden="true"
+                    >
+                      <Icona nome="zampa" class="size-36" />
+                    </span>
+                  </div>
+                </li>
+              )}
+            </ul>
+          )}
         </div>
       </Sezione>
     );
@@ -90,3 +153,25 @@ const descrizione =
     <CtaDoppia posizione="servizi-hub" />
   </Sezione>
 </PaginaLayout>
+
+<style>
+  /* Riquadro che chiude la riga: tinta del colore della sezione (--q-sezione, a rotazione). */
+  .riquadro-area > div {
+    background:
+      radial-gradient(
+        120% 90% at 100% 100%,
+        color-mix(in oklab, var(--q-sezione, var(--q-verde)) 22%, transparent),
+        transparent 60%
+      ),
+      color-mix(in oklab, var(--q-sezione, var(--q-verde)) 9%, var(--sfondo-rialzato));
+    border: 1px solid color-mix(in oklab, var(--q-sezione, var(--q-verde)) 30%, transparent);
+  }
+  .riquadro-area__icona {
+    background: color-mix(in oklab, var(--q-sezione, var(--q-verde)) 85%, #fff);
+    color: #fff;
+  }
+  .riquadro-area__zampa {
+    color: color-mix(in oklab, var(--q-sezione, var(--q-verde)) 16%, transparent);
+    transform: rotate(-18deg);
+  }
+</style>
