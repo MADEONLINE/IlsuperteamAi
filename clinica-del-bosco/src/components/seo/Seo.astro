@@ -23,7 +23,7 @@ const {
   titolo,
   descrizione,
   percorso,
-  immagine = '/og/default.png',
+  immagine: immaginePassata,
   immagineAlt = `${clinica.nome} — ${clinica.slogan}`,
   tipo = 'website',
   noindex = false,
@@ -32,12 +32,37 @@ const {
   dataModifica,
 } = Astro.props;
 
+/** Immagini di condivisione generate per pagina in src/pages/og/[...slug].png.ts. */
+const pagineConScheda = new Set([
+  'pronto-soccorso',
+  'prenota',
+  'per-i-colleghi',
+  'la-struttura',
+  'equipe',
+  'servizi',
+  'magazine',
+  'contatti',
+  'domande-frequenti',
+]);
+const slugPagina = percorso.replace(/^\/|\/$/g, '');
+const haScheda =
+  pagineConScheda.has(slugPagina) || /^(servizi|magazine|campagne)\/[^/]+$/.test(slugPagina);
+const immagine = immaginePassata ?? (haScheda ? `/og/${slugPagina}.png` : '/og/default.png');
+
 // Sul progetto di anteprima (ANTEPRIMA=1) nessuna pagina va indicizzata: il sito vero sarà sul dominio definitivo.
 const anteprima = process.env.ANTEPRIMA === '1';
 const titoloFinale = titoloCompleto(titolo, !senzaBrand);
 const descrizioneFinale = descrizioneMeta(descrizione);
 const canonical = urlAssoluto(percorso === '/' ? '/' : percorso.replace(/\/$/, ''));
-const ogImage = immagine.startsWith('http') ? immagine : urlAssoluto(immagine);
+// In anteprima le anteprime dei link (WhatsApp, Facebook, LinkedIn) devono leggere immagine e
+// indirizzo dall'anteprima stessa: il dominio definitivo non serve ancora questo sito.
+const baseAnteprima = 'https://anteprima-clinica-del-bosco.netlify.app';
+const ogImage = immagine.startsWith('http')
+  ? immagine
+  : anteprima
+    ? `${baseAnteprima}${immagine}`
+    : urlAssoluto(immagine);
+const ogUrl = anteprima ? `${baseAnteprima}${percorso === '/' ? '/' : percorso.replace(/\/$/, '')}` : canonical;
 ---
 
 <title>{titoloFinale}</title>
@@ -57,7 +82,7 @@ const ogImage = immagine.startsWith('http') ? immagine : urlAssoluto(immagine);
 <meta property="og:site_name" content={clinica.nome} />
 <meta property="og:title" content={titoloFinale} />
 <meta property="og:description" content={descrizioneFinale} />
-<meta property="og:url" content={canonical} />
+<meta property="og:url" content={ogUrl} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
