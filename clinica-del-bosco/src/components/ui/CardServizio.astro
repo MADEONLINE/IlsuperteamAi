@@ -45,7 +45,7 @@ const icona = servizio.data.icona as NomeIcona;
     <div class="relative">
       <Foto
         ratio="4/3"
-        scattoBrief={servizio.data.scattoBrief}
+        scattoBrief={servizio.data.scattoScheda ?? servizio.data.scattoBrief}
         descrizioneSegnaposto={`${servizio.data.titoloBreve}: fotografia del servizio`}
         larghezze={[360, 540, 720]}
         sizes="(min-width: 1280px) 22vw, (min-width: 640px) 45vw, 92vw"

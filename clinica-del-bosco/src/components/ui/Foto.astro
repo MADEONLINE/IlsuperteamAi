@@ -51,7 +51,7 @@ const {
 const immagine = src ?? scatto(scattoBrief);
 const testoAlternativo = alt || altScatto(scattoBrief) || descrizioneSegnaposto;
 /** Con la posizione predefinita vale il punto di fuoco registrato per lo scatto (foto reali). */
-const fuoco = !src && posizione === 'center' ? fuocoScatto(scattoBrief) : undefined;
+const fuoco = !src && posizione === 'center' ? fuocoScatto(scattoBrief, ratio) : undefined;
 const ratioClasse: Record<NonNullable<Props['ratio']>, string> = {
   '1/1': 'aspect-square',
   '4/3': 'aspect-[4/3]',
@@ -184,5 +184,17 @@ const posizioni: Record<string, string> = {
   }
   figure > div > picture > img[data-fuoco='50-64'] {
     object-position: 50% 64%;
+  }
+  figure > div > picture > img[data-fuoco='50-15'] {
+    object-position: 50% 15%;
+  }
+  figure > div > picture > img[data-fuoco='50-55'] {
+    object-position: 50% 55%;
+  }
+  figure > div > picture > img[data-fuoco='50-100'] {
+    object-position: 50% 100%;
+  }
+  figure > div > picture > img[data-fuoco='70-50'] {
+    object-position: 70% 50%;
   }
 </style>

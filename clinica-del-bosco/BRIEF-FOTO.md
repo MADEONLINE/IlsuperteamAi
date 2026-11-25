@@ -14,7 +14,10 @@ Arrivato il servizio fotografico reale (41 scatti del 3 novembre 2026, Canon EOS
 reali** gli scatti 03, 04, 05, 06, 07, 08, 10, 16, 31, 33, 35, 36, 37, 38, 39, 41, 43, 44, il nuovo
 45 (sala terapie) e i ritratti 51 (Dario Ferrari), 52 (Isabella Rosapane), 53 (Antonella Sergio) e
 55 (Flavia Cardaropoli), 56 (Rachele Casciello). Lo scatto 33 (contatti) usa la foto di gruppo dell'équipe, perché nel
-servizio non c'è la reception. Il punto di fuoco di ogni foto è in `src/lib/scatti.ts` (`fuochi`).
+servizio non c'è la reception. Nelle schede orizzontali (4:3) degli elenchi dei servizi le foto verticali
+hanno un fuoco dedicato (`N@4/3` in `fuochi`); esotici e cardiologia usano una foto diversa
+nella scheda (campo `scattoScheda`): 47 coniglio e 48 Dott.ssa Sergio con il paziente.
+Il punto di fuoco di ogni foto è in `src/lib/scatti.ts` (`fuochi`).
 Le liberatorie delle persone riconoscibili sono state confermate da Marta Dessena il 25/11/2026.
 Gli originali stanno in `~/Desktop/scrivania/da verificare e ulire/foto clinica del bosco/`; il
 confronto con le immagini generate è in `docs/proposta-foto/`.

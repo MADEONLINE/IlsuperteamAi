@@ -12,6 +12,7 @@ correlati: ['diagnostica-per-immagini', 'chirurgia']
 medicalSpecialty: 'Cardiovascular'
 inEvidenza: true
 scattoBrief: '41'
+scattoScheda: '48'
 fonti:
   - titolo: 'ACVIM consensus guidelines for the diagnosis and treatment of myxomatous mitral valve disease in dogs (2019)'
     url: 'https://onlinelibrary.wiley.com/doi/10.1111/jvim.15488'

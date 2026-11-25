@@ -49,6 +49,8 @@ const servizi = defineCollection({
     medicalSpecialty: z.string().optional(),
     inEvidenza: z.boolean().default(false),
     scattoBrief: z.string().optional(),
+    /** Foto della scheda orizzontale (4:3), se diversa dalla copertina verticale della pagina. */
+    scattoScheda: z.string().optional(),
     faq: z.array(faqItem).default([]),
     tabella: tabella.optional(),
     fonti: z.array(fonte).min(1),

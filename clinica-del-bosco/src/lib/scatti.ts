@@ -67,6 +67,8 @@ const alternativi: Record<string, string> = {
   '44': 'Ingresso della Clinica Veterinaria del bosco in Corso Umberto I 12 a Portici, con l’insegna e il cartello H24',
   '45': 'Sala terapie con tavolo in acciaio, armadio dei farmaci e attrezzatura per le terapie brevi',
   '46': 'Primo piano di una testuggine sul tavolo da visita, tenuta con delicatezza da mani guantate',
+  '47': 'Coniglio bianco e marrone nel box di ricovero, con fieno e verdure fresche',
+  '48': 'La Dott.ssa Antonella Sergio durante un esame su un paziente, insieme a un collega',
 };
 
 /**
@@ -88,7 +90,11 @@ export type Fuoco =
   | '50-40'
   | '50-45'
   | '50-62'
-  | '50-64';
+  | '50-64'
+  | '50-15'
+  | '50-55'
+  | '50-100'
+  | '70-50';
 
 const fuochi: Record<string, Fuoco> = {
   '3': '50-38',
@@ -109,6 +115,15 @@ const fuochi: Record<string, Fuoco> = {
   '53': '50-30',
   '55': '50-30',
   '56': '50-30',
+  // Schede orizzontali 4:3 (elenchi dei servizi) delle foto verticali: il fuoco cambia col formato.
+  '3@4/3': '50-45',
+  '5@4/3': '50-55',
+  '6@4/3': '50-25',
+  '7@4/3': '50-100',
+  '10@4/3': '50-35',
+  '41@4/3': '50-15',
+  '43@4/3': '50-100',
+  '48': '70-50',
 };
 
 /** Immagine associata a un numero di scatto, se già disponibile. */
@@ -123,8 +138,9 @@ export function altScatto(numero: string | undefined): string | undefined {
   return alternativi[String(Number(numero))];
 }
 
-/** Punto di fuoco associato a un numero di scatto, se definito. */
-export function fuocoScatto(numero: string | undefined): Fuoco | undefined {
+/** Punto di fuoco associato a un numero di scatto, se definito: prima quello del formato, poi quello generale. */
+export function fuocoScatto(numero: string | undefined, ratio?: string): Fuoco | undefined {
   if (!numero) return undefined;
-  return fuochi[String(Number(numero))];
+  const n = String(Number(numero));
+  return (ratio && fuochi[`${n}@${ratio}`]) || fuochi[n];
 }

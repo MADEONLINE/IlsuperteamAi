@@ -12,6 +12,7 @@ correlati: ['odontostomatologia', 'chirurgia']
 medicalSpecialty: 'PrimaryCare'
 inEvidenza: true
 scattoBrief: '16'
+scattoScheda: '47'
 fonti:
   - titolo: 'Association of Exotic Mammal Veterinarians'
     url: 'https://www.aemv.org/'
