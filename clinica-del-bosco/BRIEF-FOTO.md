@@ -30,6 +30,15 @@ perché l'inquadratura è stretta. Il riquadro «Dove siamo» della home non usa
 disegnata (32): mostra l'ingresso reale (44) in verticale 4:5, con insegna, cartello H24 e civico 12;
 anche la pagina Contatti, accanto a «Come arrivare», mostra l'ingresso (44, 4:5, con didascalia)
 al posto della mappa: la mappa disegnata (32) non è più usata.
+Aggiornamento 25/11 sera (richieste di Marta):
+- testata della home con la foto del team (33): intera in alto su mobile, a destra su desktop, testi a sinistra;
+- i volti dei quattro soci hanno la stessa scala. Rosapane (52) è stata allontanata: i bordi
+  laterali e in alto (sfondo, maniche, gomiti) sono stati estesi con Nano Banana Pro su ElevenLabs e la foto
+  originale è stata rimessa sopra, quindi volto e figura sono quelli dello scatto. Sergio (53) è
+  stata riquadrata più stretta dall'originale 037, Sica (54) appena più stretta;
+- «La struttura»: tolta la sala d'attesa, la scheda «Due sale chirurgiche» mostra l'intervento
+  in corso (scatto 03), «Chi siamo» mostra la foto del team (34);
+- Contatti: tolta la foto del team, resta l'ingresso (44).
 Il punto di fuoco di ogni foto è in `src/lib/scatti.ts` (`fuochi`).
 Le liberatorie delle persone riconoscibili sono state confermate da Marta Dessena il 25/11/2026.
 Gli originali stanno in `~/Desktop/scrivania/da verificare e ulire/foto clinica del bosco/`; il

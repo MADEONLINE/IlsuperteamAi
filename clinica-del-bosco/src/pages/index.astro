@@ -133,28 +133,28 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   <div class="home-quattro">
     <!-- HERO: la clinica a tutto schermo, il nome e i suoi valori in primo piano -->
     <section
-      class="zona-scura grana relative isolate flex min-h-[calc(100dvh-4.25rem)] items-end overflow-hidden bg-sfondo md:min-h-[calc(100dvh-6.5rem)] md:items-center"
+      class="zona-scura grana relative isolate flex min-h-[calc(100dvh-4.25rem)] items-end overflow-hidden bg-sfondo md:min-h-[calc(100dvh-6.5rem)] lg:items-center"
       aria-labelledby="hero-titolo"
     >
-      <div class="hero-foto absolute inset-0 -z-10">
+      <!-- Foto del team: intera in alto su mobile e tablet, a destra su desktop, mai sotto i testi -->
+      <div class="hero-foto absolute inset-x-0 top-0 -z-10 lg:left-auto lg:w-[60%]">
         <Foto
-          ratio="16/9"
-          scattoBrief="44"
-          descrizioneSegnaposto="Facciata della clinica di giorno, ingresso e insegna"
+          ratio="3/2"
+          scattoBrief="33"
+          descrizioneSegnaposto="L'équipe della clinica"
           larghezze={[640, 960, 1440, 1920, 2400]}
-          sizes="100vw"
+          sizes="(min-width: 1024px) 60vw, 100vw"
           priorita
-          riempi
-          class="h-full rounded-none [&>div]:h-full"
+          class="rounded-none"
         />
+        <div
+          class="absolute inset-0 bg-[linear-gradient(180deg,rgb(5_38_43/0)_55%,rgb(5_38_43/1)_100%)] lg:bg-[linear-gradient(90deg,rgb(5_38_43/1)_0%,rgb(5_38_43/0)_9%),linear-gradient(180deg,rgb(5_38_43/0)_68%,rgb(5_38_43/1)_100%)]"
+          aria-hidden="true"
+        ></div>
       </div>
-      <div
-        class="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(5_38_43/0.35)_0%,rgb(5_38_43/0.55)_45%,rgb(5_38_43/0.96)_100%)] md:bg-[linear-gradient(90deg,rgb(5_38_43/0.97)_0%,rgb(5_38_43/0.86)_38%,rgb(5_38_43/0.25)_72%,rgb(5_38_43/0.05)_100%)]"
-        aria-hidden="true"
-      ></div>
 
-      <div class="contenitore grid w-full items-end gap-10 pb-12 pt-40 md:py-24 lg:grid-cols-12">
-        <div class="lg:col-span-7 xl:col-span-6">
+      <div class="contenitore grid w-full items-end gap-10 pb-12 pt-[58vw] lg:grid-cols-12 lg:items-center lg:py-14">
+        <div class="lg:col-span-5">
           <div class="entra" style="--i:0">
             <Etichetta tono="inverso" class="mb-4">
               Clinica veterinaria a Portici
@@ -201,7 +201,7 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
 
         <!-- Riquadro orari e contatti, in vetro sopra la foto (solo schermi larghi) -->
         <div
-          class="entra hidden lg:col-span-4 lg:col-start-9 lg:block xl:col-span-3 xl:col-start-10"
+          class="entra hidden lg:col-span-4 lg:col-start-9 lg:block lg:self-end xl:col-span-3 xl:col-start-10"
           style="--i:6"
         >
           <div class="vetro vetro-scuro rounded-[1.75rem] p-6">

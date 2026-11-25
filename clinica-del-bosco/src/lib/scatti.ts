@@ -116,7 +116,7 @@ const fuochi: Record<string, Fuoco> = {
   '51': '50-30',
   '52': '50-30',
   '53': '50-30',
-  // Ritratto da smartphone, inquadratura stretta: si parte dall'alto per non toccare i capelli.
+  // Ritratti dei soci 52-54 già tagliati in 4:5 con il volto alla stessa scala del Dott. Ferrari (51).
   '54': '50-0',
   '55': '50-30',
   '56': '50-30',

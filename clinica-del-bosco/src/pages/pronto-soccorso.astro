@@ -13,8 +13,7 @@ import Sezione from '@ui/Sezione.astro';
 import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
 import TriageRapido from '@sezioni/TriageRapido.astro';
-import { getEntries, getEntry } from 'astro:content';
-import Referenti from '@ui/Referenti.astro';
+import { getEntry } from 'astro:content';
 import Fonti from '@ui/Fonti.astro';
 import {
   clinica,
@@ -28,12 +27,10 @@ import { faqPage, medicalWebPage } from '@lib/schema';
 
 const servizio = await getEntry('servizi', 'pronto-soccorso-h24');
 if (!servizio) throw new Error('Contenuto servizi/pronto-soccorso-h24 mancante');
-/** Medici del turno di notte: prima stavano nella pagina servizio, ora accorpata qui. */
-const turnoNotte = (await getEntries(servizio.data.referenti)).filter(Boolean);
 
 const titolo = 'Pronto soccorso veterinario 24h, Portici';
 const descrizione =
-  'Pronto soccorso veterinario a Portici aperto 24 ore su 24, festivi inclusi, con un medico in clinica anche di notte. Chiama mentre arrivi: 081 7763859.';
+  'Pronto soccorso veterinario a Portici aperto 24 ore su 24, festivi inclusi. Chiama mentre arrivi: 081 7763859.';
 
 const istruzioni = [
   {
@@ -161,8 +158,7 @@ const faqJson = servizio.data.faq;
           </h1>
           <p class="mt-3 text-lg text-testo-inverso/85 md:text-xl">
             Siamo aperti adesso. Il pronto soccorso della {clinica.nome} è aperto tutti i giorni
-            dell'anno, festivi compresi. Di notte c'è sempre un medico veterinario in clinica. Non
-            serve l'appuntamento: chiama mentre parti.
+            dell'anno, festivi compresi. Non serve l'appuntamento: chiama mentre parti.
           </p>
 
           <div class="mt-6 space-y-3">
@@ -270,10 +266,6 @@ const faqJson = servizio.data.faq;
               Cosa trovi quando arrivi
             </h2>
             <ul class="mt-4 space-y-3 text-testo-inverso/90">
-              <li class="flex gap-3">
-                <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Medico
-                veterinario e tecnico in clinica anche di notte, non solo reperibilità
-              </li>
               <li class="flex gap-3">
                 <Icona nome="check" class="mt-1 size-5 shrink-0 text-accento-inverso" /> Terapia
                 intensiva con ossigeno e monitoraggio continuo dei parametri vitali
@@ -439,12 +431,6 @@ const faqJson = servizio.data.faq;
             intensiva, oppure dimissione con istruzioni scritte e un controllo fissato.
           </li>
         </ol>
-        <h2 class="mt-10 text-2xl md:text-3xl">Chi c'è di notte</h2>
-        <p class="mt-3">
-          Di notte, dalle 20 alle 9, in clinica ci sono un medico veterinario e un tecnico, oppure
-          due medici.
-        </p>
-        <Referenti medici={turnoNotte} titolo="Il turno di notte" class="mt-6" />
       </div>
       <aside class="lg:col-span-5">
         <h2 class="font-sans text-xl font-bold">Domande frequenti sulle urgenze</h2>

@@ -1,9 +1,9 @@
 ---
 titolo: 'Pronto soccorso veterinario 24 ore su 24'
 titoloBreve: 'Pronto soccorso H24'
-descrizioneMeta: 'Pronto soccorso veterinario a Portici aperto 24 ore su 24, festivi inclusi, con un medico in clinica anche di notte. Chiama mentre arrivi: 081 7763859.'
-sottotitolo: "Medici e tecnici veterinari in struttura giorno e notte, non reperibilità telefonica. Chiama mentre arrivi: ti prepariamo l'accoglienza."
-risposta: "Il pronto soccorso della Clinica Veterinaria del bosco a Portici è aperto 24 ore su 24, tutti i giorni dell'anno, festivi compresi. Di notte c'è sempre un medico veterinario in clinica. Curiamo in urgenza cani, gatti e animali esotici: traumi, difficoltà a respirare, avvelenamenti, blocco urinario, convulsioni, torsione dello stomaco. Esami, chirurgia e terapia intensiva sono nella stessa sede."
+descrizioneMeta: 'Pronto soccorso veterinario a Portici aperto 24 ore su 24, festivi inclusi. Chiama mentre arrivi: 081 7763859.'
+sottotitolo: "Aperto 24 ore su 24, tutti i giorni dell'anno. Chiama mentre arrivi: ti prepariamo l'accoglienza."
+risposta: "Il pronto soccorso della Clinica Veterinaria del bosco a Portici è aperto 24 ore su 24, tutti i giorni dell'anno, festivi compresi. Curiamo in urgenza cani, gatti e animali esotici: traumi, difficoltà a respirare, avvelenamenti, blocco urinario, convulsioni, torsione dello stomaco. Esami, chirurgia e terapia intensiva sono nella stessa sede."
 icona: 'ambulanza'
 categoria: 'urgenza'
 ordine: 99
