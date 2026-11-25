@@ -73,16 +73,35 @@ const aree: Array<{ titolo: string; testo: string; scatto?: string }> = [
     faqPage(faqStruttura),
   ]}
 >
-  <Sezione>
-    <div class="grid gap-10 lg:grid-cols-12">
-      <div class="prosa lg:col-span-7">
-        <h2 class="text-3xl">Chi siamo</h2>
+  <!-- CHI SIAMO: la foto del team fa da sfondo all'intera sezione (da 1280 px), i volti restano
+       liberi in alto e il testo sta in due riquadri di vetro sopra le figure. Su mobile e tablet la
+       foto sta intera in alto e i riquadri la sormontano appena. -->
+  <section class="relative isolate overflow-hidden bg-sfondo-tinta" aria-labelledby="chi-siamo-titolo">
+    <div class="relative xl:absolute xl:inset-0">
+      <Foto
+        ratio="3/2"
+        scattoBrief="34"
+        descrizioneSegnaposto="L'équipe della clinica"
+        larghezze={[640, 960, 1440, 1920, 2400]}
+        sizes="100vw"
+        class="h-full rounded-none xl:[&>div]:aspect-auto xl:[&>div]:h-full"
+      />
+      <div
+        class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(5_38_43/0)_60%,rgb(5_38_43/0.35)_100%)]"
+        aria-hidden="true"
+      ></div>
+    </div>
+    <div class="contenitore relative grid gap-5 pb-12 lg:grid-cols-2 lg:gap-6 xl:items-end xl:pb-14 xl:pt-[31vw]">
+      <div class="vetro-chiaro -mt-10 rounded-[1.75rem] p-6 md:p-8 xl:mt-0">
+        <h2 id="chi-siamo-titolo" class="text-3xl tracking-tight md:text-4xl">Chi siamo</h2>
         <p class="mt-4 text-lg">
           Quattro medici veterinari hanno fondato la clinica e la dirigono ancora oggi:{' '}
           {soci.map((m) => `${m.data.titolo} ${m.data.nome}`).join(', ')}. Visitano e operano ogni
           giorno.
         </p>
-        <p class="mt-3">
+      </div>
+      <div class="vetro-chiaro rounded-[1.75rem] p-6 md:p-8 lg:-mt-10 xl:mt-0">
+        <p>
           Oggi in clinica lavorano numerosi medici veterinari: una parte sono collaboratori fissi,
           altri sono collaboratori esterni su appuntamento. Così possiamo garantire ai nostri
           pazienti un servizio che copre tutte le specializzazioni e le migliori cure, dalla
@@ -95,16 +114,8 @@ const aree: Array<{ titolo: string; testo: string; scatto?: string }> = [
           veterinario con il referto completo.
         </p>
       </div>
-      <div class="lg:col-span-5 lg:self-center">
-        <Foto
-          ratio="3/2"
-          scattoBrief="34"
-          descrizioneSegnaposto="L'équipe della clinica"
-          sizes="(min-width: 1024px) 40vw, 100vw"
-        />
-      </div>
     </div>
-  </Sezione>
+  </section>
   <Sezione tono="tinta">
     <Etichetta class="mb-3">Tour della struttura</Etichetta>
     <h2 class="text-3xl md:text-4xl">Com'è organizzata la clinica</h2>
