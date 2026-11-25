@@ -5,6 +5,7 @@ import PaginaLayout from '@layouts/PaginaLayout.astro';
 import CtaDoppia from '@ui/CtaDoppia.astro';
 import Foto from '@ui/Foto.astro';
 import Icona from '@ui/Icona.astro';
+import type { NomeIcona } from '@ui/Icona.astro';
 import Etichetta from '@ui/Etichetta.astro';
 import Sezione from '@ui/Sezione.astro';
 import { webPage } from '@lib/schema';
@@ -15,44 +16,17 @@ const articoli = (await getCollection('articoli')).sort(
 const campagne = (await getCollection('campagne')).sort(
   (a, b) => a.data.meseInizio - b.data.meseInizio,
 );
-/** Calendario delle campagne: ogni campagna è una barra sui suoi mesi (classi scritte per intero, così Tailwind le genera). */
-const mesi = ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu', 'Lug', 'Ago', 'Set', 'Ott', 'Nov', 'Dic'];
-const inizioColonna: Record<number, string> = {
-  1: 'col-start-1',
-  2: 'col-start-2',
-  3: 'col-start-3',
-  4: 'col-start-4',
-  5: 'col-start-5',
-  6: 'col-start-6',
-  7: 'col-start-7',
-  8: 'col-start-8',
-  9: 'col-start-9',
-  10: 'col-start-10',
-  11: 'col-start-11',
-  12: 'col-start-12',
+/** Campagne come cartoline: un'icona per tema e il titolo diviso in titolo breve e sottotitolo. */
+const iconeCampagna: Record<string, NomeIcona> = {
+  'salute-dentale': 'dente',
+  'prevenzione-filariosi-e-leishmaniosi': 'scudo',
+  'estate-sicura-caldo-e-viaggi': 'sole',
+  'senior-controllo-dai-7-anni': 'cuore',
 };
-const fineColonna: Record<number, string> = {
-  2: 'col-end-2',
-  3: 'col-end-3',
-  4: 'col-end-4',
-  5: 'col-end-5',
-  6: 'col-end-6',
-  7: 'col-end-7',
-  8: 'col-end-8',
-  9: 'col-end-9',
-  10: 'col-end-10',
-  11: 'col-end-11',
-  12: 'col-end-12',
-  13: 'col-end-13',
+const dividiTitolo = (t: string): [string, string] => {
+  const i = t.indexOf(':');
+  return i > 0 ? [t.slice(0, i), t.slice(i + 1).trim()] : [t, ''];
 };
-/** Tratti della barra: una campagna a cavallo d'anno (es. novembre-febbraio) ne ha due. */
-const tratti = (da: number, a: number): Array<[number, number]> =>
-  a >= da
-    ? [[da, a]]
-    : [
-        [da, 12],
-        [1, a],
-      ];
 const descrizione =
   'Guide pratiche scritte dal team della Clinica Veterinaria del bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania. Con fonti e data di revisione.';
 const data = (d: Date) =>
@@ -101,71 +75,58 @@ const data = (d: Date) =>
     </ul>
   </Sezione>
   <Sezione tono="tinta">
-    <div class="flex flex-wrap items-end justify-between gap-4">
-      <div>
-        <Etichetta class="mb-3">Campagne stagionali</Etichetta>
-        <h2 class="text-3xl md:text-4xl">Prevenzione al momento giusto</h2>
-      </div>
-      <p class="max-w-md text-testo-secondario">
-        Ogni barra è il periodo dell'anno in cui conviene fare il controllo. Tocca una campagna per
-        sapere cosa comprende e prenotare.
-      </p>
-    </div>
-    <div class="mt-8 overflow-hidden rounded-[1.75rem] border border-bordo bg-sfondo-rialzato ombra-morbida">
-      <!-- Intestazione dei mesi, allineata alle barre -->
-      <div
-        class="grid gap-x-8 border-b border-bordo px-5 py-3 md:px-8 lg:grid-cols-12"
-        aria-hidden="true"
-      >
-        <div class="hidden lg:col-span-4 lg:block"></div>
-        <div class="grid grid-cols-12 lg:col-span-8">
-          {mesi.map((m) => (
-            <span class="text-center text-[0.68rem] font-bold uppercase tracking-wider text-testo-secondario sm:text-xs">
-              <span class="sm:hidden">{m.charAt(0)}</span>
-              <span class="hidden sm:inline">{m}</span>
-            </span>
-          ))}
-        </div>
-      </div>
-      <ul class="divide-y divide-bordo">
-        {campagne.map((c) => (
-          <li>
+    <Etichetta class="mb-3">Campagne stagionali</Etichetta>
+    <h2 class="text-3xl md:text-4xl">Prevenzione al momento giusto</h2>
+    <ul class="cartoline -mx-4 mt-8 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4 lg:gap-5">
+      {campagne.map((c) => {
+        const [titolo, sottotitolo] = dividiTitolo(c.data.titolo);
+        return (
+          <li class="w-[78%] shrink-0 snap-start sm:w-auto">
             <a
               href={`/campagne/${c.id}`}
-              class="group grid items-center gap-x-8 gap-y-4 px-5 py-6 no-underline transition-colors duration-300 hover:bg-sfondo-tinta md:px-8 lg:grid-cols-12"
+              class="cartolina zoom-foto group flex h-full flex-col rounded-[1.5rem] border border-bordo bg-sfondo-rialzato p-2.5 no-underline ombra-morbida transition duration-500 ease-morbido hover:-translate-y-1"
             >
-              <div class="lg:col-span-4">
-                <p class="text-xs font-bold uppercase tracking-wider text-primario-link">
+              <div class="relative">
+                <Foto
+                  ratio="1/1"
+                  scattoBrief={c.data.scattoBrief}
+                  descrizioneSegnaposto={titolo}
+                  larghezze={[360, 540, 720]}
+                  sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 78vw"
+                  class="rounded-[1.1rem]"
+                />
+                <span
+                  class="francobollo absolute right-3 top-3 grid size-12 place-items-center rounded-xl"
+                  aria-hidden="true"
+                >
+                  <Icona nome={iconeCampagna[c.id] ?? 'calendario'} duo class="size-6" />
+                </span>
+                <span class="absolute bottom-3 left-3 rounded-full bg-[rgb(5_38_43/0.72)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white backdrop-blur-sm">
                   {c.data.periodo}
-                </p>
-                <h3 class="mt-1.5 font-sans text-lg font-bold leading-snug text-testo group-hover:text-primario-link">
-                  {c.data.titolo}
+                </span>
+              </div>
+              <span
+                class="cartolina-filo mx-1 mt-3 block h-1 rounded-full"
+                aria-hidden="true"
+              ></span>
+              <div class="flex flex-1 flex-col px-2 pb-2 pt-3">
+                <h3 class="font-display text-xl leading-tight text-testo group-hover:text-primario-link">
+                  {titolo}
                 </h3>
-                <span class="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-primario-link">
+                {sottotitolo && <p class="mt-1.5 text-sm text-testo-secondario">{sottotitolo}</p>}
+                <span class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-primario-link">
                   {c.data.ctaTesto}
                   <Icona
                     nome="freccia-destra"
-                    class="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                    class="size-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
                   />
                 </span>
               </div>
-              <div class="calendario-traccia relative grid h-11 grid-cols-12 items-center rounded-full lg:col-span-8">
-                {tratti(c.data.meseInizio, c.data.meseFine).map(([da, a]) => (
-                  <span
-                    class:list={[
-                      'calendario-barra row-start-1 h-full rounded-full',
-                      inizioColonna[da],
-                      fineColonna[a + 1],
-                    ]}
-                  ></span>
-                ))}
-                <span class="sr-only">Periodo consigliato: {c.data.periodo}</span>
-              </div>
             </a>
           </li>
-        ))}
-      </ul>
-    </div>
+        );
+      })}
+    </ul>
   </Sezione>
   <Sezione compatta>
     <CtaDoppia posizione="magazine" />
@@ -173,36 +134,34 @@ const data = (d: Date) =>
 </PaginaLayout>
 
 <style>
-  /* Binario dei 12 mesi: tacche leggere tra un mese e l'altro. */
-  .calendario-traccia {
-    background:
-      repeating-linear-gradient(
-        90deg,
-        transparent 0 calc(100% / 12 - 1px),
-        color-mix(in oklab, var(--bordo) 90%, transparent) calc(100% / 12 - 1px) calc(100% / 12)
-      ),
-      color-mix(in oklab, var(--sfondo-tinta) 70%, transparent);
+  /* Cartoline: francobollo e filo nel colore del logo assegnato alla voce (--q, a rotazione). */
+  .francobollo {
+    background: color-mix(in oklab, var(--q, var(--q-verde)) 88%, #fff);
+    color: #fff;
+    outline: 2px dashed rgb(255 255 255 / 0.75);
+    outline-offset: -5px;
+    box-shadow: 0 10px 24px -10px rgb(5 38 43 / 0.55);
+    transform: rotate(4deg);
+    transition: transform 0.4s;
   }
-  /* La barra prende il colore del logo assegnato alla voce (--q, a rotazione) */
-  .calendario-barra {
+  .cartolina:hover .francobollo {
+    transform: rotate(-3deg) scale(1.06);
+  }
+  .cartolina-filo {
     background: linear-gradient(
       90deg,
-      color-mix(in oklab, var(--q, var(--q-verde)) 78%, #fff),
-      var(--q, var(--q-verde))
+      var(--q, var(--q-verde)),
+      color-mix(in oklab, var(--q, var(--q-verde)) 35%, transparent)
     );
-    box-shadow: 0 8px 20px -10px var(--q, var(--q-verde));
-    transform-origin: left center;
-    transition:
-      transform 0.4s var(--ease-morbido, ease),
-      filter 0.4s;
   }
-  a:hover .calendario-barra,
-  a:focus-visible .calendario-barra {
-    filter: saturate(1.15) brightness(1.04);
-    transform: scaleY(1.12);
+  .cartoline {
+    scrollbar-width: none;
+  }
+  .cartoline::-webkit-scrollbar {
+    display: none;
   }
   @media (prefers-reduced-motion: reduce) {
-    .calendario-barra {
+    .francobollo {
       transition: none;
     }
   }
