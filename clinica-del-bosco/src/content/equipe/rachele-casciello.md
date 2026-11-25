@@ -12,6 +12,7 @@ aree: ['medicina-interna-endocrinologia']
 formazione: ['Percorso GPCert in medicina interna (in corso)']
 lingue: ['italiano']
 ordine: 13
+scattoBrief: '56'
 daValidare: true
 ---
 

@@ -108,6 +108,7 @@ const fuochi: Record<string, Fuoco> = {
   '52': '50-30',
   '53': '50-30',
   '55': '50-30',
+  '56': '50-30',
 };
 
 /** Immagine associata a un numero di scatto, se già disponibile. */
