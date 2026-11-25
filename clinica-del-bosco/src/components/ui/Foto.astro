@@ -9,7 +9,7 @@
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Icona from '@ui/Icona.astro';
-import { altScatto, scatto } from '@lib/scatti';
+import { altScatto, fuocoScatto, scatto } from '@lib/scatti';
 
 interface Props {
   src?: ImageMetadata;
@@ -50,6 +50,8 @@ const {
  */
 const immagine = src ?? scatto(scattoBrief);
 const testoAlternativo = alt || altScatto(scattoBrief) || descrizioneSegnaposto;
+/** Con la posizione predefinita vale il punto di fuoco registrato per lo scatto (foto reali). */
+const fuoco = !src && posizione === 'center' ? fuocoScatto(scattoBrief) : undefined;
 const ratioClasse: Record<NonNullable<Props['ratio']>, string> = {
   '1/1': 'aspect-square',
   '4/3': 'aspect-[4/3]',
@@ -80,6 +82,7 @@ const posizioni: Record<string, string> = {
         decoding={priorita ? 'sync' : 'async'}
         pictureAttributes={{ class: 'absolute inset-0 block size-full' }}
         class:list={['size-full object-cover', posizioni[posizione]]}
+        data-fuoco={fuoco}
       />
     ) : (
       <div
@@ -138,5 +141,48 @@ const posizioni: Record<string, string> = {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  /*
+   * Punti di fuoco delle foto reali (vedi `fuochi` in @lib/scatti). Regole fuori dai layer, come
+   * sopra, perché vincano su [data-astro-image-pos]; niente style inline perché la CSP lo blocca.
+   */
+  figure > div > picture > img[data-fuoco='36-50'] {
+    object-position: 36% 50%;
+  }
+  figure > div > picture > img[data-fuoco='38-50'] {
+    object-position: 38% 50%;
+  }
+  figure > div > picture > img[data-fuoco='42-60'] {
+    object-position: 42% 60%;
+  }
+  figure > div > picture > img[data-fuoco='45-50'] {
+    object-position: 45% 50%;
+  }
+  figure > div > picture > img[data-fuoco='50-0'] {
+    object-position: 50% 0%;
+  }
+  figure > div > picture > img[data-fuoco='50-25'] {
+    object-position: 50% 25%;
+  }
+  figure > div > picture > img[data-fuoco='50-30'] {
+    object-position: 50% 30%;
+  }
+  figure > div > picture > img[data-fuoco='50-35'] {
+    object-position: 50% 35%;
+  }
+  figure > div > picture > img[data-fuoco='50-38'] {
+    object-position: 50% 38%;
+  }
+  figure > div > picture > img[data-fuoco='50-40'] {
+    object-position: 50% 40%;
+  }
+  figure > div > picture > img[data-fuoco='50-45'] {
+    object-position: 50% 45%;
+  }
+  figure > div > picture > img[data-fuoco='50-62'] {
+    object-position: 50% 62%;
+  }
+  figure > div > picture > img[data-fuoco='50-64'] {
+    object-position: 50% 64%;
   }
 </style>

@@ -12,6 +12,7 @@ aree: ['chirurgia']
 formazione: ['GPCert in anestesia e analgesia', 'Corsi di perfezionamento in citologia']
 lingue: ['italiano']
 ordine: 10
+scattoBrief: '55'
 daValidare: true
 ---
 

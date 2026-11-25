@@ -8,6 +8,19 @@ riportano il numero dello scatto: sostituire il file e aggiornare la pagina.
 Consenso: per ogni proprietario e animale ripreso, liberatoria scritta. Per l'équipe, liberatoria
 per uso sul sito e sui social.
 
+## Stato al 25 novembre 2026
+
+Arrivato il servizio fotografico reale (41 scatti del 3 novembre 2026, Canon EOS R). Sono **foto
+reali** gli scatti 03, 04, 05, 06, 07, 08, 10, 16, 31, 33, 35, 36, 37, 38, 39, 41, 43, 44, il nuovo
+45 (sala terapie) e i ritratti 51 (Dario Ferrari), 52 (Isabella Rosapane), 53 (Antonella Sergio) e
+55 (Flavia Cardaropoli). Lo scatto 33 (contatti) usa la foto di gruppo dell'équipe, perché nel
+servizio non c'è la reception. Il punto di fuoco di ogni foto è in `src/lib/scatti.ts` (`fuochi`).
+Gli originali stanno in `~/Desktop/scrivania/da verificare e ulire/foto clinica del bosco/`; il
+confronto con le immagini generate è in `docs/proposta-foto/`.
+
+Restano generati: 01, 02, 09, 11–15, 17–30, 32, 34, 40, 42, e i ritratti 54 e 56–71. Per questo
+l'avviso sulle immagini generate con l'AI resta nel piè di pagina.
+
 ## Stato al 11 settembre 2026
 
 Gli scatti di ambiente, attrezzatura, gesto clinico e campagna sono già disponibili come **immagini

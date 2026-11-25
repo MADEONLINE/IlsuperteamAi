@@ -23,20 +23,20 @@ for (const [percorso, immagine] of Object.entries(moduli)) {
 const alternativi: Record<string, string> = {
   '1': "Ingresso della Clinica Veterinaria del bosco di notte: facciata verde scuro, luce calda dalla porta a vetri, panca accanto all'entrata",
   '2': 'Ingresso del pronto soccorso di notte con barella per animali accanto alla porta automatica illuminata',
-  '3': 'Intervento chirurgico in corso: mani guantate e strumenti sopra un telo sterile verde',
-  '4': 'Sala TC della clinica: tomografo computerizzato con lettino imbottito e finestra sulla console',
-  '5': 'Ecografia addominale su un cane sdraiato, sonda in mano e monitor acceso',
-  '6': 'Banco del laboratorio analisi interno: analizzatore, provette con tappo verde e viola, microscopio sullo sfondo',
-  '7': 'Cane ricoverato in terapia intensiva dentro una gabbia a ossigeno, monitor con tracciato accanto',
-  '8': 'Vaccinazione di un cucciolo tenuto con delicatezza sul tavolo da visita',
+  '3': "Chirurgo al lavoro in sala operatoria sotto la lampada scialitica, con il monitor dell'anestesia accanto al tavolo",
+  '4': 'Il tomografo computerizzato (TC) della clinica con il lettino del paziente e il monitor per l’anestesia',
+  '5': 'Radiografia digitale di un paziente sul monitor della postazione di refertazione',
+  '6': 'Un medico del laboratorio inserisce un campione nell’analizzatore',
+  '7': 'Cucciolo ricoverato in un box di degenza, scaldato da una lampada a infrarossi',
+  '8': 'Visita di un cane bianco sul tavolo dell’ambulatorio, con la veterinaria e il proprietario accanto',
   '9': 'Visita ortopedica: mani guantate che flettono la zampa posteriore di un cane sul tavolo',
-  '10': 'Microscopio del laboratorio con vetrino inserito e vassoio di vetrini colorati accanto',
+  '10': 'Un medico veterinario osserva un vetrino al microscopio del laboratorio',
   '11': 'Visita dermatologica: otoscopio appoggiato al padiglione auricolare di un cane tranquillo',
   '12': "Visita oculistica: oftalmoscopio puntato sull'occhio di un cocker tranquillo",
   '13': 'Visita neurologica: riflesso della zampa anteriore di un cane verificato con il martelletto',
   '14': 'Controllo dei denti di un cane: labbro sollevato con delicatezza da una mano guantata',
   '15': 'Ciotole con crocchette e cibo umido su un piano da lavoro, bilancia e misurino accanto',
-  '16': 'Coniglio nano grigio sul tavolo da visita coperto da un telo verde, stetoscopio accanto',
+  '16': 'La Dott.ssa Isabella Rosapane visita una testuggine sul tavolo',
   '17': 'Cane anziano disteso durante una seduta di agopuntura, aghi sottili lungo il dorso',
   '18': 'Cagnolina gravida distesa su una coperta morbida in un angolo di casa',
   '19': 'Vetrini colorati per citologia allineati su un vassoio del laboratorio',
@@ -51,20 +51,63 @@ const alternativi: Record<string, string> = {
   '28': "Cane disteso all'ombra di una soglia in una giornata estiva, ciotola d'acqua piena accanto",
   '29': 'Controllo della bocca di un gatto: labbro sollevato con delicatezza, denti e gengive sane',
   '30': 'Cane anziano dal muso brizzolato disteso su un tappeto in soggiorno, luce del sole sul pavimento',
-  '31': 'Sala chirurgica della clinica pronta per un intervento: tavolo operatorio con telo verde e lampada scialitica accesa',
+  '31': 'Stazione di anestesia con ventilatore e monitor in sala chirurgica',
   '32': 'Mappa stilizzata della costa vesuviana con il Vesuvio e il punto della clinica',
-  '33': 'Bancone della reception con piante, lettore di carte e scaffali ordinati alle spalle',
-  '34': 'Accettazione della clinica di notte: bancone illuminato e barella per animali pronta',
-  '35': 'Reparto degenza: box in acciaio con porte in vetro e cucce morbide, un gatto che dorme',
-  '36': 'Seconda sala operatoria attrezzata per la chirurgia ortopedica, con negatoscopio acceso',
-  '37': 'Console della diagnostica per immagini vista attraverso il vetro piombato, monitor con sezioni TC',
-  '38': 'Laboratorio analisi della clinica: banco con analizzatori, centrifuga e microscopio',
-  '39': 'Ambulatorio pronto per la visita: tavolo in acciaio, bilancia a terra, stetoscopio appeso',
+  '33': 'L’équipe della Clinica Veterinaria del bosco riunita nel corridoio della clinica',
+  '34': 'L’équipe della clinica che accoglie i proprietari: medici veterinari e personale nel corridoio della clinica',
+  '35': 'Gattino ricoverato in terapia intensiva dentro una gabbia a ossigeno, con il medico accanto',
+  '36': 'Sala chirurgica con tavolo operatorio, monitor e apparecchio per l’anestesia',
+  '37': 'Sala di radiologia digitale con il tavolo radiografico',
+  '38': 'Banco del laboratorio analisi: una collega prepara un campione accanto agli analizzatori',
+  '39': 'Ambulatorio della clinica con tavolo da visita in acciaio, lavabo e scrivania',
   '40': "Sala d'attesa luminosa della clinica con panca in legno, ciotola d'acqua a terra e piante",
-  '41': 'Ecocardiografia su un beagle disteso sul fianco, sonda sul torace e monitor con Doppler a colori',
+  '41': 'Ecocardiografia: immagine del cuore sul monitor dell’ecografo',
   '42': 'Sala endoscopia con torre endoscopica accesa ed endoscopio flessibile sul telo sterile',
-  '43': 'Visita di medicina interna: palpazione addominale di un gatto sul tavolo in acciaio',
-  '44': 'Facciata della clinica di giorno: vetrina ampia, tenda verde scuro, rampa di accesso',
+  '43': 'Visita di medicina interna su un gatto rosso sul tavolo in acciaio',
+  '44': 'Ingresso della Clinica Veterinaria del bosco in Corso Umberto I 12 a Portici, con l’insegna e il cartello H24',
+  '45': 'Sala terapie con tavolo in acciaio, armadio dei farmaci e attrezzatura per le terapie brevi',
+  '46': 'Primo piano di una testuggine sul tavolo da visita, tenuta con delicatezza da mani guantate',
+};
+
+/**
+ * Punto di fuoco delle foto reali, come «X-Y» = object-position X% Y%: tiene il soggetto dentro il
+ * riquadro quando la stessa foto compare in formati diversi (copertina 4:5, scheda 4:3, testata 16:9).
+ * La CSP del sito vieta gli stili inline, quindi ogni valore ha la sua regola in Foto.astro
+ * (img[data-fuoco="X-Y"]): il tipo Fuoco elenca i valori che hanno una regola.
+ */
+export type Fuoco =
+  | '36-50'
+  | '38-50'
+  | '42-60'
+  | '45-50'
+  | '50-0'
+  | '50-25'
+  | '50-30'
+  | '50-35'
+  | '50-38'
+  | '50-40'
+  | '50-45'
+  | '50-62'
+  | '50-64';
+
+const fuochi: Record<string, Fuoco> = {
+  '3': '50-38',
+  '4': '38-50',
+  '6': '50-40',
+  '7': '50-64',
+  '8': '45-50',
+  '10': '50-45',
+  '31': '50-35',
+  '35': '36-50',
+  '38': '50-25',
+  '41': '50-38',
+  '43': '50-62',
+  '44': '50-0',
+  '46': '42-60',
+  '51': '50-30',
+  '52': '50-30',
+  '53': '50-30',
+  '55': '50-30',
 };
 
 /** Immagine associata a un numero di scatto, se già disponibile. */
@@ -77,4 +120,10 @@ export function scatto(numero: string | undefined): ImageMetadata | undefined {
 export function altScatto(numero: string | undefined): string | undefined {
   if (!numero) return undefined;
   return alternativi[String(Number(numero))];
+}
+
+/** Punto di fuoco associato a un numero di scatto, se definito. */
+export function fuocoScatto(numero: string | undefined): Fuoco | undefined {
+  if (!numero) return undefined;
+  return fuochi[String(Number(numero))];
 }
