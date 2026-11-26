@@ -15,6 +15,7 @@ import BarraSticky from '@sezioni/BarraSticky.astro';
 import Assistente from '@sezioni/Assistente.astro';
 import CookieBanner from '@sezioni/CookieBanner.astro';
 import { clinica } from '@lib/clinica';
+import { conVersione } from '@lib/versione-icone';
 import { emergencyService, veterinaryCare, webSite, type JsonLd as TipoJsonLd } from '@lib/schema';
 import '@/styles/global.css';
 
@@ -36,10 +37,11 @@ const plausibleAttivo = Boolean(clinica.misurazione.plausibleDomain) && import.m
     <meta name="theme-color" content="#05262b" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d1714" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <!-- ?v=… cambia quando cambiano le icone: browser e telefoni non restano sulla vecchia favicon. -->
+    <link rel="icon" href={conVersione('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={conVersione('/favicon.ico')} sizes="32x32" />
+    <link rel="apple-touch-icon" href={conVersione('/apple-touch-icon.png')} />
+    <link rel="manifest" href={conVersione('/site.webmanifest')} />
     <link
       rel="preload"
       href="/fonts/fraunces-latin-wght.woff2"

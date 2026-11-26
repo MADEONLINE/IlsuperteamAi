@@ -5,6 +5,7 @@
  */
 import { clinica, urlAssoluto } from '@lib/clinica';
 import { descrizioneMeta, titoloCompleto } from '@lib/seo';
+import { conVersione } from '@lib/versione-icone';
 
 export interface Props {
   titolo: string;
@@ -47,7 +48,9 @@ const pagineConScheda = new Set([
 const slugPagina = percorso.replace(/^\/|\/$/g, '');
 const haScheda =
   pagineConScheda.has(slugPagina) || /^(servizi|magazine|campagne)\/[^/]+$/.test(slugPagina);
-const immagine = immaginePassata ?? (haScheda ? `/og/${slugPagina}.png` : '/og/default.png');
+// Le schede /og/ portano la versione: WhatsApp e i social tengono in memoria le immagini per indirizzo.
+const immagine =
+  immaginePassata ?? conVersione(haScheda ? `/og/${slugPagina}.png` : '/og/default.png');
 
 // Sul progetto di anteprima (ANTEPRIMA=1) nessuna pagina va indicizzata: il sito vero sarà sul dominio definitivo.
 const anteprima = process.env.ANTEPRIMA === '1';
