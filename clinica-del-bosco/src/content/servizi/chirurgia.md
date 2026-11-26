@@ -26,12 +26,15 @@ autore: 'alessandro-sica'
 referenti:
   [
     'alessandro-sica',
+    'isabella-rosapane',
     'francesca-conte',
     'giovanni-carpentieri',
     'stefano-nicoli',
     'flavia-cardaropoli',
     'francesca-cavazzino',
   ]
+ambitoReferenti:
+  isabella-rosapane: 'Chirurgia degli animali esotici: conigli, piccoli mammiferi, rettili e uccelli'
 dataPubblicazione: 2026-09-10
 dataRevisione: 2026-09-10
 ---

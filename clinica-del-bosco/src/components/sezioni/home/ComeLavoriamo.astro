@@ -1,0 +1,109 @@
+---
+/**
+ * Home, «Come lavoriamo» (bozza B scelta da Marta il 26/11): la sezione dopo l'hero non anticipa servizi e struttura
+ * (che vengono dopo), ma racconta il percorso del paziente in quattro passaggi.
+ * Testi presi da contenuti già approvati (pagina Prima visita): nessun dato nuovo.
+ * Telefono: linea del tempo verticale; da tablet in su, quattro cartoline con foto.
+ */
+import Etichetta from '@ui/Etichetta.astro';
+import Foto from '@ui/Foto.astro';
+import Icona from '@ui/Icona.astro';
+import Sezione from '@ui/Sezione.astro';
+
+const passi = [
+  {
+    titolo: 'Ascoltiamo e visitiamo',
+    testo: 'Il medico raccoglie la storia del tuo animale, lo visita dalla testa alla coda e ti spiega cosa ha trovato.',
+    scatto: '08',
+  },
+  {
+    titolo: 'Decidi tu, con un preventivo',
+    testo: 'Se servono esami o un intervento ricevi prima un preventivo scritto: nessun esame parte senza il tuo consenso.',
+    scatto: '05',
+  },
+  {
+    titolo: 'Esami e intervento qui',
+    testo: "TC, radiografie, sale chirurgiche e ricovero sono nella stessa sede: il tuo animale non va portato altrove.",
+    scatto: '04',
+  },
+  {
+    titolo: 'A casa con un piano',
+    testo: 'Ricevi il referto scritto, le terapie, la data del prossimo controllo e i recapiti per i dubbi.',
+    scatto: '35',
+  },
+] as const;
+---
+
+<Sezione tono="base" etichettaAria="Come ci prendiamo cura del tuo animale">
+  <div class="flex flex-wrap items-end justify-between gap-6">
+    <div class="max-w-2xl">
+      <Etichetta class="mb-3">Perché sceglierci</Etichetta>
+      <h2 class="filetto text-4xl tracking-tight md:text-5xl">
+        Come ci prendiamo cura del tuo animale
+      </h2>
+      <p class="mt-6 text-lg text-testo-secondario">
+        Dalla prima visita al ritorno a casa: quattro passaggi, tutti nella stessa sede.
+      </p>
+    </div>
+    <a
+      href="/prima-visita"
+      class="group inline-flex items-center gap-3 font-semibold text-primario-link no-underline"
+    >
+      Come funziona la prima visita
+      <span class="freccia-tonda">
+        <Icona nome="freccia-destra" class="size-4" />
+      </span>
+    </a>
+  </div>
+
+  <ol class="percorso mt-12 grid gap-0 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+    {passi.map((p, i) => (
+      <li class="passo rivela relative flex gap-4 pb-8 last:pb-0 sm:block sm:pb-0" style={`--i:${i}`}>
+        {i < passi.length - 1 && (
+          <span
+            class="absolute bottom-1 left-6 top-14 w-0.5 -translate-x-1/2 rounded-full bg-bordo sm:hidden"
+            aria-hidden="true"
+          ></span>
+        )}
+        <span
+          class="numero relative z-10 flex size-12 shrink-0 items-center justify-center rounded-full border-[3px] bg-sfondo font-display text-xl font-bold text-testo sm:absolute sm:left-5 sm:top-5"
+          aria-hidden="true"
+        >
+          {i + 1}
+        </span>
+        <div class="scheda min-w-0 sm:h-full sm:overflow-hidden sm:rounded-[1.6rem] sm:border sm:border-bordo sm:bg-sfondo-rialzato">
+          <Foto
+            ratio="4/3"
+            scattoBrief={p.scatto}
+            descrizioneSegnaposto={p.titolo}
+            larghezze={[400, 640, 800]}
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 46vw, 80vw"
+            class="hidden rounded-none sm:block"
+          />
+          <span class="filo hidden h-1 sm:block" aria-hidden="true"></span>
+          <div class="pt-2 sm:p-6">
+            <h3 class="font-sans text-lg font-bold md:text-xl">{p.titolo}</h3>
+            <p class="mt-2 text-testo-secondario">{p.testo}</p>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ol>
+</Sezione>
+
+<style>
+  /* Numero e filo sotto la foto nel colore del logo della voce (--q a rotazione sui li). */
+  .passo .numero {
+    border-color: var(--q, var(--q-verde));
+  }
+  .passo .filo {
+    background: var(--q, var(--q-verde));
+  }
+  @media (min-width: 40rem) {
+    .passo .scheda {
+      box-shadow:
+        0 1px 2px rgb(9 39 21 / 0.05),
+        0 24px 48px -28px rgb(9 39 21 / 0.28);
+    }
+  }
+</style>

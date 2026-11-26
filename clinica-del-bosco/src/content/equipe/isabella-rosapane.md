@@ -9,7 +9,7 @@ numeroOrdine: '1607'
 provinciaOrdine: 'Napoli'
 specializzazioni:
   ['Medicina e chirurgia degli animali esotici', 'Conigli e piccoli mammiferi', 'Rettili e uccelli']
-aree: ['animali-esotici', 'tc-diagnostica-avanzata']
+aree: ['animali-esotici', 'chirurgia', 'tc-diagnostica-avanzata']
 formazione:
   [
     'Laurea in Medicina veterinaria, 2008',

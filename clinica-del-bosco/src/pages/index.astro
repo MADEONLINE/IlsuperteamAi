@@ -1,6 +1,6 @@
 ---
 /**
- * Home — sequenza: hero con nome della clinica e tagline sui valori → 4 pilastri → griglia servizi →
+ * Home — sequenza: hero con nome della clinica e tagline sui valori → come lavoriamo (4 passaggi) → griglia servizi →
  * la struttura (foto grande) → staff medico → recensioni reali
  * (solo se importate) → campagna stagionale in corso + magazine → mappa e contatti.
  */
@@ -15,6 +15,7 @@ import Foto from '@ui/Foto.astro';
 import Sezione from '@ui/Sezione.astro';
 import Dato from '@ui/Dato.astro';
 import BarraFiducia from '@sezioni/BarraFiducia.astro';
+import ComeLavoriamo from '@sezioni/home/ComeLavoriamo.astro';
 import {
   clinica,
   daConfermare,
@@ -49,38 +50,6 @@ const campagnaInCorso =
 /** Tagline della home: i valori della clinica, prima di qualsiasi servizio. */
 const tagline = 'Cura, attenzione e rispetto per ogni animale.';
 
-const pilastri = [
-  {
-    icona: 'scansione',
-    titolo: 'TC in sede',
-    testo: "L'esame si fa senza spostare l'animale in un'altra struttura.",
-    href: '/servizi/tc-diagnostica-avanzata',
-    scatto: '04',
-  },
-  {
-    icona: 'bisturi',
-    titolo: 'Due sale chirurgiche',
-    testo: "Interventi programmati, con ricovero e terapia intensiva dopo l'operazione.",
-    href: '/servizi/chirurgia',
-    scatto: '31',
-  },
-  {
-    icona: 'provetta',
-    titolo: 'Laboratorio interno',
-    testo:
-      'Gli esami di base e la maggior parte delle analisi si fanno in sede; per alcuni esami specifici collaboriamo con laboratori esterni.',
-    href: '/servizi/laboratorio-analisi',
-    scatto: '38',
-  },
-  {
-    icona: 'coniglio',
-    titolo: 'Animali esotici',
-    testo: 'Un servizio dedicato a conigli, piccoli mammiferi, rettili e uccelli.',
-    href: '/servizi/animali-esotici',
-    scatto: '46',
-  },
-] as const;
-
 /** Le tre porte d'ingresso: il visitatore si riconosce prima di cercare il servizio. */
 const porte = [
   {
@@ -102,18 +71,6 @@ const porte = [
     icona: 'stetoscopio' as const,
   },
 ];
-const numeri = clinica.numeri.confermato
-  ? [
-      {
-        valore: `${clinica.numeri.clientiAttivi.toLocaleString('it-IT')}+`,
-        etichetta: 'famiglie che ci affidano i loro animali',
-      },
-      {
-        valore: `${clinica.numeri.animaliSeguiti.toLocaleString('it-IT')}+`,
-        etichetta: 'animali seguiti negli anni',
-      },
-    ]
-  : [];
 const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
   autore: string;
   testo: string;
@@ -239,72 +196,8 @@ const recensioniVisibili = recensioni.recensioni.slice(0, 3) as Array<{
 
     <BarraFiducia />
 
-    <!-- PILASTRI: mosaico fotografico -->
-    <Sezione tono="base" etichettaAria="Ciò che rende la clinica un punto di riferimento">
-      <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
-        <div class="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">
-          <Etichetta class="mb-3">Perché sceglierci</Etichetta>
-          <h2 class="filetto text-4xl tracking-tight md:text-5xl">Cosa trovi nella stessa sede</h2>
-          <p class="mt-6 text-lg text-testo-secondario">
-            Alla {clinica.nome} visite, esami, chirurgia e ricovero sono nella stessa sede. Se il
-            tuo animale ha bisogno di una TC o di un intervento, non lo devi portare in un'altra
-            struttura.
-          </p>
-          {numeri.length > 0 && (
-            <dl class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
-              {numeri.map((n) => (
-                <div class="border-l-4 border-oro pl-4">
-                  <dd class="font-display text-4xl tabular-nums">{n.valore}</dd>
-                  <dt class="text-sm text-testo-secondario">{n.etichetta}</dt>
-                </div>
-              ))}
-            </dl>
-          )}
-        </div>
-        <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-8 lg:auto-rows-[minmax(20rem,auto)]">
-          {pilastri.map((p, i) => (
-            <li
-              class:list={[
-                'rivela',
-                i === 0 && 'sm:col-span-2 lg:col-span-1 lg:row-span-2',
-                i === 3 && 'sm:col-span-2',
-              ]}
-              style={`--i:${i}`}
-            >
-              <a
-                href={p.href}
-                class="zoom-foto velo-foto zona-scura group relative isolate flex h-full min-h-[27rem] flex-col justify-end sm:min-h-[22rem] lg:min-h-[19rem] overflow-hidden rounded-[1.75rem] no-underline ombra-morbida"
-              >
-                <div class="absolute inset-0 -z-10">
-                  <Foto
-                    ratio="4/5"
-                    scattoBrief={p.scatto}
-                    descrizioneSegnaposto={p.titolo}
-                    larghezze={[400, 640, 900]}
-                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 48vw, 92vw"
-                    riempi
-                    class="h-full rounded-none [&>div]:h-full"
-                  />
-                </div>
-                <span class="vetro absolute left-5 top-5 z-10 inline-flex size-12 items-center justify-center rounded-2xl">
-                  <Icona nome={p.icona} duo class="size-6 text-white" />
-                </span>
-                <div class="relative z-10 p-6">
-                  <h3 class="font-display text-2xl text-white md:text-3xl">{p.titolo}</h3>
-                  <p class="mt-2 max-w-md text-white/85">{p.testo}</p>
-                  <span class="mt-4 inline-flex items-center gap-3 text-sm font-semibold text-white">
-                    <span class="freccia-tonda size-9">
-                      <Icona nome="freccia-destra" class="size-4" />
-                    </span>
-                    Leggi: {p.titolo.toLowerCase()}
-                  </span>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </Sezione>
+    <!-- COME LAVORIAMO: il percorso del paziente in quattro passaggi, senza anticipare servizi e struttura -->
+    <ComeLavoriamo />
 
     <!-- PORTE D'INGRESSO: da chi sei, a dove vuoi andare -->
     <Sezione tono="base" compatta class="!pt-0" etichettaAria="Da dove vuoi cominciare">

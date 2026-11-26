@@ -165,7 +165,7 @@ const tipoSchema =
           ></span>
           <p class="font-display text-lg leading-relaxed md:text-xl">{servizio.data.risposta}</p>
         </div>
-        <Referenti medici={referenti} class="mt-8" />
+        <Referenti medici={referenti} ambiti={servizio.data.ambitoReferenti} class="mt-8" />
         <div class="prosa-md mt-8">
           <Content />
         </div>

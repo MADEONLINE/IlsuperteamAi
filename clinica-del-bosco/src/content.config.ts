@@ -57,6 +57,8 @@ const servizi = defineCollection({
     autore: reference('equipe'),
     /** Medici che seguono il servizio (slug della collection equipe), in ordine di visualizzazione. */
     referenti: z.array(reference('equipe')).default([]),
+    /** Di cosa si occupa un referente in questo servizio, se è più specifico del suo ruolo (slug → testo). */
+    ambitoReferenti: z.record(z.string(), z.string()).default({}),
     dataPubblicazione: z.coerce.date(),
     dataRevisione: z.coerce.date(),
   }),

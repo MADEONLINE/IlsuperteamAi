@@ -8,10 +8,12 @@ import Icona from '@ui/Icona.astro';
 
 interface Props {
   medici: CollectionEntry<'equipe'>[];
+  /** Ambito del medico in questo servizio, al posto del ruolo generico (slug → testo). */
+  ambiti?: Record<string, string>;
   titolo?: string;
   class?: string;
 }
-const { medici, titolo = 'Chi se ne occupa', class: classe = '' } = Astro.props;
+const { medici, ambiti = {}, titolo = 'Chi se ne occupa', class: classe = '' } = Astro.props;
 const iniziali = (nome: string) =>
   nome
     .split(' ')
@@ -20,11 +22,12 @@ const iniziali = (nome: string) =>
     .join('')
     .slice(0, 3)
     .toUpperCase();
-const tipoEtichetta: Record<string, string> = {
-  socio: 'Socio fondatore',
-  interno: 'Medico della clinica',
-  freelance: 'Collabora con noi',
-};
+const tipoEtichetta = (m: CollectionEntry<'equipe'>) =>
+  ({
+    socio: m.data.titolo === 'Dott.ssa' ? 'Socia fondatrice' : 'Socio fondatore',
+    interno: 'Medico della clinica',
+    freelance: 'Collabora con noi',
+  })[m.data.tipo];
 ---
 
 {medici.length > 0 && (
@@ -51,9 +54,9 @@ const tipoEtichetta: Record<string, string> = {
               <span class="block font-sans font-bold text-testo group-hover:text-primario-link">
                 {m.data.titolo} {m.data.nome}
               </span>
-              <span class="block text-sm text-testo-secondario">{m.data.ruolo}</span>
+              <span class="block text-sm text-testo-secondario">{ambiti[m.id] ?? m.data.ruolo}</span>
               <span class="mt-1 block text-xs font-semibold uppercase tracking-wider text-testo-secondario">
-                {tipoEtichetta[m.data.tipo]}
+                {tipoEtichetta(m)}
               </span>
               {m.data.presenza && (
                 <span class="mt-1 flex items-center gap-1 text-sm">
