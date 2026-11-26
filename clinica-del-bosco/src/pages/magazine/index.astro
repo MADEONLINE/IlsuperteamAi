@@ -28,7 +28,7 @@ const dividiTitolo = (t: string): [string, string] => {
   return i > 0 ? [t.slice(0, i), t.slice(i + 1).trim()] : [t, ''];
 };
 const descrizione =
-  'Guide pratiche scritte dal team della Clinica Veterinaria del bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania. Con fonti e data di revisione.';
+  'Guide pratiche scritte dal team della Clinica Veterinaria del bosco: urgenze, prevenzione, chirurgia, gatto anziano, parassiti in Campania.';
 const data = (d: Date) =>
   d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
@@ -38,7 +38,7 @@ const data = (d: Date) =>
   descrizione={descrizione}
   percorso="/magazine"
   h1="Magazine"
-  sottotitolo="Guide pratiche per chi vive con un animale, scritte e revisionate dal team della clinica. Ogni articolo cita le fonti e la data dell'ultima revisione."
+  sottotitolo="Guide pratiche per chi vive con un animale, scritte e revisionate dal team della clinica."
   etichetta="Informazione clinica"
   briciole={[{ nome: 'Magazine', href: '/magazine' }]}
   jsonLd={[webPage({ url: '/magazine', titolo: 'Magazine', descrizione, tipo: 'CollectionPage' })]}

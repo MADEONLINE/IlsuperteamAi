@@ -672,6 +672,48 @@
   .tabella-dati tbody th {
     font-weight: 600;
   }
+  /* Telefono: niente scorrimento laterale, ogni riga è una scheda con le etichette delle colonne. */
+  @media (max-width: 39.99rem) {
+    .tabella-dati {
+      position: relative;
+      overflow-x: visible;
+    }
+    .tabella-dati :is(table, caption, tbody, tr, th, td) {
+      display: block;
+    }
+    .tabella-dati table {
+      min-width: 0;
+      width: 100%;
+    }
+    .tabella-dati thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+    .tabella-dati tbody tr {
+      padding: 0.9rem 1rem 1rem;
+    }
+    .tabella-dati tbody th {
+      padding: 0;
+      font-size: var(--text-base);
+    }
+    .tabella-dati tbody td {
+      padding: 0.55rem 0 0;
+    }
+    .tabella-dati tbody td::before {
+      content: attr(data-etichetta);
+      display: block;
+      margin-bottom: 0.1rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--testo-secondario);
+    }
+  }
 }
 
 /* =====================================================================

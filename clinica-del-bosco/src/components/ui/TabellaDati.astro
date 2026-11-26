@@ -1,5 +1,9 @@
 ---
-/** Tabella HTML vera (th/caption) da un oggetto `tabella` del frontmatter: i modelli AI la estraggono bene. */
+/**
+ * Tabella HTML vera (th/caption) da un oggetto `tabella` del frontmatter: i modelli AI la estraggono bene.
+ * Sul telefono ogni riga diventa una scheda (global.css): i ruoli ARIA espliciti tengono la
+ * semantica di tabella anche quando le celle passano a display:block.
+ */
 interface Props {
   tabella: { titolo: string; intestazioni: string[]; righe: string[][]; nota?: string | undefined };
   class?: string;
@@ -11,20 +15,28 @@ const { tabella, class: classe = '' } = Astro.props;
   class:list={['tabella-dati', classe]}
   tabindex="0"
   role="region"
-  aria-label={`${tabella.titolo} (tabella scorrevole)`}
+  aria-label={tabella.titolo}
 >
-  <table>
+  <table role="table">
     <caption>{tabella.titolo}</caption>
-    <thead>
-      <tr>
+    <thead role="rowgroup">
+      <tr role="row">
         {tabella.intestazioni.map((h) => (
-          <th scope="col">{h}</th>
+          <th scope="col" role="columnheader">{h}</th>
         ))}
       </tr>
     </thead>
-    <tbody>
+    <tbody role="rowgroup">
       {tabella.righe.map((r) => (
-        <tr>{r.map((c, i) => (i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>))}</tr>
+        <tr role="row">
+          {r.map((c, i) =>
+            i === 0 ? (
+              <th scope="row" role="rowheader">{c}</th>
+            ) : (
+              <td role="cell" data-etichetta={tabella.intestazioni[i]}>{c}</td>
+            ),
+          )}
+        </tr>
       ))}
     </tbody>
   </table>

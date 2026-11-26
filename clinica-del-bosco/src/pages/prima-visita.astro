@@ -95,18 +95,26 @@ const faq = [
 >
   <Sezione>
     <div class="grid gap-10 lg:grid-cols-12">
-      <div class="lg:col-span-8">
-        <ol class="grid gap-4 sm:grid-cols-2">
+      <div class="min-w-0 lg:col-span-8">
+        <h2 class="text-2xl md:text-3xl">Come si svolge, passo per passo</h2>
+        <!-- Su telefono è una linea del tempo (numeri uniti da un filo); da tablet in su, quattro schede. -->
+        <ol class="mt-6 grid sm:grid-cols-2 sm:gap-4">
           {passi.map(([t, d], i) => (
-            <li class="flex gap-4 rounded-card border border-bordo bg-sfondo-rialzato p-5">
+            <li class="relative flex gap-4 pb-7 last:pb-0 sm:rounded-card sm:border sm:border-bordo sm:bg-sfondo-rialzato sm:p-5">
+              {i < passi.length - 1 && (
+                <span
+                  class="absolute bottom-1 left-5 top-12 w-0.5 -translate-x-1/2 rounded-full bg-bordo sm:hidden"
+                  aria-hidden="true"
+                ></span>
+              )}
               <span
-                class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primario-tenue font-display text-lg font-bold text-primario-link"
+                class="relative flex size-10 shrink-0 items-center justify-center rounded-full border-2 border-[var(--q)] bg-sfondo-rialzato font-display text-lg font-bold text-testo"
                 aria-hidden="true"
               >
                 {i + 1}
               </span>
-              <div>
-                <h2 class="font-sans text-lg font-bold">{t}</h2>
+              <div class="min-w-0 pt-1.5 sm:pt-0">
+                <h3 class="font-sans text-lg font-bold">{t}</h3>
                 <p class="mt-1 text-testo-secondario">{d}</p>
               </div>
             </li>

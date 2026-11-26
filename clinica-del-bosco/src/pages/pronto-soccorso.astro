@@ -14,7 +14,6 @@ import Rassicurazioni from '@ui/Rassicurazioni.astro';
 import BadgeApertoOra from '@sezioni/BadgeApertoOra.astro';
 import TriageRapido from '@sezioni/TriageRapido.astro';
 import { getEntry } from 'astro:content';
-import Fonti from '@ui/Fonti.astro';
 import {
   clinica,
   daConfermare,
@@ -491,8 +490,7 @@ const faqJson = servizio.data.faq;
         </a>
       </section>
     </div>
-    <Fonti fonti={servizio.data.fonti} class="mt-10" />
-    <p class="mt-6 text-sm text-testo-secondario">
+    <p class="mt-10 text-sm text-testo-secondario">
       Questa pagina ha finalità informative e non sostituisce la visita veterinaria.
     </p>
   </Sezione>

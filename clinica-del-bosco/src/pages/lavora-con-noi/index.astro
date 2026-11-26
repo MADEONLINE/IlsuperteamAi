@@ -1,7 +1,7 @@
 ---
 /**
  * /lavora-con-noi — candidature spontanee di medici, tecnici e personale di reception.
- * Pagina dichiarativa: descrive come si lavora davvero in clinica (turni, affiancamento,
+ * Pagina dichiarativa: descrive come si lavora davvero in clinica (affiancamento,
  * casistica) senza promettere posizioni aperte, che non sono note.
  */
 import PaginaLayout from '@layouts/PaginaLayout.astro';
@@ -11,12 +11,11 @@ import Foto from '@ui/Foto.astro';
 import Icona from '@ui/Icona.astro';
 import Etichetta from '@ui/Etichetta.astro';
 import Sezione from '@ui/Sezione.astro';
-import TabellaDati from '@ui/TabellaDati.astro';
 import { clinica, emailPrincipale, telHref } from '@lib/clinica';
 import { faqPage, webPage } from '@lib/schema';
 
 const descrizione =
-  'Lavorare alla Clinica Veterinaria del bosco a Portici: come sono organizzati i turni, cosa si impara, chi cerchiamo. Candidature spontanee di medici veterinari, tecnici e personale di reception.';
+  'Lavorare alla Clinica Veterinaria del bosco a Portici: come si lavora, cosa si impara, chi cerchiamo. Candidature spontanee di medici veterinari, tecnici e personale di reception.';
 
 const perche = [
   {
@@ -88,11 +87,6 @@ const faq = [
     domanda: 'Accettate neolaureati?',
     risposta:
       "Sì, con affiancamento. Un neolaureato non viene messo da solo su un turno di pronto soccorso: si comincia in diurno accanto a un collega più esperto e si passa alle notti quando è pronto, non quando serve. Indica nella candidatura l'anno di laurea e cosa hai già visto.",
-  },
-  {
-    domanda: 'Come sono organizzati i turni?',
-    risposta:
-      'I turni diurni sono da mezza giornata, 9-14.30 e 14.30-20, oppure interi 9-20, con almeno due medici presenti. Sabato e domenica si lavora con turno intero e due medici. Il pronto soccorso notturno va dalle 20 alle 9 con un medico e un tecnico, o due medici.',
   },
   {
     domanda: 'Ospitate tirocini?',
@@ -189,32 +183,7 @@ const briciole = [{ nome: 'Lavora con noi', href: '/lavora-con-noi' }];
     </ul>
   </Sezione>
 
-  <Sezione>
-    <TabellaDati
-      tabella={{
-        titolo: 'Come sono organizzati i turni',
-        intestazioni: ['Turno', 'Orario', 'Chi è in struttura'],
-        righe: [
-          ['Diurno, mezza giornata', '9.00–14.30 e 14.30–20.00', 'Almeno due medici veterinari'],
-          ['Diurno, intero', '9.00–20.00', 'Almeno due medici veterinari'],
-          ['Sabato e domenica', '9.00–20.00', 'Turno intero con due medici veterinari'],
-          [
-            'Pronto soccorso notturno',
-            '20.00–9.00',
-            'Un medico e un tecnico, oppure due medici veterinari',
-          ],
-          [
-            'Reperibilità',
-            'Su chiamata',
-            'Chirurgo e anestesista per gli interventi che non possono aspettare',
-          ],
-        ],
-        nota: "L'organizzazione dei turni può variare: quella indicata è la struttura abituale della settimana.",
-      }}
-    />
-  </Sezione>
-
-  <Sezione tono="tinta" id="candidatura">
+  <Sezione id="candidatura">
     <div class="grid gap-10 lg:grid-cols-12">
       <div class="lg:col-span-5">
         <Etichetta class="mb-3">Candidatura</Etichetta>
@@ -377,7 +346,7 @@ const briciole = [{ nome: 'Lavora con noi', href: '/lavora-con-noi' }];
     </div>
   </Sezione>
 
-  <Sezione>
+  <Sezione tono="tinta">
     <Faq voci={faq} titolo="Domande frequenti su come si lavora qui" />
   </Sezione>
 </PaginaLayout>
